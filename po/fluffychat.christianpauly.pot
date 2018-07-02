@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 16:23+0000\n"
+"POT-Creation-Date: 2018-07-02 17:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:161
+#: ../qml/pages/ChatListPage.qml:158
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
@@ -253,7 +253,7 @@ msgid "Disable account"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:41
-#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:33
+#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
 msgid "Logout"
 msgstr ""
 
@@ -454,37 +454,37 @@ msgstr ""
 msgid "Change your password"
 msgstr ""
 
-#: ../qml/components/ChangePasswordDialog.qml:19
+#: ../qml/components/ChangePasswordDialog.qml:25
 msgid "Enter your old password"
 msgstr ""
 
-#: ../qml/components/ChangePasswordDialog.qml:24
+#: ../qml/components/ChangePasswordDialog.qml:30
 msgid "Enter your new password"
 msgstr ""
 
-#: ../qml/components/ChangePasswordDialog.qml:29
+#: ../qml/components/ChangePasswordDialog.qml:35
 msgid "Please repeat"
 msgstr ""
 
-#: ../qml/components/ChangePasswordDialog.qml:37
-#: ../qml/components/LeaveChatDialog.qml:27
+#: ../qml/components/ChangePasswordDialog.qml:43
+#: ../qml/components/LeaveChatDialog.qml:33
 #: ../qml/components/NewGroupDialog.qml:26
-#: ../qml/components/RemoveDeviceDialog.qml:47
-#: ../qml/components/DisableAccountDialog.qml:28
-#: ../qml/components/LogoutDialog.qml:28
-#: ../qml/components/JoinGroupDialog.qml:27
-#: ../qml/components/InviteDialog.qml:26
+#: ../qml/components/RemoveDeviceDialog.qml:54
+#: ../qml/components/DisableAccountDialog.qml:34
+#: ../qml/components/LogoutDialog.qml:35
+#: ../qml/components/JoinGroupDialog.qml:33
+#: ../qml/components/InviteDialog.qml:32
 #: ../qml/components/NewContactDialog.qml:27
-#: ../qml/components/ChangeDisplaynameDialog.qml:33
-#: ../qml/components/ChangeChatnameDialog.qml:28
+#: ../qml/components/ChangeDisplaynameDialog.qml:39
+#: ../qml/components/ChangeChatnameDialog.qml:39
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/components/ChangePasswordDialog.qml:42
+#: ../qml/components/ChangePasswordDialog.qml:48
 msgid "Change"
 msgstr ""
 
-#: ../qml/components/ChangePasswordDialog.qml:46
+#: ../qml/components/ChangePasswordDialog.qml:52
 msgid "The passwords do not match"
 msgstr ""
 
@@ -492,28 +492,28 @@ msgstr ""
 msgid "Target details"
 msgstr ""
 
-#: ../qml/components/TargetInfoDialog.qml:19
-#: ../qml/components/RemoveDeviceDialog.qml:27
+#: ../qml/components/TargetInfoDialog.qml:25
+#: ../qml/components/RemoveDeviceDialog.qml:29
 msgid "<b>Device name</b>: %2"
 msgstr ""
 
-#: ../qml/components/TargetInfoDialog.qml:23
+#: ../qml/components/TargetInfoDialog.qml:29
 msgid "<b>App</b>: %2"
 msgstr ""
 
-#: ../qml/components/TargetInfoDialog.qml:27
+#: ../qml/components/TargetInfoDialog.qml:33
 msgid "<b>Kind</b>: %2"
 msgstr ""
 
-#: ../qml/components/TargetInfoDialog.qml:31
+#: ../qml/components/TargetInfoDialog.qml:37
 msgid "<b>Language</b>: %2"
 msgstr ""
 
-#: ../qml/components/TargetInfoDialog.qml:35
+#: ../qml/components/TargetInfoDialog.qml:41
 msgid "<b>Gateway</b>: %2"
 msgstr ""
 
-#: ../qml/components/TargetInfoDialog.qml:42
+#: ../qml/components/TargetInfoDialog.qml:48
 msgid "Close"
 msgstr ""
 
@@ -521,11 +521,11 @@ msgstr ""
 msgid "Leave chat"
 msgstr ""
 
-#: ../qml/components/LeaveChatDialog.qml:19
+#: ../qml/components/LeaveChatDialog.qml:25
 msgid "Are you sure you want to leave the chat?"
 msgstr ""
 
-#: ../qml/components/LeaveChatDialog.qml:32
+#: ../qml/components/LeaveChatDialog.qml:38
 msgid "Leave"
 msgstr ""
 
@@ -534,7 +534,7 @@ msgid "Group name"
 msgstr ""
 
 #: ../qml/components/NewGroupDialog.qml:31
-#: ../qml/components/JoinGroupDialog.qml:32
+#: ../qml/components/JoinGroupDialog.qml:38
 #: ../qml/components/NewContactDialog.qml:32
 msgid "Continue"
 msgstr ""
@@ -547,27 +547,27 @@ msgstr ""
 msgid "Remove the device"
 msgstr ""
 
-#: ../qml/components/RemoveDeviceDialog.qml:19
-msgid "Are you sure, that you want to remove this device?"
-msgstr ""
-
-#: ../qml/components/RemoveDeviceDialog.qml:23
+#: ../qml/components/RemoveDeviceDialog.qml:25
 msgid "<b>Device ID</b>: %1"
 msgstr ""
 
-#: ../qml/components/RemoveDeviceDialog.qml:31
+#: ../qml/components/RemoveDeviceDialog.qml:33
 msgid "<b>Last seen</b>: %3"
 msgstr ""
 
-#: ../qml/components/RemoveDeviceDialog.qml:35
+#: ../qml/components/RemoveDeviceDialog.qml:37
 msgid "<b>Last IP</b>: %4"
 msgstr ""
 
-#: ../qml/components/RemoveDeviceDialog.qml:39
+#: ../qml/components/RemoveDeviceDialog.qml:42
+msgid "Are you sure, that you want to remove this device?"
+msgstr ""
+
+#: ../qml/components/RemoveDeviceDialog.qml:46
 msgid "Please enter your password"
 msgstr ""
 
-#: ../qml/components/RemoveDeviceDialog.qml:52
+#: ../qml/components/RemoveDeviceDialog.qml:59
 msgid "Remove"
 msgstr ""
 
@@ -579,16 +579,16 @@ msgstr ""
 msgid "Disable your account"
 msgstr ""
 
-#: ../qml/components/DisableAccountDialog.qml:18
+#: ../qml/components/DisableAccountDialog.qml:24
 msgid ""
 "Are you sure, that you want to disable your account? This can not be undone!"
 msgstr ""
 
-#: ../qml/components/DisableAccountDialog.qml:33
+#: ../qml/components/DisableAccountDialog.qml:39
 msgid "Disable"
 msgstr ""
 
-#: ../qml/components/LogoutDialog.qml:18
+#: ../qml/components/LogoutDialog.qml:25
 msgid "Are you sure, that you want to logout?"
 msgstr ""
 
@@ -608,15 +608,15 @@ msgstr ""
 msgid "You: "
 msgstr ""
 
-#: ../qml/components/JoinGroupDialog.qml:20
+#: ../qml/components/JoinGroupDialog.qml:26
 msgid "#groupname:"
 msgstr ""
 
-#: ../qml/components/InviteDialog.qml:19
+#: ../qml/components/InviteDialog.qml:25
 msgid "@yourfriend:%1"
 msgstr ""
 
-#: ../qml/components/InviteDialog.qml:31
+#: ../qml/components/InviteDialog.qml:37
 msgid "Invite"
 msgstr ""
 
@@ -636,16 +636,16 @@ msgstr ""
 msgid "Change your display name"
 msgstr ""
 
-#: ../qml/components/ChangeDisplaynameDialog.qml:19
+#: ../qml/components/ChangeDisplaynameDialog.qml:25
 msgid "Enter your new nickname"
 msgstr ""
 
-#: ../qml/components/ChangeDisplaynameDialog.qml:38
-#: ../qml/components/ChangeChatnameDialog.qml:33
+#: ../qml/components/ChangeDisplaynameDialog.qml:44
+#: ../qml/components/ChangeChatnameDialog.qml:44
 msgid "Save"
 msgstr ""
 
-#: ../qml/components/ChangeChatnameDialog.qml:14
+#: ../qml/components/ChangeChatnameDialog.qml:25
 msgid "Enter a name for the chat"
 msgstr ""
 

@@ -9,10 +9,16 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Change your password")
-        Icon {
-            name: "lock"
-            width: parent.width
-            height: width
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "lock"
+                color: settings.mainColor
+            }
         }
         TextField {
             id: oldPass

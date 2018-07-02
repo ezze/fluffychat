@@ -9,14 +9,16 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Remove the device")
-        Icon {
-            name: "edit-delete"
-            width: parent.width
-            height: width
-        }
-        Label {
-            wrapMode: Text.Wrap
-            text: i18n.tr("Are you sure, that you want to remove this device?")
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "edit-delete"
+                color: settings.mainColor
+            }
         }
         Label {
             wrapMode: Text.Wrap
@@ -33,6 +35,11 @@ Component {
         Label {
             wrapMode: Text.Wrap
             text: i18n.tr("<b>Last IP</b>: %4".arg(currentDevice.last_seen_ip) )
+        }
+        Label {
+            wrapMode: Text.Wrap
+            color: UbuntuColors.red
+            text: i18n.tr("Are you sure, that you want to remove this device?")
         }
         TextField {
             id: passwordInput
@@ -51,6 +58,7 @@ Component {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Remove")
                 color: UbuntuColors.red
+                enabled: passwordInput.displayText !== ""
                 onClicked: {
                     var device_id = currentDevice.device_id
                     var update = getDevices

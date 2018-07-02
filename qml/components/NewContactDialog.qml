@@ -9,10 +9,17 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("New single chat")
-        Icon {
-            name: "message-new"
-            width: parent.width
-            height: width
+
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "message-new"
+                color: settings.mainColor
+            }
         }
         TextField {
             id: contactTextField

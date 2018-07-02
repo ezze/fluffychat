@@ -9,10 +9,16 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Target details")
-        Icon {
-            name: "info"
-            width: parent.width
-            height: width
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "info"
+                color: settings.mainColor
+            }
         }
         Label {
             wrapMode: Text.Wrap

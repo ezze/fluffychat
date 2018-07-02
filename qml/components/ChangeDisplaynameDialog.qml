@@ -9,10 +9,16 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Change your display name")
-        Icon {
-            name: "account"
-            width: parent.width
-            height: width
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "account"
+                color: settings.mainColor
+            }
         }
         TextField {
             id: displaynameTextField

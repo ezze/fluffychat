@@ -9,10 +9,17 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Logout")
-        Icon {
-            name: "system-shutdown"
-            width: parent.width
-            height: width
+
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "system-shutdown"
+                color: settings.mainColor
+            }
         }
         Label {
             text: i18n.tr("Are you sure, that you want to logout?")

@@ -10,10 +10,16 @@ Component {
         id: dialogue
         title: i18n.tr("Join group")
 
-        Icon {
-            name: "user-admin"
-            width: parent.width
-            height: width
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "user-admin"
+                color: settings.mainColor
+            }
         }
         TextField {
             id: groupTextField

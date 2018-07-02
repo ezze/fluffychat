@@ -9,10 +9,16 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Disable your account")
-        Icon {
-            name: "security-alert"
-            width: parent.width
-            height: width
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "security-alert"
+                color: UbuntuColors.red
+            }
         }
         Label {
             text: i18n.tr("Are you sure, that you want to disable your account? This can not be undone!")

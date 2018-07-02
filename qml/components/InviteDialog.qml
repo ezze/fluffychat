@@ -9,10 +9,16 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Invite a friend")
-        Icon {
-            name: "contact-new"
-            width: parent.width
-            height: width
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "contact-new"
+                color: settings.mainColor
+            }
         }
         TextField {
             id: matrixidTextField

@@ -9,6 +9,17 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Edit chat name")
+        Rectangle {
+            height: icon.height
+            Icon {
+                id: icon
+                width: parent.width / 2
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                name: "edit"
+                color: settings.mainColor
+            }
+        }
         TextField {
             id: chatnameTextField
             placeholderText: i18n.tr("Enter a name for the chat")
