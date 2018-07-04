@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-04 12:11+0000\n"
+"POT-Creation-Date: 2018-07-04 12:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -148,19 +148,31 @@ msgid "No connection to the homeserver 😕"
 msgstr ""
 
 #: ../qml/pages/InfoPage.qml:10
-msgid "Info"
+msgid "Info about FluffyChat %1"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:31
+#: ../qml/pages/InfoPage.qml:33
+msgid "Donate us a coffee"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:40
+msgid "Website"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:46
+msgid "Contributors"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:52
+msgid "Source code"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:58
+msgid "License"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:74
 msgid "Buy me a coffee"
-msgstr ""
-
-#: ../qml/pages/InfoPage.qml:40
-msgid "FluffyChat by Christian Pauly"
-msgstr ""
-
-#: ../qml/pages/InfoPage.qml:40
-msgid "Email: "
 msgstr ""
 
 #: ../qml/pages/LoginPage.qml:19

@@ -7,17 +7,60 @@ Page {
     anchors.fill: parent
 
     header: FcPageHeader {
-        title: i18n.tr('Info')
+        title: i18n.tr('Info about FluffyChat %1').arg(version)
     }
 
-    Image {
-        id: coffeeImage
+
+    ScrollView {
+        id: scrollView
+        width: parent.width
+        height: parent.height - header.height
         anchors.top: header.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: parent.width / 4
-        width: parent.width / 2
-        height: width
-        source: "../../assets/coffee.svg"
+        contentItem: Column {
+            width: root.width
+
+            Image {
+                id: coffeeImage
+                anchors.top: header.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.topMargin: parent.width / 4
+                width: parent.width / 2
+                height: width
+                source: "../../assets/info-logo.svg"
+            }
+
+            SettingsListItem {
+                name: i18n.tr("Donate us a coffee")
+                icon: "like"
+                iconColor: UbuntuColors.red
+                onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAGCFNJ2SKZY8")
+            }
+
+            SettingsListItem {
+                name: i18n.tr("Website")
+                icon: "external-link"
+                onClicked: Qt.openUrlExternally("https://open-store.io/app/fluffychat.christianpauly")
+            }
+
+            SettingsListItem {
+                name: i18n.tr("Contributors")
+                icon: "contact-group"
+                onClicked: Qt.openUrlExternally("https://github.com/ChristianPauly/fluffychat/graphs/contributors")
+            }
+
+            SettingsListItem {
+                name: i18n.tr("Source code")
+                icon: "text-xml-symbolic"
+                onClicked: Qt.openUrlExternally("https://github.com/ChristianPauly/fluffychat")
+            }
+
+            SettingsListItem {
+                name: i18n.tr("License")
+                icon: "x-office-document-symbolic"
+                onClicked: Qt.openUrlExternally("https://github.com/ChristianPauly/fluffychat/blob/master/LICENSE")
+            }
+
+        }
     }
 
 
@@ -29,17 +72,6 @@ Page {
         color: UbuntuColors.green
         onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAGCFNJ2SKZY8")
         text: i18n.tr('Buy me a coffee')
-    }
-
-
-    Label {
-        id: label2
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottomMargin: height
-        text: i18n.tr('FluffyChat by Christian Pauly') + "\n" + i18n.tr('Email: ') + ' christian-pauly@posteo.de'
-        onLinkActivated: Qt.openUrlExternally(link)
-        horizontalAlignment: Text.AlignHCenter
     }
 
 }

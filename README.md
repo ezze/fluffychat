@@ -16,7 +16,6 @@ Chatroom for FluffyChat: #fluffychat:matrix.org
 
 Follow me on Mastodon: https://metalhead.club/@krille
 
-
 ### FAQ
 
 #### Why are you not just contributing to uMatriks?
@@ -54,3 +53,6 @@ cd fluffychat
 ```
 clickable click-build
 ```
+
+### Special thanks
+... to all [contributors](https://github.com/ChristianPauly/fluffychat/graphs/contributors)
