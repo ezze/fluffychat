@@ -10,19 +10,14 @@ Component {
         id: dialogue
         title: i18n.tr("Change your display name")
         Rectangle {
-            height: icon.height
-            Icon {
-                id: icon
-                width: parent.width / 2
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                name: "account"
-                color: settings.mainColor
-            }
+            height: units.gu(0.2)
+            width: parent.width
+            color: settings.mainColor
         }
         TextField {
             id: displaynameTextField
             placeholderText: i18n.tr("Enter your new nickname")
+            focus: true
             Component.onCompleted: {
                 storage.transaction ( "SELECT displayname FROM Roommembers WHERE state_key='%1'".arg(matrix.matrixid), function ( res ) {
                     if ( res.rows.length > 0 ) {

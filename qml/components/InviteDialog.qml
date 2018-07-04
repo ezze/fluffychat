@@ -10,18 +10,13 @@ Component {
         id: dialogue
         title: i18n.tr("Invite a friend")
         Rectangle {
-            height: icon.height
-            Icon {
-                id: icon
-                width: parent.width / 2
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                name: "contact-new"
-                color: settings.mainColor
-            }
+            height: units.gu(0.2)
+            width: parent.width
+            color: settings.mainColor
         }
         TextField {
             id: matrixidTextField
+            focus: true
             placeholderText: i18n.tr("@yourfriend:%1").arg(defaultDomain)
         }
         Row {

@@ -9,28 +9,10 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Remove the device")
-        Rectangle {
-            height: icon.height
-            Icon {
-                id: icon
-                width: parent.width / 2
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                name: "edit-delete"
-                color: settings.mainColor
-            }
-        }
+
         Label {
             wrapMode: Text.Wrap
             text: i18n.tr("<b>Device ID</b>: %1".arg(currentDevice.device_id) )
-        }
-        Label {
-            wrapMode: Text.Wrap
-            text: i18n.tr("<b>Device name</b>: %2".arg(currentDevice.display_name) )
-        }
-        Label {
-            wrapMode: Text.Wrap
-            text: i18n.tr("<b>Last seen</b>: %3".arg(stamp.getChatTime (currentDevice.last_seen_ts)) )
         }
         Label {
             wrapMode: Text.Wrap
@@ -41,10 +23,16 @@ Component {
             color: UbuntuColors.red
             text: i18n.tr("Are you sure, that you want to remove this device?")
         }
+        Rectangle {
+            height: units.gu(0.2)
+            width: parent.width
+            color: settings.mainColor
+        }
         TextField {
             id: passwordInput
             placeholderText: i18n.tr("Please enter your password")
             echoMode: TextInput.Password
+            focus: true
         }
         Row {
             width: parent.width

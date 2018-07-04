@@ -10,20 +10,15 @@ Component {
         id: dialogue
         title: i18n.tr("Change your password")
         Rectangle {
-            height: icon.height
-            Icon {
-                id: icon
-                width: parent.width / 2
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                name: "lock"
-                color: settings.mainColor
-            }
+            height: units.gu(0.2)
+            width: parent.width
+            color: settings.mainColor
         }
         TextField {
             id: oldPass
             placeholderText: i18n.tr("Enter your old password")
             echoMode: TextInput.Password
+            focus: true
         }
         TextField {
             id: newPass
@@ -47,11 +42,13 @@ Component {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Change")
                 color: UbuntuColors.green
+                enabled: oldPass.displayText !== "" && newPass.displayText !== "" && newPass2.displayText !== ""
                 onClicked: {
                     if ( newPass.displayText !== newPass2.displayText ) {
-                        toast.show ( i18n.tr("The passwords do not match") )
+                        dialogue.title = i18n.tr("The passwords do not match")
                     }
                     else {
+                        dialogue.title = i18n.tr("Change your password")
                         matrix.post ( "/client/r0/account/password",{
                             "auth": {
                                 "password": oldPass.displayText,

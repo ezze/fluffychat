@@ -10,19 +10,14 @@ Component {
         id: dialogue
         title: i18n.tr("New group")
         Rectangle {
-            height: icon.height
-            Icon {
-                id: icon
-                width: parent.width / 2
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                name: "contact-group"
-                color: settings.mainColor
-            }
+            height: units.gu(0.2)
+            width: parent.width
+            color: settings.mainColor
         }
         TextField {
             id: groupTextField
             placeholderText: i18n.tr("Group name")
+            focus: true
         }
         Row {
             width: parent.width

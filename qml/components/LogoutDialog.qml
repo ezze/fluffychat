@@ -18,7 +18,6 @@ Component {
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter
                 name: "system-shutdown"
-                color: settings.mainColor
             }
         }
         Label {

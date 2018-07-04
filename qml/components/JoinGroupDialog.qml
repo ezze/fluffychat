@@ -9,21 +9,15 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("Join group")
-
         Rectangle {
-            height: icon.height
-            Icon {
-                id: icon
-                width: parent.width / 2
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                name: "user-admin"
-                color: settings.mainColor
-            }
+            height: units.gu(0.2)
+            width: parent.width
+            color: settings.mainColor
         }
         TextField {
             id: groupTextField
             placeholderText: i18n.tr("#groupname:" + settings.server)
+            focus: true
         }
         Row {
             width: parent.width

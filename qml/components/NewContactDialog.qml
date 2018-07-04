@@ -9,22 +9,16 @@ Component {
     Dialog {
         id: dialogue
         title: i18n.tr("New single chat")
-
         Rectangle {
-            height: icon.height
-            Icon {
-                id: icon
-                width: parent.width / 2
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                name: "message-new"
-                color: settings.mainColor
-            }
+            height: units.gu(0.2)
+            width: parent.width
+            color: settings.mainColor
         }
         TextField {
             id: contactTextField
             text: newContactMatrixID || ""
             placeholderText: i18n.tr("@yourfriend:" + settings.server)
+            focus: true
         }
         Row {
             width: parent.width

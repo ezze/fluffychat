@@ -10,15 +10,9 @@ Component {
         id: dialogue
         title: i18n.tr("Leave chat")
         Rectangle {
-            height: icon.height
-            Icon {
-                id: icon
-                width: parent.width / 2
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                name: "edit-delete"
-                color: settings.mainColor
-            }
+            height: units.gu(0.2)
+            width: parent.width
+            color: settings.mainColor
         }
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
