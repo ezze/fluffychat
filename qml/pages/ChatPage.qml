@@ -219,7 +219,7 @@ Page {
         Button {
             id: joinButton
             color: UbuntuColors.green
-            text: i18n.tr("Accept invatiation")
+            text: i18n.tr("Accept invitation")
             anchors.centerIn: parent
             visible: membership === "invite"
             onClicked: {
