@@ -3,7 +3,7 @@
 # FluffyChat
 
 Simple Matrix Messenger for Ubuntu Touch.
-FluffyChat is work in progress Messenger for Ubuntu Touch.
+FluffyChat is a work in progress Messenger for Ubuntu Touch.
 
 Download from the Open Store: https://open-store.io/app/fluffychat.christianpauly
 
