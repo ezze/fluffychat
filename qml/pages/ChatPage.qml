@@ -112,6 +112,7 @@ Page {
     ChangeChatnameDialog { id: changeChatnameDialog }
 
     header: FcPageHeader {
+        id: header
         title: activeChatDisplayName || i18n.tr("Unknown chat")
 
         trailingActionBar {
@@ -157,7 +158,7 @@ Page {
     Image {
         visible: settings.chatBackground !== undefined
         anchors.fill: parent
-        source: settings.chatBackground
+        source: settings.chatBackground !== undefined ? settings.chatBackground : ""
         cache: true
         fillMode: Image.PreserveAspectCrop
         z: 0
@@ -167,6 +168,33 @@ Page {
         text: i18n.tr('No messages in this chat ...')
         anchors.centerIn: parent
         visible: chatScrollView.count === 0
+    }
+
+
+    MouseArea {
+        width: scrollDownButton.width
+        height: scrollDownButton.height
+        onClicked: chatScrollView.positionViewAtBeginning ()
+        anchors.bottom: chatInput.top
+        anchors.right: parent.right
+        anchors.margins: units.gu(2)
+        z: 10
+        Rectangle {
+            id: scrollDownButton
+            width: units.gu(6)
+            height: width
+            opacity: 0.75
+            color: "#000000"
+            radius: units.gu(2)
+            Icon {
+                name: "toolkit_chevron-down_1gu"
+                width: parent.width * 0.75
+                height: parent.height * 0.75
+                anchors.centerIn: parent
+                color: "#FFFFFF"
+            }
+            visible: !chatScrollView.atYEnd
+        }
     }
 
     ChatScrollView { id: chatScrollView }
@@ -185,6 +213,8 @@ Page {
             leftMargin: -border.width
             rightMargin: -border.width
         }
+
+
 
         Button {
             id: joinButton
@@ -244,29 +274,6 @@ Page {
                 enabled: !sending
             }
             ]
-        }
-    }
-
-    Rectangle {
-        id: toBottomRectangle
-        color: theme.palette.normal.background
-        z: 2
-        anchors.bottom: parent.bottom
-        height: header.height
-        width: parent.width
-        border.width: 1
-        border.color: UbuntuColors.silk
-        visible: chatScrollView.historyPosition > 0
-        Button {
-            id: toBottomButton
-            color: UbuntuColors.porcelain
-            text: i18n.tr("Scroll down")
-            anchors.centerIn: parent
-            onClicked: {
-                chatScrollView.updated = false
-                chatScrollView.historyPosition = 0
-                chatScrollView.update ()
-            }
         }
     }
 

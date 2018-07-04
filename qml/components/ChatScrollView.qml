@@ -3,17 +3,15 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import "../components"
 
-ScrollView {
+ListView {
 
     id: chatScrollView
 
     // If this property is not 1, then the user is not in the chat, but is reading the history
-    property var historyPosition: 0
-    property var historyCount: 30
-    property var historyEnd: messagesList.children.length > 0 && messagesList.children[0].event.type === "m.room.create" || false
-    property var updated: false
-    property var enteredMinusContent: false
-    property var count: messagesList.children.length
+    property var historyCount: 100
+    property var requesting: false
+    property var initialized: -1
+    property var count: model.count
 
     function update ( sync ) {
         storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, members.state_key, members.displayname, members.avatar_url " +
@@ -21,25 +19,18 @@ ScrollView {
         " ON members.roomsid=events.roomsid " +
         " AND members.state_key=events.sender " +
         " WHERE events.roomsid='" + activeChat +
-        "' ORDER BY events.origin_server_ts DESC" +
-        " LIMIT " + (historyCount+1) + " OFFSET " + (historyCount*historyPosition) + " "
+        "' ORDER BY events.origin_server_ts DESC"
         , function (res) {
             // We now write the rooms in the column
-            if ( historyPosition === 0 ) pushclient.clearPersistent ( activeChatDisplayName )
-            if ( historyPosition > 0 && res.rows.length === 0 ) {
-                historyPosition--
-                requestHistory ()
-            }
-            else {
-                "Go to next page"
-                messagesList.children = ""
-                for ( var i = res.rows.length-1; i >= 0; i-- ) {
-                    var event = res.rows.item(i)
-                    event.content = JSON.parse( event.content_json )
-                    addEventToList ( event )
-                    if ( event.state_key === null ) requestRoomMember ( event.sender )
-                }
-                updated = true
+            pushclient.clearPersistent ( activeChatDisplayName )
+
+            model.clear ()
+            initialized = res.rows.length
+            for ( var i = res.rows.length-1; i >= 0; i-- ) {
+                var event = res.rows.item(i)
+                event.content = JSON.parse( event.content_json )
+                addEventToList ( event )
+                if ( event.state_key === null ) requestRoomMember ( event.sender )
             }
         })
     }
@@ -58,13 +49,15 @@ ScrollView {
             res.avatar_url ])
 
             // Update the current view
-            for ( var i = 0; i < messagesList.children.length; i++ ) {
-                var elem = messagesList.children[i]
-                if ( messagesList.children[i].event.sender === matrixid ) {
-                    messagesList.children[i].event.state_key = matrixid
-                    messagesList.children[i].event.displayname = res.displayname
-                    messagesList.children[i].event.avatar_url = res.avatar_url
-                    messagesList.children[i].update()
+            for ( var i = 0; i < model.count; i++ ) {
+                var elem = model.get(i)
+                if ( elem.event.sender === matrixid ) {
+                    var tempEvent = elem.event
+                    tempEvent.state_key = matrixid
+                    tempEvent.displayname = res.displayname
+                    tempEvent.avatar_url = res.avatar_url
+                    var tempEvent = elem.event
+                    model.set ( j, { "event": tempEvent } )
                 }
             }
         } )
@@ -72,6 +65,9 @@ ScrollView {
 
 
     function requestHistory () {
+        if ( initialized !== model.count || requesting || (model.count > 0 && model.get( model.count -1 ).event.type === "m.room.create") ) return
+        toast.show ( i18n.tr( "Get more messages from the server ...") )
+        requesting = true
         var storageController = storage
         storage.transaction ( "SELECT prev_batch FROM Rooms WHERE id='" + activeChat + "'", function (rs) {
             if ( rs.rows.length === 0 ) return
@@ -86,75 +82,45 @@ ScrollView {
                         function(tx) {
                             events.transaction = tx
                             events.handleRoomEvents ( activeChat, result.chunk, "history" )
-                            if ( historyPosition > 0 ) historyPosition++
                             update ()
                         }
                     )
                     storageController.transaction ( "UPDATE Rooms SET prev_batch='" + result.end + "' WHERE id='" + activeChat + "'", function () {
                     })
                 }
-                else updated = true
-            }, function () { updated = true } )
+                requesting = false
+            }, function () { requesting = false } )
         } )
     }
 
 
     // This function writes the event in the chat. The event MUST have the format
     // of a database entry, described in the storage controller
-    function addEventToList ( event ) {
-        var items = messagesList.children
-        if ( event.type === "m.room.message" ) {
-            event.sameSender = items.length > 0 &&
-            items[items.length - 1].event.type === "m.room.message" &&
-            items[items.length - 1].event.sender === event.sender
-            var newMessageListItem = Qt.createComponent("../components/Message.qml")
-            newMessageListItem.createObject(messagesList, { "event": event })
-        }
-        else {
-            var newMessageListItem = Qt.createComponent("../components/Event.qml")
-            newMessageListItem.createObject(messagesList, { "event": event })
-        }
+    function addEventToList ( event ) {header
+
+
+            // If the previous message has the same sender and is a normal message
+            // then it is not necessary to show the user avatar again
+            event.sameSender = model.count > 0 &&
+            model.get(0).event.type === "m.room.message" &&
+            model.get(0).event.sender === event.sender
+
+            model.insert ( 0, { "event": event } )
     }
 
 
     // This function handles new events, based on the signal from the event
     // controller. It just has to format the event to the database format
     function handleNewEvent ( sync ) {
-        if ( historyPosition === 0 ) {
-            update ()
-        }
-        else toast.show (i18n.tr("New message at the bottom of the chat"))
+        update ()
     }
 
 
     width: parent.width
-    height: parent.height - 2*header.height
+    height: parent.height - 2 * chatInput.height
     anchors.bottom: chatInput.top
-    flickableItem.contentY: flickableItem.contentHeight>height ? flickableItem.contentHeight - height : 0
-    flickableItem {
-        onContentYChanged: {
-            if ( !enteredMinusContent && updated && flickableItem.contentY < -50 ) {
-                updated = false
-                enteredMinusContent = true
-                historyPosition++
-                update ()
-            }
-            else if ( flickableItem.contentY > flickableItem.contentHeight-height+50 && historyPosition > 0 ) {
-                updated = false
-                enteredMinusContent = true
-                historyPosition--
-                update ()
-            }
-            else if ( flickableItem.contentY >= 0 &&
-                flickableItem.contentY <= flickableItem.contentHeight-height ){
-                    enteredMinusContent = false
-                }
-            }
-        }
-
-        contentItem: Column {
-            id: messagesList
-            width: root.width
-            anchors.top: parent.top
-        }
-    }
+    verticalLayoutDirection: ListView.BottomToTop
+    delegate: ChatEvent {}
+    model: ListModel { id: model }
+    onContentYChanged: if ( atYBeginning ) requestHistory ()
+}

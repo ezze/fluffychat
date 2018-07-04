@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-04 12:54+0000\n"
+"POT-Creation-Date: 2018-07-04 15:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,7 +122,7 @@ msgstr ""
 msgid "The chat permissions have been changed"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:46 ../qml/pages/ChatPage.qml:197
+#: ../qml/controller/EventController.qml:46 ../qml/pages/ChatPage.qml:227
 #: ../qml/pages/AddChatPage.qml:24
 msgid ""
 "Synchronizing \n"
@@ -228,7 +228,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:35
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:127
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:128
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:126
 msgid "Notifications"
@@ -309,32 +309,28 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:115 ../qml/components/ChatListItem.qml:23
+#: ../qml/pages/ChatPage.qml:116 ../qml/components/ChatListItem.qml:23
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:122
+#: ../qml/pages/ChatPage.qml:123
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:132 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:133 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:167
+#: ../qml/pages/ChatPage.qml:168
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:192
+#: ../qml/pages/ChatPage.qml:222
 msgid "Accept invatiation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:229
+#: ../qml/pages/ChatPage.qml:259
 msgid "Type something ..."
-msgstr ""
-
-#: ../qml/pages/ChatPage.qml:263
-msgid "Scroll down"
 msgstr ""
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:64
@@ -551,10 +547,6 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: ../qml/components/Message.qml:87
-msgid "Download"
-msgstr ""
-
 #: ../qml/components/RemoveDeviceDialog.qml:11
 msgid "Remove the device"
 msgstr ""
@@ -581,6 +573,10 @@ msgstr ""
 
 #: ../qml/components/FcPageHeader.qml:7 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
+msgstr ""
+
+#: ../qml/components/ChatEvent.qml:90
+msgid "Download"
 msgstr ""
 
 #: ../qml/components/DisableAccountDialog.qml:11
@@ -628,8 +624,8 @@ msgstr ""
 msgid "Invite"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:126
-msgid "New message at the bottom of the chat"
+#: ../qml/components/ChatScrollView.qml:69
+msgid "Get more messages from the server ..."
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:11

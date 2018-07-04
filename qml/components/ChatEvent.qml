@@ -5,14 +5,15 @@ import "../components"
 
 Rectangle {
     id: message
-    property var event
+    //property var event
     property var sending: event.sending || false
+    property var isStateEvent: event.type !== "m.room.message"
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
 
     width: root.width
     height: messageBubble.height + units.gu(1)
     color: "transparent"
-    opacity: sending ? 0.66 : 1
+    opacity: sending ? 0.66 : isStateEvent ? 0.75 : 1
 
 
     // When the width of the "window" changes (rotation for example) then the maxWidth
@@ -42,6 +43,7 @@ Rectangle {
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
         opacity: event.sameSender ? 0 : 1
+        visible: !isStateEvent
     }
 
 
@@ -50,15 +52,16 @@ Rectangle {
         z: 2
         anchors.left: sent ? undefined : avatar.right
         anchors.right: sent ? avatar.left : undefined
+        anchors.centerIn: isStateEvent ? parent : undefined
         anchors.top: parent.top
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
         border.width: 0
         border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
         anchors.margins: 5
-        color: sent ? "#FFFFFF" : settings.mainColor
+        color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
         radius: units.gu(2)
-        height: messageLabel.height + metaLabel.height + thumbnail.height + units.gu(2)
+        height: messageLabel.height + !isStateEvent * metaLabel.height + thumbnail.height + units.gu(2)
         width: Math.max( messageLabel.width + units.gu(2), (metaLabel.width + (event.sending ? units.gu(1.5) : 0)) + units.gu(2), thumbnail.width )
 
         MouseArea {
@@ -96,29 +99,34 @@ Rectangle {
 
         // In this label, the body of the matrix message is displayed. This label
         // is main responsible for the width of the message bubble.
-        Text {
+        Label {
             id: messageLabel
-            text: event.content_body || event.content.body
-            color: sent ? "black" : "white"
+            text: isStateEvent ? displayEvents.getDisplay ( event ) + " <font color='" + UbuntuColors.silk + "'>" + stamp.getChatTime ( event.origin_server_ts ) + "</font>" :  event.content_body || event.content.body
+            color: (sent || isStateEvent) ? "black" : "white"
             wrapMode: Text.Wrap
-            anchors.bottom: metaLabel.top
+            textSize: isStateEvent ? Label.XSmall : Label.Medium
+            anchors.bottom: isStateEvent ? parent.bottom : metaLabel.top
             anchors.left: parent.left
             anchors.topMargin: units.gu(1)
             anchors.leftMargin: units.gu(1)
+            anchors.bottomMargin: isStateEvent ? units.gu(1) : 0
             onLinkActivated: Qt.openUrlExternally(link)
             // Intital calculation of the max width and display URL's
             Component.onCompleted: {
                 if ( !event.content_body ) event.content_body = event.content.body
                 var maxWidth = message.width - avatar.width - units.gu(5)
                 if ( width > maxWidth ) width = maxWidth
-                var urlRegex = /(https?:\/\/[^\s]+)/g
-                var tempText = text
-                tempText = text.replace ( "&#60;", "<" )
-                tempText = text.replace ( "&#62;", "<" )
-                tempText = text.replace(urlRegex, function(url) {
-                    return '<a href="%1"><font color="%2">%1</font></a>'.arg(url).arg(messageLabel.color)
-                })
-                text = tempText
+
+                if ( !isStateEvent ) {
+                    var urlRegex = /(https?:\/\/[^\s]+)/g
+                    var tempText = text
+                    tempText = text.replace ( "&#60;", "<" )
+                    tempText = text.replace ( "&#62;", "<" )
+                    tempText = text.replace(urlRegex, function(url) {
+                        return '<a href="%1"><font color="%2">%1</font></a>'.arg(url).arg(messageLabel.color)
+                    })
+                    text = tempText
+                }
             }
         }
 
@@ -134,6 +142,7 @@ Rectangle {
             color: messageLabel.color
             opacity: 0.66
             textSize: Label.XSmall
+            visible: !isStateEvent
         }
         // When the message is just sending, then this activity indicator is visible
         ActivityIndicator {
