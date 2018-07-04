@@ -1,3 +1,5 @@
+![](https://i.imgur.com/wi7RlVt.png)
+
 # FluffyChat
 
 Minimalistic Messenger for Ubuntu Touch, based on matrix.org.
