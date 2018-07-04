@@ -69,7 +69,7 @@ Rectangle {
             height: thumbnail.height
             Image {
                 id: thumbnail
-                visible: event.content.msgtype === "m.image"
+                visible: !isStateEvent && event.content.msgtype === "m.image"
                 width: visible ? Math.max( units.gu(24), messageLabel.width + units.gu(2) ) : 0
                 source: event.content.url ? media.getThumbnailLinkFromMxc ( event.content.url, Math.round (width), Math.round (width) ) : ""
                 anchors.top: parent.top

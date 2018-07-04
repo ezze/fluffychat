@@ -2,19 +2,28 @@
 
 # FluffyChat
 
-Minimalistic Messenger for Ubuntu Touch, based on matrix.org.
-FluffyChat is very early progress and still under development. Please report all bugs and help me, to make this project more complete!
-
-Planned features for the far future:
- * All common matrix.org features
- * End2End-encryption
- * Find friends by phone number, using vector.im
+Simple Matrix Messenger for Ubuntu Touch.
+FluffyChat is work in progress Messenger for Ubuntu Touch.
 
 Download from the Open Store: https://open-store.io/app/fluffychat.christianpauly
 
 Chatroom for FluffyChat: #fluffychat:matrix.org
 
 Follow me on Mastodon: https://metalhead.club/@krille
+
+##### Features
+ * Single and group chats
+ * Offline chat history
+ * Push Notifications
+ * Account settings
+ * Display user avatars
+ * Themes, chat wallpapers and dark mode
+ * Device management
+
+##### Planned features
+ * All common matrix.org features
+ * End2End-encryption
+ * Find friends by phone number, using vector.im
 
 ### FAQ
 
