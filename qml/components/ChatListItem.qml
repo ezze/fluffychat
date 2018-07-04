@@ -23,6 +23,7 @@ ListItem {
         title.text: i18n.tr("Unknown chat")
         title.font.bold: true
         title.font.italic: room.membership === "invite"
+        title.color: settings.darkmode ? "#FFFFFF" : "#000000"
         subtitle.text: i18n.tr("No previous messages")
         Avatar {
             source: "../../assets/chat.svg"

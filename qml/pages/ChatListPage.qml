@@ -165,6 +165,11 @@ Page {
         id: bottomEdge
         height: parent.height
 
+        onCommitCompleted: {
+            mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
+            collapse()
+        }
+
         contentComponent: Rectangle {
             width: root.width
             height: root.height

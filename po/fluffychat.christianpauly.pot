@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-04 11:38+0000\n"
+"POT-Creation-Date: 2018-07-04 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -468,16 +468,16 @@ msgid "Please repeat"
 msgstr ""
 
 #: ../qml/components/ChangePasswordDialog.qml:38
-#: ../qml/components/LeaveChatDialog.qml:33
-#: ../qml/components/NewGroupDialog.qml:32
-#: ../qml/components/RemoveDeviceDialog.qml:41
+#: ../qml/components/LeaveChatDialog.qml:27
+#: ../qml/components/NewGroupDialog.qml:27
+#: ../qml/components/RemoveDeviceDialog.qml:42
 #: ../qml/components/DisableAccountDialog.qml:34
 #: ../qml/components/LogoutDialog.qml:34
-#: ../qml/components/JoinGroupDialog.qml:33
-#: ../qml/components/InviteDialog.qml:32
-#: ../qml/components/NewContactDialog.qml:34
-#: ../qml/components/ChangeDisplaynameDialog.qml:33
-#: ../qml/components/ChangeChatnameDialog.qml:39
+#: ../qml/components/JoinGroupDialog.qml:27
+#: ../qml/components/InviteDialog.qml:27
+#: ../qml/components/NewContactDialog.qml:28
+#: ../qml/components/ChangeDisplaynameDialog.qml:34
+#: ../qml/components/ChangeChatnameDialog.qml:34
 msgid "Cancel"
 msgstr ""
 
@@ -521,21 +521,21 @@ msgstr ""
 msgid "Leave chat"
 msgstr ""
 
-#: ../qml/components/LeaveChatDialog.qml:25
+#: ../qml/components/LeaveChatDialog.qml:19
 msgid "Are you sure you want to leave the chat?"
 msgstr ""
 
-#: ../qml/components/LeaveChatDialog.qml:38
+#: ../qml/components/LeaveChatDialog.qml:32
 msgid "Leave"
 msgstr ""
 
-#: ../qml/components/NewGroupDialog.qml:25
+#: ../qml/components/NewGroupDialog.qml:19
 msgid "Group name"
 msgstr ""
 
-#: ../qml/components/NewGroupDialog.qml:37
-#: ../qml/components/JoinGroupDialog.qml:38
-#: ../qml/components/NewContactDialog.qml:39
+#: ../qml/components/NewGroupDialog.qml:32
+#: ../qml/components/JoinGroupDialog.qml:32
+#: ../qml/components/NewContactDialog.qml:33
 msgid "Continue"
 msgstr ""
 
@@ -563,7 +563,7 @@ msgstr ""
 msgid "Please enter your password"
 msgstr ""
 
-#: ../qml/components/RemoveDeviceDialog.qml:46
+#: ../qml/components/RemoveDeviceDialog.qml:47
 msgid "Remove"
 msgstr ""
 
@@ -592,27 +592,27 @@ msgstr ""
 msgid "Synchronizing ... Please wait!"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:26
+#: ../qml/components/ChatListItem.qml:27
 msgid "No previous messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:41
+#: ../qml/components/ChatListItem.qml:42
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:45
+#: ../qml/components/ChatListItem.qml:46
 msgid "You: "
 msgstr ""
 
-#: ../qml/components/JoinGroupDialog.qml:26
+#: ../qml/components/JoinGroupDialog.qml:19
 msgid "#groupname:"
 msgstr ""
 
-#: ../qml/components/InviteDialog.qml:25
+#: ../qml/components/InviteDialog.qml:20
 msgid "@yourfriend:%1"
 msgstr ""
 
-#: ../qml/components/InviteDialog.qml:37
+#: ../qml/components/InviteDialog.qml:32
 msgid "Invite"
 msgstr ""
 
@@ -624,7 +624,7 @@ msgstr ""
 msgid "New single chat"
 msgstr ""
 
-#: ../qml/components/NewContactDialog.qml:27
+#: ../qml/components/NewContactDialog.qml:20
 msgid "@yourfriend:"
 msgstr ""
 
@@ -636,12 +636,12 @@ msgstr ""
 msgid "Enter your new nickname"
 msgstr ""
 
-#: ../qml/components/ChangeDisplaynameDialog.qml:38
-#: ../qml/components/ChangeChatnameDialog.qml:44
+#: ../qml/components/ChangeDisplaynameDialog.qml:39
+#: ../qml/components/ChangeChatnameDialog.qml:39
 msgid "Save"
 msgstr ""
 
-#: ../qml/components/ChangeChatnameDialog.qml:25
+#: ../qml/components/ChangeChatnameDialog.qml:19
 msgid "Enter a name for the chat"
 msgstr ""
 
