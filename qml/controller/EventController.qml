@@ -170,6 +170,7 @@ Item {
                     // removed from the database!
                     if ( room.timeline.limited ) {
                         transaction.executeSql ("DELETE FROM Roomevents WHERE roomsid='" + id + "'")
+                        transaction.executeSql ("UPDATE Rooms SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
                     }
                     handleRoomEvents ( id, room.timeline.events, "timeline", room )
                 }
