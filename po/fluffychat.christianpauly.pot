@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-05 11:47+0000\n"
+"POT-Creation-Date: 2018-07-05 12:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,28 +151,24 @@ msgstr ""
 msgid "Info about FluffyChat %1"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:33
+#: ../qml/pages/InfoPage.qml:32
 msgid "Donate us a coffee"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:40
+#: ../qml/pages/InfoPage.qml:39
 msgid "Website"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:46
+#: ../qml/pages/InfoPage.qml:45
 msgid "Contributors"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:52
+#: ../qml/pages/InfoPage.qml:51
 msgid "Source code"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:58
+#: ../qml/pages/InfoPage.qml:57
 msgid "License"
-msgstr ""
-
-#: ../qml/pages/InfoPage.qml:74
-msgid "Buy me a coffee"
 msgstr ""
 
 #: ../qml/pages/LoginPage.qml:19

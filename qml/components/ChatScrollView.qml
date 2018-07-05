@@ -8,7 +8,7 @@ ListView {
     id: chatScrollView
 
     // If this property is not 1, then the user is not in the chat, but is reading the history
-    property var historyCount: 100
+    property var historyCount: 30
     property var requesting: false
     property var initialized: -1
     property var count: model.count
@@ -83,12 +83,13 @@ ListView {
                             events.transaction = tx
                             events.handleRoomEvents ( activeChat, result.chunk, "history" )
                             update ()
+                            requesting = false
                         }
                     )
                     storageController.transaction ( "UPDATE Rooms SET prev_batch='" + result.end + "' WHERE id='" + activeChat + "'", function () {
                     })
                 }
-                requesting = false
+                else requesting = false
             }, function () { requesting = false } )
         } )
     }

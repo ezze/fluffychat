@@ -21,7 +21,6 @@ Page {
 
             Image {
                 id: coffeeImage
-                anchors.top: header.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.topMargin: parent.width / 4
                 width: parent.width / 2
@@ -39,7 +38,7 @@ Page {
             SettingsListItem {
                 name: i18n.tr("Website")
                 icon: "external-link"
-                onClicked: Qt.openUrlExternally("https://open-store.io/app/fluffychat.christianpauly")
+                onClicked: Qt.openUrlExternally("https://christianpauly.github.io/fluffychat")
             }
 
             SettingsListItem {
@@ -61,17 +60,6 @@ Page {
             }
 
         }
-    }
-
-
-    Button {
-        id: coffeeButton
-        anchors.top: coffeeImage.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: height
-        color: UbuntuColors.green
-        onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAGCFNJ2SKZY8")
-        text: i18n.tr('Buy me a coffee')
     }
 
 }
