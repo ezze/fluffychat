@@ -58,7 +58,7 @@ PushClient {
             }
             matrix.post ( "/client/r0/pushers/set", data, function() {
                 // This is a workaround for the problem with the riot web client, who disables the push notifications sometimes
-                if ( intent ) matrix.put ( "/client/r0/pushrules/global/content/.m.rule.contains_user_name/enabled", { "enabled": true }, console.log, console.warn )
+                if ( intent ) matrix.put ( "/client/r0/pushrules/global/content/.m.rule.contains_user_name/enabled", { "enabled": true } )
                 callback ()
             }, error_callback )
         }

@@ -29,11 +29,11 @@ Item {
     function init () {
 
         // Set the pusher if it is not set
-        if ( !settings.pusherSet ) {
-            console.log("Try to set pusher")
+        if ( !settings.pusherIsSet ) {
+            console.log("👷 Trying to set pusher ...")
             pushclient.setPusher ( true, function () {
-                settings.pusherSet = true
-                console.log("pusher is set :-)")
+                settings.pusherIsSet = true
+                console.log("😊 Pusher is set!")
             } )
         }
 
