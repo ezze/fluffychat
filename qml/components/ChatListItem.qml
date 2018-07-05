@@ -26,15 +26,16 @@ ListItem {
         title.color: settings.darkmode ? "#FFFFFF" : "#000000"
         subtitle.text: i18n.tr("No previous messages")
         Avatar {
-            source: "../../assets/chat.svg"
+            id: avatar
             SlotsLayout.position: SlotsLayout.Leading
-            name: room.id
+            name: room.topic || room.id
         }
         Component.onCompleted: {
             // Get the room name
             if ( room.topic !== "" ) layout.title.text = room.topic
             else roomnames.getById ( room.id, function (displayname) {
                 layout.title.text = displayname
+                avatar.name = displayname
             })
 
             // Get the last message

@@ -37,6 +37,7 @@ Rectangle {
     Avatar {
         id: avatar
         mxc: event.avatar_url
+        name: event.displayname || event.sender
         anchors.left: sent ? undefined : parent.left
         anchors.right: sent ? parent.right : undefined
         anchors.top: parent.top

@@ -16,9 +16,8 @@ Rectangle {
     z:1
     clip: true
 
-    //property alias name: avatar.name
     property alias source: avatar.source
-    property var mxc: null
+    property var mxc: ""
     property var onClickFunction: null
     property var name
 
@@ -31,7 +30,7 @@ Rectangle {
 
     Image {
         id: avatar
-        source:  mxc !== null && mxc !== "" ? media.getThumbnailLinkFromMxc ( mxc, width, height ) : "../../assets/contact.svg"
+        source:  mxc !== null && mxc !== "" ? media.getThumbnailLinkFromMxc ( mxc, width, height ) : ""
         anchors.fill: parent
         cache: true
         sourceSize.width: width
@@ -45,16 +44,13 @@ Rectangle {
     }
 
 
-    Image {
-        id: tempAvatar
-        visible: !avatar.visible
-        source: "../../assets/contact.svg"
-        anchors.fill: parent
-        fillMode: Image.PreserveAspectCrop
-        layer.enabled: true
-        layer.effect: OpacityMask {
-            maskSource: mask
-        }
+    Label {
+        anchors.centerIn: parent
+        text: name.slice( 0, 2 )
+        color: settings.mainColor
+        textSize: Label.Large
+        z: 10
+        visible: mxc === "" || avatar.status != Image.Ready
     }
 
 

@@ -93,7 +93,7 @@ Page {
             }
             Avatar {  // Useravatar
                 id: avatarImage
-                source: "../../assets/chat.svg"
+                name: activeChatDisplayName
                 width: parent.width / 2
                 radius: 100
                 anchors.horizontalCenter: parent.horizontalCenter

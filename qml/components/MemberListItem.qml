@@ -19,8 +19,9 @@ ListItem {
         title.text: name
         subtitle.text: membership
         Avatar {
+            name: layout.title.text
             SlotsLayout.position: SlotsLayout.Leading
-            mxc: avatar_url || null
+            mxc: avatar_url || ""
         }
     }
 }
