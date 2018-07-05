@@ -68,15 +68,15 @@ Page {
                 // Add the room to the list, if it does not exist
                 var unread = room.unread_notifications && room.unread_notifications.notification_count || 0
                 if ( !roomExists ) {
-                    var room = {
+                    var newRoom = {
                         "id": id,
                         "topic": "",
                         "membership": type,
                         "notification_count": unread
                     }
                     // Put new invitations to the top
-                    if ( type === "invite" ) room.origin_server_ts = new Date().getTime()
-                    model.append ( { "room": room } )
+                    if ( type === "invite" ) newRoom.origin_server_ts = new Date().getTime()
+                    model.append ( { "room": newRoom } )
                     j = model.count - 1
                 }
 
@@ -99,7 +99,6 @@ Page {
                     tempRoom.sender = lastEvent.sender
                     tempRoom.content_json = JSON.stringify( lastEvent.content )
                     tempRoom.type = lastEvent.type
-                    model.set ( j, { "room": tempRoom } )
                 }
 
                 // Now reorder this item
