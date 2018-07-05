@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-05 10:39+0000\n"
+"POT-Creation-Date: 2018-07-05 11:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -203,23 +203,23 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:109
+#: ../qml/pages/LoginPage.qml:110
 msgid "Password"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:119
+#: ../qml/pages/LoginPage.qml:121
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:125
+#: ../qml/pages/LoginPage.qml:128
 msgid "Sign up"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:134
+#: ../qml/pages/LoginPage.qml:137
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:158
+#: ../qml/pages/ChatListPage.qml:157
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
@@ -624,7 +624,7 @@ msgstr ""
 msgid "Invite"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:70
+#: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
 msgstr ""
 

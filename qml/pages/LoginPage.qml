@@ -102,6 +102,7 @@ Page {
             id: loginTextField
             placeholderText: i18n.tr("Username")
             anchors.horizontalCenter: parent.horizontalCenter
+            Keys.onReturnPressed: passwordTextField.focus = true
         }
 
         TextField {
@@ -109,6 +110,7 @@ Page {
             placeholderText: i18n.tr("Password")
             echoMode: TextInput.Password
             anchors.horizontalCenter: parent.horizontalCenter
+            Keys.onReturnPressed: login ()
         }
 
         Row {
@@ -119,6 +121,7 @@ Page {
                 text: i18n.tr("Sign in")
                 color: UbuntuColors.green
                 onClicked: login ()
+                enabled: loginTextField.displayText !== "" && passwordTextField.displayText !== ""
             }
             Button {
                 id: registerButton
