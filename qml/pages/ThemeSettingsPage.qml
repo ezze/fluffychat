@@ -50,7 +50,7 @@ Page {
                     title.text: settings.chatBackground === undefined ? i18n.tr("Set chat background") : i18n.tr("Remove chat background")
                     Icon {
                         name: "image-x-generic-symbolic"
-                        color: defaultMainColor
+                        color: settings.mainColor
                         width: units.gu(4)
                         height: units.gu(4)
                         SlotsLayout.position: SlotsLayout.Leading
