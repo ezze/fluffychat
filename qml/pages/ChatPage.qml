@@ -11,9 +11,12 @@ Page {
 
     property var sending: false
     property var membership: "join"
+    property var isTyping: false
 
     function send () {
         if ( sending || messageTextField.displayText === "" ) return
+
+        // Send the message
         var messageID = Math.floor((Math.random() * 1000000) + 1);
         var data = {
             msgtype: "m.text",
@@ -41,6 +44,7 @@ Page {
         messageTextField.focus = false
         messageTextField.text = ""
         messageTextField.focus = true
+        sendTypingNotification ( false )
     }
 
 
@@ -82,6 +86,27 @@ Page {
     }
 
 
+    function sendTypingNotification ( typing ) {
+        if ( !typing && isTyping) {
+            typingTimer.stop ()
+            isTyping = false
+            console.log("Send typing notification stop")
+            matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
+                typing: false
+            } )
+        }
+        else if ( typing && !isTyping ) {
+            isTyping = true
+            typingTimer.start ()
+            console.log("Send typing notification")
+            matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
+                typing: true,
+                timeout: typingTimeout
+            } )
+        }
+    }
+
+
     MediaImport { id: mediaImport }
 
 
@@ -94,11 +119,13 @@ Page {
 
     Component.onDestruction: {
         activeChat = activeChatDisplayName = null
+        sendTypingNotification ( false )
     }
 
     Connections {
         target: events
         onChatTimelineEvent: chatScrollView.handleNewEvent ( response )
+        onChatTypingEvent: if ( roomid === activeChat ) activeChatTypingUsers = user_ids
     }
 
     Connections {
@@ -113,7 +140,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: activeChatDisplayName || i18n.tr("Unknown chat")
+        title: (activeChatDisplayName || i18n.tr("Unknown chat")) + (activeChatTypingUsers.length > 0 ? "\n" + usernames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
 
         trailingActionBar {
             numberOfSlots: 1
@@ -233,48 +260,66 @@ Page {
         }
 
         /*ActionBar {
-            id: chatAttachementActionBar
-            visible: membership === "join"
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.leftMargin: units.gu(0.5)
-            actions: [
-            Action {
-                id: attachementButton
-                iconName: "camera-photo-symbolic"
-                onTriggered: mediaImport.requestMedia ()
-                enabled: !sending
-            }
-            ]
-        }*/
+        id: chatAttachementActionBar
+        visible: membership === "join"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: units.gu(0.5)
+        actions: [
+        Action {
+        id: attachementButton
+        iconName: "camera-photo-symbolic"
+        onTriggered: mediaImport.requestMedia ()
+        enabled: !sending
+    }
+    ]
+}*/
 
-        TextField {
-            id: messageTextField
-            anchors.bottom: parent.bottom
-            //anchors.horizontalCenter: parent.horizontalCenter
-            anchors.margins: units.gu(1)
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
-            width: parent.width - chatInputActionBar.width - units.gu(2) /*- chatAttachementActionBar.width */
-            placeholderText: i18n.tr("Type something ...")
-            Keys.onReturnPressed: sendButton.trigger ()
-            visible: membership === "join"
+Timer {
+    id: typingTimer
+    interval: typingTimeout
+    running: false
+    repeat: false
+    onTriggered: isTyping = false
+}
+
+TextField {
+    id: messageTextField
+    anchors.bottom: parent.bottom
+    //anchors.horizontalCenter: parent.horizontalCenter
+    anchors.margins: units.gu(1)
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
+    width: parent.width - chatInputActionBar.width - units.gu(2) /*- chatAttachementActionBar.width */
+    placeholderText: i18n.tr("Type something ...")
+    Keys.onReturnPressed: sendButton.trigger ()
+    onFocusChanged: sendTypingNotification ( focus )
+    onDisplayTextChanged: {
+        if ( displayText !== "" ) {
+            sendTypingNotification ( true )
         }
-        ActionBar {
-            id: chatInputActionBar
-            visible: membership === "join"
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
-            anchors.rightMargin: units.gu(0.5)
-            actions: [
-            Action {
-                id: sendButton
-                iconName: "send"
-                onTriggered: send ()
-                enabled: !sending
-            }
-            ]
+        else {
+            sendTypingNotification ( false )
         }
     }
+    visible: membership === "join"
+}
+
+ActionBar {
+    id: chatInputActionBar
+    visible: membership === "join"
+    anchors.verticalCenter: parent.verticalCenter
+    anchors.right: parent.right
+    anchors.rightMargin: units.gu(0.5)
+    actions: [
+    Action {
+        id: sendButton
+        iconName: "send"
+        onTriggered: send ()
+        enabled: !sending
+    }
+    ]
+}
+}
 
 }

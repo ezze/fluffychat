@@ -8,11 +8,13 @@ ListItem {
     id: chatListItem
 
     property var timeorder: 0
+    property var previousMessage: ""
 
     height: layout.height
 
     onClicked: {
         activeChat = room.id
+        activeChatTypingUsers = room.typing || []
         mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
         if ( room.notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + room.eventsid, null )
     }
@@ -31,16 +33,13 @@ ListItem {
             name: room.topic || room.id
         }
         Component.onCompleted: {
-            // Get the room name
-            if ( room.topic !== "" ) layout.title.text = room.topic
-            else roomnames.getById ( room.id, function (displayname) {
-                layout.title.text = displayname
-                avatar.name = displayname
-            })
 
             // Get the last message
             if ( room.membership === "invite" ) {
                 layout.subtitle.text = i18n.tr("You have been invited to this chat")
+            }
+            else if ( room.topic !== "" && room.typing && room.typing.length > 0 ) {
+                layout.subtitle.text = usernames.getTypingDisplayString ( room.typing, room.topic )
             }
             else if ( room.content_body ){
                 var lastMessage = room.content_body
@@ -50,6 +49,18 @@ ListItem {
             else if ( room.content_json ) {
                 layout.subtitle.text = displayEvents.getDisplay ( room )
             }
+            previousMessage = layout.subtitle.text
+
+            // Get the room name
+            if ( room.topic !== "" ) layout.title.text = room.topic
+            else roomnames.getById ( room.id, function (displayname) {
+                layout.title.text = displayname
+                avatar.name = displayname
+                // Is there a typing notification?
+                if ( room.typing && room.typing.length > 0 ) {
+                    layout.subtitle.text = usernames.getTypingDisplayString ( room.typing, displayname )
+                }
+            })
 
             // Update the labels
             stampLabel.text = stamp.getChatTime ( room.origin_server_ts )

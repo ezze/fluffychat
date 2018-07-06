@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-05 12:01+0000\n"
+"POT-Creation-Date: 2018-07-06 09:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,15 +122,27 @@ msgstr ""
 msgid "The chat permissions have been changed"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:46 ../qml/pages/ChatPage.qml:227
+#: ../qml/controller/EventController.qml:47 ../qml/pages/ChatPage.qml:254
 #: ../qml/pages/AddChatPage.qml:24
 msgid ""
 "Synchronizing \n"
 " This can take a few minutes ..."
 msgstr ""
 
-#: ../qml/controller/EventController.qml:81
+#: ../qml/controller/EventController.qml:82
 msgid "You are offline 😕"
+msgstr ""
+
+#: ../qml/controller/UserNameController.qml:34
+msgid "⌨️ is typing ..."
+msgstr ""
+
+#: ../qml/controller/UserNameController.qml:35
+msgid "⌨️ %1 is typing ..."
+msgstr ""
+
+#: ../qml/controller/UserNameController.qml:38
+msgid "⌨️ %1 and %2 more are typing ..."
 msgstr ""
 
 #: ../qml/controller/RoomNameController.qml:13
@@ -215,7 +227,7 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:157
+#: ../qml/pages/ChatListPage.qml:171
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
@@ -224,7 +236,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:35
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:128
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:155
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:126
 msgid "Notifications"
@@ -305,27 +317,27 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:116 ../qml/components/ChatListItem.qml:23
+#: ../qml/pages/ChatPage.qml:143 ../qml/components/ChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:123
+#: ../qml/pages/ChatPage.qml:150
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:133 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:160 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:168
+#: ../qml/pages/ChatPage.qml:195
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:222
+#: ../qml/pages/ChatPage.qml:249
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:259
+#: ../qml/pages/ChatPage.qml:294
 msgid "Type something ..."
 msgstr ""
 
@@ -596,15 +608,15 @@ msgstr ""
 msgid "Synchronizing ... Please wait!"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:27
+#: ../qml/components/ChatListItem.qml:29
 msgid "No previous messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:43
+#: ../qml/components/ChatListItem.qml:39
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:47
+#: ../qml/components/ChatListItem.qml:46
 msgid "You: "
 msgstr ""
 

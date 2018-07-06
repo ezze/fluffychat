@@ -34,13 +34,13 @@ Page {
 
 
     /* When the app receives a new synchronization object, the chat list should be
-     * updated, without loading it new from the database. There are several types
-     * of changes:
-     * - Join a new chat
-     * - Invited to a chat
-     * - Leave a chat
-     * - New message in the last-message-field ( Which needs reordering the chats )
-     * - Update the counter of unseen messages
+    * updated, without loading it new from the database. There are several types
+    * of changes:
+    * - Join a new chat
+    * - Invited to a chat
+    * - Leave a chat
+    * - New message in the last-message-field ( Which needs reordering the chats )
+    * - Update the counter of unseen messages
     */
     function update ( sync ) {
 
@@ -122,9 +122,23 @@ Page {
     }
 
 
+    function typing ( roomid, user_ids ) {
+        for( var i = 0; i < model.count - 1; i++ ) {
+            if ( model.get ( i ).room.id === roomid ) {
+                var tempRoom = model.get( i ).room
+                tempRoom.typing = user_ids
+                model.remove ( i )
+                model.insert ( i, { "room": tempRoom } )
+                return
+            }
+        }
+    }
+
+
     Connections {
         target: events
         onChatListUpdated: update ( response )
+        onChatTypingEvent: typing ( roomid, user_ids )
     }
 
 

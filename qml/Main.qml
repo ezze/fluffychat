@@ -37,6 +37,7 @@ MainView {
     readonly property var miniTimeout: 3000
     readonly property var defaultTimeout: 30000
     readonly property var longPollingTimeout: 10000
+    readonly property var typingTimeout: 30000
     readonly property var borderColor: settings.darkmode ? UbuntuColors.jet : UbuntuColors.silk
     readonly property var version: "0.3.1"
 
@@ -46,6 +47,7 @@ MainView {
     */
     property var activeChat: null
     property var activeChatDisplayName: null
+    property var activeChatTypingUsers: []
     property var progressBarRequests: 0
     property var waitingForSync: false
     property var appstatus: 4

@@ -8,5 +8,6 @@ PageHeader {
 
     StyleHints {
         foregroundColor: settings.mainColor
+        textSize: title.indexOf("\n") !== -1 ? Label.Medium : Label.Large
     }
 }

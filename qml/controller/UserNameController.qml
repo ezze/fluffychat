@@ -8,13 +8,12 @@ from a userid address, such like: "#alice@matrix.org"
 
 Item {
     function getById ( matrixid, roomid, callback ) {
+        var username = transformFromId( matrixid )
         storage.transaction ( "SELECT displayname FROM Roommembers WHERE state_key='" + matrixid + "'", function(rs) {
-            if ( rs.rows.length > 0 ) callback ( rs.rows[0].displayname )
-            else {
-                var username = transformFromId( matrixid )
-                callback ( username )
-            }
+            if ( rs.rows.length > 0 ) username = rs.rows[0].displayname
+            if ( callback ) callback ( username )
         })
+        return username
     }
 
 
@@ -26,5 +25,18 @@ Item {
     // Just capitalize the first letter of a string
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    function getTypingDisplayString ( user_ids, roomname ) {
+        if ( user_ids.length === 0 ) return ""
+        var username = usernames.getById( user_ids[0] )
+        if ( user_ids.length === 1 ) {
+            if ( username === roomname ) return i18n.tr("⌨️ is typing ...")
+            else return i18n.tr("⌨️ %1 is typing ...").arg( username )
+        }
+        else if ( user_ids.length > 1 ) {
+            return i18n.tr("⌨️ %1 and %2 more are typing ...").arg( username ).arg( user_ids.length )
+        }
+        else return ""
     }
 }

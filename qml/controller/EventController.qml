@@ -21,6 +21,7 @@ Item {
 
     signal chatListUpdated ( var response )
     signal chatTimelineEvent ( var response )
+    signal chatTypingEvent ( var roomid, var user_ids )
 
     property var syncRequest: null
     property var initialized: false
@@ -144,7 +145,28 @@ Item {
 
     function triggerSignals ( response ) {
         var activeRoom = response.rooms.join[activeChat]
+
+        // Is there a new chat timeline event in the active room?
         if ( activeRoom !== undefined && activeRoom.timeline.events.length > 0 ) chatTimelineEvent ( activeRoom.timeline.events )
+
+        // Check the ephemerals for typing events
+        for( var room in response.rooms.join ) {
+            if ( response.rooms.join[room].ephemeral && response.rooms.join[room].ephemeral.events ) {
+                var ephemerals = response.rooms.join[room].ephemeral.events
+                // Go through all ephemerals
+                for ( var i = 0; i < ephemerals.length; i++ ) {
+                    // Is this a typing event?
+                    if ( ephemerals[ i ].type === "m.typing" ) {
+                        var user_ids = ephemerals[ i ].content.user_ids
+                        // If the user is typing, remove his id from the list of typing users
+                        var ownTyping = user_ids.indexOf( matrix.matrixid )
+                        if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
+                        // Call the signal
+                        chatTypingEvent ( room, user_ids )
+                    }
+                }
+            }
+        }
     }
 
 
