@@ -11,6 +11,14 @@ Chatroom for FluffyChat: #fluffychat:matrix.org
 
 Follow me on Mastodon: https://metalhead.club/@krille
 
+### Screenshots
+
+![](/assets/screenshots/screenshot20180710_172017850.png)
+![](/assets/screenshots/screenshot20180710_172051018.png)
+![](/assets/screenshots/screenshot20180710_172126491.png)
+![](/assets/screenshots/screenshot20180710_172212362.png)
+![](/assets/screenshots/screenshot20180710_172240709.png)
+
 ##### Features
  * Single and group chats
  * Offline chat history
