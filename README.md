@@ -13,11 +13,11 @@ Follow me on Mastodon: https://metalhead.club/@krille
 
 ### Screenshots
 
-![](/assets/screenshots/screenshot20180710_172017850.png | width=100)
-![](/assets/screenshots/screenshot20180710_172051018.png | width=100)
-![](/assets/screenshots/screenshot20180710_172126491.png | width=100)
-![](/assets/screenshots/screenshot20180710_172212362.png | width=100)
-![](/assets/screenshots/screenshot20180710_172240709.png | width=100)
+<img src="/assets/screenshots/screenshot20180710_172017850.png" width="200" />
+<img src="/assets/screenshots/screenshot20180710_172051018.png" width="200" />
+<img src="/assets/screenshots/screenshot20180710_172126491.png" width="200" />
+<img src="/assets/screenshots/screenshot20180710_172212362.png" width="200" />
+<img src="/assets/screenshots/screenshot20180710_172240709.png" width="200" />
 
 ##### Features
  * Single and group chats
