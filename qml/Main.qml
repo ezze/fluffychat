@@ -39,7 +39,7 @@ MainView {
     readonly property var longPollingTimeout: 10000
     readonly property var typingTimeout: 30000
     readonly property var borderColor: settings.darkmode ? UbuntuColors.jet : UbuntuColors.silk
-    readonly property var version: "0.3.1"
+    readonly property var version: "0.4.0"
 
     /* =============================== GLOBAL VARIABLES ===============================
 
