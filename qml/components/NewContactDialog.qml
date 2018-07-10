@@ -16,7 +16,7 @@ Component {
         }
         TextField {
             id: contactTextField
-            text: newContactMatrixID || ""
+            text: newContactMatrixID !== undefined ? newContactMatrixID : ""
             placeholderText: i18n.tr("@yourfriend:" + settings.server)
             focus: true
         }
@@ -41,7 +41,7 @@ Component {
                         "is_direct": true,
                         "preset": "private_chat"
                     }
-                    if ( success_callback === undefined ) var success_callback = startChat_callback || null
+                    if ( success_callback === undefined ) var success_callback = null
                     matrix.post( "/client/r0/createRoom", data, success_callback )
 
                     PopupUtils.close(dialogue)
