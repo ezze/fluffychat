@@ -13,7 +13,7 @@
             "push-helper": "helloHelper.json"
         }
     },
-    "version": "0.3.1",
+    "version": "0.4.0",
     "maintainer": "Christian Pauly <christian-pauly@posteo.de>",
     "framework" : "ubuntu-sdk-15.04.5"
 }
