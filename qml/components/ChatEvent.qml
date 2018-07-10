@@ -62,7 +62,7 @@ Rectangle {
         anchors.margins: 5
         color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
         radius: units.gu(2)
-        height: messageLabel.height + !isStateEvent * metaLabel.height + thumbnail.height + units.gu(2)
+        height: messageLabel.height + !isStateEvent * metaLabel.height + thumbnail.height + downloadButton.height + units.gu(2)
         width: Math.max( messageLabel.width + units.gu(2), (metaLabel.width + (event.sending ? units.gu(1.5) : 0)) + units.gu(2), thumbnail.width )
 
         MouseArea {

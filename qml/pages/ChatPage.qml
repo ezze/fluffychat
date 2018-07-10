@@ -156,7 +156,7 @@ Page {
     }
 
     Rectangle {
-        visible: settings.chatBackground === undefined
+        visible: settings.chatBackground === undefined || backgroundImage.status !== Image.ready
         anchors.fill: parent
         opacity: 0.1
         color: settings.mainColor
@@ -164,7 +164,7 @@ Page {
     }
 
     Icon {
-        visible: settings.chatBackground === undefined
+        visible: settings.chatBackground === undefined || backgroundImage.status !== Image.ready
         source: "../../assets/chat.svg"
         anchors.centerIn: parent
         width: parent.width / 1.25
@@ -174,6 +174,7 @@ Page {
     }
 
     Image {
+        id: backgroundImage
         visible: settings.chatBackground !== undefined
         anchors.fill: parent
         source: settings.chatBackground !== undefined ? settings.chatBackground : ""
