@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Content 1.3
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import Ubuntu.Web 0.2
 import "../components"
 
 Page {
@@ -90,7 +91,6 @@ Page {
         if ( !typing && isTyping) {
             typingTimer.stop ()
             isTyping = false
-            console.log("Send typing notification stop")
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
                 typing: false
             } )
@@ -98,16 +98,12 @@ Page {
         else if ( typing && !isTyping ) {
             isTyping = true
             typingTimer.start ()
-            console.log("Send typing notification")
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
                 typing: true,
                 timeout: typingTimeout
             } )
         }
     }
-
-
-    MediaImport { id: mediaImport }
 
 
     Component.onCompleted: {
@@ -126,11 +122,6 @@ Page {
         target: events
         onChatTimelineEvent: chatScrollView.handleNewEvent ( response )
         onChatTypingEvent: if ( roomid === activeChat ) activeChatTypingUsers = user_ids
-    }
-
-    Connections {
-        target: mediaImport
-        onMediaReceived: sendAttachement ( mediaUrl )
     }
 
 
@@ -259,67 +250,66 @@ Page {
             }
         }
 
-        /*ActionBar {
-        id: chatAttachementActionBar
-        visible: membership === "join"
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: units.gu(0.5)
-        actions: [
-        Action {
-        id: attachementButton
-        iconName: "camera-photo-symbolic"
-        onTriggered: mediaImport.requestMedia ()
-        enabled: !sending
-    }
-    ]
-}*/
-
-Timer {
-    id: typingTimer
-    interval: typingTimeout
-    running: false
-    repeat: false
-    onTriggered: isTyping = false
-}
-
-TextField {
-    id: messageTextField
-    anchors.bottom: parent.bottom
-    //anchors.horizontalCenter: parent.horizontalCenter
-    anchors.margins: units.gu(1)
-    anchors.left: parent.left
-    anchors.verticalCenter: parent.verticalCenter
-    width: parent.width - chatInputActionBar.width - units.gu(2) /*- chatAttachementActionBar.width */
-    placeholderText: i18n.tr("Type something ...")
-    Keys.onReturnPressed: sendButton.trigger ()
-    onFocusChanged: sendTypingNotification ( focus )
-    onDisplayTextChanged: {
-        if ( displayText !== "" ) {
-            sendTypingNotification ( true )
+        Component {
+            id: pickerComponent
+            PickerDialog {}
         }
-        else {
-            sendTypingNotification ( false )
+
+        WebView {
+            id: uploader
+            url: "../components/upload.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
+            width: chatInputActionBar.width + units.gu(1)
+            height: width
+            anchors.verticalCenter: parent.verticalCenter
+            preferences.allowFileAccessFromFileUrls: true
+            preferences.allowUniversalAccessFromFileUrls: true
+            filePicker: pickerComponent
+        }
+
+        Timer {
+            id: typingTimer
+            interval: typingTimeout
+            running: false
+            repeat: false
+            onTriggered: isTyping = false
+        }
+
+        TextField {
+            id: messageTextField
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.margins: units.gu(1)
+            anchors.verticalCenter: parent.verticalCenter
+            width: parent.width - 2 * chatInputActionBar.width - units.gu(2)
+            placeholderText: i18n.tr("Type something ...")
+            Keys.onReturnPressed: sendButton.trigger ()
+            onFocusChanged: sendTypingNotification ( focus )
+            onDisplayTextChanged: {
+                if ( displayText !== "" ) {
+                    sendTypingNotification ( true )
+                }
+                else {
+                    sendTypingNotification ( false )
+                }
+            }
+            visible: membership === "join"
+        }
+
+        ActionBar {
+            id: chatInputActionBar
+            visible: membership === "join"
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(0.5)
+            actions: [
+            Action {
+                id: sendButton
+                iconName: "send"
+                onTriggered: send ()
+                enabled: !sending
+            }
+            ]
         }
     }
-    visible: membership === "join"
-}
-
-ActionBar {
-    id: chatInputActionBar
-    visible: membership === "join"
-    anchors.verticalCenter: parent.verticalCenter
-    anchors.right: parent.right
-    anchors.rightMargin: units.gu(0.5)
-    actions: [
-    Action {
-        id: sendButton
-        iconName: "send"
-        onTriggered: send ()
-        enabled: !sending
-    }
-    ]
-}
-}
 
 }

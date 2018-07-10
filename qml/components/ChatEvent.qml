@@ -70,16 +70,17 @@ Rectangle {
             height: thumbnail.height
             Image {
                 id: thumbnail
-                visible: !isStateEvent && event.content.msgtype === "m.image"
+                visible: !isStateEvent && event.content.msgtype === "m.image" && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
                 width: visible ? Math.max( units.gu(24), messageLabel.width + units.gu(2) ) : 0
-                source: event.content.url ? media.getThumbnailLinkFromMxc ( event.content.url, 2*Math.round (width), 2*Math.round (width) ) : ""
+                source: event.content.url ? media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, 2*Math.round (width), 2*Math.round (width) ) : ""
                 height: width * ( sourceSize.height / sourceSize.width )
                 anchors.top: parent.top
                 anchors.left: parent.left
                 fillMode: Image.PreserveAspectCrop
                 onStatusChanged: {
                     if ( status === Image.Error ) {
-                        source = "../../assets/network-cellular-none.svg"
+                        visible = false
+                        downloadButton.visible = true
                     }
                 }
             }
@@ -91,7 +92,7 @@ Rectangle {
             id: downloadButton
             text: i18n.tr("Download")
             onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
-            visible: [ "m.file", "m.audio", "m.video" ].indexOf( event.content.msgtype ) !== -1
+            visible: [ "m.file", "m.image", "m.audio", "m.video" ].indexOf( event.content.msgtype ) !== -1 && (event.content.info === undefined || event.content.info.thumbnail_url === undefined)
             height: visible ? units.gu(4) : 0
             anchors.top: parent.top
             anchors.left: parent.left

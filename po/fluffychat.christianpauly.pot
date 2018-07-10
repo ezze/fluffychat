@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-06 09:01+0000\n"
+"POT-Creation-Date: 2018-07-10 14:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,7 +122,7 @@ msgstr ""
 msgid "The chat permissions have been changed"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:47 ../qml/pages/ChatPage.qml:254
+#: ../qml/controller/EventController.qml:47 ../qml/pages/ChatPage.qml:245
 #: ../qml/pages/AddChatPage.qml:24
 msgid ""
 "Synchronizing \n"
@@ -236,7 +236,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:35
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:155
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:146
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:126
 msgid "Notifications"
@@ -317,27 +317,27 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:143 ../qml/components/ChatListItem.qml:25
+#: ../qml/pages/ChatPage.qml:134 ../qml/components/ChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:150
+#: ../qml/pages/ChatPage.qml:141
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:160 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:151 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:195
+#: ../qml/pages/ChatPage.qml:186
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:249
+#: ../qml/pages/ChatPage.qml:240
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:294
+#: ../qml/pages/ChatPage.qml:284
 msgid "Type something ..."
 msgstr ""
 
@@ -472,6 +472,7 @@ msgid "Change your password"
 msgstr ""
 
 #: ../qml/components/ChangePasswordDialog.qml:19
+#: ../qml/components/DisableAccountDialog.qml:32
 msgid "Enter your old password"
 msgstr ""
 
@@ -487,7 +488,7 @@ msgstr ""
 #: ../qml/components/LeaveChatDialog.qml:27
 #: ../qml/components/NewGroupDialog.qml:27
 #: ../qml/components/RemoveDeviceDialog.qml:42
-#: ../qml/components/DisableAccountDialog.qml:34
+#: ../qml/components/DisableAccountDialog.qml:41
 #: ../qml/components/LogoutDialog.qml:34
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/InviteDialog.qml:27
@@ -583,7 +584,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:91
+#: ../qml/components/ChatEvent.qml:93
 msgid "Download"
 msgstr ""
 
@@ -596,7 +597,7 @@ msgid ""
 "Are you sure, that you want to disable your account? This can not be undone!"
 msgstr ""
 
-#: ../qml/components/DisableAccountDialog.qml:39
+#: ../qml/components/DisableAccountDialog.qml:46
 msgid "Disable"
 msgstr ""
 

@@ -92,6 +92,7 @@ MainView {
     Toast { id: toast }
     LoadingModal { id: loadingModal }
 
+
     /* =============================== CONNECTION MANAGER ===============================
 
     If the app suspend, then this will be triggered.

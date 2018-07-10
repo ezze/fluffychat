@@ -26,6 +26,13 @@ Component {
             width: parent.width
             wrapMode: Text.Wrap
         }
+
+        TextField {
+            id: oldPass
+            placeholderText: i18n.tr("Enter your old password")
+            echoMode: TextInput.Password
+            focus: true
+        }
         Row {
             width: parent.width
             spacing: units.gu(1)
@@ -38,9 +45,18 @@ Component {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Disable")
                 color: UbuntuColors.red
+                enabled: oldPass.displayText !== ""
                 onClicked: {
-                    var callback = function () { matrix.post ( "/client/r0/account/deactivate", null ) }
-                    pushclient.setPusher ( false, callback, callback )
+                    var setPusherCallback = function () {
+                        matrix.post ( "/client/r0/account/deactivate", {
+                            "auth": {
+                                "password": oldPass.displayText,
+                                "type": "m.login.password",
+                                "user": matrix.matrixid
+                            }
+                        } )
+                    }
+                    pushclient.setPusher ( false, setPusherCallback, setPusherCallback )
                 }
             }
         }

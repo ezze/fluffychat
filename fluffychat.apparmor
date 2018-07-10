@@ -1,9 +1,14 @@
 {
     "policy_groups": [
         "networking",
+        "audio",
+        "video",
         "connectivity",
         "content_exchange",
-        "push-notification-client"
+        "push-notification-client",
+        "camera",
+        "microphone",
+        "webview"
     ],
     "policy_version": 1.3
 }

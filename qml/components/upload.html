@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body scroll="no" style="overflow:hidden;">
+
+    <label for="upload"><img src="../../assets/attachment.svg" style="position:fixed; width:60vw; height:60vw; max-width: 100vw; max-height:100vw;"></label>
+    <input id="upload" name="upload" type="file" style="opacity:0; width:1; height:1;" onchange="upload()">
+
+    <script type="text/javascript">
+
+    var pathvariables = decodeURIComponent ( window.location.search.replace( "?", "&" ) );
+    var variablesArray = pathvariables.split("&");
+    variablesArray.splice(0,1);
+    var variableList = {};
+    for ( var i = 0; i < variablesArray.length; i++ ) {
+        var varSplitted = variablesArray[i].split("=");
+        variableList[varSplitted[0]] = varSplitted[1];
+    }
+
+    var msgtype;
+    var file;
+    var messageID;
+
+
+    function request ( type, url, data, callback, error ) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if ( xhr.readyState ===  XMLHttpRequest.DONE ) {
+                if ( callback ) callback ( xhr.responseText )
+            }
+            else if ( xhr.readyState ===  XMLHttpRequest.ERROR ) {
+                if ( error ) error ( xhr.responseText )
+            }
+        }
+        xhr.open( type === "upload" ? "POST" : "PUT", url, true);
+        xhr.setRequestHeader('Authorization', 'Bearer ' + variableList["token"]);
+        if ( type === "upload" ) {
+            xhr.setRequestHeader('Content-Type', data.type);
+            xhr.send(data);
+        }
+        else {
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            xhr.send(JSON.stringify(data));
+        }
+    }
+
+    function send ( content_uri, thumbnail ) {
+        // Send message
+        var url = "https://" + variableList["domain"] + "/_matrix/client/r0/rooms/" + variableList["activeChat"] + "/send/m.room.message/" + messageID;
+        var data = {
+            msgtype: msgtype,
+            body: file.name,
+            url: content_uri,
+            info: {
+                "mimetype": file.type,
+                "size": file.size
+            }
+        };
+        // Check the file format
+        if ( msgtype === "m.image" ) {
+            data.info.thumbnail_url = thumbnail
+            data.info.thumbnail_info = {
+                "mimetype": file.type,
+                "size": file.size
+            };
+        }
+        request ( "send", url, data, function () {});
+    }
+
+    function upload () {
+        messageID = Math.floor((Math.random() * 1000000) + 1);
+        file = document.querySelector("#upload").files[0];
+        msgtype = "m.file"
+        if ( (/\.(gif|jpg|jpeg|tiff|png)$/i).test( file.name ) ) msgtype = "m.image";
+        else if ( (/\.(mp3|wav|ogg)$/i).test( file.name) ) msgtype = "m.audio"
+        else if ( (/\.(mp4|avi|mng|wmv|amv)$/i).test( file.name) ) msgtype = "m.video"
+
+        if ( msgtype === "m.image" ) {
+            request ( "upload", "https://" + variableList["domain"] + "/_matrix/media/r0/upload", file, function ( response1 ) {
+                request ( "upload", "https://" + variableList["domain"] + "/_matrix/media/r0/upload?filename=" + file.name, file, function ( response2 ) {
+                    console.log(response2);
+                    send( JSON.parse(response2).content_uri, JSON.parse(response1).content_uri );
+                });
+            });
+        }
+        else {
+            request ( "upload", "https://" + variableList["domain"] + "/_matrix/media/r0/upload?filename=" + file.name, file, function ( response ) {
+                console.log(response);
+                send( JSON.parse(response).content_uri );
+            });
+        }
+
+    }
+</script>
+</body>
+</html>
