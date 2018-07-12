@@ -32,10 +32,12 @@ Component {
                 text: i18n.tr("Leave")
                 color: UbuntuColors.red
                 onClicked: {
+                    var events_local = events
+                    var mainStack_local = mainStack
                     PopupUtils.close(dialogue)
                     matrix.post("/client/r0/rooms/" + activeChat + "/leave", null, function () {
-                        events.waitForSync ()
-                        mainStack.pop()
+                        events_local.waitForSync ()
+                        mainStack_local.toStart()
                     })
                 }
             }

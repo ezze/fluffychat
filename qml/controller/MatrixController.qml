@@ -49,7 +49,6 @@ Item {
         }
 
         var onLogged = function ( response ) {
-            console.log(JSON.stringify(response))
             settings.token = response.access_token
             settings.deviceID = response.device_id
             settings.username = (response.user_id.substr(1)).split(":")[0]

@@ -12,6 +12,7 @@ Component {
 
         Rectangle {
             height: icon.height
+            color: "transparent"
             Icon {
                 id: icon
                 width: parent.width / 2

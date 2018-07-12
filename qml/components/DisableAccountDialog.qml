@@ -11,6 +11,7 @@ Component {
         title: i18n.tr("Disable your account")
         Rectangle {
             height: icon.height
+            color: "transparent"
             Icon {
                 id: icon
                 width: parent.width / 2

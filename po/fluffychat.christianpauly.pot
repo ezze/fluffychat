@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-10 17:09+0000\n"
+"POT-Creation-Date: 2018-07-12 08:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,7 +155,7 @@ msgstr ""
 msgid "Please login to Ubuntu One to receive push notifications!"
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:164
+#: ../qml/controller/MatrixController.qml:163
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -273,7 +273,7 @@ msgid "Disable account"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:41
-#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:39
+#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
 msgid "Logout"
 msgstr ""
 
@@ -472,7 +472,7 @@ msgid "Change your password"
 msgstr ""
 
 #: ../qml/components/ChangePasswordDialog.qml:19
-#: ../qml/components/DisableAccountDialog.qml:32
+#: ../qml/components/DisableAccountDialog.qml:33
 msgid "Enter your old password"
 msgstr ""
 
@@ -488,8 +488,8 @@ msgstr ""
 #: ../qml/components/LeaveChatDialog.qml:27
 #: ../qml/components/NewGroupDialog.qml:27
 #: ../qml/components/RemoveDeviceDialog.qml:42
-#: ../qml/components/DisableAccountDialog.qml:41
-#: ../qml/components/LogoutDialog.qml:34
+#: ../qml/components/DisableAccountDialog.qml:42
+#: ../qml/components/LogoutDialog.qml:35
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/InviteDialog.qml:27
 #: ../qml/components/NewContactDialog.qml:28
@@ -592,16 +592,16 @@ msgstr ""
 msgid "Disable your account"
 msgstr ""
 
-#: ../qml/components/DisableAccountDialog.qml:24
+#: ../qml/components/DisableAccountDialog.qml:25
 msgid ""
 "Are you sure, that you want to disable your account? This can not be undone!"
 msgstr ""
 
-#: ../qml/components/DisableAccountDialog.qml:46
+#: ../qml/components/DisableAccountDialog.qml:47
 msgid "Disable"
 msgstr ""
 
-#: ../qml/components/LogoutDialog.qml:24
+#: ../qml/components/LogoutDialog.qml:25
 msgid "Are you sure, that you want to logout?"
 msgstr ""
 
