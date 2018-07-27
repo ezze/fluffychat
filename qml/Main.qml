@@ -66,7 +66,7 @@ MainView {
         if ( prevMode !== tabletMode ) {
             mainStack.clear ()
             if ( tabletMode ) mainStack.push( Qt.resolvedUrl("./pages/BlankPage.qml") )
-            else mainStack.push( Qt.resolvedUrl("./pages/ChatListPage.qml") )
+            else if ( settings.token ) mainStack.push( Qt.resolvedUrl("./pages/ChatListPage.qml") )
             prevMode = tabletMode
         }
     }
@@ -95,7 +95,7 @@ MainView {
         height: parent.height
         visible: tabletMode
         width: units.gu(0.1)
-        color: UbuntuColors.slate
+        color: UbuntuColors.silk
         anchors.top: parent.top
         anchors.left: sideStack.right
         z: 11

@@ -13,6 +13,7 @@ ListItem {
     height: layout.height
 
     onClicked: {
+        mainStack.toStart ()
         activeChat = room.id
         activeChatTypingUsers = room.typing || []
         mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))

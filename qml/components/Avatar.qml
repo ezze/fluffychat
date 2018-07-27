@@ -9,7 +9,7 @@ Rectangle {
     // rounded corners for img
     width: units.gu(6)
     height: width
-    color: settings.darkmode ? UbuntuColors.jet : UbuntuColors.porcelain
+    color: Qt.hsla( 0, 0, 0.5, 0.15 ) //settings.darkmode ? UbuntuColors.jet : UbuntuColors.porcelain
     border.width: 1
     border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
     radius: units.gu(1)
@@ -20,6 +20,14 @@ Rectangle {
     property var mxc: ""
     property var onClickFunction: null
     property var name
+
+
+    function stringToColor ( str ) {
+        var number = 0
+        for( var i=0; i<str.length; i++ ) number += str.charCodeAt(i)
+        number = (number % 100) / 100
+        return Qt.hsla( number, 1, 0.4, 1 )
+    }
 
 
     MouseArea {
@@ -47,7 +55,7 @@ Rectangle {
     Label {
         anchors.centerIn: parent
         text: name.slice( 0, 2 )
-        color: settings.mainColor
+        color: stringToColor ( name ) //settings.mainColor
         textSize: Label.Large
         z: 10
         visible: mxc === "" || avatar.status != Image.Ready

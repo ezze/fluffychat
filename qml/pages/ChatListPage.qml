@@ -148,11 +148,17 @@ Page {
             actions: [
             Action {
                 iconName: "settings"
-                onTriggered: mainStack.push(Qt.resolvedUrl("./MainSettingsPage.qml"))
+                onTriggered: {
+                    mainStack.toStart ()
+                    mainStack.push(Qt.resolvedUrl("./MainSettingsPage.qml"))
+                }
             },
             Action {
                 iconName: "add"
-                onTriggered: mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
+                onTriggered: {
+                    mainStack.toStart ()
+                    mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
+                }
             }
             ]
         }
@@ -179,6 +185,7 @@ Page {
         height: parent.height
 
         onCommitCompleted: {
+            mainStack.toStart ()
             mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
             collapse()
         }
@@ -187,6 +194,7 @@ Page {
             width: mainStackWidth
             height: root.height
             color: theme.palette.normal.background
+            visible: !tabletMode
             AddChatPage { }
         }
     }

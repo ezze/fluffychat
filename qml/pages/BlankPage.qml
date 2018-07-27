@@ -7,7 +7,7 @@ Page {
     anchors.fill: parent
     id: page
 
-    header: PageHeader {
+    header: FcPageHeader {
         title: i18n.tr('Welcome')
     }
 

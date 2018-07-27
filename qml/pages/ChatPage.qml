@@ -114,7 +114,7 @@ Page {
     }
 
     Component.onDestruction: {
-        activeChat = activeChatDisplayName = null
+        //activeChat = null
         sendTypingNotification ( false )
     }
 
