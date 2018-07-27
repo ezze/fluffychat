@@ -237,6 +237,10 @@ msgstr "Von unten herein wischen, um einen Chat zu starten"
 msgid "Settings"
 msgstr "Einstellungen"
 
+#: ../qml/pages/BlankPage.qml:11
+msgid "Welcome"
+msgstr "Willkommen"
+
 #: ../qml/pages/MainSettingsPage.qml:35
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:146
 #: ../qml/pages/NotificationChatSettingsPage.qml:51

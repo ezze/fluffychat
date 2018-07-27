@@ -244,6 +244,10 @@ msgstr "Configuración"
 msgid "Notifications"
 msgstr "Notificaciones"
 
+#: ../qml/pages/BlankPage.qml:11
+msgid "Welcome"
+msgstr "Bienvenida"
+
 #: ../qml/pages/MainSettingsPage.qml:41
 #: ../qml/pages/AccountSettingsPage.qml:11
 msgid "Account"
@@ -666,4 +670,4 @@ msgstr "Introduzca un nombre para el chat"
 
 #: ../qml/components/DeviceListItem.qml:22
 msgid "Last seen: "
-msgstr "Visto por última vez: " 
+msgstr "Visto por última vez: "

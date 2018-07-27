@@ -6,7 +6,10 @@
 </head>
 <body scroll="no" style="overflow:hidden;">
 
-    <label for="upload"><img src="../../assets/attachment.svg" style="position:fixed; width:60vw; height:60vw; max-width: 100vw; max-height:100vw;"></label>
+    <label for="upload">
+        <img id="labelIcon" src="../../assets/attachment.svg" style="visibility:visible;position:fixed; width:60vw; height:60vw; max-width: 100vw; max-height:100vw;">
+        <img id="loader" src="../../assets/loader.gif" style="visibility:hidden;position:fixed; width:60vw; height:60vw; max-width: 100vw; max-height:100vw;">
+    </label>
     <input id="upload" name="upload" type="file" style="opacity:0; width:1; height:1;" onchange="upload()">
 
     <script type="text/javascript">
@@ -25,14 +28,24 @@
     var messageID;
 
 
-    function request ( type, url, data, callback, error ) {
+    function request ( type, url, data, callback ) {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if ( xhr.readyState ===  XMLHttpRequest.DONE ) {
-                if ( callback ) callback ( xhr.responseText )
+                try {
+                    JSON.parse(xhr.responseText)
+                    if ( callback ) callback ( xhr.responseText )
+                }
+                catch ( e ) {
+                    document.querySelector("#labelIcon").style.visibility = "visible";
+                    document.querySelector("#loader").style.visibility = "hidden";
+                    alert ( xhr.responseText )
+                }
             }
             else if ( xhr.readyState ===  XMLHttpRequest.ERROR ) {
-                if ( error ) error ( xhr.responseText )
+                document.querySelector("#labelIcon").style.visibility = "visible";
+                document.querySelector("#loader").style.visibility = "hidden";
+                alert ( xhr.responseText )
             }
         }
         xhr.open( type === "upload" ? "POST" : "PUT", url, true);
@@ -48,6 +61,7 @@
     }
 
     function send ( content_uri, thumbnail ) {
+
         // Send message
         var url = "https://" + variableList["domain"] + "/_matrix/client/r0/rooms/" + variableList["activeChat"] + "/send/m.room.message/" + messageID;
         var data = {
@@ -67,10 +81,16 @@
                 "size": file.size
             };
         }
-        request ( "send", url, data, function () {});
+        request ( "send", url, data, function () {
+            document.querySelector("#labelIcon").style.visibility = "visible";
+            document.querySelector("#loader").style.visibility = "hidden";
+        });
     }
 
     function upload () {
+        document.querySelector("#labelIcon").style.visibility = "hidden";
+        document.querySelector("#loader").style.visibility = "visible";
+
         messageID = Math.floor((Math.random() * 1000000) + 1);
         file = document.querySelector("#upload").files[0];
         msgtype = "m.file"
