@@ -9,7 +9,7 @@ Rectangle {
     // rounded corners for img
     width: units.gu(6)
     height: width
-    color: Qt.hsla( 0, 0, 0.5, 0.15 ) //settings.darkmode ? UbuntuColors.jet : UbuntuColors.porcelain
+    color: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
     border.width: 1
     border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
     radius: units.gu(1)
@@ -26,7 +26,7 @@ Rectangle {
         var number = 0
         for( var i=0; i<str.length; i++ ) number += str.charCodeAt(i)
         number = (number % 100) / 100
-        return Qt.hsla( number, 1, 0.4, 1 )
+        return Qt.hsla( number, 1, 0.5, 1 )
     }
 
 
