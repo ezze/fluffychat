@@ -71,7 +71,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: root.width
+            width: mainStackWidth
             id: notificationSettingsList
             property var enabled: false
             opacity: enabled ? 1 : 0.5

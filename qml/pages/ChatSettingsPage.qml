@@ -85,7 +85,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: root.width
+            width: mainStackWidth
             Rectangle {
                 width: parent.width
                 height: units.gu(2)

@@ -8,7 +8,7 @@ Rectangle {
     property var name: ""
     property var iconName: "contact"
     property var contactProposal: false
-    width: root.width / 4
+    width: mainStackWidth / 4
     height: width
 
     Avatar {

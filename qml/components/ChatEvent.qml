@@ -10,7 +10,7 @@ Rectangle {
     property var isStateEvent: event.type !== "m.room.message"
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
 
-    width: root.width
+    width: mainStackWidth
     height: messageBubble.height + units.gu(1)
     color: "transparent"
     opacity: sending ? 0.66 : isStateEvent ? 0.75 : 1

@@ -17,7 +17,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: root.width
+            width: mainStackWidth
 
             SettingsListItem {
                 name: i18n.tr("Change display name")

@@ -52,12 +52,24 @@ MainView {
     property var waitingForSync: false
     property var appstatus: 4
     property var pushtoken: pushclient.token
+    property var tabletMode: settings.token && width > units.gu(90)
+    property var prevMode: false
+    property var mainStackWidth: mainStack.width
 
 
     /* =============================== LAYOUT ===============================
 
     The main page stack is the current layout of the app.
     */
+
+    onTabletModeChanged: {
+        if ( prevMode !== tabletMode ) {
+            mainStack.clear ()
+            if ( tabletMode ) mainStack.push( Qt.resolvedUrl("./pages/BlankPage.qml") )
+            else mainStack.push( Qt.resolvedUrl("./pages/ChatListPage.qml") )
+            prevMode = tabletMode
+        }
+    }
 
     ProgressBar {
         id: requestProgressBar
@@ -69,8 +81,34 @@ MainView {
     }
 
     PageStack {
+        id: sideStack
+        visible: tabletMode
+        anchors.fill: undefined
+        anchors.left: parent.left
+        anchors.top: parent.top
+        width: tabletMode ? units.gu(45) : parent.width
+        height: parent.height
+        Component.onCompleted: push( Qt.resolvedUrl("./pages/ChatListPage.qml") )
+    }
+
+    Rectangle {
+        height: parent.height
+        visible: tabletMode
+        width: units.gu(0.1)
+        color: UbuntuColors.slate
+        anchors.top: parent.top
+        anchors.left: sideStack.right
+        z: 11
+    }
+
+    PageStack {
         id: mainStack
+        anchors.fill: undefined
+        anchors.right: parent.right
+        anchors.top: parent.top
+        width: tabletMode ? parent.width - units.gu(45) : parent.width
         function toStart () { while (depth > 1) pop() }
+        height: parent.height
     }
 
 

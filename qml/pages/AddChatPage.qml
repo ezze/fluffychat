@@ -50,7 +50,7 @@ Page {
 
     Column {
         id: addChatList
-        width: root.width
+        width: mainStackWidth
         anchors.top: header.bottom
 
         SettingsListItem {

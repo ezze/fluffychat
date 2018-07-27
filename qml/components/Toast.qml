@@ -38,7 +38,7 @@ Rectangle {
     function show ( str, time ) {
         if ( !time ) time = defaultTime
         label.text = str
-        var maxWidth = root.width - units.gu(4)
+        var maxWidth = mainStackWidth - units.gu(4)
         if ( label.width > maxWidth ) label.width = maxWidth
         visible = true
         stateVisible = true

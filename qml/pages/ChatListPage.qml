@@ -184,7 +184,7 @@ Page {
         }
 
         contentComponent: Rectangle {
-            width: root.width
+            width: mainStackWidth
             height: root.height
             color: theme.palette.normal.background
             AddChatPage { }
