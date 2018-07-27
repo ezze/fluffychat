@@ -24,6 +24,7 @@ Item {
 
         if ( settings.token ) {
             if ( tabletMode ) mainStack.push(Qt.resolvedUrl("../pages/BlankPage.qml"))
+            else mainStack.push(Qt.resolvedUrl("../pages/ChatListPage.qml"))
             onlineStatus = true
             usernames.getById(matrix.matrixid, "", function (name) { settings.displayname = name } )
             events.init ()

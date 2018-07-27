@@ -34,7 +34,8 @@ Page {
             loginButton.enabled = true
             // Go to the ChatListPage
             mainStack.clear ()
-            mainStack.push(Qt.resolvedUrl("./ChatListPage.qml"))
+            if ( tabletMode ) mainStack.push(Qt.resolvedUrl("./BlankPage.qml"))
+            else mainStack.push(Qt.resolvedUrl("./ChatListPage.qml"))
         }
 
         // If error

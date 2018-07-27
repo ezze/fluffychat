@@ -190,11 +190,12 @@ Page {
             collapse()
         }
 
+        enabled: !tabletMode
+
         contentComponent: Rectangle {
             width: mainStackWidth
             height: root.height
             color: theme.palette.normal.background
-            visible: !tabletMode
             AddChatPage { }
         }
     }

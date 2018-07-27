@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 08:46+0000\n"
+"POT-Creation-Date: 2018-07-27 09:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,7 +155,7 @@ msgstr ""
 msgid "Please login to Ubuntu One to receive push notifications!"
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:163
+#: ../qml/controller/MatrixController.qml:164
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -187,43 +187,43 @@ msgstr ""
 msgid "Please fill all textfields"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:44
+#: ../qml/pages/LoginPage.qml:45
 msgid "Invalid username or password"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:47
+#: ../qml/pages/LoginPage.qml:48
 msgid "No connection to "
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:57
+#: ../qml/pages/LoginPage.qml:58
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:73
+#: ../qml/pages/LoginPage.qml:74
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:96
+#: ../qml/pages/LoginPage.qml:97
 msgid "What's your name?"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:103
+#: ../qml/pages/LoginPage.qml:104
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:110
+#: ../qml/pages/LoginPage.qml:111
 msgid "Password"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:121
+#: ../qml/pages/LoginPage.qml:122
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:128
+#: ../qml/pages/LoginPage.qml:129
 msgid "Sign up"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:138
 msgid "Using the homeserver: "
 msgstr ""
 
