@@ -23,6 +23,7 @@ Follow me on Mastodon: https://metalhead.club/@krille
 
 ##### Features
  * Single and group chats
+ * Send images and files
  * Offline chat history
  * Push Notifications
  * Account settings
