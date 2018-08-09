@@ -14,15 +14,16 @@ Follow me on Mastodon: https://metalhead.club/@krille
 ### Screenshots
 
 <p>
-  <img src="/assets/screenshots/screenshot20180710_172017850.png" width="19%" />
-  <img src="/assets/screenshots/screenshot20180710_172051018.png" width="19%" />
-  <img src="/assets/screenshots/screenshot20180710_172126491.png" width="19%" />
-  <img src="/assets/screenshots/screenshot20180710_172212362.png" width="19%" />
-  <img src="/assets/screenshots/screenshot20180710_172240709.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20180710_172017850.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20180710_172051018.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20180710_172126491.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20180710_172212362.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20180710_172240709.png" width="19%" />
 </p>
 
 ##### Features
  * Single and group chats
+ * Send images and files
  * Offline chat history
  * Push Notifications
  * Account settings
