@@ -135,7 +135,7 @@ Page {
     }
 
     Label {
-        text: i18n.tr("Using the homeserver: ") + loginDomain
+        text: i18n.tr("Using the homeserver: ") + "<b>" + loginDomain + "</b>"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         anchors.bottomMargin: height
