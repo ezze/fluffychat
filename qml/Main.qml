@@ -32,7 +32,7 @@ MainView {
     This config variables are readonly!
     */
     readonly property var defaultMainColor: "#5625BA"
-    readonly property var defaultDomain: "matrix.org"
+    readonly property var defaultDomain: "ubports.chat"
     readonly property var defaultDeviceName: "UbuntuPhone"
     readonly property var miniTimeout: 3000
     readonly property var defaultTimeout: 30000
@@ -153,6 +153,5 @@ MainView {
     Component.onCompleted: {
         storage.init ()
         matrix.init ()
-
     }
 }
