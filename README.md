@@ -48,6 +48,14 @@ The most opensource messengers, like Conversations (XMPP) or Riot (Matrix) are g
 FluffyChat should look like a messenger, which targets also children. Because then, it will *feel* like "easy as a snap".
 You don't like the colors? In the next versions, you will be able to change the colors and themes in the settings, so don't worry. ;-)
 
+#### I do not receive push notifications :-(
+ * Have you tried to logout and login?
+ * Do you have an Ubuntu One account in the system settings?
+ * When you go into fluffychat -> Settings -> Notifications -> Targets: Is there a device "UbuntuPhone"?
+ * Do you have the latest version of fluffychat installed from the OpenStore?
+ * Have you tried to turn airplaine mode on and off again? Sometimes notifications are sent with a delay from the UBports push service (will be fixed soon)
+ If you still have the problem, then please contact me at the room: #fluffychat:matrix.org
+
 #### How are push notifications working?
 The notifications are sent from the matrix homeserver to the fluffychat push-gateway at: https://github.com/ChristianPauly/fluffychat-push-gateway
 This gateway just beams the push to https://push.ubports.com/notify via https. The push-gateway is currently on my own server! I am NOT saving any data! It is just forwarding! However you can just host your own gateway if you want. There is currently no end-to-end encryption in fluffychat so you should not send any message-content from your homeserver, if you don't trust fluffychat or ubports!
