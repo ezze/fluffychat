@@ -68,8 +68,54 @@ Item {
         transaction('DROP TABLE IF EXISTS Rooms')
         transaction('DROP TABLE IF EXISTS Roomevents')
         transaction('DROP TABLE IF EXISTS Roommembers')
-        transaction('CREATE TABLE Rooms(id TEXT PRIMARY KEY, membership TEXT, topic TEXT, highlight_count INTEGER, notification_count INTEGER, limitedTimeline INTEGER, prev_batch TEXT, UNIQUE(id))')
-        transaction('CREATE TABLE Roomevents(id TEXT PRIMARY KEY, roomsid TEXT, origin_server_ts INTEGER, sender TEXT, content_body TEXT, content_msgtype STRING, type TEXT, content_json TEXT, UNIQUE(id))')
-        transaction('CREATE TABLE Roommembers(roomsid TEXT, state_key TEXT, membership TEXT, displayname TEXT, avatar_url TEXT, UNIQUE(roomsid, state_key))')
+        transaction('DROP TABLE IF EXISTS Memberships')
+        transaction('DROP TABLE IF EXISTS Contacts')
+
+        // TABLE SCHEMA FOR CHATS
+        transaction('CREATE TABLE Rooms(' +
+        'id TEXT PRIMARY KEY, ' +
+        'membership TEXT, ' +
+        'topic TEXT, ' +
+        'highlight_count INTEGER, ' +
+        'notification_count INTEGER, ' +
+        'limitedTimeline INTEGER, ' +
+        'prev_batch TEXT, ' +
+        'UNIQUE(id))')
+
+        // TABLE SCHEMA FOR EVENTS
+        transaction('CREATE TABLE Roomevents(' +
+        'id TEXT PRIMARY KEY, ' +
+        'roomsid TEXT, ' +
+        'origin_server_ts INTEGER, ' +
+        'sender TEXT, ' +
+        'content_body TEXT, ' +
+        'content_msgtype STRING, ' +
+        'type TEXT, ' +
+        'content_json TEXT, ' +
+        'UNIQUE(id))')
+
+        // TABLE SCHEMA FOR USERS
+        transaction('CREATE TABLE Roommembers(' +
+        'roomsid TEXT, ' +
+        'state_key TEXT, ' +
+        'membership TEXT, ' +
+        'displayname TEXT, ' +
+        'avatar_url TEXT, ' +
+        'UNIQUE(roomsid, state_key))')
+
+        // TABLE SCHEMA FOR MEMBERSHIPS
+        transaction('CREATE TABLE Memberships(' +
+        'chat_id TEXT, ' +      // The chat id of this membership
+        'matrix_id TEXT, ' +    // The matrix id of this user
+        'membership TEXT, ' +   // The status of the membership. Must be one of [join, invite, ban, leave]
+        'message_read TEXT, ' + // The id of the message where the seen-indicator is
+        'UNIQUE(chat_id, matrix_id))')
+
+        // TABLE SCHEMA FOR CONTACTS
+        transaction('CREATE TABLE Contacts(' +
+        'matrix_id TEXT, ' +    // The matrix id of this user
+        'phone_number TEXT, ' + // The phone number of this user if exists
+        'email TEXT, ' +        // The email of this user if exists
+        'UNIQUE(matrix_id))')
     }
 }
