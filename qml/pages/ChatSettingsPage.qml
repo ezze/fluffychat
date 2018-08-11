@@ -16,7 +16,7 @@ Page {
     function init () {
 
         // Get the member status of the user himself
-        storage.transaction ( "SELECT membership FROM Rooms WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
             membership = res.rows.length > 0 ? res.rows[0].membership : "unknown"
         })
 

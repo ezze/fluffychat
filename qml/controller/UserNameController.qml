@@ -9,7 +9,7 @@ from a userid address, such like: "#alice@matrix.org"
 Item {
     function getById ( matrixid, roomid, callback ) {
         var username = transformFromId( matrixid )
-        storage.transaction ( "SELECT displayname FROM Roommembers WHERE state_key='" + matrixid + "'", function(rs) {
+        storage.transaction ( "SELECT displayname FROM Users WHERE state_key='" + matrixid + "'", function(rs) {
             if ( rs.rows.length > 0 ) username = rs.rows[0].displayname
             if ( callback ) callback ( username )
         })

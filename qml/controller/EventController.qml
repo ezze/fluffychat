@@ -181,7 +181,7 @@ Item {
 
             if ( membership !== "leave" ) {
                 // Update the
-                transaction.executeSql ("INSERT OR REPLACE INTO Rooms VALUES(?, ?, COALESCE((SELECT topic FROM Rooms WHERE id='" + id + "'), ''), ?, ?, ?, COALESCE((SELECT prev_batch FROM Rooms WHERE id='" + id + "'), ''))",
+                transaction.executeSql ("INSERT OR REPLACE INTO Chats VALUES(?, ?, COALESCE((SELECT topic FROM Chats WHERE id='" + id + "'), ''), ?, ?, ?, COALESCE((SELECT prev_batch FROM Chats WHERE id='" + id + "'), ''))",
                 [ id,
                 membership,
                 (room.unread_notifications && room.unread_notifications.highlight_count || 0),
@@ -195,16 +195,16 @@ Item {
                     // Is the timeline limited? Then all previous messages should be
                     // removed from the database!
                     if ( room.timeline.limited ) {
-                        transaction.executeSql ("DELETE FROM Roomevents WHERE roomsid='" + id + "'")
-                        transaction.executeSql ("UPDATE Rooms SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
+                        transaction.executeSql ("DELETE FROM Events WHERE roomsid='" + id + "'")
+                        transaction.executeSql ("UPDATE Chats SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
                     }
                     handleRoomEvents ( id, room.timeline.events, "timeline", room )
                 }
             }
             else {
-                transaction.executeSql ( "DELETE FROM Rooms WHERE id='" + id + "'")
-                transaction.executeSql ( "DELETE FROM Roommembers WHERE roomsid='" + id + "'")
-                transaction.executeSql ( "DELETE FROM Roomevents WHERE roomsid='" + id + "'")
+                transaction.executeSql ( "DELETE FROM Chats WHERE id='" + id + "'")
+                transaction.executeSql ( "DELETE FROM Users WHERE roomsid='" + id + "'")
+                transaction.executeSql ( "DELETE FROM Events WHERE roomsid='" + id + "'")
             }
         }
     }
@@ -221,7 +221,7 @@ Item {
             // Only this events will call the notification signal or change the
             // current displayed chat!
             if ( type === "timeline" || type === "history" ) {
-                transaction.executeSql ( "INSERT OR IGNORE INTO Roomevents VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+                transaction.executeSql ( "INSERT OR IGNORE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
                 roomid,
                 event.origin_server_ts,
@@ -235,7 +235,7 @@ Item {
             // This event means, that the topic of a room has been changed, so
             // it has to be changed in the database
             if ( event.type === "m.room.name" ) {
-                transaction.executeSql( "UPDATE Rooms SET topic=? WHERE id=?",
+                transaction.executeSql( "UPDATE Chats SET topic=? WHERE id=?",
                 [ event.content.name,
                 roomid ])
                 // If the affected room is the currently used room, then the
@@ -261,7 +261,7 @@ Item {
                     }
                     if ( !found ) continue
                 }
-                transaction.executeSql( "INSERT OR REPLACE INTO Roommembers VALUES(?, ?, ?, ?, ?)",
+                transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, ?, ?)",
                 [ roomid,
                 event.state_key,
                 event.content.membership,

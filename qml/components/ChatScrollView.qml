@@ -15,7 +15,7 @@ ListView {
 
     function update ( sync ) {
         storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, members.state_key, members.displayname, members.avatar_url " +
-        " FROM Roomevents events LEFT JOIN Roommembers members " +
+        " FROM Events events LEFT JOIN Users members " +
         " ON members.roomsid=events.roomsid " +
         " AND members.state_key=events.sender " +
         " WHERE events.roomsid='" + activeChat +
@@ -41,7 +41,7 @@ ListView {
         matrix.get("/client/r0/rooms/%1/state/m.room.member/%3".arg(activeChat).arg(matrixid), null, function ( res ) {
 
             // Save the new roommember event in the database
-            storage.query( "INSERT OR REPLACE INTO Roommembers VALUES(?, ?, ?, ?, ?)",
+            storage.query( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, ?, ?)",
             [ localActiveChat,
             matrixid,
             res.membership,
@@ -69,7 +69,7 @@ ListView {
         toast.show ( i18n.tr( "Get more messages from the server ...") )
         requesting = true
         var storageController = storage
-        storage.transaction ( "SELECT prev_batch FROM Rooms WHERE id='" + activeChat + "'", function (rs) {
+        storage.transaction ( "SELECT prev_batch FROM Chats WHERE id='" + activeChat + "'", function (rs) {
             if ( rs.rows.length === 0 ) return
             var data = {
                 from: rs.rows[0].prev_batch,
@@ -86,7 +86,7 @@ ListView {
                             requesting = false
                         }
                     )
-                    storageController.transaction ( "UPDATE Rooms SET prev_batch='" + result.end + "' WHERE id='" + activeChat + "'", function () {
+                    storageController.transaction ( "UPDATE Chats SET prev_batch='" + result.end + "' WHERE id='" + activeChat + "'", function () {
                     })
                 }
                 else requesting = false

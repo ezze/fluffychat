@@ -15,11 +15,11 @@ Page {
         // On the top are the rooms, which the user is invited to
         storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, " +
         " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.content_json, events.type " +
-        " FROM Rooms rooms LEFT JOIN Roomevents events " +
+        " FROM Chats rooms LEFT JOIN Events events " +
         " ON rooms.id=events.roomsid " +
         " WHERE rooms.membership!='leave' " +
         " AND (events.origin_server_ts IN (" +
-        " SELECT MAX(origin_server_ts) FROM Roomevents WHERE roomsid=rooms.id " +
+        " SELECT MAX(origin_server_ts) FROM Events WHERE roomsid=rooms.id " +
         ") OR rooms.membership='invite')" +
         " ORDER BY origin_server_ts DESC "
         , function(res) {
@@ -44,7 +44,7 @@ Page {
     */
     function update ( sync ) {
 
-        // This helper function helps us to reduce code. Rooms with the type
+        // This helper function helps us to reduce code. Chats with the type
         // "join" and "invite" are just handled the same, and "leave" is very
         // near to this
         for ( var type in sync.rooms ) {

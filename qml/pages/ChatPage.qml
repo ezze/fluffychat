@@ -107,7 +107,7 @@ Page {
 
 
     Component.onCompleted: {
-        storage.transaction ( "SELECT membership FROM Rooms WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
             membership = res.rows.length > 0 ? res.rows[0].membership : "join"
         })
         chatScrollView.update ()

@@ -19,7 +19,7 @@ Component {
             placeholderText: i18n.tr("Enter your new nickname")
             focus: true
             Component.onCompleted: {
-                storage.transaction ( "SELECT displayname FROM Roommembers WHERE state_key='%1'".arg(matrix.matrixid), function ( res ) {
+                storage.transaction ( "SELECT displayname FROM Users WHERE state_key='%1'".arg(matrix.matrixid), function ( res ) {
                     if ( res.rows.length > 0 ) {
                         displaynameTextField.text = res.rows[0].displayname
                     }

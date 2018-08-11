@@ -65,14 +65,14 @@ Item {
 
 
     function drop () {
-        transaction('DROP TABLE IF EXISTS Rooms')
-        transaction('DROP TABLE IF EXISTS Roomevents')
-        transaction('DROP TABLE IF EXISTS Roommembers')
+        transaction('DROP TABLE IF EXISTS Chats')
+        transaction('DROP TABLE IF EXISTS Events')
+        transaction('DROP TABLE IF EXISTS Users')
         transaction('DROP TABLE IF EXISTS Memberships')
         transaction('DROP TABLE IF EXISTS Contacts')
 
         // TABLE SCHEMA FOR CHATS
-        transaction('CREATE TABLE Rooms(' +
+        transaction('CREATE TABLE Chats(' +
         'id TEXT PRIMARY KEY, ' +
         'membership TEXT, ' +
         'topic TEXT, ' +
@@ -83,7 +83,7 @@ Item {
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR EVENTS
-        transaction('CREATE TABLE Roomevents(' +
+        transaction('CREATE TABLE Events(' +
         'id TEXT PRIMARY KEY, ' +
         'roomsid TEXT, ' +
         'origin_server_ts INTEGER, ' +
@@ -95,7 +95,7 @@ Item {
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR USERS
-        transaction('CREATE TABLE Roommembers(' +
+        transaction('CREATE TABLE Users(' +
         'roomsid TEXT, ' +
         'state_key TEXT, ' +
         'membership TEXT, ' +
