@@ -156,7 +156,7 @@ Item {
                     }
                 }
                 catch ( error ) {
-                    console.error("There was an error: When calling ", requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error, http.responseText)
+                console.error("There was an error: When calling ", requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error/*, http.responseText*/)
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                     if ( !error_callback && error === "offline" && settings.token ) {

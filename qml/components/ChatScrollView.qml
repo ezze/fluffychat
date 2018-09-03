@@ -14,12 +14,11 @@ ListView {
     property var count: model.count
 
     function update ( sync ) {
-        storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, members.state_key, members.displayname, members.avatar_url " +
-        " FROM Events events LEFT JOIN Users members " +
-        " ON members.chat_id=events.chat_id " +
-        " AND members.state_key=events.sender " +
+        storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, members.matrix_id, members.displayname, members.avatar_url " +
+        " FROM Events events, Users members " +
         " WHERE events.chat_id='" + activeChat +
-        "' ORDER BY events.origin_server_ts DESC"
+        "' AND members.matrix_id=events.sender " +
+        " ORDER BY events.origin_server_ts DESC"
         , function (res) {
             // We now write the rooms in the column
             pushclient.clearPersistent ( activeChatDisplayName )
@@ -30,7 +29,7 @@ ListView {
                 var event = res.rows.item(i)
                 event.content = JSON.parse( event.content_json )
                 addEventToList ( event )
-                if ( event.state_key === null ) requestRoomMember ( event.sender )
+                if ( event.matrix_id === null ) requestRoomMember ( event.sender )
             }
         })
     }
@@ -53,7 +52,7 @@ ListView {
                 var elem = model.get(i)
                 if ( elem.event.sender === matrixid ) {
                     var tempEvent = elem.event
-                    tempEvent.state_key = matrixid
+                    tempEvent.matrix_id = matrixid
                     tempEvent.displayname = res.displayname
                     tempEvent.avatar_url = res.avatar_url
                     var tempEvent = elem.event

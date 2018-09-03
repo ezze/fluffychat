@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the fluffychat.christianpauly package.
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-03 08:06+0000\n"
+"POT-Creation-Date: 2018-09-03 13:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,8 +146,8 @@ msgid "⌨️ %1 and %2 more are typing ..."
 msgstr ""
 
 #: ../qml/controller/RoomNameController.qml:13
-#: ../qml/controller/RoomNameController.qml:21
-#: ../qml/controller/RoomNameController.qml:28
+#: ../qml/controller/RoomNameController.qml:25
+#: ../qml/controller/RoomNameController.qml:32
 msgid "Empty chat"
 msgstr ""
 
@@ -246,7 +246,8 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:41 ../qml/pages/AccountSettingsPage.qml:11
+#: ../qml/pages/MainSettingsPage.qml:41
+#: ../qml/pages/AccountSettingsPage.qml:11
 msgid "Account"
 msgstr ""
 
@@ -254,7 +255,8 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:53 ../qml/pages/DevicesSettingsPage.qml:24
+#: ../qml/pages/MainSettingsPage.qml:53
+#: ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
 msgstr ""
 
@@ -615,11 +617,11 @@ msgstr ""
 msgid "No previous messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:40
+#: ../qml/components/ChatListItem.qml:41
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:47
+#: ../qml/components/ChatListItem.qml:48
 msgid "You: "
 msgstr ""
 
@@ -635,7 +637,7 @@ msgstr ""
 msgid "Invite"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:69
+#: ../qml/components/ChatScrollView.qml:68
 msgid "Get more messages from the server ..."
 msgstr ""
 

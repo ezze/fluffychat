@@ -32,6 +32,7 @@ ListItem {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
             name: room.topic || room.id
+            mxc: room.avatar_url || ""
         }
         Component.onCompleted: {
 

@@ -174,19 +174,29 @@ Item {
     }
 
 
-    // Handling the synchronization events starts with the rooms
+    // Handling the synchronization events starts with the rooms, which means
+    // that the informations should be saved in the database
     function handleRooms ( rooms, membership ) {
         for ( var id in rooms ) {
             var room = rooms[id]
 
+            // If the membership of the user is "leave" then the chat and all
+            // events and user-memberships should be removed.
+            // If not, it is "join" or "invite" and everything should be saved
             if ( membership !== "leave" ) {
-                // Update the
-                transaction.executeSql ("INSERT OR REPLACE INTO Chats VALUES(?, ?, COALESCE((SELECT topic FROM Chats WHERE id='" + id + "'), ''), ?, ?, ?, COALESCE((SELECT prev_batch FROM Chats WHERE id='" + id + "'), COALESCE((SELECT avatar_url FROM Chats WHERE id='" + id + "'), COALESCE((SELECT draft FROM Chats WHERE id='" + id + "'), COALESCE((SELECT unread FROM Chats WHERE id='" + id + "'), ''))",
-                [ id,
-                membership,
-                (room.unread_notifications && room.unread_notifications.highlight_count || 0),
-                (room.unread_notifications && room.unread_notifications.notification_count || 0),
-                (room.timeline ? (room.timeline.limited ? 1 : 0) : 0) ])
+
+                // Insert the chat into the database if not exists
+                transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
+                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0) ")
+                // Update the notification counts and the limited timeline boolean
+                transaction.executeSql ( "UPDATE Chats SET " +
+                " highlight_count=" +
+                (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
+                ", notification_count=" +
+                (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
+                ", limitedTimeline=" +
+                (room.unread_notifications && room.unread_notifications.notification_count || 0) +
+                " WHERE id='" + id + "' ")
 
                 // Handle now all room events and save them in the database
                 if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
@@ -221,7 +231,7 @@ Item {
             // Only this events will call the notification signal or change the
             // current displayed chat!
             if ( type === "timeline" || type === "history" ) {
-                transaction.executeSql ( "INSERT OR IGNORE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+                transaction.executeSql ( "INSERT OR IGNORE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
                 roomid,
                 event.origin_server_ts,
@@ -230,8 +240,7 @@ Item {
                 event.content.msgtype || null,
                 event.type,
                 JSON.stringify(event.content),
-                msg_status.RECEIVED ],
-                )
+                msg_status.RECEIVED ])
             }
 
             // This event means, that the topic of a room has been changed, so
@@ -249,29 +258,26 @@ Item {
                 }
             }
 
+            // This event means, that the avatar of a room has been changed, so
+            // it has to be changed in the database
+            else if ( event.type === "m.room.avatar" ) {
+                console.log("avatar income")
+                transaction.executeSql( "UPDATE Chats SET avatar_url=? WHERE id=?",
+                [ event.content.url,
+                roomid ])
+            }
+
             // This event means, that someone joined the room, has left the room
             // or has changed his nickname
             else if ( event.type === "m.room.member" ) {
-                if ( type === "state" ) {
-                    if ( !room.timeline ) continue
-                    var found = false
-                    for ( var t = 0; t < room.timeline.events.length; t++ ) {
-                        if ( room.timeline.events[t].sender === event.state_key ) {
-                            found = true
-                            break
-                        }
-                    }
-                    if ( !found ) continue
-                }
 
                 transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
                 [ event.state_key,
                 event.content.displayname,
                 event.content.avatar_url ])
 
-                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES(?, ?, ?, ?)",
-                [ roomid,
-                event.state_key,
+                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', ?, ?)",
+                [ event.state_key,
                 event.content.membership ])
 
                 if ( event.state_key === matrix.matrixid) {
