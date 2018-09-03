@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.1.12"
+    property var version: "0.2.0"
     property var db: LocalStorage.openDatabaseSync("FLuffyChat", "1.0", "FluffyChat Database", 1000000)
 
 
@@ -80,35 +80,36 @@ Item {
         'notification_count INTEGER, ' +
         'limitedTimeline INTEGER, ' +
         'prev_batch TEXT, ' +
+        'avatar_url TEXT, ' +
+        'draft TEXT, ' +
+        'unread INTEGER, ' +
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR EVENTS
         transaction('CREATE TABLE Events(' +
         'id TEXT PRIMARY KEY, ' +
-        'roomsid TEXT, ' +
+        'chat_id TEXT, ' +
         'origin_server_ts INTEGER, ' +
         'sender TEXT, ' +
         'content_body TEXT, ' +
         'content_msgtype STRING, ' +
         'type TEXT, ' +
         'content_json TEXT, ' +
+        "status INTEGER, " +
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR USERS
         transaction('CREATE TABLE Users(' +
-        'roomsid TEXT, ' +
-        'state_key TEXT, ' +
-        'membership TEXT, ' +
+        'matrix_id TEXT, ' +
         'displayname TEXT, ' +
         'avatar_url TEXT, ' +
-        'UNIQUE(roomsid, state_key))')
+        'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR MEMBERSHIPS
         transaction('CREATE TABLE Memberships(' +
         'chat_id TEXT, ' +      // The chat id of this membership
         'matrix_id TEXT, ' +    // The matrix id of this user
         'membership TEXT, ' +   // The status of the membership. Must be one of [join, invite, ban, leave]
-        'message_read TEXT, ' + // The id of the message where the seen-indicator is
         'UNIQUE(chat_id, matrix_id))')
 
         // TABLE SCHEMA FOR CONTACTS

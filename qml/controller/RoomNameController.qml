@@ -17,7 +17,7 @@ Item {
             }
             else {
                 // If it is a one on one chat, then use the displayname of the buddy
-                storage.query( "SELECT displayname, membership, state_key FROM Users WHERE (membership='join' OR membership='invite') AND roomsid=? AND state_key!=?", [ chatid, matrix.matrixid ], function (rs) {
+                storage.query( "SELECT displayname, membership, state_key FROM Users WHERE (membership='join' OR membership='invite') AND chat_id=? AND state_key!=?", [ chatid, matrix.matrixid ], function (rs) {
                     var displayname = i18n.tr('Empty chat')
                     if ( rs.rows.length > 0 ) {
                         displayname = ""

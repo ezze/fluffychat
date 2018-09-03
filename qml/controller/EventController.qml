@@ -181,7 +181,7 @@ Item {
 
             if ( membership !== "leave" ) {
                 // Update the
-                transaction.executeSql ("INSERT OR REPLACE INTO Chats VALUES(?, ?, COALESCE((SELECT topic FROM Chats WHERE id='" + id + "'), ''), ?, ?, ?, COALESCE((SELECT prev_batch FROM Chats WHERE id='" + id + "'), ''))",
+                transaction.executeSql ("INSERT OR REPLACE INTO Chats VALUES(?, ?, COALESCE((SELECT topic FROM Chats WHERE id='" + id + "'), ''), ?, ?, ?, COALESCE((SELECT prev_batch FROM Chats WHERE id='" + id + "'), COALESCE((SELECT avatar_url FROM Chats WHERE id='" + id + "'), COALESCE((SELECT draft FROM Chats WHERE id='" + id + "'), COALESCE((SELECT unread FROM Chats WHERE id='" + id + "'), ''))",
                 [ id,
                 membership,
                 (room.unread_notifications && room.unread_notifications.highlight_count || 0),
@@ -195,7 +195,7 @@ Item {
                     // Is the timeline limited? Then all previous messages should be
                     // removed from the database!
                     if ( room.timeline.limited ) {
-                        transaction.executeSql ("DELETE FROM Events WHERE roomsid='" + id + "'")
+                        transaction.executeSql ("DELETE FROM Events WHERE chat_id='" + id + "'")
                         transaction.executeSql ("UPDATE Chats SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
                     }
                     handleRoomEvents ( id, room.timeline.events, "timeline", room )
@@ -203,8 +203,8 @@ Item {
             }
             else {
                 transaction.executeSql ( "DELETE FROM Chats WHERE id='" + id + "'")
-                transaction.executeSql ( "DELETE FROM Users WHERE roomsid='" + id + "'")
-                transaction.executeSql ( "DELETE FROM Events WHERE roomsid='" + id + "'")
+                transaction.executeSql ( "DELETE FROM Memberships WHERE chat_id='" + id + "'")
+                transaction.executeSql ( "DELETE FROM Events WHERE chat_id='" + id + "'")
             }
         }
     }
@@ -229,7 +229,9 @@ Item {
                 event.content.body || null,
                 event.content.msgtype || null,
                 event.type,
-                JSON.stringify(event.content) ])
+                JSON.stringify(event.content),
+                msg_status.RECEIVED ],
+                )
             }
 
             // This event means, that the topic of a room has been changed, so
@@ -261,12 +263,17 @@ Item {
                     }
                     if ( !found ) continue
                 }
-                transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, ?, ?)",
-                [ roomid,
-                event.state_key,
-                event.content.membership,
+
+                transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
+                [ event.state_key,
                 event.content.displayname,
                 event.content.avatar_url ])
+
+                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES(?, ?, ?, ?)",
+                [ roomid,
+                event.state_key,
+                event.content.membership ])
+
                 if ( event.state_key === matrix.matrixid) {
                     settings.avatar_url = event.content.avatar_url
                     settings.displayname = event.content.displayname

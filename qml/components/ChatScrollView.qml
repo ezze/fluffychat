@@ -16,9 +16,9 @@ ListView {
     function update ( sync ) {
         storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, members.state_key, members.displayname, members.avatar_url " +
         " FROM Events events LEFT JOIN Users members " +
-        " ON members.roomsid=events.roomsid " +
+        " ON members.chat_id=events.chat_id " +
         " AND members.state_key=events.sender " +
-        " WHERE events.roomsid='" + activeChat +
+        " WHERE events.chat_id='" + activeChat +
         "' ORDER BY events.origin_server_ts DESC"
         , function (res) {
             // We now write the rooms in the column

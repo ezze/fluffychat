@@ -16,10 +16,10 @@ Page {
         storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, " +
         " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.content_json, events.type " +
         " FROM Chats rooms LEFT JOIN Events events " +
-        " ON rooms.id=events.roomsid " +
+        " ON rooms.id=events.chat_id " +
         " WHERE rooms.membership!='leave' " +
         " AND (events.origin_server_ts IN (" +
-        " SELECT MAX(origin_server_ts) FROM Events WHERE roomsid=rooms.id " +
+        " SELECT MAX(origin_server_ts) FROM Events WHERE chat_id=rooms.id " +
         ") OR rooms.membership='invite')" +
         " ORDER BY origin_server_ts DESC "
         , function(res) {
