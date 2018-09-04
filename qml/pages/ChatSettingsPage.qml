@@ -20,15 +20,17 @@ Page {
             membership = res.rows.length > 0 ? res.rows[0].membership : "unknown"
         })
 
-        // Request the full memberlist, from the server
-        matrix.get ( "/client/r0/rooms/%1/members".arg(activeChat), null, function (response) {
-            for ( var i = 0; i < response.chunk.length; i++ ) {
-                var member = response.chunk[ i ]
+        // Request the full memberlist, from the database
+        storage.transaction ( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Memberships.membership " +
+        " FROM Users, Memberships WHERE Memberships.chat_id='" + activeChat + "' " +
+        " AND Users.matrix_id=Memberships.matrix_id ", function (response) {
+            for ( var i = 0; i < response.rows.length; i++ ) {
+                var member = response.rows[ i ]
                 model.append({
-                    name: member.content.displayname || usernames.transformFromId( member.state_key ),
-                    matrixid: member.state_key,
+                    name: member.displayname || usernames.transformFromId( member.matrix_id ),
+                    matrixid: member.matrix_id,
                     membership: getDisplayMemberStatus ( member.membership ),
-                    avatar_url: member.content.avatar_url
+                    avatar_url: member.avatar_url
                 })
             }
         })

@@ -49,13 +49,15 @@ Item {
             waitForSync ()
             return sync ( 1 )
         }
-        toast.show ( i18n.tr("Synchronizing \n This can take a few minutes ...") )
+
+        loadingScreen.visible = true
+        //toast.show ( i18n.tr("Synchronizing \n This can take a few minutes ...") )
         matrix.get ("/client/r0/sync", null,function ( response ) {
             if ( waitingForSync ) progressBarRequests--
             matrix.onlineStatus = true
             handleEvents ( response )
             sync ()
-        }, null, null, longPollingTimeout )
+        }, init, null, longPollingTimeout )
     }
 
     function sync ( timeout ) {
@@ -137,6 +139,7 @@ Item {
                     settings.since = response.next_batch
                     chatListUpdated ( response )
                     triggerSignals ( response )
+                    loadingScreen.visible = false
                     //console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
                 }
             )

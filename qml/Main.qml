@@ -129,6 +129,7 @@ MainView {
     MediaController { id: media }
     SettingsController { id: settings }
     Toast { id: toast }
+    LoadingScreen { id: loadingScreen }
     LoadingModal { id: loadingModal }
 
 

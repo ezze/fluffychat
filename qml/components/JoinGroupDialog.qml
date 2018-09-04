@@ -34,6 +34,7 @@ Component {
                 color: UbuntuColors.green
                 onClicked: {
                     events.waitForSync ()
+                    loadingScreen.visible = true
                     matrix.post( "/client/r0/join/" + encodeURIComponent(groupTextField.displayText), null, success_callback )
                     PopupUtils.close(dialogue)
                 }
