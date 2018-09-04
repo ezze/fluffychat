@@ -6,14 +6,13 @@ import "../components"
 Rectangle {
     id: message
     //property var event
-    property var sending: event.sending || false
     property var isStateEvent: event.type !== "m.room.message"
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
+    property var sending: sent && event.status === msg_status.SENDING
 
     width: mainStackWidth
     height: messageBubble.height + units.gu(1)
     color: "transparent"
-    opacity: sending ? 0.66 : isStateEvent ? 0.75 : 1
 
 
     // When the width of the "window" changes (rotation for example) then the maxWidth
@@ -50,6 +49,7 @@ Rectangle {
 
     Rectangle {
         id: messageBubble
+        opacity: sending ? 0.66 : isStateEvent ? 0.75 : 1
         z: 2
         anchors.left: sent ? undefined : avatar.right
         anchors.right: sent ? avatar.left : undefined
@@ -63,7 +63,7 @@ Rectangle {
         color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
         radius: units.gu(2)
         height: messageLabel.height + !isStateEvent * metaLabel.height + thumbnail.height + downloadButton.height + units.gu(2)
-        width: Math.max( messageLabel.width + units.gu(2), (metaLabel.width + (event.sending ? units.gu(1.5) : 0)) + units.gu(2), thumbnail.width )
+        width: Math.max( messageLabel.width + units.gu(2), (metaLabelRow.width + (event.sending ? units.gu(1.5) : 0)) + units.gu(2), thumbnail.width )
 
         MouseArea {
             width: thumbnail.width
@@ -108,7 +108,7 @@ Rectangle {
             color: (sent || isStateEvent) ? "black" : "white"
             wrapMode: Text.Wrap
             textSize: isStateEvent ? Label.XSmall : Label.Medium
-            anchors.bottom: isStateEvent ? parent.bottom : metaLabel.top
+            anchors.bottom: isStateEvent ? parent.bottom : metaLabelRow.top
             anchors.left: parent.left
             anchors.topMargin: units.gu(1)
             anchors.leftMargin: units.gu(1)
@@ -134,30 +134,43 @@ Rectangle {
         }
 
 
-        // This label is for the meta-informations, which means it displays the
-        // display name of the sender of this message and the time.
-        Label {
-            id: metaLabel
-            text: (event.displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
+        Row {
+            id: metaLabelRow
             anchors.bottom: parent.bottom
-            anchors.left: parent.left
+            anchors.left: sent ? undefined : parent.left
+            anchors.right: sent ? parent.right : undefined
             anchors.margins: units.gu(1)
-            color: messageLabel.color
-            opacity: 0.66
-            textSize: Label.XSmall
-            visible: !isStateEvent
+            spacing: units.gu(0.5)
+
+            // This label is for the meta-informations, which means it displays the
+            // display name of the sender of this message and the time.
+            Label {
+                id: metaLabel
+                text: (event.displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
+                color: messageLabel.color
+                opacity: 0.66
+                textSize: Label.XSmall
+                visible: !isStateEvent
+            }
+            // When the message is just sending, then this activity indicator is visible
+            ActivityIndicator {
+                id: activity
+                visible: sending
+                running: visible
+                height: metaLabel.height
+                width: height
+            }
+            // When the message is received, there should be an icon
+            Icon {
+                visible: sent && event.status > 1
+                name: event.status === msg_status.SENT ? "send" : (event.status === msg_status.ERROR ? "edit-clear" : "tick")
+                color: event.status === msg_status.RECEIVED ? "black" : (event.status === msg_status.ERROR ? UbuntuColors.red : settings.mainColor)
+                height: metaLabel.height
+                width: height
+            }
         }
-        // When the message is just sending, then this activity indicator is visible
-        ActivityIndicator {
-            id: activity
-            visible: sending
-            running: visible
-            anchors.left: metaLabel.right
-            anchors.top: messageLabel.bottom
-            anchors.leftMargin: units.gu(0.25)
-            width: units.gu(1.25)
-            height: width
-        }
+
+
 
     }
 

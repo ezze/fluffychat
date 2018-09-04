@@ -14,7 +14,8 @@ ListView {
     property var count: model.count
 
     function update ( sync ) {
-        storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, members.matrix_id, members.displayname, members.avatar_url " +
+        storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, events.status, "+
+        " members.matrix_id, members.displayname, members.avatar_url " +
         " FROM Events events, Users members " +
         " WHERE events.chat_id='" + activeChat +
         "' AND members.matrix_id=events.sender " +

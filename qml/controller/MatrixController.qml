@@ -87,6 +87,17 @@ Item {
         mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
     }
 
+
+    function sendMessage ( messageID, data, callback ) {
+        matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, data, function ( response ) {
+            console.log("UPDATE Events SET id='" + response.event_id + "', status=1 WHERE id='" + messageID + "'")
+            storage.transaction ( "UPDATE Events SET id='" + response.event_id + "', status=1 WHERE id='" + messageID + "'", callback )
+        }, function ( error ) {
+            storage.transaction ( "UPDATE Events SET status=666 WHERE id='" + messageID + "'", callback )
+            if ( error.error !== "offline" ) toast.show ( error.errcode + ": " + error.error )
+        } )
+    }
+
     function get ( action, data, callback, error_callback, status_callback ) {
         return xmlRequest ( "GET", data, action, callback, error_callback, status_callback )
     }

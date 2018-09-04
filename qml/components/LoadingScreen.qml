@@ -14,7 +14,7 @@ Rectangle {
         anchors.centerIn: parent
         width: units.gu(4)
         height: width
-        name: "settings"
+        name: "sync-updating"
     }
 
     Label {

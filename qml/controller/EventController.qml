@@ -215,7 +215,7 @@ Item {
             // Only this events will call the notification signal or change the
             // current displayed chat!
             if ( type === "timeline" || type === "history" ) {
-                transaction.executeSql ( "INSERT OR IGNORE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
                 roomid,
                 event.origin_server_ts,
@@ -245,7 +245,6 @@ Item {
             // This event means, that the avatar of a room has been changed, so
             // it has to be changed in the database
             else if ( event.type === "m.room.avatar" ) {
-                console.log("avatar income")
                 transaction.executeSql( "UPDATE Chats SET avatar_url=? WHERE id=?",
                 [ event.content.url,
                 roomid ])

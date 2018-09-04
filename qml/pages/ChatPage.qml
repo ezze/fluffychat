@@ -17,35 +17,46 @@ Page {
     function send () {
         if ( sending || messageTextField.displayText === "" ) return
 
+
         // Send the message
-        var messageID = Math.floor((Math.random() * 1000000) + 1);
+        var messageID = "%" + Math.floor((Math.random() * 1000000) + 1);
+        var now = new Date().getTime()
         var data = {
             msgtype: "m.text",
             body: messageTextField.displayText
         }
-        var fakeEvent = {
-            type: "m.room.message",
-            sender: matrix.matrixid,
-            content_body: messageTextField.displayText,
-            displayname: settings.displayname,
-            avatar_url: settings.avatar_url,
-            sending: true,
-            origin_server_ts: new Date().getTime(),
-            content: {}
-        }
-        chatScrollView.addEventToList ( fakeEvent )
 
-        var error_callback = function ( error ) {
-            if ( error.error !== "offline" ) toast.show ( error.errcode + ": " + error.error )
-            chatScrollView.update ()
-        }
+        // Save the message in the database
+        storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [ messageID,
+        activeChat,
+        now,
+        matrix.matrixid,
+        messageTextField.displayText,
+        null,
+        "m.room.message",
+        JSON.stringify(data),
+        msg_status.SENDING ], function ( rs ) {
+            // Send the message
+            var fakeEvent = {
+                type: "m.room.message",
+                sender: matrix.matrixid,
+                content_body: messageTextField.displayText,
+                displayname: settings.displayname,
+                avatar_url: settings.avatar_url,
+                status: msg_status.SENDING,
+                origin_server_ts: now,
+                content: {}
+            }
+            chatScrollView.addEventToList ( fakeEvent )
 
-        matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, data, null, error_callback )
+            matrix.sendMessage ( messageID, data, chatScrollView.update )
 
-        messageTextField.focus = false
-        messageTextField.text = ""
-        messageTextField.focus = true
-        sendTypingNotification ( false )
+            messageTextField.focus = false
+            messageTextField.text = ""
+            messageTextField.focus = true
+            sendTypingNotification ( false )
+        })
     }
 
 
@@ -125,16 +136,13 @@ Page {
     }
 
     function update ( room ) {
-        console.log("new event")
         // Check the ephemerals for typing events
         if ( room.ephemeral && room.ephemeral.events ) {
-            console.log("new ephemeral")
             var ephemerals = room.ephemeral.events
             // Go through all ephemerals
             for ( var i = 0; i < ephemerals.length; i++ ) {
                 // Is this a typing event?
                 if ( ephemerals[ i ].type === "m.typing" ) {
-                    console.log("new typing")
                     var user_ids = ephemerals[ i ].content.user_ids
                     // If the user is typing, remove his id from the list of typing users
                     var ownTyping = user_ids.indexOf( matrix.matrixid )
@@ -144,7 +152,6 @@ Page {
                 }
             }
         }
-        console.log("handle new event")
         chatScrollView.handleNewEvent ( room.timeline.events )
     }
 

@@ -173,13 +173,11 @@ Page {
     function newChatAvatar ( roomid, avatar_url ) {
         for( var i = 0; i < model.count - 1; i++ ) {
             if ( model.get ( i ).room.id === roomid ) {
-                console.log("newchatavatar", i)
                 var tempRoom = model.get( i ).room
                 tempRoom.avatar_url = avatar_url
                 tempRoom.topic = "meeeeep"
                 model.remove ( i )
                 model.insert ( i, { "room": tempRoom } )
-                console.log("avatarjopp")
                 return
             }
         }
@@ -189,8 +187,6 @@ Page {
     Connections {
         target: events
         onChatListUpdated: update ( response )
-        onChatTypingEvent: typing ( roomid, user_ids )
-        onNewChatAvatar: newChatAvatar ( roomid, avatar_url )
     }
 
     header: FcPageHeader {
