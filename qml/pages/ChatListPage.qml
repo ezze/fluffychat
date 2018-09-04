@@ -15,7 +15,7 @@ Page {
     Component.onCompleted: {
 
         // On the top are the rooms, which the user is invited to
-        storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.avatar_url, " +
+        storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, " +
         " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.content_json, events.type " +
         " FROM Chats rooms LEFT JOIN Events events " +
         " ON rooms.id=events.chat_id " +
@@ -69,11 +69,13 @@ Page {
 
                 // Add the room to the list, if it does not exist
                 var unread = room.unread_notifications && room.unread_notifications.notification_count || 0
+                var highlightUnread = room.unread_notifications && room.unread_notifications.highlight_count || 0
                 if ( !roomExists ) {
                     var newRoom = {
                         "id": id,
                         "topic": "",
                         "membership": type,
+                        "highlight_count": highlightUnread,
                         "notification_count": unread
                     }
                     // Put new invitations to the top
@@ -89,6 +91,7 @@ Page {
 
                 // Update the notification count
                 tempRoom.notification_count = unread
+                tempRoom.highlight_count = highlightUnread
 
                 // Check the timeline events and add the latest event to the chat list
                 // as the latest message of the chat

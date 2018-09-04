@@ -88,7 +88,9 @@ ListItem {
     }
 
 
+    // Notification count bubble on the bottom right
     Rectangle {
+        id: notificationBubble
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins: units.gu(2)
@@ -104,6 +106,18 @@ ListItem {
             color: UbuntuColors.porcelain
         }
         visible: unreadLabel.text != "0"
+    }
+
+
+    Icon {
+        visible: room.highlight_count > 0
+        name: "dialog-warning-symbolic"
+        anchors.right: notificationBubble.left
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: units.gu(2)
+        anchors.rightMargin: units.gu(0.5)
+        width: units.gu(2)
+        height: width
     }
 
 

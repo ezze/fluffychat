@@ -177,9 +177,9 @@ Item {
                 " highlight_count=" +
                 (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
                 ", notification_count=" +
-                (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
-                ", limitedTimeline=" +
                 (room.unread_notifications && room.unread_notifications.notification_count || 0) +
+                ", limitedTimeline=" +
+                (room.timeline ? (room.timeline.limited ? 1 : 0) : 0) +
                 " WHERE id='" + id + "' ")
 
                 // Handle now all room events and save them in the database
