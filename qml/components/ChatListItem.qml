@@ -64,6 +64,11 @@ ListItem {
                 }
             })
 
+            // Get the room avatar if single chat
+            if ( avatar.mxc === "") roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
+                avatar.mxc = avatar_url
+            } )
+
             // Update the labels
             stampLabel.text = stamp.getChatTime ( room.origin_server_ts )
             unreadLabel.text = room.notification_count || "0"

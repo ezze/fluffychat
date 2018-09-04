@@ -7,6 +7,7 @@ from a userid address, such like: "#alice@matrix.org"
 */
 
 Item {
+    
     function getById ( matrixid, roomid, callback ) {
         var username = transformFromId( matrixid )
         storage.transaction ( "SELECT displayname FROM Users WHERE matrix_id='" + matrixid + "'", function(rs) {
