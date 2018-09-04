@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-04 12:27+0000\n"
+"POT-Creation-Date: 2018-09-04 12:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "The chat permissions have been changed"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:89
+#: ../qml/controller/EventController.qml:87
 msgid "You are offline 😕"
 msgstr ""
 
@@ -222,7 +222,7 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:26 ../qml/pages/ChatPage.qml:134
+#: ../qml/components/ChatListItem.qml:26 ../qml/pages/ChatPage.qml:158
 msgid "Unknown chat"
 msgstr ""
 
@@ -347,7 +347,7 @@ msgstr ""
 msgid "Enter a name for the chat"
 msgstr ""
 
-#: ../qml/components/InviteDialog.qml:11 ../qml/pages/ChatPage.qml:151
+#: ../qml/components/InviteDialog.qml:11 ../qml/pages/ChatPage.qml:175
 msgid "Invite a friend"
 msgstr ""
 
@@ -428,32 +428,32 @@ msgstr ""
 msgid "Green"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:141
+#: ../qml/pages/ChatPage.qml:165
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:146 ../qml/pages/MainSettingsPage.qml:35
+#: ../qml/pages/ChatPage.qml:170 ../qml/pages/MainSettingsPage.qml:35
 #: ../qml/pages/NotificationSettingsPage.qml:64
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:128
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:187
+#: ../qml/pages/ChatPage.qml:211
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:241
+#: ../qml/pages/ChatPage.qml:265
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:246 ../qml/pages/AddChatPage.qml:24
+#: ../qml/pages/ChatPage.qml:270 ../qml/pages/AddChatPage.qml:24
 msgid ""
 "Synchronizing \n"
 " This can take a few minutes ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:285
+#: ../qml/pages/ChatPage.qml:309
 msgid "Type something ..."
 msgstr ""
 
@@ -627,7 +627,7 @@ msgstr ""
 msgid "Don't notify"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:207
+#: ../qml/pages/ChatListPage.qml:224
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 

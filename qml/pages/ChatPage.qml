@@ -120,8 +120,32 @@ Page {
 
     Connections {
         target: events
-        onChatTimelineEvent: chatScrollView.handleNewEvent ( response )
-        onChatTypingEvent: if ( roomid === activeChat ) activeChatTypingUsers = user_ids
+        onChatTimelineEvent: update ( response )
+        //onChatTypingEvent: if ( roomid === activeChat ) activeChatTypingUsers = user_ids
+    }
+
+    function update ( room ) {
+        console.log("new event")
+        // Check the ephemerals for typing events
+        if ( room.ephemeral && room.ephemeral.events ) {
+            console.log("new ephemeral")
+            var ephemerals = room.ephemeral.events
+            // Go through all ephemerals
+            for ( var i = 0; i < ephemerals.length; i++ ) {
+                // Is this a typing event?
+                if ( ephemerals[ i ].type === "m.typing" ) {
+                    console.log("new typing")
+                    var user_ids = ephemerals[ i ].content.user_ids
+                    // If the user is typing, remove his id from the list of typing users
+                    var ownTyping = user_ids.indexOf( matrix.matrixid )
+                    if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
+                    // Call the signal
+                    activeChatTypingUsers = user_ids
+                }
+            }
+        }
+        console.log("handle new event")
+        chatScrollView.handleNewEvent ( room.timeline.events )
     }
 
 

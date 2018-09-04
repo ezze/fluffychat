@@ -114,6 +114,23 @@ Page {
                     else if ( tevent.type === "m.room.name" ) tempRoom.topic = tevent.content.name
                 }
 
+                // Check the ephemerals for typing events
+                    if ( room.ephemeral && room.ephemeral.events ) {
+                        var ephemerals = room.ephemeral.events
+                        // Go through all ephemerals
+                        for ( var i = 0; i < ephemerals.length; i++ ) {
+                            // Is this a typing event?
+                            if ( ephemerals[ i ].type === "m.typing" ) {
+                                var user_ids = ephemerals[ i ].content.user_ids
+                                // If the user is typing, remove his id from the list of typing users
+                                var ownTyping = user_ids.indexOf( matrix.matrixid )
+                                if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
+                                // Call the signal
+                                tempRoom.typing = user_ids
+                            }
+                        }
+                    }
+
                 // Now reorder this item
                 if ( newTimelineEvents || !roomExists ) {
                     while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) {
