@@ -73,11 +73,6 @@ ListItem {
             if ( avatar.mxc === "") roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
                 avatar.mxc = avatar_url
             } )
-
-            // Update the labels
-            stampLabel.text = stamp.getChatTime ( room.origin_server_ts )
-            unreadLabel.text = room.notification_count || "0"
-            layout.title.font.italic = room.membership === "invite"
         }
     }
 
@@ -85,20 +80,22 @@ ListItem {
     Label {
         id: stampLabel
         anchors.right: parent.right
-        anchors.bottom: parent.bottom
+        anchors.top: parent.top
         anchors.margins: units.gu(2)
         text: stamp.getChatTime ( room.origin_server_ts )
         textSize: Label.XSmall
         visible: text != ""
     }
+
+
     Rectangle {
         anchors.right: parent.right
-        anchors.top: parent.top
+        anchors.bottom: parent.bottom
         anchors.margins: units.gu(2)
         width: unreadLabel.width + units.gu(1)
         height: units.gu(2)
         color: settings.mainColor
-        radius: 90
+        radius: units.gu(0.5)
         Label {
             id: unreadLabel
             anchors.centerIn: parent
@@ -108,6 +105,8 @@ ListItem {
         }
         visible: unreadLabel.text != "0"
     }
+
+
     // Delete Button
     leadingActions: ListItemActions {
         actions: [
