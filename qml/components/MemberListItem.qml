@@ -5,7 +5,9 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 
 ListItem {
-    height: layout.height
+
+    visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
+    height: visible ? layout.height : 0
 
     onClicked: {
         newContactMatrixID = matrixid

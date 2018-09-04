@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-04 18:21+0000\n"
+"POT-Creation-Date: 2018-09-04 18:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:246
+#: ../qml/pages/ChatListPage.qml:246 ../qml/pages/ChatSettingsPage.qml:182
 msgid "Search..."
 msgstr ""
 
@@ -239,7 +239,7 @@ msgstr ""
 #: ../qml/pages/MainSettingsPage.qml:35
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:170
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:137
+#: ../qml/pages/ChatSettingsPage.qml:133
 msgid "Notifications"
 msgstr ""
 
@@ -389,23 +389,23 @@ msgstr ""
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:121
+#: ../qml/pages/ChatSettingsPage.qml:117
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:132
+#: ../qml/pages/ChatSettingsPage.qml:128
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:142
+#: ../qml/pages/ChatSettingsPage.qml:138
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:163
+#: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:163
+#: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Loading users ..."
 msgstr ""
 

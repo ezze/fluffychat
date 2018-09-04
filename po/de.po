@@ -299,6 +299,10 @@ msgstr "Nachrichten aus Einzelchats"
 msgid "Contains my display name"
 msgstr "Enthalten meinen Anzeigenamen"
 
+#: ../qml/pages/ChatListPage.qml:246 ../qml/pages/ChatSettingsPage.qml:182
+msgid "Search..."
+msgstr "Suche ..."
+
 #: ../qml/pages/NotificationSettingsPage.qml:120
 msgid "Contains my user name"
 msgstr "Enthalten meinen Benutzernamen"

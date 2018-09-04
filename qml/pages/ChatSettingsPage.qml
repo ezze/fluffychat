@@ -101,7 +101,6 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 mxc: ""
                 Component.onCompleted: {
-                    console.log("fetching")
                     roomnames.getAvatarUrl ( activeChat,
                         function ( avatar_url ) { mxc = avatar_url } )
                 }
@@ -161,11 +160,38 @@ Page {
                     font.bold: true
                 }
             }
+            Rectangle {
+                width: parent.width
+                height: units.gu(2)
+                color: theme.palette.normal.background
+            }
+            Rectangle {
+                width: parent.width
+                height: searchField.height + units.gu(2)
+                color: theme.palette.normal.background
+                TextField {
+                    id: searchField
+                    objectName: "searchField"
+                    anchors {
+                        left: parent.left
+                        right: parent.right
+                        rightMargin: units.gu(2)
+                        leftMargin: units.gu(2)
+                    }
+                    inputMethodHints: Qt.ImhNoPredictiveText
+                    placeholderText: i18n.tr("Search...")
+                }
+            }
+            Rectangle {
+                width: parent.width
+                height: 1
+                color: UbuntuColors.silk
+            }
 
             ListView {
                 id: memberList
                 width: parent.width
-                height: root.height / 2
+                height: root.height / 1.5
                 delegate: MemberListItem { }
                 model: ListModel { id: model }
                 z: -1
