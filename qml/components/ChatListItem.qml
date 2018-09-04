@@ -28,12 +28,14 @@ ListItem {
         title.font.italic: room.membership === "invite"
         title.color: settings.darkmode ? "#FFFFFF" : "#000000"
         subtitle.text: i18n.tr("No previous messages")
+
         Avatar {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
             name: room.topic || room.id
             mxc: room.avatar_url || ""
         }
+        
         Component.onCompleted: {
 
             // Get the last message

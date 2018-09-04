@@ -99,6 +99,12 @@ Page {
                 width: parent.width / 2
                 radius: 100
                 anchors.horizontalCenter: parent.horizontalCenter
+                mxc: ""
+                Component.onCompleted: {
+                    console.log("fetching")
+                    roomnames.getAvatarUrl ( activeChat,
+                        function ( avatar_url ) { mxc = avatar_url } )
+                }
             }
             Rectangle {
                 width: parent.width
