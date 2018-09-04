@@ -7,6 +7,8 @@ Page {
     anchors.fill: parent
     id: chatListPage
 
+    property var searching: false
+
 
     // This is the most importent function of this page! It updates all rooms, based
     // on the informations in the sqlite database!
@@ -115,21 +117,21 @@ Page {
                 }
 
                 // Check the ephemerals for typing events
-                    if ( room.ephemeral && room.ephemeral.events ) {
-                        var ephemerals = room.ephemeral.events
-                        // Go through all ephemerals
-                        for ( var i = 0; i < ephemerals.length; i++ ) {
-                            // Is this a typing event?
-                            if ( ephemerals[ i ].type === "m.typing" ) {
-                                var user_ids = ephemerals[ i ].content.user_ids
-                                // If the user is typing, remove his id from the list of typing users
-                                var ownTyping = user_ids.indexOf( matrix.matrixid )
-                                if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
-                                // Call the signal
-                                tempRoom.typing = user_ids
-                            }
+                if ( room.ephemeral && room.ephemeral.events ) {
+                    var ephemerals = room.ephemeral.events
+                    // Go through all ephemerals
+                    for ( var i = 0; i < ephemerals.length; i++ ) {
+                        // Is this a typing event?
+                        if ( ephemerals[ i ].type === "m.typing" ) {
+                            var user_ids = ephemerals[ i ].content.user_ids
+                            // If the user is typing, remove his id from the list of typing users
+                            var ownTyping = user_ids.indexOf( matrix.matrixid )
+                            if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
+                            // Call the signal
+                            tempRoom.typing = user_ids
                         }
                     }
+                }
 
                 // Now reorder this item
                 if ( newTimelineEvents || !roomExists ) {
@@ -188,14 +190,23 @@ Page {
         onNewChatAvatar: newChatAvatar ( roomid, avatar_url )
     }
 
-
     header: FcPageHeader {
         id: header
+
         trailingActionBar {
             actions: [
             Action {
+                iconName: searching ? "close" : "search"
+                onTriggered: {
+                    searching = searchField.focus = !searching
+                    if ( !searching ) searchField.text = ""
+                }
+            },
+            Action {
                 iconName: "settings"
                 onTriggered: {
+                    searching = false
+                    searchField.text = ""
                     mainStack.toStart ()
                     mainStack.push(Qt.resolvedUrl("./MainSettingsPage.qml"))
                 }
@@ -203,6 +214,8 @@ Page {
             Action {
                 iconName: "add"
                 onTriggered: {
+                    searching = false
+                    searchField.text = ""
                     mainStack.toStart ()
                     mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
                 }
@@ -211,11 +224,32 @@ Page {
         }
     }
 
+
+
+    TextField {
+        id: searchField
+        objectName: "searchField"
+        visible: searching
+        anchors {
+            top: header.bottom
+            topMargin: units.gu(1)
+            bottomMargin: units.gu(1)
+            left: parent.left
+            right: parent.right
+            rightMargin: units.gu(2)
+            leftMargin: units.gu(2)
+        }
+        inputMethodHints: Qt.ImhNoPredictiveText
+        placeholderText: i18n.tr("Search...")
+    }
+
+
     ListView {
         id: chatListView
         width: parent.width
         height: parent.height - header.height
         anchors.top: header.bottom
+        anchors.topMargin: searching * (searchField.height + units.gu(2))
         delegate: ChatListItem {}
         model: ListModel { id: model }
     }
@@ -232,6 +266,8 @@ Page {
         height: parent.height
 
         onCommitCompleted: {
+            searching = false
+            searchField.text = ""
             mainStack.toStart ()
             mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
             collapse()

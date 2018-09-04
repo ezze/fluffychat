@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-04 16:43+0000\n"
+"POT-Creation-Date: 2018-09-04 17:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -220,7 +220,11 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:224
+#: ../qml/pages/ChatListPage.qml:243
+msgid "Search..."
+msgstr ""
+
+#: ../qml/pages/ChatListPage.qml:276
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
@@ -314,7 +318,7 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:158 ../qml/components/ChatListItem.qml:26
+#: ../qml/pages/ChatPage.qml:158 ../qml/components/ChatListItem.qml:29
 msgid "Unknown chat"
 msgstr ""
 
@@ -612,15 +616,15 @@ msgstr ""
 msgid "Synchronizing ... Please wait!"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:30
+#: ../qml/components/ChatListItem.qml:33
 msgid "No previous messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:43
+#: ../qml/components/ChatListItem.qml:46
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:50
+#: ../qml/components/ChatListItem.qml:53
 msgid "You: "
 msgstr ""
 

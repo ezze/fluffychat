@@ -10,9 +10,12 @@ ListItem {
     property var timeorder: 0
     property var previousMessage: ""
 
-    height: layout.height
+    visible: { searching ? layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 : true }
+    height: visible ? layout.height : 0
 
     onClicked: {
+        searching = false
+        searchField.text = ""
         mainStack.toStart ()
         activeChat = room.id
         activeChatTypingUsers = room.typing || []
@@ -35,7 +38,7 @@ ListItem {
             name: room.topic || room.id
             mxc: room.avatar_url || ""
         }
-        
+
         Component.onCompleted: {
 
             // Get the last message
