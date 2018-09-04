@@ -35,7 +35,7 @@ Item {
             else return i18n.tr("⌨️ %1 is typing ...").arg( username )
         }
         else if ( user_ids.length > 1 ) {
-            return i18n.tr("⌨️ %1 and %2 more are typing ...").arg( username ).arg( user_ids.length )
+            return i18n.tr("⌨️ %1 and %2 more are typing ...").arg( username ).arg( user_ids.length-1 )
         }
         else return ""
     }
