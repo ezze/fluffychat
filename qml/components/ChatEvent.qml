@@ -162,11 +162,19 @@ Rectangle {
             }
             // When the message is received, there should be an icon
             Icon {
+                id: statusIcon
                 visible: sent && event.status > 1
                 name: event.status === msg_status.SENT ? "send" : (event.status === msg_status.ERROR ? "edit-clear" : "tick")
-                color: event.status === msg_status.RECEIVED ? "black" : (event.status === msg_status.ERROR ? UbuntuColors.red : settings.mainColor)
                 height: metaLabel.height
                 width: height
+            }
+            Icon {
+                visible: sent && event.status === msg_status.SEEN
+                name: "tick"
+                height: metaLabel.height
+                width: height
+                anchors.left: statusIcon.left
+                anchors.leftMargin: units.gu(0.5)
             }
         }
 

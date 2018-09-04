@@ -124,6 +124,7 @@ Item {
     // This function starts handling the events, saving new data in the storage,
     // deleting data, updating data and call signals
     function handleEvents ( response ) {
+
         //console.log( "===== NEW SYNC:", JSON.stringify( response ) )
         var changed = false
         var timecount = new Date().getTime()
@@ -192,13 +193,32 @@ Item {
                         transaction.executeSql ("DELETE FROM Events WHERE chat_id='" + id + "'")
                         transaction.executeSql ("UPDATE Chats SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
                     }
-                    handleRoomEvents ( id, room.timeline.events, "timeline", room )
+                    //handleRoomEvents ( id, room.timeline.events, "timeline", room )
                 }
+                if ( room.ephemeral ) handleEphemeral ( id, room.ephemetal.events, room )
             }
             else {
                 transaction.executeSql ( "DELETE FROM Chats WHERE id='" + id + "'")
                 transaction.executeSql ( "DELETE FROM Memberships WHERE chat_id='" + id + "'")
                 transaction.executeSql ( "DELETE FROM Events WHERE chat_id='" + id + "'")
+            }
+        }
+    }
+
+
+    // Handle ephemerals (message receipts)
+    function handleEphemeral ( id, events, room ) {
+        for ( var i = 0; i < events.length; i++ ) {
+            if ( events[i].type === "m.receipt" ) {
+                for ( var e in events[i].content ) {
+                    for ( var user in events[i].content[e]["m.read"]) {
+                        console.log ( JSON.stringify( events[i].content[e]["m.read"][user]))
+                        //var timestamp = events[i].content[e]["m.read"][user].ts
+                        /*transaction.executeSql ( "UPDATE Evenets SET status=3 WHERE origin_server_ts<" + timestamp +
+                        " AND chat_id='" + id + "' AND status=2")*/
+                        //console.log("update",timestamp)
+                    }
+                }
             }
         }
     }
