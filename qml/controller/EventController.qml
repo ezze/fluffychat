@@ -26,6 +26,7 @@ Item {
     signal chatListUpdated ( var response )
     signal chatTimelineEvent ( var response )
     signal chatTypingEvent ( var roomid, var user_ids )
+    signal newChatAvatar ( var roomid, var avatar_url )
 
     property var syncRequest: null
     property var initialized: false
@@ -265,6 +266,7 @@ Item {
                 transaction.executeSql( "UPDATE Chats SET avatar_url=? WHERE id=?",
                 [ event.content.url,
                 roomid ])
+                //newChatAvatar ( roomid, event.content.url )
             }
 
             // This event means, that someone joined the room, has left the room

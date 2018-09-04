@@ -101,6 +101,19 @@ Page {
                     tempRoom.type = lastEvent.type
                 }
 
+                var allEvents = room.timeline.events.concat( room.state.events)
+
+                // Search for new room avatar or topic
+                for ( var n = 0; n < allEvents.length; n++ ) {
+                    var tevent = allEvents[ n ]
+
+                    // New avatar?
+                    if ( tevent.type === "m.room.avatar" ) tempRoom.avatar_url = tevent.content.url
+
+                    // New topic?
+                    else if ( tevent.type === "m.room.name" ) tempRoom.topic = tevent.content.name
+                }
+
                 // Now reorder this item
                 if ( newTimelineEvents || !roomExists ) {
                     while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) {
@@ -135,10 +148,27 @@ Page {
     }
 
 
+    function newChatAvatar ( roomid, avatar_url ) {
+        for( var i = 0; i < model.count - 1; i++ ) {
+            if ( model.get ( i ).room.id === roomid ) {
+                console.log("newchatavatar", i)
+                var tempRoom = model.get( i ).room
+                tempRoom.avatar_url = avatar_url
+                tempRoom.topic = "meeeeep"
+                model.remove ( i )
+                model.insert ( i, { "room": tempRoom } )
+                console.log("avatarjopp")
+                return
+            }
+        }
+    }
+
+
     Connections {
         target: events
         onChatListUpdated: update ( response )
         onChatTypingEvent: typing ( roomid, user_ids )
+        onNewChatAvatar: newChatAvatar ( roomid, avatar_url )
     }
 
 
