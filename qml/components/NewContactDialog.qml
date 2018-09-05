@@ -14,6 +14,17 @@ Component {
             width: parent.width
             color: settings.mainColor
         }
+        Label {
+            text: i18n.tr("What is the username of your friend?")
+            width: parent.width
+            wrapMode: Text.Wrap
+        }
+        Label {
+            text: i18n.tr("(Your username is: <b>%1</b>)").arg(matrix.matrixid)
+            width: parent.width
+            wrapMode: Text.Wrap
+            textSize: Label.Small
+        }
         TextField {
             id: contactTextField
             text: newContactMatrixID !== undefined ? newContactMatrixID : ""

@@ -34,7 +34,7 @@ Settings {
     property var dbversion
 
     // Is the pusher set?
-    property var pusherIsSet
+    property var pushToken
 
     // The main color of the theme
     property var mainColor: defaultMainColor

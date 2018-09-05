@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-05 11:07+0000\n"
+"POT-Creation-Date: 2018-09-05 11:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -503,7 +503,7 @@ msgstr ""
 #: ../qml/components/LogoutDialog.qml:35
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/InviteDialog.qml:27
-#: ../qml/components/NewContactDialog.qml:28
+#: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
 #: ../qml/components/ChangeChatnameDialog.qml:34
 msgid "Cancel"
@@ -563,7 +563,7 @@ msgstr ""
 
 #: ../qml/components/NewGroupDialog.qml:32
 #: ../qml/components/JoinGroupDialog.qml:32
-#: ../qml/components/NewContactDialog.qml:33
+#: ../qml/components/NewContactDialog.qml:44
 msgid "Continue"
 msgstr ""
 
@@ -652,7 +652,15 @@ msgstr ""
 msgid "New single chat"
 msgstr ""
 
-#: ../qml/components/NewContactDialog.qml:20
+#: ../qml/components/NewContactDialog.qml:18
+msgid "What is the username of your friend?"
+msgstr ""
+
+#: ../qml/components/NewContactDialog.qml:23
+msgid "(Your username is: <b>%1</b>)"
+msgstr ""
+
+#: ../qml/components/NewContactDialog.qml:31
 msgid "@yourfriend:"
 msgstr ""
 

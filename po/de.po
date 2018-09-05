@@ -652,6 +652,14 @@ msgstr "Hole weitere Nachrichten vom Server ..."
 msgid "New single chat"
 msgstr "Neuer Einzelchat"
 
+#: ../qml/components/NewContactDialog.qml:18
+msgid "What is the username of your friend?"
+msgstr "Wie ist der Nutzername von deiner Freundin oder deinem Freund?"
+
+#: ../qml/components/NewContactDialog.qml:23
+msgid "(Your username is: <b>%1</b>)"
+msgstr "(Dein Benutzername ist: <b>%1</b>)"
+
 #: ../qml/components/NewContactDialog.qml:20
 msgid "@yourfriend:"
 msgstr "@DeinFreund:"
@@ -659,6 +667,14 @@ msgstr "@DeinFreund:"
 #: ../qml/components/ChangeDisplaynameDialog.qml:11
 msgid "Change your display name"
 msgstr "Ändere deinen Anzeigenamen"
+
+#: ../qml/components/LoadingScreen.qml:26
+msgid ""
+"Loading chats \n"
+" This can take a few minutes ..."
+msgstr ""
+"Chats werden geladen \n"
+" Das kann ein paar Minuten dauern ..."
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:19
 msgid "Enter your new nickname"
