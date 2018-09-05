@@ -49,5 +49,5 @@ Settings {
     property var sendTypingNotification: true
 
     // Auto accept invitations?
-    property var autoAcceptInvitations: false
+    property var autoAcceptInvitations: true
 }

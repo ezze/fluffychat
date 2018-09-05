@@ -162,6 +162,7 @@ Item {
 
     // Accept all invitations automatically
     function autoAcceptInvitations () {
+        console.log("Auto accept invitations ...")
         storage.transaction ( "SELECT id FROM Chats WHERE membership='invite'", function ( rs ) {
             console.log(JSON.stringify(rs.rows))
             if ( rs.rows.length === 0 ) return

@@ -28,8 +28,7 @@ ListItem {
         width: parent.width - notificationBubble.width - highlightBubble.width
         title.text: i18n.tr("Unknown chat")
         title.font.bold: true
-        title.font.italic: room.membership === "invite"
-        title.color: settings.darkmode ? "#FFFFFF" : "#000000"
+        title.color: room.membership === "invite" ? settings.mainColor : (settings.darkmode ? "white" : "black")
         subtitle.text: i18n.tr("No previous messages")
 
         Avatar {

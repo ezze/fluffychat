@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-05 13:03+0000\n"
+"POT-Creation-Date: 2018-09-05 13:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -160,7 +160,7 @@ msgstr ""
 msgid "You do not have permission to write to this chat."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:257
+#: ../qml/controller/MatrixController.qml:258
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -232,11 +232,11 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:242 ../qml/pages/ChatSettingsPage.qml:182
+#: ../qml/pages/ChatListPage.qml:243 ../qml/pages/ChatSettingsPage.qml:182
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:257
+#: ../qml/pages/ChatListPage.qml:258
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
@@ -368,6 +368,10 @@ msgstr ""
 
 #: ../qml/pages/PrivacySettingsPage.qml:23
 msgid "Send that I am typing"
+msgstr ""
+
+#: ../qml/pages/PrivacySettingsPage.qml:30
+msgid "Automatically accept chat invitations"
 msgstr ""
 
 #: ../qml/pages/PrivacySettingsPage.qml:37
@@ -637,15 +641,15 @@ msgstr ""
 msgid "Synchronizing ... Please wait!"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:33
+#: ../qml/components/ChatListItem.qml:32
 msgid "No previous messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:46
+#: ../qml/components/ChatListItem.qml:45
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:53
+#: ../qml/components/ChatListItem.qml:52
 msgid "You: "
 msgstr ""
 

@@ -186,7 +186,9 @@ Item {
                 (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
                 ", notification_count=" +
                 (room.unread_notifications && room.unread_notifications.notification_count || 0) +
-                ", limitedTimeline=" +
+                ", membership='" +
+                membership +
+                "', limitedTimeline=" +
                 (room.timeline ? (room.timeline.limited ? 1 : 0) : 0) +
                 " WHERE id='" + id + "' ")
 
