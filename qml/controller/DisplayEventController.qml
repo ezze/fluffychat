@@ -38,6 +38,12 @@ Item {
         else if ( event.type === "m.room.topic" ) {
             body = i18n.tr("%1 has changed the chat topic").arg(displayname)
         }
+        else if ( event.type === "m.room.avatar" ) {
+            body = i18n.tr("%1 has changed the chat avatar").arg(displayname)
+        }
+        else if ( event.type === "m.sticker" ) {
+            body = i18n.tr("%1 has sent a sticker").arg(displayname)
+        }
         else if ( event.type === "m.room.history_visibility" ) {
             body = i18n.tr("%1 has set the chat history visible to: ").arg(displayname)
             if ( event.content.history_visibility === "shared" ) {

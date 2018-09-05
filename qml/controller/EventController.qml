@@ -213,7 +213,6 @@ Item {
                 for ( var e in events[i].content ) {
                     for ( var user in events[i].content[e]["m.read"]) {
                         var timestamp = events[i].content[e]["m.read"][user].ts
-                        console.log(timestamp)
                         transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
                         " AND chat_id='" + id + "' AND status=2")
                     }

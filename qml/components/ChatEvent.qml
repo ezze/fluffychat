@@ -6,7 +6,7 @@ import "../components"
 Rectangle {
     id: message
     //property var event
-    property var isStateEvent: event.type !== "m.room.message"
+    property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.sticker"
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
     property var sending: sent && event.status === msg_status.SENDING
 
@@ -70,7 +70,7 @@ Rectangle {
             height: thumbnail.height
             Image {
                 id: thumbnail
-                visible: !isStateEvent && event.content.msgtype === "m.image" && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
+                visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
                 width: visible ? Math.max( units.gu(24), messageLabel.width + units.gu(2) ) : 0
                 source: event.content.url ? media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, 2*Math.round (width), 2*Math.round (width) ) : ""
                 height: width * ( sourceSize.height / sourceSize.width )
@@ -104,6 +104,8 @@ Rectangle {
         // is main responsible for the width of the message bubble.
         Label {
             id: messageLabel
+            opacity: event.type === "m.sticker" ? 0 : 1
+            height: event.type === "m.sticker" ? 0 : undefined
             text: isStateEvent ? displayEvents.getDisplay ( event ) + " <font color='" + UbuntuColors.silk + "'>" + stamp.getChatTime ( event.origin_server_ts ) + "</font>" :  event.content_body || event.content.body
             color: (sent || isStateEvent) ? "black" : "white"
             wrapMode: Text.Wrap
