@@ -44,4 +44,10 @@ Settings {
 
     // The path to the chat background
     property var chatBackground
+
+    // Security & Privacy: Send typing notification?
+    property var sendTypingNotification: true
+
+    // Auto accept invitations?
+    property var autoAcceptInvitations: false
 }

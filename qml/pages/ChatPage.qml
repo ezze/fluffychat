@@ -99,6 +99,7 @@ Page {
 
 
     function sendTypingNotification ( typing ) {
+        if ( !settings.sendTypingNotification ) return
         if ( !typing && isTyping) {
             typingTimer.stop ()
             isTyping = false
@@ -272,12 +273,11 @@ Page {
             anchors.centerIn: parent
             visible: membership === "invite"
             onClicked: {
-                var success_callback = function () {
-                    toast.show ( i18n.tr("Synchronizing \n This can take a few minutes ...") )
+                loadingScreen.visible = true
+                matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, function () {
                     events.waitForSync ()
                     membership = "join"
-                }
-                matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, success_callback)
+                })
             }
         }
 
@@ -295,6 +295,7 @@ Page {
             preferences.allowFileAccessFromFileUrls: true
             preferences.allowUniversalAccessFromFileUrls: true
             filePicker: pickerComponent
+            visible: membership === "join"
         }
 
         Timer {

@@ -135,12 +135,19 @@ Item {
                     handleRooms ( response.rooms.join, "join" )
                     handleRooms ( response.rooms.leave, "leave" )
                     handleRooms ( response.rooms.invite, "invite" )
+
                     settings.since = response.next_batch
                     triggerSignals ( response )
                     loadingScreen.visible = false
                     //console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
                 }
             )
+            if ( settings.autoAcceptInvitations ) {
+                for ( var i in response.rooms.invite ) {
+                    matrix.autoAcceptInvitations ()
+                    break
+                }
+            }
         }
         catch ( e ) {
             toast.show ( "CRITICAL ERROR:", e )

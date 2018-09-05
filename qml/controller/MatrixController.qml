@@ -160,6 +160,20 @@ Item {
     }
 
 
+    // Accept all invitations automatically
+    function autoAcceptInvitations () {
+        storage.transaction ( "SELECT id FROM Chats WHERE membership='invite'", function ( rs ) {
+            console.log(JSON.stringify(rs.rows))
+            if ( rs.rows.length === 0 ) return
+            loadingScreen.visible = true
+            matrix.post("/client/r0/join/" + encodeURIComponent(rs.rows[0].id), null, function () {
+                events.waitForSync ()
+                if ( rs.rows.length > 1 ) autoAcceptInvitations ()
+            })
+        })
+    }
+
+
     Connections {
         target: Connectivity
         onOnlineChanged: if ( Connectivity.online ) resendAllMessages ()

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-05 12:04+0000\n"
+"POT-Creation-Date: 2018-09-05 13:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -160,7 +160,7 @@ msgstr ""
 msgid "You do not have permission to write to this chat."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:243
+#: ../qml/controller/MatrixController.qml:257
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -249,7 +249,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:35
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:176
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:177
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:133
 msgid "Notifications"
@@ -265,8 +265,8 @@ msgid "Theme"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:53
-#: ../qml/pages/DevicesSettingsPage.qml:24
-msgid "Devices"
+#: ../qml/pages/PrivacySettingsPage.qml:11
+msgid "Security & Privacy"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:59
@@ -330,33 +330,27 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:164 ../qml/components/ChatListItem.qml:29
+#: ../qml/pages/ChatPage.qml:165 ../qml/components/ChatListItem.qml:29
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:171
+#: ../qml/pages/ChatPage.qml:172
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:181 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:182 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:217
+#: ../qml/pages/ChatPage.qml:218
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:271
+#: ../qml/pages/ChatPage.qml:272
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:276 ../qml/pages/AddChatPage.qml:24
-msgid ""
-"Synchronizing \n"
-" This can take a few minutes ..."
-msgstr ""
-
-#: ../qml/pages/ChatPage.qml:315
+#: ../qml/pages/ChatPage.qml:316
 msgid "Type something ..."
 msgstr ""
 
@@ -370,6 +364,15 @@ msgstr ""
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:106
 msgid "Don't notify"
+msgstr ""
+
+#: ../qml/pages/PrivacySettingsPage.qml:23
+msgid "Send that I am typing"
+msgstr ""
+
+#: ../qml/pages/PrivacySettingsPage.qml:37
+#: ../qml/pages/DevicesSettingsPage.qml:24
+msgid "Devices"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:40
@@ -419,6 +422,12 @@ msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Loading users ..."
+msgstr ""
+
+#: ../qml/pages/AddChatPage.qml:24
+msgid ""
+"Synchronizing \n"
+" This can take a few minutes ..."
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:33

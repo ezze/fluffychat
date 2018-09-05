@@ -59,6 +59,14 @@ msgid "%1 has changed the chat topic"
 msgstr "%1 hat das Chat Thema geändert"
 
 #: ../qml/controller/DisplayEventController.qml:42
+msgid "%1 has changed the chat avatar"
+msgstr "%1 hat ein Bild für den Chat hinzugefügt"
+
+#: ../qml/controller/DisplayEventController.qml:45
+msgid "%1 has sent a sticker"
+msgstr "%1 hat einen Sticker gesendet"
+
+#: ../qml/controller/DisplayEventController.qml:42
 msgid "%1 has set the chat history visible to: "
 msgstr "%1 hat die Sichtbarkeit des Chatverlaufs geändert zu: "
 
@@ -258,6 +266,11 @@ msgid "Theme"
 msgstr "Darstellung"
 
 #: ../qml/pages/MainSettingsPage.qml:53
+#: ../qml/pages/PrivacySettingsPage.qml:11
+msgid "Security & Privacy"
+msgstr "Sicherheit & Privatsphäre"
+
+#: ../qml/pages/MainSettingsPage.qml:53
 #: ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
 msgstr "Geräte"
@@ -366,6 +379,10 @@ msgstr "Nicht benachrichtigen"
 #: ../qml/pages/ChatSettingsPage.qml:38
 msgid "Member"
 msgstr "Mitglieder"
+
+#: ../qml/pages/PrivacySettingsPage.qml:23
+msgid "Send that I am typing"
+msgstr "Sende, dass ich tippe"
 
 #: ../qml/pages/ChatSettingsPage.qml:39
 msgid "Was invited"

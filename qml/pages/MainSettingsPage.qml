@@ -50,9 +50,9 @@ Page {
             }
 
             SettingsListLink {
-                name: i18n.tr("Devices")
-                icon: "phone-smartphone-symbolic"
-                page: "DevicesSettingsPage"
+                name: i18n.tr("Security & Privacy")
+                icon: "system-lock-screen"
+                page: "PrivacySettingsPage"
             }
 
             SettingsListLink {
