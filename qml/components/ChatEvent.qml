@@ -140,7 +140,7 @@ Rectangle {
             anchors.left: sent ? undefined : parent.left
             anchors.right: sent ? parent.right : undefined
             anchors.margins: units.gu(1)
-            spacing: units.gu(0.5)
+            spacing: units.gu(0.25)
 
             // This label is for the meta-informations, which means it displays the
             // display name of the sender of this message and the time.
@@ -163,7 +163,7 @@ Rectangle {
             // When the message is received, there should be an icon
             Icon {
                 id: statusIcon
-                visible: sent && event.status > 0
+                visible: !isStateEvent && sent && event.status > 0
                 name: event.status === msg_status.SENT ? "sync-updating" : (event.status === msg_status.SEEN ? "contact" : "tick")
                 height: metaLabel.height
                 width: height
