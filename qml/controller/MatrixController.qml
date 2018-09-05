@@ -121,7 +121,10 @@ Item {
                 timer.interval = miniTimeout
                 timer.repeat = false
                 timer.triggered.connect(function () {
-                    sendMessage ( messageID, data, chat_id, callback )
+                    var newMessageID = "%" + new Date().getTime();
+                    storage.transaction ( "UPDATE Events SET id='" + newMessageID + "', status=1 WHERE id='" + messageID + "'", function () {
+                        sendMessage ( newMessageID, data, chat_id, callback )
+                    } )
                 })
                 timer.start();
             }

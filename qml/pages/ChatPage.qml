@@ -19,7 +19,7 @@ Page {
 
 
         // Send the message
-        var messageID = "%" + Math.floor((Math.random() * 1000000) + 1);
+        var messageID = "%" + new Date().getTime();
         var now = new Date().getTime()
         var data = {
             msgtype: "m.text",
