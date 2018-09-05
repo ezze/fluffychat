@@ -164,7 +164,7 @@ Rectangle {
             Icon {
                 id: statusIcon
                 visible: sent && event.status > 0
-                name: event.status === msg_status.SENT ? "sync-updating" : (event.status === msg_status.SEEN ? "select" : "sync-idle")
+                name: event.status === msg_status.SENT ? "sync-updating" : (event.status === msg_status.SEEN ? "contact" : "tick")
                 height: metaLabel.height
                 width: height
             }
