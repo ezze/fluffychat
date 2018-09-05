@@ -19,6 +19,7 @@
 * Autoreset pusher, when app has a new push token
 * Show toast every time at start, if user has no Ubuntu One account
 * Bug that displays a wrong name in app drawer
+* Fixed a bug where a invite chat is displayed multiple times in chat list
 
 0.4.2:
 * FluffyChat now supports convergence
