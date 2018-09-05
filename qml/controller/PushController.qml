@@ -12,6 +12,7 @@ PushClient {
         console.warn("PUSHERROR",reason)
         if ( reason === "bad auth" ) {
             errorReport = i18n.tr("Please login to Ubuntu One to receive push notifications!")
+            toast.show ( errorReport )
         }
         else errorReport = reason
     }
