@@ -4,7 +4,7 @@ import Ubuntu.Components 1.3
 
 Rectangle {
 
-    color: "white"
+    color: theme.palette.normal.background
     anchors.fill: parent
     visible: false
     property bool stateVisible: false
