@@ -17,7 +17,7 @@ Item {
             }
             else {
                 // If it is a one on one chat, then use the displayname of the buddy
-                storage.query( "SELECT Users.displayname FROM Users, Memberships " +
+                storage.query( "SELECT Users.displayname, Users.matrix_id FROM Users, Memberships " +
                 " WHERE Memberships.matrix_id=Users.matrix_id " +
                 " AND Memberships.chat_id=? " +
                 " AND Memberships.matrix_id!=? ",
@@ -26,7 +26,8 @@ Item {
                     if ( rs.rows.length > 0 ) {
                         displayname = ""
                         for ( var i = 0; i < rs.rows.length; i++ ) {
-                            if ( rs.rows[i].state_key !== matrix.matrixid ) displayname += rs.rows[i].displayname + ", "
+                            var username = rs.rows[i].displayname || usernames.transformFromId ( rs.rows[i].matrix_id )
+                            if ( rs.rows[i].state_key !== matrix.matrixid ) displayname += username + ", "
                         }
                         displayname = displayname.substr(0, displayname.length-2)
                         if ( displayname === "" || displayname === null ) displayname = i18n.tr('Empty chat')
