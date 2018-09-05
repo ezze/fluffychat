@@ -3,7 +3,9 @@
 * Search chats
 * Chat avatars
 * Search users in chats
-* Security & Privacy settings: Disable typing notifications
+* Security & Privacy settings:
+1. Disable typing notifications
+2. Auto-accept invitations
 * New message status:
 1. Sending: Activity indicator
 2. Sent: Little cloud
