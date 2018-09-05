@@ -195,7 +195,7 @@ Item {
                     }
                     handleRoomEvents ( id, room.timeline.events, "timeline", room )
                 }
-                //if ( room.ephemeral ) handleEphemeral ( id, room.ephemetal.events, room )
+                if ( room.ephemeral ) handleEphemeral ( id, room.ephemetal.events, room )
             }
             else {
                 transaction.executeSql ( "DELETE FROM Chats WHERE id='" + id + "'")

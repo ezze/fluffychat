@@ -163,8 +163,8 @@ Rectangle {
             // When the message is received, there should be an icon
             Icon {
                 id: statusIcon
-                visible: sent && event.status > 1
-                name: event.status === msg_status.SENT ? "send" : (event.status === msg_status.ERROR ? "edit-clear" : "tick")
+                visible: sent && event.status > 0
+                name: event.status === msg_status.SENT ? "send" :  "tick"
                 height: metaLabel.height
                 width: height
             }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-05 09:04+0000\n"
+"POT-Creation-Date: 2018-09-05 09:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,7 +241,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:35
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:177
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:176
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:133
 msgid "Notifications"
@@ -322,33 +322,33 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:165 ../qml/components/ChatListItem.qml:29
+#: ../qml/pages/ChatPage.qml:164 ../qml/components/ChatListItem.qml:29
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:172
+#: ../qml/pages/ChatPage.qml:171
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:182 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:181 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:218
+#: ../qml/pages/ChatPage.qml:217
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:272
+#: ../qml/pages/ChatPage.qml:271
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:277 ../qml/pages/AddChatPage.qml:24
+#: ../qml/pages/ChatPage.qml:276 ../qml/pages/AddChatPage.qml:24
 msgid ""
 "Synchronizing \n"
 " This can take a few minutes ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:316
+#: ../qml/pages/ChatPage.qml:315
 msgid "Type something ..."
 msgstr ""
 

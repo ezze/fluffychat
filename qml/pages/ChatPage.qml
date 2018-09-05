@@ -132,7 +132,6 @@ Page {
     Connections {
         target: events
         onChatTimelineEvent: update ( response )
-        //onChatTypingEvent: if ( roomid === activeChat ) activeChatTypingUsers = user_ids
     }
 
     function update ( room ) {
