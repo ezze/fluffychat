@@ -195,7 +195,7 @@ Item {
                     }
                     handleRoomEvents ( id, room.timeline.events, "timeline", room )
                 }
-                if ( room.ephemeral ) handleEphemeral ( id, room.ephemetal.events, room )
+                if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
             }
             else {
                 transaction.executeSql ( "DELETE FROM Chats WHERE id='" + id + "'")
@@ -207,16 +207,15 @@ Item {
 
 
     // Handle ephemerals (message receipts)
-    function handleEphemeral ( id, events, room ) {
+    function handleEphemeral ( id, events ) {
         for ( var i = 0; i < events.length; i++ ) {
             if ( events[i].type === "m.receipt" ) {
                 for ( var e in events[i].content ) {
                     for ( var user in events[i].content[e]["m.read"]) {
-                        console.log ( JSON.stringify( events[i].content[e]["m.read"][user]))
-                        //var timestamp = events[i].content[e]["m.read"][user].ts
-                        /*transaction.executeSql ( "UPDATE Evenets SET status=3 WHERE origin_server_ts<" + timestamp +
-                        " AND chat_id='" + id + "' AND status=2")*/
-                        //console.log("update",timestamp)
+                        var timestamp = events[i].content[e]["m.read"][user].ts
+                        console.log(timestamp)
+                        transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
+                        " AND chat_id='" + id + "' AND status=2")
                     }
                 }
             }

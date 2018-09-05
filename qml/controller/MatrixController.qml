@@ -135,6 +135,7 @@ Item {
     function resendAllMessages () {
         console.log("resend all sending events")
         storage.transaction ( "SELECT id, chat_id, content_body FROM Events WHERE status=0", function ( rs) {
+            if ( rs.rows.length === 0 ) return
             var event = rs.rows[0]
             var data = {
                 msgtype: "m.text",
