@@ -240,7 +240,7 @@ Page {
             leftMargin: units.gu(2)
         }
         inputMethodHints: Qt.ImhNoPredictiveText
-        placeholderText: i18n.tr("Search...")
+        placeholderText: i18n.tr("Search chat names...")
     }
 
 
