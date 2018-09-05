@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-04 20:11+0000\n"
+"POT-Creation-Date: 2018-09-05 09:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -148,7 +148,11 @@ msgstr ""
 msgid "Please login to Ubuntu One to receive push notifications!"
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:175
+#: ../qml/controller/MatrixController.qml:108
+msgid "You do not have permission to write to this chat."
+msgstr ""
+
+#: ../qml/controller/MatrixController.qml:239
 msgid "No connection to the homeserver 😕"
 msgstr ""
 

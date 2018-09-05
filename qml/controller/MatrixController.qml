@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
+import Ubuntu.Connectivity 1.0
 
 /* =============================== MATRIX CONTROLLER ===============================
 
@@ -28,6 +29,7 @@ Item {
             onlineStatus = true
             usernames.getById(matrix.matrixid, "", function (name) { settings.displayname = name } )
             events.init ()
+            resendAllMessages ()
         }
         else {
             mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
@@ -88,15 +90,77 @@ Item {
     }
 
 
-    function sendMessage ( messageID, data, callback ) {
-        matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, data, function ( response ) {
-            console.log("UPDATE Events SET id='" + response.event_id + "', status=1 WHERE id='" + messageID + "'")
-            storage.transaction ( "UPDATE Events SET id='" + response.event_id + "', status=1 WHERE id='" + messageID + "'", callback )
+    // This function helps to send a message. It automatically repeats, if there
+    // was an error with the connection.
+    function sendMessage ( messageID, data, chat_id, callback ) {
+        console.log("try now ...",messageID)
+        if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
+        matrix.put( "/client/r0/rooms/" + chat_id + "/send/m.room.message/" + messageID, data, function ( response ) {
+            storage.transaction ( "DELETE FROM Events WHERE id='" + response.event_id + "'", function () {
+                storage.transaction ( "UPDATE Events SET id='" + response.event_id + "', status=1 WHERE id='" + messageID + "'", callback )
+            })
         }, function ( error ) {
-            storage.transaction ( "UPDATE Events SET status=666 WHERE id='" + messageID + "'", callback )
-            if ( error.error !== "offline" ) toast.show ( error.errcode + ": " + error.error )
+            console.warn("Error ... ", error.errcode, ": ", error.error)
+
+            // If the user has no permissions or there is an internal server error,
+            // the message gets deleted
+            if ( error.errcode === "M_FORBIDDEN" ) {
+                toast.show ( i18n.tr("You do not have permission to write to this chat.") )
+                storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )
+            }
+            else if ( error.errcode === "M_UNKNOWN" ) {
+                toast.show ( error.error )
+                storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )
+            }
+            // Else: Try again in a few seconds
+            else if ( Connectivity.online ) {
+                function Timer() {
+                    return Qt.createQmlObject("import QtQuick 2.0; Timer {}", root)
+                }
+                var timer = new Timer()
+                timer.interval = miniTimeout
+                timer.repeat = false
+                timer.triggered.connect(function () {
+                    sendMessage ( messageID, data, chat_id, callback )
+                })
+                timer.start();
+            }
+
         } )
     }
+
+
+    // If the user starts the app or is online again, all sending messages should
+    // restart sending
+    function resendAllMessages () {
+        console.log("resend all sending events")
+        storage.transaction ( "SELECT id, chat_id, content_body FROM Events WHERE status=0", function ( rs) {
+            var event = rs.rows[0]
+            var data = {
+                msgtype: "m.text",
+                body: event.content_body
+            }
+            console.log("Sending:", event.id, event.content_body, event.chat_id)
+            sendMessage ( event.id, data, event.chat_id, function (){} )
+            if ( rs.rows.length > 1 ) {
+                function Timer() {
+                    return Qt.createQmlObject("import QtQuick 2.0; Timer {}", root)
+                }
+                var timer = new Timer()
+                timer.interval = miniTimeout
+                timer.repeat = false
+                timer.triggered.connect(resendAllMessages)
+                timer.start();
+            }
+        } )
+    }
+
+
+    Connections {
+        target: Connectivity
+        onOnlineChanged: if ( Connectivity.online ) resendAllMessages ()
+    }
+
 
     function get ( action, data, callback, error_callback, status_callback ) {
         return xmlRequest ( "GET", data, action, callback, error_callback, status_callback )
@@ -168,62 +232,62 @@ Item {
                 }
                 catch ( error ) {
                 console.error("There was an error: When calling ", requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error/*, http.responseText*/)
-                    if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
-                    if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
-                    if ( !error_callback && error === "offline" && settings.token ) {
-                        onlineStatus = false
-                        toast.show (i18n.tr("No connection to the homeserver 😕"))
-                    }
-                    else if ( error_callback ) error_callback ( error )
-                    else if ( error.errcode !== undefined && error.error !== undefined ) toast.show ( error.errcode + ": " + error.error )
+                if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
+                if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
+                if ( !error_callback && error === "offline" && settings.token ) {
+                    onlineStatus = false
+                    toast.show (i18n.tr("No connection to the homeserver 😕"))
                 }
+                else if ( error_callback ) error_callback ( error )
+                else if ( error.errcode !== undefined && error.error !== undefined ) toast.show ( error.errcode + ": " + error.error )
             }
         }
-        if ( !longPolling ) {
-            progressBarRequests++
-        }
-
-        // Make timeout working in qml
-
-        timer.interval = (longPolling || action == "/client/r0/sync") ? longPollingTimeout+2000 : defaultTimeout
-        timer.repeat = false
-        timer.triggered.connect(function () {
-            if (http.readyState === XMLHttpRequest.OPENED) http.abort ()
-        })
-        timer.start();
-        http.send( JSON.stringify( postData ) );
-
-        return http
+    }
+    if ( !longPolling ) {
+        progressBarRequests++
     }
 
+    // Make timeout working in qml
 
-    function upload ( path, callback, error_callback ) {
-        console.log("Uploading ...", path)
-        var pathparts = path.split("/")
-        var filename = pathparts [ pathparts.length - 1 ]
-        var type = filename.split(".")[1]
+    timer.interval = (longPolling || action == "/client/r0/sync") ? longPollingTimeout+2000 : defaultTimeout
+    timer.repeat = false
+    timer.triggered.connect(function () {
+        if (http.readyState === XMLHttpRequest.OPENED) http.abort ()
+    })
+    timer.start();
+    http.send( JSON.stringify( postData ) );
 
-        // Send the blob to the server
-        var requestUrl = "https://" + settings.server + "/_matrix/media/r0/upload?filename=" + filename
-        //Fluffychat.upload ( path, requestUrl, 'Bearer ' + settings.token )
-        callback ( "Ready ..." )
-    }
-
-
-    function getThumbnailFromMxc ( mxc, width, height ) {
-        if ( mxc === undefined ) return ""
-
-        var mxcID = mxc.replace("mxc://","")
-        return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxcID + "/?width=" + width + "&height=" + height + "&method=crop"
-    }
+    return http
+}
 
 
+function upload ( path, callback, error_callback ) {
+    console.log("Uploading ...", path)
+    var pathparts = path.split("/")
+    var filename = pathparts [ pathparts.length - 1 ]
+    var type = filename.split(".")[1]
 
-    function getImageLinkFromMxc ( mxc ) {
-        if ( mxc === undefined ) return ""
-        var mxcID = mxc.replace("mxc://","")
-        return "https://" + settings.server + "/_matrix/media/r0/download/" + mxcID + "/"
-    }
+    // Send the blob to the server
+    var requestUrl = "https://" + settings.server + "/_matrix/media/r0/upload?filename=" + filename
+    //Fluffychat.upload ( path, requestUrl, 'Bearer ' + settings.token )
+    callback ( "Ready ..." )
+}
+
+
+function getThumbnailFromMxc ( mxc, width, height ) {
+    if ( mxc === undefined ) return ""
+
+    var mxcID = mxc.replace("mxc://","")
+    return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxcID + "/?width=" + width + "&height=" + height + "&method=crop"
+}
+
+
+
+function getImageLinkFromMxc ( mxc ) {
+    if ( mxc === undefined ) return ""
+    var mxcID = mxc.replace("mxc://","")
+    return "https://" + settings.server + "/_matrix/media/r0/download/" + mxcID + "/"
+}
 
 
 

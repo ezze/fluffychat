@@ -25,7 +25,7 @@ ListItem {
 
     ListItemLayout {
         id: layout
-        width: parent.width - stampLabel.width
+        width: parent.width - notificationBubble.width - highlightBubble.width
         title.text: i18n.tr("Unknown chat")
         title.font.bold: true
         title.font.italic: room.membership === "invite"
@@ -110,6 +110,7 @@ ListItem {
 
 
     Icon {
+        id: highlightBubble
         visible: room.highlight_count > 0
         name: "dialog-warning-symbolic"
         anchors.right: notificationBubble.left

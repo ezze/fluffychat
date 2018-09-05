@@ -50,7 +50,7 @@ Page {
             }
             chatScrollView.addEventToList ( fakeEvent )
 
-            matrix.sendMessage ( messageID, data, chatScrollView.update )
+            matrix.sendMessage ( messageID, data, activeChat, chatScrollView.update )
 
             messageTextField.focus = false
             messageTextField.text = ""

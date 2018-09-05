@@ -193,9 +193,9 @@ Item {
                         transaction.executeSql ("DELETE FROM Events WHERE chat_id='" + id + "'")
                         transaction.executeSql ("UPDATE Chats SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
                     }
-                    //handleRoomEvents ( id, room.timeline.events, "timeline", room )
+                    handleRoomEvents ( id, room.timeline.events, "timeline", room )
                 }
-                if ( room.ephemeral ) handleEphemeral ( id, room.ephemetal.events, room )
+                //if ( room.ephemeral ) handleEphemeral ( id, room.ephemetal.events, room )
             }
             else {
                 transaction.executeSql ( "DELETE FROM Chats WHERE id='" + id + "'")
