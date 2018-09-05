@@ -20,7 +20,7 @@ Page {
             width: mainStackWidth
 
             SettingsListSwitch {
-                name: i18n.tr("Send that I am typing")
+                name: i18n.tr("Display 'I am typing' when I am typing")
                 icon: "edit"
                 onSwitching: function () { settings.sendTypingNotification = isChecked }
                 Component.onCompleted: isChecked = settings.sendTypingNotification

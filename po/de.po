@@ -364,6 +364,10 @@ msgstr "Einladung annehmen"
 msgid "Type something ..."
 msgstr "Schreibe etwas ..."
 
+#: ../qml/pages/PrivacySettingsPage.qml:23
+msgid "Display 'I am typing' when I am typing"
+msgstr "Sende Tipp-Benachrichtigung"
+
 #: ../qml/pages/NotificationChatSettingsPage.qml:64
 msgid "Notify"
 msgstr "Benachrichtigen"

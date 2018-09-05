@@ -180,6 +180,7 @@ Page {
                     }
                     inputMethodHints: Qt.ImhNoPredictiveText
                     placeholderText: i18n.tr("Search...")
+                    onActiveFocusChanged: if ( activeFocus ) scrollView.flickableItem.contentY = scrollView.flickableItem.contentHeight - scrollView.height
                 }
             }
             Rectangle {
