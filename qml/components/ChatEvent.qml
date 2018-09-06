@@ -46,6 +46,7 @@ Rectangle {
         opacity: event.sameSender ? 0 : 1
         visible: !isStateEvent
         onClickFunction: function () {
+            if ( sent ) return
             activeUser = event.sender
             PopupUtils.open(userSettings)
         }
