@@ -47,16 +47,23 @@ Rectangle {
     }
 
 
-    Rectangle {
-        id: messageBubble
-        opacity: sending ? 0.66 : isStateEvent ? 0.75 : 1
-        z: 2
+    MouseArea {
+        width: messageBubble.width
+        height: messageBubble.height
         anchors.left: sent ? undefined : avatar.right
         anchors.right: sent ? avatar.left : undefined
         anchors.centerIn: isStateEvent ? parent : undefined
         anchors.top: parent.top
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
+        onClicked: {
+            mimeData.text = messageLabel.text
+            if ( !isStateEvent && !thumbnail.visible && !contextualActions.visible ) contextualActions.show()
+        }
+    Rectangle {
+        id: messageBubble
+        opacity: sending ? 0.66 : isStateEvent ? 0.75 : 1
+        z: 2
         border.width: 0
         border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
         anchors.margins: 5
@@ -100,81 +107,88 @@ Rectangle {
         }
 
 
-        // In this label, the body of the matrix message is displayed. This label
-        // is main responsible for the width of the message bubble.
-        Label {
-            id: messageLabel
-            opacity: event.type === "m.sticker" ? 0 : 1
-            height: event.type === "m.sticker" ? 0 : undefined
-            text: isStateEvent ? displayEvents.getDisplay ( event ) + " <font color='" + UbuntuColors.silk + "'>" + stamp.getChatTime ( event.origin_server_ts ) + "</font>" :  event.content_body || event.content.body
-            color: (sent || isStateEvent) ? "black" : "white"
-            wrapMode: Text.Wrap
-            textSize: isStateEvent ? Label.XSmall : Label.Medium
-            anchors.bottom: isStateEvent ? parent.bottom : metaLabelRow.top
-            anchors.left: parent.left
-            anchors.topMargin: units.gu(1)
-            anchors.leftMargin: units.gu(1)
-            anchors.bottomMargin: isStateEvent ? units.gu(1) : 0
-            onLinkActivated: Qt.openUrlExternally(link)
-            // Intital calculation of the max width and display URL's
-            Component.onCompleted: {
-                if ( !event.content_body ) event.content_body = event.content.body
-                var maxWidth = message.width - avatar.width - units.gu(5)
-                if ( width > maxWidth ) width = maxWidth
+        Column {
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(1)
 
-                if ( !isStateEvent ) {
-                    var urlRegex = /(https?:\/\/[^\s]+)/g
-                    var tempText = text
-                    tempText = text.replace ( "&#60;", "<" )
-                    tempText = text.replace ( "&#62;", "<" )
-                    tempText = text.replace(urlRegex, function(url) {
-                        return '<a href="%1"><font color="%2">%1</font></a>'.arg(url).arg(messageLabel.color)
-                    })
-                    text = tempText
+
+
+            // In this label, the body of the matrix message is displayed. This label
+            // is main responsible for the width of the message bubble.
+
+                Label {
+                    id: messageLabel
+                    opacity: event.type === "m.sticker" ? 0 : 1
+                    height: event.type === "m.sticker" ? 0 : undefined
+                    text: isStateEvent ? displayEvents.getDisplay ( event ) + " <font color='" + UbuntuColors.silk + "'>" + stamp.getChatTime ( event.origin_server_ts ) + "</font>" :  event.content_body || event.content.body
+                    color: (sent || isStateEvent) ? "black" : "white"
+                    wrapMode: Text.Wrap
+                    textSize: isStateEvent ? Label.XSmall : Label.Medium
+                    //anchors.bottom: isStateEvent ? parent.bottom : metaLabelRow.top
+                    anchors.left: parent.left
+                    anchors.topMargin: units.gu(1)
+                    anchors.leftMargin: units.gu(1)
+                    anchors.bottomMargin: isStateEvent ? units.gu(1) : 0
+                    onLinkActivated: Qt.openUrlExternally(link)
+                    // Intital calculation of the max width and display URL's
+                    Component.onCompleted: {
+                        if ( !event.content_body ) event.content_body = event.content.body
+                        var maxWidth = message.width - avatar.width - units.gu(5)
+                        if ( width > maxWidth ) width = maxWidth
+
+                        if ( !isStateEvent ) {
+                            var urlRegex = /(https?:\/\/[^\s]+)/g
+                            var tempText = text
+                            tempText = text.replace ( "&#60;", "<" )
+                            tempText = text.replace ( "&#62;", "<" )
+                            tempText = text.replace(urlRegex, function(url) {
+                                return '<a href="%1"><font color="%2">%1</font></a>'.arg(url).arg(messageLabel.color)
+                            })
+                            text = tempText
+                        }
+                    }
+                }
+
+
+            Row {
+                id: metaLabelRow
+                anchors.left: sent ? undefined : parent.left
+                anchors.right: sent ? parent.right : undefined
+                anchors.margins: units.gu(1)
+                spacing: units.gu(0.25)
+
+                // This label is for the meta-informations, which means it displays the
+                // display name of the sender of this message and the time.
+                Label {
+                    id: metaLabel
+                    text: (event.displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
+                    color: messageLabel.color
+                    opacity: 0.66
+                    textSize: Label.XSmall
+                    visible: !isStateEvent
+                }
+                // When the message is just sending, then this activity indicator is visible
+                ActivityIndicator {
+                    id: activity
+                    visible: sending
+                    running: visible
+                    height: metaLabel.height
+                    width: height
+                }
+                // When the message is received, there should be an icon
+                Icon {
+                    id: statusIcon
+                    visible: !isStateEvent && sent && event.status > 0
+                    name: event.status === msg_status.SENT ? "sync-updating" : (event.status === msg_status.SEEN ? "contact" : "tick")
+                    height: metaLabel.height
+                    width: height
                 }
             }
         }
 
 
-        Row {
-            id: metaLabelRow
-            anchors.bottom: parent.bottom
-            anchors.left: sent ? undefined : parent.left
-            anchors.right: sent ? parent.right : undefined
-            anchors.margins: units.gu(1)
-            spacing: units.gu(0.25)
-
-            // This label is for the meta-informations, which means it displays the
-            // display name of the sender of this message and the time.
-            Label {
-                id: metaLabel
-                text: (event.displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
-                color: messageLabel.color
-                opacity: 0.66
-                textSize: Label.XSmall
-                visible: !isStateEvent
-            }
-            // When the message is just sending, then this activity indicator is visible
-            ActivityIndicator {
-                id: activity
-                visible: sending
-                running: visible
-                height: metaLabel.height
-                width: height
-            }
-            // When the message is received, there should be an icon
-            Icon {
-                id: statusIcon
-                visible: !isStateEvent && sent && event.status > 0
-                name: event.status === msg_status.SENT ? "sync-updating" : (event.status === msg_status.SEEN ? "contact" : "tick")
-                height: metaLabel.height
-                width: height
-            }
-        }
-
-
-
     }
+}
 
 
 }

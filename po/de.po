@@ -657,6 +657,14 @@ msgstr "Du wurdest in diesen Chat eingeladen"
 msgid "You: "
 msgstr "Du: "
 
+#: ../qml/components/ChatScrollView.qml:126
+msgid "Copy text"
+msgstr "Text kopieren"
+
+#: ../qml/components/ChatScrollView.qml:129
+msgid "Text has been copied to the clipboard"
+msgstr "Text wurde in der Zwischenablage abgelegt"
+
 #: ../qml/components/JoinGroupDialog.qml:19
 msgid "#groupname:"
 msgstr "#Gruppenname:"

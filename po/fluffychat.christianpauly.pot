@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-06 09:07+0000\n"
+"POT-Creation-Date: 2018-09-06 10:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,11 +232,11 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:243
+#: ../qml/pages/ChatListPage.qml:246
 msgid "Search chat names..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:258
+#: ../qml/pages/ChatListPage.qml:261
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:172 ../qml/components/ChatListItem.qml:29
+#: ../qml/pages/ChatPage.qml:172 ../qml/components/ChatListItem.qml:30
 msgid "Unknown chat"
 msgstr ""
 
@@ -528,6 +528,7 @@ msgstr ""
 #: ../qml/components/LogoutDialog.qml:35
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/InviteDialog.qml:27
+#: ../qml/components/ChatScrollView.qml:133
 #: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
 #: ../qml/components/ChangeChatnameDialog.qml:34
@@ -620,7 +621,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:93
+#: ../qml/components/ChatEvent.qml:100
 msgid "Download"
 msgstr ""
 
@@ -645,15 +646,15 @@ msgstr ""
 msgid "Synchronizing ... Please wait!"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:32
+#: ../qml/components/ChatListItem.qml:33
 msgid "No previous messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:45
+#: ../qml/components/ChatListItem.qml:50
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:52
+#: ../qml/components/ChatListItem.qml:57
 msgid "You: "
 msgstr ""
 
@@ -669,8 +670,16 @@ msgstr ""
 msgid "Invite"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:69
+#: ../qml/components/ChatScrollView.qml:70
 msgid "Get more messages from the server ..."
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:126
+msgid "Copy text"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:129
+msgid "Text has been copied to the clipboard"
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:11

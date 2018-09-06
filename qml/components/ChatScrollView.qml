@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import "../components"
 
 ListView {
@@ -100,13 +101,13 @@ ListView {
     function addEventToList ( event ) {header
 
 
-            // If the previous message has the same sender and is a normal message
-            // then it is not necessary to show the user avatar again
-            event.sameSender = model.count > 0 &&
-            model.get(0).event.type === "m.room.message" &&
-            model.get(0).event.sender === event.sender
+        // If the previous message has the same sender and is a normal message
+        // then it is not necessary to show the user avatar again
+        event.sameSender = model.count > 0 &&
+        model.get(0).event.type === "m.room.message" &&
+        model.get(0).event.sender === event.sender
 
-            model.insert ( 0, { "event": event } )
+        model.insert ( 0, { "event": event } )
     }
 
 
@@ -114,6 +115,30 @@ ListView {
     // controller. It just has to format the event to the database format
     function handleNewEvent ( sync ) {
         update ()
+    }
+
+
+    ActionSelectionPopover {
+        id: contextualActions
+        z: 10
+        actions: ActionList {
+            Action {
+                text: i18n.tr("Copy text")
+                onTriggered: {
+                    Clipboard.push( mimeData )
+                    toast.show( i18n.tr("Text has been copied to the clipboard") )
+                }
+            }
+            Action {
+                text: i18n.tr("Cancel")
+                onTriggered: contextualActions.hide ()
+            }
+        }
+    }
+
+    MimeData {
+        id: mimeData
+        text: ""
     }
 
 
