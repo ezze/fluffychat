@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-06 10:13+0000\n"
+"POT-Creation-Date: 2018-09-06 10:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -568,6 +568,7 @@ msgid "<b>Gateway</b>: %2"
 msgstr ""
 
 #: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/UserSettingsDialog.qml:26
 msgid "Close"
 msgstr ""
 
@@ -621,7 +622,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:100
+#: ../qml/components/ChatEvent.qml:105
 msgid "Download"
 msgstr ""
 

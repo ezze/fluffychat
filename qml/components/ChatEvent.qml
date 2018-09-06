@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Rectangle {
@@ -44,6 +45,10 @@ Rectangle {
         anchors.rightMargin: units.gu(1)
         opacity: event.sameSender ? 0 : 1
         visible: !isStateEvent
+        onClickFunction: function () {
+            activeUser = event.sender
+            PopupUtils.open(userSettings)
+        }
     }
 
 

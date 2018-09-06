@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import "controller"
 import "components"
 
@@ -50,6 +51,7 @@ MainView {
     property var chatActive: false
     property var activeChatDisplayName: null
     property var activeChatTypingUsers: []
+    property var activeUser: null
     property var progressBarRequests: 0
     property var waitingForSync: false
     property var appstatus: 4
@@ -132,6 +134,7 @@ MainView {
     Toast { id: toast }
     LoadingScreen { id: loadingScreen }
     LoadingModal { id: loadingModal }
+    UserSettingsDialog { id: userSettings }
 
 
     /* =============================== CONNECTION MANAGER ===============================
