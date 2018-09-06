@@ -11,6 +11,7 @@ Component {
         title: usernames.getById ( activeUser )
 
         Component.onCompleted: {
+            startNewChatButton.enabled = true
             storage.transaction ( "SELECT avatar_url FROM Users WHERE matrix_id='" + activeUser + "'", function ( res ) {
                 if ( res.rows.length === 1 ) avatar.mxc = res.rows[0].avatar_url
             })
@@ -38,11 +39,25 @@ Component {
         }
 
         Button {
+            id: startNewChatButton
             text: i18n.tr("Start new Chat")
             color: settings.mainColor
             iconName: "message-new"
             onClicked: {
-                PopupUtils.close(dialogue)
+                var data = {
+                    "invite": [ activeUser ],
+                    "is_direct": true,
+                    "preset": "private_chat"
+                }
+                matrix.post( "/client/r0/createRoom", data, function ( res ) {
+                    startNewChatButton.enabled = false
+                    PopupUtils.close(dialogue)
+                    mainStack.toStart ()
+                    activeChat = res.room_id
+                    activeChatTypingUsers = []
+                    mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
+                    if ( room.notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + room.eventsid, null )
+                } )
             }
         }
 
