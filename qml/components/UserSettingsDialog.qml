@@ -81,7 +81,7 @@ Component {
         Rectangle {
             width: parent.width
             height: units.gu(5)
-            color: theme.palette.normal.background
+            color: settings.darkmode ? UbuntuColors.inkstone : theme.palette.normal.background
             Label {
                 anchors.left: parent.left
                 anchors.top: parent.top
