@@ -7,7 +7,7 @@ import "../components"
 Page {
     anchors.fill: parent
 
-    property var loginDomain: defaultDomain
+    property var loginDomain: ""
 
     function login () {
         loginButton.enabled = false
@@ -127,7 +127,7 @@ Page {
             Button {
                 id: registerButton
                 text: i18n.tr("Sign up")
-                onClicked: Qt.openUrlExternally( "https://" + loginDomain + "/_matrix/client/#/register")
+                onClicked: Qt.openUrlExternally( "https://" + (loginDomain || defaultDomain) + "/_matrix/client/#/register")
             }
         }
 
@@ -135,7 +135,7 @@ Page {
     }
 
     Label {
-        text: i18n.tr("Using the homeserver: ") + "<b>" + loginDomain + "</b>"
+        text: i18n.tr("Using the homeserver: ") + "<b>" + (loginDomain || defaultDomain) + "</b>"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         anchors.bottomMargin: height
