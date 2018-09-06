@@ -233,6 +233,10 @@ msgstr "Anmelden"
 msgid "Sign up"
 msgstr "Registrieren"
 
+#: ../qml/pages/ChatListPage.qml:243
+msgid "Search chat names..."
+msgstr "Suche Chats ..."
+
 #: ../qml/pages/LoginPage.qml:137
 msgid "Using the homeserver: "
 msgstr "Nutze den Homeserver: "

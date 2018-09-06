@@ -150,7 +150,7 @@ Page {
                 model.insert ( j, { "room": tempRoom } )
 
                 // Send message receipt
-                if ( newTimelineEvents && activeChat === id && unread > 0 && lastEvent.event_id !== undefined ){
+                if ( newTimelineEvents && activeChat === id && unread > 0 && lastEvent.event_id !== undefined && chatActive ){
                     matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.event_id, null )
                 }
             }

@@ -13,6 +13,7 @@ Page {
     property var sending: false
     property var membership: "join"
     property var isTyping: false
+    property var pageName: "chat"
 
     function send () {
         if ( sending || messageTextField.displayText === "" ) return
@@ -52,9 +53,11 @@ Page {
 
             matrix.sendMessage ( messageID, data, activeChat, chatScrollView.update )
 
+            isTyping = true
             messageTextField.focus = false
             messageTextField.text = ""
             messageTextField.focus = true
+            isTyping = false
             sendTypingNotification ( false )
         })
     }
@@ -101,6 +104,7 @@ Page {
     function sendTypingNotification ( typing ) {
         if ( !settings.sendTypingNotification ) return
         if ( !typing && isTyping) {
+            console.log("typing:", typing)
             typingTimer.stop ()
             isTyping = false
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
@@ -108,6 +112,7 @@ Page {
             } )
         }
         else if ( typing && !isTyping ) {
+            console.log("typing:", typing)
             isTyping = true
             typingTimer.start ()
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
@@ -119,15 +124,17 @@ Page {
 
 
     Component.onCompleted: {
+        console.log( "CurrentPage:", JSON.stringify( mainStack.data[0] ) )
         storage.transaction ( "SELECT membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
             membership = res.rows.length > 0 ? res.rows[0].membership : "join"
         })
         chatScrollView.update ()
+        chatActive = true
     }
 
     Component.onDestruction: {
-        //activeChat = null
         sendTypingNotification ( false )
+        chatActive = false
     }
 
     Connections {
@@ -315,7 +322,7 @@ Page {
             width: parent.width - 2 * chatInputActionBar.width - units.gu(2)
             placeholderText: i18n.tr("Type something ...")
             Keys.onReturnPressed: sendButton.trigger ()
-            onFocusChanged: sendTypingNotification ( focus )
+            onActiveFocusChanged: if ( !activeFocus ) sendTypingNotification ( activeFocus )
             onDisplayTextChanged: {
                 if ( displayText !== "" ) {
                     sendTypingNotification ( true )

@@ -47,6 +47,7 @@ MainView {
     This variables are accessable everywhere just with the variable names.
     */
     property var activeChat: null
+    property var chatActive: false
     property var activeChatDisplayName: null
     property var activeChatTypingUsers: []
     property var progressBarRequests: 0

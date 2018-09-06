@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-05 14:15+0000\n"
+"POT-Creation-Date: 2018-09-06 08:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,8 +232,8 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:243 ../qml/pages/ChatSettingsPage.qml:182
-msgid "Search..."
+#: ../qml/pages/ChatListPage.qml:243
+msgid "Search chat names..."
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:258
@@ -249,7 +249,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:35
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:177
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:184
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:133
 msgid "Notifications"
@@ -330,27 +330,27 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:165 ../qml/components/ChatListItem.qml:29
+#: ../qml/pages/ChatPage.qml:172 ../qml/components/ChatListItem.qml:29
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:172
+#: ../qml/pages/ChatPage.qml:179
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:182 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:189 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:218
+#: ../qml/pages/ChatPage.qml:225
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:272
+#: ../qml/pages/ChatPage.qml:279
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:316
+#: ../qml/pages/ChatPage.qml:323
 msgid "Type something ..."
 msgstr ""
 
@@ -426,6 +426,10 @@ msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Loading users ..."
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:182
+msgid "Search..."
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:24
