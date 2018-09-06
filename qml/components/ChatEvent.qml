@@ -190,6 +190,7 @@ Rectangle {
                         visible: !isStateEvent && sent && event.status > 0
                         name: event.status === msg_status.SENT ? "sync-updating" : (event.status === msg_status.SEEN ? "contact" : "tick")
                         height: metaLabel.height
+                        color: "black"
                         width: height
                     }
                 }
