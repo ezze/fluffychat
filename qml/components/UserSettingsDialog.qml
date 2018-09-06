@@ -9,6 +9,7 @@ Component {
     Dialog {
         id: dialogue
         title: usernames.getById ( activeUser )
+        property var bgcolor: settings.darkmode ? UbuntuColors.inkstone : theme.palette.normal.background
 
         Component.onCompleted: {
             startNewChatButton.enabled = true
@@ -41,7 +42,7 @@ Component {
         Button {
             id: startNewChatButton
             text: i18n.tr("Start new Chat")
-            color: settings.mainColor
+            color: UbuntuColors.porcelain
             iconName: "message-new"
             onClicked: {
                 var data = {
@@ -63,7 +64,7 @@ Component {
 
         Button {
             text: i18n.tr("Ignore")
-            color: settings.mainColor
+            color: UbuntuColors.porcelain
             iconName: "security-alert"
             onClicked: {
                 PopupUtils.close(dialogue)
@@ -73,7 +74,7 @@ Component {
         Button {
             id: button
             text: i18n.tr("Close")
-            color: settings.mainColor
+            color: UbuntuColors.porcelain
             iconName: "close"
             onClicked: PopupUtils.close(dialogue)
         }
