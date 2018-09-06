@@ -271,6 +271,7 @@ Item {
     timer.interval = (longPolling || action == "/client/r0/sync") ? longPollingTimeout+2000 : defaultTimeout
     timer.repeat = false
     timer.triggered.connect(function () {
+        console.log("timeout :-/")
         if (http.readyState === XMLHttpRequest.OPENED) http.abort ()
     })
     timer.start();

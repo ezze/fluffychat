@@ -9,12 +9,12 @@ Rectangle {
 
     id: toast
     anchors.bottom: parent.bottom
-    anchors.bottomMargin: units.gu(4)
+    anchors.bottomMargin: units.gu(8)
     anchors.horizontalCenter: parent.horizontalCenter
     width: label.width + units.gu(2)
     height: label.height + units.gu(2)
     color: Qt.rgba(0,0,0,0.75)
-    radius: 30
+    radius: units.gu(0.5)
     visible: false
     z: 5
 
@@ -25,14 +25,14 @@ Rectangle {
 
     states: [
     State { when: stateVisible;
-        PropertyChanges {   target: toast; opacity: 1.0    }
+        PropertyChanges {   target: toast; opacity: 1.0;    }
     },
     State { when: !stateVisible;
-        PropertyChanges {   target: toast; opacity: 0.0    }
+        PropertyChanges {   target: toast; opacity: 0.0;    }
     }
     ]
     transitions: Transition {
-        NumberAnimation { property: "opacity"; duration: 500}
+        NumberAnimation { property: "opacity"; duration: 250}
     }
 
     function show ( str, time ) {
