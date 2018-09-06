@@ -9,6 +9,7 @@ Rectangle {
     //property var event
     property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.sticker"
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
+    property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
 
     width: mainStackWidth
@@ -38,13 +39,14 @@ Rectangle {
         id: avatar
         mxc: event.avatar_url
         name: event.displayname || event.sender
-        anchors.left: sent ? undefined : parent.left
-        anchors.right: sent ? parent.right : undefined
+        anchors.left: isLeftSideEvent ? parent.left : undefined
+        anchors.right: !isLeftSideEvent ? parent.right : undefined
         anchors.top: parent.top
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
-        opacity: event.sameSender ? 0 : 1
-        visible: !isStateEvent
+        opacity: (event.sameSender && !isStateEvent) ? 0 : 1
+        width: isStateEvent ? units.gu(3) : units.gu(6)
+        //visible: !isStateEvent
         onClickFunction: function () {
             if ( sent ) return
             activeUser = event.sender
@@ -56,12 +58,13 @@ Rectangle {
     MouseArea {
         width: messageBubble.width
         height: messageBubble.height
-        anchors.left: sent ? undefined : avatar.right
-        anchors.right: sent ? avatar.left : undefined
-        anchors.centerIn: isStateEvent ? parent : undefined
+        anchors.left: isLeftSideEvent ? avatar.right : undefined
+        anchors.right: !isLeftSideEvent ? avatar.left : undefined
+        //anchors.centerIn: isStateEvent ? parent : undefined
         anchors.top: parent.top
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
+
         onClicked: {
             mimeData.text = messageLabel.text
             if ( !isStateEvent && !thumbnail.visible && !contextualActions.visible ) contextualActions.show()
@@ -72,11 +75,11 @@ Rectangle {
             z: 2
             border.width: 0
             border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
-            anchors.margins: 5
+            anchors.margins: units.gu(0.5)
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
-            height: messageLabel.height + !isStateEvent * metaLabel.height + thumbnail.height + downloadButton.height + units.gu(2)
-            width: Math.max( messageLabel.width + units.gu(2), metaLabelRow.width + units.gu(2), thumbnail.width )
+            height: messageLabel.height + !isStateEvent * metaLabel.height + thumbnail.height + downloadButton.height + units.gu(2) - isStateEvent * units.gu(0.5)
+            width: Math.max( messageLabel.width + units.gu(2), metaLabelRow.width + units.gu(2), thumbnail.width ) - isStateEvent * units.gu(0.5)
 
             MouseArea {
                 width: thumbnail.width
@@ -132,9 +135,9 @@ Rectangle {
                     wrapMode: Text.Wrap
                     textSize: isStateEvent ? Label.XSmall : Label.Medium
                     anchors.left: parent.left
-                    anchors.topMargin: units.gu(1)
+                    anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
                     anchors.leftMargin: units.gu(1)
-                    anchors.bottomMargin: isStateEvent ? units.gu(1) : 0
+                    anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
                     onLinkActivated: Qt.openUrlExternally(link)
                     // Intital calculation of the max width and display URL's
                     Component.onCompleted: {
