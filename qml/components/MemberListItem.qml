@@ -10,8 +10,8 @@ ListItem {
     height: visible ? layout.height : 0
 
     onClicked: {
-        newContactMatrixID = matrixid
-        PopupUtils.open( newContactDialog )
+        activeUser = matrixid
+        PopupUtils.open(userSettings)
     }
 
     opacity: membership === "leave" ? 0.5 : 1

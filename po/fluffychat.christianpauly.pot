@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-06 12:04+0000\n"
+"POT-Creation-Date: 2018-09-06 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -251,7 +251,7 @@ msgstr ""
 #: ../qml/pages/MainSettingsPage.qml:35
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:184
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:133
+#: ../qml/pages/ChatSettingsPage.qml:131
 msgid "Notifications"
 msgstr ""
 
@@ -404,32 +404,32 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:75
+#: ../qml/pages/ChatSettingsPage.qml:73
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:117
+#: ../qml/pages/ChatSettingsPage.qml:115
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:128
+#: ../qml/pages/ChatSettingsPage.qml:126
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:138
+#: ../qml/pages/ChatSettingsPage.qml:136
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:159
+#: ../qml/pages/ChatSettingsPage.qml:157
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:159
+#: ../qml/pages/ChatSettingsPage.qml:157
 msgid "Loading users ..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:182
+#: ../qml/pages/ChatSettingsPage.qml:180
 msgid "Search..."
 msgstr ""
 
@@ -569,7 +569,7 @@ msgid "<b>Gateway</b>: %2"
 msgstr ""
 
 #: ../qml/components/TargetInfoDialog.qml:48
-#: ../qml/components/UserSettingsDialog.qml:76
+#: ../qml/components/UserSettingsDialog.qml:75
 msgid "Close"
 msgstr ""
 
@@ -710,11 +710,11 @@ msgstr ""
 msgid "Start new Chat"
 msgstr ""
 
-#: ../qml/components/UserSettingsDialog.qml:66
+#: ../qml/components/UserSettingsDialog.qml:65
 msgid "Ignore"
 msgstr ""
 
-#: ../qml/components/UserSettingsDialog.qml:90
+#: ../qml/components/UserSettingsDialog.qml:89
 msgid "Chats with %1:"
 msgstr ""
 

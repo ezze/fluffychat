@@ -57,8 +57,6 @@ Page {
 
     InviteDialog { id: inviteDialog }
 
-    NewContactDialog { id: newContactDialog }
-
     ChangeChatnameDialog { id: changeChatnameDialog }
 
     LeaveChatDialog { id: leaveChatDialog }
