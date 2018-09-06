@@ -50,7 +50,7 @@ Page {
         }
 
         // Start the request
-        matrix.login ( username, password, loginDomain, "UbuntuPhone", success_callback, error_callback )
+        matrix.login ( username, password, (loginDomain || defaultDomain), "UbuntuPhone", success_callback, error_callback )
     }
 
 
