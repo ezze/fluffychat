@@ -10,9 +10,7 @@ ListItem {
 
     property var timeorder: 0
     property var previousMessage: ""
-
-    visible: { searching ? layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 : true }
-    height: visible ? layout.height : 0
+    height: layout.height
 
     onClicked: {
         PopupUtils.close( dialogue )
@@ -35,10 +33,6 @@ ListItem {
             SlotsLayout.position: SlotsLayout.Leading
             name: room.topic || room.id
             mxc: room.avatar_url || ""
-            onClickFunction: function () {
-                activeChat = room.id
-                mainStack.push (Qt.resolvedUrl("../pages/ChatSettingsPage.qml"))
-            }
         }
 
         Component.onCompleted: {

@@ -56,25 +56,35 @@ Component {
         }
 
         Button {
+            id: button
             text: i18n.tr("Close")
             color: settings.mainColor
             iconName: "close"
             onClicked: PopupUtils.close(dialogue)
         }
 
-        Label {
-            text: i18n.tr("Chats with %1:").arg(dialogue.title)
+        Rectangle {
             width: parent.width
-            wrapMode: Text.Wrap
-            font.bold: true
+            height: units.gu(5)
+            color: theme.palette.normal.background
+            Label {
+                anchors.left: parent.left
+                anchors.top: parent.top
+                anchors.topMargin: units.gu(1.5)
+                text: i18n.tr("Chats with %1:").arg(dialogue.title)
+                width: parent.width
+                wrapMode: Text.Wrap
+                font.bold: true
+            }
         }
 
         ListView {
             id: chatListView
             width: parent.width
-            height: units.gu(16)
+            height: units.gu(13)
             delegate: SimpleChatListItem {}
             model: ListModel { id: model }
+            z: -1
         }
 
     }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-06 11:18+0000\n"
+"POT-Creation-Date: 2018-09-06 11:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -331,7 +331,7 @@ msgid "Targets"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:172 ../qml/components/ChatListItem.qml:30
-#: ../qml/components/SimpleChatListItem.qml:29
+#: ../qml/components/SimpleChatListItem.qml:27
 msgid "Unknown chat"
 msgstr ""
 
@@ -569,7 +569,7 @@ msgid "<b>Gateway</b>: %2"
 msgstr ""
 
 #: ../qml/components/TargetInfoDialog.qml:48
-#: ../qml/components/UserSettingsDialog.qml:59
+#: ../qml/components/UserSettingsDialog.qml:60
 msgid "Close"
 msgstr ""
 
@@ -714,7 +714,7 @@ msgstr ""
 msgid "Ignore"
 msgstr ""
 
-#: ../qml/components/UserSettingsDialog.qml:66
+#: ../qml/components/UserSettingsDialog.qml:74
 msgid "Chats with %1:"
 msgstr ""
 
