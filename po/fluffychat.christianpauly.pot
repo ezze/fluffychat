@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-06 14:02+0000\n"
+"POT-Creation-Date: 2018-09-06 18:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -347,11 +347,11 @@ msgstr ""
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:281
+#: ../qml/pages/ChatPage.qml:280
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:325
+#: ../qml/pages/ChatPage.qml:324
 msgid "Type something ..."
 msgstr ""
 
@@ -682,6 +682,10 @@ msgstr ""
 
 #: ../qml/components/ChatScrollView.qml:129
 msgid "Text has been copied to the clipboard"
+msgstr ""
+
+#: ../qml/components/TargetListItem.qml:22
+msgid "This device"
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:11
