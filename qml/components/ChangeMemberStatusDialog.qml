@@ -8,7 +8,8 @@ Component {
 
     Dialog {
         id: dialogue
-        title: usernames.getById ( activeUser )
+        title: usernames.getById ( activeUser ) + " (%1)".arg( status.substring(0, status.length - 1) )
+        property var status: usernames.powerlevelToStatus(activeUserPower)
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
@@ -79,6 +80,15 @@ Component {
                 PopupUtils.close(dialogue)
             }
             visible: canBan && activeUserMembership === "ban"
+        }
+        SettingsListItem {
+            name: i18n.tr("Forget user")
+            icon: "edit-delete"
+            onClicked: {
+                matrix.post("/client/r0/rooms/" + activeChat + "/forget", { "user_id": activeUser } )
+                PopupUtils.close(dialogue)
+            }
+            visible: activeUserMembership === "leave"
         }
         Row {
             width: parent.width

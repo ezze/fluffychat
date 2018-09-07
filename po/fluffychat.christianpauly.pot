@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-07 14:02+0000\n"
+"POT-Creation-Date: 2018-09-07 14:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -593,35 +593,35 @@ msgstr ""
 msgid "Notification targets"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:18
+#: ../qml/components/ChangeMemberStatusDialog.qml:19
 msgid "Make a normal member"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:31
+#: ../qml/components/ChangeMemberStatusDialog.qml:32
 msgid "Make a guard"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:44
+#: ../qml/components/ChangeMemberStatusDialog.qml:45
 msgid "Make an owner"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:57
+#: ../qml/components/ChangeMemberStatusDialog.qml:58
 msgid "Kick from this chat"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:66
+#: ../qml/components/ChangeMemberStatusDialog.qml:67
 msgid "Ban from this chat"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:75
+#: ../qml/components/ChangeMemberStatusDialog.qml:76
 msgid "Cancel banishment"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:88
+#: ../qml/components/ChangeMemberStatusDialog.qml:89
 msgid "Show user"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:97
+#: ../qml/components/ChangeMemberStatusDialog.qml:98
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/UserSettingsDialog.qml:76
 msgid "Close"
