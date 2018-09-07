@@ -3,14 +3,15 @@
 * Search chats
 * Chat avatars
 * Search users in chats
+* Display highlighted notifications
 * Security & Privacy settings:
-1. Disable typing notifications
-2. Auto-accept invitations
+    1. Disable typing notifications
+    2. Auto-accept invitations
 * New message status:
-1. Sending: Activity indicator
-2. Sent: Little cloud
-3. Received: Tick
-4. Seen by someone: Usericon
+    1. Sending: Activity indicator
+    2. Sent: Little cloud
+    3. Received: Tick
+    4. Seen by someone: Usericon
 * Display stickers
 * Minor UI improvements
 
