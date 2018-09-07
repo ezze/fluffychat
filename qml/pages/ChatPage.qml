@@ -235,25 +235,25 @@ Page {
         anchors.fill: scrollDownButton
         z: 15
     }
-        Rectangle {
-            id: scrollDownButton
-            width: parent.width
-            anchors.bottom: chatInput.top
-            anchors.left: parent.left
-            height: units.gu(3)
-            opacity: 0.75
-            color: "black"
+    Rectangle {
+        id: scrollDownButton
+        width: parent.width
+        anchors.bottom: chatInput.top
+        anchors.left: parent.left
+        height: units.gu(3)
+        opacity: 0.75
+        color: "black"
+        z: 14
+        Icon {
+            name: "toolkit_chevron-down_1gu"
+            width: units.gu(2)
+            height: width
+            anchors.centerIn: parent
+            color: "#FFFFFF"
             z: 14
-            Icon {
-                name: "toolkit_chevron-down_1gu"
-                width: units.gu(2)
-                height: width
-                anchors.centerIn: parent
-                color: "#FFFFFF"
-                z: 14
-            }
-            visible: !chatScrollView.atYEnd
         }
+        visible: !chatScrollView.atYEnd
+    }
 
     ChatScrollView { id: chatScrollView }
 
@@ -304,7 +304,19 @@ Page {
             preferences.allowUniversalAccessFromFileUrls: true
             filePicker: pickerComponent
             visible: membership === "join"
+            alertDialog: Dialog {
+                title: i18n.tr("Error")
+                text: model.message
+                parent: QuickUtils.rootItem(this)
+                Button {
+                    text: i18n.tr("OK")
+                    onClicked: model.accept()
+                }
+                Component.onCompleted: show()
+            }
         }
+
+
 
         Timer {
             id: typingTimer
