@@ -57,8 +57,7 @@ Component {
             name: i18n.tr("Kick from this chat")
             icon: "dialog-warning-symbolic"
             onClicked: {
-                data = { "user_id": activeUser }
-                matrix.put("/client/r0/rooms/" + activeChat + "/kick", data )
+                matrix.post("/client/r0/rooms/" + activeChat + "/kick", { "user_id": activeUser } )
                 PopupUtils.close(dialogue)
             }
             visible: canKick && activeUserMembership !== "leave" && activeUserMembership !== "ban"
@@ -67,8 +66,7 @@ Component {
             name: i18n.tr("Ban from this chat")
             icon: "security-alert"
             onClicked: {
-                data =  { "user_id": activeUser }
-                matrix.put("/client/r0/rooms/" + activeChat + "/ban", data )
+                matrix.post("/client/r0/rooms/" + activeChat + "/ban", { "user_id": activeUser } )
                 PopupUtils.close(dialogue)
             }
             visible: canBan && activeUserMembership !== "ban"
@@ -77,8 +75,7 @@ Component {
             name: i18n.tr("Cancel banishment")
             icon: "thumb-up"
             onClicked: {
-                data = { "user_id": activeUser }
-                matrix.put("/client/r0/rooms/" + activeChat + "/unban", data )
+                matrix.post("/client/r0/rooms/" + activeChat + "/unban", { "user_id": activeUser } )
                 PopupUtils.close(dialogue)
             }
             visible: canBan && activeUserMembership === "ban"

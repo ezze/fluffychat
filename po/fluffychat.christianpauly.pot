@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-07 13:52+0000\n"
+"POT-Creation-Date: 2018-09-07 14:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -609,19 +609,19 @@ msgstr ""
 msgid "Kick from this chat"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:67
+#: ../qml/components/ChangeMemberStatusDialog.qml:66
 msgid "Ban from this chat"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:77
+#: ../qml/components/ChangeMemberStatusDialog.qml:75
 msgid "Cancel banishment"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:91
+#: ../qml/components/ChangeMemberStatusDialog.qml:88
 msgid "Show user"
 msgstr ""
 
-#: ../qml/components/ChangeMemberStatusDialog.qml:100
+#: ../qml/components/ChangeMemberStatusDialog.qml:97
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/UserSettingsDialog.qml:76
 msgid "Close"

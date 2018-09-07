@@ -24,7 +24,7 @@ ListItem {
         }
     }
 
-    opacity: membership === "leave" ? 0.5 : 1
+    opacity: membership === "join" ? 1 : 0.5
 
     ListItemLayout {
         id: layout
@@ -45,8 +45,8 @@ ListItem {
             SlotsLayout.position: SlotsLayout.Trailing
             name: "settings"
             visible: settings
-            width: units.gu(3)
-            height: units.gu(3)
+            width: units.gu(2)
+            height: width
         }
 
     }
