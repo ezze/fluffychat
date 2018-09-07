@@ -48,7 +48,7 @@ Rectangle {
         width: isStateEvent ? units.gu(3) : units.gu(6)
         //visible: !isStateEvent
         onClickFunction: function () {
-            if ( sent ) return
+            if ( sent || isStateEvent ) return
             activeUser = event.sender
             PopupUtils.open(userSettings)
         }
@@ -118,7 +118,7 @@ Rectangle {
 
             Column {
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: units.gu(1)
+                anchors.bottomMargin:  isStateEvent ? units.gu(0.75) : units.gu(1)
                 width: parent.width
 
 

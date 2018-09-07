@@ -62,14 +62,14 @@ Component {
             }
         }
 
-        Button {
+        /*Button {
             text: i18n.tr("Ignore")
             color: UbuntuColors.porcelain
             iconName: "security-alert"
             onClicked: {
                 PopupUtils.close(dialogue)
             }
-        }
+        }*/
 
         Button {
             id: button
