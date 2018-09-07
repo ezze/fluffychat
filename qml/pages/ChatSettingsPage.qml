@@ -14,6 +14,17 @@ Page {
     property var newContactMatrixID
     property var description: ""
 
+    property var activeUserPower
+    property var activeUserMembership
+
+    // User permission
+    property var power
+    property var canChangeName
+    property var canKick
+    property var canBan
+    property var canInvite
+    property var canChangePermissions
+
     Connections {
         target: events
         onChatTimelineEvent: init ()
@@ -22,22 +33,34 @@ Page {
     function init () {
 
         // Get the member status of the user himself
-        storage.transaction ( "SELECT description, membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
-            membership = res.rows.length > 0 ? res.rows[0].membership : "unknown"
+        storage.transaction ( "SELECT description, membership, power_event_name, power_kick, power_ban, power_invite, power_event_power_levels FROM Chats WHERE id='" + activeChat + "'", function (res) {
+
             description = res.rows[0].description
+            storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function (res2) {
+                membership = res2.rows[0].membership
+                power = res2.rows[0].power_level
+                canChangeName = power >= res.rows[0].power_event_name
+                canKick = power >= res.rows[0].power_kick
+                canBan = power >= res.rows[0].power_ban
+                canInvite = power >= res.rows[0].power_invite
+                canChangePermissions = power >= res.rows[0].power_event_power_levels
+            })
         })
 
         // Request the full memberlist, from the database
-        storage.transaction ( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Memberships.membership " +
+        model.clear()
+        storage.transaction ( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Memberships.membership, Memberships.power_level " +
         " FROM Users, Memberships WHERE Memberships.chat_id='" + activeChat + "' " +
-        " AND Users.matrix_id=Memberships.matrix_id ", function (response) {
+        " AND Users.matrix_id=Memberships.matrix_id " +
+        " ORDER BY Memberships.membership", function (response) {
             for ( var i = 0; i < response.rows.length; i++ ) {
                 var member = response.rows[ i ]
                 model.append({
                     name: member.displayname || usernames.transformFromId( member.matrix_id ),
                     matrixid: member.matrix_id,
-                    membership: getDisplayMemberStatus ( member.membership ),
-                    avatar_url: member.avatar_url
+                    membership: member.membership,
+                    avatar_url: member.avatar_url,
+                    userPower: member.power_level
                 })
             }
         })
@@ -66,6 +89,8 @@ Page {
 
     ChangeChatnameDialog { id: changeChatnameDialog }
 
+    ChangeMemberStatusDialog { id:changeMemberStatusDialog }
+
     LeaveChatDialog { id: leaveChatDialog }
 
     header: FcPageHeader {
@@ -76,6 +101,7 @@ Page {
             numberOfSlots: 1
             actions: [
             Action {
+                visible: canChangeName
                 iconName: "compose"
                 text: i18n.tr("Edit chat name")
                 onTriggered: PopupUtils.open(changeChatnameDialog)
@@ -130,6 +156,7 @@ Page {
                     id: settingsColumn
                     width: parent.width
                     SettingsListItem {
+                        visible: canInvite
                         name: i18n.tr("Invite friend")
                         icon: "contact-new"
                         onClicked: PopupUtils.open(inviteDialog)

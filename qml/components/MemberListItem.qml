@@ -8,10 +8,20 @@ ListItem {
 
     visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
+    property var settings: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === matrix.matrixid)
+    property var status: usernames.powerlevelToStatus(userPower)
 
     onClicked: {
-        activeUser = matrixid
-        PopupUtils.open(userSettings)
+        if ( settings ) {
+            activeUser = matrixid
+            activeUserPower = userPower
+            activeUserMembership = membership
+            PopupUtils.open(changeMemberStatusDialog)
+        }
+        else {
+            activeUser = matrixid
+            PopupUtils.open(userSettings)
+        }
     }
 
     opacity: membership === "leave" ? 0.5 : 1
@@ -19,11 +29,25 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
-        subtitle.text: membership
+        subtitle.text: membership === "join" ? status.substring(0, status.length - 1) : getDisplayMemberStatus ( membership )
+
         Avatar {
             name: layout.title.text
             SlotsLayout.position: SlotsLayout.Leading
             mxc: avatar_url || ""
+            onClickFunction: function () {
+                activeUser = matrixid
+                PopupUtils.open(userSettings)
+            }
         }
+
+        Icon {
+            SlotsLayout.position: SlotsLayout.Trailing
+            name: "settings"
+            visible: settings
+            width: units.gu(3)
+            height: units.gu(3)
+        }
+
     }
 }

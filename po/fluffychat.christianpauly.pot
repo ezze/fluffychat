@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-07 11:10+0000\n"
+"POT-Creation-Date: 2018-09-07 13:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,6 +146,18 @@ msgstr ""
 msgid "⌨️ %1 and %2 more are typing ..."
 msgstr ""
 
+#: ../qml/controller/UserNameController.qml:45
+msgid "Members"
+msgstr ""
+
+#: ../qml/controller/UserNameController.qml:46
+msgid "Guards"
+msgstr ""
+
+#: ../qml/controller/UserNameController.qml:47
+msgid "Owners"
+msgstr ""
+
 #: ../qml/controller/RoomNameController.qml:13
 #: ../qml/controller/RoomNameController.qml:25
 #: ../qml/controller/RoomNameController.qml:33
@@ -240,23 +252,79 @@ msgstr ""
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:28
+#: ../qml/pages/ChatPrivacySettingsPage.qml:58
 #: ../qml/pages/MainSettingsPage.qml:53
 #: ../qml/pages/PrivacySettingsPage.qml:11
-#: ../qml/pages/ChatSettingsPage.qml:143
+#: ../qml/pages/ChatSettingsPage.qml:170
 msgid "Security & Privacy"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:42
+#: ../qml/pages/ChatPrivacySettingsPage.qml:80
+msgid "Access rules:"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:87
 msgid "Who is allowed to join?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:48
+#: ../qml/pages/ChatPrivacySettingsPage.qml:92
 msgid "Who can see the chat history?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:54
-msgid "Are guests allowed?"
+#: ../qml/pages/ChatPrivacySettingsPage.qml:97
+msgid "Guest access?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:110
+msgid "Permissions:"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:116
+msgid "Who can send messages?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:120
+msgid "Who can configure this chat?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:124
+msgid "Who can remove messages?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:128
+msgid "Who can invite users?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:132
+msgid "Who can ban users?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:136
+msgid "Who can kick users?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:140
+msgid "Who can change the chat name?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:144
+msgid "Who can change the chat avatar?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:148
+msgid "Who can change the chat history visibility?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:152
+msgid "Who can change the canonical chat alias?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:156
+msgid "Who can change the user permissions?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:160
+msgid "Default user permissions:"
 msgstr ""
 
 #: ../qml/pages/BlankPage.qml:11
@@ -270,7 +338,7 @@ msgstr ""
 #: ../qml/pages/MainSettingsPage.qml:35
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:184
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:138
+#: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Notifications"
 msgstr ""
 
@@ -402,56 +470,56 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:47
+#: ../qml/pages/ChatSettingsPage.qml:70
 msgid "Member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:48
+#: ../qml/pages/ChatSettingsPage.qml:71
 msgid "Was invited"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:49
+#: ../qml/pages/ChatSettingsPage.qml:72
 msgid "Has left the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:50
+#: ../qml/pages/ChatSettingsPage.qml:73
 msgid "Has knocked"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:51
+#: ../qml/pages/ChatSettingsPage.qml:74
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:52
+#: ../qml/pages/ChatSettingsPage.qml:75
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:80
+#: ../qml/pages/ChatSettingsPage.qml:106
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:122
+#: ../qml/pages/ChatSettingsPage.qml:148
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:133
+#: ../qml/pages/ChatSettingsPage.qml:160
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:148
+#: ../qml/pages/ChatSettingsPage.qml:175
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:169
+#: ../qml/pages/ChatSettingsPage.qml:196
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:169
+#: ../qml/pages/ChatSettingsPage.qml:196
 msgid "Loading users ..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:192
+#: ../qml/pages/ChatSettingsPage.qml:219
 msgid "Search..."
 msgstr ""
 
@@ -525,6 +593,40 @@ msgstr ""
 msgid "Notification targets"
 msgstr ""
 
+#: ../qml/components/ChangeMemberStatusDialog.qml:18
+msgid "Make a normal member"
+msgstr ""
+
+#: ../qml/components/ChangeMemberStatusDialog.qml:31
+msgid "Make a guard"
+msgstr ""
+
+#: ../qml/components/ChangeMemberStatusDialog.qml:44
+msgid "Make an owner"
+msgstr ""
+
+#: ../qml/components/ChangeMemberStatusDialog.qml:57
+msgid "Kick from this chat"
+msgstr ""
+
+#: ../qml/components/ChangeMemberStatusDialog.qml:67
+msgid "Ban from this chat"
+msgstr ""
+
+#: ../qml/components/ChangeMemberStatusDialog.qml:77
+msgid "Cancel banishment"
+msgstr ""
+
+#: ../qml/components/ChangeMemberStatusDialog.qml:91
+msgid "Show user"
+msgstr ""
+
+#: ../qml/components/ChangeMemberStatusDialog.qml:100
+#: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/UserSettingsDialog.qml:76
+msgid "Close"
+msgstr ""
+
 #: ../qml/components/ChangePasswordDialog.qml:11
 #: ../qml/components/ChangePasswordDialog.qml:51
 msgid "Change your password"
@@ -588,11 +690,6 @@ msgstr ""
 
 #: ../qml/components/TargetInfoDialog.qml:41
 msgid "<b>Gateway</b>: %2"
-msgstr ""
-
-#: ../qml/components/TargetInfoDialog.qml:48
-#: ../qml/components/UserSettingsDialog.qml:76
-msgid "Close"
 msgstr ""
 
 #: ../qml/components/LeaveChatDialog.qml:11

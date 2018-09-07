@@ -274,7 +274,7 @@ Item {
             // it has to be changed in the database
             if ( event.type === "m.room.topic" ) {
                 transaction.executeSql( "UPDATE Chats SET description=? WHERE id=?",
-                [ event.content.topic,
+                [ event.content.topic || "",
                 roomid ])
             }
 
@@ -330,6 +330,39 @@ Item {
                 if ( event.state_key === matrix.matrixid) {
                     settings.avatar_url = event.content.avatar_url
                     settings.displayname = event.content.displayname
+                }
+            }
+
+            // This event changes the permissions of the users and the power levels
+            else if ( event.type === "m.room.power_levels" ) {
+                var query = "UPDATE Chats SET "
+                if ( event.content.ban ) query += ", power_ban=" + event.content.ban
+                if ( event.content.events_default ) query += ", power_events_default=" + event.content.events_default
+                if ( event.content.state_default ) query += ", power_state_default=" + event.content.state_default
+                if ( event.content.redact ) query += ", power_redact=" + event.content.redact
+                if ( event.content.invite ) query += ", power_invite=" + event.content.invite
+                if ( event.content.kick ) query += ", power_kick=" + event.content.kick
+                if ( event.content.user_default ) query += ", power_user_default=" + event.content.user_default
+                if ( event.content.events ) {
+                    if ( event.content.events["m.room.avatar"] ) query += ", power_event_avatar=" + event.content.events["m.room.avatar"]
+                    if ( event.content.events["m.room.history_visibility"] ) query += ", power_event_history_visibility=" + event.content.events["m.room.history_visibility"]
+                    if ( event.content.events["m.room.canonical_alias"] ) query += ", power_event_canonical_alias=" + event.content.events["m.room.canonical_alias"]
+                    if ( event.content.events["m.room.name"] ) query += ", power_event_name=" + event.content.events["m.room.name"]
+                    if ( event.content.events["m.room.power_levels"] ) query += ", power_event_power_levels=" + event.content.events["m.room.power_levels"]
+                }
+                if ( query !== "UPDATE Chats SET ") {
+                    query = query.replace(",","")
+                    transaction.executeSql( query + " WHERE id=?",[ roomid ])
+                }
+
+                // Set the users power levels:
+                if ( event.content.users ) {
+                    for ( var user in event.content.users ) {
+                        transaction.executeSql( "UPDATE Memberships SET power_level=? WHERE matrix_id=? AND chat_id=?",
+                        [ event.content.users[user],
+                        user,
+                        roomid ])
+                    }
                 }
             }
         }
