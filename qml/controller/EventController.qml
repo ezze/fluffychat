@@ -323,9 +323,12 @@ Item {
                 event.content.displayname,
                 event.content.avatar_url ])
 
-                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', ?, ?, ?)",
+                transaction.executeSql( "INSERT OR IGNORE INTO Memberships VALUES('" + roomid + "', ?, ?, (SELECT power_user_default FROM Chats WHERE id='" + roomid + "'))",
                 [ event.state_key,
-                event.content.membership, null ])
+                event.content.membership ])
+
+                transaction.executeSql( "UPDATE Memberships SET membership=? WHERE chat_id='" + roomid + "' AND matrix_id='" + event.state_key + "')",
+                [ event.content.membership ])
 
                 if ( event.state_key === matrix.matrixid) {
                     settings.avatar_url = event.content.avatar_url
