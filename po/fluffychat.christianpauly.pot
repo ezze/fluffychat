@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-07 09:21+0000\n"
+"POT-Creation-Date: 2018-09-07 11:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,11 +51,11 @@ msgid "The chat has been created"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:36
-msgid "%1 has changed the chat name"
+msgid "%1 has changed the chat name to: <b>%2</b>"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:39
-msgid "%1 has changed the chat topic"
+msgid "%1 has changed the chat topic to: <b>%2</b>"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:42
@@ -67,67 +67,67 @@ msgid "%1 has sent a sticker"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:48
-msgid "%1 has set the chat history visible to: "
+msgid "%1 has set the chat history visible to: %2"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:50
-msgid "All chat participants"
+#: ../qml/controller/DisplayEventController.qml:51
+msgid "%1 has set the join rules to: %2"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:53
-msgid "All joined chat participants"
+#: ../qml/controller/DisplayEventController.qml:54
+msgid "%1 has set the guest access to: %2"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:56
-msgid "All invited chat participants"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:59
-msgid "Everyone"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:63
-msgid "%1 has set the join rules to: "
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:65
-msgid "Only invited users"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:68
-msgid "Public"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:71
-msgid "Private"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:74
-msgid "Knock"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:78
-msgid "%1 has set the guest access to: "
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:80
-msgid "Can join"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:83
-msgid "Forbidden"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:87
+#: ../qml/controller/DisplayEventController.qml:57
 msgid "The chat aliases have been changed."
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:93
+#: ../qml/controller/DisplayEventController.qml:63
 msgid "The canonical chat alias has been changed to: "
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:96
+#: ../qml/controller/DisplayEventController.qml:66
 msgid "The chat permissions have been changed"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:74
+msgid "Only invited users"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:77
+msgid "Public"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:80
+msgid "Private"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:83
+msgid "Knock"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:86
+msgid "All chat participants"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:89
+msgid "All joined chat participants"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:92
+msgid "All invited chat participants"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:95
+msgid "Everyone"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:98
+msgid "Can join"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:101
+msgid "Forbidden"
 msgstr ""
 
 #: ../qml/controller/EventController.qml:87
@@ -240,6 +240,25 @@ msgstr ""
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
+#: ../qml/pages/ChatPrivacySettingsPage.qml:28
+#: ../qml/pages/MainSettingsPage.qml:53
+#: ../qml/pages/PrivacySettingsPage.qml:11
+#: ../qml/pages/ChatSettingsPage.qml:143
+msgid "Security & Privacy"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:42
+msgid "Who is allowed to join?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:48
+msgid "Who can see the chat history?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:54
+msgid "Are guests allowed?"
+msgstr ""
+
 #: ../qml/pages/BlankPage.qml:11
 msgid "Welcome"
 msgstr ""
@@ -251,7 +270,7 @@ msgstr ""
 #: ../qml/pages/MainSettingsPage.qml:35
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:184
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:131
+#: ../qml/pages/ChatSettingsPage.qml:138
 msgid "Notifications"
 msgstr ""
 
@@ -262,11 +281,6 @@ msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:47 ../qml/pages/ThemeSettingsPage.qml:11
 msgid "Theme"
-msgstr ""
-
-#: ../qml/pages/MainSettingsPage.qml:53
-#: ../qml/pages/PrivacySettingsPage.qml:11
-msgid "Security & Privacy"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:59
@@ -388,56 +402,56 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:40
+#: ../qml/pages/ChatSettingsPage.qml:47
 msgid "Member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:41
+#: ../qml/pages/ChatSettingsPage.qml:48
 msgid "Was invited"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:42
+#: ../qml/pages/ChatSettingsPage.qml:49
 msgid "Has left the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:43
+#: ../qml/pages/ChatSettingsPage.qml:50
 msgid "Has knocked"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:44
+#: ../qml/pages/ChatSettingsPage.qml:51
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:45
+#: ../qml/pages/ChatSettingsPage.qml:52
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:73
+#: ../qml/pages/ChatSettingsPage.qml:80
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:115
+#: ../qml/pages/ChatSettingsPage.qml:122
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:126
+#: ../qml/pages/ChatSettingsPage.qml:133
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:136
+#: ../qml/pages/ChatSettingsPage.qml:148
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:157
+#: ../qml/pages/ChatSettingsPage.qml:169
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:157
+#: ../qml/pages/ChatSettingsPage.qml:169
 msgid "Loading users ..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:180
+#: ../qml/pages/ChatSettingsPage.qml:192
 msgid "Search..."
 msgstr ""
 
@@ -540,7 +554,7 @@ msgstr ""
 #: ../qml/components/ChatScrollView.qml:133
 #: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
-#: ../qml/components/ChangeChatnameDialog.qml:34
+#: ../qml/components/ChangeChatnameDialog.qml:43
 msgid "Cancel"
 msgstr ""
 
@@ -735,12 +749,16 @@ msgid "Enter your new nickname"
 msgstr ""
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:39
-#: ../qml/components/ChangeChatnameDialog.qml:39
+#: ../qml/components/ChangeChatnameDialog.qml:48
 msgid "Save"
 msgstr ""
 
-#: ../qml/components/ChangeChatnameDialog.qml:19
+#: ../qml/components/ChangeChatnameDialog.qml:20
 msgid "Enter a name for the chat"
+msgstr ""
+
+#: ../qml/components/ChangeChatnameDialog.qml:33
+msgid "Enter a description for the chat"
 msgstr ""
 
 #: ../qml/components/DeviceListItem.qml:22

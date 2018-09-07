@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.2.0"
+    property var version: "0.3.0a"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -83,6 +83,29 @@ Item {
         'avatar_url TEXT, ' +
         'draft TEXT, ' +
         'unread INTEGER, ' +
+        'description TEXT, ' +
+
+        // Security rules
+        'guest_access TEXT, ' +
+        'history_visibility TEXT, ' +
+        'join_rules TEXT, ' +
+
+        // Power levels
+        'power_events_default INTEGER, ' +
+        'power_state_default INTEGER, ' +
+        'power_redact INTEGER, ' +
+        'power_invite INTEGER, ' +
+        'power_ban INTEGER, ' +
+        'power_kick INTEGER, ' +
+        'power_user_default INTEGER, ' +
+
+        // Power levels for events
+        'power_event_avatar INTEGER, ' +
+        'power_event_history_visibility INTEGER, ' +
+        'power_event_canonical_alias INTEGER, ' +
+        'power_event_name INTEGER, ' +
+        'power_event_power_levels INTEGER, ' +
+
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR EVENTS
@@ -110,6 +133,7 @@ Item {
         'chat_id TEXT, ' +      // The chat id of this membership
         'matrix_id TEXT, ' +    // The matrix id of this user
         'membership TEXT, ' +   // The status of the membership. Must be one of [join, invite, ban, leave]
+        'power_level INTEGER, ' +   // The power level of this user. Must be in [0,..,100]
         'UNIQUE(chat_id, matrix_id))')
 
         // TABLE SCHEMA FOR CONTACTS

@@ -33,10 +33,10 @@ Item {
             body = i18n.tr("The chat has been created")
         }
         else if ( event.type === "m.room.name" ) {
-            body = i18n.tr("%1 has changed the chat name").arg(displayname)
+            body = i18n.tr("%1 has changed the chat name to: <b>%2</b>").arg(displayname).arg(event.content.name)
         }
         else if ( event.type === "m.room.topic" ) {
-            body = i18n.tr("%1 has changed the chat topic").arg(displayname)
+            body = i18n.tr("%1 has changed the chat topic to: <b>%2</b>").arg(displayname).arg(event.content.topic)
         }
         else if ( event.type === "m.room.avatar" ) {
             body = i18n.tr("%1 has changed the chat avatar").arg(displayname)
@@ -45,43 +45,13 @@ Item {
             body = i18n.tr("%1 has sent a sticker").arg(displayname)
         }
         else if ( event.type === "m.room.history_visibility" ) {
-            body = i18n.tr("%1 has set the chat history visible to: ").arg(displayname)
-            if ( event.content.history_visibility === "shared" ) {
-                body += i18n.tr("All chat participants")
-            }
-            else if ( event.content.history_visibility === "joined" ) {
-                body += i18n.tr("All joined chat participants")
-            }
-            else if ( event.content.history_visibility === "invited" ) {
-                body += i18n.tr("All invited chat participants")
-            }
-            else if ( event.content.history_visibility === "world_readable" ) {
-                body += i18n.tr("Everyone")
-            }
+            body = i18n.tr("%1 has set the chat history visible to: %2").arg(displayname).arg(translate ( event.content.history_visibility ))
         }
         else if ( event.type === "m.room.join_rules" ) {
-            body = i18n.tr("%1 has set the join rules to: ").arg(displayname)
-            if ( event.content.join_rule === "invite" ) {
-                body += i18n.tr("Only invited users")
-            }
-            else if ( event.content.join_rule === "public" ) {
-                body += i18n.tr("Public")
-            }
-            else if ( event.content.join_rule === "private" ) {
-                body += i18n.tr("Private")
-            }
-            else if ( event.content.join_rule === "knock" ) {
-                body += i18n.tr("Knock")
-            }
+            body = i18n.tr("%1 has set the join rules to: %2").arg(displayname).arg( translate ( event.content.join_rule ) )
         }
         else if ( event.type === "m.room.guest_access" ) {
-            body = i18n.tr("%1 has set the guest access to: ").arg(displayname)
-            if ( event.content.guest_access === "can_join" ) {
-                body += i18n.tr("Can join")
-            }
-            else if ( event.content.guest_access === "forbidden" ) {
-                body += i18n.tr("Forbidden")
-            }
+            body = i18n.tr("%1 has set the guest access to: %2").arg(displayname).arg( translate ( event.content.guest_access ) )
         }
         else if ( event.type === "m.room.aliases" ) {
             body = i18n.tr("The chat aliases have been changed.")
@@ -97,5 +67,38 @@ Item {
         }
         body += "."
         return body
+    }
+
+    function translate ( type ) {
+        if ( type === "invite" ) {
+            return i18n.tr("Only invited users")
+        }
+        else if ( type === "public" ) {
+            return i18n.tr("Public")
+        }
+        else if ( type === "private" ) {
+            return i18n.tr("Private")
+        }
+        else if ( type === "knock" ) {
+            return i18n.tr("Knock")
+        }
+        else if ( type === "shared" ) {
+            return i18n.tr("All chat participants")
+        }
+        else if ( type === "joined" ) {
+            return i18n.tr("All joined chat participants")
+        }
+        else if ( type === "invited" ) {
+            return i18n.tr("All invited chat participants")
+        }
+        else if ( type === "world_readable" ) {
+            return i18n.tr("Everyone")
+        }
+        else if ( type === "can_join" ) {
+            return i18n.tr("Can join")
+        }
+        else if ( type === "forbidden" ) {
+            return i18n.tr("Forbidden")
+        }
     }
 }

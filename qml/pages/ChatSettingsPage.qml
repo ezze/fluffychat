@@ -12,12 +12,19 @@ Page {
     property var position: 0
     property var blocked: false
     property var newContactMatrixID
+    property var description: ""
+
+    Connections {
+        target: events
+        onChatTimelineEvent: init ()
+    }
 
     function init () {
 
         // Get the member status of the user himself
-        storage.transaction ( "SELECT membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT description, membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
             membership = res.rows.length > 0 ? res.rows[0].membership : "unknown"
+            description = res.rows[0].description
         })
 
         // Request the full memberlist, from the database
@@ -63,7 +70,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: activeChatDisplayName
+        title: description === "" ? activeChatDisplayName : activeChatDisplayName + "\n" + description
 
         trailingActionBar {
             numberOfSlots: 1
@@ -131,6 +138,11 @@ Page {
                         name: i18n.tr("Notifications")
                         icon: "notification"
                         page: "NotificationChatSettingsPage"
+                    }
+                    SettingsListLink {
+                        name: i18n.tr("Security & Privacy")
+                        icon: "system-lock-screen"
+                        page: "ChatPrivacySettingsPage"
                     }
                     SettingsListItem {
                         name: i18n.tr("Leave Chat")

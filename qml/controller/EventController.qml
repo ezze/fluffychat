@@ -179,7 +179,7 @@ Item {
 
                 // Insert the chat into the database if not exists
                 transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
-                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0) ")
+                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 100) ")
                 // Update the notification counts and the limited timeline boolean
                 transaction.executeSql ( "UPDATE Chats SET " +
                 " highlight_count=" +
@@ -254,7 +254,7 @@ Item {
                 msg_status.RECEIVED ])
             }
 
-            // This event means, that the topic of a room has been changed, so
+            // This event means, that the name of a room has been changed, so
             // it has to be changed in the database
             if ( event.type === "m.room.name" ) {
                 transaction.executeSql( "UPDATE Chats SET topic=? WHERE id=?",
@@ -268,6 +268,43 @@ Item {
                     })
                 }
             }
+
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.topic" ) {
+                transaction.executeSql( "UPDATE Chats SET description=? WHERE id=?",
+                [ event.content.topic,
+                roomid ])
+            }
+
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.history_visibility" ) {
+                transaction.executeSql( "UPDATE Chats SET history_visibility=? WHERE id=?",
+                [ event.content.history_visibility,
+                roomid ])
+            }
+
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.guest_access" ) {
+                transaction.executeSql( "UPDATE Chats SET guest_access=? WHERE id=?",
+                [ event.content.guest_access,
+                roomid ])
+            }
+
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.join_rules" ) {
+                transaction.executeSql( "UPDATE Chats SET join_rules=? WHERE id=?",
+                [ event.content.join_rule,
+                roomid ])
+            }
+
 
             // This event means, that the avatar of a room has been changed, so
             // it has to be changed in the database
@@ -286,9 +323,9 @@ Item {
                 event.content.displayname,
                 event.content.avatar_url ])
 
-                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', ?, ?)",
+                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', ?, ?, ?)",
                 [ event.state_key,
-                event.content.membership ])
+                event.content.membership, null ])
 
                 if ( event.state_key === matrix.matrixid) {
                     settings.avatar_url = event.content.avatar_url

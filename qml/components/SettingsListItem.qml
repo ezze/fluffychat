@@ -4,6 +4,7 @@ import Ubuntu.Components 1.3
 
 ListItem {
     property var name: ""
+    property var value: ""
     property var icon: "settings"
     property var iconColor: settings.mainColor
     height: layout.height
@@ -11,6 +12,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
+        subtitle.text: value
         Icon {
             name: icon
             color: iconColor
