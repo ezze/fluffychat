@@ -96,7 +96,6 @@ Component {
             Button {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Show user")
-                color: UbuntuColors.green
                 onClicked: {
                     PopupUtils.close(dialogue)
                     PopupUtils.open(userSettings)
