@@ -16,7 +16,7 @@ Item {
     id: storage
 
     property var version: "0.2.0"
-    property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
+    property var db: LocalStorage.openDatabaseSync("FLuffyChat", "1.0", "FluffyChat Database", 1000000)
 
 
     // Shortener for the sqlite transactions
