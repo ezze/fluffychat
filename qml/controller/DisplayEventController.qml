@@ -83,13 +83,13 @@ Item {
             return i18n.tr("Knock")
         }
         else if ( type === "shared" ) {
-            return i18n.tr("All chat participants")
+            return i18n.tr("Everyone")
         }
         else if ( type === "joined" ) {
-            return i18n.tr("All joined chat participants")
+            return i18n.tr("Only joined chat participants")
         }
         else if ( type === "invited" ) {
-            return i18n.tr("All invited chat participants")
+            return i18n.tr("Joined and invited chat participants")
         }
         else if ( type === "world_readable" ) {
             return i18n.tr("Everyone")

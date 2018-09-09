@@ -7,6 +7,10 @@ import "../components"
 Page {
     anchors.fill: parent
 
+    property var ownPower
+    property var canChangeAccessRules: false
+    property var canChangePermissions: false
+
     Component.onCompleted: init ()
 
     Connections {
@@ -16,36 +20,59 @@ Page {
 
     function init () {
 
-        // Get the member status of the user himself
-        storage.transaction ( "SELECT * FROM Chats WHERE id='" + activeChat + "'", function (res) {
-            join_rules.value = displayEvents.translate( res.rows[0].join_rules )
-            history_visibility.value = displayEvents.translate( res.rows[0].history_visibility )
-            guest_access.value = displayEvents.translate( res.rows[0].guest_access )
-            power_events_default.value = usernames.powerlevelToStatus ( res.rows[0].power_events_default )
-            power_events_default.icon = powerlevelToIcon ( res.rows[0].power_events_default )
-            power_state_default.value = usernames.powerlevelToStatus ( res.rows[0].power_state_default )
-            power_state_default.icon = powerlevelToIcon ( res.rows[0].power_state_default )
-            power_redact.value = usernames.powerlevelToStatus ( res.rows[0].power_redact )
-            power_redact.icon = powerlevelToIcon ( res.rows[0].power_redact )
-            power_invite.value = usernames.powerlevelToStatus ( res.rows[0].power_invite )
-            power_invite.icon = powerlevelToIcon ( res.rows[0].power_invite )
-            power_ban.value = usernames.powerlevelToStatus ( res.rows[0].power_ban )
-            power_ban.icon = powerlevelToIcon ( res.rows[0].power_ban )
-            power_kick.value = usernames.powerlevelToStatus ( res.rows[0].power_kick )
-            power_kick.icon = powerlevelToIcon ( res.rows[0].power_kick )
-            power_user_default.value = usernames.powerlevelToStatus ( res.rows[0].power_user_default )
-            power_user_default.icon = powerlevelToIcon ( res.rows[0].power_user_default )
-            power_event_avatar.value = usernames.powerlevelToStatus ( res.rows[0].power_event_avatar )
-            power_event_avatar.icon = powerlevelToIcon ( res.rows[0].power_event_avatar )
-            power_event_history_visibility.value = usernames.powerlevelToStatus ( res.rows[0].power_event_history_visibility )
-            power_event_history_visibility.icon = powerlevelToIcon ( res.rows[0].power_event_history_visibility )
-            power_event_canonical_alias.value = usernames.powerlevelToStatus ( res.rows[0].power_event_canonical_alias )
-            power_event_canonical_alias.icon = powerlevelToIcon ( res.rows[0].power_event_canonical_alias )
-            power_event_name.value = usernames.powerlevelToStatus ( res.rows[0].power_event_name )
-            power_event_name.icon = powerlevelToIcon ( res.rows[0].power_event_name )
-            power_event_power_levels.value = usernames.powerlevelToStatus ( res.rows[0].power_event_power_levels )
-            power_event_power_levels.icon = powerlevelToIcon ( res.rows[0].power_event_power_levels )
+        storage.transaction ( "SELECT power_level FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function ( rs ) {
+            ownPower = rs.rows[0].power_level
+
+            // Get the member status of the user himself
+            storage.transaction ( "SELECT * FROM Chats WHERE id='" + activeChat + "'", function (res) {
+
+                join_rules.value = displayEvents.translate( res.rows[0].join_rules )
+                if ( res.rows[0].join_rules === "public" ) join_rules.icon = "private-browsing-exit"
+                else if ( res.rows[0].join_rules === "private" ) join_rules.icon = "private-browsing"
+                else if ( res.rows[0].join_rules === "knock" ) join_rules.icon = "help"
+                else if ( res.rows[0].join_rules === "invite" ) join_rules.icon = "private-tab-new"
+                history_visibility.value = displayEvents.translate( res.rows[0].history_visibility )
+                if ( res.rows[0].history_visibility === "shared" ) history_visibility.icon = "private-browsing-exit"
+                else if ( res.rows[0].history_visibility === "invited" ) history_visibility.icon = "private-tab-new"
+                else if ( res.rows[0].history_visibility === "joined" ) history_visibility.icon = "private-browsing"
+                guest_access.value = displayEvents.translate( res.rows[0].guest_access )
+                if ( res.rows[0].guest_access === "can_join" ) guest_access.icon = "private-browsing-exit"
+                else if ( res.rows[0].guest_access === "forbidden" ) guest_access.icon = "private-browsing"
+
+                power_events_default.value = usernames.powerlevelToStatus ( res.rows[0].power_events_default )
+                power_events_default.icon = powerlevelToIcon ( res.rows[0].power_events_default )
+                power_state_default.value = usernames.powerlevelToStatus ( res.rows[0].power_state_default )
+                power_state_default.icon = powerlevelToIcon ( res.rows[0].power_state_default )
+                power_redact.value = usernames.powerlevelToStatus ( res.rows[0].power_redact )
+                power_redact.icon = powerlevelToIcon ( res.rows[0].power_redact )
+                power_invite.value = usernames.powerlevelToStatus ( res.rows[0].power_invite )
+                power_invite.icon = powerlevelToIcon ( res.rows[0].power_invite )
+                power_ban.value = usernames.powerlevelToStatus ( res.rows[0].power_ban )
+                power_ban.icon = powerlevelToIcon ( res.rows[0].power_ban )
+                power_kick.value = usernames.powerlevelToStatus ( res.rows[0].power_kick )
+                power_kick.icon = powerlevelToIcon ( res.rows[0].power_kick )
+                power_user_default.value = usernames.powerlevelToStatus ( res.rows[0].power_user_default )
+                power_user_default.icon = powerlevelToIcon ( res.rows[0].power_user_default )
+                power_event_avatar.value = usernames.powerlevelToStatus ( res.rows[0].power_event_avatar )
+                power_event_avatar.icon = powerlevelToIcon ( res.rows[0].power_event_avatar )
+                power_event_history_visibility.value = usernames.powerlevelToStatus ( res.rows[0].power_event_history_visibility )
+                power_event_history_visibility.icon = powerlevelToIcon ( res.rows[0].power_event_history_visibility )
+                power_event_canonical_alias.value = usernames.powerlevelToStatus ( res.rows[0].power_event_canonical_alias )
+                power_event_canonical_alias.icon = powerlevelToIcon ( res.rows[0].power_event_canonical_alias )
+                power_event_name.value = usernames.powerlevelToStatus ( res.rows[0].power_event_name )
+                power_event_name.icon = powerlevelToIcon ( res.rows[0].power_event_name )
+                power_event_power_levels.value = usernames.powerlevelToStatus ( res.rows[0].power_event_power_levels )
+                power_event_power_levels.icon = powerlevelToIcon ( res.rows[0].power_event_power_levels )
+
+                canChangeAccessRules = ownPower >= res.rows[0].power_state_default
+                canChangePermissions = ownPower >= res.rows[0].power_event_power_levels
+
+                console.log("OwnPower:", ownPower, " Power for changing accessrules: ", res.rows[0].power_state_default)
+            })
+
         })
+
+
     }
 
     function powerlevelToIcon ( power_level ) {
@@ -57,6 +84,10 @@ Page {
     header: FcPageHeader {
         title:  i18n.tr('Security & Privacy') + " - " + activeChatDisplayName
     }
+
+    ChangeJoinRulesDialog { id: changeJoinRulesDialog }
+    ChangeHistoryVisibilityDialog { id: changeHistoryVisibilityDialog }
+    ChangeGuestAccessDialog { id: changeGuestAccessDialog }
 
     ScrollView {
         id: scrollView
@@ -83,18 +114,24 @@ Page {
 
             SettingsListItem {
                 id: join_rules
-                icon: "user-admin"
+                icon: "private-browsing"
                 name: i18n.tr('Who is allowed to join?')
+                onClicked: canChangeAccessRules ? PopupUtils.open(changeJoinRulesDialog) : undefined
+                rightIcon: canChangeAccessRules ? "settings" : ""
             }
             SettingsListItem {
                 id: history_visibility
-                icon: "sort-listitem"
+                icon: "private-browsing"
                 name: i18n.tr('Who can see the chat history?')
+                onClicked: canChangeAccessRules ? PopupUtils.open(changeHistoryVisibilityDialog) : undefined
+                rightIcon: canChangeAccessRules ? "settings" : ""
             }
             SettingsListItem {
                 id: guest_access
-                icon: "contact-group"
+                icon: "private-browsing"
                 name: i18n.tr('Guest access?')
+                onClicked: canChangeAccessRules ? PopupUtils.open(changeGuestAccessDialog) : undefined
+                rightIcon: canChangeAccessRules ? "settings" : ""
             }
 
             Rectangle {
@@ -114,50 +151,62 @@ Page {
             SettingsListItem {
                 id: power_events_default
                 name: i18n.tr('Who can send messages?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_state_default
                 name: i18n.tr('Who can configure this chat?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_redact
                 name: i18n.tr('Who can remove messages?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_invite
                 name: i18n.tr('Who can invite users?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_ban
                 name: i18n.tr('Who can ban users?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_kick
                 name: i18n.tr('Who can kick users?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_event_name
                 name: i18n.tr('Who can change the chat name?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_event_avatar
                 name: i18n.tr('Who can change the chat avatar?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_event_history_visibility
                 name: i18n.tr('Who can change the chat history visibility?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_event_canonical_alias
                 name: i18n.tr('Who can change the canonical chat alias?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_event_power_levels
                 name: i18n.tr('Who can change the user permissions?')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
             SettingsListItem {
                 id: power_user_default
                 name: i18n.tr('Default user permissions:')
+                rightIcon: canChangePermissions ? "settings" : ""
             }
 
         }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-09 08:43+0000\n"
+"POT-Creation-Date: 2018-09-09 09:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,42 +91,47 @@ msgid "The chat permissions have been changed"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:74
+#: ../qml/components/ChangeJoinRulesDialog.qml:34
 msgid "Only invited users"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:77
+#: ../qml/components/ChangeJoinRulesDialog.qml:18
 msgid "Public"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:80
+#: ../qml/components/ChangeJoinRulesDialog.qml:42
 msgid "Private"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:83
+#: ../qml/components/ChangeJoinRulesDialog.qml:26
 msgid "Knock"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:86
-msgid "All chat participants"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:89
-msgid "All joined chat participants"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:92
-msgid "All invited chat participants"
-msgstr ""
-
 #: ../qml/controller/DisplayEventController.qml:95
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:18
 msgid "Everyone"
 msgstr ""
 
+#: ../qml/controller/DisplayEventController.qml:89
+msgid "Only joined chat participants"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:92
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:26
+msgid "Joined and invited chat participants"
+msgstr ""
+
 #: ../qml/controller/DisplayEventController.qml:98
+#: ../qml/components/ChangeGuestAccessDialog.qml:18
 msgid "Can join"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:101
+#: ../qml/components/ChangeGuestAccessDialog.qml:26
 msgid "Forbidden"
 msgstr ""
 
@@ -252,78 +257,81 @@ msgstr ""
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:58
+#: ../qml/pages/ChatPrivacySettingsPage.qml:85
 #: ../qml/pages/MainSettingsPage.qml:53
 #: ../qml/pages/PrivacySettingsPage.qml:11
 #: ../qml/pages/ChatSettingsPage.qml:170
 msgid "Security & Privacy"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:80
+#: ../qml/pages/ChatPrivacySettingsPage.qml:111
 msgid "Access rules:"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:87
+#: ../qml/pages/ChatPrivacySettingsPage.qml:118
+#: ../qml/components/ChangeJoinRulesDialog.qml:11
 msgid "Who is allowed to join?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:92
+#: ../qml/pages/ChatPrivacySettingsPage.qml:125
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:11
 msgid "Who can see the chat history?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:97
+#: ../qml/pages/ChatPrivacySettingsPage.qml:132
+#: ../qml/components/ChangeGuestAccessDialog.qml:11
 msgid "Guest access?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:110
+#: ../qml/pages/ChatPrivacySettingsPage.qml:147
 msgid "Permissions:"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:116
+#: ../qml/pages/ChatPrivacySettingsPage.qml:153
 msgid "Who can send messages?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:120
+#: ../qml/pages/ChatPrivacySettingsPage.qml:158
 msgid "Who can configure this chat?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:124
+#: ../qml/pages/ChatPrivacySettingsPage.qml:163
 msgid "Who can remove messages?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:128
+#: ../qml/pages/ChatPrivacySettingsPage.qml:168
 msgid "Who can invite users?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:132
+#: ../qml/pages/ChatPrivacySettingsPage.qml:173
 msgid "Who can ban users?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:136
+#: ../qml/pages/ChatPrivacySettingsPage.qml:178
 msgid "Who can kick users?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:140
+#: ../qml/pages/ChatPrivacySettingsPage.qml:183
 msgid "Who can change the chat name?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:144
+#: ../qml/pages/ChatPrivacySettingsPage.qml:188
 msgid "Who can change the chat avatar?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:148
+#: ../qml/pages/ChatPrivacySettingsPage.qml:193
 msgid "Who can change the chat history visibility?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:152
+#: ../qml/pages/ChatPrivacySettingsPage.qml:198
 msgid "Who can change the canonical chat alias?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:156
+#: ../qml/pages/ChatPrivacySettingsPage.qml:203
 msgid "Who can change the user permissions?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:160
+#: ../qml/pages/ChatPrivacySettingsPage.qml:208
 msgid "Default user permissions:"
 msgstr ""
 
@@ -626,7 +634,10 @@ msgid "Show user"
 msgstr ""
 
 #: ../qml/components/ChangeMemberStatusDialog.qml:106
+#: ../qml/components/ChangeJoinRulesDialog.qml:51
 #: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:43
+#: ../qml/components/ChangeGuestAccessDialog.qml:35
 #: ../qml/components/UserSettingsDialog.qml:76
 msgid "Close"
 msgstr ""
@@ -694,6 +705,10 @@ msgstr ""
 
 #: ../qml/components/TargetInfoDialog.qml:41
 msgid "<b>Gateway</b>: %2"
+msgstr ""
+
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:34
+msgid "Only chat participants"
 msgstr ""
 
 #: ../qml/components/LeaveChatDialog.qml:11

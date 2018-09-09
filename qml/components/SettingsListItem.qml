@@ -6,6 +6,7 @@ ListItem {
     property var name: ""
     property var value: ""
     property var icon: "settings"
+    property var rightIcon: ""
     property var iconColor: settings.mainColor
     height: layout.height
 
@@ -19,6 +20,14 @@ ListItem {
             width: units.gu(4)
             height: units.gu(4)
             SlotsLayout.position: SlotsLayout.Leading
+        }
+
+        Icon {
+            SlotsLayout.position: SlotsLayout.Trailing
+            name: rightIcon
+            visible: rightIcon !== ""
+            width: units.gu(2)
+            height: width
         }
     }
 }

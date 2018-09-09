@@ -34,7 +34,7 @@ ListItem {
         Avatar {
             name: layout.title.text
             SlotsLayout.position: SlotsLayout.Leading
-            mxc: avatar_url || ""
+            mxc: avatar_url !== undefined ? avatar_url : ""
             onClickFunction: function () {
                 activeUser = matrixid
                 PopupUtils.open(userSettings)
