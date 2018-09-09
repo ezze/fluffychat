@@ -179,7 +179,7 @@ Item {
 
                 // Insert the chat into the database if not exists
                 transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
-                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 100) ")
+                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
                 // Update the notification counts and the limited timeline boolean
                 transaction.executeSql ( "UPDATE Chats SET " +
                 " highlight_count=" +
@@ -371,6 +371,7 @@ Item {
                     if ( event.content.events["m.room.avatar"] ) query += ", power_event_avatar=" + event.content.events["m.room.avatar"]
                     if ( event.content.events["m.room.history_visibility"] ) query += ", power_event_history_visibility=" + event.content.events["m.room.history_visibility"]
                     if ( event.content.events["m.room.canonical_alias"] ) query += ", power_event_canonical_alias=" + event.content.events["m.room.canonical_alias"]
+                    if ( event.content.events["m.room.aliases"] ) query += ", power_event_aliases=" + event.content.events["m.room.aliases"]
                     if ( event.content.events["m.room.name"] ) query += ", power_event_name=" + event.content.events["m.room.name"]
                     if ( event.content.events["m.room.power_levels"] ) query += ", power_event_power_levels=" + event.content.events["m.room.power_levels"]
                 }

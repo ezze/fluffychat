@@ -62,6 +62,8 @@ Page {
                 power_event_history_visibility.icon = powerlevelToIcon ( res.rows[0].power_event_history_visibility )
                 power_event_canonical_alias.value = usernames.powerlevelToStatus ( res.rows[0].power_event_canonical_alias )
                 power_event_canonical_alias.icon = powerlevelToIcon ( res.rows[0].power_event_canonical_alias )
+                power_event_aliases.value = usernames.powerlevelToStatus ( res.rows[0].power_event_canonical_alias )
+                power_event_aliases.icon = powerlevelToIcon ( res.rows[0].power_event_aliases )
                 power_event_name.value = usernames.powerlevelToStatus ( res.rows[0].power_event_name )
                 power_event_name.icon = powerlevelToIcon ( res.rows[0].power_event_name )
                 power_event_power_levels.value = usernames.powerlevelToStatus ( res.rows[0].power_event_power_levels )
@@ -255,6 +257,18 @@ Page {
                 onClicked: function () {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "m.room.history_visibility"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
+            }
+            SettingsListItem {
+                id: power_event_aliases
+                name: i18n.tr('Who can change the chat addresses?')
+                rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "m.room.aliases"
                         powerLevelDescription = name
                         PopupUtils.open(changePowerLevelDialog)
                     }
