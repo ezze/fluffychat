@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-09 10:35+0000\n"
+"POT-Creation-Date: 2018-09-09 10:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -519,18 +519,22 @@ msgid "Invite friend"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:175
+msgid "Chat addresses"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:180
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:196
+#: ../qml/pages/ChatSettingsPage.qml:201
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:196
+#: ../qml/pages/ChatSettingsPage.qml:201
 msgid "Loading users ..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:219
+#: ../qml/pages/ChatSettingsPage.qml:224
 msgid "Search..."
 msgstr ""
 
@@ -604,8 +608,12 @@ msgstr ""
 msgid "Notification targets"
 msgstr ""
 
-#: ../qml/pages/ChatAliasSettingsPage.qml:18
+#: ../qml/pages/ChatAliasSettingsPage.qml:36
 msgid "Public chat addresses"
+msgstr ""
+
+#: ../qml/pages/ChatAliasSettingsPage.qml:43
+msgid "Add chat address"
 msgstr ""
 
 #: ../qml/components/ChangeMemberStatusDialog.qml:19

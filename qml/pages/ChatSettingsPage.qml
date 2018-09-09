@@ -171,6 +171,11 @@ Page {
                         icon: "system-lock-screen"
                         page: "ChatPrivacySettingsPage"
                     }
+                    SettingsListLink {
+                        name: i18n.tr("Chat addresses")
+                        icon: "bookmark"
+                        page: "ChatAliasSettingsPage"
+                    }
                     SettingsListItem {
                         name: i18n.tr("Leave Chat")
                         icon: "delete"
