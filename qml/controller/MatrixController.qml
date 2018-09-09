@@ -257,6 +257,12 @@ Item {
                     onlineStatus = false
                     toast.show (i18n.tr("No connection to the homeserver 😕"))
                 }
+                else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
+                    var url = "https://" + error.error.split("https://")[1]
+                    url = url.substring(0, url.length - 1);
+                    console.log("Die url ist: '" + url + "'")
+                    Qt.openUrlExternally( url )
+                }
                 else if ( error_callback ) error_callback ( error )
                 else if ( error.errcode !== undefined && error.error !== undefined ) toast.show ( error.errcode + ": " + error.error )
             }
