@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-09 10:56+0000\n"
+"POT-Creation-Date: 2018-09-09 13:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -612,11 +612,11 @@ msgstr ""
 msgid "Notification targets"
 msgstr ""
 
-#: ../qml/pages/ChatAliasSettingsPage.qml:43
+#: ../qml/pages/ChatAliasSettingsPage.qml:49
 msgid "Public chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatAliasSettingsPage.qml:50
+#: ../qml/pages/ChatAliasSettingsPage.qml:56
 msgid "Add chat address"
 msgstr ""
 
@@ -686,6 +686,7 @@ msgstr ""
 #: ../qml/components/RemoveDeviceDialog.qml:42
 #: ../qml/components/DisableAccountDialog.qml:42
 #: ../qml/components/LogoutDialog.qml:35
+#: ../qml/components/AddAliasDialog.qml:27
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/InviteDialog.qml:27
 #: ../qml/components/ChatScrollView.qml:133
@@ -802,6 +803,24 @@ msgstr ""
 msgid "Are you sure, that you want to logout?"
 msgstr ""
 
+#: ../qml/components/AddAliasDialog.qml:11
+msgid "Add new chat address"
+msgstr ""
+
+#: ../qml/components/AddAliasDialog.qml:19
+msgid "#chatname:%1"
+msgstr ""
+
+#: ../qml/components/AddAliasDialog.qml:32
+#: ../qml/components/ChangeDisplaynameDialog.qml:39
+#: ../qml/components/ChangeChatnameDialog.qml:48
+msgid "Save"
+msgstr ""
+
+#: ../qml/components/AddAliasDialog.qml:39
+msgid "Please try another address"
+msgstr ""
+
 #: ../qml/components/LoadingModal.qml:18
 msgid "Synchronizing ... Please wait!"
 msgstr ""
@@ -868,6 +887,10 @@ msgid ""
 " This can take a few minutes ..."
 msgstr ""
 
+#: ../qml/components/AddressesListItem.qml:11
+msgid "Canonical alias"
+msgstr ""
+
 #: ../qml/components/UserSettingsDialog.qml:44
 msgid "Start new Chat"
 msgstr ""
@@ -882,11 +905,6 @@ msgstr ""
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:19
 msgid "Enter your new nickname"
-msgstr ""
-
-#: ../qml/components/ChangeDisplaynameDialog.qml:39
-#: ../qml/components/ChangeChatnameDialog.qml:48
-msgid "Save"
 msgstr ""
 
 #: ../qml/components/ChangeChatnameDialog.qml:20

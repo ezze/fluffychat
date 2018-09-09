@@ -9,6 +9,7 @@ Page {
 
     property var canEditAddresses: false
     property var canEditCanonicalAlias: false
+    property var addresses: []
 
 
     Component.onCompleted: init ()
@@ -19,50 +20,57 @@ Page {
     }
 
     function init () {
-        /*storage.transaction ( "SELECT Chats.power_state_default, Chats.power_event_aliases, Memberships.power_level " +
+        storage.transaction ( "SELECT Chats.canonical_alias, Chats.power_event_canonical_alias, Chats.power_event_aliases, Memberships.power_level " +
         " FROM Chats, Memberships WHERE " +
-        " Chats.chat_id='" + activeChat + "' AND " +
+        " Chats.id='" + activeChat + "' AND " +
         " Memberships.chat_id='" + activeChat + "' AND " +
         " Memberships.matrix_id='" + matrix.matrixid + "'", function ( res ) {
+            canEditCanonicalAlias = res.rows[0].power_event_canonical_alias <= res.rows[0].power_level
+            canEditAddresses = res.rows[0].power_event_aliases <= res.rows[0].power_level
+            console.log( "POWER:",res.rows[0].power_event_canonical_alias, res.rows[0].power_level )
+            var canonical_alias = res.rows[0].canonical_alias
 
-        }*/
-        // Get all addresses
-        storage.transaction ( "SELECT address FROM Addresses WHERE chat_id='" + activeChat + "'", function (response) {
-            for ( var i = 0; i < response.rows.length; i++ ) {
-                var item = Qt.createComponent("../components/SettingsListItem.qml")
-                item.createObject(content, {
-                    name: response.rows[ i ].address,
-                    icon: "bookmark",
-                    onTriggered: console.log("tja ...")
-                })
-            }
+            // Get all addresses
+            storage.transaction ( "SELECT address FROM Addresses WHERE chat_id='" + activeChat + "'", function (response) {
+                addresses = response.rows
+                model.clear()
+                for ( var i = 0; i < response.rows.length; i++ ) {
+                    model.append({
+                        name: response.rows[ i ].address,
+                        isCanonicalAlias: response.rows[ i ].address === canonical_alias
+                    })
+                }
+            })
         })
     }
 
     header: FcPageHeader {
+        id: header
         title:  i18n.tr('Public chat addresses')
 
         trailingActionBar {
             numberOfSlots: 1
             actions: [
             Action {
-                iconName: "add"
+                iconName: "bookmark-new"
                 text: i18n.tr("Add chat address")
-                onTriggered: console.log("tja ...")
+                onTriggered: PopupUtils.open( addAliasDialog )
+                visible: canEditAddresses
             }
             ]
         }
     }
 
-    ScrollView {
-        id: scrollView
-        width: parent.width
-        height: parent.height - header.height
+    AddAliasDialog { id: addAliasDialog }
+
+    ListView {
+        id: addressesList
         anchors.top: header.bottom
-        contentItem: Column {
-            id: content
-            width: mainStackWidth
-        }
+        width: parent.width
+        height: root.height / 1.5
+        delegate: AddressesListItem { }
+        model: ListModel { id: model }
+        z: -1
     }
 
 }
