@@ -39,7 +39,7 @@ MainView {
     readonly property var longPollingTimeout: 10000
     readonly property var typingTimeout: 30000
     readonly property var borderColor: settings.darkmode ? UbuntuColors.jet : UbuntuColors.silk
-    readonly property var version: "0.5.3"
+    readonly property var version: "0.5.4"
     readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "ERROR": 666 }
 
     /* =============================== GLOBAL VARIABLES ===============================

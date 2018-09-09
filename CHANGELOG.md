@@ -1,17 +1,24 @@
+### 0.5.4:
+* Rebase vivid and xenial to the same version again and some minor bugfixes
+* FluffyChat now automatically opens the link to the matrix.org consens
+* Updated translations
+
+### 0.5.2 (only vivid):
+There seems to be a critical bug, when updating on vivid. If you have a "critical error" message in the app, please uninstall the app, clean the cache with the UT tweak tool and reinstall the newest version from the OpenStore!
+
 ### 0.5.0:
 ##### New features
 * Search chats
 * Chat avatars
 * Search users in chats
-* Display highlighted notifications
 * Security & Privacy settings:
-    1. Disable typing notifications
-    2. Auto-accept invitations
+1. Disable typing notifications
+2. Auto-accept invitations
 * New message status:
-    1. Sending: Activity indicator
-    2. Sent: Little cloud
-    3. Received: Tick
-    4. Seen by someone: Usericon
+1. Sending: Activity indicator
+2. Sent: Little cloud
+3. Received: Tick
+4. Seen by someone: Usericon
 * Display stickers
 * Minor UI improvements
 
