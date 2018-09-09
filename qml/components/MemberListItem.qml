@@ -29,7 +29,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
-        subtitle.text: membership === "join" ? status.substring(0, status.length - 1) : getDisplayMemberStatus ( membership )
+        subtitle.text: membership === "join" ? status : getDisplayMemberStatus ( membership )
 
         Avatar {
             name: layout.title.text

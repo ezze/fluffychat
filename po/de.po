@@ -161,6 +161,35 @@ msgstr "⌨️ %1 und %2 mehr schreiben ..."
 msgid "Empty chat"
 msgstr "Leerer Chat"
 
+#: ../qml/controller/UserNameController.qml:45
+msgid "Members"
+msgstr "Mitglieder"
+
+#: ../qml/controller/UserNameController.qml:46
+#: ../qml/components/ChangePowerLevelDialog.qml:28
+msgid "Guards"
+msgstr "Aufpasser"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:122
+#: ../qml/components/ChangeJoinRulesDialog.qml:11
+msgid "Who is allowed to join?"
+msgstr "Wer darf eintreten?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:129
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:11
+msgid "Who can see the chat history?"
+msgstr "Wer kann den Chatverlauf sehen?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:136
+#: ../qml/components/ChangeGuestAccessDialog.qml:11
+msgid "Guest access?"
+msgstr "Sind Gäste erlaubt?"
+
+#: ../qml/controller/UserNameController.qml:47
+#: ../qml/components/ChangePowerLevelDialog.qml:18
+msgid "Owners"
+msgstr "Besitzer"
+
 #: ../qml/controller/PushController.qml:14
 msgid "Please login to Ubuntu One to receive push notifications!"
 msgstr "Bitte bei Ubuntu One einloggen, um Push Benachrichtigungen zu erhalten!"

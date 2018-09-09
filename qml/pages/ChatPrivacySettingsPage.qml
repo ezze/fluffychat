@@ -11,6 +11,9 @@ Page {
     property var canChangeAccessRules: false
     property var canChangePermissions: false
 
+    property var powerLevelDescription: ""
+    property var activePowerLevel: ""
+
     Component.onCompleted: init ()
 
     Connections {
@@ -88,6 +91,7 @@ Page {
     ChangeJoinRulesDialog { id: changeJoinRulesDialog }
     ChangeHistoryVisibilityDialog { id: changeHistoryVisibilityDialog }
     ChangeGuestAccessDialog { id: changeGuestAccessDialog }
+    ChangePowerLevelDialog { id: changePowerLevelDialog }
 
     ScrollView {
         id: scrollView
@@ -152,61 +156,145 @@ Page {
                 id: power_events_default
                 name: i18n.tr('Who can send messages?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "events_default"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_state_default
                 name: i18n.tr('Who can configure this chat?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "state_default"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_redact
                 name: i18n.tr('Who can remove messages?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "redact"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_invite
                 name: i18n.tr('Who can invite users?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "invite"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_ban
                 name: i18n.tr('Who can ban users?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "ban"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_kick
                 name: i18n.tr('Who can kick users?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "kick"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_event_name
                 name: i18n.tr('Who can change the chat name?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "m.room.name"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_event_avatar
                 name: i18n.tr('Who can change the chat avatar?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "m.room.avatar"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_event_history_visibility
                 name: i18n.tr('Who can change the chat history visibility?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "m.room.history_visibility"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_event_canonical_alias
                 name: i18n.tr('Who can change the canonical chat alias?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "m.room.canonical_alias"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_event_power_levels
                 name: i18n.tr('Who can change the user permissions?')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "m.room.power_levels"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
             SettingsListItem {
                 id: power_user_default
                 name: i18n.tr('Default user permissions:')
                 rightIcon: canChangePermissions ? "settings" : ""
+                onClicked: function () {
+                    if ( canChangeAccessRules ) {
+                        activePowerLevel = "users_default"
+                        powerLevelDescription = name
+                        PopupUtils.open(changePowerLevelDialog)
+                    }
+                }
             }
 
         }

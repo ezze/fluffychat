@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-09 09:27+0000\n"
+"POT-Creation-Date: 2018-09-09 09:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,14 +152,17 @@ msgid "⌨️ %1 and %2 more are typing ..."
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:45
+#: ../qml/components/ChangePowerLevelDialog.qml:46
 msgid "Members"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:46
+#: ../qml/components/ChangePowerLevelDialog.qml:32
 msgid "Guards"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:47
+#: ../qml/components/ChangePowerLevelDialog.qml:18
 msgid "Owners"
 msgstr ""
 
@@ -257,81 +260,81 @@ msgstr ""
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:85
+#: ../qml/pages/ChatPrivacySettingsPage.qml:88
 #: ../qml/pages/MainSettingsPage.qml:53
 #: ../qml/pages/PrivacySettingsPage.qml:11
 #: ../qml/pages/ChatSettingsPage.qml:170
 msgid "Security & Privacy"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:111
+#: ../qml/pages/ChatPrivacySettingsPage.qml:115
 msgid "Access rules:"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:118
+#: ../qml/pages/ChatPrivacySettingsPage.qml:122
 #: ../qml/components/ChangeJoinRulesDialog.qml:11
 msgid "Who is allowed to join?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:125
+#: ../qml/pages/ChatPrivacySettingsPage.qml:129
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:11
 msgid "Who can see the chat history?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:132
+#: ../qml/pages/ChatPrivacySettingsPage.qml:136
 #: ../qml/components/ChangeGuestAccessDialog.qml:11
 msgid "Guest access?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:147
+#: ../qml/pages/ChatPrivacySettingsPage.qml:151
 msgid "Permissions:"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:153
+#: ../qml/pages/ChatPrivacySettingsPage.qml:157
 msgid "Who can send messages?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:158
+#: ../qml/pages/ChatPrivacySettingsPage.qml:169
 msgid "Who can configure this chat?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:163
+#: ../qml/pages/ChatPrivacySettingsPage.qml:181
 msgid "Who can remove messages?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:168
+#: ../qml/pages/ChatPrivacySettingsPage.qml:193
 msgid "Who can invite users?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:173
+#: ../qml/pages/ChatPrivacySettingsPage.qml:205
 msgid "Who can ban users?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:178
+#: ../qml/pages/ChatPrivacySettingsPage.qml:217
 msgid "Who can kick users?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:183
+#: ../qml/pages/ChatPrivacySettingsPage.qml:229
 msgid "Who can change the chat name?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:188
+#: ../qml/pages/ChatPrivacySettingsPage.qml:241
 msgid "Who can change the chat avatar?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:193
+#: ../qml/pages/ChatPrivacySettingsPage.qml:253
 msgid "Who can change the chat history visibility?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:198
+#: ../qml/pages/ChatPrivacySettingsPage.qml:265
 msgid "Who can change the canonical chat alias?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:203
+#: ../qml/pages/ChatPrivacySettingsPage.qml:277
 msgid "Who can change the user permissions?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:208
+#: ../qml/pages/ChatPrivacySettingsPage.qml:289
 msgid "Default user permissions:"
 msgstr ""
 
@@ -637,6 +640,7 @@ msgstr ""
 #: ../qml/components/ChangeJoinRulesDialog.qml:51
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:43
+#: ../qml/components/ChangePowerLevelDialog.qml:61
 #: ../qml/components/ChangeGuestAccessDialog.qml:35
 #: ../qml/components/UserSettingsDialog.qml:76
 msgid "Close"
