@@ -371,6 +371,10 @@ msgstr "Ha sido invitado"
 msgid "Has left the chat"
 msgstr "Ha salido del chat"
 
+#: ../qml/pages/PrivacySettingsPage.qml:30
+msgid "Automatically accept chat invitations"
+msgstr "Acepta automáticamente las invitaciones de chat"
+
 #: ../qml/pages/ChatSettingsPage.qml:41
 msgid "Has knocked"
 msgstr "Ha llamado a la puerta"
@@ -655,6 +659,10 @@ msgstr "@suamigo:"
 msgid "Change your display name"
 msgstr "Cambiar su nombre en pantalla"
 
+#: ../qml/pages/PrivacySettingsPage.qml:23
+msgid "Display 'I am typing' when I am typing"
+msgstr "Muestre 'Estoy escribiendo' cuando estoy escribiendo"
+
 #: ../qml/components/ChangeDisplaynameDialog.qml:19
 msgid "Enter your new nickname"
 msgstr "Introduzca su nuevo apodo"
@@ -667,6 +675,14 @@ msgstr "Guardar"
 #: ../qml/components/ChangeChatnameDialog.qml:19
 msgid "Enter a name for the chat"
 msgstr "Introduzca un nombre para el chat"
+
+#: ../qml/components/NewContactDialog.qml:18
+msgid "What is the username of your friend?"
+msgstr "¿Cuál es el nombre de usuario de tu amigo?"
+
+#: ../qml/components/NewContactDialog.qml:23
+msgid "(Your username is: <b>%1</b>)"
+msgstr "(Tu nombre de usuario es: <b>% 1 </ b>)"
 
 #: ../qml/components/DeviceListItem.qml:22
 msgid "Last seen: "
