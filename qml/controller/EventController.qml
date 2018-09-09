@@ -323,11 +323,11 @@ Item {
                 event.content.displayname,
                 event.content.avatar_url ])
 
-                transaction.executeSql( "INSERT OR IGNORE INTO Memberships VALUES('" + roomid + "', ?, ?, (SELECT power_user_default FROM Chats WHERE id='" + roomid + "'))",
-                [ event.state_key,
-                event.content.membership ])
-
-                transaction.executeSql( "UPDATE Memberships SET membership=? WHERE chat_id='" + roomid + "' AND matrix_id='" + event.state_key + "')",
+                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, " +
+                "COALESCE(" +
+                "(SELECT power_level FROM Memberships WHERE chat_id='" + roomid + "' AND matrix_id='" + event.state_key + "'), " +
+                "(SELECT power_user_default FROM Chats WHERE id='" + roomid + "')" +
+                "))",
                 [ event.content.membership ])
 
                 if ( event.state_key === matrix.matrixid) {
