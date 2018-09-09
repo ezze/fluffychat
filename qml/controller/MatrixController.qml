@@ -96,8 +96,14 @@ Item {
         console.log("try now ...",messageID)
         if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/m.room.message/" + messageID, data, function ( response ) {
-            storage.transaction ( "DELETE FROM Events WHERE id='" + response.event_id + "'", function () {
-                storage.transaction ( "UPDATE Events SET id='" + response.event_id + "', status=1 WHERE id='" + messageID + "'", callback )
+            storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
+                if ( res.rows.length > 0 ) {
+                    storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )
+                }
+                else {
+                    storage.transaction ( "UPDATE Events SET id='" + response.event_id + "', status=1 WHERE id='" + messageID + "'", callback )
+                }
+
             })
         }, function ( error ) {
             console.warn("Error ... ", error.errcode, ": ", error.error)
@@ -256,6 +262,12 @@ Item {
                 if ( !error_callback && error === "offline" && settings.token ) {
                     onlineStatus = false
                     toast.show (i18n.tr("No connection to the homeserver 😕"))
+                }
+                else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
+                    var url = "https://" + error.error.split("https://")[1]
+                    url = url.substring(0, url.length - 1);
+                    console.log("Die url ist: '" + url + "'")
+                    Qt.openUrlExternally( url )
                 }
                 else if ( error_callback ) error_callback ( error )
                 else if ( error.errcode !== undefined && error.error !== undefined ) toast.show ( error.errcode + ": " + error.error )

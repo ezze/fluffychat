@@ -376,6 +376,10 @@ msgstr "Sende Tipp-Benachrichtigung"
 msgid "Notify"
 msgstr "Benachrichtigen"
 
+#: ../qml/pages/PrivacySettingsPage.qml:30
+msgid "Automatically accept chat invitations"
+msgstr "Chat Einladungen automatisch annehmen"
+
 #: ../qml/pages/NotificationChatSettingsPage.qml:83
 msgid "Only if mentioned"
 msgstr "Nur wenn ich erwähnt werde"
