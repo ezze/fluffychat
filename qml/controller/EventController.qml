@@ -179,7 +179,7 @@ Item {
 
                 // Insert the chat into the database if not exists
                 transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
-                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 100) ")
+                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 100) ")
                 // Update the notification counts and the limited timeline boolean
                 transaction.executeSql ( "UPDATE Chats SET " +
                 " highlight_count=" +
@@ -279,6 +279,15 @@ Item {
             }
 
 
+            // This event means, that the canonical alias of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.canonical_alias" ) {
+                transaction.executeSql( "UPDATE Chats SET canonical_alias=? WHERE id=?",
+                [ event.content.alias || "",
+                roomid ])
+            }
+
+
             // This event means, that the topic of a room has been changed, so
             // it has to be changed in the database
             if ( event.type === "m.room.history_visibility" ) {
@@ -313,6 +322,18 @@ Item {
                 [ event.content.url,
                 roomid ])
             }
+
+
+            // This event means, that the aliases of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.aliases" ) {
+                transaction.executeSql( "DELETE FROM Addresses WHERE chat_id='" + roomid + "'")
+                for ( var alias = 0; alias < event.content.aliases.length; alias++ ) {
+                    transaction.executeSql( "INSERT INTO Addresses VALUES(?,?)",
+                    [ roomid, event.content.aliases[alias] ] )
+                }
+            }
+
 
             // This event means, that someone joined the room, has left the room
             // or has changed his nickname

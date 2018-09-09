@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.0a"
+    property var version: "0.3.0i"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -84,6 +84,7 @@ Item {
         'draft TEXT, ' +
         'unread INTEGER, ' +
         'description TEXT, ' +
+        'canonical_alias TEXT, ' + // The address in the form: #roomname:homeserver.org
 
         // Security rules
         'guest_access TEXT, ' +
@@ -142,5 +143,11 @@ Item {
         'phone_number TEXT, ' + // The phone number of this user if exists
         'email TEXT, ' +        // The email of this user if exists
         'UNIQUE(matrix_id))')
+
+        // TABLE SCHEMA FOR CHAT ADDRESSES
+        transaction('CREATE TABLE Addresses(' +
+        'chat_id TEXT, ' +    // The correct chat id in the form: !hashstring:homeserver.org
+        'address TEXT, ' + // The address in the form: #roomname:homeserver.org
+        'UNIQUE(chat_id, address))')
     }
 }
