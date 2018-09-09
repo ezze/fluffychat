@@ -95,7 +95,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: description === "" ? activeChatDisplayName : activeChatDisplayName + "\n" + description
+        title: description === "" ? activeChatDisplayName : activeChatDisplayName + " - " + description.split("\n").join(" ")
 
         trailingActionBar {
             numberOfSlots: 1
