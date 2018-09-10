@@ -335,13 +335,20 @@ Page {
             width: parent.width - 2 * chatInputActionBar.width - units.gu(2)
             placeholderText: i18n.tr("Type something ...")
             Keys.onReturnPressed: sendButton.trigger ()
+            // If the user leaves the focus of the textfield: Send that he is no
+            // longer typing.
             onActiveFocusChanged: if ( !activeFocus ) sendTypingNotification ( activeFocus )
             onDisplayTextChanged: {
-                if ( displayText !== "" ) {
-                    sendTypingNotification ( true )
-                }
+                // A message must not start with white space
+                if ( displayText === " " ) text = ""
                 else {
-                    sendTypingNotification ( false )
+                    // Send typing notification true or false
+                    if ( displayText !== "" ) {
+                        sendTypingNotification ( true )
+                    }
+                    else {
+                        sendTypingNotification ( false )
+                    }
                 }
             }
             visible: membership === "join"

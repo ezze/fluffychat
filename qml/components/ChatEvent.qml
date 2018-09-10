@@ -147,7 +147,8 @@ Rectangle {
 
                         if ( !isStateEvent ) {
                             var urlRegex = /(https?:\/\/[^\s]+)/g
-                            var tempText = text
+                            var tempText = text || " "
+                            if ( tempText === "" ) tempText = " "
                             tempText = text.replace ( "&#60;", "<" )
                             tempText = text.replace ( "&#62;", "<" )
                             tempText = text.replace(urlRegex, function(url) {
