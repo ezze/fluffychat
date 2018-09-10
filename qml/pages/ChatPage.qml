@@ -68,7 +68,6 @@ Page {
         // Start the upload
         matrix.upload ( mediaUrl, function ( response ) {
             // Uploading was successfull, send now the file event
-            console.log( JSON.stringify(response) )
             var messageID = Math.floor((Math.random() * 1000000) + 1);
             var data = {
                 msgtype: "m.image",
@@ -104,7 +103,6 @@ Page {
     function sendTypingNotification ( typing ) {
         if ( !settings.sendTypingNotification ) return
         if ( !typing && isTyping) {
-            console.log("typing:", typing)
             typingTimer.stop ()
             isTyping = false
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
@@ -112,7 +110,6 @@ Page {
             } )
         }
         else if ( typing && !isTyping ) {
-            console.log("typing:", typing)
             isTyping = true
             typingTimer.start ()
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
@@ -124,7 +121,6 @@ Page {
 
 
     Component.onCompleted: {
-        console.log( "CurrentPage:", JSON.stringify( mainStack.data[0] ) )
         storage.transaction ( "SELECT membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
             membership = res.rows.length > 0 ? res.rows[0].membership : "join"
         })

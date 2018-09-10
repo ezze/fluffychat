@@ -60,7 +60,7 @@ Item {
 
     function sync ( timeout ) {
 
-        if ( settings.token === null || settings.token === undefined ) return
+        if ( settings.token === null || settings.token === undefined || abortSync ) return
 
         var data = { "since": settings.since }
 
@@ -150,8 +150,11 @@ Item {
             }
         }
         catch ( e ) {
-            toast.show ( "CRITICAL ERROR:", e )
+            toast.show ( i18n.tr("😰 A critical error has occurred! Sorry, the connection to the server has ended! Please report this bug on: https://github.com/ChristianPauly/fluffychat/issues/new") )
             console.log ( e )
+            abortSync = true
+            syncRequest.abort ()
+            return
         }
     }
 

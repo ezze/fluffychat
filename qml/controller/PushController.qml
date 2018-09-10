@@ -21,6 +21,7 @@ PushClient {
         if ( message == "" ) return
         try {
             message = JSON.parse ( message )
+            // Clear the persistent notification if the user is in this room
             var room = message.room_name || message.sender_display_name || message.sender
             if ( room === activeChatDisplayName ) pushclient.clearPersistent ( room )
         }

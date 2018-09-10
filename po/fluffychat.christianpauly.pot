@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-10 06:44+0000\n"
+"POT-Creation-Date: 2018-09-10 07:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,6 +137,13 @@ msgstr ""
 
 #: ../qml/controller/EventController.qml:87
 msgid "You are offline 😕"
+msgstr ""
+
+#: ../qml/controller/EventController.qml:153
+msgid ""
+"😰 A critical error has occurred! Sorry, the connection to the server has "
+"ended! Please report this bug on: https://github.com/ChristianPauly/"
+"fluffychat/issues/new"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:35
@@ -351,7 +358,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:35
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:184
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:180
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Notifications"
@@ -427,36 +434,36 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:172 ../qml/components/ChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:168 ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:27
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:179
+#: ../qml/pages/ChatPage.qml:175
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:189 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:185 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:225
+#: ../qml/pages/ChatPage.qml:221
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:280
+#: ../qml/pages/ChatPage.qml:276
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:308
+#: ../qml/pages/ChatPage.qml:304
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:312
+#: ../qml/pages/ChatPage.qml:308
 msgid "OK"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:336
+#: ../qml/pages/ChatPage.qml:332
 msgid "Type something ..."
 msgstr ""
 
