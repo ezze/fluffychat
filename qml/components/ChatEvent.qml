@@ -121,11 +121,8 @@ Rectangle {
                 anchors.bottomMargin:  isStateEvent ? units.gu(0.75) : units.gu(1)
                 width: parent.width
 
-
-
                 // In this label, the body of the matrix message is displayed. This label
                 // is main responsible for the width of the message bubble.
-
                 Label {
                     id: messageLabel
                     opacity: event.type === "m.sticker" ? 0 : 1

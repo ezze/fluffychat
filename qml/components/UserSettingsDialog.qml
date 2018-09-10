@@ -33,15 +33,22 @@ Component {
             })
         }
 
+
         Avatar {
             id: avatar
-            width: parent.width
             name: dialogue.title
             onClickFunction: function () {
                 PopupUtils.close(dialogue)
                 imageViewer.show ( mxc )
             }
         }
+
+
+        Label {
+            text: "<b>" + activeUser.replace(":","</b><font color='%1'>:".arg(UbuntuColors.graphite)) + "</font>"
+            wrapMode: Text.Wrap
+        }
+
 
         Button {
             id: startNewChatButton
@@ -67,46 +74,46 @@ Component {
         }
 
         /*Button {
-            text: i18n.tr("Ignore")
-            color: UbuntuColors.porcelain
-            iconName: "security-alert"
-            onClicked: {
-                PopupUtils.close(dialogue)
-            }
-        }*/
-
-        Button {
-            id: button
-            text: i18n.tr("Close")
-            color: UbuntuColors.porcelain
-            iconName: "close"
-            onClicked: PopupUtils.close(dialogue)
-        }
-
-        Rectangle {
-            width: parent.width
-            height: units.gu(5)
-            color: settings.darkmode ? UbuntuColors.inkstone : theme.palette.normal.background
-            Label {
-                anchors.left: parent.left
-                anchors.top: parent.top
-                anchors.topMargin: units.gu(1.5)
-                text: i18n.tr("Chats with %1:").arg(dialogue.title)
-                width: parent.width
-                wrapMode: Text.Wrap
-                font.bold: true
-            }
-        }
-
-        ListView {
-            id: chatListView
-            width: parent.width
-            height: units.gu(13)
-            delegate: SimpleChatListItem {}
-            model: ListModel { id: model }
-            z: -1
-        }
-
+        text: i18n.tr("Ignore")
+        color: UbuntuColors.porcelain
+        iconName: "security-alert"
+        onClicked: {
+        PopupUtils.close(dialogue)
     }
+}*/
+
+Button {
+    id: button
+    text: i18n.tr("Close")
+    color: UbuntuColors.porcelain
+    iconName: "close"
+    onClicked: PopupUtils.close(dialogue)
+}
+
+Rectangle {
+    width: parent.width
+    height: units.gu(5)
+    color: settings.darkmode ? UbuntuColors.inkstone : theme.palette.normal.background
+    Label {
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.topMargin: units.gu(1.5)
+        text: i18n.tr("Chats with %1:").arg(dialogue.title)
+        width: parent.width
+        wrapMode: Text.Wrap
+        font.bold: true
+    }
+}
+
+ListView {
+    id: chatListView
+    width: parent.width
+    height: units.gu(13)
+    delegate: SimpleChatListItem {}
+    model: ListModel { id: model }
+    z: -1
+}
+
+}
 
 }

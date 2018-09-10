@@ -19,6 +19,7 @@ ListItem {
             color: iconColor
             width: units.gu(4)
             height: units.gu(4)
+            visible: icon !== ""
             SlotsLayout.position: SlotsLayout.Leading
         }
 
