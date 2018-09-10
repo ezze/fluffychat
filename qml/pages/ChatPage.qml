@@ -125,7 +125,6 @@ Page {
             membership = res.rows.length > 0 ? res.rows[0].membership : "join"
             if ( res.rows[0].draft !== "" && res.rows[0].draft !== null ) messageTextField.text = res.rows[0].draft
             chatScrollView.unread = res.rows[0].unread
-            console.log("GO TO EVENT:", res.rows[0].unread)
         })
         chatScrollView.update ()
         chatActive = true
@@ -133,7 +132,6 @@ Page {
 
     Component.onDestruction: {
         var lastEventId = chatScrollView.count > 0 ? chatScrollView.lastEventId : ""
-        console.log("LAST EVENT:", lastEventId)
         storage.query ( "UPDATE Chats SET draft=?, unread=? WHERE id=?", [
         messageTextField.displayText,
         lastEventId,

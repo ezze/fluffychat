@@ -38,12 +38,9 @@ ListView {
 
             // Scroll to last read event
             if ( unread !== "" ) {
-                console.log("SUCHE JETZT EVENT:",unread)
                 for ( var j = 0; j < count; j++ ) {
-                    console.log("CHECKE EVENT:", j, model.get( j ).event.id)
                     if ( model.get ( j ).event.id === unread ) {
                         currentIndex = j
-                        console.log("GEFUNDEN")
                         break
                     }
                 }

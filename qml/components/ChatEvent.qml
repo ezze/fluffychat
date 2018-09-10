@@ -100,7 +100,7 @@ Rectangle {
                         }
                     }
                 }
-                onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
+                onClicked: imageViewer.show ( event.content.url )
             }
 
 
