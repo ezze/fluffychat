@@ -8,6 +8,7 @@ Rectangle {
     id: message
     //property var event
     property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.sticker"
+    property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
@@ -78,48 +79,49 @@ Rectangle {
             anchors.margins: units.gu(0.5)
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
-            height: messageLabel.height + !isStateEvent * metaLabel.height + thumbnail.height + downloadButton.height + units.gu(2) - isStateEvent * units.gu(0.5)
+            height: contentColumn.height + (isStateEvent || isImage ? units.gu(1) : units.gu(2))
+            //height: messageLabel.height + !isStateEvent * metaLabel.height + thumbnail.height + downloadButton.height + units.gu(2) - isStateEvent * units.gu(0.5)
             width: Math.max( messageLabel.width + units.gu(2), metaLabelRow.width + units.gu(2), thumbnail.width ) - isStateEvent * units.gu(0.5)
 
-            MouseArea {
-                width: thumbnail.width
-                height: thumbnail.height
-                Image {
-                    id: thumbnail
-                    visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
-                    width: visible ? Math.max( units.gu(24), messageLabel.width + units.gu(2) ) : 0
-                    source: event.content.url ? media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, 2*Math.round (width), 2*Math.round (width) ) : ""
-                    height: width * ( sourceSize.height / sourceSize.width )
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    fillMode: Image.PreserveAspectCrop
-                    onStatusChanged: {
-                        if ( status === Image.Error ) {
-                            visible = false
-                            downloadButton.visible = true
+            Column {
+                id: contentColumn
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: isStateEvent ? units.gu(0.75) : units.gu(1)
+                width: parent.width
+
+                MouseArea {
+                    width: thumbnail.width
+                    height: thumbnail.height
+                    Image {
+                        id: thumbnail
+                        visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
+                        width: visible ? Math.max( units.gu(24), messageLabel.width + units.gu(2) ) : 0
+                        source: event.content.url ? media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, 2*Math.round (width), 2*Math.round (width) ) : ""
+                        height: width * ( sourceSize.height / sourceSize.width )
+                        fillMode: Image.PreserveAspectCrop
+                        onStatusChanged: {
+                            if ( status === Image.Error ) {
+                                visible = false
+                                downloadButton.visible = true
+                            }
                         }
                     }
+                    onClicked: imageViewer.show ( event.content.url )
                 }
-                onClicked: imageViewer.show ( event.content.url )
-            }
 
 
-            Button {
-                id: downloadButton
-                text: i18n.tr("Download")
-                onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
-                visible: [ "m.file", "m.image", "m.audio", "m.video" ].indexOf( event.content.msgtype ) !== -1 && (event.content.info === undefined || event.content.info.thumbnail_url === undefined)
-                height: visible ? units.gu(4) : 0
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.margins: units.gu(1)
-            }
+                Button {
+                    id: downloadButton
+                    text: i18n.tr("Download")
+                    onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
+                    visible: [ "m.file", "m.image", "m.audio", "m.video" ].indexOf( event.content.msgtype ) !== -1 && (event.content.info === undefined || event.content.info.thumbnail_url === undefined)
+                    height: visible ? units.gu(4) : 0
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(1)
+                }
 
 
-            Column {
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin:  isStateEvent ? units.gu(0.75) : units.gu(1)
-                width: parent.width
+
 
                 // In this label, the body of the matrix message is displayed. This label
                 // is main responsible for the width of the message bubble.
