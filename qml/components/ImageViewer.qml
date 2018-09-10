@@ -7,7 +7,7 @@ Rectangle {
     id: imageViewer
     anchors.fill: parent
     visible: false
-    color: Qt.rgba(0,0,0,0.75)
+    color: Qt.rgba(0,0,0,0.9)
 
     MouseArea {
         anchors.fill: parent
@@ -63,7 +63,17 @@ Rectangle {
                 width: parent.width
                 height: width * ( sourceSize.height / sourceSize.width )
                 fillMode: Image.PreserveAspectCrop
+                visible: false
+                onStatusChanged: if (status == Image.Ready) visible = true
             }
         }
     }
+
+    ActivityIndicator {
+        id: activity
+        visible: !thumbnail.visible
+        running: visible
+        anchors.centerIn: parent
+    }
+
 }

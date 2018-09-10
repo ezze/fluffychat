@@ -37,6 +37,10 @@ Component {
             id: avatar
             width: parent.width
             name: dialogue.title
+            onClickFunction: function () {
+                PopupUtils.close(dialogue)
+                imageViewer.show ( mxc )
+            }
         }
 
         Button {

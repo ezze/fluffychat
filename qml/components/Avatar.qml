@@ -18,7 +18,7 @@ Rectangle {
 
     property alias source: avatar.source
     property var mxc: ""
-    property var onClickFunction: null
+    property var onClickFunction: function () { imageViewer.show ( mxc ) }
     property var name
 
 
