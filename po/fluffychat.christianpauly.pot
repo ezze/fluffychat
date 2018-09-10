@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-10 07:33+0000\n"
+"POT-Creation-Date: 2018-09-10 08:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -358,7 +358,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:33
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:185
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:190
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Notifications"
@@ -434,36 +434,36 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:173 ../qml/components/ChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:178 ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:27
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:180
+#: ../qml/pages/ChatPage.qml:185
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:190 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:195 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:226
+#: ../qml/pages/ChatPage.qml:231
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:281
+#: ../qml/pages/ChatPage.qml:286
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:309
+#: ../qml/pages/ChatPage.qml:314
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:313
+#: ../qml/pages/ChatPage.qml:318
 msgid "OK"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:337
+#: ../qml/pages/ChatPage.qml:342
 msgid "Type something ..."
 msgstr ""
 
@@ -696,7 +696,7 @@ msgstr ""
 #: ../qml/components/AddAliasDialog.qml:27
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/InviteDialog.qml:27
-#: ../qml/components/ChatScrollView.qml:133
+#: ../qml/components/ChatScrollView.qml:149
 #: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
 #: ../qml/components/ChangeChatnameDialog.qml:43
@@ -789,7 +789,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:109
+#: ../qml/components/ChatEvent.qml:110
 msgid "Download"
 msgstr ""
 
@@ -856,15 +856,15 @@ msgstr ""
 msgid "Invite"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:70
+#: ../qml/components/ChatScrollView.qml:85
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:126
+#: ../qml/components/ChatScrollView.qml:142
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:129
+#: ../qml/components/ChatScrollView.qml:145
 msgid "Text has been copied to the clipboard"
 msgstr ""
 

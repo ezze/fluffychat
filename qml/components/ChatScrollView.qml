@@ -13,6 +13,8 @@ ListView {
     property var requesting: false
     property var initialized: -1
     property var count: model.count
+    property var unread: ""
+    property var lastEventId: ""
 
     function update ( sync ) {
         storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, events.status, "+
@@ -32,6 +34,19 @@ ListView {
                 event.content = JSON.parse( event.content_json )
                 addEventToList ( event )
                 if ( event.matrix_id === null ) requestRoomMember ( event.sender )
+            }
+
+            // Scroll to last read event
+            if ( unread !== "" ) {
+                console.log("SUCHE JETZT EVENT:",unread)
+                for ( var j = 0; j < count; j++ ) {
+                    console.log("CHECKE EVENT:", j, model.get( j ).event.id)
+                    if ( model.get ( j ).event.id === unread ) {
+                        currentIndex = j
+                        console.log("GEFUNDEN")
+                        break
+                    }
+                }
             }
         })
     }
@@ -108,6 +123,7 @@ ListView {
         model.get(0).event.sender === event.sender
 
         model.insert ( 0, { "event": event } )
+        lastEventId = event.id
     }
 
 

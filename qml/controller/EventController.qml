@@ -182,7 +182,7 @@ Item {
 
                 // Insert the chat into the database if not exists
                 transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
-                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
+                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
                 // Update the notification counts and the limited timeline boolean
                 transaction.executeSql ( "UPDATE Chats SET " +
                 " highlight_count=" +
