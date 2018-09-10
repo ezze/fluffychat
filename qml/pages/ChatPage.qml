@@ -121,14 +121,19 @@ Page {
 
 
     Component.onCompleted: {
-        storage.transaction ( "SELECT membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT draft, membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
             membership = res.rows.length > 0 ? res.rows[0].membership : "join"
+            messageTextField.text = res.rows[0].draft
         })
         chatScrollView.update ()
         chatActive = true
     }
 
     Component.onDestruction: {
+        storage.query ( "UPDATE Chats SET draft=? WHERE id=?", [
+        messageTextField.displayText,
+        activeChat
+        ])
         sendTypingNotification ( false )
         chatActive = false
     }

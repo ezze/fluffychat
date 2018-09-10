@@ -20,7 +20,6 @@ Item {
             }
             else if ( event.content.membership === "invite" ) {
                 body = i18n.tr("%1 has invited %2").arg(sendername).arg( target )
-                console.log(JSON.stringify(event))
             }
             else if ( event.content.membership === "leave" ) {
                 body = i18n.tr("%1 has left the chat").arg(displayname)
