@@ -50,7 +50,7 @@ Rectangle {
         onClickFunction: function () {
             if ( sent || isStateEvent ) return
             activeUser = event.sender
-            PopupUtils.open(userSettings)
+            userSettingsViewer.show ( event.sender )
         }
     }
 

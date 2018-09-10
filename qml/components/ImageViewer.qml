@@ -8,6 +8,7 @@ Rectangle {
     anchors.fill: parent
     visible: false
     color: Qt.rgba(0,0,0,0.9)
+    z: 12
 
     MouseArea {
         anchors.fill: parent

@@ -10,6 +10,7 @@ ListItem {
 
     property var timeorder: 0
     property var previousMessage: ""
+    property var room
     height: layout.height
 
     onClicked: {
@@ -26,7 +27,7 @@ ListItem {
         width: parent.width - notificationBubble.width - highlightBubble.width
         title.text: i18n.tr("Unknown chat")
         title.font.bold: true
-        title.color: room.membership === "invite" ? settings.mainColor : (settings.darkmode ? "white" : "black")
+        title.color: "white"
 
         Avatar {
             id: avatar

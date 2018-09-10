@@ -19,7 +19,7 @@ Rectangle {
     property alias source: avatar.source
     property var mxc: ""
     property var onClickFunction: function () { if ( mxc !== "" ) imageViewer.show ( mxc ) }
-    property var name
+    property var name: ""
 
 
     function stringToColor ( str ) {

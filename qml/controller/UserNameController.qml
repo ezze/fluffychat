@@ -11,7 +11,7 @@ Item {
     function getById ( matrixid, roomid, callback ) {
         var username = transformFromId( matrixid )
         storage.transaction ( "SELECT displayname FROM Users WHERE matrix_id='" + matrixid + "'", function(rs) {
-            if ( rs.rows.length > 0 ) username = rs.rows[0].displayname
+            if ( rs.rows.length > 0 && rs.rows[0].displayname !== null ) username = rs.rows[0].displayname
             if ( callback ) callback ( username )
         })
         return username

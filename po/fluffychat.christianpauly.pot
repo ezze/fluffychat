@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-10 09:44+0000\n"
+"POT-Creation-Date: 2018-09-10 15:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,7 +270,7 @@ msgstr ""
 #: ../qml/pages/ChatPrivacySettingsPage.qml:90
 #: ../qml/pages/MainSettingsPage.qml:51
 #: ../qml/pages/PrivacySettingsPage.qml:11
-#: ../qml/pages/ChatSettingsPage.qml:170
+#: ../qml/pages/ChatSettingsPage.qml:169
 msgid "Security & Privacy"
 msgstr ""
 
@@ -360,7 +360,7 @@ msgstr ""
 #: ../qml/pages/MainSettingsPage.qml:33
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:188
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:165
+#: ../qml/pages/ChatSettingsPage.qml:164
 msgid "Notifications"
 msgstr ""
 
@@ -435,7 +435,7 @@ msgid "Targets"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:176 ../qml/components/ChatListItem.qml:30
-#: ../qml/components/SimpleChatListItem.qml:27
+#: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
@@ -521,31 +521,31 @@ msgstr ""
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:148
+#: ../qml/pages/ChatSettingsPage.qml:147
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:160
+#: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:175
+#: ../qml/pages/ChatSettingsPage.qml:174
 msgid "Chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:180
+#: ../qml/pages/ChatSettingsPage.qml:179
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:201
+#: ../qml/pages/ChatSettingsPage.qml:200
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:201
+#: ../qml/pages/ChatSettingsPage.qml:200
 msgid "Loading users ..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:224
+#: ../qml/pages/ChatSettingsPage.qml:223
 msgid "Search..."
 msgstr ""
 
@@ -664,8 +664,8 @@ msgstr ""
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:43
 #: ../qml/components/ChangePowerLevelDialog.qml:61
+#: ../qml/components/UserSettingsDialogALT.qml:88
 #: ../qml/components/ChangeGuestAccessDialog.qml:35
-#: ../qml/components/UserSettingsDialog.qml:87
 msgid "Close"
 msgstr ""
 
@@ -856,6 +856,15 @@ msgstr ""
 msgid "Invite"
 msgstr ""
 
+#: ../qml/components/UserSettingsDialogALT.qml:56
+msgid "Start new Chat"
+msgstr ""
+
+#: ../qml/components/UserSettingsDialogALT.qml:102
+#: ../qml/components/UserSettingsViewer.qml:144
+msgid "Chats with %1:"
+msgstr ""
+
 #: ../qml/components/ChatScrollView.qml:82
 msgid "Get more messages from the server ..."
 msgstr ""
@@ -898,12 +907,8 @@ msgstr ""
 msgid "Canonical alias"
 msgstr ""
 
-#: ../qml/components/UserSettingsDialog.qml:55
-msgid "Start new Chat"
-msgstr ""
-
-#: ../qml/components/UserSettingsDialog.qml:101
-msgid "Chats with %1:"
+#: ../qml/components/UserSettingsViewer.qml:117
+msgid "Start new chat"
 msgstr ""
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11

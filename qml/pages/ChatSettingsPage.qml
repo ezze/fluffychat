@@ -128,7 +128,6 @@ Page {
                 id: avatarImage
                 name: activeChatDisplayName
                 width: parent.width / 2
-                radius: 100
                 anchors.horizontalCenter: parent.horizontalCenter
                 mxc: ""
                 Component.onCompleted: {

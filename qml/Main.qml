@@ -135,7 +135,7 @@ MainView {
     ImageViewer { id: imageViewer }
     LoadingScreen { id: loadingScreen }
     LoadingModal { id: loadingModal }
-    UserSettingsDialog { id: userSettings }
+    UserSettingsViewer { id: userSettingsViewer }
 
 
     /* =============================== CONNECTION MANAGER ===============================
