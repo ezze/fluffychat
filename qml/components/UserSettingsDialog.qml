@@ -38,6 +38,7 @@ Component {
             id: avatar
             name: dialogue.title
             onClickFunction: function () {
+                if ( mxc !== "" )
                 PopupUtils.close(dialogue)
                 imageViewer.show ( mxc )
             }
