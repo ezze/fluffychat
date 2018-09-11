@@ -130,7 +130,6 @@ Page {
             "matrix_id='" + matrix.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
                 chatScrollView.canRedact = rs.rows[0].power_level >= res.rows[0].power_redact
                 canSendMessages = rs.rows[0].power_level >= res.rows[0].power_events_default
-                console.log("POWER LEVEL: ",rs.rows[0].power_level,"/",res.rows[0].power_redact )
             })
         })
         chatScrollView.update ()
@@ -188,23 +187,34 @@ Page {
             numberOfSlots: 1
             actions: [
             Action {
+                iconName: "edit-delete"
+                text: i18n.tr("Remove")
+                visible: membership !== "join"
+                onTriggered: PopupUtils.open ( leaveChatDialog )
+            },
+            Action {
                 iconName: "info"
                 text: i18n.tr("Chat info")
+                visible: membership === "join"
                 onTriggered: mainStack.push(Qt.resolvedUrl("./ChatSettingsPage.qml"))
             },
             Action {
                 iconName: "notification"
                 text: i18n.tr("Notifications")
+                visible: membership === "join"
                 onTriggered: mainStack.push(Qt.resolvedUrl("./NotificationChatSettingsPage.qml"))
             },
             Action {
                 iconName: "contact-new"
                 text: i18n.tr("Invite a friend")
+                visible: membership === "join"
                 onTriggered: PopupUtils.open(inviteDialog)
             }
             ]
         }
     }
+
+    LeaveChatDialog { id: leaveChatDialog }
 
     Rectangle {
         visible: settings.chatBackground === undefined || backgroundImage.status !== Image.ready
@@ -270,7 +280,6 @@ Page {
 
     ChatScrollView {
         id: chatScrollView
-        canRedact: canRedact
     }
 
     Rectangle {
@@ -289,21 +298,21 @@ Page {
         }
 
 
-
-        Button {
-            id: joinButton
-            color: UbuntuColors.green
-            text: i18n.tr("Accept invitation")
-            anchors.centerIn: parent
-            visible: membership === "invite"
-            onClicked: {
-                loadingScreen.visible = true
-                matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, function () {
-                    events.waitForSync ()
-                    membership = "join"
-                })
+            Button {
+                id: joinButton
+                color: UbuntuColors.green
+                text: membership === "invite" ? i18n.tr("Accept invitation") : i18n.tr("Join")
+                anchors.centerIn: parent
+                visible: membership !== "join"
+                onClicked: {
+                    loadingScreen.visible = true
+                    matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, function () {
+                        events.waitForSync ()
+                        membership = "join"
+                    })
+                }
             }
-        }
+
 
         Label {
             text: i18n.tr("You are not allowed to send messages")

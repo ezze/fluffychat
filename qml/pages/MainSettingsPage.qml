@@ -54,6 +54,12 @@ Page {
             }
 
             SettingsListLink {
+                name: i18n.tr("Archived chats")
+                icon: "inbox-all"
+                page: "ArchivedChatsPage"
+            }
+
+            SettingsListLink {
                 name: i18n.tr("About FluffyChat")
                 icon: "info"
                 page: "InfoPage"

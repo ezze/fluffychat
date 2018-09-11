@@ -52,6 +52,7 @@ Page {
         // "join" and "invite" are just handled the same, and "leave" is very
         // near to this
         for ( var type in sync.rooms ) {
+            if ( type === "leave" ) continue
             for ( var id in sync.rooms[type] ) {
                 var room = sync.rooms[type][id]
 

@@ -49,12 +49,11 @@ Item {
         }
 
         loadingScreen.visible = true
-        //toast.show ( i18n.tr("Synchronizing \n This can take a few minutes ...") )
-        matrix.get ("/client/r0/sync", null,function ( response ) {
+        matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true}}" }, function ( response ) {
             if ( waitingForSync ) progressBarRequests--
-            matrix.onlineStatus = true
             handleEvents ( response )
-            sync ()
+            matrix.onlineStatus = true
+            if ( !abortSync ) sync ()
         }, init, null, longPollingTimeout )
     }
 
@@ -178,42 +177,35 @@ Item {
             // If the membership of the user is "leave" then the chat and all
             // events and user-memberships should be removed.
             // If not, it is "join" or "invite" and everything should be saved
-            if ( membership !== "leave" ) {
 
-                // Insert the chat into the database if not exists
-                transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
-                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
-                // Update the notification counts and the limited timeline boolean
-                transaction.executeSql ( "UPDATE Chats SET " +
-                " highlight_count=" +
-                (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
-                ", notification_count=" +
-                (room.unread_notifications && room.unread_notifications.notification_count || 0) +
-                ", membership='" +
-                membership +
-                "', limitedTimeline=" +
-                (room.timeline ? (room.timeline.limited ? 1 : 0) : 0) +
-                " WHERE id='" + id + "' ")
+            // Insert the chat into the database if not exists
+            transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
+            "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
+            // Update the notification counts and the limited timeline boolean
+            transaction.executeSql ( "UPDATE Chats SET " +
+            " highlight_count=" +
+            (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
+            ", notification_count=" +
+            (room.unread_notifications && room.unread_notifications.notification_count || 0) +
+            ", membership='" +
+            membership +
+            "', limitedTimeline=" +
+            (room.timeline ? (room.timeline.limited ? 1 : 0) : 0) +
+            " WHERE id='" + id + "' ")
 
-                // Handle now all room events and save them in the database
-                if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
-                if ( room.invite_state ) handleRoomEvents ( id, room.invite_state.events, "invite_state", room )
-                if ( room.timeline ) {
-                    // Is the timeline limited? Then all previous messages should be
-                    // removed from the database!
-                    if ( room.timeline.limited ) {
-                        transaction.executeSql ("DELETE FROM Events WHERE chat_id='" + id + "'")
-                        transaction.executeSql ("UPDATE Chats SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
-                    }
-                    handleRoomEvents ( id, room.timeline.events, "timeline", room )
+            // Handle now all room events and save them in the database
+            if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
+            if ( room.invite_state ) handleRoomEvents ( id, room.invite_state.events, "invite_state", room )
+            if ( room.timeline ) {
+                // Is the timeline limited? Then all previous messages should be
+                // removed from the database!
+                if ( room.timeline.limited ) {
+                    transaction.executeSql ("DELETE FROM Events WHERE chat_id='" + id + "'")
+                    transaction.executeSql ("UPDATE Chats SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
                 }
-                if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
+                handleRoomEvents ( id, room.timeline.events, "timeline", room )
             }
-            else {
-                transaction.executeSql ( "DELETE FROM Chats WHERE id='" + id + "'")
-                transaction.executeSql ( "DELETE FROM Memberships WHERE chat_id='" + id + "'")
-                transaction.executeSql ( "DELETE FROM Events WHERE chat_id='" + id + "'")
-            }
+            if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
         }
     }
 

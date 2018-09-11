@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 11:43+0000\n"
+"POT-Creation-Date: 2018-09-11 15:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,11 +139,11 @@ msgstr ""
 msgid "Forbidden"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:87
+#: ../qml/controller/EventController.qml:86
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:153
+#: ../qml/controller/EventController.qml:152
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -219,6 +219,14 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/MainSettingsPage.qml:57
+msgid "Archived chats"
+msgstr ""
+
+#: ../qml/pages/ArchivedChatsPage.qml:72 ../qml/pages/ChatListPage.qml:247
+msgid "Search chat names..."
+msgstr ""
+
 #: ../qml/pages/LoginPage.qml:19
 msgid "Please fill all textfields"
 msgstr ""
@@ -263,11 +271,7 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:246
-msgid "Search chat names..."
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:261
+#: ../qml/pages/ChatListPage.qml:262
 msgid "Swipe from the bottom to start a new chat"
 msgstr ""
 
@@ -362,7 +366,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:33
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:197
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:203
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:164
 msgid "Notifications"
@@ -377,7 +381,7 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:57
+#: ../qml/pages/MainSettingsPage.qml:63
 msgid "About FluffyChat"
 msgstr ""
 
@@ -438,40 +442,49 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:185 ../qml/components/ChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:184 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:192
+#: ../qml/pages/ChatPage.qml:191 ../qml/components/RemoveDeviceDialog.qml:47
+msgid "Remove"
+msgstr ""
+
+#: ../qml/pages/ChatPage.qml:197
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:202 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:209 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:238
+#: ../qml/pages/ChatPage.qml:248
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:296
+#: ../qml/pages/ChatPage.qml:304
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:309
+#: ../qml/pages/ChatPage.qml:304
+msgid "Join"
+msgstr ""
+
+#: ../qml/pages/ChatPage.qml:318
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:330
+#: ../qml/pages/ChatPage.qml:339
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:334
+#: ../qml/pages/ChatPage.qml:343
 msgid "OK"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:358
+#: ../qml/pages/ChatPage.qml:367
 msgid "Type something ..."
 msgstr ""
 
@@ -787,10 +800,6 @@ msgstr ""
 
 #: ../qml/components/RemoveDeviceDialog.qml:33
 msgid "Please enter your password"
-msgstr ""
-
-#: ../qml/components/RemoveDeviceDialog.qml:47
-msgid "Remove"
 msgstr ""
 
 #: ../qml/components/FcPageHeader.qml:7 fluffychat.desktop.in.h:1
