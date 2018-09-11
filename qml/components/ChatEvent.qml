@@ -66,8 +66,10 @@ Rectangle {
         anchors.rightMargin: units.gu(1)
 
         onClicked: {
-            mimeData.text = messageLabel.text
-            if ( !isMediaEvent && !isStateEvent && !thumbnail.visible && !contextualActions.visible ) contextualActions.show()
+            if ( !isMediaEvent && !isStateEvent && !thumbnail.visible && !contextualActions.visible ) {
+                contextualActions.contextEvent = event
+                contextualActions.show()
+            }
         }
         Rectangle {
             id: messageBubble

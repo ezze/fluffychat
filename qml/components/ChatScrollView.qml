@@ -133,11 +133,13 @@ ListView {
 
     ActionSelectionPopover {
         id: contextualActions
+        property var contextEvent
         z: 10
         actions: ActionList {
             Action {
                 text: i18n.tr("Copy text")
                 onTriggered: {
+                    mimeData.text = contextualActions.contextEvent.content.body
                     Clipboard.push( mimeData )
                     toast.show( i18n.tr("Text has been copied to the clipboard") )
                 }

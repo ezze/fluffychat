@@ -16,11 +16,6 @@ Rectangle {
         onClicked: imageViewer.visible = false
     }
 
-    MouseArea {
-        anchors.fill: thumbnail
-        onClicked: function () {}
-    }
-
     FcPageHeader {
         id: header
         z: 20
@@ -63,7 +58,7 @@ Rectangle {
         width: parent.width
         height: parent.height - header.height
         anchors.top: header.bottom
-        fillMode: Output.PreserveAspectCrop
+        //fillMode: Output.PreserveAspectCrop
         MouseArea {
             anchors.fill: parent
             onClicked: video.playbackState == MediaPlayer.PlayingState ? video.pause() : video.play()
