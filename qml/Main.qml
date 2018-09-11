@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import QtMultimedia 5.4
 import "controller"
 import "components"
 
@@ -136,6 +137,7 @@ MainView {
     LoadingScreen { id: loadingScreen }
     LoadingModal { id: loadingModal }
     UserSettingsViewer { id: userSettingsViewer }
+    Audio { id: audio }
 
 
     /* =============================== CONNECTION MANAGER ===============================

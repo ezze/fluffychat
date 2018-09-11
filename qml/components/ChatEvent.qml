@@ -8,6 +8,7 @@ Rectangle {
     id: message
     //property var event
     property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.sticker"
+    property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1
     property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
@@ -68,7 +69,7 @@ Rectangle {
 
         onClicked: {
             mimeData.text = messageLabel.text
-            if ( !isStateEvent && !thumbnail.visible && !contextualActions.visible ) contextualActions.show()
+            if ( !isMediaEvent && !isStateEvent && !thumbnail.visible && !contextualActions.visible ) contextualActions.show()
         }
         Rectangle {
             id: messageBubble
@@ -80,8 +81,7 @@ Rectangle {
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
             height: contentColumn.height + (isStateEvent || isImage ? units.gu(1) : units.gu(2))
-            //height: messageLabel.height + !isStateEvent * metaLabel.height + thumbnail.height + downloadButton.height + units.gu(2) - isStateEvent * units.gu(0.5)
-            width: Math.max( messageLabel.width + units.gu(2), metaLabelRow.width + units.gu(2), thumbnail.width ) - isStateEvent * units.gu(0.5)
+            width: Math.max( messageLabel.width + units.gu(2), metaLabelRow.width + units.gu(2), thumbnail.width, audioPlayer.width ) - isStateEvent * units.gu(0.5)
 
             Column {
                 id: contentColumn
@@ -110,11 +110,58 @@ Rectangle {
                 }
 
 
+                Row {
+                    id: audioPlayer
+                    visible: event.content.msgtype === "m.audio"
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(1)
+                    spacing: units.gu(1)
+                    height: units.gu(6)
+
+                    Button {
+                        id: playButton
+                        anchors.verticalCenter: parent.verticalCenter
+                        property var playing: false
+                        color: "white"
+                        iconName: playing ? "media-playback-pause" : "media-playback-start"
+                        onClicked: {
+                            if ( audio.source !== media.getLinkFromMxc ( event.content.url ) ) {
+                                audio.source = media.getLinkFromMxc ( event.content.url )
+                            }
+                            if ( playing ) audio.pause ()
+                            else audio.play ()
+                            playing = !playing
+                        }
+                        width: units.gu(4)
+                    }
+                    Button {
+                        id: stopButton
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: "white"
+                        iconName: "media-playback-stop"
+                        opacity: audio.position === 0 ? 0.75 : 1
+                        onClicked: {
+                            audio.stop ()
+                            playButton.playing = false
+                        }
+                        width: units.gu(4)
+                    }
+                    Button {
+                        id: downloadAudioButton
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: "white"
+                        iconName: "document-save-as"
+                        onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
+                        width: units.gu(4)
+                    }
+                }
+
+
                 Button {
                     id: downloadButton
                     text: i18n.tr("Download")
                     onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
-                    visible: [ "m.file", "m.image", "m.audio", "m.video" ].indexOf( event.content.msgtype ) !== -1 && (event.content.info === undefined || event.content.info.thumbnail_url === undefined)
+                    visible: [ "m.file", "m.image", "m.video" ].indexOf( event.content.msgtype ) !== -1 && (event.content.info === undefined || event.content.info.thumbnail_url === undefined)
                     height: visible ? units.gu(4) : 0
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(1)
@@ -127,8 +174,9 @@ Rectangle {
                 // is main responsible for the width of the message bubble.
                 Label {
                     id: messageLabel
-                    opacity: event.type === "m.sticker" ? 0 : 1
-                    height: event.type === "m.sticker" ? 0 : undefined
+                    opacity: (event.type === "m.sticker" || isMediaEvent) ? 0 : 1
+                    height: opacity ? undefined : 0
+                    width: opacity ? undefined : 0
                     text: isStateEvent ? displayEvents.getDisplay ( event ) + " <font color='" + UbuntuColors.silk + "'>" + stamp.getChatTime ( event.origin_server_ts ) + "</font>" :  event.content_body || event.content.body
                     color: (sent || isStateEvent) ? "black" : "white"
                     wrapMode: Text.Wrap

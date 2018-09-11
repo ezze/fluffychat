@@ -139,6 +139,8 @@ Page {
         ])
         sendTypingNotification ( false )
         chatActive = false
+        audio.stop ()
+        audio.source = ""
     }
 
     Connections {
