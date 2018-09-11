@@ -14,6 +14,7 @@ Page {
     property var membership: "join"
     property var isTyping: false
     property var pageName: "chat"
+    property var canSendMessages: true
 
     function send () {
         if ( sending || messageTextField.displayText === "" ) return
@@ -121,10 +122,16 @@ Page {
 
 
     Component.onCompleted: {
-        storage.transaction ( "SELECT draft, membership, unread FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT draft, membership, unread, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
             membership = res.rows.length > 0 ? res.rows[0].membership : "join"
             if ( res.rows[0].draft !== "" && res.rows[0].draft !== null ) messageTextField.text = res.rows[0].draft
             chatScrollView.unread = res.rows[0].unread
+            storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
+            "matrix_id='" + matrix.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
+                chatScrollView.canRedact = rs.rows[0].power_level >= res.rows[0].power_redact
+                canSendMessages = rs.rows[0].power_level >= res.rows[0].power_events_default
+                console.log("POWER LEVEL: ",rs.rows[0].power_level,"/",res.rows[0].power_redact )
+            })
         })
         chatScrollView.update ()
         chatActive = true
@@ -261,7 +268,10 @@ Page {
         visible: !chatScrollView.atYEnd
     }
 
-    ChatScrollView { id: chatScrollView }
+    ChatScrollView {
+        id: chatScrollView
+        canRedact: canRedact
+    }
 
     Rectangle {
         id: chatInput
@@ -295,6 +305,12 @@ Page {
             }
         }
 
+        Label {
+            text: i18n.tr("You are not allowed to send messages")
+            anchors.centerIn: parent
+            visible: !canSendMessages
+        }
+
         Component {
             id: pickerComponent
             PickerDialog {}
@@ -309,7 +325,7 @@ Page {
             preferences.allowFileAccessFromFileUrls: true
             preferences.allowUniversalAccessFromFileUrls: true
             filePicker: pickerComponent
-            visible: membership === "join"
+            visible: membership === "join" && canSendMessages
             alertDialog: Dialog {
                 title: i18n.tr("Error")
                 text: model.message
@@ -357,12 +373,12 @@ Page {
                     }
                 }
             }
-            visible: membership === "join"
+            visible: membership === "join" && canSendMessages
         }
 
         ActionBar {
             id: chatInputActionBar
-            visible: membership === "join"
+            visible: membership === "join" && canSendMessages
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: units.gu(0.5)

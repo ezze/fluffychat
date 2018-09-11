@@ -15,6 +15,7 @@ ListView {
     property var count: model.count
     property var unread: ""
     property var lastEventId: ""
+    property var canRedact: false
 
     function update ( sync ) {
         storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, events.status, "+
@@ -110,7 +111,7 @@ ListView {
 
     // This function writes the event in the chat. The event MUST have the format
     // of a database entry, described in the storage controller
-    function addEventToList ( event ) {header
+    function addEventToList ( event ) {
 
 
         // If the previous message has the same sender and is a normal message
@@ -142,6 +143,16 @@ ListView {
                     mimeData.text = contextualActions.contextEvent.content.body
                     Clipboard.push( mimeData )
                     toast.show( i18n.tr("Text has been copied to the clipboard") )
+                }
+            }
+            Action {
+                text: i18n.tr("Redact message")
+                visible: canRedact
+                onTriggered: {
+                    matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
+                    .arg(activeChat)
+                    .arg(contextualActions.contextEvent.id)
+                    .arg(new Date().getTime()) )
                 }
             }
             Action {

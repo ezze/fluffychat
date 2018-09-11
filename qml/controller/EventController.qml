@@ -302,6 +302,14 @@ Item {
 
             // This event means, that the topic of a room has been changed, so
             // it has to be changed in the database
+            if ( event.type === "m.room.redaction" ) {
+                transaction.executeSql( "DELETE FROM Events WHERE id=?",
+                [ event.redacts ])
+            }
+
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
             if ( event.type === "m.room.guest_access" ) {
                 transaction.executeSql( "UPDATE Chats SET guest_access=? WHERE id=?",
                 [ event.content.guest_access,
