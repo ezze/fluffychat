@@ -49,7 +49,7 @@ Rectangle {
         opacity: (event.sameSender && !isStateEvent) ? 0 : 1
         width: isStateEvent ? units.gu(3) : units.gu(6)
         onClickFunction: function () {
-            if ( sent || isStateEvent ) return
+            if ( sent || isStateEvent || !opacity ) return
             activeUser = event.sender
             userSettingsViewer.show ( event.sender )
         }
@@ -66,7 +66,7 @@ Rectangle {
         anchors.rightMargin: units.gu(1)
 
         onClicked: {
-            if ( !isMediaEvent && !isStateEvent && !thumbnail.visible && !contextualActions.visible ) {
+            if ( !isStateEvent && !thumbnail.visible && !contextualActions.visible ) {
                 contextualActions.contextEvent = event
                 contextualActions.show()
             }
@@ -80,7 +80,7 @@ Rectangle {
             anchors.margins: units.gu(0.5)
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
-            height: contentColumn.height + (isStateEvent || isImage ? units.gu(1) : units.gu(2))
+            height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
             width: Math.max( messageLabel.opacity * messageLabel.width, metaLabelRow.width, thumbnail.width - units.gu(2), downloadButton.width, videoLink.width, audioPlayer.width ) + units.gu(2) - isStateEvent * units.gu(0.5)
 
             Column {
