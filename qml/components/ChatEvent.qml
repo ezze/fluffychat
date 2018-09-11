@@ -48,7 +48,6 @@ Rectangle {
         anchors.rightMargin: units.gu(1)
         opacity: (event.sameSender && !isStateEvent) ? 0 : 1
         width: isStateEvent ? units.gu(3) : units.gu(6)
-        //visible: !isStateEvent
         onClickFunction: function () {
             if ( sent || isStateEvent ) return
             activeUser = event.sender
@@ -62,7 +61,6 @@ Rectangle {
         height: messageBubble.height
         anchors.left: isLeftSideEvent ? avatar.right : undefined
         anchors.right: !isLeftSideEvent ? avatar.left : undefined
-        //anchors.centerIn: isStateEvent ? parent : undefined
         anchors.top: parent.top
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
@@ -184,7 +182,6 @@ Rectangle {
                 }
 
 
-
                 Button {
                     id: downloadButton
                     text: i18n.tr("Download file: ") + event.content.body
@@ -195,8 +192,6 @@ Rectangle {
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(1)
                 }
-
-
 
 
                 // In this label, the body of the matrix message is displayed. This label
