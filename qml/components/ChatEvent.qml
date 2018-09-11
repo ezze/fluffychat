@@ -139,7 +139,7 @@ Rectangle {
                         anchors.verticalCenter: parent.verticalCenter
                         color: "white"
                         iconName: "media-playback-stop"
-                        opacity: audio.position === 0 ? 0.75 : 1
+                        opacity: audio.source === media.getLinkFromMxc ( event.content.url ) && audio.position === 0 ? 0.75 : 1
                         onClicked: {
                             audio.stop ()
                             playButton.playing = false
