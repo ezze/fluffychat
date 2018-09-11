@@ -19,8 +19,7 @@ ListItem {
             PopupUtils.open(changeMemberStatusDialog)
         }
         else {
-            activeUser = matrixid
-            PopupUtils.open(userSettings)
+            userSettingsViewer.show ( matrixid )
         }
     }
 
@@ -36,8 +35,7 @@ ListItem {
             SlotsLayout.position: SlotsLayout.Leading
             mxc: avatar_url !== undefined ? avatar_url : ""
             onClickFunction: function () {
-                activeUser = matrixid
-                PopupUtils.open(userSettings)
+                userSettingsViewer.show ( matrixid )
             }
         }
 

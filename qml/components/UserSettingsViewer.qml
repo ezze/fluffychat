@@ -33,7 +33,7 @@ Rectangle {
         displayname = usernames.getById ( matrix_id )
         header.title = matrix_id.replace(":","<font color='%1'>:".arg(UbuntuColors.graphite)) + "</font>"
 
-        storage.transaction ( "SELECT avatar_url FROM Users WHERE matrix_id='" + activeUser + "'", function ( res ) {
+        storage.transaction ( "SELECT avatar_url FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
             if ( res.rows.length === 1 ) avatar.mxc = res.rows[0].avatar_url
         })
 
