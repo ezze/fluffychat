@@ -81,7 +81,7 @@ Rectangle {
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
             height: contentColumn.height + (isStateEvent || isImage ? units.gu(1) : units.gu(2))
-            width: Math.max( messageLabel.width + units.gu(2), metaLabelRow.width + units.gu(2), thumbnail.width, audioPlayer.width ) - isStateEvent * units.gu(0.5)
+            width: Math.max( messageLabel.opacity * messageLabel.width, metaLabelRow.width, thumbnail.width, audioPlayer.width ) + units.gu(2) - isStateEvent * units.gu(0.5)
 
             Column {
                 id: contentColumn
@@ -176,7 +176,6 @@ Rectangle {
                     id: messageLabel
                     opacity: (event.type === "m.sticker" || isMediaEvent) ? 0 : 1
                     height: opacity ? undefined : 0
-                    width: opacity ? undefined : 0
                     text: isStateEvent ? displayEvents.getDisplay ( event ) + " <font color='" + UbuntuColors.silk + "'>" + stamp.getChatTime ( event.origin_server_ts ) + "</font>" :  event.content_body || event.content.body
                     color: (sent || isStateEvent) ? "black" : "white"
                     wrapMode: Text.Wrap
