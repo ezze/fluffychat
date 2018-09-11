@@ -81,7 +81,7 @@ Rectangle {
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
             height: contentColumn.height + (isStateEvent || isImage ? units.gu(1) : units.gu(2))
-            width: Math.max( messageLabel.opacity * messageLabel.width, metaLabelRow.width, thumbnail.width, audioPlayer.width ) + units.gu(2) - isStateEvent * units.gu(0.5)
+            width: Math.max( messageLabel.opacity * messageLabel.width, metaLabelRow.width, thumbnail.width - units.gu(2), downloadButton.width, videoLink.width, audioPlayer.width ) + units.gu(2) - isStateEvent * units.gu(0.5)
 
             Column {
                 id: contentColumn
@@ -156,13 +156,42 @@ Rectangle {
                     }
                 }
 
+                MouseArea {
+                    width: videoLink.width
+                    height: videoLink.height
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(1)
+                    onClicked: videoPlayer.show ( event.content.url)
+                    Rectangle {
+                        id: videoLink
+                        visible: event.content.msgtype === "m.video"
+                        gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#000000" }
+                            GradientStop { position: 0.5; color: "#303030"}
+                            GradientStop { position: 1.0; color: "#101010" }
+                        }
+                        width: visible * units.gu(32)
+                        height: visible * units.gu(18)
+                        radius: units.gu(0.5)
+                        Icon {
+                            name: "media-preview-start"
+                            color: UbuntuColors.silk
+                            anchors.centerIn: parent
+                            width: units.gu(4)
+                            height: width
+                        }
+                    }
+                }
+
+
 
                 Button {
                     id: downloadButton
-                    text: i18n.tr("Download")
+                    text: i18n.tr("Download file: ") + event.content.body
                     onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
-                    visible: [ "m.file", "m.image", "m.video" ].indexOf( event.content.msgtype ) !== -1 && (event.content.info === undefined || event.content.info.thumbnail_url === undefined)
+                    visible: [ "m.file", "m.image" ].indexOf( event.content.msgtype ) !== -1 && (event.content.info === undefined || event.content.info.thumbnail_url === undefined)
                     height: visible ? units.gu(4) : 0
+                    width: visible ? undefined : 0
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(1)
                 }

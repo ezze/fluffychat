@@ -134,6 +134,7 @@ MainView {
     SettingsController { id: settings }
     Toast { id: toast }
     ImageViewer { id: imageViewer }
+    VideoPlayer { id: videoPlayer }
     LoadingScreen { id: loadingScreen }
     LoadingModal { id: loadingModal }
     UserSettingsViewer { id: userSettingsViewer }
