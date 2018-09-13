@@ -14,48 +14,51 @@ Component {
             width: parent.width
             color: settings.mainColor
         }
-        SettingsListItem {
-            name: i18n.tr("Owners")
-            icon: "edit-clear"
-            onClicked: {
-                var data = {}
-                if ( activePowerLevel.indexOf("m.room") !== -1 ) {
-                    data["events"] = {}
-                    data["events"][activePowerLevel] = 100
+        Column {
+            SettingsListItem {
+                name: i18n.tr("Owners")
+                icon: "view-collapse"
+                onClicked: {
+                    var data = {}
+                    if ( activePowerLevel.indexOf("m.room") !== -1 ) {
+                        data["events"] = {}
+                        data["events"][activePowerLevel] = 100
+                    }
+                    else data[activePowerLevel] = 100
+                    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
+                    PopupUtils.close(dialogue)
                 }
-                else data[activePowerLevel] = 100
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
-                PopupUtils.close(dialogue)
+            }
+            SettingsListItem {
+                name: i18n.tr("Guards")
+                icon: "view-collapse"
+                onClicked: {
+                    var data = {}
+                    if ( activePowerLevel.indexOf("m.room") !== -1 ) {
+                        data["events"] = {}
+                        data["events"][activePowerLevel] = 50
+                    }
+                    else data[activePowerLevel] = 50
+                    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
+                    PopupUtils.close(dialogue)
+                }
+            }
+            SettingsListItem {
+                name: i18n.tr("Members")
+                icon: "view-collapse"
+                onClicked: {
+                    var data = {}
+                    if ( activePowerLevel.indexOf("m.room") !== -1 ) {
+                        data["events"] = {}
+                        data["events"][activePowerLevel] = 0
+                    }
+                    else data[activePowerLevel] = 0
+                    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
+                    PopupUtils.close(dialogue)
+                }
             }
         }
-        SettingsListItem {
-            name: i18n.tr("Guards")
-            icon: "cancel"
-            onClicked: {
-                var data = {}
-                if ( activePowerLevel.indexOf("m.room") !== -1 ) {
-                    data["events"] = {}
-                    data["events"][activePowerLevel] = 50
-                }
-                else data[activePowerLevel] = 50
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
-                PopupUtils.close(dialogue)
-            }
-        }
-        SettingsListItem {
-            name: i18n.tr("Members")
-            icon: "account"
-            onClicked: {
-                var data = {}
-                if ( activePowerLevel.indexOf("m.room") !== -1 ) {
-                    data["events"] = {}
-                    data["events"][activePowerLevel] = 0
-                }
-                else data[activePowerLevel] = 0
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
-                PopupUtils.close(dialogue)
-            }
-        }
+
         Button {
             width: (parent.width - units.gu(1)) / 2
             text: i18n.tr("Close")

@@ -14,38 +14,41 @@ Component {
             width: parent.width
             color: settings.mainColor
         }
-        SettingsListItem {
-            name: i18n.tr("Public")
-            icon: "private-browsing-exit"
-            onClicked: {
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "public" } )
-                PopupUtils.close(dialogue)
+        Column {
+            SettingsListItem {
+                name: i18n.tr("Public")
+                icon: "view-collapse"
+                onClicked: {
+                    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "public" } )
+                    PopupUtils.close(dialogue)
+                }
+            }
+            SettingsListItem {
+                name: i18n.tr("Knock")
+                icon: "view-collapse"
+                onClicked: {
+                    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "knock" } )
+                    PopupUtils.close(dialogue)
+                }
+            }
+            SettingsListItem {
+                name: i18n.tr("Only invited users")
+                icon: "view-collapse"
+                onClicked: {
+                    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "invite" } )
+                    PopupUtils.close(dialogue)
+                }
+            }
+            SettingsListItem {
+                name: i18n.tr("Private")
+                icon: "view-collapse"
+                onClicked: {
+                    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "private" } )
+                    PopupUtils.close(dialogue)
+                }
             }
         }
-        SettingsListItem {
-            name: i18n.tr("Knock")
-            icon: "help"
-            onClicked: {
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "knock" } )
-                PopupUtils.close(dialogue)
-            }
-        }
-        SettingsListItem {
-            name: i18n.tr("Only invited users")
-            icon: "private-tab-new"
-            onClicked: {
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "invite" } )
-                PopupUtils.close(dialogue)
-            }
-        }
-        SettingsListItem {
-            name: i18n.tr("Private")
-            icon: "private-browsing"
-            onClicked: {
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "private" } )
-                PopupUtils.close(dialogue)
-            }
-        }
+
         Button {
             width: (parent.width - units.gu(1)) / 2
             text: i18n.tr("Close")

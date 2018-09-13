@@ -11,17 +11,7 @@ ListItem {
     property var settings: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === matrix.matrixid)
     property var status: usernames.powerlevelToStatus(userPower)
 
-    onClicked: {
-        if ( settings ) {
-            activeUser = matrixid
-            activeUserPower = userPower
-            activeUserMembership = membership
-            PopupUtils.open(changeMemberStatusDialog)
-        }
-        else {
-            usernames.showUserSettings ( matrixid )
-        }
-    }
+    onClicked: usernames.showUserSettings ( matrixid )
 
     opacity: membership === "join" ? 1 : 0.5
 
@@ -38,14 +28,95 @@ ListItem {
                 usernames.showUserSettings ( matrixid )
             }
         }
-
         Icon {
             SlotsLayout.position: SlotsLayout.Trailing
-            name: "settings"
+            name: "sort-listitem"
             visible: settings
-            width: units.gu(2)
+            width: units.gu(3)
             height: width
+            rotation: 90
         }
+    }
 
+
+
+    // Settings Buttons
+    trailingActions: ListItemActions {
+        actions: [
+        // Make member button
+        Action {
+            iconName: "contact"
+            onTriggered: showConfirmDialog( i18n.tr("Make this user a normal member?"), function () {
+                var data = {
+                    users: {}
+                }
+                data.users[matrixid] = 0
+                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
+            })
+            visible: canChangePermissions && userPower != 0 && membership !== "ban"
+        },
+        // Make guard button
+        Action {
+            iconName: "non-starred"
+            onTriggered: showConfirmDialog( i18n.tr("Make this user a guard?"), function () {
+                var data = {
+                    users: {}
+                }
+                data.users[matrixid] = 50
+                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
+            })
+            visible: canChangePermissions && userPower != 50 && membership !== "ban"
+        },
+        // Make owner button
+        Action {
+            iconName: "starred"
+            onTriggered: showConfirmDialog( i18n.tr("Make this user an owner?"), function () {
+                var data = {
+                    users: {}
+                }
+                data.users[matrixid] = 100
+                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
+            })
+            visible: canChangePermissions && userPower != 100 && membership !== "ban"
+        }
+        ]
+    }
+
+    // Kick & ban Buttons
+    leadingActions: ListItemActions {
+        actions: [
+        // Ban button
+        Action {
+            iconName: "system-lock-screen"
+            onTriggered: showConfirmDialog( i18n.tr("Ban from this chat?"), function () {
+                matrix.post("/client/r0/rooms/" + activeChat + "/ban", { "user_id": matrixid } )
+            })
+            visible: canBan && membership !== "ban"
+        },
+        // Unban button
+        Action {
+            iconName: "lock-broken"
+            onTriggered: showConfirmDialog( i18n.tr("Cancel banishment?"), function () {
+                matrix.post("/client/r0/rooms/" + activeChat + "/unban", { "user_id": matrixid } )
+            })
+            visible: canBan && membership === "ban"
+        },
+        // Forget button
+        Action {
+            iconName: "edit-delete"
+            onTriggered: showConfirmDialog( i18n.tr("Forget this user?"), function () {
+                matrix.post("/client/r0/rooms/" + activeChat + "/forget", { "user_id": matrixid } )
+            })
+            visible: membership === "leave"
+        },
+        // Kick button
+        Action {
+            iconName: "edit-clear"
+            onTriggered: showConfirmDialog( i18n.tr("Kick from this chat?"), function () {
+                matrix.post("/client/r0/rooms/" + activeChat + "/kick", { "user_id": matrixid } )
+            })
+            visible: canKick && membership !== "leave" && membership !== "ban"
+        }
+        ]
     }
 }

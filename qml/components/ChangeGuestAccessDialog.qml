@@ -14,20 +14,22 @@ Component {
             width: parent.width
             color: settings.mainColor
         }
-        SettingsListItem {
-            name: i18n.tr("Can join")
-            icon: "private-browsing-exit"
-            onClicked: {
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.guest_access/", { "guest_access": "can_join" } )
-                PopupUtils.close(dialogue)
+        Column {
+            SettingsListItem {
+                name: i18n.tr("Can join")
+                icon: "view-collapse"
+                onClicked: {
+                    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.guest_access/", { "guest_access": "can_join" } )
+                    PopupUtils.close(dialogue)
+                }
             }
-        }
-        SettingsListItem {
-            name: i18n.tr("Forbidden")
-            icon: "private-browsing"
-            onClicked: {
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.guest_access/", { "guest_access": "forbidden" } )
-                PopupUtils.close(dialogue)
+            SettingsListItem {
+                name: i18n.tr("Forbidden")
+                icon: "view-collapse"
+                onClicked: {
+                    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.guest_access/", { "guest_access": "forbidden" } )
+                    PopupUtils.close(dialogue)
+                }
             }
         }
         Button {

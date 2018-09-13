@@ -138,6 +138,16 @@ MainView {
     LoadingScreen { id: loadingScreen }
     LoadingModal { id: loadingModal }
     Audio { id: audio }
+    ConfirmDialog { id: confirmDialog }
+
+    // Simple universal confirmation dialog
+    property var confirmDialogText: i18n.tr("Are you sure?")
+    property var confirmDialogFunction: function () {}
+    function showConfirmDialog ( text, action ) {
+        confirmDialogText = text
+        confirmDialogFunction = action
+        PopupUtils.open( confirmDialog )
+    }
 
 
     /* =============================== CONNECTION MANAGER ===============================

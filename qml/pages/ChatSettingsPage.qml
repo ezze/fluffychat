@@ -89,8 +89,6 @@ Page {
 
     ChangeChatnameDialog { id: changeChatnameDialog }
 
-    ChangeMemberStatusDialog { id:changeMemberStatusDialog }
-
     LeaveChatDialog { id: leaveChatDialog }
 
     header: FcPageHeader {
