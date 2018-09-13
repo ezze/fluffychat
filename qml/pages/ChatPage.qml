@@ -65,6 +65,7 @@ Page {
 
 
     function sendAttachement ( mediaUrl ) {
+            visible: false
 
         // Start the upload
         matrix.upload ( mediaUrl, function ( response ) {

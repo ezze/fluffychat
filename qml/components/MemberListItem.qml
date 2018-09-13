@@ -19,7 +19,7 @@ ListItem {
             PopupUtils.open(changeMemberStatusDialog)
         }
         else {
-            userSettingsViewer.show ( matrixid )
+            usernames.showUserSettings ( matrixid )
         }
     }
 
@@ -35,7 +35,7 @@ ListItem {
             SlotsLayout.position: SlotsLayout.Leading
             mxc: avatar_url !== undefined ? avatar_url : ""
             onClickFunction: function () {
-                userSettingsViewer.show ( matrixid )
+                usernames.showUserSettings ( matrixid )
             }
         }
 

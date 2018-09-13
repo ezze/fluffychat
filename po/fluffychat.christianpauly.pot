@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 15:51+0000\n"
+"POT-Creation-Date: 2018-09-13 06:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -366,7 +366,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:33
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:203
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:204
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:164
 msgid "Notifications"
@@ -442,49 +442,49 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:184 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:185 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:191 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:192 ../qml/components/RemoveDeviceDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:197
+#: ../qml/pages/ChatPage.qml:198
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:209 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:210 ../qml/components/InviteDialog.qml:11
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:248
+#: ../qml/pages/ChatPage.qml:249
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:304
+#: ../qml/pages/ChatPage.qml:305
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:304
+#: ../qml/pages/ChatPage.qml:305
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:318
+#: ../qml/pages/ChatPage.qml:319
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:339
+#: ../qml/pages/ChatPage.qml:340
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:343
+#: ../qml/pages/ChatPage.qml:344
 msgid "OK"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:367
+#: ../qml/pages/ChatPage.qml:368
 msgid "Type something ..."
 msgstr ""
 
@@ -878,7 +878,6 @@ msgid "Start new Chat"
 msgstr ""
 
 #: ../qml/components/UserSettingsDialogALT.qml:102
-#: ../qml/components/UserSettingsViewer.qml:144
 msgid "Chats with %1:"
 msgstr ""
 
@@ -928,8 +927,12 @@ msgstr ""
 msgid "Canonical alias"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:117
+#: ../qml/components/UserSettingsViewer.qml:110
 msgid "Start new chat"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:134
+msgid "Chats with this user:"
 msgstr ""
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11

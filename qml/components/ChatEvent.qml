@@ -51,7 +51,7 @@ Rectangle {
         onClickFunction: function () {
             if ( sent || isStateEvent || !opacity ) return
             activeUser = event.sender
-            userSettingsViewer.show ( event.sender )
+            usernames.showUserSettings ( event.sender )
         }
     }
 

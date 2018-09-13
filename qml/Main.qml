@@ -137,7 +137,6 @@ MainView {
     VideoPlayer { id: videoPlayer }
     LoadingScreen { id: loadingScreen }
     LoadingModal { id: loadingModal }
-    UserSettingsViewer { id: userSettingsViewer }
     Audio { id: audio }
 
 

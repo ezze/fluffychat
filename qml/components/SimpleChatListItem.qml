@@ -14,7 +14,7 @@ ListItem {
     height: layout.height
 
     onClicked: {
-        PopupUtils.close( dialogue )
+        userSettingsViewer.collapse ()
         mainStack.toStart ()
         activeChat = room.id
         activeChatTypingUsers = []
@@ -27,7 +27,6 @@ ListItem {
         width: parent.width - notificationBubble.width - highlightBubble.width
         title.text: i18n.tr("Unknown chat")
         title.font.bold: true
-        title.color: "white"
 
         Avatar {
             id: avatar

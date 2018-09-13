@@ -46,4 +46,10 @@ Item {
         else if ( power_level < 100 ) return i18n.tr('Guards')
         else return i18n.tr('Owners')
     }
+
+    function showUserSettings ( matrix_id ) {
+        activeUser = matrix_id
+        var item = Qt.createComponent("../components/UserSettingsViewer.qml")
+        item.createObject(mainStack.currentPage, { })
+    }
 }
