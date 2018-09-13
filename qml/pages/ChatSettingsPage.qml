@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import Ubuntu.Web 0.2
 import "../components"
 
 Page {
@@ -24,6 +25,7 @@ Page {
     property var canBan
     property var canInvite
     property var canChangePermissions
+    property var canChangeAvatar
 
     Connections {
         target: events
@@ -43,7 +45,9 @@ Page {
                 canKick = power >= res.rows[0].power_kick
                 canBan = power >= res.rows[0].power_ban
                 canInvite = power >= res.rows[0].power_invite
+                canChangeAvatar = power >= (res.rows[0].power_event_avatar || 0)
                 canChangePermissions = power >= res.rows[0].power_event_power_levels
+                console.log("AVATARPOWER!!!!!!!!!!!!!!!!!!!!!!!!!!",res.rows[0].power_event_avatar,power)
             })
         })
 
@@ -131,6 +135,31 @@ Page {
                 Component.onCompleted: {
                     roomnames.getAvatarUrl ( activeChat,
                         function ( avatar_url ) { mxc = avatar_url } )
+                }
+            }
+            Component {
+                id: pickerComponent
+                PickerDialog {}
+            }
+            WebView {
+                id: uploader
+                url: "../components/ChangeChatAvatar.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
+                width: units.gu(6)
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+                preferences.allowFileAccessFromFileUrls: true
+                preferences.allowUniversalAccessFromFileUrls: true
+                filePicker: pickerComponent
+                visible: canChangeAvatar
+                alertDialog: Dialog {
+                    title: i18n.tr("Error")
+                    text: model.message
+                    parent: QuickUtils.rootItem(this)
+                    Button {
+                        text: i18n.tr("OK")
+                        onClicked: model.accept()
+                    }
+                    Component.onCompleted: show()
                 }
             }
             Rectangle {
