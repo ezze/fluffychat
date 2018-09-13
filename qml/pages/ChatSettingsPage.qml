@@ -89,8 +89,6 @@ Page {
 
     Component.onCompleted: init ()
 
-    InviteDialog { id: inviteDialog }
-
     ChangeChatnameDialog { id: changeChatnameDialog }
 
     LeaveChatDialog { id: leaveChatDialog }
@@ -181,11 +179,11 @@ Page {
                 Column {
                     id: settingsColumn
                     width: parent.width
-                    SettingsListItem {
+                    SettingsListLink {
                         visible: canInvite
                         name: i18n.tr("Invite friend")
                         icon: "contact-new"
-                        onClicked: PopupUtils.open(inviteDialog)
+                        page: "InvitePage"
                     }
                     SettingsListLink {
                         name: i18n.tr("Notifications")

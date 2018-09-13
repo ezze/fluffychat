@@ -175,9 +175,6 @@ Page {
         chatScrollView.handleNewEvent ( room.timeline.events )
     }
 
-
-    InviteDialog { id: inviteDialog }
-
     ChangeChatnameDialog { id: changeChatnameDialog }
 
     header: FcPageHeader {
@@ -209,7 +206,7 @@ Page {
                 iconName: "contact-new"
                 text: i18n.tr("Invite a friend")
                 visible: membership === "join"
-                onTriggered: PopupUtils.open(inviteDialog)
+                onTriggered: mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
             }
             ]
         }
