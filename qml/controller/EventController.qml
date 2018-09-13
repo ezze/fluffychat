@@ -141,12 +141,6 @@ Item {
                     //console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
                 }
             )
-            if ( settings.autoAcceptInvitations ) {
-                for ( var i in response.rooms.invite ) {
-                    matrix.autoAcceptInvitations ()
-                    break
-                }
-            }
         }
         catch ( e ) {
             toast.show ( i18n.tr("😰 A critical error has occurred! Sorry, the connection to the server has ended! Please report this bug on: https://github.com/ChristianPauly/fluffychat/issues/new") )

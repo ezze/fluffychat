@@ -47,7 +47,4 @@ Settings {
 
     // Security & Privacy: Send typing notification?
     property var sendTypingNotification: true
-
-    // Auto accept invitations?
-    property var autoAcceptInvitations: true
 }
