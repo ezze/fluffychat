@@ -227,7 +227,7 @@ Page {
             Rectangle {
                 width: parent.width
                 height: 1
-                color: UbuntuColors.silk
+                color: UbuntuColors.ash
             }
 
             ListView {

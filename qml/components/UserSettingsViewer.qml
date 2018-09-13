@@ -24,7 +24,7 @@ BottomEdge {
                 matrix_id = activeUser
                 displayname = usernames.getById ( matrix_id )
                 avatar.name = displayname
-                userHeader.title = matrix_id.replace(":","<font color='%1'>:".arg(UbuntuColors.graphite)) + "</font>"
+                userHeader.title = matrix_id.replace(":","<font color='%1'>:".arg(UbuntuColors.ash)) + "</font>"
 
                 storage.transaction ( "SELECT avatar_url FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
                     if ( res.rows.length === 1 ) avatar.mxc = res.rows[0].avatar_url
@@ -88,7 +88,7 @@ BottomEdge {
                     Rectangle {
                         width: parent.width
                         height: 1
-                        color: UbuntuColors.porcelain
+                        color: UbuntuColors.ash
                     }
 
                     ListItem {
@@ -144,7 +144,7 @@ BottomEdge {
                     Rectangle {
                         width: parent.width
                         height: 1
-                        color: UbuntuColors.porcelain
+                        color: UbuntuColors.ash
                     }
 
                     Column {
