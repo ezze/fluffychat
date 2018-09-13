@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:25+0000\n"
+"POT-Creation-Date: 2018-09-13 12:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -918,12 +918,16 @@ msgstr ""
 msgid "Canonical alias"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:110
+#: ../qml/components/UserSettingsViewer.qml:112
 msgid "Start new chat"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:134
+#: ../qml/components/UserSettingsViewer.qml:136
 msgid "Chats with this user:"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:136
+msgid "You are that!"
 msgstr ""
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11

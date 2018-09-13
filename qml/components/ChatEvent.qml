@@ -49,7 +49,7 @@ Rectangle {
         opacity: (event.sameSender && !isStateEvent) ? 0 : 1
         width: isStateEvent ? units.gu(3) : units.gu(6)
         onClickFunction: function () {
-            if ( sent || isStateEvent || !opacity ) return
+            if ( !opacity ) return
             activeUser = event.sender
             usernames.showUserSettings ( event.sender )
         }
