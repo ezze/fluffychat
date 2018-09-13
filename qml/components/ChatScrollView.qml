@@ -50,34 +50,6 @@ ListView {
     }
 
 
-    function requestRoomMember ( matrixid ) {
-        var localActiveChat = activeChat
-        matrix.get("/client/r0/rooms/%1/state/m.room.member/%3".arg(activeChat).arg(matrixid), null, function ( res ) {
-
-            // Save the new roommember event in the database
-            storage.query( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, ?, ?)",
-            [ localActiveChat,
-            matrixid,
-            res.membership,
-            res.displayname,
-            res.avatar_url ])
-
-            // Update the current view
-            for ( var i = 0; i < model.count; i++ ) {
-                var elem = model.get(i)
-                if ( elem.event.sender === matrixid ) {
-                    var tempEvent = elem.event
-                    tempEvent.matrix_id = matrixid
-                    tempEvent.displayname = res.displayname
-                    tempEvent.avatar_url = res.avatar_url
-                    var tempEvent = elem.event
-                    model.set ( j, { "event": tempEvent } )
-                }
-            }
-        } )
-    }
-
-
     function requestHistory () {
         if ( initialized !== model.count || requesting || (model.count > 0 && model.get( model.count -1 ).event.type === "m.room.create") ) return
         toast.show ( i18n.tr( "Get more messages from the server ...") )

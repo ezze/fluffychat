@@ -227,7 +227,7 @@ Item {
 
 
     // Events are all changes in a room
-    function handleRoomEvents ( roomid, events, type, room ) {
+    function handleRoomEvents ( roomid, events, type ) {
 
         // We go through the events array
         for ( var i = 0; i < events.length; i++ ) {
@@ -249,8 +249,13 @@ Item {
                 msg_status.RECEIVED ])
             }
 
+
+            // If this timeline only contain events from the history, from the past,
+            // then all other changes to the room are old and should not be saved.
+            if ( type === "history" ) continue
+
             // This event means, that the name of a room has been changed, so
-            // it has to be changed in the database
+            // it has to be changed in the database.
             if ( event.type === "m.room.name" ) {
                 transaction.executeSql( "UPDATE Chats SET topic=? WHERE id=?",
                 [ event.content.name,

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 06:49+0000\n"
+"POT-Creation-Date: 2018-09-13 06:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -717,7 +717,7 @@ msgstr ""
 #: ../qml/components/AddAliasDialog.qml:27
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/InviteDialog.qml:27
-#: ../qml/components/ChatScrollView.qml:159
+#: ../qml/components/ChatScrollView.qml:131
 #: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
 #: ../qml/components/ChangeChatnameDialog.qml:43
@@ -881,19 +881,19 @@ msgstr ""
 msgid "Chats with %1:"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:83
+#: ../qml/components/ChatScrollView.qml:55
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:141
+#: ../qml/components/ChatScrollView.qml:113
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:145
+#: ../qml/components/ChatScrollView.qml:117
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:149
+#: ../qml/components/ChatScrollView.qml:121
 msgid "Redact message"
 msgstr ""
 
