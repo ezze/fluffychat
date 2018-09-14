@@ -36,6 +36,8 @@ Component {
                     var mainStack_local = mainStack
                     PopupUtils.close(dialogue)
                     if ( membership && membership === "leave" ) {
+                        storage.transaction ( "DELETE FROM Memberships WHERE chat_id='" + activeChat + "'" )
+                        storage.transaction ( "DELETE FROM Events WHERE chat_id='" + activeChat + "'" )
                         storage.transaction ( "DELETE FROM Chats WHERE id='" + activeChat + "'", update )
                         matrix.post("/client/r0/rooms/" + activeChat + "/forget", null)
                         mainStack.toStart()

@@ -72,6 +72,8 @@ ListItem {
         Action {
             iconName: "edit-delete"
             onTriggered: {
+                storage.transaction ( "DELETE FROM Memberships WHERE chat_id='" + room.id + "'" )
+                storage.transaction ( "DELETE FROM Events WHERE chat_id='" + room.id + "'" )
                 storage.transaction ( "DELETE FROM Chats WHERE id='" + room.id + "'", update )
                 matrix.post( "/client/r0/rooms/%1/forget".arg(room.id) )
             }
