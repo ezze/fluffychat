@@ -37,7 +37,7 @@ Page {
                         } ]
                     }
                     else return toast.show( i18n.tr("You need to enter a valid Email address or Matrix ID!") )
-
+                    loadingScreen.visible = true
                     matrix.post( "/client/r0/createRoom", data, function ( response ) {
                         activeChat = response.room_id
                         mainStack.toStart ()

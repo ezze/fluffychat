@@ -6,50 +6,26 @@ import "../components"
 Page {
     anchors.fill: parent
 
-    property var enabled: true
+    property var enabled: false
     property var inviteList: []
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr('Create chat')
-
-        trailingActionBar {
-            numberOfSlots: 1
-            actions: [
-            Action {
-                iconName: "ok"
-                text: i18n.tr("Invite selected")
-                onTriggered: {
-                    loadingScreen.visible = true
-                    matrix.post( "/client/r0/createRoom", {
-                        invite: inviteList
-                    }, function ( response ) {
-                        activeChat = response.room_id
-                        mainStack.toStart ()
-                        mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
-                    } )
-                }
-            }
-            ]
-        }
+        title: i18n.tr('Join chat')
     }
 
-
     Component.onCompleted: {
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Memberships, Contacts " +
-        "WHERE Users.matrix_id=Memberships.matrix_id AND Memberships.chat_id!='" + activeChat + "' " +
-        " AND Contacts.matrix_id=Users.matrix_id GROUP BY Users.matrix_id",
-        function( res )  {
-            for( var i = 0; i < res.rows.length; i++ ) {
-                var user = res.rows[i]
+        matrix.get ( "/client/r0/publicRooms", { limit: 1000 }, function ( res ) {
+            for( var i = 0; i < res.chunk.length; i++ ) {
+                var chat = res.chunk[i]
                 model.append({
-                    matrix_id: user.matrix_id,
-                    displayname: user.displayname || usernames.transformFromId(user.matrix_id),
-                    avatar_url: user.avatar_url,
-                    temp: false
+                    matrix_id: chat.room_id,
+                    displayname: chat.name || i18n.tr("Nameless chat"),
+                    avatar_url: chat.avatar_url || ""
                 })
             }
-        })
+            enabled = true
+        } )
     }
 
     TextField {
@@ -71,9 +47,9 @@ Page {
         readOnly: !enabled
         focus: true
         inputMethodHints: Qt.ImhNoPredictiveText
-        placeholderText: i18n.tr("Search contacts...")
+        placeholderText: i18n.tr("Search public chats...")
         onDisplayTextChanged: {
-            searchMatrixId = displayText.indexOf( "@" ) !== -1
+            searchMatrixId = displayText.indexOf( "#" ) !== -1
 
             if ( searchMatrixId && displayText.indexOf(":") !== -1 ) {
                 if ( tempElement !== null ) {
@@ -103,7 +79,7 @@ Page {
         width: parent.width
         height: parent.height - header.height - searchField.height
         anchors.top: searchField.bottom
-        delegate: SettingsListCheck {}
+        delegate: PublicChatItem {}
         model: ListModel { id: model }
     }
 }
