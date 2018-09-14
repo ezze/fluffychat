@@ -57,9 +57,9 @@ Page {
             margins: units.gu(2)
             horizontalCenter: parent.horizontalCenter
         }
-        focus: true
         inputMethodHints: Qt.ImhNoPredictiveText
         placeholderText: i18n.tr("Email or full username...")
+        Component.onCompleted: focus = true
     }
 
     Icon {
