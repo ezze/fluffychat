@@ -23,7 +23,7 @@ ListItem {
         Avatar {
             name: layout.title.text
             SlotsLayout.position: SlotsLayout.Leading
-            mxc: avatar_url !== undefined ? avatar_url : ""
+            mxc: avatar_url || ""
             onClickFunction: function () {
                 usernames.showUserSettings ( matrixid )
             }
@@ -100,14 +100,6 @@ ListItem {
                 matrix.post("/client/r0/rooms/" + activeChat + "/unban", { "user_id": matrixid } )
             })
             visible: canBan && membership === "ban"
-        },
-        // Forget button
-        Action {
-            iconName: "edit-delete"
-            onTriggered: showConfirmDialog( i18n.tr("Forget this user?"), function () {
-                matrix.post("/client/r0/rooms/" + activeChat + "/forget", { "user_id": matrixid } )
-            })
-            visible: membership === "leave"
         },
         // Kick button
         Action {

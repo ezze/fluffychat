@@ -11,8 +11,14 @@ ListItem {
     }
     property var isSelected: selected
     property var matrixid: matrix_id
+    property var tempElement: temp
     selectMode: true
-    onClicked: selected = !selected
+    onClicked: {
+        selected = !selected
+        if ( selected ) inviteList[inviteList.length] = matrixid
+        else inviteList.splice( inviteList.indexOf(matrixid), 1 )
+        if ( selected && tempElement ) searchField.tempElement = null
+    }
 
     ListItemLayout {
         id: layout
@@ -22,9 +28,9 @@ ListItem {
             name: displayname
             mxc: avatar_url
             width: units.gu(4)
-            height: units.gu(4)
+            height: width
             SlotsLayout.position: SlotsLayout.Leading
-            onClickFunction () { usernames.showUserSettings ( event.sender ) }
+            onClickFunction: function () { usernames.showUserSettings ( matrix_id ) }
         }
     }
 }

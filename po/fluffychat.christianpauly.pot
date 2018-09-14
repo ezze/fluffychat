@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 15:29+0000\n"
+"POT-Creation-Date: 2018-09-14 07:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -404,15 +404,15 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/InvitePage.qml:13
+#: ../qml/pages/InvitePage.qml:14
 msgid "Invite user"
 msgstr ""
 
-#: ../qml/pages/InvitePage.qml:20
+#: ../qml/pages/InvitePage.qml:21
 msgid "Invite selected"
 msgstr ""
 
-#: ../qml/pages/InvitePage.qml:68
+#: ../qml/pages/InvitePage.qml:73
 msgid "Search users..."
 msgstr ""
 
@@ -528,7 +528,7 @@ msgstr ""
 msgid "Loading users ..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:248
+#: ../qml/pages/ChatSettingsPage.qml:249
 msgid "Search..."
 msgstr ""
 
@@ -691,10 +691,6 @@ msgid "Cancel banishment?"
 msgstr ""
 
 #: ../qml/components/MemberListItem.qml:107
-msgid "Forget this user?"
-msgstr ""
-
-#: ../qml/components/MemberListItem.qml:115
 msgid "Kick from this chat?"
 msgstr ""
 

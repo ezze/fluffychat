@@ -7,6 +7,7 @@ Page {
     anchors.fill: parent
 
     property var enabled: true
+    property var inviteList: []
 
     header: FcPageHeader {
         id: header
@@ -25,24 +26,24 @@ Page {
     }
 
     function invite ( i ) {
-        if ( i >= model.count ) return mainStack.pop()
+        if ( i >= inviteList.length ) return mainStack.pop()
         enabled = false
-        if ( !model.get(i).selected ) return invite ( i+1 )
-        console.log("NOW INVITING:", model.get(i).matrixid )
         matrix.post ( "/client/r0/rooms/%1/invite".arg(activeChat),
-        { user_id: model.get(i).matrixid }, function () { invite( i+1 ) } )
+        { user_id: inviteList[i] }, function () { invite( i+1 ) } )
     }
 
     Component.onCompleted: {
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Memberships " +
-        "WHERE Users.matrix_id=Memberships.matrix_id AND Memberships.chat_id!='" + activeChat + "' GROUP BY Users.matrix_id",
+        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Memberships, Contacts " +
+        "WHERE Users.matrix_id=Memberships.matrix_id AND Memberships.chat_id!='" + activeChat + "' " +
+        " AND Contacts.matrix_id=Users.matrix_id GROUP BY Users.matrix_id",
         function( res )  {
             for( var i = 0; i < res.rows.length; i++ ) {
                 var user = res.rows[i]
                 model.append({
                     matrix_id: user.matrix_id,
                     displayname: user.displayname || usernames.transformFromId(user.matrix_id),
-                    avatar_url: user.avatar_url
+                    avatar_url: user.avatar_url,
+                    temp: false
                 })
             }
         })
@@ -54,6 +55,7 @@ Page {
         property var searchMatrixId: false
         property var upperCaseText: displayText.toUpperCase()
         property var tempElement: null
+        z: 5
         anchors {
             top: header.bottom
             topMargin: units.gu(1)
@@ -77,7 +79,9 @@ Page {
                 }
                 model.append ( {
                     matrix_id: displayText,
-                    displayname: displayText
+                    displayname: displayText,
+                    avatar_url: "",
+                    temp: true
                 })
                 tempElement = model.count - 1
             }

@@ -238,6 +238,7 @@ Page {
                 TextField {
                     id: searchField
                     objectName: "searchField"
+                    property var upperCaseText: displayText.toUpperCase()
                     anchors {
                         left: parent.left
                         right: parent.right
