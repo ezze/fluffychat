@@ -341,7 +341,6 @@ Item {
             // This event means, that someone joined the room, has left the room
             // or has changed his nickname
             else if ( event.type === "m.room.member" ) {
-                console.log(JSON.stringify(event))
 
                 transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
                 [ event.state_key,
