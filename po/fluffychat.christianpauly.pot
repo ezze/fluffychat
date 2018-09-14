@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-14 08:45+0000\n"
+"POT-Creation-Date: 2018-09-14 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:144
+#: ../qml/Main.qml:145
 msgid "Are you sure?"
 msgstr ""
 
@@ -425,11 +425,15 @@ msgstr ""
 msgid "Start new private chat"
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:47
+#: ../qml/pages/AddContactPage.qml:39
+msgid "You need to enter a valid Email address or Matrix ID!"
+msgstr ""
+
+#: ../qml/pages/AddContactPage.qml:62
 msgid "Email or full username..."
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:64
+#: ../qml/pages/AddContactPage.qml:79
 msgid "Your full username is: <b>%1</b>"
 msgstr ""
 

@@ -35,7 +35,7 @@ MainView {
     */
     readonly property var defaultMainColor: "#5625BA"
     readonly property var defaultDomain: "ubports.chat"
-    readonly proeprty var defaultIDServer: "vector.im"
+    readonly property var defaultIDServer: "vector.im"
     readonly property var defaultDeviceName: "UbuntuPhone"
     readonly property var miniTimeout: 3000
     readonly property var defaultTimeout: 30000
