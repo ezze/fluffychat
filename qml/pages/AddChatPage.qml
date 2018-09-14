@@ -7,82 +7,89 @@ import "../components"
 Page {
     anchors.fill: parent
 
-    function success_callback ( response ) {
-        activeChat = response.room_id
-        if ( mainStack.depth === 1 ) bottomEdge.collapse()
-        else mainStack.pop ()
-        mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
-    }
-
-
-    function joinRoom () {
-        var newChatId = searchTextField.displayText
-        errorReport.text = ""
-        if ( newChatId === "" ) searchTextField.focus = true
-        else {
-            var success_callback = function ( response ) {
-                toast.show ( i18n.tr("Synchronizing \n This can take a few minutes ...") )
-                searchTextField.text = ""
-                activeChat = response.room_id
-                if ( mainStack.depth === 1 ) bottomEdge.collapse()
-                else mainStack.pop ()
-                mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
-            }
-            var error_callback = function ( error ) {
-                var errcodes = {
-                    "M_UNKNOWN": i18n.tr("Room was not found 😟"),
-                }
-                errorReport.text = error.errcode in errcodes ? errcodes[error.errcode] : error.error
-            }
-            events.waitForSync ()
-            matrix.post("/client/r0/join/" + encodeURIComponent(newChatId), null, success_callback, error_callback)
-        }
-
-    }
-
     header: FcPageHeader {
         title: i18n.tr('Start a new chat')
+
+        trailingActionBar {
+            numberOfSlots: 1
+            actions: [
+            Action {
+                iconName: "contact-new"
+                text: i18n.tr("Add Contact")
+                onTriggered: mainStack.push (Qt.resolvedUrl("./AddContactPage.qml"))
+            }
+            ]
+        }
     }
 
-    NewContactDialog{ id: newContactDialog }
-    NewGroupDialog{ id: newGroupDialog }
-    JoinGroupDialog{ id: joinGroupDialog }
+    Component.onCompleted: {
+        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Contacts " +
+        " WHERE Contacts.matrix_id=Users.matrix_id",
+        function( res )  {
+            for( var i = 0; i < res.rows.length; i++ ) {
+                var user = res.rows[i]
+                model.append({
+                    matrixid: user.matrix_id,
+                    name: user.displayname || usernames.transformFromId(user.matrix_id),
+                    avatar_url: user.avatar_url
+                })
+            }
+        })
+    }
 
     Column {
         id: addChatList
         width: mainStackWidth
         anchors.top: header.bottom
 
-        SettingsListItem {
-            name: i18n.tr("New contact")
-            icon: "contact-new"
-            onClicked: PopupUtils.open(newContactDialog)
+        SettingsListLink {
+            name: i18n.tr("Create chat")
+            icon: "message-new"
+            page: "CreateChatPage"
         }
 
-        SettingsListItem {
-            name: i18n.tr("New group")
-            icon: "contact-group"
-            onClicked: PopupUtils.open(newGroupDialog)
+        SettingsListLink {
+            name: i18n.tr("Join chat")
+            icon: "find"
+            page: "JoinChatPage"
         }
 
-        SettingsListItem {
-            name: i18n.tr("Join group")
-            icon: "user-admin"
-            onClicked: PopupUtils.open(joinGroupDialog)
+        Rectangle {
+            width: parent.width
+            height: units.gu(2)
+            color: theme.palette.normal.background
         }
-    }
+        Rectangle {
+            width: parent.width
+            height: searchField.height + units.gu(2)
+            color: theme.palette.normal.background
+            TextField {
+                id: searchField
+                objectName: "searchField"
+                property var upperCaseText: displayText.toUpperCase()
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    rightMargin: units.gu(2)
+                    leftMargin: units.gu(2)
+                }
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search contacts...")
+            }
+        }
+        Rectangle {
+            width: parent.width
+            height: 1
+            color: UbuntuColors.ash
+        }
 
-
-    ScrollView {
-        id: scrollView
-        width: parent.width
-        height: parent.height - header.height - addChatList.height
-        anchors.top: addChatList.bottom
-        anchors.topMargin: units.gu(1)
-
-        contentItem: Grid {
-            id: rosterGrid
-            anchors.horizontalCenter: parent.horizontalCenter
+        ListView {
+            id: contactList
+            width: parent.width
+            height: root.height / 1.5
+            delegate: ContactListItem { }
+            model: ListModel { id: model }
+            z: -1
         }
     }
 

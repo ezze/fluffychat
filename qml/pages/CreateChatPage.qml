@@ -11,7 +11,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr('Invite user')
+        title: i18n.tr('Create chat')
 
         trailingActionBar {
             numberOfSlots: 1
@@ -19,18 +19,20 @@ Page {
             Action {
                 iconName: "ok"
                 text: i18n.tr("Invite selected")
-                onTriggered: invite ( 0 )
+                onTriggered: {
+                    matrix.post( "/client/r0/createRoom", {
+                        invite: inviteList
+                    }, function ( response ) {
+                        activeChat = response.room_id
+                        mainStack.toStart ()
+                        mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
+                    } )
+                }
             }
             ]
         }
     }
 
-    function invite ( i ) {
-        if ( i >= inviteList.length ) return mainStack.pop()
-        enabled = false
-        matrix.post ( "/client/r0/rooms/%1/invite".arg(activeChat),
-        { user_id: inviteList[i] }, function () { invite( i+1 ) } )
-    }
 
     Component.onCompleted: {
         storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Memberships, Contacts " +

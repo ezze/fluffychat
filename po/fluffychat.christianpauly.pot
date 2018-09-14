@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-14 08:05+0000\n"
+"POT-Creation-Date: 2018-09-14 08:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -303,6 +303,19 @@ msgstr ""
 msgid "Chat permissions"
 msgstr ""
 
+#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:46
+msgid "Create chat"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:21 ../qml/pages/InvitePage.qml:21
+msgid "Invite selected"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:71
+#: ../qml/pages/AddChatPage.qml:77
+msgid "Search contacts..."
+msgstr ""
+
 #: ../qml/pages/BlankPage.qml:11
 msgid "Welcome"
 msgstr ""
@@ -406,14 +419,6 @@ msgstr ""
 
 #: ../qml/pages/InvitePage.qml:14
 msgid "Invite user"
-msgstr ""
-
-#: ../qml/pages/InvitePage.qml:21
-msgid "Invite selected"
-msgstr ""
-
-#: ../qml/pages/InvitePage.qml:71
-msgid "Search users..."
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:182 ../qml/components/ArchivedChatListItem.qml:28
@@ -532,30 +537,16 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:24
-msgid ""
-"Synchronizing \n"
-" This can take a few minutes ..."
-msgstr ""
-
-#: ../qml/pages/AddChatPage.qml:33
-msgid "Room was not found 😟"
-msgstr ""
-
-#: ../qml/pages/AddChatPage.qml:44
+#: ../qml/pages/AddChatPage.qml:11
 msgid "Start a new chat"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:57
-msgid "New contact"
+#: ../qml/pages/AddChatPage.qml:18
+msgid "Add Contact"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:63 ../qml/components/NewGroupDialog.qml:11
-msgid "New group"
-msgstr ""
-
-#: ../qml/pages/AddChatPage.qml:69 ../qml/components/JoinGroupDialog.qml:11
-msgid "Join group"
+#: ../qml/pages/AddChatPage.qml:52
+msgid "Join chat"
 msgstr ""
 
 #: ../qml/pages/ThemeSettingsPage.qml:35
@@ -776,6 +767,10 @@ msgstr ""
 msgid "Leave"
 msgstr ""
 
+#: ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr ""
+
 #: ../qml/components/NewGroupDialog.qml:19
 msgid "Group name"
 msgstr ""
@@ -867,6 +862,10 @@ msgstr ""
 
 #: ../qml/components/ChatListItem.qml:57
 msgid "You: "
+msgstr ""
+
+#: ../qml/components/JoinGroupDialog.qml:11
+msgid "Join group"
 msgstr ""
 
 #: ../qml/components/JoinGroupDialog.qml:19
