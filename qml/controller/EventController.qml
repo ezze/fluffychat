@@ -231,6 +231,7 @@ Item {
             // Only this events will call the notification signal or change the
             // current displayed chat!
             if ( type === "timeline" || type === "history" ) {
+                var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
                 transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
                 roomid,
@@ -240,7 +241,7 @@ Item {
                 event.content.msgtype || null,
                 event.type,
                 JSON.stringify(event.content),
-                msg_status.RECEIVED ])
+                status ])
             }
 
 
