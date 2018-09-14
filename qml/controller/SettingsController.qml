@@ -14,6 +14,9 @@ Settings {
     // The server is the domain part of the matrix id
     property var server
 
+    // The ID server maps the emails and phone numbers to matrix IDs
+    property var id_server: defaultIDServer
+
     // The device ID is an unique identifier for this device
     property var deviceID
 

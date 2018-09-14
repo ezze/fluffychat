@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-14 08:24+0000\n"
+"POT-Creation-Date: 2018-09-14 08:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -419,6 +419,18 @@ msgstr ""
 
 #: ../qml/pages/InvitePage.qml:14
 msgid "Invite user"
+msgstr ""
+
+#: ../qml/pages/AddContactPage.qml:12 ../qml/pages/AddContactPage.qml:19
+msgid "Start new private chat"
+msgstr ""
+
+#: ../qml/pages/AddContactPage.qml:47
+msgid "Email or full username..."
+msgstr ""
+
+#: ../qml/pages/AddContactPage.qml:64
+msgid "Your full username is: <b>%1</b>"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:182 ../qml/components/ArchivedChatListItem.qml:28

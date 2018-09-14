@@ -50,7 +50,7 @@ Page {
 
         SettingsListLink {
             name: i18n.tr("Join chat")
-            icon: "find"
+            icon: "contact-group"
             page: "JoinChatPage"
         }
 
