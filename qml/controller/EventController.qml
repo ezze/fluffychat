@@ -49,7 +49,7 @@ Item {
         }
 
         loadingScreen.visible = true
-        matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true}}" }, function ( response ) {
+        matrix.get( "/client/r0/sync", /*{ filter: "{\"room\":{\"include_leave\":true}}" }*/ null, function ( response ) {
             if ( waitingForSync ) progressBarRequests--
             handleEvents ( response )
             matrix.onlineStatus = true
@@ -83,8 +83,7 @@ Item {
                 }
                 else {
                     if ( Connectivity && Connectivity.online ) restartSync ()
-                    else toast.show ( i18n.tr("You are offline 😕") )
-                    console.log ( "Synchronization error! Try to restart ..." )
+                    else console.error ( i18n.tr("You are offline 😕") )
                 }
             }
         } );
@@ -93,9 +92,7 @@ Item {
 
     function restartSync () {
         if ( syncRequest === null ) return
-        console.log("resync")
         if ( syncRequest ) {
-            console.log( "Stopping latest sync" )
             abortSync = true
             syncRequest.abort ()
             abortSync = false

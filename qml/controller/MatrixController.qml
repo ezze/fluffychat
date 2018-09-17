@@ -222,6 +222,7 @@ Item {
         // Build the request
         var requestUrl = "https://" + server + "/_matrix" + action + getData
         var longPolling = (data != null && data.timeout)
+        var isSyncRequest = (action === "/client/r0/sync")
         http.open( type, requestUrl, true);
         http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         http.timeout = defaultTimeout
@@ -229,14 +230,18 @@ Item {
         http.onreadystatechange = function() {
             if ( status_callback ) status_callback ( http.readyState )
             if (http.readyState === XMLHttpRequest.DONE) {
-                timer.stop ()
-                var index = activeRequests.indexOf(checksum);
-                activeRequests.splice( index, 1 )
-                if ( !longPolling ) progressBarRequests--
-                if ( progressBarRequests < 0 ) progressBarRequests = 0
                 try {
-                    var responseType = http.getResponseHeader("Content-Type")
+                    var index = activeRequests.indexOf(checksum);
+                    activeRequests.splice( index, 1 )
+                    if ( !longPolling ) progressBarRequests--
+                    if ( progressBarRequests < 0 ) progressBarRequests = 0
+
+                    if ( !timer.running ) throw( "Timeout" )
+                    timer.stop ()
+
                     if ( http.responseText === "" ) throw( "No connection to the homeserver 😕" )
+
+                    var responseType = http.getResponseHeader("Content-Type")
                     if ( responseType === "application/json" ) {
                         var response = JSON.parse(http.responseText)
                         if ( "errcode" in response ) throw response
@@ -247,7 +252,7 @@ Item {
                     }
                 }
                 catch ( error ) {
-                console.error("There was an error: When calling ", requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error/*, http.responseText*/)
+                if ( !isSyncRequest ) console.error("There was an error: When calling ", requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error/*, http.responseText*/)
                 if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                 if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                 if ( !error_callback && error === "offline" && settings.token ) {
@@ -270,10 +275,10 @@ Item {
     }
 
     // Make timeout working in qml
-    timer.interval = (longPolling || action == "/client/r0/sync") ? longPollingTimeout+2000 : defaultTimeout
+    timer.stop ()
+    timer.interval = (longPolling || isSyncRequest) ? longPollingTimeout*1.5 : defaultTimeout
     timer.repeat = false
     timer.triggered.connect(function () {
-        console.log("timeout :-/")
         if (http.readyState === XMLHttpRequest.OPENED) http.abort ()
     })
     timer.start();
