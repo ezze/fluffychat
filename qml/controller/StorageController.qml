@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.0"
+    property var version: "0.3.0a"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -70,6 +70,8 @@ Item {
         transaction('DROP TABLE IF EXISTS Users')
         transaction('DROP TABLE IF EXISTS Memberships')
         transaction('DROP TABLE IF EXISTS Contacts')
+        transaction('DROP TABLE IF EXISTS Addresses')
+        transaction('DROP TABLE IF EXISTS ThirdPIDs')
 
         // TABLE SCHEMA FOR CHATS
         transaction('CREATE TABLE Chats(' +

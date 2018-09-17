@@ -339,7 +339,7 @@ Item {
             // or has changed his nickname
             else if ( event.type === "m.room.member" ) {
 
-                transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
+                if ( event.content.membership !== "leave" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
                 [ event.state_key,
                 event.content.displayname,
                 event.content.avatar_url ])
