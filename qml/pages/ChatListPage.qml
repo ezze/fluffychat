@@ -234,6 +234,7 @@ Page {
         id: searchField
         objectName: "searchField"
         visible: searching
+        z: 5
         anchors {
             top: header.bottom
             topMargin: units.gu(1)
