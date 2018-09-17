@@ -31,6 +31,8 @@ Item {
     property var abortSync: false
 
     function init () {
+        loadingScreen.visible = true
+        if ( !Connectivity.online ) return
 
         // Set the pusher if it is not set
         if ( settings.pushToken !== pushtoken ) {
@@ -48,11 +50,13 @@ Item {
             return sync ( 1 )
         }
 
-        loadingScreen.visible = true
-        matrix.get( "/client/r0/sync", /*{ filter: "{\"room\":{\"include_leave\":true}}" }*/ null, function ( response ) {
+        matrix.get( "/client/r0/sync", null, function ( response ) {
             if ( waitingForSync ) progressBarRequests--
             handleEvents ( response )
             matrix.onlineStatus = true
+
+            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true}}" }, handleEvents )
+
             if ( !abortSync ) sync ()
         }, init, null, longPollingTimeout )
     }
@@ -91,6 +95,7 @@ Item {
 
 
     function restartSync () {
+        if ( !initialized ) return init()
         if ( syncRequest === null ) return
         if ( syncRequest ) {
             abortSync = true

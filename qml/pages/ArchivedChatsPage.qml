@@ -17,18 +17,6 @@ Page {
 
     function update () {
 
-        // If the user has never requested the archive, then he should do this now ...
-        if ( !settings.requestedArchive ) {
-            loadingScreen.visible = true
-            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true}}" }, function ( response ) {
-                events.handleEvents ( response )
-                loadingScreen.visible = false
-                settings.requestedArchive = true
-                update ()
-            })
-            return
-        }
-
         // On the top are the rooms, which the user is invited to
         storage.transaction ("SELECT rooms.id, rooms.topic, rooms.avatar_url " +
         " FROM Chats rooms " +
