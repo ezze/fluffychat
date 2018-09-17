@@ -8,10 +8,21 @@ Page {
     anchors.fill: parent
 
 
-    Component.onCompleted: init ()
+    Component.onCompleted: {
+        update()
+
+        // Check for updates online
+        matrix.get( "/client/r0/account/3pid", null, function ( res ) {
+            if ( res.threepids.length === 0 ) return
+            for ( var i = 0; i < res.threepids.length; i++ ) {
+                storage.query ( "INSERT OR IGNORE INTO ThirdPIDs VALUES( ?, ? )", [ res.threepids[i].medium, res.threepids[i].address ])
+            }
+            update()
+        })
+    }
 
 
-    function init () {
+    function update () {
         // Get all phone numbers
         storage.transaction ( "SELECT address FROM ThirdPIDs WHERE medium='msisdn'", function (response) {
             model.clear()

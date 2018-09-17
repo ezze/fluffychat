@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 12:59+0000\n"
+"POT-Creation-Date: 2018-09-17 13:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -235,16 +235,16 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:28
+#: ../qml/pages/EmailSettingsPage.qml:41
 #: ../qml/pages/AccountSettingsPage.qml:74
 msgid "Connected email addresses"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:35
+#: ../qml/pages/EmailSettingsPage.qml:48
 msgid "Add email address"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:46
+#: ../qml/pages/EmailSettingsPage.qml:59
 msgid "No email addresses connected"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr ""
 #: ../qml/pages/MainSettingsPage.qml:33
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:201
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:189
+#: ../qml/pages/ChatSettingsPage.qml:188
 msgid "Notifications"
 msgstr ""
 
@@ -358,7 +358,7 @@ msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:51
 #: ../qml/pages/PrivacySettingsPage.qml:11
-#: ../qml/pages/ChatSettingsPage.qml:194
+#: ../qml/pages/ChatSettingsPage.qml:193
 msgid "Security & Privacy"
 msgstr ""
 
@@ -371,12 +371,12 @@ msgid "Account: %1"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:337
-#: ../qml/pages/ChatSettingsPage.qml:153
+#: ../qml/pages/ChatSettingsPage.qml:152
 msgid "Error"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:341
-#: ../qml/pages/ChatSettingsPage.qml:157
+#: ../qml/pages/ChatSettingsPage.qml:156
 msgid "OK"
 msgstr ""
 
@@ -541,60 +541,60 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:74
+#: ../qml/pages/ChatSettingsPage.qml:73
 msgid "Member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:75
+#: ../qml/pages/ChatSettingsPage.qml:74
 msgid "Was invited"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:76
+#: ../qml/pages/ChatSettingsPage.qml:75
 msgid "Has left the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:77
+#: ../qml/pages/ChatSettingsPage.qml:76
 msgid "Has knocked"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:78
+#: ../qml/pages/ChatSettingsPage.qml:77
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:79
+#: ../qml/pages/ChatSettingsPage.qml:78
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:106
+#: ../qml/pages/ChatSettingsPage.qml:105
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:172
+#: ../qml/pages/ChatSettingsPage.qml:171
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:184
+#: ../qml/pages/ChatSettingsPage.qml:183
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:199
+#: ../qml/pages/ChatSettingsPage.qml:198
 msgid "Chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:204
+#: ../qml/pages/ChatSettingsPage.qml:203
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:225
+#: ../qml/pages/ChatSettingsPage.qml:224
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:225
+#: ../qml/pages/ChatSettingsPage.qml:224
 msgid "Loading users ..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:249
+#: ../qml/pages/ChatSettingsPage.qml:248
 msgid "Search..."
 msgstr ""
 
@@ -1032,4 +1032,12 @@ msgstr ""
 
 #: ../qml/components/AddEmailDialog.qml:19
 msgid "youremail@domain.com"
+msgstr ""
+
+#: ../qml/components/AddEmailDialog.qml:48
+msgid "This address is already connected with another account!"
+msgstr ""
+
+#: ../qml/components/AddEmailDialog.qml:61
+msgid "A confirmation email has been sent to %1"
 msgstr ""

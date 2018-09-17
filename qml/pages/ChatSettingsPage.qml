@@ -47,7 +47,6 @@ Page {
                 canInvite = power >= res.rows[0].power_invite
                 canChangeAvatar = power >= (res.rows[0].power_event_avatar || 0)
                 canChangePermissions = power >= res.rows[0].power_event_power_levels
-                console.log("AVATARPOWER!!!!!!!!!!!!!!!!!!!!!!!!!!",res.rows[0].power_event_avatar,power)
             })
         })
 

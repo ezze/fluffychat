@@ -224,8 +224,8 @@ Item {
         var longPolling = (data != null && data.timeout)
         var isSyncRequest = (action === "/client/r0/sync")
         http.open( type, requestUrl, true);
-        http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         http.timeout = defaultTimeout
+        if ( !(server === settings.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         if ( server === settings.server && settings.token ) http.setRequestHeader('Authorization', 'Bearer ' + settings.token);
         http.onreadystatechange = function() {
             if ( status_callback ) status_callback ( http.readyState )
@@ -252,7 +252,7 @@ Item {
                     }
                 }
                 catch ( error ) {
-                if ( !isSyncRequest ) console.error("There was an error: When calling ", requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error/*, http.responseText*/)
+                if ( !isSyncRequest ) console.error("There was an error: When calling ", type, requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
                 if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                 if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                 if ( !error_callback && error === "offline" && settings.token ) {
@@ -284,7 +284,7 @@ Item {
     timer.start();
 
     // Send the request now
-    http.send( JSON.stringify( postData ) );
+    http.send( JSON.stringify( postData ) )
 
     return http
 }
