@@ -73,6 +73,13 @@ Page {
     }
 
 
+    Label {
+        anchors.centerIn: chatListView
+        text: i18n.tr("There are no archived chats")
+        visible: model.count === 0
+    }
+
+
     ListView {
         id: chatListView
         width: parent.width

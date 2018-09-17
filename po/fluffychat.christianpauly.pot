@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-14 09:40+0000\n"
+"POT-Creation-Date: 2018-09-17 10:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -195,7 +195,7 @@ msgstr ""
 msgid "You do not have permission to write to this chat."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:249
+#: ../qml/controller/MatrixController.qml:255
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -229,6 +229,23 @@ msgstr ""
 
 #: ../qml/pages/ArchivedChatsPage.qml:72 ../qml/pages/ChatListPage.qml:248
 msgid "Search chat names..."
+msgstr ""
+
+#: ../qml/pages/ArchivedChatsPage.qml:78
+msgid "There are no archived chats"
+msgstr ""
+
+#: ../qml/pages/EmailSettingsPage.qml:28
+#: ../qml/pages/AccountSettingsPage.qml:74
+msgid "Connected email addresses"
+msgstr ""
+
+#: ../qml/pages/EmailSettingsPage.qml:35
+msgid "Add email address"
+msgstr ""
+
+#: ../qml/pages/EmailSettingsPage.qml:46
+msgid "No email addresses connected"
 msgstr ""
 
 #: ../qml/pages/LoginPage.qml:19
@@ -365,14 +382,19 @@ msgid "Change display name"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:68
-msgid "Change password"
-msgstr ""
-
-#: ../qml/pages/AccountSettingsPage.qml:74
-msgid "Disable account"
+#: ../qml/pages/PhoneSettingsPage.qml:28
+msgid "Connected phone numbers"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:80
+msgid "Change password"
+msgstr ""
+
+#: ../qml/pages/AccountSettingsPage.qml:86
+msgid "Disable account"
+msgstr ""
+
+#: ../qml/pages/AccountSettingsPage.qml:92
 #: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
 msgid "Logout"
 msgstr ""
@@ -475,6 +497,14 @@ msgstr ""
 msgid "Type something ..."
 msgstr ""
 
+#: ../qml/pages/PhoneSettingsPage.qml:35
+msgid "Add phone number"
+msgstr ""
+
+#: ../qml/pages/PhoneSettingsPage.qml:46
+msgid "No phone numbers connected"
+msgstr ""
+
 #: ../qml/pages/NotificationChatSettingsPage.qml:64
 msgid "Notify"
 msgstr ""
@@ -571,6 +601,10 @@ msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:18
 msgid "Add Contact"
+msgstr ""
+
+#: ../qml/pages/AddChatPage.qml:88
+msgid "You do not have any contacts yet"
 msgstr ""
 
 #: ../qml/pages/ThemeSettingsPage.qml:35
@@ -731,6 +765,7 @@ msgstr ""
 #: ../qml/components/LeaveChatDialog.qml:27
 #: ../qml/components/NewGroupDialog.qml:27
 #: ../qml/components/RemoveDeviceDialog.qml:42
+#: ../qml/components/AddPhoneDialog.qml:27
 #: ../qml/components/DisableAccountDialog.qml:42
 #: ../qml/components/ConfirmDialog.qml:22
 #: ../qml/components/LogoutDialog.qml:35
@@ -740,6 +775,7 @@ msgstr ""
 #: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
 #: ../qml/components/ChangeChatnameDialog.qml:43
+#: ../qml/components/AddEmailDialog.qml:27
 msgid "Cancel"
 msgstr ""
 
@@ -831,6 +867,19 @@ msgstr ""
 
 #: ../qml/components/ChatEvent.qml:189
 msgid "Download file: "
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:11
+msgid "Connect new phone number"
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:19
+msgid "Phone number..."
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:32
+#: ../qml/components/AddEmailDialog.qml:32
+msgid "Connect"
 msgstr ""
 
 #: ../qml/components/DisableAccountDialog.qml:11
@@ -972,4 +1021,12 @@ msgstr ""
 
 #: ../qml/components/DeviceListItem.qml:22
 msgid "Last seen: "
+msgstr ""
+
+#: ../qml/components/AddEmailDialog.qml:11
+msgid "Connect new email address"
+msgstr ""
+
+#: ../qml/components/AddEmailDialog.qml:19
+msgid "youremail@domain.com"
 msgstr ""

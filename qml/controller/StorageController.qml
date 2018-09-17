@@ -150,5 +150,11 @@ Item {
         'chat_id TEXT, ' +    // The correct chat id in the form: !hashstring:homeserver.org
         'address TEXT, ' + // The address in the form: #roomname:homeserver.org
         'UNIQUE(chat_id, address))')
+
+        // TABLE SCHEMA FOR CHAT ADDRESSES
+        transaction('CREATE TABLE ThirdPIDs(' +
+        'medium TEXT, ' +    // Should be "email" or "msisdn"
+        'address TEXT, ' + // The email address or phone number
+        'UNIQUE(medium, address))')
     }
 }

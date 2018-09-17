@@ -64,6 +64,18 @@ Page {
                 onClicked: PopupUtils.open(displaynameDialog)
             }
 
+            SettingsListLink {
+                name: i18n.tr("Connected phone numbers")
+                icon: "phone-symbolic"
+                page: "PhoneSettingsPage"
+            }
+
+            SettingsListLink {
+                name: i18n.tr("Connected email addresses")
+                icon: "email"
+                page: "EmailSettingsPage"
+            }
+
             SettingsListItem {
                 name: i18n.tr("Change password")
                 icon: "lock"

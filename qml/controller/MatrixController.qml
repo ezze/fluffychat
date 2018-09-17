@@ -214,12 +214,18 @@ Item {
         }
         var timer = new Timer()
 
-        var requestUrl = "https://" + settings.server + "/_matrix" + action + getData
+        // Is this a request for the matrix server or the identity server?
+        // This defaults to the matrix homeserver
+        var server = settings.server
+        if ( action.substring(0,10) === "/identity/" ) server = settings.id_server
+
+        // Build the request
+        var requestUrl = "https://" + server + "/_matrix" + action + getData
         var longPolling = (data != null && data.timeout)
         http.open( type, requestUrl, true);
         http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         http.timeout = defaultTimeout
-        if ( settings.token ) http.setRequestHeader('Authorization', 'Bearer ' + settings.token);
+        if ( server === settings.server && settings.token ) http.setRequestHeader('Authorization', 'Bearer ' + settings.token);
         http.onreadystatechange = function() {
             if ( status_callback ) status_callback ( http.readyState )
             if (http.readyState === XMLHttpRequest.DONE) {
@@ -264,7 +270,6 @@ Item {
     }
 
     // Make timeout working in qml
-
     timer.interval = (longPolling || action == "/client/r0/sync") ? longPollingTimeout+2000 : defaultTimeout
     timer.repeat = false
     timer.triggered.connect(function () {
@@ -272,6 +277,8 @@ Item {
         if (http.readyState === XMLHttpRequest.OPENED) http.abort ()
     })
     timer.start();
+
+    // Send the request now
     http.send( JSON.stringify( postData ) );
 
     return http
