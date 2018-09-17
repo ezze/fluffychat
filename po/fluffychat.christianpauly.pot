@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 11:59+0000\n"
+"POT-Creation-Date: 2018-09-17 12:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,7 +147,7 @@ msgstr ""
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:145
+#: ../qml/controller/EventController.qml:143
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -223,15 +223,15 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/MainSettingsPage.qml:57
+#: ../qml/pages/ArchivedChatsPage.qml:56 ../qml/pages/MainSettingsPage.qml:57
 msgid "Archived chats"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:72 ../qml/pages/ChatListPage.qml:248
+#: ../qml/pages/ArchivedChatsPage.qml:84 ../qml/pages/ChatListPage.qml:248
 msgid "Search chat names..."
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:78
+#: ../qml/pages/ArchivedChatsPage.qml:91
 msgid "There are no archived chats"
 msgstr ""
 
@@ -349,7 +349,6 @@ msgid "Notifications"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:39
-#: ../qml/pages/AccountSettingsPage.qml:12
 msgid "Account"
 msgstr ""
 
@@ -365,6 +364,10 @@ msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:63
 msgid "About FluffyChat"
+msgstr ""
+
+#: ../qml/pages/AccountSettingsPage.qml:12
+msgid "Account: %1"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:337

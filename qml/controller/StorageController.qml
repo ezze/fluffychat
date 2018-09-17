@@ -51,7 +51,7 @@ Item {
         // Check the database version number
         if ( settings.dbversion !== version ) {
             console.log ("Drop database cause old version")
-            settings.since = undefined
+            settings.since = settings.requestedArchive = undefined
             // Drop all databases and recreate them
             drop ()
             settings.dbversion = version

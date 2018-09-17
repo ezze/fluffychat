@@ -9,7 +9,7 @@ Page {
     anchors.fill: parent
 
     header: FcPageHeader {
-        title: i18n.tr('Account')
+        title: i18n.tr('Account: %1').arg(matrix.matrixid)
     }
 
     ScrollView {

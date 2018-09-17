@@ -84,7 +84,7 @@ Item {
     function reset () {
         storage.drop ()
         onlineStatus = false
-        settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.displayname = settings.avatar_url = settings.since = undefined
+        settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.displayname = settings.requestedArchive = settings.avatar_url = settings.since = undefined
         mainStack.clear ()
         mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
     }

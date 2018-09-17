@@ -50,4 +50,7 @@ Settings {
 
     // Security & Privacy: Send typing notification?
     property var sendTypingNotification: true
+
+    // Are archived chats synchronized too?
+    property var requestedArchive: false
 }
