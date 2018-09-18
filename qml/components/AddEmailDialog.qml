@@ -33,36 +33,35 @@ Component {
                 color: UbuntuColors.green
                 enabled: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test( addressTextField.displayText )
                 onClicked: {
-                    // TODO: Connect this email address
                     var address = addressTextField.displayText
-                    matrix.get("/identity/api/v1/lookup", { "medium": "email", "address": address }, function ( res ) {
-                        console.log(JSON.stringify(res))
-                        if ( res.mxid ) {
-                            // Is this address already associated with this matrix id?
-                            if ( res.mxid === matrix.matrixid ) {
-                                storage.query ( "INSERT OR REPLACE INTO ThirdPIDs VALUES(?,?)", [ "email", address ], emailSettingsPage.update)
-                                PopupUtils.close(dialogue)
+                    PopupUtils.close(dialogue)
+                    var secret = "SECRET:" + new Date().getTime()
+                    var confirmText = i18n.tr("Have you confirmed your email address?")
+                    var id_server = settings.id_server
+                    var _matrix = matrix
+                    var _showConfirmDialog = showConfirmDialog
+                    var _emailSettingsPage = emailSettingsPage
+                    var success_callback = function ( response ) {
+                        var sid = response.sid
+                        _showConfirmDialog ( confirmText, function () {
+                            var threePidCreds = {
+                                client_secret: secret,
+                                sid: sid,
+                                id_server: id_server
                             }
-                            else {
-                                // Is this address already associated with another matrix id?
-                                dialogue.title = i18n.tr("This address is already connected with another account!")
-                            }
-                        }
-                        else {
-                            PopupUtils.close(dialogue)
-                            // Verify this address with this matrix id
-                            matrix.post ( "/client/r0/account/email/requestToken", {
-                                client_secret: "SECRET:" + new Date().getTime(),
-                                email: address,
-                                send_attempt: 1,
-                                id_server: settings.id_server
-                            }, function () {
-                                storage.query ( "INSERT OR REPLACE INTO ThirdPIDs VALUES(?,?)", [ "email", address ], emailSettingsPage.update)
-                                toast.show ( i18n.tr("A confirmation email has been sent to %1").arg(address) )
-                            })
-
-                        }
-                    })
+                            _matrix.post ("/client/r0/account/3pid", {
+                                bind: true,
+                                threePidCreds: threePidCreds
+                            }, _emailSettingsPage.sync )
+                        } )
+                    }
+                    // Verify this address with this matrix id
+                    matrix.post ( "/client/r0/account/3pid/email/requestToken", {
+                        client_secret: secret,
+                        email: address,
+                        send_attempt: 1,
+                        id_server: settings.id_server
+                    }, success_callback)
                 }
             }
         }

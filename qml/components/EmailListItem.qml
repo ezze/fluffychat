@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 
 ListItem {
+    id: listItem
     height: layout.height
     property var thisAddress: name
 
@@ -23,7 +24,9 @@ ListItem {
         Action {
             iconName: "edit-delete"
             onTriggered: {
-                //TODO: Remove email address
+                showConfirmDialog ( i18n.tr('Remove this email address?'), function () {
+                    matrix.post ( "/client/unstable/account/3pid/delete", { medium: "email", address: thisAddress }, emailSettingsPage.sync )
+                } )
             }
         }
         ]

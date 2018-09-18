@@ -223,6 +223,7 @@ Item {
         var requestUrl = "https://" + server + "/_matrix" + action + getData
         var longPolling = (data != null && data.timeout)
         var isSyncRequest = (action === "/client/r0/sync")
+        console.log(requestUrl)
         http.open( type, requestUrl, true);
         http.timeout = defaultTimeout
         if ( !(server === settings.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
@@ -252,7 +253,7 @@ Item {
                     }
                 }
                 catch ( error ) {
-                if ( !isSyncRequest ) console.error("There was an error: When calling ", type, requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
+                if ( !isSyncRequest ) console.error("There was an error: When calling ", type, requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error, JSON.stringify(error))
                 if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                 if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                 if ( !error_callback && error === "offline" && settings.token ) {

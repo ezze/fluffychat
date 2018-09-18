@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 13:56+0000\n"
+"POT-Creation-Date: 2018-09-18 10:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -195,7 +195,7 @@ msgstr ""
 msgid "You do not have permission to write to this chat."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:260
+#: ../qml/controller/MatrixController.qml:261
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -235,16 +235,16 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:41
+#: ../qml/pages/EmailSettingsPage.qml:44
 #: ../qml/pages/AccountSettingsPage.qml:74
 msgid "Connected email addresses"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:48
+#: ../qml/pages/EmailSettingsPage.qml:51
 msgid "Add email address"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:59
+#: ../qml/pages/EmailSettingsPage.qml:62
 msgid "No email addresses connected"
 msgstr ""
 
@@ -385,7 +385,7 @@ msgid "Change display name"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:68
-#: ../qml/pages/PhoneSettingsPage.qml:28
+#: ../qml/pages/PhoneSettingsPage.qml:40
 msgid "Connected phone numbers"
 msgstr ""
 
@@ -500,11 +500,11 @@ msgstr ""
 msgid "Type something ..."
 msgstr ""
 
-#: ../qml/pages/PhoneSettingsPage.qml:35
+#: ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Add phone number"
 msgstr ""
 
-#: ../qml/pages/PhoneSettingsPage.qml:46
+#: ../qml/pages/PhoneSettingsPage.qml:58
 msgid "No phone numbers connected"
 msgstr ""
 
@@ -968,6 +968,10 @@ msgstr ""
 msgid "This device"
 msgstr ""
 
+#: ../qml/components/EmailListItem.qml:27
+msgid "Remove this email address?"
+msgstr ""
+
 #: ../qml/components/NewContactDialog.qml:11
 msgid "New single chat"
 msgstr ""
@@ -1034,10 +1038,6 @@ msgstr ""
 msgid "youremail@domain.com"
 msgstr ""
 
-#: ../qml/components/AddEmailDialog.qml:48
-msgid "This address is already connected with another account!"
-msgstr ""
-
-#: ../qml/components/AddEmailDialog.qml:61
-msgid "A confirmation email has been sent to %1"
+#: ../qml/components/AddEmailDialog.qml:39
+msgid "Have you confirmed your email address?"
 msgstr ""
