@@ -223,7 +223,6 @@ Item {
         var requestUrl = "https://" + server + "/_matrix" + action + getData
         var longPolling = (data != null && data.timeout)
         var isSyncRequest = (action === "/client/r0/sync")
-        console.log(requestUrl)
         http.open( type, requestUrl, true);
         http.timeout = defaultTimeout
         if ( !(server === settings.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')

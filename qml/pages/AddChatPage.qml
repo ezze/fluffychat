@@ -83,12 +83,6 @@ Page {
             color: UbuntuColors.ash
         }
 
-        Label {
-            anchors.centerIn: contactList
-            text: i18n.tr("You do not have any contacts yet")
-            visible: model.count === 0
-        }
-
         ListView {
             id: contactList
             width: parent.width
@@ -96,6 +90,11 @@ Page {
             delegate: ContactListItem { }
             model: ListModel { id: model }
             z: -1
+            Label {
+                anchors.centerIn: contactList
+                text: i18n.tr("You do not have any contacts yet")
+                visible: model.count === 0
+            }
         }
     }
 

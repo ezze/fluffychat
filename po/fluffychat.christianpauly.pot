@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 11:02+0000\n"
+"POT-Creation-Date: 2018-09-18 11:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -195,7 +195,7 @@ msgstr ""
 msgid "You do not have permission to write to this chat."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:261
+#: ../qml/controller/MatrixController.qml:260
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -520,16 +520,20 @@ msgstr ""
 msgid "Don't notify"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:14 ../qml/pages/AddChatPage.qml:52
+#: ../qml/pages/JoinChatPage.qml:15 ../qml/pages/AddChatPage.qml:52
 msgid "Join chat"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:23
+#: ../qml/pages/JoinChatPage.qml:24
 msgid "Nameless chat"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:50
+#: ../qml/pages/JoinChatPage.qml:51
 msgid "Search public chats..."
+msgstr ""
+
+#: ../qml/pages/JoinChatPage.qml:87
+msgid "Loading public chats..."
 msgstr ""
 
 #: ../qml/pages/PrivacySettingsPage.qml:23
@@ -606,7 +610,7 @@ msgstr ""
 msgid "Add Contact"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:88
+#: ../qml/pages/AddChatPage.qml:95
 msgid "You do not have any contacts yet"
 msgstr ""
 

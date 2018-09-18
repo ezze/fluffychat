@@ -5,6 +5,7 @@ import "../components"
 
 Page {
     anchors.fill: parent
+    id: page
 
     property var enabled: false
     property var inviteList: []
@@ -81,5 +82,10 @@ Page {
         anchors.top: searchField.bottom
         delegate: PublicChatItem {}
         model: ListModel { id: model }
+        Label {
+            anchors.centerIn: chatListView
+            text: i18n.tr("Loading public chats...")
+            visible: !page.enabled
+        }
     }
 }
