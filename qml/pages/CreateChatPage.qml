@@ -36,9 +36,8 @@ Page {
 
 
     Component.onCompleted: {
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Memberships, Contacts " +
-        "WHERE Users.matrix_id=Memberships.matrix_id AND Memberships.chat_id!='" + activeChat + "' " +
-        " AND Contacts.matrix_id=Users.matrix_id GROUP BY Users.matrix_id",
+        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Contacts " +
+        "WHERE Contacts.matrix_id=Users.matrix_id GROUP BY Users.matrix_id",
         function( res )  {
             for( var i = 0; i < res.rows.length; i++ ) {
                 var user = res.rows[i]
