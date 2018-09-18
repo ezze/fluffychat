@@ -31,7 +31,6 @@ Item {
     property var abortSync: false
 
     function init () {
-        loadingScreen.visible = true
         if ( !Connectivity.online ) return
 
         // Set the pusher if it is not set
@@ -49,6 +48,7 @@ Item {
             waitForSync ()
             return sync ( 1 )
         }
+        loadingScreen.visible = true
 
         matrix.get( "/client/r0/sync", null, function ( response ) {
             if ( waitingForSync ) progressBarRequests--

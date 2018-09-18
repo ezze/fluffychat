@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 10:49+0000\n"
+"POT-Creation-Date: 2018-09-18 10:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -385,7 +385,7 @@ msgid "Change display name"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:68
-#: ../qml/pages/PhoneSettingsPage.qml:44
+#: ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr ""
 
@@ -500,11 +500,11 @@ msgstr ""
 msgid "Type something ..."
 msgstr ""
 
-#: ../qml/pages/PhoneSettingsPage.qml:51
+#: ../qml/pages/PhoneSettingsPage.qml:54
 msgid "Add phone number"
 msgstr ""
 
-#: ../qml/pages/PhoneSettingsPage.qml:62
+#: ../qml/pages/PhoneSettingsPage.qml:66
 msgid "No phone numbers connected"
 msgstr ""
 
@@ -773,6 +773,7 @@ msgstr ""
 #: ../qml/components/ConfirmDialog.qml:22
 #: ../qml/components/LogoutDialog.qml:35
 #: ../qml/components/AddAliasDialog.qml:27
+#: ../qml/components/EnterSMSTokenDialog.qml:28
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/ChatScrollView.qml:131
 #: ../qml/components/NewContactDialog.qml:39
@@ -886,6 +887,7 @@ msgid "Phone number..."
 msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:33
+#: ../qml/components/EnterSMSTokenDialog.qml:33
 #: ../qml/components/AddEmailDialog.qml:32
 msgid "Connect"
 msgstr ""
@@ -931,6 +933,14 @@ msgstr ""
 
 #: ../qml/components/AddAliasDialog.qml:39
 msgid "Please try another address"
+msgstr ""
+
+#: ../qml/components/EnterSMSTokenDialog.qml:11
+msgid "Please enter the validation code"
+msgstr ""
+
+#: ../qml/components/EnterSMSTokenDialog.qml:19
+msgid "Validation code"
 msgstr ""
 
 #: ../qml/components/LoadingModal.qml:18
