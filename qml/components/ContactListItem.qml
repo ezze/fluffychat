@@ -19,6 +19,8 @@ ListItem {
         Avatar {
             name: layout.title.text
             SlotsLayout.position: SlotsLayout.Leading
+            width: units.gu(4)
+            height: width
             mxc: avatar_url || ""
             onClickFunction: function () {
                 usernames.showUserSettings ( matrixid )

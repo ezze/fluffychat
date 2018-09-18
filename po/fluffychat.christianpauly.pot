@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 16:17+0000\n"
+"POT-Creation-Date: 2018-09-18 16:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -328,7 +328,7 @@ msgstr ""
 msgid "Invite selected"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:71
+#: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:70
 #: ../qml/pages/AddChatPage.qml:82
 msgid "Search contacts..."
 msgstr ""
