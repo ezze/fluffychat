@@ -6,9 +6,16 @@ import "../components"
 
 Page {
     anchors.fill: parent
+    id: phoneSettingsPage
+
+    var client_secret
+    var sid
 
 
-    Component.onCompleted: {
+    Component.onCompleted: sync ()
+
+
+    function sync () {
         update()
 
         // Check for updates online
@@ -52,6 +59,7 @@ Page {
     }
 
     AddPhoneDialog { id: addPhoneDialog }
+    EnterSMSToken { id: enterSMSToken }
 
     Label {
         anchors.centerIn: addressesList

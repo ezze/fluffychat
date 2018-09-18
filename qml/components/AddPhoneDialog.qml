@@ -18,6 +18,7 @@ Component {
             id: addressTextField
             placeholderText: i18n.tr("Phone number...")
             focus: true
+            inputMethodHints: Qt.ImhDialableCharactersOnly
         }
         Row {
             width: parent.width
@@ -31,9 +32,31 @@ Component {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Connect")
                 color: UbuntuColors.green
-                enabled: addressTextField.displayText.indexOf("#") !== -1 && addressTextField.displayText.indexOf(":") !== -1
+                enabled: addressTextField.displayText !== ""
                 onClicked: {
-                    // TODO: connect phone number
+                    var address = addressTextField.displayText
+                    PopupUtils.close(dialogue)
+                    var secret = "SECRET:" + new Date().getTime()
+                    var confirmText = i18n.tr("Have you confirmed your phone number?")
+                    var id_server = settings.id_server
+                    var _matrix = matrix
+                    var _showConfirmDialog = showConfirmDialog
+                    var _phoneSettingsPage = phoneSettingsPage
+                    var country = "DE"
+                    var success_callback = function ( response ) {
+                        sid = response.sid
+                        client_secret = secret
+                        PopupUtils.close(dialogue)
+                        PopupUtils.open(enterSMSToken)
+                    }
+                    // Verify this address with this matrix id
+                    matrix.post ( "/client/r0/account/3pid/msisdn/requestToken", {
+                        client_secret: secret,
+                        country: country,
+                        phone_number: address,
+                        send_attempt: 1,
+                        id_server: settings.id_server
+                    }, success_callback)
                 }
             }
         }

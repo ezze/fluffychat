@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 10:40+0000\n"
+"POT-Creation-Date: 2018-09-18 10:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -385,7 +385,7 @@ msgid "Change display name"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:68
-#: ../qml/pages/PhoneSettingsPage.qml:40
+#: ../qml/pages/PhoneSettingsPage.qml:44
 msgid "Connected phone numbers"
 msgstr ""
 
@@ -500,11 +500,11 @@ msgstr ""
 msgid "Type something ..."
 msgstr ""
 
-#: ../qml/pages/PhoneSettingsPage.qml:47
+#: ../qml/pages/PhoneSettingsPage.qml:51
 msgid "Add phone number"
 msgstr ""
 
-#: ../qml/pages/PhoneSettingsPage.qml:58
+#: ../qml/pages/PhoneSettingsPage.qml:62
 msgid "No phone numbers connected"
 msgstr ""
 
@@ -768,7 +768,7 @@ msgstr ""
 #: ../qml/components/LeaveChatDialog.qml:27
 #: ../qml/components/NewGroupDialog.qml:27
 #: ../qml/components/RemoveDeviceDialog.qml:42
-#: ../qml/components/AddPhoneDialog.qml:27
+#: ../qml/components/AddPhoneDialog.qml:28
 #: ../qml/components/DisableAccountDialog.qml:42
 #: ../qml/components/ConfirmDialog.qml:22
 #: ../qml/components/LogoutDialog.qml:35
@@ -864,6 +864,11 @@ msgstr ""
 msgid "Please enter your password"
 msgstr ""
 
+#: ../qml/components/PhoneListItem.qml:27
+#: ../qml/components/EmailListItem.qml:27
+msgid "Remove this email address?"
+msgstr ""
+
 #: ../qml/components/FcPageHeader.qml:7 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
@@ -880,9 +885,13 @@ msgstr ""
 msgid "Phone number..."
 msgstr ""
 
-#: ../qml/components/AddPhoneDialog.qml:32
+#: ../qml/components/AddPhoneDialog.qml:33
 #: ../qml/components/AddEmailDialog.qml:32
 msgid "Connect"
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:40
+msgid "Have you confirmed your phone number?"
 msgstr ""
 
 #: ../qml/components/DisableAccountDialog.qml:11
@@ -966,10 +975,6 @@ msgstr ""
 
 #: ../qml/components/TargetListItem.qml:22
 msgid "This device"
-msgstr ""
-
-#: ../qml/components/EmailListItem.qml:27
-msgid "Remove this email address?"
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:11
