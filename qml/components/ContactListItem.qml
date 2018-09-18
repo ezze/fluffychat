@@ -14,6 +14,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
+        subtitle.text: medium.replace("msisdn","📱").replace("email","✉") + " " + address
 
         Avatar {
             name: layout.title.text

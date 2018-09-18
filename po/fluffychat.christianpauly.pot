@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 11:07+0000\n"
+"POT-Creation-Date: 2018-09-18 16:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -320,7 +320,7 @@ msgstr ""
 msgid "Chat permissions"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:46
+#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:51
 msgid "Create chat"
 msgstr ""
 
@@ -329,7 +329,7 @@ msgid "Invite selected"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:74 ../qml/pages/InvitePage.qml:71
-#: ../qml/pages/AddChatPage.qml:77
+#: ../qml/pages/AddChatPage.qml:82
 msgid "Search contacts..."
 msgstr ""
 
@@ -454,12 +454,16 @@ msgstr ""
 msgid "You need to enter a valid Email address or Matrix ID!"
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:61
+#: ../qml/pages/AddContactPage.qml:63
 msgid "Email or full username..."
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:79
+#: ../qml/pages/AddContactPage.qml:74
 msgid "Your full username is: <b>%1</b>"
+msgstr ""
+
+#: ../qml/pages/AddContactPage.qml:90 ../qml/pages/AddChatPage.qml:101
+msgid "Import from contacts"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:182 ../qml/components/ArchivedChatListItem.qml:28
@@ -520,7 +524,7 @@ msgstr ""
 msgid "Don't notify"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:15 ../qml/pages/AddChatPage.qml:52
+#: ../qml/pages/JoinChatPage.qml:15 ../qml/pages/AddChatPage.qml:57
 msgid "Join chat"
 msgstr ""
 
@@ -602,16 +606,12 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:11
+#: ../qml/pages/AddChatPage.qml:12
 msgid "Start a new chat"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:18
+#: ../qml/pages/AddChatPage.qml:19
 msgid "Add Contact"
-msgstr ""
-
-#: ../qml/pages/AddChatPage.qml:95
-msgid "You do not have any contacts yet"
 msgstr ""
 
 #: ../qml/pages/ThemeSettingsPage.qml:35

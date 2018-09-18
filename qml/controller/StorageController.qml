@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.0"
+    property var version: "0.3.0a"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -142,9 +142,9 @@ Item {
 
         // TABLE SCHEMA FOR CONTACTS
         transaction('CREATE TABLE Contacts(' +
+        'medium TEXT, ' +       // The medium this contact is identified by
+        'address TEXT, ' +      // The email or phone number of this user if exists
         'matrix_id TEXT, ' +    // The matrix id of this user
-        'phone_number TEXT, ' + // The phone number of this user if exists
-        'email TEXT, ' +        // The email of this user if exists
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR CHAT ADDRESSES

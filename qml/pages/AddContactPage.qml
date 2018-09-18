@@ -49,6 +49,8 @@ Page {
         }
     }
 
+    ContactImport { id: contactImport }
+
     TextField {
         id: contactTextField
         width: parent.width - units.gu(4)
@@ -62,21 +64,32 @@ Page {
         Component.onCompleted: focus = true
     }
 
-    Icon {
-        source: "../../assets/info-logo.svg"
-        color: settings.mainColor
-        width: parent.width / 2
-        height: width
-        anchors.centerIn: parent
-    }
     Label {
         anchors {
             horizontalCenter: parent.horizontalCenter
-            bottom: parent.bottom
+            top: contactTextField.bottom
             margins: units.gu(2)
         }
         wrapMode: Text.Wrap
         text: i18n.tr("Your full username is: <b>%1</b>").arg(matrix.matrixid)
+    }
+
+    Icon {
+        source: "../../assets/info-logo.svg"
+        color: settings.mainColor
+        width: parent.width / 1.5
+        opacity: 0.5
+        height: width
+        anchors.centerIn: parent
+    }
+
+    Button {
+        anchors.bottom: parent.bottom
+        anchors.margins: units.gu(2)
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: i18n.tr("Import from contacts")
+        color: UbuntuColors.green
+        onClicked: contactImport.requestContact()
     }
 
 }

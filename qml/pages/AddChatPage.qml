@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import QtContacts 5.0
 import "../components"
 
 Page {
@@ -23,7 +24,7 @@ Page {
     }
 
     Component.onCompleted: {
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Contacts " +
+        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Contacts.medium, Contacts.address FROM Users, Contacts " +
         " WHERE Contacts.matrix_id=Users.matrix_id",
         function( res )  {
             for( var i = 0; i < res.rows.length; i++ ) {
@@ -31,11 +32,15 @@ Page {
                 model.append({
                     matrixid: user.matrix_id,
                     name: user.displayname || usernames.transformFromId(user.matrix_id),
-                    avatar_url: user.avatar_url
+                    avatar_url: user.avatar_url,
+                    medium: user.medium,
+                    address: user.address
                 })
             }
         })
     }
+
+    ContactImport { id: contactImport }
 
     Column {
         id: addChatList
@@ -90,12 +95,13 @@ Page {
             delegate: ContactListItem { }
             model: ListModel { id: model }
             z: -1
-            Label {
+            Button {
                 anchors.centerIn: contactList
-                text: i18n.tr("You do not have any contacts yet")
+                color: UbuntuColors.green
+                text: i18n.tr("Import from contacts")
                 visible: model.count === 0
+                onClicked: contactImport.requestContact()
             }
         }
     }
-
 }
