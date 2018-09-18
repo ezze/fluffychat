@@ -21,7 +21,7 @@ Page {
         if ( newChatId === "" ) searchTextField.focus = true
         else {
             var success_callback = function ( response ) {
-                toast.show ( i18n.tr("Synchronizing \n This can take a few minutes ...") )
+                toast.show ( i18n.tr("Synchronizing\nThis can take a few minutes…") )
                 searchTextField.text = ""
                 activeChat = response.room_id
                 if ( mainStack.depth === 1 ) bottomEdge.collapse()
@@ -30,7 +30,7 @@ Page {
             }
             var error_callback = function ( error ) {
                 var errcodes = {
-                    "M_UNKNOWN": i18n.tr("Room was not found 😟"),
+                    "M_UNKNOWN": i18n.tr("Could not find room 😟"),
                 }
                 errorReport.text = error.errcode in errcodes ? errcodes[error.errcode] : error.error
             }
@@ -41,7 +41,7 @@ Page {
     }
 
     header: FcPageHeader {
-        title: i18n.tr('Start a new chat')
+        title: i18n.tr('New chat')
     }
 
     NewContactDialog{ id: newContactDialog }

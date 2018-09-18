@@ -31,7 +31,7 @@ msgid "Someone"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:19
-msgid "%1 is now participating the chat as <b>%2</b>"
+msgid "%1 has joined the chat as <b>%2</b>"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:22
@@ -47,7 +47,7 @@ msgid "%1 has been banned from the chat"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:33
-msgid "The chat has been created"
+msgid "Chat created"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:36
@@ -75,7 +75,7 @@ msgid "All chat participants"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:53
-msgid "All joined chat participants"
+msgid "All chatters"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:56
@@ -135,15 +135,15 @@ msgid "You are offline 😕"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:35
-msgid "⌨️ is typing ..."
+msgid "⌨️ is typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:36
-msgid "⌨️ %1 is typing ..."
+msgid "⌨️ %1 is typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:39
-msgid "⌨️ %1 and %2 more are typing ..."
+msgid "⌨️ %1 and %2 more are typing…"
 msgstr ""
 
 #: ../qml/controller/RoomNameController.qml:13
@@ -153,11 +153,11 @@ msgid "Empty chat"
 msgstr ""
 
 #: ../qml/controller/PushController.qml:14
-msgid "Please login to Ubuntu One to receive push notifications!"
+msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
 #: ../qml/controller/MatrixController.qml:114
-msgid "You do not have permission to write to this chat."
+msgid "You are not allowed to chat here."
 msgstr ""
 
 #: ../qml/controller/MatrixController.qml:264
@@ -233,11 +233,11 @@ msgid "Using the homeserver: "
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:243
-msgid "Search chat names..."
+msgid "Search for chat names…"
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:258
-msgid "Swipe from the bottom to start a new chat"
+msgid "Swipe from below to start a chat"
 msgstr ""
 
 #: ../qml/pages/BlankPage.qml:11
@@ -270,7 +270,7 @@ msgid "Security & Privacy"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:59
-msgid "About FluffyChat"
+msgid "About"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:23
@@ -282,12 +282,12 @@ msgid "Change password"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:35
-msgid "Disable account"
+msgid "Remove account"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:41
 #: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
-msgid "Logout"
+msgid "Log out"
 msgstr ""
 
 #: ../qml/pages/NotificationSettingsPage.qml:80
@@ -343,7 +343,7 @@ msgid "Invite a friend"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:225
-msgid "No messages in this chat ..."
+msgid "No messages in this chat…"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:279
@@ -351,7 +351,7 @@ msgid "Accept invitation"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:323
-msgid "Type something ..."
+msgid "Type something…"
 msgstr ""
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:64
@@ -371,7 +371,7 @@ msgid "Display 'I am typing' when I am typing"
 msgstr ""
 
 #: ../qml/pages/PrivacySettingsPage.qml:30
-msgid "Automatically accept chat invitations"
+msgid "Accept all chat invitations"
 msgstr ""
 
 #: ../qml/pages/PrivacySettingsPage.qml:37
@@ -425,25 +425,25 @@ msgid "Users in this chat (%1):"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:159
-msgid "Loading users ..."
+msgid "Loading users…"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:182
-msgid "Search..."
+msgid "Search…"
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:24
 msgid ""
-"Synchronizing \n"
-" This can take a few minutes ..."
+"Synchronizing\n"
+"This can take a few minutes…"
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:33
-msgid "Room was not found 😟"
+msgid "Could not find room 😟"
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:44
-msgid "Start a new chat"
+msgid "New chat"
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:57
@@ -626,24 +626,24 @@ msgid "Download"
 msgstr ""
 
 #: ../qml/components/DisableAccountDialog.qml:11
-msgid "Disable your account"
+msgid "Remove my account"
 msgstr ""
 
 #: ../qml/components/DisableAccountDialog.qml:25
 msgid ""
-"Are you sure, that you want to disable your account? This can not be undone!"
+"Are you sure that you want to remove your account? This can not be undone."
 msgstr ""
 
 #: ../qml/components/DisableAccountDialog.qml:47
-msgid "Disable"
+msgid "Remove"
 msgstr ""
 
 #: ../qml/components/LogoutDialog.qml:25
-msgid "Are you sure, that you want to logout?"
+msgid "Are you sure, that you want to log out?"
 msgstr ""
 
 #: ../qml/components/LoadingModal.qml:18
-msgid "Synchronizing ... Please wait!"
+msgid "Synchronizing… Please wait."
 msgstr ""
 
 #: ../qml/components/ChatListItem.qml:32
@@ -671,7 +671,7 @@ msgid "Invite"
 msgstr ""
 
 #: ../qml/components/ChatScrollView.qml:69
-msgid "Get more messages from the server ..."
+msgid "Get more messages from the server…"
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:11
@@ -679,7 +679,7 @@ msgid "New single chat"
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:18
-msgid "What is the username of your friend?"
+msgid "What is your friends username?"
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:23
@@ -692,8 +692,8 @@ msgstr ""
 
 #: ../qml/components/LoadingScreen.qml:26
 msgid ""
-"Loading chats \n"
-" This can take a few minutes ..."
+"Loading chats\n"
+"This can take a few minutes…"
 msgstr ""
 
 #: ../qml/components/UserSettingsDialog.qml:44

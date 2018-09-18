@@ -16,7 +16,7 @@ Item {
         var target = event.content.displayname || i18n.tr("Someone")
         if ( event.type === "m.room.member" ) {
             if ( event.content.membership === "join" ) {
-                body = i18n.tr("%1 is now participating the chat as <b>%2</b>").arg(event.sender).arg(displayname)
+                body = i18n.tr("%1 has joined the chat as <b>%2</b>").arg(event.sender).arg(displayname)
             }
             else if ( event.content.membership === "invite" ) {
                 body = i18n.tr("%1 has invited %2").arg(sendername).arg( target )
@@ -30,7 +30,7 @@ Item {
             }
         }
         else if ( event.type === "m.room.create" ) {
-            body = i18n.tr("The chat has been created")
+            body = i18n.tr("Chat created")
         }
         else if ( event.type === "m.room.name" ) {
             body = i18n.tr("%1 has changed the chat name").arg(displayname)
@@ -47,7 +47,7 @@ Item {
         else if ( event.type === "m.room.history_visibility" ) {
             body = i18n.tr("%1 has set the chat history visible to: ").arg(displayname)
             if ( event.content.history_visibility === "shared" ) {
-                body += i18n.tr("All chat participants")
+                body += i18n.tr("All chatters")
             }
             else if ( event.content.history_visibility === "joined" ) {
                 body += i18n.tr("All joined chat participants")

@@ -15,7 +15,7 @@ Rectangle {
     Label {
         anchors.centerIn: parent
         color: "#FFFFFF"
-        text: i18n.tr("Synchronizing ... Please wait!")
+        text: i18n.tr("Synchronizing… Please wait.")
     }
 
     ProgressBar {

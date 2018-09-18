@@ -8,7 +8,7 @@ Component {
 
     Dialog {
         id: dialogue
-        title: i18n.tr("Disable your account")
+        title: i18n.tr("Remove my account")
         Rectangle {
             height: icon.height
             color: "transparent"
@@ -22,7 +22,7 @@ Component {
             }
         }
         Label {
-            text: i18n.tr("Are you sure, that you want to disable your account? This can not be undone!")
+            text: i18n.tr("Are you sure that you want to remove your account? This can not be undone.")
             color: UbuntuColors.red
             width: parent.width
             wrapMode: Text.Wrap
@@ -44,7 +44,7 @@ Component {
             }
             Button {
                 width: (parent.width - units.gu(1)) / 2
-                text: i18n.tr("Disable")
+                text: i18n.tr("Remove")
                 color: UbuntuColors.red
                 enabled: oldPass.displayText !== ""
                 onClicked: {

@@ -8,7 +8,7 @@ Component {
 
     Dialog {
         id: dialogue
-        title: i18n.tr("Logout")
+        title: i18n.tr("Log out")
 
         Rectangle {
             height: icon.height
@@ -22,7 +22,7 @@ Component {
             }
         }
         Label {
-            text: i18n.tr("Are you sure, that you want to logout?")
+            text: i18n.tr("Are you sure that you want to log out?")
             color: UbuntuColors.red
             width: parent.width
             wrapMode: Text.Wrap
@@ -37,7 +37,7 @@ Component {
             }
             Button {
                 width: (parent.width - units.gu(1)) / 2
-                text: i18n.tr("Logout")
+                text: i18n.tr("Log out")
                 color: UbuntuColors.red
                 onClicked: matrix.logout ()
             }

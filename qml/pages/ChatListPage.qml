@@ -240,7 +240,7 @@ Page {
             leftMargin: units.gu(2)
         }
         inputMethodHints: Qt.ImhNoPredictiveText
-        placeholderText: i18n.tr("Search chat names...")
+        placeholderText: i18n.tr("Search for chat names…")
     }
 
 
@@ -255,7 +255,7 @@ Page {
     }
 
     Label {
-        text: i18n.tr('Swipe from the bottom to start a new chat')
+        text: i18n.tr('Swipe from below to start a chat')
         anchors.centerIn: parent
         visible: model.count === 0
     }

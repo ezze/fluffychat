@@ -20,14 +20,14 @@ Page {
             width: mainStackWidth
 
             SettingsListSwitch {
-                name: i18n.tr("Display 'I am typing' when I am typing")
+                name: i18n.tr("Display 'I am typing' when typing")
                 icon: "edit"
                 onSwitching: function () { settings.sendTypingNotification = isChecked }
                 Component.onCompleted: isChecked = settings.sendTypingNotification
             }
 
             SettingsListSwitch {
-                name: i18n.tr("Automatically accept chat invitations")
+                name: i18n.tr("Accept all chat invitations")
                 icon: "message-new"
                 onSwitching: function () { settings.autoAcceptInvitations = isChecked }
                 Component.onCompleted: isChecked = settings.autoAcceptInvitations

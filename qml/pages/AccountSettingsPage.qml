@@ -38,7 +38,7 @@ Page {
             }
 
             SettingsListItem {
-                name: i18n.tr("Logout")
+                name: i18n.tr("Log out")
                 icon: "system-shutdown"
                 onClicked: PopupUtils.open(logoutDialog)
             }
