@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 08:48+0000\n"
+"POT-Creation-Date: 2018-09-19 10:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:145
+#: ../qml/Main.qml:147
 msgid "Are you sure?"
 msgstr ""
 
@@ -193,11 +193,11 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:114
+#: ../qml/controller/MatrixController.qml:146
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:260
+#: ../qml/controller/MatrixController.qml:292
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -250,74 +250,143 @@ msgstr ""
 msgid "No email addresses connected"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:19 ../qml/pages/LoginPageOLD.qml:19
-#: ../qml/pages/PasswordInputPage.qml:19
+#: ../qml/pages/PasswordCreationPage.qml:19
+msgid "Registering phone number..."
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:42
+msgid "Your password"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:69
+msgid "Choose your own password"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:77
+#: ../qml/components/ChangePasswordDialog.qml:25
+msgid "Enter your new password"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:82
+#: ../qml/components/ChangePasswordDialog.qml:30
+msgid "Please repeat"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:90
+#: ../qml/components/ChangePasswordDialog.qml:38
+#: ../qml/components/LeaveChatDialog.qml:27
+#: ../qml/components/NewGroupDialog.qml:27
+#: ../qml/components/RemoveDeviceDialog.qml:42
+#: ../qml/components/AddPhoneDialog.qml:28
+#: ../qml/components/DisableAccountDialog.qml:42
+#: ../qml/components/ConfirmDialog.qml:22
+#: ../qml/components/LogoutDialog.qml:35
+#: ../qml/components/AddAliasDialog.qml:27
+#: ../qml/components/EnterSMSTokenDialog.qml:28
+#: ../qml/components/JoinGroupDialog.qml:27
+#: ../qml/components/ChatScrollView.qml:131
+#: ../qml/components/NewContactDialog.qml:39
+#: ../qml/components/ChangeDisplaynameDialog.qml:34
+#: ../qml/components/ChangeChatnameDialog.qml:43
+#: ../qml/components/AddEmailDialog.qml:27
+msgid "Cancel"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:95
+#: ../qml/components/ChangePasswordDialog.qml:43
+msgid "Change"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:100
+#: ../qml/components/ChangePasswordDialog.qml:48
+msgid "The passwords do not match"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:103
+#: ../qml/components/ChangePasswordDialog.qml:11
+#: ../qml/components/ChangePasswordDialog.qml:51
+msgid "Change your password"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:139
+msgid "In order to restore your account, please make a note of this secret"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:152
+msgid "Copy to clipboard"
+msgstr ""
+
+#: ../qml/pages/LoginPageOLD.qml:19
 msgid "Please fill all textfields"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:45 ../qml/pages/LoginPageOLD.qml:45
-#: ../qml/pages/PasswordInputPage.qml:45
+#: ../qml/pages/LoginPageOLD.qml:45 ../qml/pages/PasswordInputPage.qml:26
 msgid "Invalid username or password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:48 ../qml/pages/LoginPageOLD.qml:48
-#: ../qml/pages/PasswordInputPage.qml:48
+#: ../qml/pages/LoginPageOLD.qml:48 ../qml/pages/PasswordInputPage.qml:29
 msgid "No connection to "
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:58 ../qml/pages/LoginPageOLD.qml:58
-#: ../qml/pages/LoginPage.qml:18 ../qml/pages/PasswordInputPage.qml:58
+#: ../qml/pages/LoginPageOLD.qml:58 ../qml/pages/LoginPage.qml:104
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:74 ../qml/pages/LoginPageOLD.qml:74
-#: ../qml/pages/LoginPage.qml:51 ../qml/pages/PasswordInputPage.qml:74
+#: ../qml/pages/LoginPageOLD.qml:74 ../qml/pages/LoginPage.qml:139
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:97 ../qml/pages/LoginPageOLD.qml:97
-#: ../qml/pages/PasswordInputPage.qml:97
+#: ../qml/pages/LoginPageOLD.qml:97
 msgid "What's your name?"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:104 ../qml/pages/LoginPageOLD.qml:104
-#: ../qml/pages/LoginPage.qml:129 ../qml/pages/PasswordInputPage.qml:104
+#: ../qml/pages/LoginPageOLD.qml:104 ../qml/pages/LoginPage.qml:217
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:111 ../qml/pages/LoginPageOLD.qml:111
-#: ../qml/pages/PasswordInputPage.qml:111
+#: ../qml/pages/LoginPageOLD.qml:111
 msgid "Password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:122 ../qml/pages/LoginPageOLD.qml:122
-#: ../qml/pages/PasswordInputPage.qml:122
+#: ../qml/pages/LoginPageOLD.qml:122
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:129 ../qml/pages/LoginPageOLD.qml:129
-#: ../qml/pages/PasswordInputPage.qml:129
+#: ../qml/pages/LoginPageOLD.qml:129
 msgid "Sign up"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:138 ../qml/pages/LoginPageOLD.qml:138
-#: ../qml/pages/LoginPage.qml:141 ../qml/pages/PasswordInputPage.qml:138
+#: ../qml/pages/LoginPageOLD.qml:138 ../qml/pages/LoginPage.qml:229
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:26
+#: ../qml/pages/LoginPage.qml:73
+msgid "The desired user ID is not a valid user name"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:74
+msgid ""
+"The desired user ID is in the exclusive namespace claimed by an application "
+"service"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:75
+msgid "Registration on %1 failed..."
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:112
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:31
+#: ../qml/pages/LoginPage.qml:117
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:72
+#: ../qml/pages/LoginPage.qml:160
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:120
+#: ../qml/pages/LoginPage.qml:208
 msgid "Phone number (optional)"
 msgstr ""
 
@@ -433,6 +502,18 @@ msgstr ""
 #: ../qml/pages/AccountSettingsPage.qml:92
 #: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
+msgstr ""
+
+#: ../qml/pages/PasswordInputPage.qml:38
+msgid "Enter your password"
+msgstr ""
+
+#: ../qml/pages/PasswordInputPage.qml:72
+msgid "Please enter your password for: <b>%1</b>"
+msgstr ""
+
+#: ../qml/pages/PasswordInputPage.qml:78
+msgid "Password..."
 msgstr ""
 
 #: ../qml/pages/NotificationSettingsPage.qml:80
@@ -784,49 +865,9 @@ msgstr ""
 msgid "Kick from this chat?"
 msgstr ""
 
-#: ../qml/components/ChangePasswordDialog.qml:11
-#: ../qml/components/ChangePasswordDialog.qml:51
-msgid "Change your password"
-msgstr ""
-
 #: ../qml/components/ChangePasswordDialog.qml:19
 #: ../qml/components/DisableAccountDialog.qml:33
 msgid "Enter your old password"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:25
-msgid "Enter your new password"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:30
-msgid "Please repeat"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:38
-#: ../qml/components/LeaveChatDialog.qml:27
-#: ../qml/components/NewGroupDialog.qml:27
-#: ../qml/components/RemoveDeviceDialog.qml:42
-#: ../qml/components/AddPhoneDialog.qml:28
-#: ../qml/components/DisableAccountDialog.qml:42
-#: ../qml/components/ConfirmDialog.qml:22
-#: ../qml/components/LogoutDialog.qml:35
-#: ../qml/components/AddAliasDialog.qml:27
-#: ../qml/components/EnterSMSTokenDialog.qml:28
-#: ../qml/components/JoinGroupDialog.qml:27
-#: ../qml/components/ChatScrollView.qml:131
-#: ../qml/components/NewContactDialog.qml:39
-#: ../qml/components/ChangeDisplaynameDialog.qml:34
-#: ../qml/components/ChangeChatnameDialog.qml:43
-#: ../qml/components/AddEmailDialog.qml:27
-msgid "Cancel"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:43
-msgid "Change"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:48
-msgid "The passwords do not match"
 msgstr ""
 
 #: ../qml/components/TargetInfoDialog.qml:11
@@ -990,7 +1031,7 @@ msgid "Choose a country"
 msgstr ""
 
 #: ../qml/components/CountryPicker.qml:37
-msgid "Search country..."
+msgid "Search country name..."
 msgstr ""
 
 #: ../qml/components/LoadingModal.qml:18

@@ -96,10 +96,10 @@ Item {
         }
 
         var onError = function ( response ) {
-            if ( error.errcode !== "M_USER_IN_USE" ) settings.username = settings.server = settings.deviceName = undefined
+            if ( response.errcode !== "M_USER_IN_USE" ) settings.username = settings.server = settings.deviceName = undefined
             if ( error_callback ) error_callback ( response )
         }
-        xmlRequest ( "POST", data, "/client/r0/register", onLogged, error_callback, status_callback )
+        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError, status_callback )
     }
 
     function logout () {

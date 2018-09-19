@@ -12,7 +12,7 @@ Page {
 
         // If the login is successfull
         var success_callback = function ( response ) {
-            loginButton.enabled = true
+            okAction.enabled = true
             // Go to the ChatListPage
             mainStack.clear ()
             if ( tabletMode ) mainStack.push(Qt.resolvedUrl("./BlankPage.qml"))
@@ -21,17 +21,17 @@ Page {
 
         // If error
         var error_callback = function ( error ) {
-            loginButton.enabled = true
+            okAction.enabled = true
             if ( error.errcode == "M_FORBIDDEN" ) {
-                loginStatus.text = i18n.tr("Invalid username or password")
+                toast.show ( i18n.tr("Invalid username or password") )
             }
             else {
-                loginStatus.text = i18n.tr("No connection to ") + loginDomain
+                toast.show ( i18n.tr("No connection to ") + loginDomain )
             }
         }
 
         // Start the request
-        matrix.login ( settings.username, passwordInput.displayText, settings.server, "UbuntuPhone", success_callback, error_callback )
+        matrix.login ( settings.username, passwordInput.text, settings.server, "UbuntuPhone", success_callback, error_callback )
     }
 
     header: FcPageHeader {
@@ -58,10 +58,18 @@ Page {
             width: root.width
             spacing: units.gu(2)
 
+            Icon {
+                id: banner
+                name: "user-admin"
+                color: settings.mainColor
+                width: root.width * 2/5
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
             Label {
                 id: loginStatus
-                text: i18n.tr("Please enter your password for:\n<b>%1</b>").arg(matrix.matrixid)
-                textSize: Label.Large
+                text: i18n.tr("Please enter your password for: <b>%1</b>").arg(matrix.matrixid)
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
@@ -69,14 +77,11 @@ Page {
                 id: passwordInput
                 placeholderText: i18n.tr("Password...")
                 anchors.horizontalCenter: parent.horizontalCenter
-                focus: true
                 echoMode: TextInput.Password
+                width: Math.min( parent.width - units.gu(4), units.gu(50))
                 Keys.onReturnPressed: login()
+                Component.onCompleted: focus = true
             }
-
-
-
-
         }
-
     }
+}

@@ -14,8 +14,8 @@ Page {
         var username = loginTextField.displayText
 
         // Step 1: Generate a new password
-        generated_password = password_generator ()
-        console.log("Generated password:", password)
+        generated_password = password_generator ( 10 )
+        console.log("Generated password:", generated_password)
 
         // Transforming the username:
         // If it is a normal username, then use the current domain
@@ -41,7 +41,7 @@ Page {
             // Step 3.1: Look for this phone number
             matrix.get ("/identity/api/v1/lookup", {
                 "medium": "msisdn",
-                "address":
+                "address": phoneInput
             }, function ( response ) {
                 console.log(JSON.stringify(response))
 
@@ -63,11 +63,10 @@ Page {
     }
 
     function register ( username ) {
-        matrix.register ( username, generated_password, (loginDomain || defaultDomain), function () {
+        matrix.register ( username, generated_password, (loginDomain || defaultDomain), "UbuntuPhone", function () {
             mainStack.pop()
             mainStack.push(Qt.resolvedUrl("./PasswordCreationPage.qml"))
         }, function (error) {
-            console.log("REGISTERERROR:",JSON.stringify(error))
             if ( error.errcode === "M_USER_IN_USE" ) {
                 mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
             }
@@ -78,7 +77,7 @@ Page {
     }
 
     function password_generator( len ) {
-        var length = (len)?(len):(10);
+        var length = len;
         var string = "abcdefghijklmnopqrstuvwxyz"; //to upper
         var numeric = '0123456789';
         var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
@@ -86,10 +85,10 @@ Page {
         var character = "";
         var crunch = true;
         while( password.length<length ) {
-            entity1 = Math.ceil(string.length * Math.random()*Math.random());
-            entity2 = Math.ceil(numeric.length * Math.random()*Math.random());
-            entity3 = Math.ceil(punctuation.length * Math.random()*Math.random());
-            hold = string.charAt( entity1 );
+            var entity1 = Math.ceil(string.length * Math.random()*Math.random());
+            var entity2 = Math.ceil(numeric.length * Math.random()*Math.random());
+            var entity3 = Math.ceil(punctuation.length * Math.random()*Math.random());
+            var hold = string.charAt( entity1 );
             hold = (password.length%2==0)?(hold.toUpperCase()):(hold);
             character += hold;
             character += numeric.charAt( entity2 );
