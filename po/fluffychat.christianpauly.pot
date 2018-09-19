@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 07:03+0000\n"
+"POT-Creation-Date: 2018-09-19 07:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -860,6 +860,10 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
+#: ../qml/components/ContactImport.qml:61
+msgid "%1 contacts were found"
+msgstr ""
+
 #: ../qml/components/RemoveDeviceDialog.qml:11
 msgid "Remove the device"
 msgstr ""
@@ -1024,15 +1028,15 @@ msgstr ""
 msgid "Canonical alias"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:112
+#: ../qml/components/UserSettingsViewer.qml:110
 msgid "Start new chat"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:136
+#: ../qml/components/UserSettingsViewer.qml:134
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:136
+#: ../qml/components/UserSettingsViewer.qml:134
 msgid "You are that!"
 msgstr ""
 

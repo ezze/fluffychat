@@ -22,8 +22,6 @@ BottomEdge {
 
             Component.onCompleted:  {
                 matrix_id = activeUser
-                displayname = usernames.getById ( matrix_id )
-                avatar.name = displayname
                 userHeader.title = matrix_id.replace(":","<font color='%1'>:".arg(UbuntuColors.ash)) + "</font>"
 
                 storage.transaction ( "SELECT avatar_url FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
@@ -68,8 +66,8 @@ BottomEdge {
 
                     Avatar {  // Useravatar
                         id: avatar
-                        //name: displayname
                         width: parent.width / 2
+                        name: activeUser
                         anchors.horizontalCenter: parent.horizontalCenter
                         mxc: ""
                         onClickFunction: function () {

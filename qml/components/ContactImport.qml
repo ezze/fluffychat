@@ -58,6 +58,7 @@ Item {
                     }
                     mainStack.toStart()
                     mainStack.push(Qt.resolvedUrl("../pages/AddChatPage.qml"))
+                    toast.show ( i18n.tr('%1 contacts were found').arg(response.threepids.length) )
                 } )
             }
         };
