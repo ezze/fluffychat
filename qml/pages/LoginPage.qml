@@ -14,7 +14,7 @@ Page {
         var username = loginTextField.displayText
 
         // Step 1: Generate a new password
-        generated_password = password_generator ( 10 )
+        generated_password = password_generator ( 12 )
         console.log("Generated password:", generated_password)
 
         // Transforming the username:
@@ -65,6 +65,8 @@ Page {
     function register ( username ) {
         matrix.register ( username, generated_password, (loginDomain || defaultDomain), "UbuntuPhone", function () {
             mainStack.pop()
+            if ( tabletMode ) mainStack.push(Qt.resolvedUrl("./BlankPage.qml"))
+            else mainStack.push(Qt.resolvedUrl("./ChatListPage.qml"))
             mainStack.push(Qt.resolvedUrl("./PasswordCreationPage.qml"))
         }, function (error) {
             if ( error.errcode === "M_USER_IN_USE" ) {
@@ -221,6 +223,7 @@ Page {
 
             Rectangle {
                 width: parent.width
+                color: theme.palette.normal.background
                 height: Math.max(scrollView.height - banner.height - 2 * loginTextField.height - 2 * serverLabel.height - units.gu(8),0)
             }
 

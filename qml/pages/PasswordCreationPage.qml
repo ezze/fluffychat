@@ -9,8 +9,8 @@ Page {
 
     property var loginDomain: ""
 
-    var sid: null
-    var client_secret: null
+    property var sid: null
+    property var client_secret: null
 
 
     Component.onCompleted: {
@@ -35,13 +35,13 @@ Page {
     }
 
 
-    EnterSMSToken: { id: enterSMSTOken }
+    EnterSMSTokenDialog { id: enterSMSToken }
 
 
     header: FcPageHeader {
         title: i18n.tr('Your password')
 
-        leadingActionBar {
+        trailingActionBar {
             actions: [
             Action {
                 iconName: "settings"
@@ -49,17 +49,9 @@ Page {
             }
             ]
         }
-        trailingActionBar {
-            actions: [
-            Action {
-                iconName: "ok"
-                onTriggered: {
-                    mainStack.toStart()
-                }
-            }
-            ]
-        }
     }
+
+    Component.onDestruction: generated_password = ""
 
     Component {
         id: dialog
@@ -117,6 +109,8 @@ Page {
         }
     }
 
+    property var elemWidth: Math.min( parent.width - units.gu(4), units.gu(50))
+
     ScrollView {
         id: scrollView
         width: root.width
@@ -130,29 +124,46 @@ Page {
                 id: banner
                 name: "lock"
                 color: settings.mainColor
-                width: root.width
-                height: width * 2/5
+                width: root.width * 2/5
+                height: width
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: i18n.tr("In order to restore your account, please make a note of this secret")
+                wrapMode: Text.Wrap
+                width: elemWidth
+                horizontalAlignment: Text.AlignHCenter
             }
 
-            TextField {
+            Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
-                id: loginTextField
-                text: generated_password
-                width: elemWidth
-                readOnly: true
+                width: loginTextField.width
+                height: loginTextField.height
+                border.width: 1
+                border.color: settings.mainColor
+                radius: units.gu(1)
+                color: UbuntuColors.porcelain
+                TextField {
+                    anchors.centerIn: parent
+                    id: loginTextField
+                    text: generated_password
+                    color: settings.mainColor
+                    readOnly: true
+                    font.bold: true
+                    width: units.gu(15)
+                }
             }
 
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: i18n.tr("Copy to clipboard")
+                color: UbuntuColors.green
                 onClicked: {
                     mimeData.text = generated_password
                     Clipboard.push( mimeData )
+                    toast.show ( i18n.tr("Password has been copied") )
                 }
             }
 

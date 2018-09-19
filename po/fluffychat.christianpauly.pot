@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 10:04+0000\n"
+"POT-Creation-Date: 2018-09-19 12:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,11 +193,11 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:146
+#: ../qml/controller/MatrixController.qml:171
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:292
+#: ../qml/controller/MatrixController.qml:317
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -258,21 +258,21 @@ msgstr ""
 msgid "Your password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:69
+#: ../qml/pages/PasswordCreationPage.qml:61
 msgid "Choose your own password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:77
+#: ../qml/pages/PasswordCreationPage.qml:69
 #: ../qml/components/ChangePasswordDialog.qml:25
 msgid "Enter your new password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:82
+#: ../qml/pages/PasswordCreationPage.qml:74
 #: ../qml/components/ChangePasswordDialog.qml:30
 msgid "Please repeat"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:90
+#: ../qml/pages/PasswordCreationPage.qml:82
 #: ../qml/components/ChangePasswordDialog.qml:38
 #: ../qml/components/LeaveChatDialog.qml:27
 #: ../qml/components/NewGroupDialog.qml:27
@@ -292,28 +292,32 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:95
+#: ../qml/pages/PasswordCreationPage.qml:87
 #: ../qml/components/ChangePasswordDialog.qml:43
 msgid "Change"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:100
+#: ../qml/pages/PasswordCreationPage.qml:92
 #: ../qml/components/ChangePasswordDialog.qml:48
 msgid "The passwords do not match"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:103
+#: ../qml/pages/PasswordCreationPage.qml:95
 #: ../qml/components/ChangePasswordDialog.qml:11
 #: ../qml/components/ChangePasswordDialog.qml:51
 msgid "Change your password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:139
+#: ../qml/pages/PasswordCreationPage.qml:134
 msgid "In order to restore your account, please make a note of this secret"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:152
+#: ../qml/pages/PasswordCreationPage.qml:161
 msgid "Copy to clipboard"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:166
+msgid "Password has been copied"
 msgstr ""
 
 #: ../qml/pages/LoginPageOLD.qml:19
@@ -328,11 +332,11 @@ msgstr ""
 msgid "No connection to "
 msgstr ""
 
-#: ../qml/pages/LoginPageOLD.qml:58 ../qml/pages/LoginPage.qml:104
+#: ../qml/pages/LoginPageOLD.qml:58 ../qml/pages/LoginPage.qml:106
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPageOLD.qml:74 ../qml/pages/LoginPage.qml:139
+#: ../qml/pages/LoginPageOLD.qml:74 ../qml/pages/LoginPage.qml:141
 msgid "Choose your homeserver"
 msgstr ""
 
@@ -340,7 +344,7 @@ msgstr ""
 msgid "What's your name?"
 msgstr ""
 
-#: ../qml/pages/LoginPageOLD.qml:104 ../qml/pages/LoginPage.qml:217
+#: ../qml/pages/LoginPageOLD.qml:104 ../qml/pages/LoginPage.qml:219
 msgid "Username"
 msgstr ""
 
@@ -356,37 +360,37 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: ../qml/pages/LoginPageOLD.qml:138 ../qml/pages/LoginPage.qml:229
+#: ../qml/pages/LoginPageOLD.qml:138 ../qml/pages/LoginPage.qml:231
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:73
+#: ../qml/pages/LoginPage.qml:75
 msgid "The desired user ID is not a valid user name"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:74
+#: ../qml/pages/LoginPage.qml:76
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:75
+#: ../qml/pages/LoginPage.qml:77
 msgid "Registration on %1 failed..."
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:112
+#: ../qml/pages/LoginPage.qml:114
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:117
+#: ../qml/pages/LoginPage.qml:119
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:160
+#: ../qml/pages/LoginPage.qml:162
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:208
+#: ../qml/pages/LoginPage.qml:210
 msgid "Phone number (optional)"
 msgstr ""
 

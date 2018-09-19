@@ -83,16 +83,41 @@ Item {
         }
 
         var onLogged = function ( response ) {
-            console.log("REGISTERED!!!!!!!!",JSON.stringify(response))
-            settings.token = response.access_token
-            settings.deviceID = response.device_id
-            settings.username = (response.user_id.substr(1)).split(":")[0]
-            settings.server = newServer.toLowerCase()
-            settings.deviceName = newDeviceName
-            settings.dbversion = storage.version
-            onlineStatus = true
-            events.init ()
-            if ( callback ) callback ( response )
+            console.log("REGISTERANSWER!!!!!!!!",JSON.stringify(response))
+            // The homeserver requires additional authentication information.
+            if ( response.flows ) {
+                var forwarded = false
+                for ( var i = 0; i < response.flows.length; i++ ) {
+
+                    // If there is m.login.dummy, just retry the registration with
+                    // the session id
+                    if ( response.flows[i].stages[0] === "m.login.dummy" ) {
+                        data.auth = {
+                            "type": response.flows[i].stages[0],
+                            "session": response.session
+                        }
+                        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError, status_callback )
+                        forwarded = true
+                        break
+                    }
+                }
+
+                // If there is no other choice, then the registration can not succeed
+                if ( !forwarded ) throw ("ERROR")
+            }
+
+            // The account has been registered.
+            else {
+                settings.token = response.access_token
+                settings.deviceID = response.device_id
+                settings.username = (response.user_id.substr(1)).split(":")[0]
+                settings.server = newServer.toLowerCase()
+                settings.deviceName = newDeviceName
+                settings.dbversion = storage.version
+                onlineStatus = true
+                events.init ()
+                if ( callback ) callback ( response )
+            }
         }
 
         var onError = function ( response ) {

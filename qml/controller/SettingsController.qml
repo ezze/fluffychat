@@ -55,6 +55,6 @@ Settings {
     property var requestedArchive: false
 
     // The two country ISO name and phone code:
-    property var countryCode: "DE"
-    property var countryTel: "49"
+    property var countryCode: "CN"
+    property var countryTel: "86"
 }
