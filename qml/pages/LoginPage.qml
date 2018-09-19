@@ -10,7 +10,94 @@ Page {
     property var loginDomain: ""
 
     function login () {
+        loginAction.enabled = false
+        var username = loginTextField.displayText
 
+        // Step 1: Generate a new password
+        generated_password = password_generator ()
+        console.log("Generated password:", password)
+
+        // Transforming the username:
+        // If it is a normal username, then use the current domain
+        // If it is a matrix-id, then get the infos from this form:
+        // @username:domain
+        if ( username.indexOf ("@") !== -1 ) {
+            var usernameSplitted = username.substr(1).split ( ":" )
+            username = usernameSplitted [0]
+            loginDomain = usernameSplitted [1]
+        }
+
+        // Step 2: If there is no phone number, then try to register the username
+        if ( phoneTextField.displayText === "" ) register ( username )
+
+        // Step 3: Try to get the username via the phone number and login
+        else {
+            // Transform the phone number
+            var phoneInput = phoneTextField.displayText.replace(/\D/g,'')
+            if ( phoneInput.charAt(0) === 0 ) phoneInput = phoneInput.substr(1)
+            phoneInput = settings.countryTel + phoneInput
+            console.log("FORMATTED PHONENUMBER:",phoneInput)
+
+            // Step 3.1: Look for this phone number
+            matrix.get ("/identity/api/v1/lookup", {
+                "medium": "msisdn",
+                "address":
+            }, function ( response ) {
+                console.log(JSON.stringify(response))
+
+                // Step 3.2: There is a registered matrix id. Go to the password input...
+                if ( response.mxid ) {
+                    var splittedMxid = response.mxid.substr(1).split ( ":" )
+                    settings.username = splittedMxid[0]
+                    settings.server = splittedMxid[1]
+                    mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
+                }
+                // Step 3.3: There is no registered matrix id. Try to register one...
+                else {
+                    desiredPhoneNumber = phoneInput
+                    register ( username )
+                }
+            })
+        }
+        loginAction.enabled = loginTextField.displayText !== "" && loginTextField.displayText !== " "
+    }
+
+    function register ( username ) {
+        matrix.register ( username, generated_password, (loginDomain || defaultDomain), function () {
+            mainStack.pop()
+            mainStack.push(Qt.resolvedUrl("./PasswordCreationPage.qml"))
+        }, function (error) {
+            console.log("REGISTERERROR:",JSON.stringify(error))
+            if ( error.errcode === "M_USER_IN_USE" ) {
+                mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
+            }
+            else if ( error.errcode === "M_INVALID_USERNAME" ) toast.show ( i18n.tr("The desired user ID is not a valid user name") )
+            else if ( error.errcode === "M_EXCLUSIVE" ) toast.show ( i18n.tr("The desired user ID is in the exclusive namespace claimed by an application service") )
+            else toast.show ( i18n.tr("Registration on %1 failed...").arg((loginDomain || defaultDomain)) )
+        } )
+    }
+
+    function password_generator( len ) {
+        var length = (len)?(len):(10);
+        var string = "abcdefghijklmnopqrstuvwxyz"; //to upper
+        var numeric = '0123456789';
+        var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+        var password = "";
+        var character = "";
+        var crunch = true;
+        while( password.length<length ) {
+            entity1 = Math.ceil(string.length * Math.random()*Math.random());
+            entity2 = Math.ceil(numeric.length * Math.random()*Math.random());
+            entity3 = Math.ceil(punctuation.length * Math.random()*Math.random());
+            hold = string.charAt( entity1 );
+            hold = (password.length%2==0)?(hold.toUpperCase()):(hold);
+            character += hold;
+            character += numeric.charAt( entity2 );
+            character += punctuation.charAt( entity3 );
+            password = character;
+        }
+        password=password.split('').sort(function(){return 0.5-Math.random()}).join('');
+        return password.substr(0,len);
     }
 
 
@@ -37,8 +124,10 @@ Page {
         trailingActionBar {
             actions: [
             Action {
+                id: loginAction
                 iconName: "ok"
                 onTriggered: login()
+                enabled: loginTextField.displayText !== "" && loginTextField.displayText !== " "
             }
             ]
         }

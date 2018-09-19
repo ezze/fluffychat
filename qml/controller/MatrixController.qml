@@ -70,6 +70,38 @@ Item {
         xmlRequest ( "POST", data, "/client/r0/login", onLogged, error_callback, status_callback )
     }
 
+    function register ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback, status_callback ) {
+
+        settings.username = newUsername.toLowerCase()
+        settings.server = newServer.toLowerCase()
+        settings.deviceName = newDeviceName
+
+        var data = {
+            "initial_device_display_name": newDeviceName,
+            "username": newUsername,
+            "password": newPassword
+        }
+
+        var onLogged = function ( response ) {
+            console.log("REGISTERED!!!!!!!!",JSON.stringify(response))
+            settings.token = response.access_token
+            settings.deviceID = response.device_id
+            settings.username = (response.user_id.substr(1)).split(":")[0]
+            settings.server = newServer.toLowerCase()
+            settings.deviceName = newDeviceName
+            settings.dbversion = storage.version
+            onlineStatus = true
+            events.init ()
+            if ( callback ) callback ( response )
+        }
+
+        var onError = function ( response ) {
+            if ( error.errcode !== "M_USER_IN_USE" ) settings.username = settings.server = settings.deviceName = undefined
+            if ( error_callback ) error_callback ( response )
+        }
+        xmlRequest ( "POST", data, "/client/r0/register", onLogged, error_callback, status_callback )
+    }
+
     function logout () {
         if ( events.syncRequest ) {
             events.abortSync = true
