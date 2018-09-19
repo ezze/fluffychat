@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 12:37+0000\n"
+"POT-Creation-Date: 2018-09-19 13:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -336,7 +336,7 @@ msgstr ""
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPageOLD.qml:74 ../qml/pages/LoginPage.qml:141
+#: ../qml/pages/LoginPageOLD.qml:74 ../qml/pages/LoginPage.qml:146
 msgid "Choose your homeserver"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr ""
 msgid "What's your name?"
 msgstr ""
 
-#: ../qml/pages/LoginPageOLD.qml:104 ../qml/pages/LoginPage.qml:219
+#: ../qml/pages/LoginPageOLD.qml:104 ../qml/pages/LoginPage.qml:224
 msgid "Username"
 msgstr ""
 
@@ -360,7 +360,7 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: ../qml/pages/LoginPageOLD.qml:138 ../qml/pages/LoginPage.qml:231
+#: ../qml/pages/LoginPageOLD.qml:138 ../qml/pages/LoginPage.qml:237
 msgid "Using the homeserver: "
 msgstr ""
 
@@ -386,11 +386,15 @@ msgstr ""
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:162
+#: ../qml/pages/LoginPage.qml:124
+msgid "Toggle dark mode"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:167
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:210
+#: ../qml/pages/LoginPage.qml:215
 msgid "Phone number (optional)"
 msgstr ""
 

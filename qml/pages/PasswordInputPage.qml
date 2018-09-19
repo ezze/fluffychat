@@ -26,7 +26,7 @@ Page {
                 toast.show ( i18n.tr("Invalid username or password") )
             }
             else {
-                toast.show ( i18n.tr("No connection to ") + loginDomain )
+                toast.show ( i18n.tr("No connection to ") + settings.server )
             }
         }
 

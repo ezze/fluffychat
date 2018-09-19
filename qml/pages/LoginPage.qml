@@ -118,6 +118,11 @@ Page {
                 iconName: "hotspot-connected"
                 text: i18n.tr("Change ID-server")
                 onTriggered: PopupUtils.open(changeIdentityserverDialog)
+            },
+            Action {
+                iconName: "display-brightness-max"
+                text: i18n.tr("Toggle dark mode")
+                onTriggered: settings.darkmode = !settings.darkmode
             }
             ]
         }
