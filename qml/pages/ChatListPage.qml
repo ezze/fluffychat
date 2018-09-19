@@ -109,7 +109,9 @@ Page {
                     tempRoom.type = lastEvent.type
                 }
 
-                var allEvents = room.timeline.events.concat( room.state.events)
+                var allEvents = []
+                if ( room.timeline ) allEvents = allEvents.concat( room.timeline.events)
+                if ( room.state ) allEvents = allEvents.concat( room.state.events)
 
                 // Search for new room avatar or topic
                 for ( var n = 0; n < allEvents.length; n++ ) {

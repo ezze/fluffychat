@@ -85,16 +85,16 @@ Item {
             return i18n.tr("Knock")
         }
         else if ( type === "shared" ) {
-            body += i18n.tr("All chatters")
+            return i18n.tr("All chatters")
         }
         else if ( type === "joined" ) {
-            body += i18n.tr("All joined chat participants")
+            return i18n.tr("All joined chat participants")
         }
         else if ( type === "invited" ) {
-            body += i18n.tr("All invited chat participants")
+            return i18n.tr("All invited chat participants")
         }
         else if ( type === "world_readable" ) {
-            body += i18n.tr("Everyone")
+            return i18n.tr("Everyone")
         }
         else if ( type === "can_join" ) {
             return i18n.tr("Can join")

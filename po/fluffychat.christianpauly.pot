@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 16:28+0000\n"
+"POT-Creation-Date: 2018-09-19 07:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid "Someone"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:19
-msgid "%1 is now participating the chat as <b>%2</b>"
+msgid "%1 has joined the chat as <b>%2</b>"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:22
@@ -51,7 +51,7 @@ msgid "%1 has been banned from the chat"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:32
-msgid "The chat has been created"
+msgid "Chat created"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:35
@@ -119,18 +119,20 @@ msgid "Knock"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:88
-#: ../qml/controller/DisplayEventController.qml:97
-#: ../qml/components/ChangeHistoryVisibilityDialog.qml:19
-msgid "Everyone"
+msgid "All chatters"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:91
-msgid "Only joined chat participants"
+msgid "All joined chat participants"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:94
-#: ../qml/components/ChangeHistoryVisibilityDialog.qml:27
-msgid "Joined and invited chat participants"
+msgid "All invited chat participants"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:97
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:19
+msgid "Everyone"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:100
@@ -155,15 +157,15 @@ msgid ""
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:35
-msgid "⌨️ is typing ..."
+msgid "⌨️ is typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:36
-msgid "⌨️ %1 is typing ..."
+msgid "⌨️ %1 is typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:39
-msgid "⌨️ %1 and %2 more are typing ..."
+msgid "⌨️ %1 and %2 more are typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:45
@@ -188,11 +190,11 @@ msgid "Empty chat"
 msgstr ""
 
 #: ../qml/controller/PushController.qml:14
-msgid "Please login to Ubuntu One to receive push notifications!"
+msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
 #: ../qml/controller/MatrixController.qml:114
-msgid "You do not have permission to write to this chat."
+msgid "You are not allowed to chat here."
 msgstr ""
 
 #: ../qml/controller/MatrixController.qml:260
@@ -227,7 +229,7 @@ msgstr ""
 msgid "Archived chats"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:72 ../qml/pages/ChatListPage.qml:248
+#: ../qml/pages/ArchivedChatsPage.qml:72
 msgid "Search chat names..."
 msgstr ""
 
@@ -292,8 +294,12 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:263
-msgid "Swipe from the bottom to start a new chat"
+#: ../qml/pages/ChatListPage.qml:250
+msgid "Search for chat names…"
+msgstr ""
+
+#: ../qml/pages/ChatListPage.qml:265
+msgid "Swipe from below to start a chat"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:50
@@ -399,7 +405,7 @@ msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:92
 #: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
-msgid "Logout"
+msgid "Log out"
 msgstr ""
 
 #: ../qml/pages/NotificationSettingsPage.qml:80
@@ -473,6 +479,7 @@ msgid "Unknown chat"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:189 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
@@ -541,7 +548,7 @@ msgid "Loading public chats..."
 msgstr ""
 
 #: ../qml/pages/PrivacySettingsPage.qml:23
-msgid "Display 'I am typing' when I am typing"
+msgid "Display 'I am typing' when typing"
 msgstr ""
 
 #: ../qml/pages/PrivacySettingsPage.qml:30
@@ -819,6 +826,10 @@ msgstr ""
 msgid "<b>Gateway</b>: %2"
 msgstr ""
 
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:27
+msgid "Joined and invited chat participants"
+msgstr ""
+
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:35
 msgid "Only chat participants"
 msgstr ""
@@ -901,16 +912,12 @@ msgid "Have you confirmed your phone number?"
 msgstr ""
 
 #: ../qml/components/DisableAccountDialog.qml:11
-msgid "Disable your account"
+msgid "Remove my account"
 msgstr ""
 
 #: ../qml/components/DisableAccountDialog.qml:25
 msgid ""
-"Are you sure, that you want to disable your account? This can not be undone!"
-msgstr ""
-
-#: ../qml/components/DisableAccountDialog.qml:47
-msgid "Disable"
+"Are you sure that you want to remove your account? This can not be undone."
 msgstr ""
 
 #: ../qml/components/ConfirmDialog.qml:27
@@ -918,7 +925,7 @@ msgid "Yes"
 msgstr ""
 
 #: ../qml/components/LogoutDialog.qml:25
-msgid "Are you sure, that you want to logout?"
+msgid "Are you sure that you want to log out?"
 msgstr ""
 
 #: ../qml/components/AddAliasDialog.qml:11
@@ -948,7 +955,7 @@ msgid "Validation code"
 msgstr ""
 
 #: ../qml/components/LoadingModal.qml:18
-msgid "Synchronizing ... Please wait!"
+msgid "Synchronizing… Please wait."
 msgstr ""
 
 #: ../qml/components/ChatListItem.qml:33
@@ -996,7 +1003,7 @@ msgid "New single chat"
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:18
-msgid "What is the username of your friend?"
+msgid "What is your friends username?"
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:23
@@ -1009,8 +1016,8 @@ msgstr ""
 
 #: ../qml/components/LoadingScreen.qml:26
 msgid ""
-"Loading chats \n"
-" This can take a few minutes ..."
+"Loading chats\n"
+"This can take a few minutes…"
 msgstr ""
 
 #: ../qml/components/AddressesListItem.qml:11
