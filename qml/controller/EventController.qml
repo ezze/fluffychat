@@ -35,7 +35,7 @@ Item {
 
         // Set the pusher if it is not set
         if ( settings.pushToken !== pushtoken ) {
-            console.log("👷 Trying to set pusher ...")
+            console.log("👷 Trying to set pusher…")
             pushclient.setPusher ( true, function () {
                 settings.pushToken = pushtoken
                 console.log("😊 Pusher is set!")

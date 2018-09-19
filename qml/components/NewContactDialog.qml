@@ -15,7 +15,7 @@ Component {
             color: settings.mainColor
         }
         Label {
-            text: i18n.tr("What is the username of your friend?")
+            text: i18n.tr("What is your friends username?")
             width: parent.width
             wrapMode: Text.Wrap
         }

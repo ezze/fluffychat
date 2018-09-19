@@ -16,7 +16,7 @@ Item {
         var target = event.content.displayname || i18n.tr("Someone")
         if ( event.type === "m.room.member" ) {
             if ( event.content.membership === "join" ) {
-                body = i18n.tr("%1 is now participating the chat as <b>%2</b>").arg(event.sender).arg(displayname)
+                body = i18n.tr("%1 has joined the chat as <b>%2</b>").arg(event.sender).arg(displayname)
             }
             else if ( event.content.membership === "invite" ) {
                 body = i18n.tr("%1 has invited %2").arg(sendername).arg( target )
@@ -29,7 +29,7 @@ Item {
             }
         }
         else if ( event.type === "m.room.create" ) {
-            body = i18n.tr("The chat has been created")
+            body = i18n.tr("Chat created")
         }
         else if ( event.type === "m.room.name" ) {
             body = i18n.tr("%1 has changed the chat name to: <b>%2</b>").arg(displayname).arg(event.content.name)
@@ -85,16 +85,16 @@ Item {
             return i18n.tr("Knock")
         }
         else if ( type === "shared" ) {
-            return i18n.tr("Everyone")
+            body += i18n.tr("All chatters")
         }
         else if ( type === "joined" ) {
-            return i18n.tr("Only joined chat participants")
+            body += i18n.tr("All joined chat participants")
         }
         else if ( type === "invited" ) {
-            return i18n.tr("Joined and invited chat participants")
+            body += i18n.tr("All invited chat participants")
         }
         else if ( type === "world_readable" ) {
-            return i18n.tr("Everyone")
+            body += i18n.tr("Everyone")
         }
         else if ( type === "can_join" ) {
             return i18n.tr("Can join")

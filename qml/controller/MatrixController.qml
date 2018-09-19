@@ -93,7 +93,7 @@ Item {
     // This function helps to send a message. It automatically repeats, if there
     // was an error with the connection.
     function sendMessage ( messageID, data, chat_id, callback ) {
-        console.log("try now ...",messageID)
+        console.log("try now…",messageID)
         if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/m.room.message/" + messageID, data, function ( response ) {
             storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
@@ -106,12 +106,12 @@ Item {
 
             })
         }, function ( error ) {
-            console.warn("Error ... ", error.errcode, ": ", error.error)
+            console.warn("Error… ", error.errcode, ": ", error.error)
 
             // If the user has no permissions or there is an internal server error,
             // the message gets deleted
             if ( error.errcode === "M_FORBIDDEN" ) {
-                toast.show ( i18n.tr("You do not have permission to write to this chat.") )
+                toast.show ( i18n.tr("You are not allowed to chat here.") )
                 storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )
             }
             else if ( error.errcode === "M_UNKNOWN" ) {
