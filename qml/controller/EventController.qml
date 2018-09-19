@@ -34,7 +34,7 @@ Item {
 
         // Set the pusher if it is not set
         if ( settings.pushToken !== pushtoken ) {
-            console.log("👷 Trying to set pusher ...")
+            console.log("👷 Trying to set pusher…")
             pushclient.setPusher ( true, function () {
                 settings.pushToken = pushtoken
                 console.log("😊 Pusher is set!")
@@ -49,7 +49,7 @@ Item {
         }
 
         loadingScreen.visible = true
-        //toast.show ( i18n.tr("Synchronizing \n This can take a few minutes ...") )
+        //toast.show ( i18n.tr("Synchronizing \n This can take a few minutes…") )
         matrix.get ("/client/r0/sync", null,function ( response ) {
             if ( waitingForSync ) progressBarRequests--
             matrix.onlineStatus = true
@@ -85,7 +85,7 @@ Item {
                 else {
                     if ( Connectivity && Connectivity.online ) restartSync ()
                     else toast.show ( i18n.tr("You are offline 😕") )
-                    console.log ( "Synchronization error! Try to restart ..." )
+                    console.log ( "Synchronization error! Try to restart…" )
                 }
             }
         } );

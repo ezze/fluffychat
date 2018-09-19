@@ -32,11 +32,11 @@ Item {
         if ( user_ids.length === 0 ) return ""
         var username = usernames.getById( user_ids[0] )
         if ( user_ids.length === 1 ) {
-            if ( username === roomname ) return i18n.tr("⌨️ is typing ...")
-            else return i18n.tr("⌨️ %1 is typing ...").arg( username )
+            if ( username === roomname ) return i18n.tr("⌨️ is typing…")
+            else return i18n.tr("⌨️ %1 is typing…").arg( username )
         }
         else if ( user_ids.length > 1 ) {
-            return i18n.tr("⌨️ %1 and %2 more are typing ...").arg( username ).arg( user_ids.length-1 )
+            return i18n.tr("⌨️ %1 and %2 more are typing…").arg( username ).arg( user_ids.length-1 )
         }
         else return ""
     }

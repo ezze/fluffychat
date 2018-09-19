@@ -56,7 +56,7 @@ Page {
             }
 
             SettingsListLink {
-                name: i18n.tr("About FluffyChat")
+                name: i18n.tr("About")
                 icon: "info"
                 page: "InfoPage"
             }

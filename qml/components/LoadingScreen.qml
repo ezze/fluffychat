@@ -23,7 +23,7 @@ Rectangle {
         anchors.top: icon.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
-        text: i18n.tr("Loading chats \n This can take a few minutes ...")
+        text: i18n.tr("Loading chats\nThis can take a few minutes…")
         wrapMode: Text.Wrap
     }
 
