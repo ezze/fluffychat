@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 07:09+0000\n"
+"POT-Creation-Date: 2018-09-19 08:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,48 +250,75 @@ msgstr ""
 msgid "No email addresses connected"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:19
+#: ../qml/pages/PasswordCreationPage.qml:19 ../qml/pages/LoginPageOLD.qml:19
+#: ../qml/pages/PasswordInputPage.qml:19
 msgid "Please fill all textfields"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:45
+#: ../qml/pages/PasswordCreationPage.qml:45 ../qml/pages/LoginPageOLD.qml:45
+#: ../qml/pages/PasswordInputPage.qml:45
 msgid "Invalid username or password"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:48
+#: ../qml/pages/PasswordCreationPage.qml:48 ../qml/pages/LoginPageOLD.qml:48
+#: ../qml/pages/PasswordInputPage.qml:48
 msgid "No connection to "
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:58
+#: ../qml/pages/PasswordCreationPage.qml:58 ../qml/pages/LoginPageOLD.qml:58
+#: ../qml/pages/LoginPage.qml:18 ../qml/pages/PasswordInputPage.qml:58
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:74
+#: ../qml/pages/PasswordCreationPage.qml:74 ../qml/pages/LoginPageOLD.qml:74
+#: ../qml/pages/LoginPage.qml:51 ../qml/pages/PasswordInputPage.qml:74
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:97
+#: ../qml/pages/PasswordCreationPage.qml:97 ../qml/pages/LoginPageOLD.qml:97
+#: ../qml/pages/PasswordInputPage.qml:97
 msgid "What's your name?"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:104
+#: ../qml/pages/PasswordCreationPage.qml:104 ../qml/pages/LoginPageOLD.qml:104
+#: ../qml/pages/LoginPage.qml:129 ../qml/pages/PasswordInputPage.qml:104
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:111
+#: ../qml/pages/PasswordCreationPage.qml:111 ../qml/pages/LoginPageOLD.qml:111
+#: ../qml/pages/PasswordInputPage.qml:111
 msgid "Password"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:122
+#: ../qml/pages/PasswordCreationPage.qml:122 ../qml/pages/LoginPageOLD.qml:122
+#: ../qml/pages/PasswordInputPage.qml:122
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:129
+#: ../qml/pages/PasswordCreationPage.qml:129 ../qml/pages/LoginPageOLD.qml:129
+#: ../qml/pages/PasswordInputPage.qml:129
 msgid "Sign up"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:138
+#: ../qml/pages/PasswordCreationPage.qml:138 ../qml/pages/LoginPageOLD.qml:138
+#: ../qml/pages/LoginPage.qml:141 ../qml/pages/PasswordInputPage.qml:138
 msgid "Using the homeserver: "
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:26
+msgid "Change homeserver"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:31
+msgid "Change ID-server"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:72
+msgid "Choose your identity server"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:120
+msgid "Phone number (optional)"
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:250
@@ -956,6 +983,14 @@ msgstr ""
 
 #: ../qml/components/EnterSMSTokenDialog.qml:19
 msgid "Validation code"
+msgstr ""
+
+#: ../qml/components/CountryPicker.qml:20
+msgid "Choose a country"
+msgstr ""
+
+#: ../qml/components/CountryPicker.qml:37
+msgid "Search country..."
 msgstr ""
 
 #: ../qml/components/LoadingModal.qml:18

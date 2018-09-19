@@ -53,4 +53,8 @@ Settings {
 
     // Are archived chats synchronized too?
     property var requestedArchive: false
+
+    // The two country ISO name and phone code:
+    property var countryCode: "DE"
+    property var countryTel: "49"
 }

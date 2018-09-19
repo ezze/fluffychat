@@ -9,8 +9,6 @@ Rectangle {
 
     id: toast
     anchors.bottom: parent.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
     anchors.margins: units.gu(2)
     anchors.bottomMargin: units.gu(8)
     anchors.horizontalCenter: parent.horizontalCenter
