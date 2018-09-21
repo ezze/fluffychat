@@ -26,13 +26,6 @@ Page {
                 Component.onCompleted: isChecked = settings.sendTypingNotification
             }
 
-            SettingsListSwitch {
-                name: i18n.tr("Accept all chat invitations")
-                icon: "message-new"
-                onSwitching: function () { settings.autoAcceptInvitations = isChecked }
-                Component.onCompleted: isChecked = settings.autoAcceptInvitations
-            }
-
             SettingsListLink {
                 name: i18n.tr("Devices")
                 icon: "phone-smartphone-symbolic"

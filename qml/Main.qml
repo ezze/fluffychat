@@ -1,6 +1,8 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
+import QtMultimedia 5.4
 import "controller"
 import "components"
 
@@ -33,14 +35,15 @@ MainView {
     */
     readonly property var defaultMainColor: "#5625BA"
     readonly property var defaultDomain: "ubports.chat"
+    readonly property var defaultIDServer: "vector.im"
     readonly property var defaultDeviceName: "UbuntuPhone"
     readonly property var miniTimeout: 3000
     readonly property var defaultTimeout: 30000
     readonly property var longPollingTimeout: 10000
     readonly property var typingTimeout: 30000
     readonly property var borderColor: settings.darkmode ? UbuntuColors.jet : UbuntuColors.silk
-    readonly property var version: "0.5.4"
-    readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "ERROR": 666 }
+    readonly property var version: "0.6.0"
+    readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "HISTORY": 4, "ERROR": 666 }
 
     /* =============================== GLOBAL VARIABLES ===============================
 
@@ -50,6 +53,7 @@ MainView {
     property var chatActive: false
     property var activeChatDisplayName: null
     property var activeChatTypingUsers: []
+    property var activeUser: null
     property var progressBarRequests: 0
     property var waitingForSync: false
     property var appstatus: 4
@@ -57,6 +61,8 @@ MainView {
     property var tabletMode: settings.token !== undefined && width > units.gu(90)
     property var prevMode: false
     property var mainStackWidth: mainStack.width
+    property var generated_password: null
+    property var desiredPhoneNumber: null
 
 
     /* =============================== LAYOUT ===============================
@@ -130,8 +136,21 @@ MainView {
     MediaController { id: media }
     SettingsController { id: settings }
     Toast { id: toast }
+    ImageViewer { id: imageViewer }
+    VideoPlayer { id: videoPlayer }
     LoadingScreen { id: loadingScreen }
     LoadingModal { id: loadingModal }
+    Audio { id: audio }
+    ConfirmDialog { id: confirmDialog }
+
+    // Simple universal confirmation dialog
+    property var confirmDialogText: i18n.tr("Are you sure?")
+    property var confirmDialogFunction: function () {}
+    function showConfirmDialog ( text, action ) {
+        confirmDialogText = text
+        confirmDialogFunction = action
+        PopupUtils.open( confirmDialog )
+    }
 
 
     /* =============================== CONNECTION MANAGER ===============================

@@ -12,17 +12,18 @@ Rectangle {
     color: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
     border.width: 1
     border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
-    radius: units.gu(1)
+    radius: width / 6
     z:1
     clip: true
 
     property alias source: avatar.source
     property var mxc: ""
-    property var onClickFunction: null
-    property var name
+    property var onClickFunction: function () { if ( mxc !== "" ) imageViewer.show ( mxc ) }
+    property var name: ""
 
 
     function stringToColor ( str ) {
+        if ( str.indexOf("@") !== -1 ) str = usernames.getById ( str )
         var number = 0
         for( var i=0; i<str.length; i++ ) number += str.charCodeAt(i)
         number = (number % 100) / 100
@@ -55,8 +56,8 @@ Rectangle {
     Label {
         anchors.centerIn: parent
         text: name.slice( 0, 2 )
-        color: stringToColor ( name ) //settings.mainColor
-        textSize: Label.Large
+        color: stringToColor ( name )
+        textSize: parent.width > units.gu(6) ? Label.XLarge : (parent.width < units.gu(6) ? Label.Small : Label.Large)
         z: 10
         visible: mxc === "" || avatar.status != Image.Ready
     }

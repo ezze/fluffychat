@@ -14,6 +14,7 @@ Page {
     property var membership: "join"
     property var isTyping: false
     property var pageName: "chat"
+    property var canSendMessages: true
 
     function send () {
         if ( sending || messageTextField.displayText === "" ) return
@@ -64,11 +65,11 @@ Page {
 
 
     function sendAttachement ( mediaUrl ) {
+            visible: false
 
         // Start the upload
         matrix.upload ( mediaUrl, function ( response ) {
             // Uploading was successfull, send now the file event
-            console.log( JSON.stringify(response) )
             var messageID = Math.floor((Math.random() * 1000000) + 1);
             var data = {
                 msgtype: "m.image",
@@ -104,7 +105,6 @@ Page {
     function sendTypingNotification ( typing ) {
         if ( !settings.sendTypingNotification ) return
         if ( !typing && isTyping) {
-            console.log("typing:", typing)
             typingTimer.stop ()
             isTyping = false
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
@@ -112,7 +112,6 @@ Page {
             } )
         }
         else if ( typing && !isTyping ) {
-            console.log("typing:", typing)
             isTyping = true
             typingTimer.start ()
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
@@ -124,17 +123,31 @@ Page {
 
 
     Component.onCompleted: {
-        console.log( "CurrentPage:", JSON.stringify( mainStack.data[0] ) )
-        storage.transaction ( "SELECT membership FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT draft, membership, unread, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
             membership = res.rows.length > 0 ? res.rows[0].membership : "join"
+            if ( res.rows[0].draft !== "" && res.rows[0].draft !== null ) messageTextField.text = res.rows[0].draft
+            chatScrollView.unread = res.rows[0].unread
+            storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
+            "matrix_id='" + matrix.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
+                chatScrollView.canRedact = rs.rows[0].power_level >= res.rows[0].power_redact
+                canSendMessages = rs.rows[0].power_level >= res.rows[0].power_events_default
+            })
         })
         chatScrollView.update ()
         chatActive = true
     }
 
     Component.onDestruction: {
+        var lastEventId = chatScrollView.count > 0 ? chatScrollView.lastEventId : ""
+        storage.query ( "UPDATE Chats SET draft=?, unread=? WHERE id=?", [
+        messageTextField.displayText,
+        lastEventId,
+        activeChat
+        ])
         sendTypingNotification ( false )
         chatActive = false
+        audio.stop ()
+        audio.source = ""
     }
 
     Connections {
@@ -162,9 +175,6 @@ Page {
         chatScrollView.handleNewEvent ( room.timeline.events )
     }
 
-
-    InviteDialog { id: inviteDialog }
-
     ChangeChatnameDialog { id: changeChatnameDialog }
 
     header: FcPageHeader {
@@ -175,23 +185,34 @@ Page {
             numberOfSlots: 1
             actions: [
             Action {
+                iconName: "edit-delete"
+                text: i18n.tr("Remove")
+                visible: membership !== "join"
+                onTriggered: PopupUtils.open ( leaveChatDialog )
+            },
+            Action {
                 iconName: "info"
                 text: i18n.tr("Chat info")
+                visible: membership === "join"
                 onTriggered: mainStack.push(Qt.resolvedUrl("./ChatSettingsPage.qml"))
             },
             Action {
                 iconName: "notification"
                 text: i18n.tr("Notifications")
+                visible: membership === "join"
                 onTriggered: mainStack.push(Qt.resolvedUrl("./NotificationChatSettingsPage.qml"))
             },
             Action {
                 iconName: "contact-new"
                 text: i18n.tr("Invite a friend")
-                onTriggered: PopupUtils.open(inviteDialog)
+                visible: membership === "join"
+                onTriggered: mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
             }
             ]
         }
     }
+
+    LeaveChatDialog { id: leaveChatDialog }
 
     Rectangle {
         visible: settings.chatBackground === undefined || backgroundImage.status !== Image.ready
@@ -232,29 +253,32 @@ Page {
         width: scrollDownButton.width
         height: scrollDownButton.height
         onClicked: chatScrollView.positionViewAtBeginning ()
+        anchors.fill: scrollDownButton
+        z: 15
+    }
+    Rectangle {
+        id: scrollDownButton
+        width: parent.width
         anchors.bottom: chatInput.top
-        anchors.right: parent.right
-        anchors.margins: units.gu(2)
-        z: 10
-        Rectangle {
-            id: scrollDownButton
-            width: units.gu(6)
+        anchors.left: parent.left
+        height: units.gu(3)
+        opacity: 0.75
+        color: "black"
+        z: 14
+        Icon {
+            name: "toolkit_chevron-down_1gu"
+            width: units.gu(2)
             height: width
-            opacity: 0.75
-            color: "#000000"
-            radius: units.gu(2)
-            Icon {
-                name: "toolkit_chevron-down_1gu"
-                width: parent.width * 0.75
-                height: parent.height * 0.75
-                anchors.centerIn: parent
-                color: "#FFFFFF"
-            }
-            visible: !chatScrollView.atYEnd
+            anchors.centerIn: parent
+            color: "#FFFFFF"
+            z: 14
         }
+        visible: !chatScrollView.atYEnd
     }
 
-    ChatScrollView { id: chatScrollView }
+    ChatScrollView {
+        id: chatScrollView
+    }
 
     Rectangle {
         id: chatInput
@@ -272,20 +296,26 @@ Page {
         }
 
 
-
-        Button {
-            id: joinButton
-            color: UbuntuColors.green
-            text: i18n.tr("Accept invitation")
-            anchors.centerIn: parent
-            visible: membership === "invite"
-            onClicked: {
-                loadingScreen.visible = true
-                matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, function () {
-                    events.waitForSync ()
-                    membership = "join"
-                })
+            Button {
+                id: joinButton
+                color: UbuntuColors.green
+                text: membership === "invite" ? i18n.tr("Accept invitation") : i18n.tr("Join")
+                anchors.centerIn: parent
+                visible: membership !== "join"
+                onClicked: {
+                    loadingScreen.visible = true
+                    matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, function () {
+                        events.waitForSync ()
+                        membership = "join"
+                    })
+                }
             }
+
+
+        Label {
+            text: i18n.tr("You are not allowed to send messages")
+            anchors.centerIn: parent
+            visible: !canSendMessages
         }
 
         Component {
@@ -302,8 +332,20 @@ Page {
             preferences.allowFileAccessFromFileUrls: true
             preferences.allowUniversalAccessFromFileUrls: true
             filePicker: pickerComponent
-            visible: membership === "join"
+            visible: membership === "join" && canSendMessages
+            alertDialog: Dialog {
+                title: i18n.tr("Error")
+                text: model.message
+                parent: QuickUtils.rootItem(this)
+                Button {
+                    text: i18n.tr("OK")
+                    onClicked: model.accept()
+                }
+                Component.onCompleted: show()
+            }
         }
+
+
 
         Timer {
             id: typingTimer
@@ -322,21 +364,28 @@ Page {
             width: parent.width - 2 * chatInputActionBar.width - units.gu(2)
             placeholderText: i18n.tr("Type something ...")
             Keys.onReturnPressed: sendButton.trigger ()
+            // If the user leaves the focus of the textfield: Send that he is no
+            // longer typing.
             onActiveFocusChanged: if ( !activeFocus ) sendTypingNotification ( activeFocus )
             onDisplayTextChanged: {
-                if ( displayText !== "" ) {
-                    sendTypingNotification ( true )
-                }
+                // A message must not start with white space
+                if ( displayText === " " ) text = ""
                 else {
-                    sendTypingNotification ( false )
+                    // Send typing notification true or false
+                    if ( displayText !== "" ) {
+                        sendTypingNotification ( true )
+                    }
+                    else {
+                        sendTypingNotification ( false )
+                    }
                 }
             }
-            visible: membership === "join"
+            visible: membership === "join" && canSendMessages
         }
 
         ActionBar {
             id: chatInputActionBar
-            visible: membership === "join"
+            visible: membership === "join" && canSendMessages
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: units.gu(0.5)

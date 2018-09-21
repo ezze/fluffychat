@@ -70,6 +70,63 @@ Item {
         xmlRequest ( "POST", data, "/client/r0/login", onLogged, error_callback, status_callback )
     }
 
+    function register ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback, status_callback ) {
+
+        settings.username = newUsername.toLowerCase()
+        settings.server = newServer.toLowerCase()
+        settings.deviceName = newDeviceName
+
+        var data = {
+            "initial_device_display_name": newDeviceName,
+            "username": newUsername,
+            "password": newPassword
+        }
+
+        var onLogged = function ( response ) {
+            console.log("REGISTERANSWER!!!!!!!!",JSON.stringify(response))
+            // The homeserver requires additional authentication information.
+            if ( response.flows ) {
+                var forwarded = false
+                for ( var i = 0; i < response.flows.length; i++ ) {
+
+                    // If there is m.login.dummy, just retry the registration with
+                    // the session id
+                    if ( response.flows[i].stages[0] === "m.login.dummy" ) {
+                        data.auth = {
+                            "type": response.flows[i].stages[0],
+                            "session": response.session
+                        }
+                        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError, status_callback )
+                        forwarded = true
+                        break
+                    }
+                }
+
+                // If there is no other choice, then the registration can not succeed
+                if ( !forwarded ) throw ("ERROR")
+            }
+
+            // The account has been registered.
+            else {
+                settings.token = response.access_token
+                settings.deviceID = response.device_id
+                settings.username = (response.user_id.substr(1)).split(":")[0]
+                settings.server = newServer.toLowerCase()
+                settings.deviceName = newDeviceName
+                settings.dbversion = storage.version
+                onlineStatus = true
+                events.init ()
+                if ( callback ) callback ( response )
+            }
+        }
+
+        var onError = function ( response ) {
+            if ( response.errcode !== "M_USER_IN_USE" ) settings.username = settings.server = settings.deviceName = undefined
+            if ( error_callback ) error_callback ( response )
+        }
+        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError, status_callback )
+    }
+
     function logout () {
         if ( events.syncRequest ) {
             events.abortSync = true
@@ -84,7 +141,7 @@ Item {
     function reset () {
         storage.drop ()
         onlineStatus = false
-        settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.displayname = settings.avatar_url = settings.since = undefined
+        settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.displayname = settings.requestedArchive = settings.avatar_url = settings.since = undefined
         mainStack.clear ()
         mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
     }
@@ -166,21 +223,6 @@ Item {
     }
 
 
-    // Accept all invitations automatically
-    function autoAcceptInvitations () {
-        console.log("Auto accept invitations ...")
-        storage.transaction ( "SELECT id FROM Chats WHERE membership='invite'", function ( rs ) {
-            console.log(JSON.stringify(rs.rows))
-            if ( rs.rows.length === 0 ) return
-            loadingScreen.visible = true
-            matrix.post("/client/r0/join/" + encodeURIComponent(rs.rows[0].id), null, function () {
-                events.waitForSync ()
-                if ( rs.rows.length > 1 ) autoAcceptInvitations ()
-            })
-        })
-    }
-
-
     Connections {
         target: Connectivity
         onOnlineChanged: if ( Connectivity.online ) resendAllMessages ()
@@ -229,23 +271,34 @@ Item {
         }
         var timer = new Timer()
 
-        var requestUrl = "https://" + settings.server + "/_matrix" + action + getData
+        // Is this a request for the matrix server or the identity server?
+        // This defaults to the matrix homeserver
+        var server = settings.server
+        if ( action.substring(0,10) === "/identity/" ) server = settings.id_server
+
+        // Build the request
+        var requestUrl = "https://" + server + "/_matrix" + action + getData
         var longPolling = (data != null && data.timeout)
+        var isSyncRequest = (action === "/client/r0/sync")
         http.open( type, requestUrl, true);
-        http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         http.timeout = defaultTimeout
-        if ( settings.token ) http.setRequestHeader('Authorization', 'Bearer ' + settings.token);
+        if ( !(server === settings.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+        if ( server === settings.server && settings.token ) http.setRequestHeader('Authorization', 'Bearer ' + settings.token);
         http.onreadystatechange = function() {
             if ( status_callback ) status_callback ( http.readyState )
             if (http.readyState === XMLHttpRequest.DONE) {
-                timer.stop ()
-                var index = activeRequests.indexOf(checksum);
-                activeRequests.splice( index, 1 )
-                if ( !longPolling ) progressBarRequests--
-                if ( progressBarRequests < 0 ) progressBarRequests = 0
                 try {
-                    var responseType = http.getResponseHeader("Content-Type")
+                    var index = activeRequests.indexOf(checksum);
+                    activeRequests.splice( index, 1 )
+                    if ( !longPolling ) progressBarRequests--
+                    if ( progressBarRequests < 0 ) progressBarRequests = 0
+
+                    if ( !timer.running ) throw( "Timeout" )
+                    timer.stop ()
+
                     if ( http.responseText === "" ) throw( "No connection to the homeserver 😕" )
+
+                    var responseType = http.getResponseHeader("Content-Type")
                     if ( responseType === "application/json" ) {
                         var response = JSON.parse(http.responseText)
                         if ( "errcode" in response ) throw response
@@ -256,7 +309,7 @@ Item {
                     }
                 }
                 catch ( error ) {
-                console.error("There was an error: When calling ", requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error/*, http.responseText*/)
+                if ( !isSyncRequest ) console.error("There was an error: When calling ", type, requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error, JSON.stringify(error))
                 if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                 if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                 if ( !error_callback && error === "offline" && settings.token ) {
@@ -279,14 +332,16 @@ Item {
     }
 
     // Make timeout working in qml
-
-    timer.interval = (longPolling || action == "/client/r0/sync") ? longPollingTimeout+2000 : defaultTimeout
+    timer.stop ()
+    timer.interval = (longPolling || isSyncRequest) ? longPollingTimeout*1.5 : defaultTimeout
     timer.repeat = false
     timer.triggered.connect(function () {
         if (http.readyState === XMLHttpRequest.OPENED) http.abort ()
     })
     timer.start();
-    http.send( JSON.stringify( postData ) );
+
+    // Send the request now
+    http.send( JSON.stringify( postData ) )
 
     return http
 }

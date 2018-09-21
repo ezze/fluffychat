@@ -9,12 +9,13 @@ Rectangle {
 
     id: toast
     anchors.bottom: parent.bottom
-    anchors.bottomMargin: units.gu(4)
+    anchors.margins: units.gu(2)
+    anchors.bottomMargin: units.gu(8)
     anchors.horizontalCenter: parent.horizontalCenter
     width: label.width + units.gu(2)
     height: label.height + units.gu(2)
     color: Qt.rgba(0,0,0,0.75)
-    radius: 30
+    radius: units.gu(0.5)
     visible: false
     z: 5
 
@@ -25,21 +26,33 @@ Rectangle {
 
     states: [
     State { when: stateVisible;
-        PropertyChanges {   target: toast; opacity: 1.0    }
+        PropertyChanges {   target: toast; opacity: 1.0;    }
     },
     State { when: !stateVisible;
-        PropertyChanges {   target: toast; opacity: 0.0    }
+        PropertyChanges {   target: toast; opacity: 0.0;    }
     }
     ]
     transitions: Transition {
-        NumberAnimation { property: "opacity"; duration: 500}
+        NumberAnimation { property: "opacity"; duration: 250}
     }
 
     function show ( str, time ) {
         if ( !time ) time = defaultTime
-        label.text = str
-        var maxWidth = mainStackWidth - units.gu(4)
+
+        var urlRegex = /(https?:\/\/[^\s]+)/g
+        var tempText = str || " "
+        if ( tempText === "" ) tempText = " "
+        tempText = tempText.replace ( "&#60;", "<" )
+        tempText = tempText.replace ( "&#62;", "<" )
+        tempText = tempText.replace(urlRegex, function(url) {
+            return '<a href="%1"><font color="#CCCCFF">%1</font></a>'.arg(url)
+        })
+
+        label.text = tempText
+
+        var maxWidth = mainStackWidth - units.gu(6)
         if ( label.width > maxWidth ) label.width = maxWidth
+
         visible = true
         stateVisible = true
         function Timer() {
@@ -56,11 +69,12 @@ Rectangle {
 
     Label {
         id: label
-        elide: Text.ElideMiddle
+        //elide: Text.ElideMiddle
         anchors.centerIn: parent
         text: ""
         color: "#FFFFFF"
         wrapMode: Text.Wrap
+        onLinkActivated: Qt.openUrlExternally(link)
     }
 
 }

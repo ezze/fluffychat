@@ -8,16 +8,11 @@ Component {
 
     Dialog {
         id: dialogue
-        title: i18n.tr("Invite a friend")
+        title: confirmDialogText
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
             color: settings.mainColor
-        }
-        TextField {
-            id: matrixidTextField
-            focus: true
-            placeholderText: i18n.tr("@yourfriend:%1").arg(defaultDomain)
         }
         Row {
             width: parent.width
@@ -29,12 +24,10 @@ Component {
             }
             Button {
                 width: (parent.width - units.gu(1)) / 2
-                text: i18n.tr("Invite")
+                text: i18n.tr("Yes")
                 color: UbuntuColors.green
                 onClicked: {
-                    console.log( matrixidTextField.displayText)
-                    matrix.post ( "/client/r0/rooms/%1/invite".arg(activeChat),
-                    { user_id: matrixidTextField.displayText} )
+                    confirmDialogFunction ()
                     PopupUtils.close(dialogue)
                 }
             }

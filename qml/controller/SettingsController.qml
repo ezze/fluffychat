@@ -14,6 +14,9 @@ Settings {
     // The server is the domain part of the matrix id
     property var server
 
+    // The ID server maps the emails and phone numbers to matrix IDs
+    property var id_server: defaultIDServer
+
     // The device ID is an unique identifier for this device
     property var deviceID
 
@@ -48,6 +51,10 @@ Settings {
     // Security & Privacy: Send typing notification?
     property var sendTypingNotification: true
 
-    // Auto accept invitations?
-    property var autoAcceptInvitations: true
+    // Are archived chats synchronized too?
+    property var requestedArchive: false
+
+    // The two country ISO name and phone code:
+    property var countryCode: "CN"
+    property var countryTel: "86"
 }

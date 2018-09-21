@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import "../components"
 
 ListView {
@@ -12,6 +13,9 @@ ListView {
     property var requesting: false
     property var initialized: -1
     property var count: model.count
+    property var unread: ""
+    property var lastEventId: ""
+    property var canRedact: false
 
     function update ( sync ) {
         storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, events.status, "+
@@ -32,35 +36,17 @@ ListView {
                 addEventToList ( event )
                 if ( event.matrix_id === null ) requestRoomMember ( event.sender )
             }
-        })
-    }
 
-
-    function requestRoomMember ( matrixid ) {
-        var localActiveChat = activeChat
-        matrix.get("/client/r0/rooms/%1/state/m.room.member/%3".arg(activeChat).arg(matrixid), null, function ( res ) {
-
-            // Save the new roommember event in the database
-            storage.query( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, ?, ?)",
-            [ localActiveChat,
-            matrixid,
-            res.membership,
-            res.displayname,
-            res.avatar_url ])
-
-            // Update the current view
-            for ( var i = 0; i < model.count; i++ ) {
-                var elem = model.get(i)
-                if ( elem.event.sender === matrixid ) {
-                    var tempEvent = elem.event
-                    tempEvent.matrix_id = matrixid
-                    tempEvent.displayname = res.displayname
-                    tempEvent.avatar_url = res.avatar_url
-                    var tempEvent = elem.event
-                    model.set ( j, { "event": tempEvent } )
+            // Scroll to last read event
+            if ( unread !== "" ) {
+                for ( var j = 0; j < count; j++ ) {
+                    if ( model.get ( j ).event.id === unread ) {
+                        currentIndex = j
+                        break
+                    }
                 }
             }
-        } )
+        })
     }
 
 
@@ -97,16 +83,17 @@ ListView {
 
     // This function writes the event in the chat. The event MUST have the format
     // of a database entry, described in the storage controller
-    function addEventToList ( event ) {header
+    function addEventToList ( event ) {
 
 
-            // If the previous message has the same sender and is a normal message
-            // then it is not necessary to show the user avatar again
-            event.sameSender = model.count > 0 &&
-            model.get(0).event.type === "m.room.message" &&
-            model.get(0).event.sender === event.sender
+        // If the previous message has the same sender and is a normal message
+        // then it is not necessary to show the user avatar again
+        event.sameSender = model.count > 0 &&
+        model.get(0).event.type === "m.room.message" &&
+        model.get(0).event.sender === event.sender
 
-            model.insert ( 0, { "event": event } )
+        model.insert ( 0, { "event": event } )
+        lastEventId = event.id
     }
 
 
@@ -114,6 +101,42 @@ ListView {
     // controller. It just has to format the event to the database format
     function handleNewEvent ( sync ) {
         update ()
+    }
+
+
+    ActionSelectionPopover {
+        id: contextualActions
+        property var contextEvent
+        z: 10
+        actions: ActionList {
+            Action {
+                text: i18n.tr("Copy text")
+                onTriggered: {
+                    mimeData.text = contextualActions.contextEvent.content.body
+                    Clipboard.push( mimeData )
+                    toast.show( i18n.tr("Text has been copied to the clipboard") )
+                }
+            }
+            Action {
+                text: i18n.tr("Redact message")
+                visible: canRedact
+                onTriggered: {
+                    matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
+                    .arg(activeChat)
+                    .arg(contextualActions.contextEvent.id)
+                    .arg(new Date().getTime()) )
+                }
+            }
+            Action {
+                text: i18n.tr("Cancel")
+                onTriggered: contextualActions.hide ()
+            }
+        }
+    }
+
+    MimeData {
+        id: mimeData
+        text: ""
     }
 
 

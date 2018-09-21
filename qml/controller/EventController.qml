@@ -31,6 +31,7 @@ Item {
     property var abortSync: false
 
     function init () {
+        if ( !Connectivity.online ) return
 
         // Set the pusher if it is not set
         if ( settings.pushToken !== pushtoken ) {
@@ -47,20 +48,22 @@ Item {
             waitForSync ()
             return sync ( 1 )
         }
-
         loadingScreen.visible = true
-        //toast.show ( i18n.tr("Synchronizing \n This can take a few minutes…") )
-        matrix.get ("/client/r0/sync", null,function ( response ) {
+
+        matrix.get( "/client/r0/sync", null, function ( response ) {
             if ( waitingForSync ) progressBarRequests--
-            matrix.onlineStatus = true
             handleEvents ( response )
-            sync ()
+            matrix.onlineStatus = true
+
+            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true}}" }, handleEvents )
+
+            if ( !abortSync ) sync ()
         }, init, null, longPollingTimeout )
     }
 
     function sync ( timeout ) {
 
-        if ( settings.token === null || settings.token === undefined ) return
+        if ( settings.token === null || settings.token === undefined || abortSync ) return
 
         var data = { "since": settings.since }
 
@@ -84,8 +87,7 @@ Item {
                 }
                 else {
                     if ( Connectivity && Connectivity.online ) restartSync ()
-                    else toast.show ( i18n.tr("You are offline 😕") )
-                    console.log ( "Synchronization error! Try to restart…" )
+                    else console.error ( i18n.tr("You are offline 😕") )
                 }
             }
         } );
@@ -93,10 +95,9 @@ Item {
 
 
     function restartSync () {
+        if ( !initialized ) return init()
         if ( syncRequest === null ) return
-        console.log("resync")
         if ( syncRequest ) {
-            console.log( "Stopping latest sync" )
             abortSync = true
             syncRequest.abort ()
             abortSync = false
@@ -142,16 +143,13 @@ Item {
                     //console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
                 }
             )
-            if ( settings.autoAcceptInvitations ) {
-                for ( var i in response.rooms.invite ) {
-                    matrix.autoAcceptInvitations ()
-                    break
-                }
-            }
         }
         catch ( e ) {
-            toast.show ( "CRITICAL ERROR:", e )
+            toast.show ( i18n.tr("😰 A critical error has occurred! Sorry, the connection to the server has ended! Please report this bug on: https://github.com/ChristianPauly/fluffychat/issues/new") )
             console.log ( e )
+            abortSync = true
+            syncRequest.abort ()
+            return
         }
     }
 
@@ -175,42 +173,35 @@ Item {
             // If the membership of the user is "leave" then the chat and all
             // events and user-memberships should be removed.
             // If not, it is "join" or "invite" and everything should be saved
-            if ( membership !== "leave" ) {
 
-                // Insert the chat into the database if not exists
-                transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
-                "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0) ")
-                // Update the notification counts and the limited timeline boolean
-                transaction.executeSql ( "UPDATE Chats SET " +
-                " highlight_count=" +
-                (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
-                ", notification_count=" +
-                (room.unread_notifications && room.unread_notifications.notification_count || 0) +
-                ", membership='" +
-                membership +
-                "', limitedTimeline=" +
-                (room.timeline ? (room.timeline.limited ? 1 : 0) : 0) +
-                " WHERE id='" + id + "' ")
+            // Insert the chat into the database if not exists
+            transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
+            "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
+            // Update the notification counts and the limited timeline boolean
+            transaction.executeSql ( "UPDATE Chats SET " +
+            " highlight_count=" +
+            (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
+            ", notification_count=" +
+            (room.unread_notifications && room.unread_notifications.notification_count || 0) +
+            ", membership='" +
+            membership +
+            "', limitedTimeline=" +
+            (room.timeline ? (room.timeline.limited ? 1 : 0) : 0) +
+            " WHERE id='" + id + "' ")
 
-                // Handle now all room events and save them in the database
-                if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
-                if ( room.invite_state ) handleRoomEvents ( id, room.invite_state.events, "invite_state", room )
-                if ( room.timeline ) {
-                    // Is the timeline limited? Then all previous messages should be
-                    // removed from the database!
-                    if ( room.timeline.limited ) {
-                        transaction.executeSql ("DELETE FROM Events WHERE chat_id='" + id + "'")
-                        transaction.executeSql ("UPDATE Chats SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
-                    }
-                    handleRoomEvents ( id, room.timeline.events, "timeline", room )
+            // Handle now all room events and save them in the database
+            if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
+            if ( room.invite_state ) handleRoomEvents ( id, room.invite_state.events, "invite_state", room )
+            if ( room.timeline ) {
+                // Is the timeline limited? Then all previous messages should be
+                // removed from the database!
+                if ( room.timeline.limited ) {
+                    transaction.executeSql ("DELETE FROM Events WHERE chat_id='" + id + "'")
+                    transaction.executeSql ("UPDATE Chats SET prev_batch='" + room.timeline.prev_batch + "' WHERE id='" + id + "'")
                 }
-                if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
+                handleRoomEvents ( id, room.timeline.events, "timeline", room )
             }
-            else {
-                transaction.executeSql ( "DELETE FROM Chats WHERE id='" + id + "'")
-                transaction.executeSql ( "DELETE FROM Memberships WHERE chat_id='" + id + "'")
-                transaction.executeSql ( "DELETE FROM Events WHERE chat_id='" + id + "'")
-            }
+            if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
         }
     }
 
@@ -232,7 +223,7 @@ Item {
 
 
     // Events are all changes in a room
-    function handleRoomEvents ( roomid, events, type, room ) {
+    function handleRoomEvents ( roomid, events, type ) {
 
         // We go through the events array
         for ( var i = 0; i < events.length; i++ ) {
@@ -242,6 +233,7 @@ Item {
             // Only this events will call the notification signal or change the
             // current displayed chat!
             if ( type === "timeline" || type === "history" ) {
+                var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
                 transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
                 roomid,
@@ -251,11 +243,16 @@ Item {
                 event.content.msgtype || null,
                 event.type,
                 JSON.stringify(event.content),
-                msg_status.RECEIVED ])
+                status ])
             }
 
-            // This event means, that the topic of a room has been changed, so
-            // it has to be changed in the database
+
+            // If this timeline only contain events from the history, from the past,
+            // then all other changes to the room are old and should not be saved.
+            if ( type === "history" ) continue
+
+            // This event means, that the name of a room has been changed, so
+            // it has to be changed in the database.
             if ( event.type === "m.room.name" ) {
                 transaction.executeSql( "UPDATE Chats SET topic=? WHERE id=?",
                 [ event.content.name,
@@ -269,6 +266,60 @@ Item {
                 }
             }
 
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.topic" ) {
+                transaction.executeSql( "UPDATE Chats SET description=? WHERE id=?",
+                [ event.content.topic || "",
+                roomid ])
+            }
+
+
+            // This event means, that the canonical alias of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.canonical_alias" ) {
+                transaction.executeSql( "UPDATE Chats SET canonical_alias=? WHERE id=?",
+                [ event.content.alias || "",
+                roomid ])
+            }
+
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.history_visibility" ) {
+                transaction.executeSql( "UPDATE Chats SET history_visibility=? WHERE id=?",
+                [ event.content.history_visibility,
+                roomid ])
+            }
+
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.redaction" ) {
+                transaction.executeSql( "DELETE FROM Events WHERE id=?",
+                [ event.redacts ])
+            }
+
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.guest_access" ) {
+                transaction.executeSql( "UPDATE Chats SET guest_access=? WHERE id=?",
+                [ event.content.guest_access,
+                roomid ])
+            }
+
+
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.join_rules" ) {
+                transaction.executeSql( "UPDATE Chats SET join_rules=? WHERE id=?",
+                [ event.content.join_rule,
+                roomid ])
+            }
+
+
             // This event means, that the avatar of a room has been changed, so
             // it has to be changed in the database
             else if ( event.type === "m.room.avatar" ) {
@@ -277,22 +328,71 @@ Item {
                 roomid ])
             }
 
+
+            // This event means, that the aliases of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.room.aliases" ) {
+                transaction.executeSql( "DELETE FROM Addresses WHERE chat_id='" + roomid + "'")
+                for ( var alias = 0; alias < event.content.aliases.length; alias++ ) {
+                    transaction.executeSql( "INSERT INTO Addresses VALUES(?,?)",
+                    [ roomid, event.content.aliases[alias] ] )
+                }
+            }
+
+
             // This event means, that someone joined the room, has left the room
             // or has changed his nickname
             else if ( event.type === "m.room.member" ) {
 
-                transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
+                if ( event.content.membership !== "leave" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
                 [ event.state_key,
                 event.content.displayname,
                 event.content.avatar_url ])
 
-                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', ?, ?)",
-                [ event.state_key,
-                event.content.membership ])
+                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, " +
+                "COALESCE(" +
+                "(SELECT power_level FROM Memberships WHERE chat_id='" + roomid + "' AND matrix_id='" + event.state_key + "'), " +
+                "(SELECT power_user_default FROM Chats WHERE id='" + roomid + "')" +
+                "))",
+                [ event.content.membership ])
 
                 if ( event.state_key === matrix.matrixid) {
                     settings.avatar_url = event.content.avatar_url
                     settings.displayname = event.content.displayname
+                }
+            }
+
+            // This event changes the permissions of the users and the power levels
+            else if ( event.type === "m.room.power_levels" ) {
+                var query = "UPDATE Chats SET "
+                if ( event.content.ban ) query += ", power_ban=" + event.content.ban
+                if ( event.content.events_default ) query += ", power_events_default=" + event.content.events_default
+                if ( event.content.state_default ) query += ", power_state_default=" + event.content.state_default
+                if ( event.content.redact ) query += ", power_redact=" + event.content.redact
+                if ( event.content.invite ) query += ", power_invite=" + event.content.invite
+                if ( event.content.kick ) query += ", power_kick=" + event.content.kick
+                if ( event.content.user_default ) query += ", power_user_default=" + event.content.user_default
+                if ( event.content.events ) {
+                    if ( event.content.events["m.room.avatar"] ) query += ", power_event_avatar=" + event.content.events["m.room.avatar"]
+                    if ( event.content.events["m.room.history_visibility"] ) query += ", power_event_history_visibility=" + event.content.events["m.room.history_visibility"]
+                    if ( event.content.events["m.room.canonical_alias"] ) query += ", power_event_canonical_alias=" + event.content.events["m.room.canonical_alias"]
+                    if ( event.content.events["m.room.aliases"] ) query += ", power_event_aliases=" + event.content.events["m.room.aliases"]
+                    if ( event.content.events["m.room.name"] ) query += ", power_event_name=" + event.content.events["m.room.name"]
+                    if ( event.content.events["m.room.power_levels"] ) query += ", power_event_power_levels=" + event.content.events["m.room.power_levels"]
+                }
+                if ( query !== "UPDATE Chats SET ") {
+                    query = query.replace(",","")
+                    transaction.executeSql( query + " WHERE id=?",[ roomid ])
+                }
+
+                // Set the users power levels:
+                if ( event.content.users ) {
+                    for ( var user in event.content.users ) {
+                        transaction.executeSql( "UPDATE Memberships SET power_level=? WHERE matrix_id=? AND chat_id=?",
+                        [ event.content.users[user],
+                        user,
+                        roomid ])
+                    }
                 }
             }
         }

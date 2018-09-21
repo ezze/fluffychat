@@ -9,6 +9,7 @@ ListItem {
     height: layout.height
 
     property var target
+    property var thisDevice: target.pushkey === pushtoken
 
     onClicked: {
         currentTarget = target
@@ -18,8 +19,10 @@ ListItem {
     ListItemLayout {
         id: layout
         width: parent.width
-        title.text: target.device_display_name || device.device_id
+        title.text: (target.device_display_name || device.device_id) + (thisDevice ? (" (" + i18n.tr("This device") + ")") : "")
         subtitle.text: target.app_display_name
+        title.font.bold: thisDevice
+
         Icon {
             width: units.gu(4)
             height: units.gu(4)

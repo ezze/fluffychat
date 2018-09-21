@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import QtGraphicalEffects 1.0
+import Ubuntu.Components.Popups 1.3
 import "../components"
 
 ListItem {
@@ -36,6 +37,10 @@ ListItem {
             SlotsLayout.position: SlotsLayout.Leading
             name: room.topic || room.id
             mxc: room.avatar_url || ""
+            onClickFunction: function () {
+                activeChat = room.id
+                mainStack.push (Qt.resolvedUrl("../pages/ChatSettingsPage.qml"))
+            }
         }
 
         Component.onCompleted: {
@@ -121,16 +126,31 @@ ListItem {
     }
 
 
-    // Delete Button
-    leadingActions: ListItemActions {
+    // Notification-settings Button
+    trailingActions: ListItemActions {
         actions: [
         Action {
-            iconName: "info"
+            iconName: "notification"
             onTriggered: {
                 activeChat = room.id
-                mainStack.push (Qt.resolvedUrl("../pages/ChatSettingsPage.qml"))
+                mainStack.push (Qt.resolvedUrl("../pages/NotificationChatSettingsPage.qml"))
             }
         }
         ]
     }
+
+    // Delete Button
+    leadingActions: ListItemActions {
+        actions: [
+        Action {
+            iconName: "edit-delete"
+            onTriggered: {
+                activeChat = room.id
+                PopupUtils.open(leaveChatDialog)
+            }
+        }
+        ]
+    }
+
+
 }

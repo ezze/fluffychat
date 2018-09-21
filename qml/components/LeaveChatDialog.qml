@@ -35,7 +35,14 @@ Component {
                     var events_local = events
                     var mainStack_local = mainStack
                     PopupUtils.close(dialogue)
-                    matrix.post("/client/r0/rooms/" + activeChat + "/leave", null, function () {
+                    if ( mainStack.depth > 1 && membership === "leave" ) {
+                        storage.transaction ( "DELETE FROM Memberships WHERE chat_id='" + activeChat + "'" )
+                        storage.transaction ( "DELETE FROM Events WHERE chat_id='" + activeChat + "'" )
+                        storage.transaction ( "DELETE FROM Chats WHERE id='" + activeChat + "'", update )
+                        matrix.post("/client/r0/rooms/" + activeChat + "/forget", null)
+                        mainStack.toStart()
+                    }
+                    else matrix.post("/client/r0/rooms/" + activeChat + "/leave", null, function () {
                         events_local.waitForSync ()
                         mainStack_local.toStart()
                     })

@@ -1,5 +1,6 @@
 {
     "policy_groups": [
+        "contacts",
         "networking",
         "audio",
         "video",

@@ -10,15 +10,13 @@ Page {
     property var loginDomain: ""
 
     function login () {
-        loginButton.enabled = false
+        loginAction.enabled = false
         var username = loginTextField.displayText
-        var password = passwordTextField.text
-        // Check if the Textfields are filled
-        if ( username === "" || password === "" ) {
-            loginButton.enabled = true
-            loginStatus.text = i18n.tr("Please fill all textfields")
-            return
-        }
+
+        // Step 1: Generate a new password
+        generated_password = password_generator ( 12 )
+        console.log("Generated password:", generated_password)
+
         // Transforming the username:
         // If it is a normal username, then use the current domain
         // If it is a matrix-id, then get the infos from this form:
@@ -29,46 +27,120 @@ Page {
             loginDomain = usernameSplitted [1]
         }
 
-        // If the login is successfull
-        var success_callback = function ( response ) {
-            loginButton.enabled = true
-            // Go to the ChatListPage
-            mainStack.clear ()
+        // Step 2: If there is no phone number, then try to register the username
+        if ( phoneTextField.displayText === "" ) register ( username )
+
+        // Step 3: Try to get the username via the phone number and login
+        else {
+            // Transform the phone number
+            var phoneInput = phoneTextField.displayText.replace(/\D/g,'')
+            if ( phoneInput.charAt(0) === 0 ) phoneInput = phoneInput.substr(1)
+            phoneInput = settings.countryTel + phoneInput
+            console.log("FORMATTED PHONENUMBER:",phoneInput)
+
+            // Step 3.1: Look for this phone number
+            matrix.get ("/identity/api/v1/lookup", {
+                "medium": "msisdn",
+                "address": phoneInput
+            }, function ( response ) {
+                console.log(JSON.stringify(response))
+
+                // Step 3.2: There is a registered matrix id. Go to the password input...
+                if ( response.mxid ) {
+                    var splittedMxid = response.mxid.substr(1).split ( ":" )
+                    settings.username = splittedMxid[0]
+                    settings.server = splittedMxid[1]
+                    mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
+                }
+                // Step 3.3: There is no registered matrix id. Try to register one...
+                else {
+                    desiredPhoneNumber = phoneInput
+                    register ( username )
+                }
+            })
+        }
+        loginAction.enabled = loginTextField.displayText !== "" && loginTextField.displayText !== " "
+    }
+
+    function register ( username ) {
+        matrix.register ( username, generated_password, (loginDomain || defaultDomain), "UbuntuPhone", function () {
+            mainStack.pop()
             if ( tabletMode ) mainStack.push(Qt.resolvedUrl("./BlankPage.qml"))
             else mainStack.push(Qt.resolvedUrl("./ChatListPage.qml"))
-        }
-
-        // If error
-        var error_callback = function ( error ) {
-            loginButton.enabled = true
-            if ( error.errcode == "M_FORBIDDEN" ) {
-                loginStatus.text = i18n.tr("Invalid username or password")
+            mainStack.push(Qt.resolvedUrl("./PasswordCreationPage.qml"))
+        }, function (error) {
+            if ( error.errcode === "M_USER_IN_USE" ) {
+                mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
             }
-            else {
-                loginStatus.text = i18n.tr("No connection to ") + loginDomain
-            }
-        }
+            else if ( error.errcode === "M_INVALID_USERNAME" ) toast.show ( i18n.tr("The desired user ID is not a valid user name") )
+            else if ( error.errcode === "M_EXCLUSIVE" ) toast.show ( i18n.tr("The desired user ID is in the exclusive namespace claimed by an application service") )
+            else toast.show ( i18n.tr("Registration on %1 failed...").arg((loginDomain || defaultDomain)) )
+        } )
+    }
 
-        // Start the request
-        matrix.login ( username, password, (loginDomain || defaultDomain), "UbuntuPhone", success_callback, error_callback )
+    function password_generator( len ) {
+        var length = len;
+        var string = "abcdefghijklmnopqrstuvwxyz"; //to upper
+        var numeric = '0123456789';
+        var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+        var password = "";
+        var character = "";
+        var crunch = true;
+        while( password.length<length ) {
+            var entity1 = Math.ceil(string.length * Math.random()*Math.random());
+            var entity2 = Math.ceil(numeric.length * Math.random()*Math.random());
+            var entity3 = Math.ceil(punctuation.length * Math.random()*Math.random());
+            var hold = string.charAt( entity1 );
+            hold = (password.length%2==0)?(hold.toUpperCase()):(hold);
+            character += hold;
+            character += numeric.charAt( entity2 );
+            character += punctuation.charAt( entity3 );
+            password = character;
+        }
+        password=password.split('').sort(function(){return 0.5-Math.random()}).join('');
+        return password.substr(0,len);
     }
 
 
     header: FcPageHeader {
         title: i18n.tr('Welcome to FluffyChat')
 
+        leadingActionBar {
+            numberOfSlots: 1
+            actions: [
+
+            Action {
+                iconName: "sync-idle"
+                text: i18n.tr("Change homeserver")
+                onTriggered: PopupUtils.open(changeHomeserverDialog)
+            },
+            Action {
+                iconName: "hotspot-connected"
+                text: i18n.tr("Change ID-server")
+                onTriggered: PopupUtils.open(changeIdentityserverDialog)
+            },
+            Action {
+                iconName: "display-brightness-max"
+                text: i18n.tr("Toggle dark mode")
+                onTriggered: settings.darkmode = !settings.darkmode
+            }
+            ]
+        }
+
         trailingActionBar {
             actions: [
             Action {
-                iconName: "settings"
-                onTriggered: PopupUtils.open(dialog)
+                id: loginAction
+                iconName: "ok"
+                onTriggered: login()
+                enabled: loginTextField.displayText !== "" && loginTextField.displayText !== " "
             }
             ]
         }
     }
 
     Component {
-        id: dialog
+        id: changeHomeserverDialog
         Dialog {
             id: dialogue
             title: i18n.tr("Choose your homeserver")
@@ -76,6 +148,7 @@ Page {
                 id: homeserverInput
                 placeholderText: defaultDomain
                 text: loginDomain
+                focus: true
             }
             Button {
                 text: "OK"
@@ -87,60 +160,86 @@ Page {
         }
     }
 
-    Column {
-        id: loginColumn
-        anchors.centerIn: parent
-        width: parent.width
-        spacing: loginStatus.height
-        Label {
-            id: loginStatus
-            text: i18n.tr("What's your name?")
-            textSize: Label.Large
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-        TextField {
-            id: loginTextField
-            placeholderText: i18n.tr("Username")
-            anchors.horizontalCenter: parent.horizontalCenter
-            Keys.onReturnPressed: passwordTextField.focus = true
-        }
-
-        TextField {
-            id: passwordTextField
-            placeholderText: i18n.tr("Password")
-            echoMode: TextInput.Password
-            anchors.horizontalCenter: parent.horizontalCenter
-            Keys.onReturnPressed: login ()
-        }
-
-        Row {
-            anchors.horizontalCenter: parent.horizontalCenter
-            spacing: units.gu("2")
-            Button {
-                id: loginButton
-                text: i18n.tr("Sign in")
-                color: UbuntuColors.green
-                onClicked: login ()
-                enabled: loginTextField.displayText !== "" && passwordTextField.displayText !== ""
+    Component {
+        id: changeIdentityserverDialog
+        Dialog {
+            id: dialogue
+            title: i18n.tr("Choose your identity server")
+            TextField {
+                id: identityserverInput
+                placeholderText: defaultIDServer
+                text: settings.id_server === defaultIDServer ? "" : settings.id_server
+                focus: true
             }
             Button {
-                id: registerButton
-                text: i18n.tr("Sign up")
-                onClicked: Qt.openUrlExternally( "https://" + (loginDomain || defaultDomain) + "/_matrix/client/#/register")
+                text: "OK"
+                onClicked: {
+                    settings.id_server = identityserverInput.displayText.toLowerCase()
+                    PopupUtils.close(dialogue)
+                }
             }
         }
-
-
     }
 
-    Label {
-        text: i18n.tr("Using the homeserver: ") + "<b>" + (loginDomain || defaultDomain) + "</b>"
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: height
-    }
+    property var elemWidth: Math.min( parent.width - units.gu(4), units.gu(50))
 
+    ScrollView {
+        id: scrollView
+        width: root.width
+        height: parent.height - header.height
+        anchors.top: header.bottom
+        contentItem: Column {
+            width: root.width
+            spacing: units.gu(2)
+
+            Icon {
+                id: banner
+                source: "../../assets/fluffychat-banner.png"
+                color: settings.mainColor
+                width: root.width
+                height: width * 2/5
+            }
+            Row {
+                anchors.horizontalCenter: parent.horizontalCenter
+                Button {
+                    color: UbuntuColors.green
+                    width: units.gu(8)
+                    text: settings.countryCode + " +%1".arg(settings.countryTel)
+                    onClicked: {
+                        var item = Qt.createComponent("../components/CountryPicker.qml")
+                        item.createObject(mainStack.currentPage, { })
+                    }
+                }
+                TextField {
+                    id: phoneTextField
+                    placeholderText: i18n.tr("Phone number (optional)")
+                    Keys.onReturnPressed: loginTextField.focus = true
+                    inputMethodHints: Qt.ImhDigitsOnly
+                    width: elemWidth - units.gu(8)
+                }
+            }
+            TextField {
+                anchors.horizontalCenter: parent.horizontalCenter
+                id: loginTextField
+                placeholderText: i18n.tr("Username")
+                Keys.onReturnPressed: login()
+                width: elemWidth
+            }
+
+            Rectangle {
+                width: parent.width
+                color: theme.palette.normal.background
+                height: Math.max(scrollView.height - banner.height - 2 * loginTextField.height - 2 * serverLabel.height - units.gu(8),0)
+            }
+
+            Label {
+                id: serverLabel
+                text: i18n.tr("Using the homeserver: ") + "<b>" + (loginDomain || defaultDomain) + "</b>"
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+        }
+    }
 
 
 }

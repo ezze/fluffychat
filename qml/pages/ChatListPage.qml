@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Page {
@@ -51,6 +52,7 @@ Page {
         // "join" and "invite" are just handled the same, and "leave" is very
         // near to this
         for ( var type in sync.rooms ) {
+            if ( type === "leave" ) continue
             for ( var id in sync.rooms[type] ) {
                 var room = sync.rooms[type][id]
 
@@ -107,7 +109,9 @@ Page {
                     tempRoom.type = lastEvent.type
                 }
 
-                var allEvents = room.timeline.events.concat( room.state.events)
+                var allEvents = []
+                if ( room.timeline ) allEvents = allEvents.concat( room.timeline.events)
+                if ( room.state ) allEvents = allEvents.concat( room.state.events)
 
                 // Search for new room avatar or topic
                 for ( var n = 0; n < allEvents.length; n++ ) {
@@ -225,11 +229,14 @@ Page {
     }
 
 
+    LeaveChatDialog { id: leaveChatDialog }
+
 
     TextField {
         id: searchField
         objectName: "searchField"
         visible: searching
+        z: 5
         anchors {
             top: header.bottom
             topMargin: units.gu(1)

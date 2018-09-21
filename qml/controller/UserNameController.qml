@@ -7,11 +7,11 @@ from a userid address, such like: "#alice@matrix.org"
 */
 
 Item {
-    
+
     function getById ( matrixid, roomid, callback ) {
         var username = transformFromId( matrixid )
         storage.transaction ( "SELECT displayname FROM Users WHERE matrix_id='" + matrixid + "'", function(rs) {
-            if ( rs.rows.length > 0 ) username = rs.rows[0].displayname
+            if ( rs.rows.length > 0 && rs.rows[0].displayname !== null ) username = rs.rows[0].displayname
             if ( callback ) callback ( username )
         })
         return username
@@ -39,5 +39,17 @@ Item {
             return i18n.tr("⌨️ %1 and %2 more are typing…").arg( username ).arg( user_ids.length-1 )
         }
         else return ""
+    }
+
+    function powerlevelToStatus ( power_level ) {
+        if ( power_level < 50 ) return i18n.tr('Members')
+        else if ( power_level < 100 ) return i18n.tr('Guards')
+        else return i18n.tr('Owners')
+    }
+
+    function showUserSettings ( matrix_id ) {
+        activeUser = matrix_id
+        var item = Qt.createComponent("../components/UserSettingsViewer.qml")
+        item.createObject(mainStack.currentPage, { })
     }
 }

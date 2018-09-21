@@ -15,8 +15,8 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.2.0"
-    property var db: LocalStorage.openDatabaseSync("FLuffyChat", "1.0", "FluffyChat Database", 1000000)
+    property var version: "0.3.0a"
+    property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
     // Shortener for the sqlite transactions
@@ -51,7 +51,7 @@ Item {
         // Check the database version number
         if ( settings.dbversion !== version ) {
             console.log ("Drop database cause old version")
-            settings.since = undefined
+            settings.since = settings.requestedArchive = undefined
             // Drop all databases and recreate them
             drop ()
             settings.dbversion = version
@@ -70,6 +70,8 @@ Item {
         transaction('DROP TABLE IF EXISTS Users')
         transaction('DROP TABLE IF EXISTS Memberships')
         transaction('DROP TABLE IF EXISTS Contacts')
+        transaction('DROP TABLE IF EXISTS Addresses')
+        transaction('DROP TABLE IF EXISTS ThirdPIDs')
 
         // TABLE SCHEMA FOR CHATS
         transaction('CREATE TABLE Chats(' +
@@ -82,7 +84,32 @@ Item {
         'prev_batch TEXT, ' +
         'avatar_url TEXT, ' +
         'draft TEXT, ' +
-        'unread INTEGER, ' +
+        'unread TEXT, ' +        // The event id of the last seen event
+        'description TEXT, ' +
+        'canonical_alias TEXT, ' +  // The address in the form: #roomname:homeserver.org
+
+        // Security rules
+        'guest_access TEXT, ' +
+        'history_visibility TEXT, ' +
+        'join_rules TEXT, ' +
+
+        // Power levels
+        'power_events_default INTEGER, ' +
+        'power_state_default INTEGER, ' +
+        'power_redact INTEGER, ' +
+        'power_invite INTEGER, ' +
+        'power_ban INTEGER, ' +
+        'power_kick INTEGER, ' +
+        'power_user_default INTEGER, ' +
+
+        // Power levels for events
+        'power_event_avatar INTEGER, ' +
+        'power_event_history_visibility INTEGER, ' +
+        'power_event_canonical_alias INTEGER, ' +
+        'power_event_aliases INTEGER, ' +
+        'power_event_name INTEGER, ' +
+        'power_event_power_levels INTEGER, ' +
+
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR EVENTS
@@ -110,13 +137,26 @@ Item {
         'chat_id TEXT, ' +      // The chat id of this membership
         'matrix_id TEXT, ' +    // The matrix id of this user
         'membership TEXT, ' +   // The status of the membership. Must be one of [join, invite, ban, leave]
+        'power_level INTEGER, ' +   // The power level of this user. Must be in [0,..,100]
         'UNIQUE(chat_id, matrix_id))')
 
         // TABLE SCHEMA FOR CONTACTS
         transaction('CREATE TABLE Contacts(' +
+        'medium TEXT, ' +       // The medium this contact is identified by
+        'address TEXT, ' +      // The email or phone number of this user if exists
         'matrix_id TEXT, ' +    // The matrix id of this user
-        'phone_number TEXT, ' + // The phone number of this user if exists
-        'email TEXT, ' +        // The email of this user if exists
         'UNIQUE(matrix_id))')
+
+        // TABLE SCHEMA FOR CHAT ADDRESSES
+        transaction('CREATE TABLE Addresses(' +
+        'chat_id TEXT, ' +    // The correct chat id in the form: !hashstring:homeserver.org
+        'address TEXT, ' + // The address in the form: #roomname:homeserver.org
+        'UNIQUE(chat_id, address))')
+
+        // TABLE SCHEMA FOR CHAT ADDRESSES
+        transaction('CREATE TABLE ThirdPIDs(' +
+        'medium TEXT, ' +    // Should be "email" or "msisdn"
+        'address TEXT, ' + // The email address or phone number
+        'UNIQUE(medium, address))')
     }
 }

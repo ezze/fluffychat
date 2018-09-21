@@ -23,7 +23,7 @@ Item {
     id: root
 
     property var importDialog: null
-    property var contentType: ContentHub.ContentType.All
+    property var contentType: ContentHub.ContentType.Pictures
 
     signal mediaReceived(string mediaUrl)
 
