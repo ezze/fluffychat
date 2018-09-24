@@ -205,6 +205,7 @@ Rectangle {
                     text: isStateEvent ? displayEvents.getDisplay ( event ) + " <font color='" + UbuntuColors.silk + "'>" + stamp.getChatTime ( event.origin_server_ts ) + "</font>" :  event.content_body || event.content.body
                     color: (sent || isStateEvent) ? "black" : "white"
                     wrapMode: Text.Wrap
+                    textFormat: Text.StyledText
                     textSize: isStateEvent ? Label.XSmall : Label.Medium
                     anchors.left: parent.left
                     anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
