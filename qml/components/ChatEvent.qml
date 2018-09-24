@@ -116,7 +116,7 @@ Rectangle {
                     anchors.leftMargin: units.gu(1)
                     spacing: units.gu(1)
                     width: visible ? undefined : 0
-                    height: units.gu(6)
+                    height: visible * units.gu(6)
 
                     Button {
                         id: playButton
