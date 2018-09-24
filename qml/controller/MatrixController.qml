@@ -146,12 +146,19 @@ Item {
         mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
     }
 
-
     // This function helps to send a message. It automatically repeats, if there
     // was an error with the connection.
     function sendMessage ( messageID, data, chat_id, callback ) {
         console.log("try now…",messageID)
         if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
+
+        // Format emojionly bodys:
+        if ( data.body.length === 2 &&
+            /([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD5D])/g.test( data.body )
+        ) {
+            data.body = "<font size='1'>%1</font>".arg( data.body )
+        }
+
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/m.room.message/" + messageID, data, function ( response ) {
             storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
                 if ( res.rows.length > 0 ) {
@@ -309,71 +316,71 @@ Item {
                     }
                 }
                 catch ( error ) {
-                if ( !isSyncRequest ) console.error("There was an error: When calling ", type, requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error, JSON.stringify(error))
-                if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
-                if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
-                if ( !error_callback && error === "offline" && settings.token ) {
-                    onlineStatus = false
-                    toast.show (i18n.tr("No connection to the homeserver 😕"))
+                    if ( !isSyncRequest ) console.error("There was an error: When calling ", type, requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error, JSON.stringify(error))
+                    if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
+                    if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
+                    if ( !error_callback && error === "offline" && settings.token ) {
+                        onlineStatus = false
+                        toast.show (i18n.tr("No connection to the homeserver 😕"))
+                    }
+                    else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
+                        var url = "https://" + error.error.split("https://")[1]
+                        url = url.substring(0, url.length - 1);
+                        console.log("Die url ist: '" + url + "'")
+                        Qt.openUrlExternally( url )
+                    }
+                    else if ( error_callback ) error_callback ( error )
+                    else if ( error.errcode !== undefined && error.error !== undefined ) toast.show ( error.errcode + ": " + error.error )
                 }
-                else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
-                    var url = "https://" + error.error.split("https://")[1]
-                    url = url.substring(0, url.length - 1);
-                    console.log("Die url ist: '" + url + "'")
-                    Qt.openUrlExternally( url )
-                }
-                else if ( error_callback ) error_callback ( error )
-                else if ( error.errcode !== undefined && error.error !== undefined ) toast.show ( error.errcode + ": " + error.error )
             }
         }
+        if ( !longPolling ) {
+            progressBarRequests++
+        }
+
+        // Make timeout working in qml
+        timer.stop ()
+        timer.interval = (longPolling || isSyncRequest) ? longPollingTimeout*1.5 : defaultTimeout
+        timer.repeat = false
+        timer.triggered.connect(function () {
+            if (http.readyState === XMLHttpRequest.OPENED) http.abort ()
+        })
+        timer.start();
+
+        // Send the request now
+        http.send( JSON.stringify( postData ) )
+
+        return http
     }
-    if ( !longPolling ) {
-        progressBarRequests++
+
+
+    function upload ( path, callback, error_callback ) {
+        console.log("Uploading ...", path)
+        var pathparts = path.split("/")
+        var filename = pathparts [ pathparts.length - 1 ]
+        var type = filename.split(".")[1]
+
+        // Send the blob to the server
+        var requestUrl = "https://" + settings.server + "/_matrix/media/r0/upload?filename=" + filename
+        //Fluffychat.upload ( path, requestUrl, 'Bearer ' + settings.token )
+        callback ( "Ready ..." )
     }
 
-    // Make timeout working in qml
-    timer.stop ()
-    timer.interval = (longPolling || isSyncRequest) ? longPollingTimeout*1.5 : defaultTimeout
-    timer.repeat = false
-    timer.triggered.connect(function () {
-        if (http.readyState === XMLHttpRequest.OPENED) http.abort ()
-    })
-    timer.start();
 
-    // Send the request now
-    http.send( JSON.stringify( postData ) )
+    function getThumbnailFromMxc ( mxc, width, height ) {
+        if ( mxc === undefined ) return ""
 
-    return http
-}
-
-
-function upload ( path, callback, error_callback ) {
-    console.log("Uploading ...", path)
-    var pathparts = path.split("/")
-    var filename = pathparts [ pathparts.length - 1 ]
-    var type = filename.split(".")[1]
-
-    // Send the blob to the server
-    var requestUrl = "https://" + settings.server + "/_matrix/media/r0/upload?filename=" + filename
-    //Fluffychat.upload ( path, requestUrl, 'Bearer ' + settings.token )
-    callback ( "Ready ..." )
-}
-
-
-function getThumbnailFromMxc ( mxc, width, height ) {
-    if ( mxc === undefined ) return ""
-
-    var mxcID = mxc.replace("mxc://","")
-    return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxcID + "/?width=" + width + "&height=" + height + "&method=crop"
-}
+        var mxcID = mxc.replace("mxc://","")
+        return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxcID + "/?width=" + width + "&height=" + height + "&method=crop"
+    }
 
 
 
-function getImageLinkFromMxc ( mxc ) {
-    if ( mxc === undefined ) return ""
-    var mxcID = mxc.replace("mxc://","")
-    return "https://" + settings.server + "/_matrix/media/r0/download/" + mxcID + "/"
-}
+    function getImageLinkFromMxc ( mxc ) {
+        if ( mxc === undefined ) return ""
+        var mxcID = mxc.replace("mxc://","")
+        return "https://" + settings.server + "/_matrix/media/r0/download/" + mxcID + "/"
+    }
 
 
 

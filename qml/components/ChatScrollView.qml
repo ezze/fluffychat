@@ -18,6 +18,7 @@ ListView {
     property var canRedact: false
 
     function update ( sync ) {
+        console.log("======================UPDATE====================")
         storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, events.status, "+
         " members.matrix_id, members.displayname, members.avatar_url " +
         " FROM Events events, Users members " +

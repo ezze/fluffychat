@@ -222,8 +222,6 @@ Rectangle {
                             var urlRegex = /(https?:\/\/[^\s]+)/g
                             var tempText = text || " "
                             if ( tempText === "" ) tempText = " "
-                            tempText = text.replace ( "&#60;", "<" )
-                            tempText = text.replace ( "&#62;", "<" )
                             tempText = text.replace(urlRegex, function(url) {
                                 return '<a href="%1"><font color="%2">%1</font></a>'.arg(url).arg(messageLabel.color)
                             })
