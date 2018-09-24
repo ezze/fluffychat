@@ -8,9 +8,9 @@ Rectangle {
     property bool stateVisible: false
 
     id: toast
-    anchors.bottom: parent.bottom
+    anchors.top: parent.top
     anchors.margins: units.gu(2)
-    anchors.bottomMargin: units.gu(8)
+    anchors.topMargin: units.gu(8)
     anchors.horizontalCenter: parent.horizontalCenter
     width: label.width + units.gu(2)
     height: label.height + units.gu(2)

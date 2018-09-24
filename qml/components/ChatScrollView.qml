@@ -127,10 +127,6 @@ ListView {
                     .arg(new Date().getTime()) )
                 }
             }
-            Action {
-                text: i18n.tr("Cancel")
-                onTriggered: contextualActions.hide ()
-            }
         }
     }
 

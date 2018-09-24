@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 13:15+0000\n"
+"POT-Creation-Date: 2018-09-24 12:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -284,7 +284,6 @@ msgstr ""
 #: ../qml/components/AddAliasDialog.qml:27
 #: ../qml/components/EnterSMSTokenDialog.qml:28
 #: ../qml/components/JoinGroupDialog.qml:27
-#: ../qml/components/ChatScrollView.qml:131
 #: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
 #: ../qml/components/ChangeChatnameDialog.qml:43
@@ -480,12 +479,12 @@ msgstr ""
 msgid "Account: %1"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:337
+#: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:336
 #: ../qml/pages/ChatSettingsPage.qml:152
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:341
+#: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:340
 #: ../qml/pages/ChatSettingsPage.qml:156
 msgid "OK"
 msgstr ""
@@ -611,19 +610,19 @@ msgstr ""
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:302
+#: ../qml/pages/ChatPage.qml:301
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:302
+#: ../qml/pages/ChatPage.qml:301
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:316
+#: ../qml/pages/ChatPage.qml:315
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:365
+#: ../qml/pages/ChatPage.qml:364
 msgid "Type something ..."
 msgstr ""
 

@@ -261,16 +261,15 @@ Page {
         width: parent.width
         anchors.bottom: chatInput.top
         anchors.left: parent.left
-        height: units.gu(3)
-        opacity: 0.75
-        color: "black"
+        height: header.height - 2
+        opacity: 0.9
+        color: "white"
         z: 14
         Icon {
             name: "toolkit_chevron-down_1gu"
-            width: units.gu(2)
+            width: units.gu(2.5)
             height: width
             anchors.centerIn: parent
-            color: "#FFFFFF"
             z: 14
         }
         visible: !chatScrollView.atYEnd
