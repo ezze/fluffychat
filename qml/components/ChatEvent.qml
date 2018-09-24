@@ -81,13 +81,12 @@ Rectangle {
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
             height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
-            width: Math.max( messageLabel.opacity * messageLabel.width, metaLabelRow.width, thumbnail.width - units.gu(2), downloadButton.width, videoLink.width, audioPlayer.width ) + units.gu(2) - isStateEvent * units.gu(0.5)
+            width: contentColumn.width + units.gu(2)
 
             Column {
                 id: contentColumn
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: isStateEvent ? units.gu(0.75) : units.gu(1)
-                width: parent.width
 
                 MouseArea {
                     width: thumbnail.width
@@ -236,8 +235,9 @@ Rectangle {
                 Row {
                     id: metaLabelRow
                     anchors.left: sent ? undefined : parent.left
+                    anchors.leftMargin: units.gu(1)
                     anchors.right: sent ? parent.right : undefined
-                    anchors.margins: units.gu(1)
+                    anchors.rightMargin: -units.gu(1)
                     spacing: units.gu(0.25)
 
                     // This label is for the meta-informations, which means it displays the
