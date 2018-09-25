@@ -30,17 +30,10 @@ Rectangle {
     }
 
 
-    // When there something changes inside this message component, then this function
-    // must be triggered.
-    function update () {
-        metaLabel.text = (event.displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
-        avatar.mxc = event.avatar_url
-    }
-
     Avatar {
         id: avatar
-        mxc: event.avatar_url
-        name: event.displayname || event.sender
+        mxc: chatMembers[event.sender].avatar_url || ""
+        name: chatMembers[event.sender].displayname || event.sender
         anchors.left: isLeftSideEvent ? parent.left : undefined
         anchors.right: !isLeftSideEvent ? parent.right : undefined
         anchors.top: parent.top
@@ -243,7 +236,7 @@ Rectangle {
                     // display name of the sender of this message and the time.
                     Label {
                         id: metaLabel
-                        text: (event.displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
+                        text: (chatMembers[event.sender].displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
                         color: messageLabel.color
                         opacity: 0.66
                         textSize: Label.XSmall

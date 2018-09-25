@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 08:52+0000\n"
+"POT-Creation-Date: 2018-09-25 11:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,11 +193,11 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:171
+#: ../qml/controller/MatrixController.qml:174
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:317
+#: ../qml/controller/MatrixController.qml:320
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -397,11 +397,11 @@ msgstr ""
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:190
+#: ../qml/pages/ChatListPage.qml:189
 msgid "Search for chat names…"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:205
+#: ../qml/pages/ChatListPage.qml:204
 msgid "Swipe from below to start a chat"
 msgstr ""
 
@@ -451,7 +451,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:33
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:201
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:170
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:188
 msgid "Notifications"
@@ -479,12 +479,12 @@ msgstr ""
 msgid "Account: %1"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:336
+#: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:306
 #: ../qml/pages/ChatSettingsPage.qml:152
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:340
+#: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:310
 #: ../qml/pages/ChatSettingsPage.qml:156
 msgid "OK"
 msgstr ""
@@ -587,42 +587,42 @@ msgstr ""
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:182 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:151 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:189 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:158 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:195
+#: ../qml/pages/ChatPage.qml:164
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:207
+#: ../qml/pages/ChatPage.qml:176
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:246
+#: ../qml/pages/ChatPage.qml:215
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:301
+#: ../qml/pages/ChatPage.qml:271
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:301
+#: ../qml/pages/ChatPage.qml:271
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:315
+#: ../qml/pages/ChatPage.qml:285
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:364
+#: ../qml/pages/ChatPage.qml:334
 msgid "Type something ..."
 msgstr ""
 
@@ -968,7 +968,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:189
+#: ../qml/components/ChatEvent.qml:182
 msgid "Download file: "
 msgstr ""
 
@@ -1065,19 +1065,19 @@ msgstr ""
 msgid "#groupname:"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:55
+#: ../qml/components/ChatScrollView.qml:70
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:116
+#: ../qml/components/ChatScrollView.qml:173
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:120
+#: ../qml/components/ChatScrollView.qml:177
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:124
+#: ../qml/components/ChatScrollView.qml:181
 msgid "Redact message"
 msgstr ""
 

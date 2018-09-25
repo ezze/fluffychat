@@ -148,11 +148,14 @@ Item {
 
     // This function helps to send a message. It automatically repeats, if there
     // was an error with the connection.
-    function sendMessage ( messageID, data, chat_id, callback ) {
+    function sendMessage ( messageID, data, chat_id, success_callback ) {
+        var newMessageID = ""
+        var callback = function () { success_callback ( newMessageID ) }
         console.log("try now…",messageID)
         if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
 
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/m.room.message/" + messageID, data, function ( response ) {
+            newMessageID = response.event_id
             storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
                 if ( res.rows.length > 0 ) {
                     storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )

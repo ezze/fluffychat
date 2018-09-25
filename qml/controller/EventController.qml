@@ -238,10 +238,11 @@ Item {
             if ( events[i].type === "m.receipt" ) {
                 for ( var e in events[i].content ) {
                     for ( var user in events[i].content[e]["m.read"]) {
+                        if ( user === matrix.matrixid ) continue
                         var timestamp = events[i].content[e]["m.read"][user].ts
 
                         // Call the newEvent signal for updating the GUI
-                        newEvent ( events[i].type, id, "ephemeral", {} )
+                        newEvent ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
 
                         // Mark all previous received messages as seen
                         transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
@@ -270,7 +271,7 @@ Item {
             var event = events[i]
 
             // Call the newEvent signal for updating the GUI
-            newEvent ( event.type, roomid, type, event )
+            if ( type !== "history" ) newEvent ( event.type, roomid, type, event )
 
             // messages from the timeline will be saved, for display in the chat.
             // Only this events will call the notification signal or change the

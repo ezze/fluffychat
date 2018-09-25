@@ -14,17 +14,30 @@ ListView {
     property var initialized: -1
     property var count: model.count
     property var unread: ""
-    property var lastEventId: ""
     property var canRedact: false
+    property var chatMembers: []
+
+    function init () {
+        // Request all participants displaynames and avatars
+        storage.transaction ( "SELECT user.matrix_id, user.displayname, user.avatar_url " +
+        " FROM Memberships membership, Users user " +
+        " WHERE membership.chat_id='" + activeChat +
+        "' AND membership.matrix_id=user.matrix_id "
+        , function (memberResults) {
+            for ( var i = 0; i < memberResults.rows.length; i++ ) {
+                chatMembers[ memberResults.rows[i].matrix_id ] = memberResults.rows[i]
+            }
+            update ()
+        })
+    }
 
     function update ( sync ) {
         console.log("======================UPDATE====================")
-        storage.transaction ( "SELECT events.id, events.type, events.content_json, events.content_body, events.origin_server_ts, events.sender, events.status, "+
-        " members.matrix_id, members.displayname, members.avatar_url " +
-        " FROM Events events, Users members " +
-        " WHERE events.chat_id='" + activeChat +
-        "' AND members.matrix_id=events.sender " +
-        " ORDER BY events.origin_server_ts DESC"
+
+        storage.transaction ( "SELECT id, type, content_json, content_body, origin_server_ts, sender, status " +
+        " FROM Events " +
+        " WHERE chat_id='" + activeChat +
+        "' ORDER BY origin_server_ts DESC"
         , function (res) {
             // We now write the rooms in the column
             pushclient.clearPersistent ( activeChatDisplayName )
@@ -34,7 +47,7 @@ ListView {
             for ( var i = res.rows.length-1; i >= 0; i-- ) {
                 var event = res.rows.item(i)
                 event.content = JSON.parse( event.content_json )
-                addEventToList ( event )
+                addEventToList ( event, false )
                 if ( event.matrix_id === null ) requestRoomMember ( event.sender )
             }
 
@@ -52,6 +65,7 @@ ListView {
 
 
     function requestHistory () {
+        console.log("REQUESTING ...", requesting)
         if ( initialized !== model.count || requesting || (model.count > 0 && model.get( model.count -1 ).event.type === "m.room.create") ) return
         toast.show ( i18n.tr( "Get more messages from the server ...") )
         requesting = true
@@ -65,11 +79,11 @@ ListView {
             }
             matrix.get( "/client/r0/rooms/" + activeChat + "/messages", data, function ( result ) {
                 if ( result.chunk.length > 0 ) {
+                    for ( var i = 0; i < result.chunk.length; i++ ) addEventToList ( result.chunk[i], true )
                     storageController.db.transaction(
                         function(tx) {
                             events.transaction = tx
                             events.handleRoomEvents ( activeChat, result.chunk, "history" )
-                            update ()
                             requesting = false
                         }
                     )
@@ -84,24 +98,69 @@ ListView {
 
     // This function writes the event in the chat. The event MUST have the format
     // of a database entry, described in the storage controller
-    function addEventToList ( event ) {
+    function addEventToList ( event, history ) {
 
+        // Find the right position for this event
+        var j = history ? model.count-1 : 0
+        if ( history ) {
+            while ( j > 0 && event.origin_server_ts > model.get(j).event.origin_server_ts ) j--
+        }
+        else {
+            while ( j < model.count-1 && event.origin_server_ts < model.get(j+1).event.origin_server_ts ) j++
+        }
+
+        // Check that there is no duplication:
+        if ( model.count > j ) console.log(j, event.id, JSON.stringify(model.get(j).event) )
+        if ( model.count > j && event.id === model.get(j).event.id ) model.remove ( j )
 
         // If the previous message has the same sender and is a normal message
         // then it is not necessary to show the user avatar again
-        event.sameSender = model.count > 0 &&
-        model.get(0).event.type === "m.room.message" &&
-        model.get(0).event.sender === event.sender
+        event.sameSender = model.count >= j &&
+        model.count > 0 &&
+        model.get(j).event.type === "m.room.message" &&
+        model.get(j).event.sender === event.sender
 
-        model.insert ( 0, { "event": event } )
-        lastEventId = event.id
+        // Now reorder this item and insert it
+        model.insert ( j, { "event": event } )
+        initialized = model.count
+    }
+
+
+    function messageSent ( oldID, newID ) {
+        for ( var i = 0; i < model.count; i++ ) {
+            if ( model.get(i).event.id === oldID ) {
+                var tempEvent = model.get(i).event
+                tempEvent.id = newID
+                tempEvent.status = msg_status.SENT
+                model.remove ( i )
+                model.insert ( i, { "event": tempEvent } )
+                break
+            }
+        }
     }
 
 
     // This function handles new events, based on the signal from the event
     // controller. It just has to format the event to the database format
-    function handleNewEvent ( sync ) {
-        update ()
+    function handleNewEvent ( type, eventContent ) {
+        eventContent.id = eventContent.event_id
+        eventContent.status = msg_status.RECEIVED
+        addEventToList ( eventContent )
+    }
+
+
+    function markRead ( timestamp ) {
+        for ( var i = 0; i < model.count; i++ ) {
+            if ( model.get(i).event.sender === matrix.matrixid &&
+            model.get(i).event.origin_server_ts <= timestamp &&
+            model.get(i).event.status > msg_status.SENT ) {
+                var tempEvent = model.get(i).event
+                tempEvent.status = msg_status.SEEN
+                model.remove ( i )
+                model.insert ( i, { "event": tempEvent } )
+            }
+            else if ( model.get(i).event.status === msg_status.SEEN ) break
+        }
     }
 
 
