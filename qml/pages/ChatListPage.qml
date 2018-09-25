@@ -55,8 +55,8 @@ Page {
         }
 
         // Does the chat already exist in the list model?
-        if ( j === model.count ) {
-            j = 0
+        if ( j === model.count && membership !== "leave" ) {
+            var position = membership === "invite" ? 0 : j
             // Add the new chat to the list
             var newRoom = {
                 "id": chat_id,
@@ -66,7 +66,7 @@ Page {
                 "notification_count": notification_count,
                 "origin_server_ts": new Date().getTime()
             }
-            model.insert ( j, { "room": newRoom } )
+            model.insert ( position, { "room": newRoom } )
         }
         else {
             // If the membership is "leave" then remove the item and stop here

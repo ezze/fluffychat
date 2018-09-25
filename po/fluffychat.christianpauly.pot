@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 14:40+0000\n"
+"POT-Creation-Date: 2018-09-25 15:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -319,53 +319,53 @@ msgstr ""
 msgid "Password has been copied"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:75
+#: ../qml/pages/LoginPage.qml:74
 msgid "The desired user ID is not a valid user name"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:76
+#: ../qml/pages/LoginPage.qml:75
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:77
+#: ../qml/pages/LoginPage.qml:76
 msgid "Registration on %1 failed..."
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:106
+#: ../qml/pages/LoginPage.qml:105
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:114
+#: ../qml/pages/LoginPage.qml:113
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:119
+#: ../qml/pages/LoginPage.qml:118
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:124
+#: ../qml/pages/LoginPage.qml:123
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:146
+#: ../qml/pages/LoginPage.qml:145
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:167
+#: ../qml/pages/LoginPage.qml:166
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:215
+#: ../qml/pages/LoginPage.qml:214
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:224
+#: ../qml/pages/LoginPage.qml:223
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:237
+#: ../qml/pages/LoginPage.qml:236
 msgid "Using the homeserver: "
 msgstr ""
 

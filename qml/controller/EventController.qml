@@ -63,7 +63,7 @@ Item {
             handleEvents ( response )
             matrix.onlineStatus = true
 
-            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true}}" }, handleEvents )
+            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"not_types\":[\"m.room.member\"]}}}" }, handleEvents )
 
             if ( !abortSync ) sync ()
         }, init, null, longPollingTimeout )
