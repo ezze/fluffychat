@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 07:45+0000\n"
+"POT-Creation-Date: 2018-09-25 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -397,11 +397,11 @@ msgstr ""
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:250
+#: ../qml/pages/ChatListPage.qml:190
 msgid "Search for chat names…"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:265
+#: ../qml/pages/ChatListPage.qml:205
 msgid "Swipe from below to start a chat"
 msgstr ""
 
@@ -1065,19 +1065,19 @@ msgstr ""
 msgid "#groupname:"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:56
+#: ../qml/components/ChatScrollView.qml:55
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:114
+#: ../qml/components/ChatScrollView.qml:116
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:118
+#: ../qml/components/ChatScrollView.qml:120
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:122
+#: ../qml/components/ChatScrollView.qml:124
 msgid "Redact message"
 msgstr ""
 

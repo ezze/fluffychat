@@ -35,7 +35,7 @@ Item {
     /* Outside of the events there are updates for the global chat states which
      * are handled by this signal:
     */
-    signal newChatUpdate ( var chat_id, var isNew, var membership, var notification_count, var highlight_count, var limitedTimeline )
+    signal newChatUpdate ( var chat_id, var membership, var notification_count, var highlight_count, var limitedTimeline )
 
     property var syncRequest: null
     property var initialized: false
@@ -196,7 +196,6 @@ Item {
             // Insert the chat into the database if not exists
             var insertResult = transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
             "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
-            if ( insertResult.rowsAffected > 0 ) newChatUpdate ( id, true, membership, notification_count, highlight_count, limitedTimeline )
 
             // Update the notification counts and the limited timeline boolean
             var updateResult = transaction.executeSql ( "UPDATE Chats SET " +
@@ -210,9 +209,11 @@ Item {
             " OR membership!='" + membership +
             "' OR limitedTimeline!=" + limitedTimeline +
             ") ")
-            if ( updateResult.rowsAffected > 0 ) newChatUpdate ( id, false, membership, notification_count, highlight_count, limitedTimeline )
 
-
+            // Update the GUI
+            if ( updateResult.rowsAffected > 0 || insertResult.rowsAffected > 0 ) {
+                newChatUpdate ( id, membership, notification_count, highlight_count, limitedTimeline )
+            }
 
             // Handle now all room events and save them in the database
             if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )

@@ -46,30 +46,30 @@ Page {
     * - New message in the last-message-field ( Which needs reordering the chats )
     * - Update the counter of unseen messages
     */
-    function newChatUpdate ( chat_id, isNew, membership, notification_count, highlight_count, limitedTimeline ) {
-        //console.log("NEW CHAT UPDATE:", chat_id, isNew, membership, notification_count, highlight_count, limitedTimeline)
-        if ( isNew ) {
+    function newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline ) {
+        console.log("NEW CHAT UPDATE:", chat_id, membership, notification_count, highlight_count, limitedTimeline)
+        // Update the chat list item.
+        // Search the room in the model
+        var j = 0
+        for ( j = 0; j < model.count; j++ ) {
+            if ( model.get(j).room.id === chat_id ) break
+        }
+
+        // Does the chat already exist in the list model?
+        if ( j === model.count ) {
+            j = 0
             // Add the new chat to the list
             var newRoom = {
                 "id": chat_id,
                 "topic": "",
                 "membership": membership,
                 "highlight_count": highlight_count,
-                "notification_count": notification_count
+                "notification_count": notification_count,
+                "origin_server_ts": new Date().getTime()
             }
-            // Put new invitations to the top
-            if ( type === "invite" ) newRoom.origin_server_ts = new Date().getTime()
-            model.append ( { "room": newRoom } )
+            model.insert ( j, { "room": newRoom } )
         }
         else {
-
-            // Update the chat list item.
-            // Search the room in the model
-            var j = 0
-            for ( j = 0; j < model.count; j++ ) {
-                if ( model.get(j).room.id === chat_id ) break
-            }
-
             // If the membership is "leave" then remove the item and stop here
             if ( membership === "leave" ) return model.remove( j )
 
@@ -84,7 +84,6 @@ Page {
     }
 
     function newEvent ( type, chat_id, eventType, lastEvent ) {
-        //console.log( "NEW EVENT:",type, chat_id, eventType, lastEvent)
         // Is the event necessary for the chat list? If not, then return
         if ( !(eventType === "timeline" || type === "m.typing" || type === "m.room.name" || type === "m.room.avatar") ) return
 
@@ -93,6 +92,7 @@ Page {
         for ( j = 0; j < model.count; j++ ) {
             if ( model.get(j).room.id === chat_id ) break
         }
+        if ( j === model.count ) return
         var tempRoom = model.get(j).room
 
         if ( eventType === "timeline" ) {
@@ -104,13 +104,13 @@ Page {
             tempRoom.content_json = JSON.stringify( lastEvent.content )
             tempRoom.type = lastEvent.type
         }
-        else if ( type === "m.typing" ) {
+        if ( type === "m.typing" ) {
             // Update the typing list
             tempRoom.typing = lastEvent
         }
         else if ( type === "m.room.name" ) {
             // Update the room name
-            tempRoom.avatar_url = lastEvent.content.name
+            tempRoom.topic = lastEvent.content.name
         }
         else if ( type === "m.room.avatar" ) {
             // Update the room avatar
@@ -130,8 +130,7 @@ Page {
 
     Connections {
         target: events
-        //onChatListUpdated: update ( response )
-        onNewChatUpdate: newChatUpdate ( chat_id, isNew, membership, notification_count, highlight_count, limitedTimeline )
+        onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
         onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
     }
 
