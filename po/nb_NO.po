@@ -1,0 +1,771 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fluffychat.christianpauly\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-09 07:56+0000\n"
+"PO-Revision-Date: 2018-09-19 18:30+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
+"fluffychat/translations/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.2-dev\n"
+
+#: ../qml/controller/StampController.qml:20
+msgid " - "
+msgstr " - "
+
+#: ../qml/controller/DisplayEventController.qml:13
+msgid "Unknown Event: "
+msgstr "Ukjent hendelse: "
+
+#: ../qml/controller/DisplayEventController.qml:15
+#: ../qml/controller/DisplayEventController.qml:16
+msgid "Someone"
+msgstr "Noen"
+
+#: ../qml/controller/DisplayEventController.qml:19
+#, fuzzy
+msgid "%1 is now participating the chat as <b>%2</b>"
+msgstr "%1 deltar nå i sludringen som <b>%2</b>"
+
+#: ../qml/controller/DisplayEventController.qml:22
+msgid "%1 has invited %2"
+msgstr "%1 har invitert %2"
+
+#: ../qml/controller/DisplayEventController.qml:26
+msgid "%1 has left the chat"
+msgstr "%1 har forlatt sludringen"
+
+#: ../qml/controller/DisplayEventController.qml:29
+msgid "%1 has been banned from the chat"
+msgstr "%1 har blitt bannlyst fra sludringen"
+
+#: ../qml/controller/DisplayEventController.qml:33
+#, fuzzy
+msgid "The chat has been created"
+msgstr "Sludring opprettet"
+
+#: ../qml/controller/DisplayEventController.qml:36
+msgid "%1 has changed the chat name"
+msgstr "%1 har endret sludringsnavnet"
+
+#: ../qml/controller/DisplayEventController.qml:39
+msgid "%1 has changed the chat topic"
+msgstr "%1 har endret sludreemnet"
+
+#: ../qml/controller/DisplayEventController.qml:42
+msgid "%1 has changed the chat avatar"
+msgstr "%1 har endret sludringsavataren"
+
+#: ../qml/controller/DisplayEventController.qml:45
+msgid "%1 has sent a sticker"
+msgstr "%1 har sendt et klistremerke"
+
+#: ../qml/controller/DisplayEventController.qml:48
+msgid "%1 has set the chat history visible to: "
+msgstr "%1 har satt sludrehistorikkens synlighet til: "
+
+#: ../qml/controller/DisplayEventController.qml:50
+msgid "All chat participants"
+msgstr "Alle sludredeltagere"
+
+#: ../qml/controller/DisplayEventController.qml:53
+#, fuzzy
+msgid "All joined chat participants"
+msgstr "Alle tilknyttede sludrere"
+
+#: ../qml/controller/DisplayEventController.qml:56
+#, fuzzy
+msgid "All invited chat participants"
+msgstr "Alle inviterte sludrere"
+
+#: ../qml/controller/DisplayEventController.qml:59
+msgid "Everyone"
+msgstr "Alle"
+
+#: ../qml/controller/DisplayEventController.qml:63
+msgid "%1 has set the join rules to: "
+msgstr "%1 har satt deltagelsesreglene til: "
+
+#: ../qml/controller/DisplayEventController.qml:65
+msgid "Only invited users"
+msgstr "Kun inviterte brukere"
+
+#: ../qml/controller/DisplayEventController.qml:68
+msgid "Public"
+msgstr "Offentlig"
+
+#: ../qml/controller/DisplayEventController.qml:71
+msgid "Private"
+msgstr "Privat"
+
+#: ../qml/controller/DisplayEventController.qml:74
+msgid "Knock"
+msgstr "Bank på"
+
+#: ../qml/controller/DisplayEventController.qml:78
+msgid "%1 has set the guest access to: "
+msgstr "%1 har satt gjestetilgang til: "
+
+#: ../qml/controller/DisplayEventController.qml:80
+msgid "Can join"
+msgstr "Kan ta del"
+
+#: ../qml/controller/DisplayEventController.qml:83
+msgid "Forbidden"
+msgstr "Forbudt"
+
+#: ../qml/controller/DisplayEventController.qml:87
+msgid "The chat aliases have been changed."
+msgstr "Sludrealiasene har blitt endret."
+
+#: ../qml/controller/DisplayEventController.qml:93
+#, fuzzy
+msgid "The canonical chat alias has been changed to: "
+msgstr "Det helhetlige sludringsaliaset har blitt endret til: "
+
+#: ../qml/controller/DisplayEventController.qml:96
+msgid "The chat permissions have been changed"
+msgstr "Sludretilgangene har blitt endret"
+
+#: ../qml/controller/EventController.qml:87
+msgid "You are offline 😕"
+msgstr "Du er frakoblet 😕"
+
+#: ../qml/controller/UserNameController.qml:35
+#, fuzzy
+msgid "⌨️ is typing ..."
+msgstr ""
+"⌨️ Du kjenner blott blodets hvisken og benpipernes bøn fra det ubevisste "
+"sjeleliv…"
+
+#: ../qml/controller/UserNameController.qml:36
+#, fuzzy
+msgid "⌨️ %1 is typing ..."
+msgstr ""
+"⌨️ Du kjenner blott blodets hvisken og benpipernes bøn fra det ubevisste "
+"sjeleliv…"
+
+#: ../qml/controller/UserNameController.qml:39
+#, fuzzy
+msgid "⌨️ %1 and %2 more are typing ..."
+msgstr ""
+"⌨️ Du kjenner blott blodets hvisken og benpipernes bøn fra de ubevisste "
+"sjeleliv…"
+
+#: ../qml/controller/RoomNameController.qml:13
+#: ../qml/controller/RoomNameController.qml:25
+#: ../qml/controller/RoomNameController.qml:33
+msgid "Empty chat"
+msgstr "Tom sludring"
+
+#: ../qml/controller/PushController.qml:14
+#, fuzzy
+msgid "Please login to Ubuntu One to receive push notifications!"
+msgstr "Logg inn på Ubuntu One for å motta push-merknader."
+
+#: ../qml/controller/MatrixController.qml:114
+#, fuzzy
+msgid "You do not have permission to write to this chat."
+msgstr "Du har ikke tilgang til å skrive i denne sludringen."
+
+#: ../qml/controller/MatrixController.qml:264
+#, fuzzy
+msgid "No connection to the homeserver 😕"
+msgstr "Ingen tilkobling til hjemmetjeneren 😕"
+
+#: ../qml/pages/InfoPage.qml:10
+#, fuzzy
+msgid "Info about FluffyChat %1"
+msgstr "Info %1"
+
+#: ../qml/pages/InfoPage.qml:32
+msgid "Donate us a coffee"
+msgstr "Spander kaffe"
+
+#: ../qml/pages/InfoPage.qml:39
+msgid "Website"
+msgstr "Nettside"
+
+#: ../qml/pages/InfoPage.qml:45
+msgid "Contributors"
+msgstr "Bidragsytere"
+
+#: ../qml/pages/InfoPage.qml:51
+msgid "Source code"
+msgstr "Kildekode"
+
+#: ../qml/pages/InfoPage.qml:57
+msgid "License"
+msgstr "Lisens"
+
+#: ../qml/pages/LoginPage.qml:19
+msgid "Please fill all textfields"
+msgstr "Fyll inn alle tekstfeltene"
+
+#: ../qml/pages/LoginPage.qml:45
+msgid "Invalid username or password"
+msgstr "Ugyldig brukernavn eller passord"
+
+#: ../qml/pages/LoginPage.qml:48
+msgid "No connection to "
+msgstr "Ingen tilkobling til "
+
+#: ../qml/pages/LoginPage.qml:58
+msgid "Welcome to FluffyChat"
+msgstr "Velkommen til FluffyChat"
+
+#: ../qml/pages/LoginPage.qml:74
+msgid "Choose your homeserver"
+msgstr "Velg din hjemmetjener"
+
+#: ../qml/pages/LoginPage.qml:97
+msgid "What's your name?"
+msgstr "Hva heter du?"
+
+#: ../qml/pages/LoginPage.qml:104
+msgid "Username"
+msgstr "Brukernavn"
+
+#: ../qml/pages/LoginPage.qml:111
+msgid "Password"
+msgstr "Passord"
+
+#: ../qml/pages/LoginPage.qml:122
+msgid "Sign in"
+msgstr "Registrer deg"
+
+#: ../qml/pages/LoginPage.qml:129
+msgid "Sign up"
+msgstr "Registrer deg"
+
+#: ../qml/pages/LoginPage.qml:138
+msgid "Using the homeserver: "
+msgstr "Bruker hjemmetjeneren: "
+
+#: ../qml/pages/ChatListPage.qml:243
+#, fuzzy
+msgid "Search chat names..."
+msgstr "Søk etter sludringsnavn…"
+
+#: ../qml/pages/ChatListPage.qml:258
+#, fuzzy
+msgid "Swipe from the bottom to start a new chat"
+msgstr "Dra fra bunnen for å starte ny sludring"
+
+#: ../qml/pages/BlankPage.qml:11
+msgid "Welcome"
+msgstr "Velkommen"
+
+#: ../qml/pages/MainSettingsPage.qml:11
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: ../qml/pages/MainSettingsPage.qml:35
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:184
+#: ../qml/pages/NotificationChatSettingsPage.qml:51
+#: ../qml/pages/ChatSettingsPage.qml:133
+msgid "Notifications"
+msgstr "Merknader"
+
+#: ../qml/pages/MainSettingsPage.qml:41
+#: ../qml/pages/AccountSettingsPage.qml:11
+msgid "Account"
+msgstr "Konto"
+
+#: ../qml/pages/MainSettingsPage.qml:47 ../qml/pages/ThemeSettingsPage.qml:11
+msgid "Theme"
+msgstr "Drakt"
+
+#: ../qml/pages/MainSettingsPage.qml:53
+#: ../qml/pages/PrivacySettingsPage.qml:11
+msgid "Security & Privacy"
+msgstr "Sikkerhet og personvern"
+
+#: ../qml/pages/MainSettingsPage.qml:59
+msgid "About FluffyChat"
+msgstr "Om"
+
+#: ../qml/pages/AccountSettingsPage.qml:23
+msgid "Change display name"
+msgstr "Endre visningsnavn"
+
+#: ../qml/pages/AccountSettingsPage.qml:29
+msgid "Change password"
+msgstr "Endre passord"
+
+#: ../qml/pages/AccountSettingsPage.qml:35
+msgid "Disable account"
+msgstr "Skru av konto"
+
+#: ../qml/pages/AccountSettingsPage.qml:41
+#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
+#, fuzzy
+msgid "Logout"
+msgstr "Logg ut"
+
+#: ../qml/pages/NotificationSettingsPage.qml:80
+msgid "Enable notifications"
+msgstr "Skru på merknader"
+
+#: ../qml/pages/NotificationSettingsPage.qml:90
+#, fuzzy
+msgid "Common messages"
+msgstr "Vanlige meldinger"
+
+#: ../qml/pages/NotificationSettingsPage.qml:100
+msgid "Messages from single chats"
+msgstr "Meldinger fra enkle sludringer"
+
+#: ../qml/pages/NotificationSettingsPage.qml:110
+#, fuzzy
+msgid "Contains my display name"
+msgstr "Inneholder mitt visningsnavn"
+
+#: ../qml/pages/NotificationSettingsPage.qml:120
+msgid "Contains my user name"
+msgstr "Inneholder mitt brukernavn"
+
+#: ../qml/pages/NotificationSettingsPage.qml:130
+msgid "Invitations for me"
+msgstr "Invitasjoner for meg"
+
+#: ../qml/pages/NotificationSettingsPage.qml:140
+#, fuzzy
+msgid "Chat members change"
+msgstr "Endring av sludringsmedlemmer"
+
+#: ../qml/pages/NotificationSettingsPage.qml:150
+msgid "Incoming VOIP calls"
+msgstr "Ankommende VOIP-anrop"
+
+#: ../qml/pages/NotificationSettingsPage.qml:160
+msgid "Messages from bots"
+msgstr "Meldinger fra bot-er"
+
+#: ../qml/pages/NotificationSettingsPage.qml:170
+msgid "Targets"
+msgstr "Mål"
+
+#: ../qml/pages/ChatPage.qml:172 ../qml/components/ChatListItem.qml:29
+msgid "Unknown chat"
+msgstr "Ukjent sludring"
+
+#: ../qml/pages/ChatPage.qml:179
+msgid "Chat info"
+msgstr "Slurdingsinfo"
+
+#: ../qml/pages/ChatPage.qml:189 ../qml/components/InviteDialog.qml:11
+msgid "Invite a friend"
+msgstr "Inviter en venn"
+
+#: ../qml/pages/ChatPage.qml:225
+msgid "No messages in this chat ..."
+msgstr "Ingen meldinger i denne sludringen…"
+
+#: ../qml/pages/ChatPage.qml:279
+msgid "Accept invitation"
+msgstr "Godta invitasjon"
+
+#: ../qml/pages/ChatPage.qml:323
+msgid "Type something ..."
+msgstr "Skriv noe…"
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:64
+msgid "Notify"
+msgstr "Send merknad"
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:83
+msgid "Only if mentioned"
+msgstr "Kun når nevnt"
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:106
+msgid "Don't notify"
+msgstr "Ikke send merknad"
+
+#: ../qml/pages/PrivacySettingsPage.qml:23
+msgid "Display 'I am typing' when I am typing"
+msgstr "Vis \"Jeg skriver\" ved skriving"
+
+#: ../qml/pages/PrivacySettingsPage.qml:30
+#, fuzzy
+msgid "Automatically accept chat invitations"
+msgstr "Godta sludreinvitasjoner automatisk"
+
+#: ../qml/pages/PrivacySettingsPage.qml:37
+#: ../qml/pages/DevicesSettingsPage.qml:24
+msgid "Devices"
+msgstr "Enheter"
+
+#: ../qml/pages/ChatSettingsPage.qml:40
+msgid "Member"
+msgstr "Medlem"
+
+#: ../qml/pages/ChatSettingsPage.qml:41
+msgid "Was invited"
+msgstr "Ble invitert"
+
+#: ../qml/pages/ChatSettingsPage.qml:42
+msgid "Has left the chat"
+msgstr "Har forlatt slurdringen"
+
+#: ../qml/pages/ChatSettingsPage.qml:43
+msgid "Has knocked"
+msgstr "Har banket på"
+
+#: ../qml/pages/ChatSettingsPage.qml:44
+msgid "Was banned from the chat"
+msgstr "Ble bannlyst fra sludringen"
+
+#: ../qml/pages/ChatSettingsPage.qml:45
+msgid "Unknown"
+msgstr "Ukjent"
+
+#: ../qml/pages/ChatSettingsPage.qml:75
+#: ../qml/components/ChangeChatnameDialog.qml:11
+msgid "Edit chat name"
+msgstr "Rediger sludringsnavn"
+
+#: ../qml/pages/ChatSettingsPage.qml:117
+msgid "Chat Settings:"
+msgstr "Sludringsinnstillinger:"
+
+#: ../qml/pages/ChatSettingsPage.qml:128
+msgid "Invite friend"
+msgstr "Inviter venn"
+
+#: ../qml/pages/ChatSettingsPage.qml:138
+msgid "Leave Chat"
+msgstr "Forlat slurdring"
+
+#: ../qml/pages/ChatSettingsPage.qml:159
+msgid "Users in this chat (%1):"
+msgstr "Brukere i denne slurdringen (%1):"
+
+#: ../qml/pages/ChatSettingsPage.qml:159
+msgid "Loading users ..."
+msgstr "Laster inn brukere…"
+
+#: ../qml/pages/ChatSettingsPage.qml:182
+msgid "Search..."
+msgstr "Søk…"
+
+#: ../qml/pages/AddChatPage.qml:24
+#, fuzzy
+msgid ""
+"Synchronizing \n"
+" This can take a few minutes ..."
+msgstr ""
+"Synkroniserer\n"
+"Dette kan ta noen minutter…"
+
+#: ../qml/pages/AddChatPage.qml:33
+#, fuzzy
+msgid "Room was not found 😟"
+msgstr "Fant ikke rommet 😟"
+
+#: ../qml/pages/AddChatPage.qml:44
+msgid "Start a new chat"
+msgstr "Start ny sludring"
+
+#: ../qml/pages/AddChatPage.qml:57
+msgid "New contact"
+msgstr "Ny kontakt"
+
+#: ../qml/pages/AddChatPage.qml:63 ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr "Ny gruppe"
+
+#: ../qml/pages/AddChatPage.qml:69 ../qml/components/JoinGroupDialog.qml:11
+msgid "Join group"
+msgstr "Ta del i gruppe"
+
+#: ../qml/pages/ThemeSettingsPage.qml:35
+msgid "Dark mode"
+msgstr "Nattmodus"
+
+#: ../qml/pages/ThemeSettingsPage.qml:50
+msgid "Set chat background"
+msgstr "Sett slurdrebakgrunn"
+
+#: ../qml/pages/ThemeSettingsPage.qml:50
+msgid "Remove chat background"
+msgstr "Fjern slurdrebakgrunn"
+
+#: ../qml/pages/ThemeSettingsPage.qml:79
+msgid "Choose a main color:"
+msgstr "Velg en hovedfarge:"
+
+#: ../qml/pages/ThemeSettingsPage.qml:84
+msgid "Purple"
+msgstr "Lilla"
+
+#: ../qml/pages/ThemeSettingsPage.qml:91
+msgid "Blue"
+msgstr "Blå"
+
+#: ../qml/pages/ThemeSettingsPage.qml:98
+msgid "Red"
+msgstr "Rød"
+
+#: ../qml/pages/ThemeSettingsPage.qml:105
+msgid "Orange"
+msgstr "Oransje"
+
+#: ../qml/pages/ThemeSettingsPage.qml:112
+msgid "Graphite"
+msgstr "Grafitt"
+
+#: ../qml/pages/ThemeSettingsPage.qml:119
+msgid "Green"
+msgstr "Grønn"
+
+#: ../qml/pages/NotificationTargetSettingsPage.qml:24
+#, fuzzy
+msgid "Notification targets"
+msgstr "Merknadsmål"
+
+#: ../qml/components/ChangePasswordDialog.qml:11
+#: ../qml/components/ChangePasswordDialog.qml:51
+msgid "Change your password"
+msgstr "Endre passordet ditt"
+
+#: ../qml/components/ChangePasswordDialog.qml:19
+#: ../qml/components/DisableAccountDialog.qml:33
+msgid "Enter your old password"
+msgstr "Skriv inn ditt gamle passord"
+
+#: ../qml/components/ChangePasswordDialog.qml:25
+msgid "Enter your new password"
+msgstr "Skriv inn ditt nye passord"
+
+#: ../qml/components/ChangePasswordDialog.qml:30
+msgid "Please repeat"
+msgstr "Gjenta"
+
+#: ../qml/components/ChangePasswordDialog.qml:38
+#: ../qml/components/LeaveChatDialog.qml:27
+#: ../qml/components/NewGroupDialog.qml:27
+#: ../qml/components/RemoveDeviceDialog.qml:42
+#: ../qml/components/DisableAccountDialog.qml:42
+#: ../qml/components/LogoutDialog.qml:35
+#: ../qml/components/JoinGroupDialog.qml:27
+#: ../qml/components/InviteDialog.qml:27
+#: ../qml/components/NewContactDialog.qml:39
+#: ../qml/components/ChangeDisplaynameDialog.qml:34
+#: ../qml/components/ChangeChatnameDialog.qml:34
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: ../qml/components/ChangePasswordDialog.qml:43
+msgid "Change"
+msgstr "Endre"
+
+#: ../qml/components/ChangePasswordDialog.qml:48
+msgid "The passwords do not match"
+msgstr "Passordene samsvarer ikke"
+
+#: ../qml/components/TargetInfoDialog.qml:11
+msgid "Target details"
+msgstr "Måldetaljer"
+
+#: ../qml/components/TargetInfoDialog.qml:25
+msgid "<b>Device name</b>: %2"
+msgstr "<b>Enhetsnavn</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:29
+msgid "<b>App</b>: %2"
+msgstr "<b>Program</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:33
+msgid "<b>Kind</b>: %2"
+msgstr "<b>Art</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:37
+msgid "<b>Language</b>: %2"
+msgstr "<b>Språk</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:41
+msgid "<b>Gateway</b>: %2"
+msgstr "<b>Portner</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/UserSettingsDialog.qml:76
+msgid "Close"
+msgstr "Lukk"
+
+#: ../qml/components/LeaveChatDialog.qml:11
+msgid "Leave chat"
+msgstr "Forlat slurdring"
+
+#: ../qml/components/LeaveChatDialog.qml:19
+msgid "Are you sure you want to leave the chat?"
+msgstr "Er du sikker på at du ønsker å forlate sludringen?"
+
+#: ../qml/components/LeaveChatDialog.qml:32
+msgid "Leave"
+msgstr "Forlat"
+
+#: ../qml/components/NewGroupDialog.qml:19
+msgid "Group name"
+msgstr "Gruppenavn"
+
+#: ../qml/components/NewGroupDialog.qml:32
+#: ../qml/components/JoinGroupDialog.qml:32
+#: ../qml/components/NewContactDialog.qml:44
+msgid "Continue"
+msgstr "Fortsett"
+
+#: ../qml/components/RemoveDeviceDialog.qml:11
+msgid "Remove the device"
+msgstr "Fjern enheten"
+
+#: ../qml/components/RemoveDeviceDialog.qml:15
+msgid "<b>Device ID</b>: %1"
+msgstr "<b>Enhets-ID</b>: %1"
+
+#: ../qml/components/RemoveDeviceDialog.qml:19
+msgid "<b>Last IP</b>: %4"
+msgstr "<b>Siste IP</b>: %4"
+
+#: ../qml/components/RemoveDeviceDialog.qml:24
+msgid "Are you sure, that you want to remove this device?"
+msgstr "Er du sikker på at du ønsker å fjerne denne enheten?"
+
+#: ../qml/components/RemoveDeviceDialog.qml:33
+msgid "Please enter your password"
+msgstr "Skriv inn passordet ditt"
+
+#: ../qml/components/RemoveDeviceDialog.qml:47
+msgid "Remove"
+msgstr "Fjern"
+
+#: ../qml/components/FcPageHeader.qml:7 fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
+
+#: ../qml/components/ChatEvent.qml:93
+msgid "Download"
+msgstr "Last ned"
+
+#: ../qml/components/DisableAccountDialog.qml:11
+msgid "Disable your account"
+msgstr "Skru av kontoen din"
+
+#: ../qml/components/DisableAccountDialog.qml:25
+#, fuzzy
+msgid ""
+"Are you sure, that you want to disable your account? This can not be undone!"
+msgstr "Er du sikker på at du vil skru av kontoen din? Dette kan ikke angres."
+
+#: ../qml/components/DisableAccountDialog.qml:47
+#, fuzzy
+msgid "Disable"
+msgstr "Skru av"
+
+#: ../qml/components/LogoutDialog.qml:25
+#, fuzzy
+msgid "Are you sure, that you want to logout?"
+msgstr "Er du sikker på at du vil logge ut?"
+
+#: ../qml/components/LoadingModal.qml:18
+#, fuzzy
+msgid "Synchronizing ... Please wait!"
+msgstr "Synkroniserer… Vent."
+
+#: ../qml/components/ChatListItem.qml:32
+msgid "No previous messages"
+msgstr "Ingen tidligere meldinger"
+
+#: ../qml/components/ChatListItem.qml:45
+msgid "You have been invited to this chat"
+msgstr "Du har blitt invitert til denne sludringen"
+
+#: ../qml/components/ChatListItem.qml:52
+msgid "You: "
+msgstr "Deg: "
+
+#: ../qml/components/JoinGroupDialog.qml:19
+msgid "#groupname:"
+msgstr "#gruppenavn:"
+
+#: ../qml/components/InviteDialog.qml:20
+msgid "@yourfriend:%1"
+msgstr "@dinvenn:%1"
+
+#: ../qml/components/InviteDialog.qml:32
+msgid "Invite"
+msgstr "Inviter"
+
+#: ../qml/components/ChatScrollView.qml:69
+msgid "Get more messages from the server ..."
+msgstr "Hent flere meldinger fra tjeneren…"
+
+#: ../qml/components/NewContactDialog.qml:11
+msgid "New single chat"
+msgstr "Ny enkeltsludring"
+
+#: ../qml/components/NewContactDialog.qml:18
+#, fuzzy
+msgid "What is the username of your friend?"
+msgstr "Hva er din venns brukernavn?"
+
+#: ../qml/components/NewContactDialog.qml:23
+msgid "(Your username is: <b>%1</b>)"
+msgstr "(Ditt brukernavn er: <b>%1</b>)"
+
+#: ../qml/components/NewContactDialog.qml:31
+msgid "@yourfriend:"
+msgstr "@dinvenn:"
+
+#: ../qml/components/LoadingScreen.qml:26
+#, fuzzy
+msgid ""
+"Loading chats \n"
+" This can take a few minutes ..."
+msgstr ""
+"Laster inn sludringer\n"
+"Dette kan ta noen minutter…"
+
+#: ../qml/components/UserSettingsDialog.qml:44
+#, fuzzy
+msgid "Start new Chat"
+msgstr "Start ny sludring"
+
+#: ../qml/components/UserSettingsDialog.qml:66
+msgid "Ignore"
+msgstr "Ignorer"
+
+#: ../qml/components/UserSettingsDialog.qml:90
+msgid "Chats with %1:"
+msgstr "Sludrer med %1:"
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:11
+msgid "Change your display name"
+msgstr "Endre ditt visningsnavn"
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:19
+msgid "Enter your new nickname"
+msgstr "Skriv inn ditt nye kallenavn"
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:39
+#: ../qml/components/ChangeChatnameDialog.qml:39
+msgid "Save"
+msgstr "Lagre"
+
+#: ../qml/components/ChangeChatnameDialog.qml:19
+msgid "Enter a name for the chat"
+msgstr "Skriv inn navn for denne sludringen"
+
+#: ../qml/components/DeviceListItem.qml:22
+msgid "Last seen: "
+msgstr "Sist sett: "

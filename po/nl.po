@@ -1,0 +1,738 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fluffychat.christianpauly\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-09 07:56+0000\n"
+"PO-Revision-Date: 2018-09-13 19:16+0000\n"
+"Last-Translator: Christian <christian-pauly@posteo.de>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
+"translations/nl/>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.2-dev\n"
+
+#: ../qml/controller/StampController.qml:20
+msgid " - "
+msgstr " -"
+
+#: ../qml/controller/DisplayEventController.qml:13
+msgid "Unknown Event: "
+msgstr "Onbekend Gebeurtenis:"
+
+#: ../qml/controller/DisplayEventController.qml:15
+#: ../qml/controller/DisplayEventController.qml:16
+msgid "Someone"
+msgstr "Iemand"
+
+#: ../qml/controller/DisplayEventController.qml:19
+msgid "%1 is now participating the chat as <b>%2</b>"
+msgstr "%1 neemt nu deel aan de chat als <b>%2</b>"
+
+#: ../qml/controller/DisplayEventController.qml:22
+msgid "%1 has invited %2"
+msgstr "%1 heeft %2"
+
+#: ../qml/controller/DisplayEventController.qml:26
+msgid "%1 has left the chat"
+msgstr "%1 heeft de chat verlaten"
+
+#: ../qml/controller/DisplayEventController.qml:29
+msgid "%1 has been banned from the chat"
+msgstr "%1 is verboden uit de chat"
+
+#: ../qml/controller/DisplayEventController.qml:33
+msgid "The chat has been created"
+msgstr "De chat is aangemaakt"
+
+#: ../qml/controller/DisplayEventController.qml:36
+msgid "%1 has changed the chat name"
+msgstr "%1 heeft de chatnaam gewijzigd"
+
+#: ../qml/controller/DisplayEventController.qml:39
+msgid "%1 has changed the chat topic"
+msgstr "%1 heeft het chatonderwerp gewijzigd"
+
+#: ../qml/controller/DisplayEventController.qml:42
+msgid "%1 has changed the chat avatar"
+msgstr "%1 heeft de chat avatar gewijzigd"
+
+#: ../qml/controller/DisplayEventController.qml:45
+msgid "%1 has sent a sticker"
+msgstr "%1 heeft een sticker verzonden"
+
+#: ../qml/controller/DisplayEventController.qml:48
+msgid "%1 has set the chat history visible to: "
+msgstr "%1 heeft de chatgeschiedenis zichtbaar gemaakt:"
+
+#: ../qml/controller/DisplayEventController.qml:50
+msgid "All chat participants"
+msgstr "Alle chatdeelnemers"
+
+#: ../qml/controller/DisplayEventController.qml:53
+msgid "All joined chat participants"
+msgstr "Alle aangesloten chatdeelnemers"
+
+#: ../qml/controller/DisplayEventController.qml:56
+msgid "All invited chat participants"
+msgstr "Alle uitgenodigde chatdeelnemers"
+
+#: ../qml/controller/DisplayEventController.qml:59
+msgid "Everyone"
+msgstr "Iedereen"
+
+#: ../qml/controller/DisplayEventController.qml:63
+msgid "%1 has set the join rules to: "
+msgstr "%1 heeft de verbindingsregels op gezet:"
+
+#: ../qml/controller/DisplayEventController.qml:65
+msgid "Only invited users"
+msgstr "Alleen uitgenodigde gebruikers"
+
+#: ../qml/controller/DisplayEventController.qml:68
+msgid "Public"
+msgstr "Openbaar"
+
+#: ../qml/controller/DisplayEventController.qml:71
+msgid "Private"
+msgstr "Privé"
+
+#: ../qml/controller/DisplayEventController.qml:74
+msgid "Knock"
+msgstr "Klop"
+
+#: ../qml/controller/DisplayEventController.qml:78
+msgid "%1 has set the guest access to: "
+msgstr "%1 heeft de toegang van de gast ingesteld:"
+
+#: ../qml/controller/DisplayEventController.qml:80
+msgid "Can join"
+msgstr "Kan toetreden"
+
+#: ../qml/controller/DisplayEventController.qml:83
+msgid "Forbidden"
+msgstr "Verboden"
+
+#: ../qml/controller/DisplayEventController.qml:87
+msgid "The chat aliases have been changed."
+msgstr "De chat-aliassen zijn gewijzigd."
+
+#: ../qml/controller/DisplayEventController.qml:93
+msgid "The canonical chat alias has been changed to: "
+msgstr "De canonieke chatalias is gewijzigd in:"
+
+#: ../qml/controller/DisplayEventController.qml:96
+msgid "The chat permissions have been changed"
+msgstr "De chatrechten zijn gewijzigd"
+
+#: ../qml/controller/EventController.qml:87
+msgid "You are offline 😕"
+msgstr "U bent offline 😕"
+
+#: ../qml/controller/UserNameController.qml:35
+msgid "⌨️ is typing ..."
+msgstr "⌨️ typt ..."
+
+#: ../qml/controller/UserNameController.qml:36
+msgid "⌨️ %1 is typing ..."
+msgstr "⌨️ %1 typt ..."
+
+#: ../qml/controller/UserNameController.qml:39
+msgid "⌨️ %1 and %2 more are typing ..."
+msgstr "⌨️ %1 en %2 meer typen ..."
+
+#: ../qml/controller/RoomNameController.qml:13
+#: ../qml/controller/RoomNameController.qml:25
+#: ../qml/controller/RoomNameController.qml:33
+msgid "Empty chat"
+msgstr "Leeg chat"
+
+#: ../qml/controller/PushController.qml:14
+msgid "Please login to Ubuntu One to receive push notifications!"
+msgstr "Log in op Ubuntu One om push meldingen te ontvangen!"
+
+#: ../qml/controller/MatrixController.qml:114
+msgid "You do not have permission to write to this chat."
+msgstr "U heeft geen toestemming om naar deze chat te schrijven."
+
+#: ../qml/controller/MatrixController.qml:264
+msgid "No connection to the homeserver 😕"
+msgstr "Geen verbinding met de homeserver 😕"
+
+#: ../qml/pages/InfoPage.qml:10
+msgid "Info about FluffyChat %1"
+msgstr "Info over FluffyChat %1"
+
+#: ../qml/pages/InfoPage.qml:32
+msgid "Donate us a coffee"
+msgstr "Doneer ons een kopje koffie"
+
+#: ../qml/pages/InfoPage.qml:39
+msgid "Website"
+msgstr "Website"
+
+#: ../qml/pages/InfoPage.qml:45
+msgid "Contributors"
+msgstr "Bijdragers"
+
+#: ../qml/pages/InfoPage.qml:51
+msgid "Source code"
+msgstr "Broncode"
+
+#: ../qml/pages/InfoPage.qml:57
+msgid "License"
+msgstr "Licentie"
+
+#: ../qml/pages/LoginPage.qml:19
+msgid "Please fill all textfields"
+msgstr "Vul alle tekstvelden in"
+
+#: ../qml/pages/LoginPage.qml:45
+msgid "Invalid username or password"
+msgstr "Ongeldige gebruikersnaam of wachtwoord"
+
+#: ../qml/pages/LoginPage.qml:48
+msgid "No connection to "
+msgstr "Geen verbinding met"
+
+#: ../qml/pages/LoginPage.qml:58
+msgid "Welcome to FluffyChat"
+msgstr "Welkom bij FluffyChat"
+
+#: ../qml/pages/LoginPage.qml:74
+msgid "Choose your homeserver"
+msgstr "Kies uw homeserver"
+
+#: ../qml/pages/LoginPage.qml:97
+msgid "What's your name?"
+msgstr "Wat is uw naam?"
+
+#: ../qml/pages/LoginPage.qml:104
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: ../qml/pages/LoginPage.qml:111
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: ../qml/pages/LoginPage.qml:122
+msgid "Sign in"
+msgstr "Inloggen"
+
+#: ../qml/pages/LoginPage.qml:129
+msgid "Sign up"
+msgstr "Registreren"
+
+#: ../qml/pages/LoginPage.qml:138
+msgid "Using the homeserver: "
+msgstr "Gebruik van de homeserver:"
+
+#: ../qml/pages/ChatListPage.qml:243
+msgid "Search chat names..."
+msgstr "Chatnamen zoeken..."
+
+#: ../qml/pages/ChatListPage.qml:258
+msgid "Swipe from the bottom to start a new chat"
+msgstr "Veeg van onderaf om een nieuwe chat te starten"
+
+#: ../qml/pages/BlankPage.qml:11
+msgid "Welcome"
+msgstr "Welkom"
+
+#: ../qml/pages/MainSettingsPage.qml:11
+msgid "Settings"
+msgstr "Instellingen"
+
+#: ../qml/pages/MainSettingsPage.qml:35
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:184
+#: ../qml/pages/NotificationChatSettingsPage.qml:51
+#: ../qml/pages/ChatSettingsPage.qml:133
+msgid "Notifications"
+msgstr "Meldingen"
+
+#: ../qml/pages/MainSettingsPage.qml:41
+#: ../qml/pages/AccountSettingsPage.qml:11
+msgid "Account"
+msgstr "Account"
+
+#: ../qml/pages/MainSettingsPage.qml:47 ../qml/pages/ThemeSettingsPage.qml:11
+msgid "Theme"
+msgstr "Thema"
+
+#: ../qml/pages/MainSettingsPage.qml:53
+#: ../qml/pages/PrivacySettingsPage.qml:11
+msgid "Security & Privacy"
+msgstr "Beveiliging & privacy"
+
+#: ../qml/pages/MainSettingsPage.qml:59
+msgid "About FluffyChat"
+msgstr "Over FluffyChat"
+
+#: ../qml/pages/AccountSettingsPage.qml:23
+msgid "Change display name"
+msgstr "Weergave naam wijzigen"
+
+#: ../qml/pages/AccountSettingsPage.qml:29
+msgid "Change password"
+msgstr "Wachtwoord wijzigen"
+
+#: ../qml/pages/AccountSettingsPage.qml:35
+msgid "Disable account"
+msgstr "Account uitschakelen"
+
+#: ../qml/pages/AccountSettingsPage.qml:41
+#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
+msgid "Logout"
+msgstr "Uitloggen"
+
+#: ../qml/pages/NotificationSettingsPage.qml:80
+msgid "Enable notifications"
+msgstr "Meldingen inschakelen"
+
+#: ../qml/pages/NotificationSettingsPage.qml:90
+msgid "Common messages"
+msgstr "Gemeenschappelijke berichten"
+
+#: ../qml/pages/NotificationSettingsPage.qml:100
+msgid "Messages from single chats"
+msgstr "Berichten van afzonderlijke chatgesprekken"
+
+#: ../qml/pages/NotificationSettingsPage.qml:110
+msgid "Contains my display name"
+msgstr "Bevat mijn weergavenaam"
+
+#: ../qml/pages/NotificationSettingsPage.qml:120
+msgid "Contains my user name"
+msgstr "Bevat mijn gebruikersnaam"
+
+#: ../qml/pages/NotificationSettingsPage.qml:130
+msgid "Invitations for me"
+msgstr "Uitnodigingen voor mij"
+
+#: ../qml/pages/NotificationSettingsPage.qml:140
+msgid "Chat members change"
+msgstr "Chat leden veranderen"
+
+#: ../qml/pages/NotificationSettingsPage.qml:150
+msgid "Incoming VOIP calls"
+msgstr "Inkomende VOIP-oproepen"
+
+#: ../qml/pages/NotificationSettingsPage.qml:160
+msgid "Messages from bots"
+msgstr "Berichten van bots"
+
+#: ../qml/pages/NotificationSettingsPage.qml:170
+msgid "Targets"
+msgstr "Doelstellingen"
+
+#: ../qml/pages/ChatPage.qml:172 ../qml/components/ChatListItem.qml:29
+msgid "Unknown chat"
+msgstr "Onbekend gesprek"
+
+#: ../qml/pages/ChatPage.qml:179
+msgid "Chat info"
+msgstr "Chat info"
+
+#: ../qml/pages/ChatPage.qml:189 ../qml/components/InviteDialog.qml:11
+msgid "Invite a friend"
+msgstr "Nodig een vriend uit"
+
+#: ../qml/pages/ChatPage.qml:225
+msgid "No messages in this chat ..."
+msgstr "Geen berichten in deze chat ..."
+
+#: ../qml/pages/ChatPage.qml:279
+msgid "Accept invitation"
+msgstr "Uitnodiging accepteren"
+
+#: ../qml/pages/ChatPage.qml:323
+msgid "Type something ..."
+msgstr "Iets typen ..."
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:64
+msgid "Notify"
+msgstr "Melding"
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:83
+msgid "Only if mentioned"
+msgstr "Alleen indien vermeld"
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:106
+msgid "Don't notify"
+msgstr "Niet op de hoogte"
+
+#: ../qml/pages/PrivacySettingsPage.qml:23
+msgid "Display 'I am typing' when I am typing"
+msgstr "Toon 'Ik typ' tijdens het typen"
+
+#: ../qml/pages/PrivacySettingsPage.qml:30
+msgid "Automatically accept chat invitations"
+msgstr "Uitnodigingen voor chatten automatisch accepteren"
+
+#: ../qml/pages/PrivacySettingsPage.qml:37
+#: ../qml/pages/DevicesSettingsPage.qml:24
+msgid "Devices"
+msgstr "Apparaten"
+
+#: ../qml/pages/ChatSettingsPage.qml:40
+msgid "Member"
+msgstr "Lid"
+
+#: ../qml/pages/ChatSettingsPage.qml:41
+msgid "Was invited"
+msgstr "Was uitgenodigd"
+
+#: ../qml/pages/ChatSettingsPage.qml:42
+msgid "Has left the chat"
+msgstr "De chat heeft verlaten"
+
+#: ../qml/pages/ChatSettingsPage.qml:43
+msgid "Has knocked"
+msgstr "Heeft geklopt"
+
+#: ../qml/pages/ChatSettingsPage.qml:44
+msgid "Was banned from the chat"
+msgstr "Werd verbannen uit de chat"
+
+#: ../qml/pages/ChatSettingsPage.qml:45
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: ../qml/pages/ChatSettingsPage.qml:75
+#: ../qml/components/ChangeChatnameDialog.qml:11
+msgid "Edit chat name"
+msgstr "Chatnaam bewerken"
+
+#: ../qml/pages/ChatSettingsPage.qml:117
+msgid "Chat Settings:"
+msgstr "Chat-instellingen"
+
+#: ../qml/pages/ChatSettingsPage.qml:128
+msgid "Invite friend"
+msgstr "Nodig vriend uit"
+
+#: ../qml/pages/ChatSettingsPage.qml:138
+msgid "Leave Chat"
+msgstr "Laat Chat"
+
+#: ../qml/pages/ChatSettingsPage.qml:159
+msgid "Users in this chat (%1):"
+msgstr "Gebruikers in deze chat (%1):"
+
+#: ../qml/pages/ChatSettingsPage.qml:159
+msgid "Loading users ..."
+msgstr "Gebruikers laden ..."
+
+#: ../qml/pages/ChatSettingsPage.qml:182
+msgid "Search..."
+msgstr "Zoeken..."
+
+#: ../qml/pages/AddChatPage.qml:24
+msgid ""
+"Synchronizing \n"
+" This can take a few minutes ..."
+msgstr ""
+"Synchroniseren\n"
+" Dit kan enkele minuten duren ..."
+
+#: ../qml/pages/AddChatPage.qml:33
+msgid "Room was not found 😟"
+msgstr "Kamer is niet gevonden 😟"
+
+#: ../qml/pages/AddChatPage.qml:44
+msgid "Start a new chat"
+msgstr "Een nieuwe chat starten"
+
+#: ../qml/pages/AddChatPage.qml:57
+msgid "New contact"
+msgstr "Nieuwe contactpersoon"
+
+#: ../qml/pages/AddChatPage.qml:63 ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr "Nieuwe groep"
+
+#: ../qml/pages/AddChatPage.qml:69 ../qml/components/JoinGroupDialog.qml:11
+msgid "Join group"
+msgstr "Deelnemen aan groep"
+
+#: ../qml/pages/ThemeSettingsPage.qml:35
+msgid "Dark mode"
+msgstr "Donkere modus"
+
+#: ../qml/pages/ThemeSettingsPage.qml:50
+msgid "Set chat background"
+msgstr "Achtergrond instellen voor chat"
+
+#: ../qml/pages/ThemeSettingsPage.qml:50
+msgid "Remove chat background"
+msgstr "Chat achtergrond verwijderen"
+
+#: ../qml/pages/ThemeSettingsPage.qml:79
+msgid "Choose a main color:"
+msgstr "Kies een hoofdkleur:"
+
+#: ../qml/pages/ThemeSettingsPage.qml:84
+msgid "Purple"
+msgstr "Paars"
+
+#: ../qml/pages/ThemeSettingsPage.qml:91
+msgid "Blue"
+msgstr "Blauw"
+
+#: ../qml/pages/ThemeSettingsPage.qml:98
+msgid "Red"
+msgstr "Rood"
+
+#: ../qml/pages/ThemeSettingsPage.qml:105
+msgid "Orange"
+msgstr "Oranje"
+
+#: ../qml/pages/ThemeSettingsPage.qml:112
+msgid "Graphite"
+msgstr "Grafiet"
+
+#: ../qml/pages/ThemeSettingsPage.qml:119
+msgid "Green"
+msgstr "Groen"
+
+#: ../qml/pages/NotificationTargetSettingsPage.qml:24
+msgid "Notification targets"
+msgstr "Doelstellingen van de aanmelding"
+
+#: ../qml/components/ChangePasswordDialog.qml:11
+#: ../qml/components/ChangePasswordDialog.qml:51
+msgid "Change your password"
+msgstr "Wijzig uw wachtwoord"
+
+#: ../qml/components/ChangePasswordDialog.qml:19
+#: ../qml/components/DisableAccountDialog.qml:33
+msgid "Enter your old password"
+msgstr "Voer uw oude wachtwoord in"
+
+#: ../qml/components/ChangePasswordDialog.qml:25
+msgid "Enter your new password"
+msgstr "Voer uw nieuwe wachtwoord in"
+
+#: ../qml/components/ChangePasswordDialog.qml:30
+msgid "Please repeat"
+msgstr "Herhaling alsjeblieft"
+
+#: ../qml/components/ChangePasswordDialog.qml:38
+#: ../qml/components/LeaveChatDialog.qml:27
+#: ../qml/components/NewGroupDialog.qml:27
+#: ../qml/components/RemoveDeviceDialog.qml:42
+#: ../qml/components/DisableAccountDialog.qml:42
+#: ../qml/components/LogoutDialog.qml:35
+#: ../qml/components/JoinGroupDialog.qml:27
+#: ../qml/components/InviteDialog.qml:27
+#: ../qml/components/NewContactDialog.qml:39
+#: ../qml/components/ChangeDisplaynameDialog.qml:34
+#: ../qml/components/ChangeChatnameDialog.qml:34
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../qml/components/ChangePasswordDialog.qml:43
+msgid "Change"
+msgstr "Veranderen"
+
+#: ../qml/components/ChangePasswordDialog.qml:48
+msgid "The passwords do not match"
+msgstr "De wachtwoorden komen niet overeen."
+
+#: ../qml/components/TargetInfoDialog.qml:11
+msgid "Target details"
+msgstr "Details doel"
+
+#: ../qml/components/TargetInfoDialog.qml:25
+msgid "<b>Device name</b>: %2"
+msgstr "<b>Apparaatnaam</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:29
+msgid "<b>App</b>: %2"
+msgstr "<b>Toepassing</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:33
+msgid "<b>Kind</b>: %2"
+msgstr "<b>Geste</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:37
+msgid "<b>Language</b>: %2"
+msgstr "<b>Taal</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:41
+msgid "<b>Gateway</b>: %2"
+msgstr "<b>Gateway</b>: %2"
+
+#: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/UserSettingsDialog.qml:76
+msgid "Close"
+msgstr "Sluit"
+
+#: ../qml/components/LeaveChatDialog.qml:11
+msgid "Leave chat"
+msgstr "Laat een praatje achter"
+
+#: ../qml/components/LeaveChatDialog.qml:19
+msgid "Are you sure you want to leave the chat?"
+msgstr "Weet je zeker dat je de chat wilt verlaten?"
+
+#: ../qml/components/LeaveChatDialog.qml:32
+msgid "Leave"
+msgstr "Verlaat"
+
+#: ../qml/components/NewGroupDialog.qml:19
+msgid "Group name"
+msgstr "Groepsnaam"
+
+#: ../qml/components/NewGroupDialog.qml:32
+#: ../qml/components/JoinGroupDialog.qml:32
+#: ../qml/components/NewContactDialog.qml:44
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: ../qml/components/RemoveDeviceDialog.qml:11
+msgid "Remove the device"
+msgstr "Apparaat verwijderen"
+
+#: ../qml/components/RemoveDeviceDialog.qml:15
+msgid "<b>Device ID</b>: %1"
+msgstr "<b>Apparaat-ID</b>: %1"
+
+#: ../qml/components/RemoveDeviceDialog.qml:19
+msgid "<b>Last IP</b>: %4"
+msgstr "<b>Lest IP</b>: %4"
+
+#: ../qml/components/RemoveDeviceDialog.qml:24
+msgid "Are you sure, that you want to remove this device?"
+msgstr "Weet u zeker dat u dit apparaat wilt verwijderen?"
+
+#: ../qml/components/RemoveDeviceDialog.qml:33
+msgid "Please enter your password"
+msgstr "Vul a.u.b. uw wachtwoord in"
+
+#: ../qml/components/RemoveDeviceDialog.qml:47
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: ../qml/components/FcPageHeader.qml:7 fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
+
+#: ../qml/components/ChatEvent.qml:93
+msgid "Download"
+msgstr "Downloaden"
+
+#: ../qml/components/DisableAccountDialog.qml:11
+msgid "Disable your account"
+msgstr "Uw account uitschakelen"
+
+#: ../qml/components/DisableAccountDialog.qml:25
+msgid ""
+"Are you sure, that you want to disable your account? This can not be undone!"
+msgstr ""
+"Weet u zeker dat u uw account wilt uitschakelen? Dit kan niet ongedaan "
+"worden gemaakt!"
+
+#: ../qml/components/DisableAccountDialog.qml:47
+msgid "Disable"
+msgstr "Uitschakelen"
+
+#: ../qml/components/LogoutDialog.qml:25
+msgid "Are you sure, that you want to logout?"
+msgstr "Weet je zeker dat je wilt uitloggen?"
+
+#: ../qml/components/LoadingModal.qml:18
+msgid "Synchronizing ... Please wait!"
+msgstr "Synchroniseren ... Wachten a.u.b.!"
+
+#: ../qml/components/ChatListItem.qml:32
+msgid "No previous messages"
+msgstr "Geen eerdere berichten"
+
+#: ../qml/components/ChatListItem.qml:45
+msgid "You have been invited to this chat"
+msgstr "U bent uitgenodigd voor deze chat"
+
+#: ../qml/components/ChatListItem.qml:52
+msgid "You: "
+msgstr "U:"
+
+#: ../qml/components/JoinGroupDialog.qml:19
+msgid "#groupname:"
+msgstr "#groepnaam:"
+
+#: ../qml/components/InviteDialog.qml:20
+msgid "@yourfriend:%1"
+msgstr "@uw vriend:%1"
+
+#: ../qml/components/InviteDialog.qml:32
+msgid "Invite"
+msgstr "Uitnodigen"
+
+#: ../qml/components/ChatScrollView.qml:69
+msgid "Get more messages from the server ..."
+msgstr "Krijg meer berichten van de server ..."
+
+#: ../qml/components/NewContactDialog.qml:11
+msgid "New single chat"
+msgstr "Nieuw eenmalig gesprek"
+
+#: ../qml/components/NewContactDialog.qml:18
+msgid "What is the username of your friend?"
+msgstr "Wat is de gebruikersnaam van je vriend?"
+
+#: ../qml/components/NewContactDialog.qml:23
+msgid "(Your username is: <b>%1</b>)"
+msgstr "(Uw gebruikersnaam is: <b>%1</b>)"
+
+#: ../qml/components/NewContactDialog.qml:31
+msgid "@yourfriend:"
+msgstr "@uw vriend:"
+
+#: ../qml/components/LoadingScreen.qml:26
+msgid ""
+"Loading chats \n"
+" This can take a few minutes ..."
+msgstr ""
+"Chats laden\n"
+" Dit kan enkele minuten duren ..."
+
+#: ../qml/components/UserSettingsDialog.qml:44
+msgid "Start new Chat"
+msgstr "Start nieuwe chat"
+
+#: ../qml/components/UserSettingsDialog.qml:66
+msgid "Ignore"
+msgstr "Negeren"
+
+#: ../qml/components/UserSettingsDialog.qml:90
+msgid "Chats with %1:"
+msgstr "Chats met %1:"
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:11
+msgid "Change your display name"
+msgstr "Wijzig uw weergavenaam"
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:19
+msgid "Enter your new nickname"
+msgstr "Geef uw nieuwe bijnaam"
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:39
+#: ../qml/components/ChangeChatnameDialog.qml:39
+msgid "Save"
+msgstr "Opslaan"
+
+#: ../qml/components/ChangeChatnameDialog.qml:19
+msgid "Enter a name for the chat"
+msgstr "Voer een naam voor de chat in"
+
+#: ../qml/components/DeviceListItem.qml:22
+msgid "Last seen: "
+msgstr "Laatst gezien:"
