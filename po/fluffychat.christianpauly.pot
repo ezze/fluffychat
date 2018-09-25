@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 17:30+0000\n"
+"POT-Creation-Date: 2018-09-25 17:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -725,38 +725,38 @@ msgid "Dark mode"
 msgstr ""
 
 #: ../qml/pages/ThemeSettingsPage.qml:50
-msgid "Set chat background"
+msgid "Change chat background"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:50
-msgid "Remove chat background"
+#: ../qml/pages/ThemeSettingsPage.qml:73
+msgid "Background removed"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:79
+#: ../qml/pages/ThemeSettingsPage.qml:98
 msgid "Choose a main color:"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:84
+#: ../qml/pages/ThemeSettingsPage.qml:103
 msgid "Purple"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:90
+#: ../qml/pages/ThemeSettingsPage.qml:109
 msgid "Blue"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:96
+#: ../qml/pages/ThemeSettingsPage.qml:115
 msgid "Red"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:102
+#: ../qml/pages/ThemeSettingsPage.qml:121
 msgid "Orange"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:109
+#: ../qml/pages/ThemeSettingsPage.qml:128
 msgid "Graphite"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:115
+#: ../qml/pages/ThemeSettingsPage.qml:134
 msgid "Green"
 msgstr ""
 

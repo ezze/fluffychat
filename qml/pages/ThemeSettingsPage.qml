@@ -42,12 +42,12 @@ Page {
             ListItem {
                 property var name: ""
                 property var icon: "settings"
-                onClicked: settings.chatBackground === undefined ? backgroundImport.requestMedia () : settings.chatBackground = undefined
+                onClicked: backgroundImport.requestMedia ()
                 height: layout.height
 
                 ListItemLayout {
                     id: layout
-                    title.text: settings.chatBackground === undefined ? i18n.tr("Set chat background") : i18n.tr("Remove chat background")
+                    title.text: i18n.tr("Change chat background")
                     Icon {
                         name: "image-x-generic-symbolic"
                         color: settings.mainColor
@@ -55,13 +55,33 @@ Page {
                         height: units.gu(4)
                         SlotsLayout.position: SlotsLayout.Leading
                     }
-                    Icon {
-                        width: units.gu(2)
-                        height: units.gu(2)
+
+                    Rectangle {
+                        id: removeIcon
                         SlotsLayout.position: SlotsLayout.Trailing
-                        name: "edit-delete"
-                        color: UbuntuColors.red
+                        width: units.gu(4)
+                        height: width
                         visible: settings.chatBackground !== undefined
+                        color: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
+                        border.width: 1
+                        border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
+                        radius: width / 6
+                        MouseArea {
+                            anchors.fill: parent
+                            visible: settings.chatBackground !== undefined
+                            onClicked: {
+                                settings.chatBackground = undefined
+                                toast.show ( i18n.tr("Background removed") )
+                            }
+                        }
+                        Icon {
+                            width: units.gu(2)
+                            height: units.gu(2)
+                            anchors.centerIn: parent
+                            name: "edit-delete"
+                            color: UbuntuColors.red
+                            visible: settings.chatBackground !== undefined
+                        }
                     }
                 }
             }
