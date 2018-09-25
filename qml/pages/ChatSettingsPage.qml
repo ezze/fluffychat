@@ -27,6 +27,12 @@ Page {
     property var canChangePermissions
     property var canChangeAvatar
 
+    // To disable the background image on this page
+    Rectangle {
+        anchors.fill: parent
+        color: theme.palette.normal.background
+    }
+
     Connections {
         target: events
         onNewEvent: update ( type, chat_id, eventType, eventContent )

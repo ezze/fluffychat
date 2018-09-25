@@ -9,6 +9,12 @@ Page {
     property var enabled: true
     property var inviteList: []
 
+    // To disable the background image on this page
+    Rectangle {
+        anchors.fill: parent
+        color: theme.palette.normal.background
+    }
+
     header: FcPageHeader {
         id: header
         title: i18n.tr('Invite user')

@@ -13,6 +13,11 @@ Page {
         matrix.put ( "/client/r0/pushrules/global/room/%1".arg(activeChat), {"actions": [ action ] }, update )
     }
 
+    // To disable the background image on this page
+    Rectangle {
+        anchors.fill: parent
+        color: theme.palette.normal.background
+    }
 
     function updateView () {
         status = 0

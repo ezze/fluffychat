@@ -20,6 +20,12 @@ Page {
         onNewEvent: update ( type, chat_id, eventType, eventContent )
     }
 
+    // To disable the background image on this page
+    Rectangle {
+        anchors.fill: parent
+        color: theme.palette.normal.background
+    }
+
     function update ( type, chat_id, eventType, eventContent ) {
         if ( activeChat !== chat_id ) return
         var matchTypes = [ "m.room.power_levels", "m.room.member", "m.room.join_rules", "m.room.guest_access", "m.room.history_visibility" ]

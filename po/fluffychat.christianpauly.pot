@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 17:42+0000\n"
+"POT-Creation-Date: 2018-09-25 17:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -377,27 +377,27 @@ msgstr ""
 msgid "Swipe from below to start a chat"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:56
+#: ../qml/pages/ChatPrivacySettingsPage.qml:62
 msgid "Chat security & privacy settings"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:75
+#: ../qml/pages/ChatPrivacySettingsPage.qml:81
 #: ../qml/components/ChangeJoinRulesDialog.qml:11
 msgid "Who is allowed to join?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:82
+#: ../qml/pages/ChatPrivacySettingsPage.qml:88
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:11
 msgid "Who can see the chat history?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:89
+#: ../qml/pages/ChatPrivacySettingsPage.qml:95
 #: ../qml/components/ChangeGuestAccessDialog.qml:11
 msgid "Guest access?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:95
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:81
+#: ../qml/pages/ChatPrivacySettingsPage.qml:101
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:87
 msgid "Chat permissions"
 msgstr ""
 
@@ -424,8 +424,8 @@ msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:33
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:173
-#: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:205
+#: ../qml/pages/NotificationChatSettingsPage.qml:56
+#: ../qml/pages/ChatSettingsPage.qml:211
 msgid "Notifications"
 msgstr ""
 
@@ -439,7 +439,7 @@ msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:51
 #: ../qml/pages/PrivacySettingsPage.qml:11
-#: ../qml/pages/ChatSettingsPage.qml:211
+#: ../qml/pages/ChatSettingsPage.qml:217
 msgid "Security & Privacy"
 msgstr ""
 
@@ -452,12 +452,12 @@ msgid "Account: %1"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:300
-#: ../qml/pages/ChatSettingsPage.qml:159
+#: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Error"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:304
-#: ../qml/pages/ChatSettingsPage.qml:163
+#: ../qml/pages/ChatSettingsPage.qml:169
 msgid "OK"
 msgstr ""
 
@@ -614,15 +614,15 @@ msgstr ""
 msgid "No phone numbers connected"
 msgstr ""
 
-#: ../qml/pages/NotificationChatSettingsPage.qml:64
+#: ../qml/pages/NotificationChatSettingsPage.qml:69
 msgid "Notify"
 msgstr ""
 
-#: ../qml/pages/NotificationChatSettingsPage.qml:83
+#: ../qml/pages/NotificationChatSettingsPage.qml:88
 msgid "Only if mentioned"
 msgstr ""
 
-#: ../qml/pages/NotificationChatSettingsPage.qml:106
+#: ../qml/pages/NotificationChatSettingsPage.qml:111
 msgid "Don't notify"
 msgstr ""
 
@@ -651,64 +651,64 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:80
+#: ../qml/pages/ChatSettingsPage.qml:86
 msgid "Member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:81
+#: ../qml/pages/ChatSettingsPage.qml:87
 msgid "Was invited"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:82
+#: ../qml/pages/ChatSettingsPage.qml:88
 msgid "Has left the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:83
+#: ../qml/pages/ChatSettingsPage.qml:89
 msgid "Has knocked"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:84
+#: ../qml/pages/ChatSettingsPage.qml:90
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:85
+#: ../qml/pages/ChatSettingsPage.qml:91
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:112
+#: ../qml/pages/ChatSettingsPage.qml:118
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:187
+#: ../qml/pages/ChatSettingsPage.qml:193
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:199
+#: ../qml/pages/ChatSettingsPage.qml:205
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:217
+#: ../qml/pages/ChatSettingsPage.qml:223
 msgid "Chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:223
+#: ../qml/pages/ChatSettingsPage.qml:229
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:244
+#: ../qml/pages/ChatSettingsPage.qml:250
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:244
+#: ../qml/pages/ChatSettingsPage.qml:250
 msgid "Press button to reload users..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:268
+#: ../qml/pages/ChatSettingsPage.qml:274
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:290
+#: ../qml/pages/ChatSettingsPage.qml:296
 msgid "Reload"
 msgstr ""
 
@@ -728,35 +728,35 @@ msgstr ""
 msgid "Change chat background"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:73
+#: ../qml/pages/ThemeSettingsPage.qml:74
 msgid "Background removed"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:98
+#: ../qml/pages/ThemeSettingsPage.qml:99
 msgid "Choose a main color:"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:103
+#: ../qml/pages/ThemeSettingsPage.qml:104
 msgid "Purple"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:109
+#: ../qml/pages/ThemeSettingsPage.qml:110
 msgid "Blue"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:115
+#: ../qml/pages/ThemeSettingsPage.qml:116
 msgid "Red"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:121
+#: ../qml/pages/ThemeSettingsPage.qml:122
 msgid "Orange"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:128
+#: ../qml/pages/ThemeSettingsPage.qml:129
 msgid "Graphite"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:134
+#: ../qml/pages/ThemeSettingsPage.qml:135
 msgid "Green"
 msgstr ""
 
@@ -764,63 +764,63 @@ msgstr ""
 msgid "Notification targets"
 msgstr ""
 
-#: ../qml/pages/ChatAliasSettingsPage.qml:55
+#: ../qml/pages/ChatAliasSettingsPage.qml:61
 msgid "Public chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatAliasSettingsPage.qml:62
+#: ../qml/pages/ChatAliasSettingsPage.qml:68
 msgid "Add chat address"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:99
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:105
 msgid "Who can send messages?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:111
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:117
 msgid "Who can configure this chat?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:123
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:129
 msgid "Who can remove messages?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:135
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:141
 msgid "Who can invite users?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:147
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:153
 msgid "Who can ban users?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:159
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:165
 msgid "Who can kick users?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:171
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:177
 msgid "Who can change the chat name?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:183
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:189
 msgid "Who can change the chat avatar?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:195
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:201
 msgid "Who can change the chat history visibility?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:207
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:213
 msgid "Who can change the chat addresses?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:219
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:225
 msgid "Who can change the canonical chat alias?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:231
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:237
 msgid "Who can change the user permissions?"
 msgstr ""
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:243
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:249
 msgid "Default user permissions:"
 msgstr ""
 
