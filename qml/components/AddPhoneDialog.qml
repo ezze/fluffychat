@@ -8,7 +8,7 @@ Component {
 
     Dialog {
         id: dialogue
-        title: i18n.tr("Connect new phone number...")
+        title: i18n.tr("Connect new phone number") + i18n.tr("...")
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
