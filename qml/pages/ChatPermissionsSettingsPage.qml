@@ -18,7 +18,13 @@ Page {
 
     Connections {
         target: events
-        onChatTimelineEvent: init ()
+        onNewEvent: update ( type, chat_id, eventType, eventContent )
+    }
+
+    function update ( type, chat_id, eventType, eventContent ) {
+        if ( activeChat !== chat_id ) return
+        var matchTypes = [ "m.room.power_levels", "m.room.member" ]
+        if ( matchTypes.indexOf( type ) !== -1 ) init ()
     }
 
     function init () {

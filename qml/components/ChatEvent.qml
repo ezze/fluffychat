@@ -30,17 +30,10 @@ Rectangle {
     }
 
 
-    // When there something changes inside this message component, then this function
-    // must be triggered.
-    function update () {
-        metaLabel.text = (event.displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
-        avatar.mxc = event.avatar_url
-    }
-
     Avatar {
         id: avatar
-        mxc: event.avatar_url
-        name: event.displayname || event.sender
+        mxc: chatMembers[event.sender].avatar_url || ""
+        name: chatMembers[event.sender].displayname || event.sender
         anchors.left: isLeftSideEvent ? parent.left : undefined
         anchors.right: !isLeftSideEvent ? parent.right : undefined
         anchors.top: parent.top
@@ -81,13 +74,12 @@ Rectangle {
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
             height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
-            width: Math.max( messageLabel.opacity * messageLabel.width, metaLabelRow.width, thumbnail.width - units.gu(2), downloadButton.width, videoLink.width, audioPlayer.width ) + units.gu(2) - isStateEvent * units.gu(0.5)
+            width: contentColumn.width + units.gu(2)
 
             Column {
                 id: contentColumn
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: isStateEvent ? units.gu(0.75) : units.gu(1)
-                width: parent.width
 
                 MouseArea {
                     width: thumbnail.width
@@ -117,7 +109,7 @@ Rectangle {
                     anchors.leftMargin: units.gu(1)
                     spacing: units.gu(1)
                     width: visible ? undefined : 0
-                    height: units.gu(6)
+                    height: visible * units.gu(6)
 
                     Button {
                         id: playButton
@@ -206,6 +198,7 @@ Rectangle {
                     text: isStateEvent ? displayEvents.getDisplay ( event ) + " <font color='" + UbuntuColors.silk + "'>" + stamp.getChatTime ( event.origin_server_ts ) + "</font>" :  event.content_body || event.content.body
                     color: (sent || isStateEvent) ? "black" : "white"
                     wrapMode: Text.Wrap
+                    textFormat: Text.StyledText
                     textSize: isStateEvent ? Label.XSmall : Label.Medium
                     anchors.left: parent.left
                     anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
@@ -222,8 +215,6 @@ Rectangle {
                             var urlRegex = /(https?:\/\/[^\s]+)/g
                             var tempText = text || " "
                             if ( tempText === "" ) tempText = " "
-                            tempText = text.replace ( "&#60;", "<" )
-                            tempText = text.replace ( "&#62;", "<" )
                             tempText = text.replace(urlRegex, function(url) {
                                 return '<a href="%1"><font color="%2">%1</font></a>'.arg(url).arg(messageLabel.color)
                             })
@@ -236,15 +227,16 @@ Rectangle {
                 Row {
                     id: metaLabelRow
                     anchors.left: sent ? undefined : parent.left
+                    anchors.leftMargin: units.gu(1)
                     anchors.right: sent ? parent.right : undefined
-                    anchors.margins: units.gu(1)
+                    anchors.rightMargin: -units.gu(1)
                     spacing: units.gu(0.25)
 
                     // This label is for the meta-informations, which means it displays the
                     // display name of the sender of this message and the time.
                     Label {
                         id: metaLabel
-                        text: (event.displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
+                        text: (chatMembers[event.sender].displayname || event.sender) + " " + stamp.getChatTime ( event.origin_server_ts )
                         color: messageLabel.color
                         opacity: 0.66
                         textSize: Label.XSmall

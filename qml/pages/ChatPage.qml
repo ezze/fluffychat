@@ -42,6 +42,7 @@ Page {
             // Send the message
             var fakeEvent = {
                 type: "m.room.message",
+                id: messageID,
                 sender: matrix.matrixid,
                 content_body: messageTextField.displayText,
                 displayname: settings.displayname,
@@ -52,7 +53,9 @@ Page {
             }
             chatScrollView.addEventToList ( fakeEvent )
 
-            matrix.sendMessage ( messageID, data, activeChat, chatScrollView.update )
+            matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
+                chatScrollView.messageSent ( messageID, response )
+            } )
 
             isTyping = true
             messageTextField.focus = false
@@ -61,44 +64,6 @@ Page {
             isTyping = false
             sendTypingNotification ( false )
         })
-    }
-
-
-    function sendAttachement ( mediaUrl ) {
-            visible: false
-
-        // Start the upload
-        matrix.upload ( mediaUrl, function ( response ) {
-            // Uploading was successfull, send now the file event
-            var messageID = Math.floor((Math.random() * 1000000) + 1);
-            var data = {
-                msgtype: "m.image",
-                body: "Image",
-                url: response.content_uri
-            }
-            var error_callback = function ( error ) {
-                if ( error.error !== "offline" ) toast.show ( error.errcode + ": " + error.error )
-                chatScrollView.update ()
-            }
-
-            matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, data, null, error_callback )
-        }, console.error )
-
-        // Set the fake event while the file is uploading
-        var fakeEvent = {
-            type: "m.room.message",
-            sender: matrix.matrixid,
-            content_body: "Datei wird gesendet ...",
-            displayname: matrix.displayname,
-            avatar_url: matrix.avatar_url,
-            sending: true,
-            origin_server_ts: new Date().getTime(),
-            content: {}
-        }
-        chatScrollView.addEventToList ( fakeEvent )
-        messageTextField.focus = false
-        messageTextField.text = ""
-        messageTextField.focus = true
     }
 
 
@@ -133,7 +98,7 @@ Page {
                 canSendMessages = rs.rows[0].power_level >= res.rows[0].power_events_default
             })
         })
-        chatScrollView.update ()
+        chatScrollView.init ()
         chatActive = true
     }
 
@@ -152,27 +117,31 @@ Page {
 
     Connections {
         target: events
-        onChatTimelineEvent: update ( response )
+        onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
+        onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
     }
 
-    function update ( room ) {
-        // Check the ephemerals for typing events
-        if ( room.ephemeral && room.ephemeral.events ) {
-            var ephemerals = room.ephemeral.events
-            // Go through all ephemerals
-            for ( var i = 0; i < ephemerals.length; i++ ) {
-                // Is this a typing event?
-                if ( ephemerals[ i ].type === "m.typing" ) {
-                    var user_ids = ephemerals[ i ].content.user_ids
-                    // If the user is typing, remove his id from the list of typing users
-                    var ownTyping = user_ids.indexOf( matrix.matrixid )
-                    if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
-                    // Call the signal
-                    activeChatTypingUsers = user_ids
-                }
-            }
+    function newChatUpdate ( chat_id, new_membership, notification_count, highlight_count, limitedTimeline ) {
+        if ( chat_id !== activeChat ) return
+        membership = new_membership
+    }
+
+    function newEvent ( type, chat_id, eventType, eventContent ) {
+        if ( chat_id !== activeChat ) return
+        if ( type === "m.typing" ) {
+            activeChatTypingUsers = eventContent
         }
-        chatScrollView.handleNewEvent ( room.timeline.events )
+        else if ( type === "m.room.member") {
+            chatScrollView.chatMembers [eventContent.state_key] = eventContent.content
+        }
+        else if ( type === "m.receipt" ) {
+            console.log(eventContent.user)
+            chatScrollView.markRead ( eventContent.ts )
+        }
+        if ( eventType === "timeline" ) {
+            chatScrollView.handleNewEvent ( type, eventContent )
+            matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + eventContent.event_id, null )
+        }
     }
 
     ChangeChatnameDialog { id: changeChatnameDialog }
@@ -255,22 +224,22 @@ Page {
         onClicked: chatScrollView.positionViewAtBeginning ()
         anchors.fill: scrollDownButton
         z: 15
+        visible: scrollDownButton.visible
     }
     Rectangle {
         id: scrollDownButton
         width: parent.width
         anchors.bottom: chatInput.top
         anchors.left: parent.left
-        height: units.gu(3)
-        opacity: 0.75
-        color: "black"
+        height: header.height - 2
+        opacity: 0.9
+        color: "white"
         z: 14
         Icon {
             name: "toolkit_chevron-down_1gu"
-            width: units.gu(2)
+            width: units.gu(2.5)
             height: width
             anchors.centerIn: parent
-            color: "#FFFFFF"
             z: 14
         }
         visible: !chatScrollView.atYEnd

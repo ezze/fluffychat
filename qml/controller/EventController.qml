@@ -23,8 +23,16 @@ Item {
         onOnlineChanged: if ( Connectivity.online ) restartSync ()
     }
 
-    signal chatListUpdated ( var response )
-    signal chatTimelineEvent ( var response )
+    /* The newEvent signal is the most importent signal in this concept. Every time
+     * the app receives a new synchronization, this event is called for every signal
+     * to update the GUI. For example, for a new message, it is called:
+     * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
+    */
+    signal newEvent ( var type, var chat_id, var eventType, var eventContent )
+    /* Outside of the events there are updates for the global chat states which
+     * are handled by this signal:
+    */
+    signal newChatUpdate ( var chat_id, var membership, var notification_count, var highlight_count, var limitedTimeline )
 
     property var syncRequest: null
     property var initialized: false
@@ -138,7 +146,6 @@ Item {
                     handleRooms ( response.rooms.invite, "invite" )
 
                     settings.since = response.next_batch
-                    triggerSignals ( response )
                     loadingScreen.visible = false
                     //console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
                 }
@@ -154,16 +161,6 @@ Item {
     }
 
 
-    function triggerSignals ( response ) {
-        var activeRoom = response.rooms.join[activeChat]
-
-        chatListUpdated ( response )
-
-        // Is there a new chat timeline event in the active room?
-        if ( activeRoom !== undefined ) chatTimelineEvent ( activeRoom )
-    }
-
-
     // Handling the synchronization events starts with the rooms, which means
     // that the informations should be saved in the database
     function handleRooms ( rooms, membership ) {
@@ -174,20 +171,35 @@ Item {
             // events and user-memberships should be removed.
             // If not, it is "join" or "invite" and everything should be saved
 
+            var highlight_count = (room.unread_notifications && room.unread_notifications.highlight_count || 0)
+            var notification_count = (room.unread_notifications && room.unread_notifications.notification_count || 0)
+            var limitedTimeline = (room.timeline ? (room.timeline.limited ? 1 : 0) : 0)
+
+            // Call the newChatUpdate signal for updating the GUI:
+
+
+
             // Insert the chat into the database if not exists
-            transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
+            var insertResult = transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
             "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
+
             // Update the notification counts and the limited timeline boolean
-            transaction.executeSql ( "UPDATE Chats SET " +
-            " highlight_count=" +
-            (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
-            ", notification_count=" +
-            (room.unread_notifications && room.unread_notifications.notification_count || 0) +
-            ", membership='" +
-            membership +
-            "', limitedTimeline=" +
-            (room.timeline ? (room.timeline.limited ? 1 : 0) : 0) +
-            " WHERE id='" + id + "' ")
+            var updateResult = transaction.executeSql ( "UPDATE Chats SET " +
+            " highlight_count=" + highlight_count +
+            ", notification_count=" + notification_count +
+            ", membership='" + membership +
+            "', limitedTimeline=" + limitedTimeline +
+            " WHERE id='" + id + "' AND ( " +
+            " highlight_count!=" + highlight_count +
+            " OR notification_count!=" + notification_count +
+            " OR membership!='" + membership +
+            "' OR limitedTimeline!=" + limitedTimeline +
+            ") ")
+
+            // Update the GUI
+            if ( updateResult.rowsAffected > 0 || insertResult.rowsAffected > 0 ) {
+                newChatUpdate ( id, membership, notification_count, highlight_count, limitedTimeline )
+            }
 
             // Handle now all room events and save them in the database
             if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
@@ -212,11 +224,26 @@ Item {
             if ( events[i].type === "m.receipt" ) {
                 for ( var e in events[i].content ) {
                     for ( var user in events[i].content[e]["m.read"]) {
+                        if ( user === matrix.matrixid ) continue
                         var timestamp = events[i].content[e]["m.read"][user].ts
+
+                        // Call the newEvent signal for updating the GUI
+                        newEvent ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
+
+                        // Mark all previous received messages as seen
                         transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
                         " AND chat_id='" + id + "' AND status=2")
+
                     }
                 }
+            }
+            if ( events[ i ].type === "m.typing" ) {
+                var user_ids = events[ i ].content.user_ids
+                // If the user is typing, remove his id from the list of typing users
+                var ownTyping = user_ids.indexOf( matrix.matrixid )
+                if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
+                // Call the signal
+                newEvent ( events[ i ].type, id, "ephemeral", user_ids )
             }
         }
     }
@@ -395,6 +422,9 @@ Item {
                     }
                 }
             }
+
+            // Call the newEvent signal for updating the GUI
+            newEvent ( event.type, roomid, type, event )
         }
     }
 }

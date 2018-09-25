@@ -46,152 +46,91 @@ Page {
     * - New message in the last-message-field ( Which needs reordering the chats )
     * - Update the counter of unseen messages
     */
-    function update ( sync ) {
+    function newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline ) {
+        // Update the chat list item.
+        // Search the room in the model
+        var j = 0
+        for ( j = 0; j < model.count; j++ ) {
+            if ( model.get(j).room.id === chat_id ) break
+        }
 
-        // This helper function helps us to reduce code. Chats with the type
-        // "join" and "invite" are just handled the same, and "leave" is very
-        // near to this
-        for ( var type in sync.rooms ) {
-            if ( type === "leave" ) continue
-            for ( var id in sync.rooms[type] ) {
-                var room = sync.rooms[type][id]
-
-                // Check if the user is already in this chat
-                var roomExists = false
-                var j = 0
-                for ( j = 0; j < model.count; j++ ) {
-                    if ( model.get(j).room.id === id ) {
-                        roomExists = true
-                        if ( type === "leave" ) model.remove( j )
-                        break
-                    }
-                }
-
-                // Nothing more to show for the type "leave"
-                if ( type === "leave" ) return
-
-                // Add the room to the list, if it does not exist
-                var unread = room.unread_notifications && room.unread_notifications.notification_count || 0
-                var highlightUnread = room.unread_notifications && room.unread_notifications.highlight_count || 0
-                if ( !roomExists ) {
-                    var newRoom = {
-                        "id": id,
-                        "topic": "",
-                        "membership": type,
-                        "highlight_count": highlightUnread,
-                        "notification_count": unread
-                    }
-                    // Put new invitations to the top
-                    if ( type === "invite" ) newRoom.origin_server_ts = new Date().getTime()
-                    model.append ( { "room": newRoom } )
-                    j = model.count - 1
-                }
-
-                var tempRoom = model.get(j).room
-
-                // Update the type
-                tempRoom.membership = type
-
-                // Update the notification count
-                tempRoom.notification_count = unread
-                tempRoom.highlight_count = highlightUnread
-
-                // Check the timeline events and add the latest event to the chat list
-                // as the latest message of the chat
-                var newTimelineEvents = room.timeline && room.timeline.events.length > 0
-                if ( newTimelineEvents ) {
-                    var lastEvent = room.timeline.events[ room.timeline.events.length - 1 ]
-                    tempRoom.eventsid = lastEvent.event_id
-                    tempRoom.origin_server_ts = lastEvent.origin_server_ts
-                    tempRoom.content_body = lastEvent.content.body || ""
-                    tempRoom.sender = lastEvent.sender
-                    tempRoom.content_json = JSON.stringify( lastEvent.content )
-                    tempRoom.type = lastEvent.type
-                }
-
-                var allEvents = []
-                if ( room.timeline ) allEvents = allEvents.concat( room.timeline.events)
-                if ( room.state ) allEvents = allEvents.concat( room.state.events)
-
-                // Search for new room avatar or topic
-                for ( var n = 0; n < allEvents.length; n++ ) {
-                    var tevent = allEvents[ n ]
-
-                    // New avatar?
-                    if ( tevent.type === "m.room.avatar" ) tempRoom.avatar_url = tevent.content.url
-
-                    // New topic?
-                    else if ( tevent.type === "m.room.name" ) tempRoom.topic = tevent.content.name
-                }
-
-                // Check the ephemerals for typing events
-                if ( room.ephemeral && room.ephemeral.events ) {
-                    var ephemerals = room.ephemeral.events
-                    // Go through all ephemerals
-                    for ( var i = 0; i < ephemerals.length; i++ ) {
-                        // Is this a typing event?
-                        if ( ephemerals[ i ].type === "m.typing" ) {
-                            var user_ids = ephemerals[ i ].content.user_ids
-                            // If the user is typing, remove his id from the list of typing users
-                            var ownTyping = user_ids.indexOf( matrix.matrixid )
-                            if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
-                            // Call the signal
-                            tempRoom.typing = user_ids
-                        }
-                    }
-                }
-
-                // Now reorder this item
-                if ( newTimelineEvents || !roomExists ) {
-                    while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) {
-                        model.remove ( j )
-                        model.insert ( j-1, { "room": tempRoom } )
-                        j--
-                    }
-                }
-
-                model.remove ( j )
-                model.insert ( j, { "room": tempRoom } )
-
-                // Send message receipt
-                if ( newTimelineEvents && activeChat === id && unread > 0 && lastEvent.event_id !== undefined && chatActive ){
-                    matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.event_id, null )
-                }
+        // Does the chat already exist in the list model?
+        if ( j === model.count ) {
+            j = 0
+            // Add the new chat to the list
+            var newRoom = {
+                "id": chat_id,
+                "topic": "",
+                "membership": membership,
+                "highlight_count": highlight_count,
+                "notification_count": notification_count,
+                "origin_server_ts": new Date().getTime()
             }
+            model.insert ( j, { "room": newRoom } )
+        }
+        else {
+            // If the membership is "leave" then remove the item and stop here
+            if ( membership === "leave" ) return model.remove( j )
+
+            // Update the rooms attributes:
+            var tempRoom = model.get(j).room
+            tempRoom.membership = membership
+            tempRoom.notification_count = notification_count
+            tempRoom.highlight_count = highlight_count
+            model.remove ( j )
+            model.insert ( j, { "room": tempRoom } )
         }
     }
 
+    function newEvent ( type, chat_id, eventType, lastEvent ) {
+        // Is the event necessary for the chat list? If not, then return
+        if ( !(eventType === "timeline" || type === "m.typing" || type === "m.room.name" || type === "m.room.avatar") ) return
 
-    function typing ( roomid, user_ids ) {
-        for( var i = 0; i < model.count - 1; i++ ) {
-            if ( model.get ( i ).room.id === roomid ) {
-                var tempRoom = model.get( i ).room
-                tempRoom.typing = user_ids
-                model.remove ( i )
-                model.insert ( i, { "room": tempRoom } )
-                return
-            }
+        // Search the room in the model
+        var j = 0
+        for ( j = 0; j < model.count; j++ ) {
+            if ( model.get(j).room.id === chat_id ) break
         }
-    }
+        if ( j === model.count ) return
+        var tempRoom = model.get(j).room
 
+        if ( eventType === "timeline" ) {
+            // Update the last message preview
+            tempRoom.eventsid = lastEvent.event_id
+            tempRoom.origin_server_ts = lastEvent.origin_server_ts
+            tempRoom.content_body = lastEvent.content.body || ""
+            tempRoom.sender = lastEvent.sender
+            tempRoom.content_json = JSON.stringify( lastEvent.content )
+            tempRoom.type = lastEvent.type
+        }
+        if ( type === "m.typing" ) {
+            // Update the typing list
+            tempRoom.typing = lastEvent
+        }
+        else if ( type === "m.room.name" ) {
+            // Update the room name
+            tempRoom.topic = lastEvent.content.name
+        }
+        else if ( type === "m.room.avatar" ) {
+            // Update the room avatar
+            tempRoom.avatar_url = lastEvent.content.url
+        }
+        model.remove ( j )
+        model.insert ( j, { "room": tempRoom } )
 
-    function newChatAvatar ( roomid, avatar_url ) {
-        for( var i = 0; i < model.count - 1; i++ ) {
-            if ( model.get ( i ).room.id === roomid ) {
-                var tempRoom = model.get( i ).room
-                tempRoom.avatar_url = avatar_url
-                tempRoom.topic = "meeeeep"
-                model.remove ( i )
-                model.insert ( i, { "room": tempRoom } )
-                return
-            }
+        // Now reorder this item
+        while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) {
+            model.remove ( j )
+            model.insert ( j-1, { "room": tempRoom } )
+            j--
         }
     }
 
 
     Connections {
         target: events
-        onChatListUpdated: update ( response )
+        onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
+        onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
     }
 
     header: FcPageHeader {
