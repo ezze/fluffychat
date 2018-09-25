@@ -72,10 +72,11 @@ ListItem {
         Action {
             iconName: "edit-delete"
             onTriggered: {
+                console.log("REMOVING",room.id)
+                matrix.post( "/client/r0/rooms/%1/forget".arg(room.id) )
                 storage.transaction ( "DELETE FROM Memberships WHERE chat_id='" + room.id + "'" )
                 storage.transaction ( "DELETE FROM Events WHERE chat_id='" + room.id + "'" )
-                storage.transaction ( "DELETE FROM Chats WHERE id='" + room.id + "'", update )
-                matrix.post( "/client/r0/rooms/%1/forget".arg(room.id) )
+                storage.transaction ( "DELETE FROM Chats WHERE id='" + room.id + "'", archivedChatListPage.update )
             }
         }
         ]

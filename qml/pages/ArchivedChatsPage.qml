@@ -70,6 +70,7 @@ Page {
         }
         inputMethodHints: Qt.ImhNoPredictiveText
         placeholderText: i18n.tr("Search chat names...")
+        z: 5
     }
 
 
