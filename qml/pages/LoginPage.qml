@@ -15,7 +15,6 @@ Page {
 
         // Step 1: Generate a new password
         generated_password = password_generator ( 12 )
-        console.log("Generated password:", generated_password)
 
         // Transforming the username:
         // If it is a normal username, then use the current domain

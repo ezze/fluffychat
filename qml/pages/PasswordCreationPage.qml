@@ -51,7 +51,7 @@ Page {
         }
     }
 
-    Component.onDestruction: generated_password = ""
+    Component.onDestruction: generated_password = "00000000000000000000000000000000000"
 
     Component {
         id: dialog
