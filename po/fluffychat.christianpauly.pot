@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 16:20+0000\n"
+"POT-Creation-Date: 2018-09-25 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Search chat names..."
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:79
+#: ../qml/pages/ArchivedChatsPage.qml:80
 msgid "There are no archived chats"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgstr ""
 #: ../qml/pages/MainSettingsPage.qml:33
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:171
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:196
+#: ../qml/pages/ChatSettingsPage.qml:205
 msgid "Notifications"
 msgstr ""
 
@@ -439,7 +439,7 @@ msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:51
 #: ../qml/pages/PrivacySettingsPage.qml:11
-#: ../qml/pages/ChatSettingsPage.qml:202
+#: ../qml/pages/ChatSettingsPage.qml:211
 msgid "Security & Privacy"
 msgstr ""
 
@@ -680,35 +680,35 @@ msgstr ""
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:178
+#: ../qml/pages/ChatSettingsPage.qml:187
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:190
+#: ../qml/pages/ChatSettingsPage.qml:199
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:208
+#: ../qml/pages/ChatSettingsPage.qml:217
 msgid "Chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:214
+#: ../qml/pages/ChatSettingsPage.qml:223
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:235
+#: ../qml/pages/ChatSettingsPage.qml:244
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:235
+#: ../qml/pages/ChatSettingsPage.qml:244
 msgid "Press button to reload users..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:259
+#: ../qml/pages/ChatSettingsPage.qml:268
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:281
+#: ../qml/pages/ChatSettingsPage.qml:290
 msgid "Reload"
 msgstr ""
 

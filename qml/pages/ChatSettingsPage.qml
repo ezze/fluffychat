@@ -101,7 +101,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: description === "" ? activeChatDisplayName : activeChatDisplayName + " - " + description.split("\n").join(" ")
+        title: activeChatDisplayName
 
         trailingActionBar {
             numberOfSlots: 1
@@ -166,10 +166,19 @@ Page {
                     Component.onCompleted: show()
                 }
             }
+            Label {
+                visible: description !== ""
+                width: parent.width - units.gu(4)
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(2)
+                wrapMode: Text.Wrap
+                text: description
+            }
             Rectangle {
                 width: parent.width
                 height: units.gu(2)
                 color: theme.palette.normal.background
+                visible: description !== ""
             }
             Label {
                 height: units.gu(2)
