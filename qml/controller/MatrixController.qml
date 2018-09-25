@@ -152,13 +152,6 @@ Item {
         console.log("try now…",messageID)
         if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
 
-        // Format emojionly bodys:
-        if ( data.body.length === 2 &&
-            /([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD5D])/g.test( data.body )
-        ) {
-            data.body = "<font size='1'>%1</font>".arg( data.body )
-        }
-
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/m.room.message/" + messageID, data, function ( response ) {
             storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
                 if ( res.rows.length > 0 ) {
