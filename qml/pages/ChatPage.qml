@@ -89,7 +89,8 @@ Page {
 
     Component.onCompleted: {
         storage.transaction ( "SELECT draft, membership, unread, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
-            membership = res.rows.length > 0 ? res.rows[0].membership : "join"
+            if ( res.rows.length === 0 ) return
+            membership = res.rows[0].membership
             if ( res.rows[0].draft !== "" && res.rows[0].draft !== null ) messageTextField.text = res.rows[0].draft
             chatScrollView.unread = res.rows[0].unread
             storage.transaction ( "SELECT power_level FROM Memberships WHERE " +

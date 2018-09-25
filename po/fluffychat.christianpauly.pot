@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 13:38+0000\n"
+"POT-Creation-Date: 2018-09-25 14:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,11 +193,11 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:174
+#: ../qml/controller/MatrixController.qml:186
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:320
+#: ../qml/controller/MatrixController.qml:332
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -423,7 +423,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:33
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:170
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:171
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:196
 msgid "Notifications"
@@ -451,12 +451,12 @@ msgstr ""
 msgid "Account: %1"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:306
+#: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:307
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:310
+#: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:311
 #: ../qml/pages/ChatSettingsPage.qml:163
 msgid "OK"
 msgstr ""
@@ -567,42 +567,42 @@ msgstr ""
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:151 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:152 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:158 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:159 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:164
+#: ../qml/pages/ChatPage.qml:165
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:176
+#: ../qml/pages/ChatPage.qml:177
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:215
+#: ../qml/pages/ChatPage.qml:216
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:271
+#: ../qml/pages/ChatPage.qml:272
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:271
+#: ../qml/pages/ChatPage.qml:272
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:285
+#: ../qml/pages/ChatPage.qml:286
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:334
+#: ../qml/pages/ChatPage.qml:335
 msgid "Type something ..."
 msgstr ""
 
@@ -626,19 +626,19 @@ msgstr ""
 msgid "Don't notify"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:16 ../qml/pages/AddChatPage.qml:57
+#: ../qml/pages/JoinChatPage.qml:14 ../qml/pages/AddChatPage.qml:57
 msgid "Join chat"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:25
+#: ../qml/pages/JoinChatPage.qml:23
 msgid "Nameless chat"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:52
+#: ../qml/pages/JoinChatPage.qml:50
 msgid "Search public chats..."
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:88
+#: ../qml/pages/JoinChatPage.qml:86
 msgid "Loading public chats..."
 msgstr ""
 

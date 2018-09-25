@@ -146,6 +146,18 @@ Item {
         mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
     }
 
+
+    function joinChat (chat_id) {
+        loadingScreen.visible = true
+        matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
+            loadingScreen.visible = true
+            events.waitForSync()
+            activeChat = response.room_id
+            mainStack.toStart ()
+            mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
+        } )
+    }
+
     // This function helps to send a message. It automatically repeats, if there
     // was an error with the connection.
     function sendMessage ( messageID, data, chat_id, success_callback ) {
@@ -348,37 +360,4 @@ Item {
 
         return http
     }
-
-
-    function upload ( path, callback, error_callback ) {
-        console.log("Uploading ...", path)
-        var pathparts = path.split("/")
-        var filename = pathparts [ pathparts.length - 1 ]
-        var type = filename.split(".")[1]
-
-        // Send the blob to the server
-        var requestUrl = "https://" + settings.server + "/_matrix/media/r0/upload?filename=" + filename
-        //Fluffychat.upload ( path, requestUrl, 'Bearer ' + settings.token )
-        callback ( "Ready ..." )
-    }
-
-
-    function getThumbnailFromMxc ( mxc, width, height ) {
-        if ( mxc === undefined ) return ""
-
-        var mxcID = mxc.replace("mxc://","")
-        return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxcID + "/?width=" + width + "&height=" + height + "&method=crop"
-    }
-
-
-
-    function getImageLinkFromMxc ( mxc ) {
-        if ( mxc === undefined ) return ""
-        var mxcID = mxc.replace("mxc://","")
-        return "https://" + settings.server + "/_matrix/media/r0/download/" + mxcID + "/"
-    }
-
-
-
-
 }

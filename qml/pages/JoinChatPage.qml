@@ -8,8 +8,6 @@ Page {
     id: page
 
     property var enabled: false
-    property var inviteList: []
-    property var joiningChatId: ""
 
     header: FcPageHeader {
         id: header

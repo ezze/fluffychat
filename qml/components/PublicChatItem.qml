@@ -11,14 +11,14 @@ ListItem {
     }
     property var matrixid: matrix_id
     onClicked: {
-        var localMainStack = mainStack
-        joiningChatId = matrixid
-        matrix.post( "/client/r0/join/" + encodeURIComponent(matrixid), null, function ( response ) {
-            loadingScreen.visible = true
-            activeChat = response.room_id
-            mainStack.toStart ()
-            mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
-        } )
+        storage.transaction ( "SELECT * FROM Chats WHERE id='" + matrixid + "'", function (rs) {
+            if ( rs.rows.length > 0 ) {
+                activeChat = matrixid
+                mainStack.toStart ()
+                mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
+            }
+            else matrix.joinChat ( matrixid )
+        })
     }
 
     ListItemLayout {
