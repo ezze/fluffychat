@@ -11,12 +11,12 @@ ListItem {
     }
     property var matrixid: matrix_id
     onClicked: {
-        loadingScreen.visible = true
         var localMainStack = mainStack
         matrix.post( "/client/r0/join/" + encodeURIComponent(matrixid), null, function ( response ) {
+            loadingScreen.visible = true
             activeChat = response.room_id
             mainStack.toStart ()
-            mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
+            mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
         } )
     }
 

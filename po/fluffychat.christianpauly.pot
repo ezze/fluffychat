@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 12:19+0000\n"
+"POT-Creation-Date: 2018-09-25 12:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -149,7 +149,7 @@ msgstr ""
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:156
+#: ../qml/controller/EventController.qml:155
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -319,50 +319,6 @@ msgstr ""
 msgid "Password has been copied"
 msgstr ""
 
-#: ../qml/pages/LoginPageOLD.qml:19
-msgid "Please fill all textfields"
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:45 ../qml/pages/PasswordInputPage.qml:26
-msgid "Invalid username or password"
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:48 ../qml/pages/PasswordInputPage.qml:29
-msgid "No connection to "
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:58 ../qml/pages/LoginPage.qml:106
-msgid "Welcome to FluffyChat"
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:74 ../qml/pages/LoginPage.qml:146
-msgid "Choose your homeserver"
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:97
-msgid "What's your name?"
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:104 ../qml/pages/LoginPage.qml:224
-msgid "Username"
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:111
-msgid "Password"
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:122
-msgid "Sign in"
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:129
-msgid "Sign up"
-msgstr ""
-
-#: ../qml/pages/LoginPageOLD.qml:138 ../qml/pages/LoginPage.qml:237
-msgid "Using the homeserver: "
-msgstr ""
-
 #: ../qml/pages/LoginPage.qml:75
 msgid "The desired user ID is not a valid user name"
 msgstr ""
@@ -377,6 +333,10 @@ msgstr ""
 msgid "Registration on %1 failed..."
 msgstr ""
 
+#: ../qml/pages/LoginPage.qml:106
+msgid "Welcome to FluffyChat"
+msgstr ""
+
 #: ../qml/pages/LoginPage.qml:114
 msgid "Change homeserver"
 msgstr ""
@@ -389,12 +349,24 @@ msgstr ""
 msgid "Toggle dark mode"
 msgstr ""
 
+#: ../qml/pages/LoginPage.qml:146
+msgid "Choose your homeserver"
+msgstr ""
+
 #: ../qml/pages/LoginPage.qml:167
 msgid "Choose your identity server"
 msgstr ""
 
 #: ../qml/pages/LoginPage.qml:215
 msgid "Phone number (optional)"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:224
+msgid "Username"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:237
+msgid "Using the homeserver: "
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:189
@@ -511,6 +483,14 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
+#: ../qml/pages/PasswordInputPage.qml:26
+msgid "Invalid username or password"
+msgstr ""
+
+#: ../qml/pages/PasswordInputPage.qml:29
+msgid "No connection to "
+msgstr ""
+
 #: ../qml/pages/PasswordInputPage.qml:38
 msgid "Enter your password"
 msgstr ""
@@ -519,7 +499,7 @@ msgstr ""
 msgid "Please enter your password for: <b>%1</b>"
 msgstr ""
 
-#: ../qml/pages/PasswordInputPage.qml:78
+#: ../qml/pages/PasswordInputPage.qml:80
 msgid "Password..."
 msgstr ""
 
@@ -1065,19 +1045,19 @@ msgstr ""
 msgid "#groupname:"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:70
+#: ../qml/components/ChatScrollView.qml:67
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:173
+#: ../qml/components/ChatScrollView.qml:169
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:177
+#: ../qml/components/ChatScrollView.qml:173
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:181
+#: ../qml/components/ChatScrollView.qml:177
 msgid "Redact message"
 msgstr ""
 

@@ -32,8 +32,6 @@ ListView {
     }
 
     function update ( sync ) {
-        console.log("======================UPDATE====================")
-
         storage.transaction ( "SELECT id, type, content_json, content_body, origin_server_ts, sender, status " +
         " FROM Events " +
         " WHERE chat_id='" + activeChat +
@@ -65,7 +63,6 @@ ListView {
 
 
     function requestHistory () {
-        console.log("REQUESTING ...", requesting)
         if ( initialized !== model.count || requesting || (model.count > 0 && model.get( model.count -1 ).event.type === "m.room.create") ) return
         toast.show ( i18n.tr( "Get more messages from the server ...") )
         requesting = true
@@ -110,7 +107,6 @@ ListView {
         }
 
         // Check that there is no duplication:
-        if ( model.count > j ) console.log(j, event.id, JSON.stringify(model.get(j).event) )
         if ( model.count > j && event.id === model.get(j).event.id ) model.remove ( j )
 
         // If the previous message has the same sender and is a normal message
