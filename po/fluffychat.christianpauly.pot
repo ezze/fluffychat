@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 16:26+0000\n"
+"POT-Creation-Date: 2018-09-25 17:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:147
+#: ../qml/Main.qml:157
 msgid "Are you sure?"
 msgstr ""
 
@@ -423,7 +423,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:33
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:171
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:173
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
 #: ../qml/pages/ChatSettingsPage.qml:205
 msgid "Notifications"
@@ -451,12 +451,12 @@ msgstr ""
 msgid "Account: %1"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:307
+#: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:300
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:311
+#: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:304
 #: ../qml/pages/ChatSettingsPage.qml:163
 msgid "OK"
 msgstr ""
@@ -567,42 +567,42 @@ msgstr ""
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:152 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:154 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:159 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:161 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:165
+#: ../qml/pages/ChatPage.qml:167
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:177
+#: ../qml/pages/ChatPage.qml:179
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:216
+#: ../qml/pages/ChatPage.qml:209
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:272
+#: ../qml/pages/ChatPage.qml:265
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:272
+#: ../qml/pages/ChatPage.qml:265
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:286
+#: ../qml/pages/ChatPage.qml:279
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:335
+#: ../qml/pages/ChatPage.qml:328
 msgid "Type something ..."
 msgstr ""
 
@@ -740,23 +740,23 @@ msgstr ""
 msgid "Purple"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:91
+#: ../qml/pages/ThemeSettingsPage.qml:90
 msgid "Blue"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:98
+#: ../qml/pages/ThemeSettingsPage.qml:96
 msgid "Red"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:105
+#: ../qml/pages/ThemeSettingsPage.qml:102
 msgid "Orange"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:112
+#: ../qml/pages/ThemeSettingsPage.qml:109
 msgid "Graphite"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:119
+#: ../qml/pages/ThemeSettingsPage.qml:115
 msgid "Green"
 msgstr ""
 

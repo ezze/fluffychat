@@ -81,7 +81,7 @@ Page {
             model.insert ( j, { "room": tempRoom } )
         }
     }
-    
+
 
     function newEvent ( type, chat_id, eventType, lastEvent ) {
         // Is the event necessary for the chat list? If not, then return
@@ -156,7 +156,7 @@ Page {
                 }
             },
             Action {
-                iconName: "add"
+                iconName: "message-new"
                 onTriggered: {
                     searching = false
                     searchField.text = ""

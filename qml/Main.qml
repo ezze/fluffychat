@@ -142,6 +142,16 @@ MainView {
     LoadingModal { id: loadingModal }
     Audio { id: audio }
     ConfirmDialog { id: confirmDialog }
+    Image {
+        id: backgroundImage
+        opacity: 0
+        visible: settings.chatBackground !== undefined
+        anchors.fill: mainStack
+        source: settings.chatBackground !== undefined ? settings.chatBackground : ""
+        cache: true
+        fillMode: Image.PreserveAspectCrop
+        z: -1
+    }
 
     // Simple universal confirmation dialog
     property var confirmDialogText: i18n.tr("Are you sure?")

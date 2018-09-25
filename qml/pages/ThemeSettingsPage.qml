@@ -80,44 +80,39 @@ Page {
                 font.bold: true
             }
 
-            SettingsListItem {
+            ColorListItem {
                 name: i18n.tr("Purple")
-                icon: "starred"
                 iconColor: defaultMainColor
                 onClicked: settings.mainColor = iconColor
             }
 
-            SettingsListItem {
+            ColorListItem {
                 name: i18n.tr("Blue")
-                icon: "starred"
                 iconColor: UbuntuColors.blue
                 onClicked: settings.mainColor = iconColor
             }
 
-            SettingsListItem {
+            ColorListItem {
                 name: i18n.tr("Red")
-                icon: "starred"
                 iconColor: UbuntuColors.red
                 onClicked: settings.mainColor = iconColor
             }
 
-            SettingsListItem {
+            ColorListItem {
                 name: i18n.tr("Orange")
-                icon: "starred"
+                icon: "toolkit_arrow-right"
                 iconColor: UbuntuColors.orange
                 onClicked: settings.mainColor = iconColor
             }
 
-            SettingsListItem {
+            ColorListItem {
                 name: i18n.tr("Graphite")
-                icon: "starred"
                 iconColor: UbuntuColors.graphite
                 onClicked: settings.mainColor = iconColor
             }
 
-            SettingsListItem {
+            ColorListItem {
                 name: i18n.tr("Green")
-                icon: "starred"
                 iconColor: UbuntuColors.green
                 onClicked: settings.mainColor = iconColor
             }

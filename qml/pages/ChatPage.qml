@@ -88,6 +88,7 @@ Page {
 
 
     Component.onCompleted: {
+        backgroundImage.opacity = 1
         storage.transaction ( "SELECT draft, membership, unread, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
             if ( res.rows.length === 0 ) return
             membership = res.rows[0].membership
@@ -104,6 +105,7 @@ Page {
     }
 
     Component.onDestruction: {
+        backgroundImage.opacity = 0
         var lastEventId = chatScrollView.count > 0 ? chatScrollView.lastEventId : ""
         storage.query ( "UPDATE Chats SET draft=?, unread=? WHERE id=?", [
         messageTextField.displayText,
@@ -202,15 +204,6 @@ Page {
         z: 0
     }
 
-    Image {
-        id: backgroundImage
-        visible: settings.chatBackground !== undefined
-        anchors.fill: parent
-        source: settings.chatBackground !== undefined ? settings.chatBackground : ""
-        cache: true
-        fillMode: Image.PreserveAspectCrop
-        z: 0
-    }
 
     Label {
         text: i18n.tr('No messages in this chat ...')
