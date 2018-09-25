@@ -240,8 +240,7 @@ Item {
                         var timestamp = events[i].content[e]["m.read"][user].ts
 
                         // Call the newEvent signal for updating the GUI
-                        newEvent ( "m.read", id, "ephemeral", {} )
-                        console.log( "=====NEW EVENT:", "m.read", id, "ephemeral", {} )
+                        newEvent ( events[i].type, id, "ephemeral", {} )
 
                         // Mark all previous received messages as seen
                         transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
@@ -249,6 +248,14 @@ Item {
 
                     }
                 }
+            }
+            if ( events[ i ].type === "m.typing" ) {
+                var user_ids = events[ i ].content.user_ids
+                // If the user is typing, remove his id from the list of typing users
+                var ownTyping = user_ids.indexOf( matrix.matrixid )
+                if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
+                // Call the signal
+                newEvent ( events[ i ].type, id, "ephemeral", user_ids )
             }
         }
     }
@@ -263,7 +270,6 @@ Item {
 
             // Call the newEvent signal for updating the GUI
             newEvent ( event.type, roomid, type, event )
-            console.log( "=====NEW EVENT:", event.type, roomid, type, event )
 
             // messages from the timeline will be saved, for display in the chat.
             // Only this events will call the notification signal or change the
