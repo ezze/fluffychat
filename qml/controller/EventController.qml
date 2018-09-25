@@ -26,6 +26,17 @@ Item {
     signal chatListUpdated ( var response )
     signal chatTimelineEvent ( var response )
 
+    /* The newEvent signal is the most importent signal in this concept. Every time
+     * the app receives a new synchronization, this event is called for every signal
+     * to update the GUI. For example, for a new message, it is called:
+     * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
+    */
+    signal newEvent ( var type, var chat_id, var eventType, var eventContent )
+    /* Outside of the events there are updates for the global chat states which
+     * are handled by this signal:
+    */
+    signal newChatUpdate ( var chat_id, var isNew, var membership, var notification_count, var highlight_count, var limitedTimeline )
+
     property var syncRequest: null
     property var initialized: false
     property var abortSync: false
@@ -174,20 +185,34 @@ Item {
             // events and user-memberships should be removed.
             // If not, it is "join" or "invite" and everything should be saved
 
+            var highlight_count = (room.unread_notifications && room.unread_notifications.highlight_count || 0)
+            var notification_count = (room.unread_notifications && room.unread_notifications.notification_count || 0)
+            var limitedTimeline = (room.timeline ? (room.timeline.limited ? 1 : 0) : 0)
+
+            // Call the newChatUpdate signal for updating the GUI:
+
+
+
             // Insert the chat into the database if not exists
-            transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
+            var insertResult = transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
             "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
+            if ( insertResult.rowsAffected > 0 ) newChatUpdate ( id, true, membership, notification_count, highlight_count, limitedTimeline )
+
             // Update the notification counts and the limited timeline boolean
-            transaction.executeSql ( "UPDATE Chats SET " +
-            " highlight_count=" +
-            (room.unread_notifications && room.unread_notifications.highlight_count || 0) +
-            ", notification_count=" +
-            (room.unread_notifications && room.unread_notifications.notification_count || 0) +
-            ", membership='" +
-            membership +
-            "', limitedTimeline=" +
-            (room.timeline ? (room.timeline.limited ? 1 : 0) : 0) +
-            " WHERE id='" + id + "' ")
+            var updateResult = transaction.executeSql ( "UPDATE Chats SET " +
+            " highlight_count=" + highlight_count +
+            ", notification_count=" + notification_count +
+            ", membership='" + membership +
+            "', limitedTimeline=" + limitedTimeline +
+            " WHERE id='" + id + "' AND ( " +
+            " highlight_count!=" + highlight_count +
+            " OR notification_count!=" + notification_count +
+            " OR membership!='" + membership +
+            "' OR limitedTimeline!=" + limitedTimeline +
+            ") ")
+            if ( updateResult.rowsAffected > 0 ) newChatUpdate ( id, false, membership, notification_count, highlight_count, limitedTimeline )
+
+
 
             // Handle now all room events and save them in the database
             if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
@@ -213,8 +238,15 @@ Item {
                 for ( var e in events[i].content ) {
                     for ( var user in events[i].content[e]["m.read"]) {
                         var timestamp = events[i].content[e]["m.read"][user].ts
+
+                        // Call the newEvent signal for updating the GUI
+                        newEvent ( "m.read", id, "ephemeral", {} )
+                        console.log( "=====NEW EVENT:", "m.read", id, "ephemeral", {} )
+
+                        // Mark all previous received messages as seen
                         transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
                         " AND chat_id='" + id + "' AND status=2")
+
                     }
                 }
             }
@@ -228,6 +260,10 @@ Item {
         // We go through the events array
         for ( var i = 0; i < events.length; i++ ) {
             var event = events[i]
+
+            // Call the newEvent signal for updating the GUI
+            newEvent ( event.type, roomid, type, event )
+            console.log( "=====NEW EVENT:", event.type, roomid, type, event )
 
             // messages from the timeline will be saved, for display in the chat.
             // Only this events will call the notification signal or change the
