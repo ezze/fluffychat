@@ -146,7 +146,6 @@ Item {
                     handleRooms ( response.rooms.invite, "invite" )
 
                     settings.since = response.next_batch
-                    triggerSignals ( response )
                     loadingScreen.visible = false
                     //console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
                 }
@@ -159,16 +158,6 @@ Item {
             syncRequest.abort ()
             return
         }
-    }
-
-
-    function triggerSignals ( response ) {
-        var activeRoom = response.rooms.join[activeChat]
-
-        chatListUpdated ( response )
-
-        // Is there a new chat timeline event in the active room?
-        if ( activeRoom !== undefined ) chatTimelineEvent ( activeRoom )
     }
 
 
