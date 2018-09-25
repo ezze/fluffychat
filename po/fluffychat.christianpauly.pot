@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 17:52+0000\n"
+"POT-Creation-Date: 2018-09-25 18:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -405,11 +405,11 @@ msgstr ""
 msgid "Create chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:21 ../qml/pages/InvitePage.qml:21
+#: ../qml/pages/CreateChatPage.qml:21 ../qml/pages/InvitePage.qml:27
 msgid "Invite selected"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:70
+#: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:76
 #: ../qml/pages/AddChatPage.qml:82
 msgid "Search contacts..."
 msgstr ""
@@ -543,7 +543,7 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/InvitePage.qml:14
+#: ../qml/pages/InvitePage.qml:20
 msgid "Invite user"
 msgstr ""
 
@@ -957,7 +957,7 @@ msgid "Download file: "
 msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:11
-msgid "Connect new phone number"
+msgid "Connect new phone number..."
 msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:19
