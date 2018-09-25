@@ -190,21 +190,25 @@ Page {
                         name: i18n.tr("Invite friend")
                         icon: "contact-new"
                         page: "InvitePage"
+                        onClicked: model.clear()
                     }
                     SettingsListLink {
                         name: i18n.tr("Notifications")
                         icon: "notification"
                         page: "NotificationChatSettingsPage"
+                        onClicked: model.clear()
                     }
                     SettingsListLink {
                         name: i18n.tr("Security & Privacy")
                         icon: "system-lock-screen"
                         page: "ChatPrivacySettingsPage"
+                        onClicked: model.clear()
                     }
                     SettingsListLink {
                         name: i18n.tr("Chat addresses")
                         icon: "bookmark"
                         page: "ChatAliasSettingsPage"
+                        onClicked: model.clear()
                     }
                     SettingsListItem {
                         name: i18n.tr("Leave Chat")
@@ -228,7 +232,7 @@ Page {
                     height: units.gu(2)
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(2)
-                    text: memberList.count > 0 ? i18n.tr("Users in this chat (%1):").arg(memberList.count) : i18n.tr("Loading users ...")
+                    text: memberList.count > 0 ? i18n.tr("Users in this chat (%1):").arg(memberList.count) : i18n.tr("Press button to reload users...")
                     font.bold: true
                 }
             }
@@ -269,6 +273,16 @@ Page {
                 delegate: MemberListItem { }
                 model: ListModel { id: model }
                 z: -1
+
+                Button {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: height
+                    text: i18n.tr("Reload")
+                    color: UbuntuColors.green
+                    onClicked: init()
+                    visible: model.count === 0
+                }
             }
         }
     }

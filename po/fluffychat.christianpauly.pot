@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 12:43+0000\n"
+"POT-Creation-Date: 2018-09-25 13:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -425,7 +425,7 @@ msgstr ""
 #: ../qml/pages/MainSettingsPage.qml:33
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:170
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:195
+#: ../qml/pages/ChatSettingsPage.qml:196
 msgid "Notifications"
 msgstr ""
 
@@ -439,7 +439,7 @@ msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:51
 #: ../qml/pages/PrivacySettingsPage.qml:11
-#: ../qml/pages/ChatSettingsPage.qml:200
+#: ../qml/pages/ChatSettingsPage.qml:202
 msgid "Security & Privacy"
 msgstr ""
 
@@ -626,19 +626,19 @@ msgstr ""
 msgid "Don't notify"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:15 ../qml/pages/AddChatPage.qml:57
+#: ../qml/pages/JoinChatPage.qml:16 ../qml/pages/AddChatPage.qml:57
 msgid "Join chat"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:24
+#: ../qml/pages/JoinChatPage.qml:25
 msgid "Nameless chat"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:51
+#: ../qml/pages/JoinChatPage.qml:52
 msgid "Search public chats..."
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:87
+#: ../qml/pages/JoinChatPage.qml:88
 msgid "Loading public chats..."
 msgstr ""
 
@@ -688,24 +688,28 @@ msgstr ""
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:205
+#: ../qml/pages/ChatSettingsPage.qml:208
 msgid "Chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:210
+#: ../qml/pages/ChatSettingsPage.qml:214
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:231
+#: ../qml/pages/ChatSettingsPage.qml:235
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:231
-msgid "Loading users ..."
+#: ../qml/pages/ChatSettingsPage.qml:235
+msgid "Press button to reload users..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:255
+#: ../qml/pages/ChatSettingsPage.qml:259
 msgid "Search..."
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:281
+msgid "Reload"
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:12

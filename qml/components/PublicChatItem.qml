@@ -12,6 +12,7 @@ ListItem {
     property var matrixid: matrix_id
     onClicked: {
         var localMainStack = mainStack
+        joiningChatId = matrixid
         matrix.post( "/client/r0/join/" + encodeURIComponent(matrixid), null, function ( response ) {
             loadingScreen.visible = true
             activeChat = response.room_id

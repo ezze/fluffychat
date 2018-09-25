@@ -9,7 +9,7 @@ is NOT a message. Currently, only invitations, create and member changes are dis
 
 Item {
     function getDisplay ( event ) {
-        event.content = JSON.parse (event.content_json)
+        if ( !("content" in event) ) event.content = JSON.parse (event.content_json)
         var body = i18n.tr("Unknown Event: ") + event.type
         var sendername = (event.displayname || usernames.transformFromId(event.sender))
         var displayname = event.content.displayname || event.displayname || usernames.transformFromId(event.sender) || i18n.tr("Someone")
