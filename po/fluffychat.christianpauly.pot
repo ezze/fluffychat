@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 15:42+0000\n"
+"POT-Creation-Date: 2018-09-25 16:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,11 +145,11 @@ msgstr ""
 msgid "Forbidden"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:98
+#: ../qml/controller/EventController.qml:99
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:155
+#: ../qml/controller/EventController.qml:156
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

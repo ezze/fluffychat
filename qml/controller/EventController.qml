@@ -24,13 +24,13 @@ Item {
     }
 
     /* The newEvent signal is the most importent signal in this concept. Every time
-     * the app receives a new synchronization, this event is called for every signal
-     * to update the GUI. For example, for a new message, it is called:
-     * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
+    * the app receives a new synchronization, this event is called for every signal
+    * to update the GUI. For example, for a new message, it is called:
+    * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
     */
     signal newEvent ( var type, var chat_id, var eventType, var eventContent )
     /* Outside of the events there are updates for the global chat states which
-     * are handled by this signal:
+    * are handled by this signal:
     */
     signal newChatUpdate ( var chat_id, var membership, var notification_count, var highlight_count, var limitedTimeline )
 
@@ -58,7 +58,7 @@ Item {
         }
         loadingScreen.visible = true
 
-        matrix.get( "/client/r0/sync", null, function ( response ) {
+        matrix.get( "/client/r0/sync", {}, function ( response ) {
             if ( waitingForSync ) progressBarRequests--
             handleEvents ( response )
             matrix.onlineStatus = true
@@ -68,6 +68,7 @@ Item {
             if ( !abortSync ) sync ()
         }, init, null, longPollingTimeout )
     }
+
 
     function sync ( timeout ) {
 
