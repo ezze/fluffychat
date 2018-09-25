@@ -36,7 +36,7 @@ Page {
 
     Connections {
         target: events
-        onChatListUpdated: update ()
+        newChatUpdate: update ()
     }
 
     header: FcPageHeader {

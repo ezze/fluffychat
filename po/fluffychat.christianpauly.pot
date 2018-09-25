@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 11:01+0000\n"
+"POT-Creation-Date: 2018-09-25 11:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -453,7 +453,7 @@ msgstr ""
 #: ../qml/pages/MainSettingsPage.qml:33
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:170
 #: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:188
+#: ../qml/pages/ChatSettingsPage.qml:196
 msgid "Notifications"
 msgstr ""
 
@@ -467,7 +467,7 @@ msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:51
 #: ../qml/pages/PrivacySettingsPage.qml:11
-#: ../qml/pages/ChatSettingsPage.qml:193
+#: ../qml/pages/ChatSettingsPage.qml:201
 msgid "Security & Privacy"
 msgstr ""
 
@@ -480,12 +480,12 @@ msgid "Account: %1"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:50 ../qml/pages/ChatPage.qml:306
-#: ../qml/pages/ChatSettingsPage.qml:152
+#: ../qml/pages/ChatSettingsPage.qml:160
 msgid "Error"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:54 ../qml/pages/ChatPage.qml:310
-#: ../qml/pages/ChatSettingsPage.qml:156
+#: ../qml/pages/ChatSettingsPage.qml:164
 msgid "OK"
 msgstr ""
 
@@ -671,60 +671,60 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:73
+#: ../qml/pages/ChatSettingsPage.qml:81
 msgid "Member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:74
+#: ../qml/pages/ChatSettingsPage.qml:82
 msgid "Was invited"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:75
+#: ../qml/pages/ChatSettingsPage.qml:83
 msgid "Has left the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:76
+#: ../qml/pages/ChatSettingsPage.qml:84
 msgid "Has knocked"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:77
+#: ../qml/pages/ChatSettingsPage.qml:85
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:78
+#: ../qml/pages/ChatSettingsPage.qml:86
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:105
+#: ../qml/pages/ChatSettingsPage.qml:113
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:171
+#: ../qml/pages/ChatSettingsPage.qml:179
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:183
+#: ../qml/pages/ChatSettingsPage.qml:191
 msgid "Invite friend"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:198
+#: ../qml/pages/ChatSettingsPage.qml:206
 msgid "Chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:203
+#: ../qml/pages/ChatSettingsPage.qml:211
 msgid "Leave Chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:224
+#: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:224
+#: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Loading users ..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:248
+#: ../qml/pages/ChatSettingsPage.qml:256
 msgid "Search..."
 msgstr ""
 

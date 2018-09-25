@@ -23,9 +23,6 @@ Item {
         onOnlineChanged: if ( Connectivity.online ) restartSync ()
     }
 
-    signal chatListUpdated ( var response )
-    signal chatTimelineEvent ( var response )
-
     /* The newEvent signal is the most importent signal in this concept. Every time
      * the app receives a new synchronization, this event is called for every signal
      * to update the GUI. For example, for a new message, it is called:
@@ -270,9 +267,6 @@ Item {
         for ( var i = 0; i < events.length; i++ ) {
             var event = events[i]
 
-            // Call the newEvent signal for updating the GUI
-            if ( type !== "history" ) newEvent ( event.type, roomid, type, event )
-
             // messages from the timeline will be saved, for display in the chat.
             // Only this events will call the notification signal or change the
             // current displayed chat!
@@ -439,6 +433,9 @@ Item {
                     }
                 }
             }
+
+            // Call the newEvent signal for updating the GUI
+            newEvent ( event.type, roomid, type, event )
         }
     }
 }
