@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-26 13:55+0000\n"
+"POT-Creation-Date: 2018-09-26 17:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -562,11 +562,11 @@ msgstr ""
 msgid "Email or full username..."
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:75
+#: ../qml/pages/AddContactPage.qml:77
 msgid "Your full username is: <b>%1</b>"
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:92 ../qml/pages/AddChatPage.qml:101
+#: ../qml/pages/AddContactPage.qml:94 ../qml/pages/AddChatPage.qml:101
 msgid "Import from contacts"
 msgstr ""
 

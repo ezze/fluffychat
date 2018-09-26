@@ -72,6 +72,8 @@ Page {
             margins: units.gu(2)
         }
         wrapMode: Text.Wrap
+        width: parent.width - units.gu(4)
+        horizontalAlignment: Text.AlignHCenter
         text: i18n.tr("Your full username is: <b>%1</b>").arg(matrix.matrixid)
     }
 
