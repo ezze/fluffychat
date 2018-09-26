@@ -195,7 +195,7 @@ Rectangle {
                     id: messageLabel
                     opacity: (event.type === "m.sticker" || isMediaEvent) ? 0 : 1
                     height: opacity ? undefined : 0
-                    text: isStateEvent ? displayEvents.getDisplay ( event ) + " <font color='" + UbuntuColors.silk + "'>" + stamp.getChatTime ( event.origin_server_ts ) + "</font>" :  event.content_body || event.content.body
+                    text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :  event.content_body || event.content.body
                     color: (sent || isStateEvent) ? "black" : "white"
                     wrapMode: Text.Wrap
                     textFormat: Text.StyledText

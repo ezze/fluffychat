@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-26 11:33+0000\n"
+"POT-Creation-Date: 2018-09-26 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,49 +106,49 @@ msgstr ""
 msgid "The chat permissions have been changed"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:76
+#: ../qml/controller/DisplayEventController.qml:75
 #: ../qml/components/ChangeJoinRulesDialog.qml:35
 msgid "Only invited users"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:79
+#: ../qml/controller/DisplayEventController.qml:78
 #: ../qml/components/ChangeJoinRulesDialog.qml:19
 msgid "Public"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:82
+#: ../qml/controller/DisplayEventController.qml:81
 #: ../qml/components/ChangeJoinRulesDialog.qml:43
 msgid "Private"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:85
+#: ../qml/controller/DisplayEventController.qml:84
 #: ../qml/components/ChangeJoinRulesDialog.qml:27
 msgid "Knock"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:88
+#: ../qml/controller/DisplayEventController.qml:87
 msgid "All chatters"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:91
+#: ../qml/controller/DisplayEventController.qml:90
 msgid "All joined chat participants"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:94
+#: ../qml/controller/DisplayEventController.qml:93
 msgid "All invited chat participants"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:97
+#: ../qml/controller/DisplayEventController.qml:96
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:19
 msgid "Everyone"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:100
+#: ../qml/controller/DisplayEventController.qml:99
 #: ../qml/components/ChangeGuestAccessDialog.qml:19
 msgid "Can join"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:103
+#: ../qml/controller/DisplayEventController.qml:102
 #: ../qml/components/ChangeGuestAccessDialog.qml:27
 msgid "Forbidden"
 msgstr ""
