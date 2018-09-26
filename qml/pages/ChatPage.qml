@@ -15,6 +15,7 @@ Page {
     property var isTyping: false
     property var pageName: "chat"
     property var canSendMessages: true
+    property var chatMembers: chatScrollView.chatMembers
 
     function send () {
         if ( sending || messageTextField.displayText === "" ) return
@@ -45,8 +46,8 @@ Page {
                 id: messageID,
                 sender: matrix.matrixid,
                 content_body: messageTextField.displayText,
-                displayname: settings.displayname,
-                avatar_url: settings.avatar_url,
+                displayname: chatMembers[matrix.matrixid].displayname,
+                avatar_url: chatMembers[matrix.matrixid].avatar_url,
                 status: msg_status.SENDING,
                 origin_server_ts: now,
                 content: {}
@@ -227,14 +228,15 @@ Page {
         anchors.left: parent.left
         height: header.height - 2
         opacity: 0.9
-        color: "white"
+        color: theme.palette.normal.background
         z: 14
         Icon {
-            name: "toolkit_chevron-down_1gu"
+            name: "toolkit_chevron-down_4gu"
             width: units.gu(2.5)
             height: width
             anchors.centerIn: parent
             z: 14
+            color: settings.darkmode ? "white" : "black"
         }
         visible: !chatScrollView.atYEnd
     }

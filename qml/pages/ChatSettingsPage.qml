@@ -27,6 +27,8 @@ Page {
     property var canChangePermissions
     property var canChangeAvatar
 
+    property var memberCount: 0
+
     // To disable the background image on this page
     Rectangle {
         anchors.fill: parent
@@ -58,12 +60,14 @@ Page {
 
         // Request the full memberlist, from the database
         model.clear()
+        memberCount = 0
         storage.transaction ( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Memberships.membership, Memberships.power_level " +
         " FROM Users, Memberships WHERE Memberships.chat_id='" + activeChat + "' " +
         " AND Users.matrix_id=Memberships.matrix_id " +
         " ORDER BY Memberships.membership", function (response) {
             for ( var i = 0; i < response.rows.length; i++ ) {
                 var member = response.rows[ i ]
+                if ( member.membership === "join" ) memberCount++
                 model.append({
                     name: member.displayname || usernames.transformFromId( member.matrix_id ),
                     matrixid: member.matrix_id,
@@ -247,7 +251,7 @@ Page {
                     height: units.gu(2)
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(2)
-                    text: memberList.count > 0 ? i18n.tr("Users in this chat (%1):").arg(memberList.count) : i18n.tr("Press button to reload users...")
+                    text: memberList.count > 0 ? i18n.tr("Users in this chat (%1):").arg(memberCount) : i18n.tr("Press button to reload users...")
                     font.bold: true
                 }
             }

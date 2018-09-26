@@ -27,7 +27,6 @@ Item {
             if ( tabletMode ) mainStack.push(Qt.resolvedUrl("../pages/BlankPage.qml"))
             else mainStack.push(Qt.resolvedUrl("../pages/ChatListPage.qml"))
             onlineStatus = true
-            usernames.getById(matrix.matrixid, "", function (name) { settings.displayname = name } )
             events.init ()
             resendAllMessages ()
         }
@@ -141,7 +140,7 @@ Item {
     function reset () {
         storage.drop ()
         onlineStatus = false
-        settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.displayname = settings.requestedArchive = settings.avatar_url = settings.since = undefined
+        settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.requestedArchive = settings.since = undefined
         mainStack.clear ()
         mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
     }

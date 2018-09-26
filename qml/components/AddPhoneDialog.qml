@@ -14,11 +14,20 @@ Component {
             width: parent.width
             color: settings.mainColor
         }
-        TextField {
-            id: addressTextField
-            placeholderText: i18n.tr("Phone number...")
-            focus: true
-            inputMethodHints: Qt.ImhDialableCharactersOnly
+        Row {
+            Button {
+                width: units.gu(8)
+                text: settings.countryCode + " +%1".arg(settings.countryTel)
+                onClicked: dialogue.title = i18n.tr("Please log out to change your country")
+            }
+            TextField {
+                id: addressTextField
+                placeholderText: i18n.tr("Phone number...")
+                Keys.onReturnPressed: loginTextField.focus = true
+                inputMethodHints: Qt.ImhDigitsOnly
+                width: parent.width - units.gu(8)
+                focus: true
+            }
         }
         Row {
             width: parent.width
@@ -35,6 +44,7 @@ Component {
                 enabled: addressTextField.displayText !== ""
                 onClicked: {
                     var address = addressTextField.displayText
+                    if ( address.charAt(0) === "0" ) address = address.replace( "0", settings.countryTel )
                     PopupUtils.close(dialogue)
                     var secret = "SECRET:" + new Date().getTime()
                     var confirmText = i18n.tr("Have you confirmed your phone number?")
@@ -42,7 +52,6 @@ Component {
                     var _matrix = matrix
                     var _showConfirmDialog = showConfirmDialog
                     var _phoneSettingsPage = phoneSettingsPage
-                    var country = "DE"
                     var success_callback = function ( response ) {
                         sid = response.sid
                         client_secret = secret
@@ -52,7 +61,7 @@ Component {
                     // Verify this address with this matrix id
                     matrix.post ( "/client/r0/account/3pid/msisdn/requestToken", {
                         client_secret: secret,
-                        country: country,
+                        country: settings.countryCode,
                         phone_number: address,
                         send_attempt: 1,
                         id_server: settings.id_server

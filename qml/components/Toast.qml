@@ -17,11 +17,12 @@ Rectangle {
     color: Qt.rgba(0,0,0,0.75)
     radius: units.gu(0.5)
     visible: false
-    z: 5
+    z: 12
 
     MouseArea {
         anchors.fill: parent
         onClicked: { toast.stateVisible = false }
+        visible: toast.opacity
     }
 
     states: [

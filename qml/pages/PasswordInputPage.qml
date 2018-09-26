@@ -72,6 +72,7 @@ Page {
                 text: i18n.tr("Please enter your password for: <b>%1</b>").arg(matrix.matrixid)
                 width: Math.min( parent.width - units.gu(4), units.gu(50))
                 wrapMode: Text.Wrap
+                horizontalAlignment: Text.AlignHCenter
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 

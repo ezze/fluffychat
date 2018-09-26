@@ -372,10 +372,13 @@ Item {
             // or has changed his nickname
             else if ( event.type === "m.room.member" ) {
 
-                if ( event.content.membership !== "leave" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
-                [ event.state_key,
-                event.content.displayname,
-                event.content.avatar_url ])
+
+                if ( event.content.displayname && event.content.avatar_url ) {
+                    transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
+                    [ event.state_key,
+                    event.content.displayname,
+                    event.content.avatar_url ])
+                }
 
                 transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, " +
                 "COALESCE(" +
@@ -383,11 +386,6 @@ Item {
                 "(SELECT power_user_default FROM Chats WHERE id='" + roomid + "')" +
                 "))",
                 [ event.content.membership ])
-
-                if ( event.state_key === matrix.matrixid) {
-                    settings.avatar_url = event.content.avatar_url
-                    settings.displayname = event.content.displayname
-                }
             }
 
             // This event changes the permissions of the users and the power levels

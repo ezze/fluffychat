@@ -23,12 +23,6 @@ Settings {
     // The device name is a human readable identifier for this device
     property var deviceName
 
-    // The displayname is the username which the user has chosen
-    property var displayname
-
-    // This is the mxc uri for the avatar of the user
-    property var avatar_url
-
     // This points to the position in the synchronization history, that this
     // client has got
     property var since
@@ -55,6 +49,6 @@ Settings {
     property var requestedArchive: false
 
     // The two country ISO name and phone code:
-    property var countryCode: "CN"
-    property var countryTel: "86"
+    property var countryCode: i18n.tr("USA")
+    property var countryTel: i18n.tr("1")
 }

@@ -8,8 +8,8 @@ Page {
     anchors.fill: parent
     id: phoneSettingsPage
 
-    var client_secret
-    var sid
+    property var client_secret
+    property var sid
 
 
     Component.onCompleted: sync ()
@@ -59,7 +59,7 @@ Page {
     }
 
     AddPhoneDialog { id: addPhoneDialog }
-    EnterSMSToken { id: enterSMSToken }
+    EnterSMSTokenDialog { id: enterSMSToken }
 
     Label {
         anchors.centerIn: addressesList

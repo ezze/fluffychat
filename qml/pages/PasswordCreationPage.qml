@@ -86,23 +86,18 @@ Page {
                     width: (parent.width - units.gu(1)) / 2
                     text: i18n.tr("Change")
                     color: UbuntuColors.green
-                    enabled: newPass.displayText !== "" && newPass2.displayText !== ""
+                    enabled: newPass.displayText !== "" && newPass2.displayText !== "" && newPass.text === newPass2.text
                     onClicked: {
-                        if ( newPass.displayText !== newPass2.displayText ) {
-                            dialogue.title = i18n.tr("The passwords do not match")
-                        }
-                        else {
-                            dialogue.title = i18n.tr("Change your password")
-                            matrix.post ( "/client/r0/account/password",{
-                                "auth": {
-                                    "password": generated_password,
-                                    "type": "m.login.password",
-                                    "user": matrix.matrixid
-                                },
-                                "new_password": newPass.displayText
-                            } )
-                            PopupUtils.close(dialogue)
-                        }
+                        dialogue.title = i18n.tr("Change your password")
+                        matrix.post ( "/client/r0/account/password",{
+                            "auth": {
+                                "password": generated_password,
+                                "type": "m.login.password",
+                                "user": matrix.matrixid
+                            },
+                            "new_password": newPass.text
+                        } )
+                        PopupUtils.close(dialogue)
                     }
                 }
             }

@@ -39,14 +39,15 @@ Page {
         " Memberships.matrix_id='" + matrix.matrixid + "'", function ( res ) {
             canEditCanonicalAlias = res.rows[0].power_event_canonical_alias <= res.rows[0].power_level
             canEditAddresses = res.rows[0].power_event_aliases <= res.rows[0].power_level
-            console.log( "POWER:",res.rows[0].power_event_canonical_alias, res.rows[0].power_level )
             var canonical_alias = res.rows[0].canonical_alias
 
             // Get all addresses
             storage.transaction ( "SELECT address FROM Addresses WHERE chat_id='" + activeChat + "'", function (response) {
                 addresses = response.rows
+
                 model.clear()
                 for ( var i = 0; i < response.rows.length; i++ ) {
+                    console.log(response.rows[i].address)
                     model.append({
                         name: response.rows[ i ].address,
                         isCanonicalAlias: response.rows[ i ].address === canonical_alias
@@ -82,7 +83,6 @@ Page {
         height: root.height / 1.5
         delegate: AddressesListItem { }
         model: ListModel { id: model }
-        z: -1
     }
 
 }

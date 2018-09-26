@@ -65,6 +65,7 @@ Page {
     }
 
     Label {
+        id: label
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: contactTextField.bottom
@@ -77,13 +78,14 @@ Page {
     Icon {
         source: "../../assets/info-logo.svg"
         color: settings.mainColor
-        width: parent.width / 1.5
-        opacity: 0.5
+        width: parent.width / 1.25
+        opacity: 0.3
         height: width
         anchors.centerIn: parent
     }
 
     Button {
+        id: button
         anchors.bottom: parent.bottom
         anchors.margins: units.gu(2)
         anchors.horizontalCenter: parent.horizontalCenter

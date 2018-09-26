@@ -28,10 +28,19 @@ Page {
 
             Avatar {  // Useravatar
                 id: avatarImage
-                name: settings.displayname
+                name: matrix.matrixid
                 width: parent.width / 2
                 anchors.horizontalCenter: parent.horizontalCenter
-                mxc: settings.avatar_url
+                mxc: ""
+                Component.onCompleted: {
+                    storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + matrix.matrixid + "'", function (rs) {
+                        if ( rs.rows.length > 0 ) {
+                            avatarImage.name = rs.rows[0].displayname
+                            avatarImage.mxc = rs.rows[0].avatar_url
+                            header.title = i18n.tr('Account: %1').arg( rs.rows[0].displayname )
+                        }
+                    })
+                }
             }
             Component {
                 id: pickerComponent

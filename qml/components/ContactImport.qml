@@ -38,7 +38,9 @@ Item {
                 var threepids = []
                 for ( var i = 0; i < lines.length; i++ ) {
                     if ( lines[i].indexOf ("TEL;") !== -1 ) {
-                        threepids[threepids.length] = [ "msisdn", lines[i].split(":")[1].replace(/\D/g,'') ]
+                        var phoneNumber = lines[i].split(":")[1].replace(/\D/g,'')
+                        if ( phoneNumber.charAt(0) === "0" ) phoneNumber = phoneNumber.replace( "0", settings.countryTel )
+                        threepids[threepids.length] = [ "msisdn", phoneNumber ]
                         // TODO: normalize the numbers with a leading 0 to the users country number
                     }
                     if ( lines[i].indexOf ("EMAIL;") !== -1 ) {

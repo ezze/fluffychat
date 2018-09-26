@@ -8,6 +8,7 @@ Rectangle {
     anchors.fill: parent
     visible: false
     property bool stateVisible: false
+    z: 12
 
     Icon {
         id: icon

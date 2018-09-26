@@ -73,7 +73,7 @@ Rectangle {
             anchors.margins: units.gu(0.5)
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
-            height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
+            height: Math.max( contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) ), avatar.height )
             width: contentColumn.width + ( isImage ? 0 : units.gu(2) )
 
             Column {
@@ -183,7 +183,7 @@ Rectangle {
                     onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
                     visible: [ "m.file", "m.image" ].indexOf( event.content.msgtype ) !== -1 && (event.content.info === undefined || event.content.info.thumbnail_url === undefined)
                     height: visible ? units.gu(4) : 0
-                    width: visible ? undefined : 0
+                    width: visible ? units.gu(26) : 0
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(1)
                 }
@@ -229,7 +229,7 @@ Rectangle {
                     anchors.left: sent ? undefined : parent.left
                     anchors.leftMargin: units.gu(1)
                     anchors.right: sent ? parent.right : undefined
-                    anchors.rightMargin: -units.gu(1)
+                    anchors.rightMargin: isImage ? units.gu(1) : -units.gu(1)
                     spacing: units.gu(0.25)
 
                     // This label is for the meta-informations, which means it displays the

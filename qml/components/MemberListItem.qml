@@ -6,7 +6,10 @@ import "../components"
 
 ListItem {
 
-    visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
+    visible: {
+        searchField.upperCaseText === "" ? membership === "join" :
+        layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
+    }
     height: visible ? layout.height : 0
     property var settings: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === matrix.matrixid)
     property var status: usernames.powerlevelToStatus(userPower)
@@ -18,6 +21,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
+        title.color: settings.darkmode ? "white" : "black"
         subtitle.text: membership === "join" ? status : getDisplayMemberStatus ( membership )
 
         Avatar {

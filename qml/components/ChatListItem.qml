@@ -87,6 +87,7 @@ ListItem {
         anchors.top: parent.top
         anchors.margins: units.gu(2)
         text: stamp.getChatTime ( room.origin_server_ts )
+        color: settings.darkmode ? "white" : "black"
         textSize: Label.XSmall
         visible: text != ""
     }

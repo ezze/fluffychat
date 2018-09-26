@@ -88,6 +88,13 @@ MainView {
         z: 10
     }
 
+    Rectangle {
+        anchors.fill: sideStack
+        color: theme.palette.normal.background
+        z: 4
+        visible: sideStack.visible
+    }
+
     PageStack {
         id: sideStack
         visible: tabletMode
@@ -96,6 +103,7 @@ MainView {
         anchors.top: parent.top
         width: tabletMode ? units.gu(45) : parent.width
         height: parent.height
+        z: 5
         Component.onCompleted: push( Qt.resolvedUrl("./pages/ChatListPage.qml") )
     }
 

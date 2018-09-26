@@ -24,15 +24,16 @@ ListItem {
 
     ListItemLayout {
         id: layout
-        width: parent.width - notificationBubble.width - highlightBubble.width
+        width: parent.width
         title.text: i18n.tr("Unknown chat")
-        title.font.bold: true
+        title.color: settings.darkmode ? "white" : "black"
 
         Avatar {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
             name: room.topic || room.id
             mxc: room.avatar_url || ""
+            onClickFunction: function () {}
         }
 
         Component.onCompleted: {
@@ -54,51 +55,4 @@ ListItem {
             } )
         }
     }
-
-
-    Label {
-        id: stampLabel
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.margins: units.gu(2)
-        text: stamp.getChatTime ( room.origin_server_ts )
-        textSize: Label.XSmall
-        visible: text != ""
-    }
-
-
-    // Notification count bubble on the bottom right
-    Rectangle {
-        id: notificationBubble
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.margins: units.gu(2)
-        width: unreadLabel.width + units.gu(1)
-        height: units.gu(2)
-        color: settings.mainColor
-        radius: units.gu(0.5)
-        Label {
-            id: unreadLabel
-            anchors.centerIn: parent
-            text: room.notification_count || "0"
-            textSize: Label.Small
-            color: UbuntuColors.porcelain
-        }
-        visible: unreadLabel.text != "0"
-    }
-
-
-    Icon {
-        id: highlightBubble
-        visible: room.highlight_count > 0
-        name: "dialog-warning-symbolic"
-        anchors.right: notificationBubble.left
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: units.gu(2)
-        anchors.rightMargin: units.gu(0.5)
-        width: units.gu(2)
-        height: width
-    }
-
-
 }

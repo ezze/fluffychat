@@ -21,6 +21,14 @@ msgstr ""
 msgid " - "
 msgstr " - "
 
+#: ../qml/controller/SettingsController.qml:52
+msgid "USA"
+msgstr "DE"
+
+#: ../qml/controller/SettingsController.qml:53
+msgid "1"
+msgstr "49"
+
 #: ../qml/controller/DisplayEventController.qml:13
 msgid "Unknown Event: "
 msgstr "Unbekanntes Ereignis: "

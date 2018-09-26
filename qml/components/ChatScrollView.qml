@@ -76,7 +76,7 @@ ListView {
             }
             matrix.get( "/client/r0/rooms/" + activeChat + "/messages", data, function ( result ) {
                 if ( result.chunk.length > 0 ) {
-                    for ( var i = 0; i < result.chunk.length; i++ ) addEventToList ( result.chunk[i], true )
+                    for ( var i = result.chunk.length-1; i >= 0; i-- ) addEventToList ( result.chunk[i], true )
                     storageController.db.transaction(
                         function(tx) {
                             events.transaction = tx
@@ -111,10 +111,21 @@ ListView {
 
         // If the previous message has the same sender and is a normal message
         // then it is not necessary to show the user avatar again
-        event.sameSender = model.count >= j &&
-        model.count > 0 &&
+        if ( history ) {
+            if ( model.count > 0 && model.get(j-1).event.sender === event.sender ) {
+                var i = j-1
+                var tempEvent = model.get(i).event
+                tempEvent.sameSender = true
+                model.remove ( i )
+                model.insert ( i, { "event": tempEvent } )
+            }
+        }
+        else {
+            event.sameSender = model.count > j && model.count > 0 &&
         model.get(j).event.type === "m.room.message" &&
         model.get(j).event.sender === event.sender
+        }
+
 
         // Now reorder this item and insert it
         model.insert ( j, { "event": event } )
@@ -142,6 +153,15 @@ ListView {
         eventContent.id = eventContent.event_id
         eventContent.status = msg_status.RECEIVED
         addEventToList ( eventContent )
+
+        if ( type === "m.room.redaction" ) {
+            for ( var i = 0; i < model.count; i++ ) {
+                if ( model.get(i).event.id === eventContent.redacts ) {
+                    model.remove ( i )
+                    break
+                }
+            }
+        }
     }
 
 
@@ -177,10 +197,12 @@ ListView {
                 text: i18n.tr("Redact message")
                 visible: canRedact
                 onTriggered: {
-                    matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
-                    .arg(activeChat)
-                    .arg(contextualActions.contextEvent.id)
-                    .arg(new Date().getTime()) )
+                    showConfirmDialog ( i18n.tr("Are you sure?"), function () {
+                        matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
+                        .arg(activeChat)
+                        .arg(contextualActions.contextEvent.id)
+                        .arg(new Date().getTime()) )
+                    })
                 }
             }
         }

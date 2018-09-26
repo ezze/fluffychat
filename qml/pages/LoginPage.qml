@@ -35,14 +35,12 @@ Page {
             var phoneInput = phoneTextField.displayText.replace(/\D/g,'')
             if ( phoneInput.charAt(0) === 0 ) phoneInput = phoneInput.substr(1)
             phoneInput = settings.countryTel + phoneInput
-            console.log("FORMATTED PHONENUMBER:",phoneInput)
 
             // Step 3.1: Look for this phone number
             matrix.get ("/identity/api/v1/lookup", {
                 "medium": "msisdn",
                 "address": phoneInput
             }, function ( response ) {
-                console.log(JSON.stringify(response))
 
                 // Step 3.2: There is a registered matrix id. Go to the password input...
                 if ( response.mxid ) {
@@ -223,6 +221,12 @@ Page {
                 placeholderText: i18n.tr("Username")
                 Keys.onReturnPressed: login()
                 width: elemWidth
+                onDisplayTextChanged: {
+                    if ( displayText.indexOf ("@") !== -1 ) {
+                        var usernameSplitted = displayText.substr(1).split ( ":" )
+                        loginDomain = usernameSplitted [1]
+                    }
+                }
             }
 
             Rectangle {
