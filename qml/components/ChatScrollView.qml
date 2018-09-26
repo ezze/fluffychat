@@ -141,6 +141,7 @@ ListView {
                 tempEvent.status = msg_status.SENT
                 model.remove ( i )
                 model.insert ( i, { "event": tempEvent } )
+                if ( model.count > i && newID === model.get(i+1).event.id ) model.remove ( i+1 )
                 break
             }
         }

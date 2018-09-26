@@ -219,6 +219,13 @@ Rectangle {
                                 return '<a href="%1"><font color="%2">%1</font></a>'.arg(url).arg(messageLabel.color)
                             })
                             text = tempText
+
+                            // Make emoji messages bigger
+                            if ( text.length === 2 &&
+                                /([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD5D])/g.test( text )
+                            ) {
+                                font.pixelSize = units.gu(16)
+                            }
                         }
                     }
                 }

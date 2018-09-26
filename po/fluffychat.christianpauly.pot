@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-26 11:47+0000\n"
+"POT-Creation-Date: 2018-09-26 12:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:165 ../qml/components/ChatScrollView.qml:200
+#: ../qml/Main.qml:165 ../qml/components/ChatScrollView.qml:201
 msgid "Are you sure?"
 msgstr ""
 
@@ -201,11 +201,11 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:185
+#: ../qml/controller/MatrixController.qml:184
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:331
+#: ../qml/controller/MatrixController.qml:329
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -1068,15 +1068,15 @@ msgstr ""
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:189
+#: ../qml/components/ChatScrollView.qml:190
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:193
+#: ../qml/components/ChatScrollView.qml:194
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:197
+#: ../qml/components/ChatScrollView.qml:198
 msgid "Redact message"
 msgstr ""
 

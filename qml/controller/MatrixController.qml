@@ -162,7 +162,6 @@ Item {
     function sendMessage ( messageID, data, chat_id, success_callback ) {
         var newMessageID = ""
         var callback = function () { success_callback ( newMessageID ) }
-        console.log("try now…",messageID)
         if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
 
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/m.room.message/" + messageID, data, function ( response ) {
@@ -177,7 +176,7 @@ Item {
 
             })
         }, function ( error ) {
-            console.warn("Error… ", error.errcode, ": ", error.error)
+            console.warn("Sending message error: ", error.errcode, ": ", error.error)
 
             // If the user has no permissions or there is an internal server error,
             // the message gets deleted
@@ -221,7 +220,6 @@ Item {
                 msgtype: "m.text",
                 body: event.content_body
             }
-            console.log("Sending:", event.id, event.content_body, event.chat_id)
             sendMessage ( event.id, data, event.chat_id, function (){} )
             if ( rs.rows.length > 1 ) {
                 function Timer() {
