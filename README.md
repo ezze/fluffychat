@@ -7,7 +7,7 @@ FluffyChat is a work in progress Messenger for Ubuntu Touch.
 
 <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a>
 
-Chatroom for FluffyChat: #fluffychat:matrix.org
+Chatroom for FluffyChat: https://matrix.to/#/#fluffychat:matrix.org
 
 Follow me on Mastodon: https://metalhead.club/@krille
 
