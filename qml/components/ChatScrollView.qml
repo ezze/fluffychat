@@ -122,8 +122,8 @@ ListView {
         }
         else {
             event.sameSender = model.count > j && model.count > 0 &&
-        model.get(j).event.type === "m.room.message" &&
-        model.get(j).event.sender === event.sender
+            model.get(j).event.type === "m.room.message" &&
+            model.get(j).event.sender === event.sender
         }
 
 
@@ -213,7 +213,6 @@ ListView {
         id: mimeData
         text: ""
     }
-
 
     width: parent.width
     height: parent.height - 2 * chatInput.height
