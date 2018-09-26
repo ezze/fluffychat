@@ -205,19 +205,17 @@ Rectangle {
                     anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
                     anchors.leftMargin: units.gu(1)
                     anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
+                    font.pixelSize: {
+                        ( text.length === 2 &&
+                            /([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD5D])/g.test( text )
+                        ) ? units.gu(16) : font.pixelSize
+                    }
                     onLinkActivated: Qt.openUrlExternally(link)
                     // Intital calculation of the max width and display URL's
                     Component.onCompleted: {
                         if ( !event.content_body ) event.content_body = event.content.body
                         var maxWidth = message.width - avatar.width - units.gu(5)
                         if ( width > maxWidth ) width = maxWidth
-
-                        // Make emoji messages bigger
-                        if ( text.length === 2 &&
-                            /([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD5D])/g.test( text )
-                        ) {
-                            font.pixelSize = units.gu(16)
-                        }
                     }
                 }
 
