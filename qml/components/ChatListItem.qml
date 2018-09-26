@@ -31,6 +31,7 @@ ListItem {
         title.font.bold: true
         title.color: room.membership === "invite" ? settings.mainColor : (settings.darkmode ? "white" : "black")
         subtitle.text: i18n.tr("No previous messages")
+        subtitle.linkColor: subtitle.color
 
         Avatar {
             id: avatar
