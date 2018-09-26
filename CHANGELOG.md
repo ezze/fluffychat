@@ -1,3 +1,34 @@
+### 0.6.0:
+##### New features
+* User profiles
+* Design improvements
+* Audioplayer in chat
+* Videoplayer in chat
+* Imageviewer
+* Edit chat aliases
+* Edit chat settings and permissions
+* Kick, ban and unban users
+* Edit user permissions
+* New invite page
+* Display and edit chat topics
+* Change chat avatar
+* Change user avatar
+* Edit phone numbers
+* Edit email addresses
+* Display and edit archived chats
+* New add-chat and add-contact pages
+* Display contacts and find contacts with their phone number or email address
+* Discover public chats on the user's homeserver
+* Registration (currently only working with ubports.chat and NOT with matrix.org due captchas)
+* Register and login with phone number
+* Edit identity-server
+
+##### Bugfixes
+* Sometimes messages were sent multiple times
+* Much better performance in the chat
+* Change password fixed
+* A lot of minor fixes
+
 ### 0.5.4:
 * Rebase vivid and xenial to the same version again and some minor bugfixes
 * FluffyChat now automatically opens the link to the matrix.org consens
@@ -12,18 +43,18 @@ There seems to be a critical bug, when updating on vivid. If you have a "critica
 * Chat avatars
 * Search users in chats
 * Security & Privacy settings:
-1. Disable typing notifications
-2. Auto-accept invitations
+** Disable typing notifications
+** Auto-accept invitations
 * New message status:
-1. Sending: Activity indicator
-2. Sent: Little cloud
-3. Received: Tick
-4. Seen by someone: Usericon
+** Sending: Activity indicator
+** Sent: Little cloud
+** Received: Tick
+** Seen by someone: Usericon
 * Display stickers
 * Minor UI improvements
 
 
-##### Bugfixes:
+##### Bugfixes
 * Autoreset pusher, when app has a new push token
 * Show toast every time at start, if user has no Ubuntu One account
 * Bug that displays a wrong name in app drawer

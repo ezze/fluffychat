@@ -28,6 +28,12 @@ Page {
             msgtype: "m.text",
             body: messageTextField.displayText
         }
+        var urlRegex = /(https?:\/\/[^\s]+)/g
+        var content_body = messageTextField.displayText || ""
+        if ( content_body === "" ) content_body = " "
+        content_body = content_body.replace(urlRegex, function(url) {
+            return '<a href="%1">%1</a>'.arg(url)
+        })
 
         // Save the message in the database
         storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -45,7 +51,7 @@ Page {
                 type: "m.room.message",
                 id: messageID,
                 sender: matrix.matrixid,
-                content_body: messageTextField.displayText,
+                content_body: content_body,
                 displayname: chatMembers[matrix.matrixid].displayname,
                 avatar_url: chatMembers[matrix.matrixid].avatar_url,
                 status: msg_status.SENDING,

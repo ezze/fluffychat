@@ -262,12 +262,21 @@ Item {
             // current displayed chat!
             if ( type === "timeline" || type === "history" ) {
                 var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
+
+                // Format the text for the app
+                var urlRegex = /(https?:\/\/[^\s]+)/g
+                var tempText = event.content.body || ""
+                if ( tempText === "" ) tempText = " "
+                tempText = tempText.replace(urlRegex, function(url) {
+                    return '<a href="%1">%1</a>'.arg(url)
+                })
+                event.content_body = tempText
                 transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
                 roomid,
                 event.origin_server_ts,
                 event.sender,
-                event.content.body || null,
+                event.content_body,
                 event.content.msgtype || null,
                 event.type,
                 JSON.stringify(event.content),
