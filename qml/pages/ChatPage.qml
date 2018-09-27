@@ -135,6 +135,7 @@ Page {
     function newChatUpdate ( chat_id, new_membership, notification_count, highlight_count, limitedTimeline ) {
         if ( chat_id !== activeChat ) return
         membership = new_membership
+        if ( limitedTimeline ) chatScrollView.model.clear ()
     }
 
     function newEvent ( type, chat_id, eventType, eventContent ) {

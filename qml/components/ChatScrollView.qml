@@ -76,7 +76,7 @@ ListView {
             }
             matrix.get( "/client/r0/rooms/" + activeChat + "/messages", data, function ( result ) {
                 if ( result.chunk.length > 0 ) {
-                    for ( var i = result.chunk.length-1; i >= 0; i-- ) addEventToList ( result.chunk[i], true )
+                    for ( var i = 0; i < result.chunk.length; i++ ) addEventToList ( result.chunk[i], true )
                     storageController.db.transaction(
                         function(tx) {
                             events.transaction = tx
@@ -98,11 +98,8 @@ ListView {
     function addEventToList ( event, history ) {
 
         // Find the right position for this event
-        var j = history ? model.count-1 : 0
-        if ( history ) {
-            while ( j > 0 && event.origin_server_ts > model.get(j).event.origin_server_ts ) j--
-        }
-        else {
+        var j = history ? model.count : 0
+        if ( !history ) {
             while ( j < model.count-1 && event.origin_server_ts < model.get(j+1).event.origin_server_ts ) j++
         }
 

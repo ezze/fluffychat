@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:29+0000\n"
+"POT-Creation-Date: 2018-09-27 08:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:166 ../qml/components/ChatScrollView.qml:218
+#: ../qml/Main.qml:166 ../qml/components/ChatScrollView.qml:213
 msgid "Are you sure?"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:33
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:181
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:215
 msgid "Notifications"
@@ -454,12 +454,12 @@ msgstr ""
 msgid "Account: %1"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:59 ../qml/pages/ChatPage.qml:309
+#: ../qml/pages/AccountSettingsPage.qml:59 ../qml/pages/ChatPage.qml:310
 #: ../qml/pages/ChatSettingsPage.qml:169
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:63 ../qml/pages/ChatPage.qml:313
+#: ../qml/pages/AccountSettingsPage.qml:63 ../qml/pages/ChatPage.qml:314
 #: ../qml/pages/ChatSettingsPage.qml:173
 msgid "OK"
 msgstr ""
@@ -570,42 +570,42 @@ msgstr ""
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:162 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:163 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:169 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:170 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:175
+#: ../qml/pages/ChatPage.qml:176
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:187
+#: ../qml/pages/ChatPage.qml:188
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:217
+#: ../qml/pages/ChatPage.qml:218
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:274
+#: ../qml/pages/ChatPage.qml:275
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:274
+#: ../qml/pages/ChatPage.qml:275
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:288
+#: ../qml/pages/ChatPage.qml:289
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:337
+#: ../qml/pages/ChatPage.qml:338
 msgid "Type something ..."
 msgstr ""
 
@@ -1068,15 +1068,15 @@ msgstr ""
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:207
+#: ../qml/components/ChatScrollView.qml:202
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:211
+#: ../qml/components/ChatScrollView.qml:206
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:215
+#: ../qml/components/ChatScrollView.qml:210
 msgid "Redact message"
 msgstr ""
 
