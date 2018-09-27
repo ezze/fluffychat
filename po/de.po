@@ -1150,8 +1150,8 @@ msgid "Connect new email address"
 msgstr "Neue Email-Adresse verbinden"
 
 #: ../qml/components/AddEmailDialog.qml:19
-msgid "youremail@domain.com"
-msgstr "deineemail@domain.com"
+msgid "youremail@example.edu"
+msgstr "deineemail@example.edu"
 
 #: ../qml/components/AddEmailDialog.qml:39
 msgid "Have you confirmed your email address?"
