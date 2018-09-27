@@ -25,7 +25,7 @@ msgstr "Bist du sicher?"
 
 #: ../qml/controller/StampController.qml:20
 msgid " - "
-msgstr " ... "
+msgstr " - "
 
 #: ../qml/controller/DisplayEventController.qml:13
 msgid "Unknown Event: "

@@ -264,12 +264,13 @@ Item {
                 var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
 
                 // Format the text for the app
-                var urlRegex = /(https?:\/\/[^\s]+)/g
-                var tempText = event.content.body || ""
-                if ( tempText === "" ) tempText = " "
-                tempText = tempText.replace(urlRegex, function(url) {
-                    return '<a href="%1">%1</a>'.arg(url)
-                })
+                var tempText = event.content.body || null
+                if ( tempText !== null ) {
+                    var urlRegex = /(https?:\/\/[^\s]+)/g
+                    tempText = tempText.replace(urlRegex, function(url) {
+                        return '<a href="%1">%1</a>'.arg(url)
+                    })
+                }
                 event.content_body = tempText
                 transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,

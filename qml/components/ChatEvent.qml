@@ -194,7 +194,7 @@ Rectangle {
                 Label {
                     id: messageLabel
                     opacity: (event.type === "m.sticker" || isMediaEvent) ? 0 : 1
-                    //height: opacity ? undefined : 0
+                    height: opacity ? undefined : 0
                     text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :  event.content_body || event.content.body
                     color: (sent || isStateEvent) ? "black" : "white"
                     linkColor: color
@@ -205,11 +205,6 @@ Rectangle {
                     anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
                     anchors.leftMargin: units.gu(1)
                     anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
-                    font.pixelSize: {
-                        ( text.length === 2 &&
-                            /([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD5D])/g.test( text )
-                        ) ? units.gu(16) : undefined
-                    }
                     onLinkActivated: Qt.openUrlExternally(link)
                     // Intital calculation of the max width and display URL's
                     Component.onCompleted: {

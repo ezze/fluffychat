@@ -109,6 +109,18 @@ ListView {
         // Check that there is no duplication:
         if ( model.count > j && event.id === model.get(j).event.id ) model.remove ( j )
 
+        // If there is a transaction id, remove the sending event
+        if ( "unsigned" in event && "transaction_id" in event.unsigned ) {
+            console.log("NEW unsigned EVENT:", event.id)
+            for ( var i = 0; i < model.count; i++ ) {
+                if ( model.get(i).event.id === event.unsigned.transaction_id ||
+                    model.get(i).event.id === event.id) {
+                    model.remove( i )
+                    break
+                }
+            }
+        }
+
         // If the previous message has the same sender and is a normal message
         // then it is not necessary to show the user avatar again
         if ( history ) {
@@ -139,11 +151,14 @@ ListView {
                 var tempEvent = model.get(i).event
                 tempEvent.id = newID
                 tempEvent.status = msg_status.SENT
+                tempEvent.origin_server_ts = new Date().getTime()
+                var j = i
+                while ( j > 0 && tempEvent.origin_server_ts > model.get(j).event.origin_server_ts ) j--
                 model.remove ( i )
-                model.insert ( i, { "event": tempEvent } )
-                if ( model.count > i && newID === model.get(i+1).event.id ) model.remove ( i+1 )
+                model.insert ( j, { "event": tempEvent } )
                 break
             }
+            else if ( model.get(i).event.id === newID ) break
         }
     }
 
