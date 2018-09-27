@@ -57,6 +57,7 @@ Item {
             return sync ( 1 )
         }
         loadingScreen.visible = true
+        storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" + matrix.matrixid + "', undefined, undefined )" )
 
         matrix.get( "/client/r0/sync", {}, function ( response ) {
             if ( waitingForSync ) progressBarRequests--

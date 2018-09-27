@@ -24,7 +24,7 @@ Page {
                     }
 
                     var input = contactTextField.displayText
-                    if ( input.charAt[0] === "@" && input.indexOf(":") !== -1 ) {
+                    if ( input.charAt(0) === "@" && input.indexOf(":") !== -1 ) {
                         // The input is a matrix ID
                         data.invite = [ input ]
                     }
