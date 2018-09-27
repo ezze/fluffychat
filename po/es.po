@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-06 09:01+0000\n"
-"PO-Revision-Date: 2018-07-06 21:05+0000\n"
+"PO-Revision-Date: 2018-09-27 09:31+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
-"Language-Team: UBports Spanish Team\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
+"translations/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ../qml/controller/StampController.qml:20
 msgid " - "
@@ -682,7 +684,7 @@ msgstr "¿Cuál es el nombre de usuario de tu amigo?"
 
 #: ../qml/components/NewContactDialog.qml:23
 msgid "(Your username is: <b>%1</b>)"
-msgstr "(Tu nombre de usuario es: <b>% 1 </ b>)"
+msgstr "(Tu nombre de usuario es: <b>%1</ b>)"
 
 #: ../qml/components/DeviceListItem.qml:22
 msgid "Last seen: "
