@@ -22,6 +22,7 @@
 * Registration (currently only working with ubports.chat and NOT with matrix.org due captchas)
 * Register and login with phone number
 * Edit identity-server
+* Add in-app viewer for the privacy policy
 
 ##### Bugfixes
 * Sometimes messages were sent multiple times
