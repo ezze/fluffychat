@@ -16,7 +16,7 @@ Component {
         }
         Column {
             SettingsListItem {
-                name: i18n.tr("Owners")
+                name: i18n.tr("Admins")
                 icon: "view-collapse"
                 onClicked: {
                     var data = {}
@@ -30,7 +30,7 @@ Component {
                 }
             }
             SettingsListItem {
-                name: i18n.tr("Guards")
+                name: i18n.tr("Moderators")
                 icon: "view-collapse"
                 onClicked: {
                     var data = {}

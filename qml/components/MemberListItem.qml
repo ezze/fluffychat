@@ -22,9 +22,10 @@ ListItem {
         id: layout
         title.text: name
         title.color: settings.darkmode ? "white" : "black"
-        subtitle.text: membership === "join" ? status : getDisplayMemberStatus ( membership )
+        subtitle.text: getDisplayMemberStatus ( membership )
 
         Avatar {
+            id: avatar
             name: layout.title.text
             SlotsLayout.position: SlotsLayout.Leading
             mxc: avatar_url || ""
@@ -41,7 +42,17 @@ ListItem {
             rotation: 90
         }
     }
-
+    
+    Icon {
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.topMargin: units.gu(0.5)
+        anchors.leftMargin: units.gu(1)
+        name: status === "Moderators" ? "unstarred" : "starred"
+        visible: status !== "Members"
+        width: units.gu(2)
+        height: width
+    }
 
 
     // Settings Buttons
@@ -59,10 +70,10 @@ ListItem {
             })
             visible: canChangePermissions && userPower != 0 && membership !== "ban"
         },
-        // Make guard button
+        // Make moderator button
         Action {
             iconName: "non-starred"
-            onTriggered: showConfirmDialog( i18n.tr("Make this user a guard?"), function () {
+            onTriggered: showConfirmDialog( i18n.tr("Make this user a moderator?"), function () {
                 var data = {
                     users: {}
                 }
@@ -74,7 +85,7 @@ ListItem {
         // Make owner button
         Action {
             iconName: "starred"
-            onTriggered: showConfirmDialog( i18n.tr("Make this user an owner?"), function () {
+            onTriggered: showConfirmDialog( i18n.tr("Make this user an admin?"), function () {
                 var data = {
                     users: {}
                 }

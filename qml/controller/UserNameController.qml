@@ -43,8 +43,8 @@ Item {
 
     function powerlevelToStatus ( power_level ) {
         if ( power_level < 50 ) return i18n.tr('Members')
-        else if ( power_level < 100 ) return i18n.tr('Guards')
-        else return i18n.tr('Owners')
+        else if ( power_level < 100 ) return i18n.tr('Moderators')
+        else return i18n.tr('Admins')
     }
 
     function showUserSettings ( matrix_id ) {

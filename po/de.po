@@ -180,13 +180,13 @@ msgstr "Mitglieder"
 
 #: ../qml/controller/UserNameController.qml:46
 #: ../qml/components/ChangePowerLevelDialog.qml:33
-msgid "Guards"
-msgstr "Wächter"
+msgid "Moderators"
+msgstr "Moderatoren"
 
 #: ../qml/controller/UserNameController.qml:47
 #: ../qml/components/ChangePowerLevelDialog.qml:19
-msgid "Owners"
-msgstr "Besitzer"
+msgid "Admins"
+msgstr "Administratoren"
 
 #: ../qml/controller/RoomNameController.qml:13
 #: ../qml/controller/RoomNameController.qml:26

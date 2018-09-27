@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:48+0000\n"
+"POT-Creation-Date: 2018-09-27 09:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -183,12 +183,12 @@ msgstr ""
 
 #: ../qml/controller/UserNameController.qml:46
 #: ../qml/components/ChangePowerLevelDialog.qml:33
-msgid "Guards"
+msgid "Moderators"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:47
 #: ../qml/components/ChangePowerLevelDialog.qml:19
-msgid "Owners"
+msgid "Admins"
 msgstr ""
 
 #: ../qml/controller/RoomNameController.qml:13
@@ -835,27 +835,27 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:53
+#: ../qml/components/MemberListItem.qml:64
 msgid "Make this user a normal member?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:65
-msgid "Make this user a guard?"
+#: ../qml/components/MemberListItem.qml:76
+msgid "Make this user a moderator?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:77
-msgid "Make this user an owner?"
+#: ../qml/components/MemberListItem.qml:88
+msgid "Make this user an admin?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:95
+#: ../qml/components/MemberListItem.qml:106
 msgid "Ban from this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:103
+#: ../qml/components/MemberListItem.qml:114
 msgid "Cancel banishment?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:111
+#: ../qml/components/MemberListItem.qml:122
 msgid "Kick from this chat?"
 msgstr ""
 
@@ -1147,7 +1147,7 @@ msgid "Connect new email address"
 msgstr ""
 
 #: ../qml/components/AddEmailDialog.qml:19
-msgid "youremail@domain.com"
+msgid "youremail@example.edu"
 msgstr ""
 
 #: ../qml/components/AddEmailDialog.qml:39

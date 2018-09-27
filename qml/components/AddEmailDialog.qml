@@ -16,7 +16,7 @@ Component {
         }
         TextField {
             id: addressTextField
-            placeholderText: i18n.tr("youremail@domain.com")
+            placeholderText: i18n.tr("youremail@example.edu")
             focus: true
         }
         Row {
