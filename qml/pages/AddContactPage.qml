@@ -15,38 +15,42 @@ Page {
             numberOfSlots: 1
             actions: [
             Action {
+                id: okTrigger
                 iconName: "ok"
                 text: i18n.tr('Start new private chat')
-                onTriggered: {
-                    var data = {
-                        "is_direct": true,
-                        "preset": "private_chat"
-                    }
-
-                    var input = contactTextField.displayText
-                    if ( input.charAt(0) === "@" && input.indexOf(":") !== -1 ) {
-                        // The input is a matrix ID
-                        data.invite = [ input ]
-                    }
-                    else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test( input )) {
-                        // The input is a valid email address
-                        data.invite_3pid = [ {
-                            id_server: settings.id_server,
-                            medium: "email",
-                            address: input
-                        } ]
-                    }
-                    else return toast.show( i18n.tr("You need to enter a valid Email address or Matrix ID!") )
-                    loadingScreen.visible = true
-                    matrix.post( "/client/r0/createRoom", data, function ( response ) {
-                        activeChat = response.room_id
-                        mainStack.toStart ()
-                        mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
-                    } )
-                }
+                onTriggered: start()
             }
             ]
         }
+    }
+
+    function start () {
+        contactTextField.focus = false
+        var data = {
+            "is_direct": true,
+            "preset": "private_chat"
+        }
+
+        var input = contactTextField.displayText
+        if ( input.charAt(0) === "@" && input.indexOf(":") !== -1 ) {
+            // The input is a matrix ID
+            data.invite = [ input ]
+        }
+        else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test( input )) {
+            // The input is a valid email address
+            data.invite_3pid = [ {
+                id_server: settings.id_server,
+                medium: "email",
+                address: input
+            } ]
+        }
+        else return toast.show( i18n.tr("You need to enter a valid Email address or Matrix ID!") )
+        loadingScreen.visible = true
+        matrix.post( "/client/r0/createRoom", data, function ( response ) {
+            activeChat = response.room_id
+            mainStack.toStart ()
+            mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
+        } )
     }
 
     ContactImport { id: contactImport }
@@ -61,6 +65,7 @@ Page {
         }
         inputMethodHints: Qt.ImhNoPredictiveText
         placeholderText: i18n.tr("Email or full username...")
+        Keys.onReturnPressed: start()
         Component.onCompleted: focus = true
     }
 

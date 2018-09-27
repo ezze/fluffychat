@@ -158,9 +158,9 @@ Item {
 
     // This function helps to send a message. It automatically repeats, if there
     // was an error with the connection.
-    function sendMessage ( messageID, data, chat_id, success_callback ) {
+    function sendMessage ( messageID, data, chat_id, success_callback, error_callback ) {
         var newMessageID = ""
-        var callback = function () { success_callback ( newMessageID ) }
+        var callback = function () { if ( newMessageID !== "" ) success_callback ( newMessageID ) }
         if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
 
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/m.room.message/" + messageID, data, function ( response ) {
@@ -182,10 +182,12 @@ Item {
             if ( error.errcode === "M_FORBIDDEN" ) {
                 toast.show ( i18n.tr("You are not allowed to chat here.") )
                 storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )
+                if ( error_callback ) error_callback ()
             }
             else if ( error.errcode === "M_UNKNOWN" ) {
                 toast.show ( error.error )
                 storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )
+                if ( error_callback ) error_callback ()
             }
             // Else: Try again in a few seconds
             else if ( Connectivity.online ) {
@@ -327,9 +329,13 @@ Item {
                         toast.show (i18n.tr("No connection to the homeserver 😕"))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
-                        var url = "https://" + error.error.split("https://")[1]
-                        url = url.substring(0, url.length - 1);
-                        Qt.openUrlExternally( url )
+                        loadingScreen.visible = false
+                        if ( "consent_uri" in error ) {
+                            consentUrl = error.consent_uri
+                            var item = Qt.createComponent("../components/ConsentViewer.qml")
+                            item.createObject(mainStack.currentPage, { })
+                        }
+                        else toast.show ( error.error )
                     }
                     else if ( error_callback ) error_callback ( error )
                     else if ( error.errcode !== undefined && error.error !== undefined ) toast.show ( error.errcode + ": " + error.error )

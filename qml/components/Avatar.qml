@@ -55,7 +55,7 @@ Rectangle {
 
     Label {
         anchors.centerIn: parent
-        text: name.slice( 0, 2 )
+        text: name.charAt(0) === "@" ? name.slice( 1, 3 ) : name.slice( 0, 2 )
         color: stringToColor ( name )
         textSize: parent.width > units.gu(6) ? Label.XLarge : (parent.width < units.gu(6) ? Label.Small : Label.Large)
         z: 10

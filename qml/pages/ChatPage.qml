@@ -62,6 +62,8 @@ Page {
 
             matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
                 chatScrollView.messageSent ( messageID, response )
+            }, function () {
+                chatScrollView.removeEvent ( messageID )
             } )
 
             isTyping = true

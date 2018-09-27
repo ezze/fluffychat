@@ -112,7 +112,7 @@ ListView {
             event.unsigned.transaction_id = event.unsigned.transaction_id
             for ( var i = 0; i < model.count; i++ ) {
                 if ( model.get(i).event.id === event.unsigned.transaction_id ||
-                    model.get(i).event.id === event.id) {
+                model.get(i).event.id === event.id) {
                     model.remove( i )
                     break
                 }
@@ -168,12 +168,15 @@ ListView {
         eventContent.status = msg_status.RECEIVED
         addEventToList ( eventContent )
 
-        if ( type === "m.room.redaction" ) {
-            for ( var i = 0; i < model.count; i++ ) {
-                if ( model.get(i).event.id === eventContent.redacts ) {
-                    model.remove ( i )
-                    break
-                }
+        if ( type === "m.room.redaction" ) removeEvent ( eventContent.redacts )
+    }
+
+
+    function removeEvent ( event_id ) {
+        for ( var i = 0; i < model.count; i++ ) {
+            if ( model.get(i).event.id === event_id ) {
+                model.remove ( i )
+                break
             }
         }
     }

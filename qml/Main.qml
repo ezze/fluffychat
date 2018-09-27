@@ -63,6 +63,8 @@ MainView {
     property var mainStackWidth: mainStack.width
     property var generated_password: null
     property var desiredPhoneNumber: null
+    property var consentUrl: ""
+    property var consentContent: ""
 
 
     /* =============================== LAYOUT ===============================
@@ -170,6 +172,7 @@ MainView {
         confirmDialogFunction = action
         PopupUtils.open( confirmDialog )
     }
+
 
 
     /* =============================== CONNECTION MANAGER ===============================

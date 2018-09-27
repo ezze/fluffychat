@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 12:24+0000\n"
+"POT-Creation-Date: 2018-09-27 13:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:166 ../qml/components/ChatScrollView.qml:214
+#: ../qml/Main.qml:168 ../qml/components/ChatScrollView.qml:217
 msgid "Are you sure?"
 msgstr ""
 
@@ -153,11 +153,11 @@ msgstr ""
 msgid "Forbidden"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:100
+#: ../qml/controller/EventController.qml:101
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:157
+#: ../qml/controller/EventController.qml:158
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -205,7 +205,7 @@ msgstr ""
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:327
+#: ../qml/controller/MatrixController.qml:329
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgid "There are no archived chats"
 msgstr ""
 
 #: ../qml/pages/EmailSettingsPage.qml:44
-#: ../qml/pages/AccountSettingsPage.qml:83
+#: ../qml/pages/AccountSettingsPage.qml:84
 msgid "Connected email addresses"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/MainSettingsPage.qml:33
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:180
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:215
 msgid "Notifications"
@@ -450,38 +450,38 @@ msgid "About FluffyChat"
 msgstr ""
 
 #: ../qml/pages/AccountSettingsPage.qml:12
-#: ../qml/pages/AccountSettingsPage.qml:40
+#: ../qml/pages/AccountSettingsPage.qml:41
 msgid "Account: %1"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:59 ../qml/pages/ChatPage.qml:308
+#: ../qml/pages/AccountSettingsPage.qml:60 ../qml/pages/ChatPage.qml:310
 #: ../qml/pages/ChatSettingsPage.qml:169
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:63 ../qml/pages/ChatPage.qml:312
+#: ../qml/pages/AccountSettingsPage.qml:64 ../qml/pages/ChatPage.qml:314
 #: ../qml/pages/ChatSettingsPage.qml:173
 msgid "OK"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:71
+#: ../qml/pages/AccountSettingsPage.qml:72
 msgid "Change display name"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:77
+#: ../qml/pages/AccountSettingsPage.qml:78
 #: ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:89
+#: ../qml/pages/AccountSettingsPage.qml:90
 msgid "Change password"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:95
+#: ../qml/pages/AccountSettingsPage.qml:96
 msgid "Disable account"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:101
+#: ../qml/pages/AccountSettingsPage.qml:102
 #: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr ""
@@ -550,62 +550,62 @@ msgstr ""
 msgid "Invite user"
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:12 ../qml/pages/AddContactPage.qml:19
+#: ../qml/pages/AddContactPage.qml:12 ../qml/pages/AddContactPage.qml:20
 msgid "Start new private chat"
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:39
+#: ../qml/pages/AddContactPage.qml:47
 msgid "You need to enter a valid Email address or Matrix ID!"
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:63
+#: ../qml/pages/AddContactPage.qml:67
 msgid "Email or full username..."
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:77
+#: ../qml/pages/AddContactPage.qml:82
 msgid "Your full username is: <b>%1</b>"
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:94 ../qml/pages/AddChatPage.qml:101
+#: ../qml/pages/AddContactPage.qml:99 ../qml/pages/AddChatPage.qml:101
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:161 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:163 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:168 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:170 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:174
+#: ../qml/pages/ChatPage.qml:176
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:186
+#: ../qml/pages/ChatPage.qml:188
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:216
+#: ../qml/pages/ChatPage.qml:218
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:273
+#: ../qml/pages/ChatPage.qml:275
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:273
+#: ../qml/pages/ChatPage.qml:275
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:287
+#: ../qml/pages/ChatPage.qml:289
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:336
+#: ../qml/pages/ChatPage.qml:338
 msgid "Type something ..."
 msgstr ""
 
@@ -868,6 +868,10 @@ msgstr ""
 msgid "Password has been changed"
 msgstr ""
 
+#: ../qml/components/ConsentViewer.qml:23
+msgid "Consent not given"
+msgstr ""
+
 #: ../qml/components/TargetInfoDialog.qml:11
 msgid "Target details"
 msgstr ""
@@ -1068,15 +1072,15 @@ msgstr ""
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:203
+#: ../qml/components/ChatScrollView.qml:206
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:207
+#: ../qml/components/ChatScrollView.qml:210
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:211
+#: ../qml/components/ChatScrollView.qml:214
 msgid "Redact message"
 msgstr ""
 
