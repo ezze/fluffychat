@@ -22,8 +22,8 @@ Page {
 
 
         // Send the message
-        var messageID = "%" + new Date().getTime();
         var now = new Date().getTime()
+        var messageID = "" + now
         var data = {
             msgtype: "m.text",
             body: messageTextField.displayText
@@ -61,7 +61,6 @@ Page {
             chatScrollView.addEventToList ( fakeEvent )
 
             matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
-                console.log("MESSAGE SENT:", response)
                 chatScrollView.messageSent ( messageID, response )
             } )
 
@@ -147,7 +146,6 @@ Page {
             chatScrollView.chatMembers [eventContent.state_key] = eventContent.content
         }
         else if ( type === "m.receipt" ) {
-            console.log(eventContent.user)
             chatScrollView.markRead ( eventContent.ts )
         }
         if ( eventType === "timeline" ) {

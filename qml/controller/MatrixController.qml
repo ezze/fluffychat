@@ -82,7 +82,6 @@ Item {
         }
 
         var onLogged = function ( response ) {
-            console.log("REGISTERANSWER!!!!!!!!",JSON.stringify(response))
             // The homeserver requires additional authentication information.
             if ( response.flows ) {
                 var forwarded = false
@@ -212,7 +211,6 @@ Item {
     // If the user starts the app or is online again, all sending messages should
     // restart sending
     function resendAllMessages () {
-        console.log("resend all sending events")
         storage.transaction ( "SELECT id, chat_id, content_body FROM Events WHERE status=0", function ( rs) {
             if ( rs.rows.length === 0 ) return
             var event = rs.rows[0]
@@ -331,7 +329,6 @@ Item {
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
                         var url = "https://" + error.error.split("https://")[1]
                         url = url.substring(0, url.length - 1);
-                        console.log("Die url ist: '" + url + "'")
                         Qt.openUrlExternally( url )
                     }
                     else if ( error_callback ) error_callback ( error )
