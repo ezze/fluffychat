@@ -96,6 +96,8 @@ ListView {
     // This function writes the event in the chat. The event MUST have the format
     // of a database entry, described in the storage controller
     function addEventToList ( event, history ) {
+        console.log(event.id)
+        if ( history ) event.status = msg_status.HISTORY
 
         // Find the right position for this event
         var j = history ? model.count : 0
@@ -108,10 +110,12 @@ ListView {
 
         // If there is a transaction id, remove the sending event
         if ( "unsigned" in event && "transaction_id" in event.unsigned ) {
-            console.log("NEW unsigned EVENT:", event.id)
+            console.log("NEW unsigned EVENT:", event.id, event.unsigned.transaction_id)
+            event.unsigned.transaction_id = "%" + event.unsigned.transaction_id
             for ( var i = 0; i < model.count; i++ ) {
-                if ( model.get(i).event.id === event.unsigned.transaction_id ||
+                if ( model.get(i).event.id === "%" + event.unsigned.transaction_id ||
                     model.get(i).event.id === event.id) {
+                    console.log("FOUND")
                     model.remove( i )
                     break
                 }
@@ -143,6 +147,7 @@ ListView {
 
 
     function messageSent ( oldID, newID ) {
+        return
         for ( var i = 0; i < model.count; i++ ) {
             if ( model.get(i).event.id === oldID ) {
                 var tempEvent = model.get(i).event

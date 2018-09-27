@@ -22,7 +22,7 @@ ListItem {
         id: layout
         title.text: name
         title.color: settings.darkmode ? "white" : "black"
-        subtitle.text: getDisplayMemberStatus ( membership )
+        subtitle.text: membership !== "join" ? getDisplayMemberStatus ( membership ) : ""
 
         Avatar {
             id: avatar
@@ -42,7 +42,7 @@ ListItem {
             rotation: 90
         }
     }
-    
+
     Icon {
         anchors.top: parent.top
         anchors.left: parent.left
