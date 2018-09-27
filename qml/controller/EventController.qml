@@ -386,12 +386,10 @@ Item {
             else if ( event.type === "m.room.member" ) {
 
 
-                if ( event.content.displayname && event.content.avatar_url ) {
-                    transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
-                    [ event.state_key,
-                    event.content.displayname,
-                    event.content.avatar_url ])
-                }
+                transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
+                [ event.state_key,
+                event.content.displayname || usernames.transformFromId(event.state_key),
+                event.content.avatar_url || "" ])
 
                 transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, " +
                 "COALESCE(" +
