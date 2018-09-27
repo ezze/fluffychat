@@ -266,6 +266,7 @@ Item {
                 // Format the text for the app
                 var tempText = event.content.body || null
                 if ( tempText !== null ) {
+                    tempText = tempText.split("\n").join("<br>")
                     var urlRegex = /(https?:\/\/[^\s]+)/g
                     tempText = tempText.replace(urlRegex, function(url) {
                         return '<a href="%1">%1</a>'.arg(url)
