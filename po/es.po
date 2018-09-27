@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-06 09:01+0000\n"
-"PO-Revision-Date: 2018-09-27 09:31+0000\n"
+"POT-Creation-Date: 2018-09-27 10:16+0000\n"
+"PO-Revision-Date: 2018-09-27 12:20+0200\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -17,7 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Poedit 2.1.1\n"
+
+#: ../qml/Main.qml:166 ../qml/components/ChatScrollView.qml:218
+msgid "Are you sure?"
+msgstr ""
+
+#: ../qml/controller/SettingsController.qml:52
+msgid "USA"
+msgstr ""
+
+#: ../qml/controller/SettingsController.qml:53
+msgid "1"
+msgstr ""
 
 #: ../qml/controller/StampController.qml:20
 msgid " - "
@@ -33,138 +45,206 @@ msgid "Someone"
 msgstr "Alguien"
 
 #: ../qml/controller/DisplayEventController.qml:19
-msgid "%1 is now participating the chat as <b>%2</b>"
+#, fuzzy
+#| msgid "%1 is now participating the chat as <b>%2</b>"
+msgid "%1 has joined the chat as <b>%2</b>"
 msgstr "%1 está participando ahora en el chat como <b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:22
 msgid "%1 has invited %2"
 msgstr "%1 ha invitado a %2"
 
-#: ../qml/controller/DisplayEventController.qml:26
+#: ../qml/controller/DisplayEventController.qml:25
 msgid "%1 has left the chat"
 msgstr "%1 ha salido del chat"
 
-#: ../qml/controller/DisplayEventController.qml:29
+#: ../qml/controller/DisplayEventController.qml:28
 msgid "%1 has been banned from the chat"
 msgstr "%1 ha sido expulsado del chat"
 
-#: ../qml/controller/DisplayEventController.qml:33
-msgid "The chat has been created"
-msgstr "Se ha creado el chat"
+#: ../qml/controller/DisplayEventController.qml:32
+msgid "Chat created"
+msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:36
-msgid "%1 has changed the chat name"
+#: ../qml/controller/DisplayEventController.qml:35
+#, fuzzy
+#| msgid "%1 has changed the chat name"
+msgid "%1 has changed the chat name to: <b>%2</b>"
 msgstr "%1 ha cambiado el nombre del chat"
 
-#: ../qml/controller/DisplayEventController.qml:39
-msgid "%1 has changed the chat topic"
+#: ../qml/controller/DisplayEventController.qml:38
+#, fuzzy
+#| msgid "%1 has changed the chat topic"
+msgid "%1 has changed the chat topic to: <b>%2</b>"
 msgstr "%1 ha cambiado el tema del chat"
 
-#: ../qml/controller/DisplayEventController.qml:42
-msgid "%1 has set the chat history visible to: "
-msgstr "%1 ha hecho visible el historial del chat para: "
+#: ../qml/controller/DisplayEventController.qml:41
+#, fuzzy
+#| msgid "%1 has changed the chat name"
+msgid "%1 has changed the chat avatar"
+msgstr "%1 ha cambiado el nombre del chat"
 
 #: ../qml/controller/DisplayEventController.qml:44
-msgid "All chat participants"
-msgstr "Todos los participantes del chat"
+#, fuzzy
+#| msgid "%1 has changed the chat name"
+msgid "%1 has redacted a message"
+msgstr "%1 ha cambiado el nombre del chat"
 
 #: ../qml/controller/DisplayEventController.qml:47
-msgid "All joined chat participants"
-msgstr "Todos los participantes unidos al chat"
-
-#: ../qml/controller/DisplayEventController.qml:50
-msgid "All invited chat participants"
-msgstr "Todos los participantes invitados al chat"
-
-#: ../qml/controller/DisplayEventController.qml:53
-msgid "Everyone"
-msgstr "Todos"
-
-#: ../qml/controller/DisplayEventController.qml:57
-msgid "%1 has set the join rules to: "
-msgstr "%1 ha establecido como regla de unión: "
-
-#: ../qml/controller/DisplayEventController.qml:59
-msgid "Only invited users"
-msgstr "Solo usuarios invitados"
-
-#: ../qml/controller/DisplayEventController.qml:62
-msgid "Public"
-msgstr "Público"
-
-#: ../qml/controller/DisplayEventController.qml:65
-msgid "Private"
-msgstr "Privado"
-
-#: ../qml/controller/DisplayEventController.qml:68
-msgid "Knock"
-msgstr "Llamar a la puerta"
-
-#: ../qml/controller/DisplayEventController.qml:72
-msgid "%1 has set the guest access to: "
+#, fuzzy
+#| msgid "%1 has set the guest access to: "
+msgid "%1 has sent a sticker"
 msgstr "%1 ha establecido el acceso de invitados como: "
 
-#: ../qml/controller/DisplayEventController.qml:74
-msgid "Can join"
-msgstr "Pueden unirse"
+#: ../qml/controller/DisplayEventController.qml:50
+#, fuzzy
+#| msgid "%1 has set the chat history visible to: "
+msgid "%1 has set the chat history visible to: %2"
+msgstr "%1 ha hecho visible el historial del chat para: "
 
-#: ../qml/controller/DisplayEventController.qml:77
-msgid "Forbidden"
-msgstr "Prohibido"
+#: ../qml/controller/DisplayEventController.qml:53
+#, fuzzy
+#| msgid "%1 has set the join rules to: "
+msgid "%1 has set the join rules to: %2"
+msgstr "%1 ha establecido como regla de unión: "
 
-#: ../qml/controller/DisplayEventController.qml:81
+#: ../qml/controller/DisplayEventController.qml:56
+#, fuzzy
+#| msgid "%1 has set the guest access to: "
+msgid "%1 has set the guest access to: %2"
+msgstr "%1 ha establecido el acceso de invitados como: "
+
+#: ../qml/controller/DisplayEventController.qml:59
 msgid "The chat aliases have been changed."
 msgstr "Los alias del chat han sido cambiados."
 
-#: ../qml/controller/DisplayEventController.qml:87
+#: ../qml/controller/DisplayEventController.qml:65
 msgid "The canonical chat alias has been changed to: "
 msgstr "El alias canónico del chat ha sido cambiado a: "
 
-#: ../qml/controller/DisplayEventController.qml:90
+#: ../qml/controller/DisplayEventController.qml:68
 msgid "The chat permissions have been changed"
 msgstr "Los permisos del chat han sido cambiados"
 
-#: ../qml/controller/EventController.qml:47 ../qml/pages/ChatPage.qml:254
-#: ../qml/pages/AddChatPage.qml:24
-msgid ""
-"Synchronizing \n"
-" This can take a few minutes ..."
-msgstr ""
-"Sincronizando \n"
-" Puede tardar unos minutos ..."
+#: ../qml/controller/DisplayEventController.qml:75
+#: ../qml/components/ChangeJoinRulesDialog.qml:35
+msgid "Only invited users"
+msgstr "Solo usuarios invitados"
 
-#: ../qml/controller/EventController.qml:82
+#: ../qml/controller/DisplayEventController.qml:78
+#: ../qml/components/ChangeJoinRulesDialog.qml:19
+msgid "Public"
+msgstr "Público"
+
+#: ../qml/controller/DisplayEventController.qml:81
+#: ../qml/components/ChangeJoinRulesDialog.qml:43
+msgid "Private"
+msgstr "Privado"
+
+#: ../qml/controller/DisplayEventController.qml:84
+#: ../qml/components/ChangeJoinRulesDialog.qml:27
+msgid "Knock"
+msgstr "Llamar a la puerta"
+
+#: ../qml/controller/DisplayEventController.qml:87
+#, fuzzy
+#| msgid "All chat participants"
+msgid "All chatters"
+msgstr "Todos los participantes del chat"
+
+#: ../qml/controller/DisplayEventController.qml:90
+msgid "All joined chat participants"
+msgstr "Todos los participantes unidos al chat"
+
+#: ../qml/controller/DisplayEventController.qml:93
+msgid "All invited chat participants"
+msgstr "Todos los participantes invitados al chat"
+
+#: ../qml/controller/DisplayEventController.qml:96
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:19
+msgid "Everyone"
+msgstr "Todos"
+
+#: ../qml/controller/DisplayEventController.qml:99
+#: ../qml/components/ChangeGuestAccessDialog.qml:19
+msgid "Can join"
+msgstr "Pueden unirse"
+
+#: ../qml/controller/DisplayEventController.qml:102
+#: ../qml/components/ChangeGuestAccessDialog.qml:27
+msgid "Forbidden"
+msgstr "Prohibido"
+
+#: ../qml/controller/EventController.qml:99
 msgid "You are offline 😕"
 msgstr "Está desconectado 😕"
 
-#: ../qml/controller/UserNameController.qml:34
-msgid "⌨️ is typing ..."
-msgstr "⌨️ está escribiendo ..."
+#: ../qml/controller/EventController.qml:156
+msgid ""
+"😰 A critical error has occurred! Sorry, the connection to the server has "
+"ended! Please report this bug on: https://github.com/ChristianPauly/"
+"fluffychat/issues/new"
+msgstr ""
 
 #: ../qml/controller/UserNameController.qml:35
-msgid "⌨️ %1 is typing ..."
+#, fuzzy
+#| msgid "⌨️ is typing ..."
+msgid "⌨️ is typing…"
+msgstr "⌨️ está escribiendo ..."
+
+#: ../qml/controller/UserNameController.qml:36
+#, fuzzy
+#| msgid "⌨️ %1 is typing ..."
+msgid "⌨️ %1 is typing…"
 msgstr "⌨️ %1 está escribiendo ..."
 
-#: ../qml/controller/UserNameController.qml:38
-msgid "⌨️ %1 and %2 more are typing ..."
+#: ../qml/controller/UserNameController.qml:39
+#, fuzzy
+#| msgid "⌨️ %1 and %2 more are typing ..."
+msgid "⌨️ %1 and %2 more are typing…"
 msgstr "⌨️  %1 y %2 más están escribiendo ..."
 
+#: ../qml/controller/UserNameController.qml:45
+#: ../qml/components/ChangePowerLevelDialog.qml:47
+#, fuzzy
+#| msgid "Member"
+msgid "Members"
+msgstr "Miembro"
+
+#: ../qml/controller/UserNameController.qml:46
+#: ../qml/components/ChangePowerLevelDialog.qml:33
+msgid "Moderators"
+msgstr ""
+
+#: ../qml/controller/UserNameController.qml:47
+#: ../qml/components/ChangePowerLevelDialog.qml:19
+msgid "Admins"
+msgstr ""
+
 #: ../qml/controller/RoomNameController.qml:13
-#: ../qml/controller/RoomNameController.qml:21
-#: ../qml/controller/RoomNameController.qml:28
+#: ../qml/controller/RoomNameController.qml:26
+#: ../qml/controller/RoomNameController.qml:34
 msgid "Empty chat"
 msgstr "Chat vacío"
 
 #: ../qml/controller/PushController.qml:14
-msgid "Please login to Ubuntu One to receive push notifications!"
+#, fuzzy
+#| msgid "Please login to Ubuntu One to receive push notifications!"
+msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr "¡Conéctese a Ubuntu One para recibir notificaciones!"
 
-#: ../qml/controller/MatrixController.qml:163
+#: ../qml/controller/MatrixController.qml:184
+msgid "You are not allowed to chat here."
+msgstr ""
+
+#: ../qml/controller/MatrixController.qml:329
 msgid "No connection to the homeserver 😕"
 msgstr "Sin conexión al servidor 😕"
 
 #: ../qml/pages/InfoPage.qml:10
-msgid "Info about FluffyChat %1"
+#, fuzzy
+#| msgid "Info about FluffyChat %1"
+msgid "Info about FluffyChat %1 on %2"
 msgstr "Información acerca de FluffyChat %1"
 
 #: ../qml/pages/InfoPage.qml:32
@@ -187,103 +267,306 @@ msgstr "Código fuente"
 msgid "License"
 msgstr "Licencia"
 
-#: ../qml/pages/LoginPage.qml:19
-msgid "Please fill all textfields"
-msgstr "Cumplimente todos los campos de texto"
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/MainSettingsPage.qml:57
+msgid "Archived chats"
+msgstr ""
 
-#: ../qml/pages/LoginPage.qml:44
-msgid "Invalid username or password"
-msgstr "Nombre de usuario o contraseña no válida"
+#: ../qml/pages/ArchivedChatsPage.qml:72
+msgid "Search chat names..."
+msgstr ""
 
-#: ../qml/pages/LoginPage.qml:47
-msgid "No connection to "
-msgstr "Sin conexión a "
+#: ../qml/pages/ArchivedChatsPage.qml:80
+msgid "There are no archived chats"
+msgstr ""
 
-#: ../qml/pages/LoginPage.qml:57
+#: ../qml/pages/EmailSettingsPage.qml:44
+#: ../qml/pages/AccountSettingsPage.qml:83
+msgid "Connected email addresses"
+msgstr ""
+
+#: ../qml/pages/EmailSettingsPage.qml:51
+msgid "Add email address"
+msgstr ""
+
+#: ../qml/pages/EmailSettingsPage.qml:62
+msgid "No email addresses connected"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:19
+msgid "Registering phone number..."
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:42
+#, fuzzy
+#| msgid "Change your password"
+msgid "Your password"
+msgstr "Cambie su contraseña"
+
+#: ../qml/pages/PasswordCreationPage.qml:61
+#, fuzzy
+#| msgid "Change your password"
+msgid "Choose your own password"
+msgstr "Cambie su contraseña"
+
+#: ../qml/pages/PasswordCreationPage.qml:69
+#: ../qml/components/ChangePasswordDialog.qml:25
+msgid "Enter your new password"
+msgstr "Introduzca su nueva contraseña"
+
+#: ../qml/pages/PasswordCreationPage.qml:74
+#: ../qml/components/ChangePasswordDialog.qml:30
+msgid "Please repeat"
+msgstr "Otra vez, por favor"
+
+#: ../qml/pages/PasswordCreationPage.qml:82
+#: ../qml/components/ChangePasswordDialog.qml:38
+#: ../qml/components/LeaveChatDialog.qml:27
+#: ../qml/components/NewGroupDialog.qml:27
+#: ../qml/components/RemoveDeviceDialog.qml:42
+#: ../qml/components/AddPhoneDialog.qml:37
+#: ../qml/components/DisableAccountDialog.qml:42
+#: ../qml/components/ConfirmDialog.qml:22 ../qml/components/LogoutDialog.qml:35
+#: ../qml/components/AddAliasDialog.qml:27
+#: ../qml/components/EnterSMSTokenDialog.qml:28
+#: ../qml/components/JoinGroupDialog.qml:27
+#: ../qml/components/NewContactDialog.qml:39
+#: ../qml/components/ChangeDisplaynameDialog.qml:34
+#: ../qml/components/ChangeChatnameDialog.qml:43
+#: ../qml/components/AddEmailDialog.qml:27
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../qml/pages/PasswordCreationPage.qml:87
+#: ../qml/components/ChangePasswordDialog.qml:43
+msgid "Change"
+msgstr "Cambiar"
+
+#: ../qml/pages/PasswordCreationPage.qml:91
+#: ../qml/components/ChangePasswordDialog.qml:11
+msgid "Change your password"
+msgstr "Cambie su contraseña"
+
+#: ../qml/pages/PasswordCreationPage.qml:129
+msgid "In order to restore your account, please make a note of this secret"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:156
+msgid "Copy to clipboard"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:161
+msgid "Password has been copied"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:72
+msgid "The desired user ID is not a valid user name"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:73
+msgid ""
+"The desired user ID is in the exclusive namespace claimed by an application "
+"service"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:74
+msgid "Registration on %1 failed..."
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:103
 msgid "Welcome to FluffyChat"
 msgstr "Bienvenido/a a FluffyChat"
 
-#: ../qml/pages/LoginPage.qml:73
+#: ../qml/pages/LoginPage.qml:111
+#, fuzzy
+#| msgid "Using the homeserver: "
+msgid "Change homeserver"
+msgstr "Usando el servidor: "
+
+#: ../qml/pages/LoginPage.qml:116
+msgid "Change ID-server"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:121
+#, fuzzy
+#| msgid "Dark mode"
+msgid "Toggle dark mode"
+msgstr "Modo nocturno"
+
+#: ../qml/pages/LoginPage.qml:143
 msgid "Choose your homeserver"
 msgstr "Elija su servidor"
 
-#: ../qml/pages/LoginPage.qml:96
-msgid "What's your name?"
-msgstr "¿Cuál es su nombre?"
+#: ../qml/pages/LoginPage.qml:164
+#, fuzzy
+#| msgid "Choose your homeserver"
+msgid "Choose your identity server"
+msgstr "Elija su servidor"
 
-#: ../qml/pages/LoginPage.qml:103
+#: ../qml/pages/LoginPage.qml:212
+msgid "Phone number (optional)"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:221
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: ../qml/pages/LoginPage.qml:110
-msgid "Password"
-msgstr "Contraseña"
-
-#: ../qml/pages/LoginPage.qml:121
-msgid "Sign in"
-msgstr "Iniciar sesión"
-
-#: ../qml/pages/LoginPage.qml:128
-msgid "Sign up"
-msgstr "Registrarse"
-
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:240
 msgid "Using the homeserver: "
 msgstr "Usando el servidor: "
 
-#: ../qml/pages/ChatListPage.qml:171
-msgid "Swipe from the bottom to start a new chat"
+#: ../qml/pages/ChatListPage.qml:190
+msgid "Search for chat names…"
+msgstr ""
+
+#: ../qml/pages/ChatListPage.qml:205
+#, fuzzy
+#| msgid "Swipe from the bottom to start a new chat"
+msgid "Swipe from below to start a chat"
 msgstr "Deslizar desde abajo para comenzar un chat nuevo"
 
-#: ../qml/pages/MainSettingsPage.qml:11
-msgid "Settings"
-msgstr "Configuración"
+#: ../qml/pages/ChatPrivacySettingsPage.qml:62
+msgid "Chat security & privacy settings"
+msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:35
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:155
-#: ../qml/pages/NotificationChatSettingsPage.qml:51
-#: ../qml/pages/ChatSettingsPage.qml:126
-msgid "Notifications"
-msgstr "Notificaciones"
+#: ../qml/pages/ChatPrivacySettingsPage.qml:81
+#: ../qml/components/ChangeJoinRulesDialog.qml:11
+msgid "Who is allowed to join?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:88
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:11
+#, fuzzy
+#| msgid "%1 has set the chat history visible to: "
+msgid "Who can see the chat history?"
+msgstr "%1 ha hecho visible el historial del chat para: "
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:95
+#: ../qml/components/ChangeGuestAccessDialog.qml:11
+msgid "Guest access?"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:101
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:87
+#, fuzzy
+#| msgid "Chat Settings:"
+msgid "Chat permissions"
+msgstr "Configuración del chat:"
+
+#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:51
+#, fuzzy
+#| msgid "Leave chat"
+msgid "Create chat"
+msgstr "Salir del chat"
+
+#: ../qml/pages/CreateChatPage.qml:21 ../qml/pages/InvitePage.qml:27
+#, fuzzy
+#| msgid "Invite friend"
+msgid "Invite selected"
+msgstr "Invitar a un amigo"
+
+#: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:76
+#: ../qml/pages/AddChatPage.qml:82
+#, fuzzy
+#| msgid "New contact"
+msgid "Search contacts..."
+msgstr "Nuevo contacto"
 
 #: ../qml/pages/BlankPage.qml:11
 msgid "Welcome"
 msgstr "Bienvenida"
 
-#: ../qml/pages/MainSettingsPage.qml:41
-#: ../qml/pages/AccountSettingsPage.qml:11
+#: ../qml/pages/MainSettingsPage.qml:11
+msgid "Settings"
+msgstr "Configuración"
+
+#: ../qml/pages/MainSettingsPage.qml:33
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:182
+#: ../qml/pages/NotificationChatSettingsPage.qml:56
+#: ../qml/pages/ChatSettingsPage.qml:215
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: ../qml/pages/MainSettingsPage.qml:39
 msgid "Account"
 msgstr "Cuenta"
 
-#: ../qml/pages/MainSettingsPage.qml:47 ../qml/pages/ThemeSettingsPage.qml:11
+#: ../qml/pages/MainSettingsPage.qml:45 ../qml/pages/ThemeSettingsPage.qml:11
 msgid "Theme"
 msgstr "Tema"
 
-#: ../qml/pages/MainSettingsPage.qml:53
-#: ../qml/pages/DevicesSettingsPage.qml:24
-msgid "Devices"
-msgstr "Dispositivos"
+#: ../qml/pages/MainSettingsPage.qml:51 ../qml/pages/PrivacySettingsPage.qml:11
+#: ../qml/pages/ChatSettingsPage.qml:221
+msgid "Security & Privacy"
+msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:59
+#: ../qml/pages/MainSettingsPage.qml:63
 msgid "About FluffyChat"
 msgstr "Acerca de FluffyChat"
 
-#: ../qml/pages/AccountSettingsPage.qml:23
+#: ../qml/pages/AccountSettingsPage.qml:12
+#: ../qml/pages/AccountSettingsPage.qml:40
+#, fuzzy
+#| msgid "Account"
+msgid "Account: %1"
+msgstr "Cuenta"
+
+#: ../qml/pages/AccountSettingsPage.qml:59 ../qml/pages/ChatPage.qml:310
+#: ../qml/pages/ChatSettingsPage.qml:169
+msgid "Error"
+msgstr ""
+
+#: ../qml/pages/AccountSettingsPage.qml:63 ../qml/pages/ChatPage.qml:314
+#: ../qml/pages/ChatSettingsPage.qml:173
+msgid "OK"
+msgstr ""
+
+#: ../qml/pages/AccountSettingsPage.qml:71
 msgid "Change display name"
 msgstr "Cambiar el nombre en pantalla"
 
-#: ../qml/pages/AccountSettingsPage.qml:29
+#: ../qml/pages/AccountSettingsPage.qml:77
+#: ../qml/pages/PhoneSettingsPage.qml:47
+msgid "Connected phone numbers"
+msgstr ""
+
+#: ../qml/pages/AccountSettingsPage.qml:89
 msgid "Change password"
 msgstr "Cambiar contraseña"
 
-#: ../qml/pages/AccountSettingsPage.qml:35
+#: ../qml/pages/AccountSettingsPage.qml:95
 msgid "Disable account"
 msgstr "Desactivar la cuenta"
 
-#: ../qml/pages/AccountSettingsPage.qml:41
-#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:39
-msgid "Logout"
-msgstr "Cerrar la sesión"
+#: ../qml/pages/AccountSettingsPage.qml:101
+#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
+msgid "Log out"
+msgstr ""
+
+#: ../qml/pages/PasswordInputPage.qml:26
+msgid "Invalid username or password"
+msgstr "Nombre de usuario o contraseña no válida"
+
+#: ../qml/pages/PasswordInputPage.qml:29
+msgid "No connection to "
+msgstr "Sin conexión a "
+
+#: ../qml/pages/PasswordInputPage.qml:38
+#, fuzzy
+#| msgid "Enter your old password"
+msgid "Enter your password"
+msgstr "Introduzca su contraseña antigua"
+
+#: ../qml/pages/PasswordInputPage.qml:72
+#, fuzzy
+#| msgid "Please enter your password"
+msgid "Please enter your password for: <b>%1</b>"
+msgstr "Introduzca su contraseña"
+
+#: ../qml/pages/PasswordInputPage.qml:81
+#, fuzzy
+#| msgid "Password"
+msgid "Password..."
+msgstr "Contraseña"
 
 #: ../qml/pages/NotificationSettingsPage.qml:80
 msgid "Enable notifications"
@@ -325,152 +608,238 @@ msgstr "Mensajes de «bots»"
 msgid "Targets"
 msgstr "Objetivos"
 
-#: ../qml/pages/ChatPage.qml:143 ../qml/components/ChatListItem.qml:25
+#: ../qml/pages/InvitePage.qml:20
+#, fuzzy
+#| msgid "Invite"
+msgid "Invite user"
+msgstr "Invitar"
+
+#: ../qml/pages/AddContactPage.qml:12 ../qml/pages/AddContactPage.qml:19
+#, fuzzy
+#| msgid "Start a new chat"
+msgid "Start new private chat"
+msgstr "Iniciar un chat nuevo"
+
+#: ../qml/pages/AddContactPage.qml:39
+msgid "You need to enter a valid Email address or Matrix ID!"
+msgstr ""
+
+#: ../qml/pages/AddContactPage.qml:63
+msgid "Email or full username..."
+msgstr ""
+
+#: ../qml/pages/AddContactPage.qml:77
+#, fuzzy
+#| msgid "(Your username is: <b>%1</b>)"
+msgid "Your full username is: <b>%1</b>"
+msgstr "(Tu nombre de usuario es: <b>%1</ b>)"
+
+#: ../qml/pages/AddContactPage.qml:94 ../qml/pages/AddChatPage.qml:101
+msgid "Import from contacts"
+msgstr ""
+
+#: ../qml/pages/ChatPage.qml:163 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/components/ChatListItem.qml:30
+#: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr "Chat desconocido"
 
-#: ../qml/pages/ChatPage.qml:150
+#: ../qml/pages/ChatPage.qml:170 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/components/DisableAccountDialog.qml:47
+msgid "Remove"
+msgstr "Quitar"
+
+#: ../qml/pages/ChatPage.qml:176
 msgid "Chat info"
 msgstr "Información del chat"
 
-#: ../qml/pages/ChatPage.qml:160 ../qml/components/InviteDialog.qml:11
+#: ../qml/pages/ChatPage.qml:188
 msgid "Invite a friend"
 msgstr "Invitar a un amigo"
 
-#: ../qml/pages/ChatPage.qml:195
+#: ../qml/pages/ChatPage.qml:218
 msgid "No messages in this chat ..."
 msgstr "No hay mensajes en este chat ..."
 
-#: ../qml/pages/ChatPage.qml:249
+#: ../qml/pages/ChatPage.qml:275
 msgid "Accept invitation"
 msgstr "Aceptar la invitación"
 
-#: ../qml/pages/ChatPage.qml:294
+#: ../qml/pages/ChatPage.qml:275
+msgid "Join"
+msgstr ""
+
+#: ../qml/pages/ChatPage.qml:289
+msgid "You are not allowed to send messages"
+msgstr ""
+
+#: ../qml/pages/ChatPage.qml:338
 msgid "Type something ..."
 msgstr "Escriba algo ..."
 
-#: ../qml/pages/NotificationChatSettingsPage.qml:64
+#: ../qml/pages/PhoneSettingsPage.qml:54
+msgid "Add phone number"
+msgstr ""
+
+#: ../qml/pages/PhoneSettingsPage.qml:66
+msgid "No phone numbers connected"
+msgstr ""
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:69
 msgid "Notify"
 msgstr "Notificar"
 
-#: ../qml/pages/NotificationChatSettingsPage.qml:83
+#: ../qml/pages/NotificationChatSettingsPage.qml:88
 msgid "Only if mentioned"
 msgstr "Solo si es mencionado"
 
-#: ../qml/pages/NotificationChatSettingsPage.qml:106
+#: ../qml/pages/NotificationChatSettingsPage.qml:111
 msgid "Don't notify"
 msgstr "No notificar"
 
-#: ../qml/pages/ChatSettingsPage.qml:38
+#: ../qml/pages/JoinChatPage.qml:14 ../qml/pages/AddChatPage.qml:57
+#, fuzzy
+#| msgid "Unknown chat"
+msgid "Join chat"
+msgstr "Chat desconocido"
+
+#: ../qml/pages/JoinChatPage.qml:23
+#, fuzzy
+#| msgid "New single chat"
+msgid "Nameless chat"
+msgstr "Nuevo chat individual"
+
+#: ../qml/pages/JoinChatPage.qml:50
+msgid "Search public chats..."
+msgstr ""
+
+#: ../qml/pages/JoinChatPage.qml:86
+#, fuzzy
+#| msgid "Loading users ..."
+msgid "Loading public chats..."
+msgstr "Cargando usuarios ..."
+
+#: ../qml/pages/PrivacySettingsPage.qml:23
+#, fuzzy
+#| msgid "Display 'I am typing' when I am typing"
+msgid "Display 'I am typing' when typing"
+msgstr "Muestre 'Estoy escribiendo' cuando estoy escribiendo"
+
+#: ../qml/pages/PrivacySettingsPage.qml:30
+#: ../qml/pages/DevicesSettingsPage.qml:24
+msgid "Devices"
+msgstr "Dispositivos"
+
+#: ../qml/pages/ChatSettingsPage.qml:90
 msgid "Member"
 msgstr "Miembro"
 
-#: ../qml/pages/ChatSettingsPage.qml:39
+#: ../qml/pages/ChatSettingsPage.qml:91
 msgid "Was invited"
 msgstr "Ha sido invitado"
 
-#: ../qml/pages/ChatSettingsPage.qml:40
+#: ../qml/pages/ChatSettingsPage.qml:92
 msgid "Has left the chat"
 msgstr "Ha salido del chat"
 
-#: ../qml/pages/PrivacySettingsPage.qml:30
-msgid "Automatically accept chat invitations"
-msgstr "Acepta automáticamente las invitaciones de chat"
-
-#: ../qml/pages/ChatSettingsPage.qml:41
+#: ../qml/pages/ChatSettingsPage.qml:93
 msgid "Has knocked"
 msgstr "Ha llamado a la puerta"
 
-#: ../qml/pages/ChatSettingsPage.qml:42
+#: ../qml/pages/ChatSettingsPage.qml:94
 msgid "Was banned from the chat"
 msgstr "Fue expulsado del chat"
 
-#: ../qml/pages/ChatSettingsPage.qml:43
+#: ../qml/pages/ChatSettingsPage.qml:95
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: ../qml/pages/ChatSettingsPage.qml:73
+#: ../qml/pages/ChatSettingsPage.qml:122
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr "Editar el nombre del chat"
 
-#: ../qml/pages/ChatSettingsPage.qml:110
+#: ../qml/pages/ChatSettingsPage.qml:197
 msgid "Chat Settings:"
 msgstr "Configuración del chat:"
 
-#: ../qml/pages/ChatSettingsPage.qml:121
+#: ../qml/pages/ChatSettingsPage.qml:209
 msgid "Invite friend"
 msgstr "Invitar a un amigo"
 
-#: ../qml/pages/ChatSettingsPage.qml:131
+#: ../qml/pages/ChatSettingsPage.qml:227
+msgid "Chat addresses"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:233
 msgid "Leave Chat"
 msgstr "Salir del chat"
 
-#: ../qml/pages/ChatSettingsPage.qml:152
+#: ../qml/pages/ChatSettingsPage.qml:254
 msgid "Users in this chat (%1):"
 msgstr "Usuarios en este chat (%1):"
 
-#: ../qml/pages/ChatSettingsPage.qml:152
-msgid "Loading users ..."
-msgstr "Cargando usuarios ..."
+#: ../qml/pages/ChatSettingsPage.qml:254
+msgid "Press button to reload users..."
+msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:33
-msgid "Room was not found 😟"
-msgstr "No se encontró la habitación 😟"
+#: ../qml/pages/ChatSettingsPage.qml:278
+msgid "Search..."
+msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:44
+#: ../qml/pages/ChatSettingsPage.qml:300
+msgid "Reload"
+msgstr ""
+
+#: ../qml/pages/AddChatPage.qml:12
 msgid "Start a new chat"
 msgstr "Iniciar un chat nuevo"
 
-#: ../qml/pages/AddChatPage.qml:57
-msgid "New contact"
+#: ../qml/pages/AddChatPage.qml:19
+#, fuzzy
+#| msgid "New contact"
+msgid "Add Contact"
 msgstr "Nuevo contacto"
-
-#: ../qml/pages/AddChatPage.qml:63 ../qml/components/NewGroupDialog.qml:11
-msgid "New group"
-msgstr "Nuevo grupo"
-
-#: ../qml/pages/AddChatPage.qml:69 ../qml/components/JoinGroupDialog.qml:11
-msgid "Join group"
-msgstr "Unirse al grupo"
 
 #: ../qml/pages/ThemeSettingsPage.qml:35
 msgid "Dark mode"
 msgstr "Modo nocturno"
 
 #: ../qml/pages/ThemeSettingsPage.qml:50
-msgid "Set chat background"
+#, fuzzy
+#| msgid "Set chat background"
+msgid "Change chat background"
 msgstr "Cambiar el fondo de pantalla del chat"
 
-#: ../qml/pages/ThemeSettingsPage.qml:50
-msgid "Remove chat background"
-msgstr "Eliminar el fondo de pantalla del chat"
+#: ../qml/pages/ThemeSettingsPage.qml:74
+msgid "Background removed"
+msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:79
+#: ../qml/pages/ThemeSettingsPage.qml:99
 msgid "Choose a main color:"
 msgstr "Elegir un color principal:"
 
-#: ../qml/pages/ThemeSettingsPage.qml:84
+#: ../qml/pages/ThemeSettingsPage.qml:104
 msgid "Purple"
 msgstr "Morado"
 
-#: ../qml/pages/ThemeSettingsPage.qml:91
+#: ../qml/pages/ThemeSettingsPage.qml:110
 msgid "Blue"
 msgstr "Azul"
 
-#: ../qml/pages/ThemeSettingsPage.qml:98
+#: ../qml/pages/ThemeSettingsPage.qml:116
 msgid "Red"
 msgstr "Rojo"
 
-#: ../qml/pages/ThemeSettingsPage.qml:105
+#: ../qml/pages/ThemeSettingsPage.qml:122
 msgid "Orange"
 msgstr "Naranja"
 
-#: ../qml/pages/ThemeSettingsPage.qml:112
+#: ../qml/pages/ThemeSettingsPage.qml:129
 msgid "Graphite"
 msgstr "Grafito"
 
-#: ../qml/pages/ThemeSettingsPage.qml:119
+#: ../qml/pages/ThemeSettingsPage.qml:135
 msgid "Green"
 msgstr "Verde"
 
@@ -478,44 +847,124 @@ msgstr "Verde"
 msgid "Notification targets"
 msgstr "Objetivos de notificación"
 
-#: ../qml/components/ChangePasswordDialog.qml:11
-#: ../qml/components/ChangePasswordDialog.qml:51
-msgid "Change your password"
-msgstr "Cambie su contraseña"
+#: ../qml/pages/ChatAliasSettingsPage.qml:62
+msgid "Public chat addresses"
+msgstr ""
+
+#: ../qml/pages/ChatAliasSettingsPage.qml:69
+#, fuzzy
+#| msgid "Edit chat name"
+msgid "Add chat address"
+msgstr "Editar el nombre del chat"
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:105
+msgid "Who can send messages?"
+msgstr ""
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:117
+msgid "Who can configure this chat?"
+msgstr ""
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:129
+#, fuzzy
+#| msgid "No previous messages"
+msgid "Who can remove messages?"
+msgstr "No hay mensajes anteriores"
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:141
+#, fuzzy
+#| msgid "Only invited users"
+msgid "Who can invite users?"
+msgstr "Solo usuarios invitados"
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:153
+msgid "Who can ban users?"
+msgstr ""
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:165
+msgid "Who can kick users?"
+msgstr ""
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:177
+#, fuzzy
+#| msgid "%1 has changed the chat name"
+msgid "Who can change the chat name?"
+msgstr "%1 ha cambiado el nombre del chat"
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:189
+#, fuzzy
+#| msgid "%1 has changed the chat name"
+msgid "Who can change the chat avatar?"
+msgstr "%1 ha cambiado el nombre del chat"
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:201
+#, fuzzy
+#| msgid "%1 has set the chat history visible to: "
+msgid "Who can change the chat history visibility?"
+msgstr "%1 ha hecho visible el historial del chat para: "
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:213
+#, fuzzy
+#| msgid "%1 has changed the chat name"
+msgid "Who can change the chat addresses?"
+msgstr "%1 ha cambiado el nombre del chat"
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:225
+msgid "Who can change the canonical chat alias?"
+msgstr ""
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:237
+msgid "Who can change the user permissions?"
+msgstr ""
+
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:249
+msgid "Default user permissions:"
+msgstr ""
+
+#: ../qml/components/ChangeJoinRulesDialog.qml:54
+#: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:46
+#: ../qml/components/ChangePowerLevelDialog.qml:64
+#: ../qml/components/ChangeGuestAccessDialog.qml:37
+msgid "Close"
+msgstr "Cerrar"
+
+#: ../qml/components/MemberListItem.qml:64
+msgid "Make this user a normal member?"
+msgstr ""
+
+#: ../qml/components/MemberListItem.qml:76
+msgid "Make this user a moderator?"
+msgstr ""
+
+#: ../qml/components/MemberListItem.qml:88
+msgid "Make this user an admin?"
+msgstr ""
+
+#: ../qml/components/MemberListItem.qml:106
+#, fuzzy
+#| msgid "Was banned from the chat"
+msgid "Ban from this chat?"
+msgstr "Fue expulsado del chat"
+
+#: ../qml/components/MemberListItem.qml:114
+msgid "Cancel banishment?"
+msgstr ""
+
+#: ../qml/components/MemberListItem.qml:122
+msgid "Kick from this chat?"
+msgstr ""
 
 #: ../qml/components/ChangePasswordDialog.qml:19
+#: ../qml/components/DisableAccountDialog.qml:33
 msgid "Enter your old password"
 msgstr "Introduzca su contraseña antigua"
 
-#: ../qml/components/ChangePasswordDialog.qml:25
-msgid "Enter your new password"
-msgstr "Introduzca su nueva contraseña"
-
-#: ../qml/components/ChangePasswordDialog.qml:30
-msgid "Please repeat"
-msgstr "Otra vez, por favor"
-
-#: ../qml/components/ChangePasswordDialog.qml:38
-#: ../qml/components/LeaveChatDialog.qml:27
-#: ../qml/components/NewGroupDialog.qml:27
-#: ../qml/components/RemoveDeviceDialog.qml:42
-#: ../qml/components/DisableAccountDialog.qml:34
-#: ../qml/components/LogoutDialog.qml:34
-#: ../qml/components/JoinGroupDialog.qml:27
-#: ../qml/components/InviteDialog.qml:27
-#: ../qml/components/NewContactDialog.qml:28
-#: ../qml/components/ChangeDisplaynameDialog.qml:34
-#: ../qml/components/ChangeChatnameDialog.qml:34
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: ../qml/components/ChangePasswordDialog.qml:43
-msgid "Change"
-msgstr "Cambiar"
-
-#: ../qml/components/ChangePasswordDialog.qml:48
-msgid "The passwords do not match"
-msgstr "Las contraseñas no coinciden"
+#: ../qml/components/ChangePasswordDialog.qml:55
+#, fuzzy
+#| msgid "The chat permissions have been changed"
+msgid "Password has been changed"
+msgstr "Los permisos del chat han sido cambiados"
 
 #: ../qml/components/TargetInfoDialog.qml:11
 msgid "Target details"
@@ -541,9 +990,17 @@ msgstr "<b>Idioma</b>: %2"
 msgid "<b>Gateway</b>: %2"
 msgstr "<b>Pasarela</b>: %2"
 
-#: ../qml/components/TargetInfoDialog.qml:48
-msgid "Close"
-msgstr "Cerrar"
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:27
+#, fuzzy
+#| msgid "All invited chat participants"
+msgid "Joined and invited chat participants"
+msgstr "Todos los participantes invitados al chat"
+
+#: ../qml/components/ChangeHistoryVisibilityDialog.qml:35
+#, fuzzy
+#| msgid "All chat participants"
+msgid "Only chat participants"
+msgstr "Todos los participantes del chat"
 
 #: ../qml/components/LeaveChatDialog.qml:11
 msgid "Leave chat"
@@ -557,15 +1014,23 @@ msgstr "¿Seguro que quiere salir del chat?"
 msgid "Leave"
 msgstr "Salir"
 
+#: ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr "Nuevo grupo"
+
 #: ../qml/components/NewGroupDialog.qml:19
 msgid "Group name"
 msgstr "Nombre del grupo"
 
 #: ../qml/components/NewGroupDialog.qml:32
 #: ../qml/components/JoinGroupDialog.qml:32
-#: ../qml/components/NewContactDialog.qml:33
+#: ../qml/components/NewContactDialog.qml:44
 msgid "Continue"
 msgstr "Continuar"
+
+#: ../qml/components/ContactImport.qml:63
+msgid "%1 contacts were found"
+msgstr ""
 
 #: ../qml/components/RemoveDeviceDialog.qml:11
 msgid "Remove the device"
@@ -587,105 +1052,276 @@ msgstr "¿Seguro que desea quitar este dispositivo?"
 msgid "Please enter your password"
 msgstr "Introduzca su contraseña"
 
-#: ../qml/components/RemoveDeviceDialog.qml:47
-msgid "Remove"
-msgstr "Quitar"
+#: ../qml/components/PhoneListItem.qml:27
+#: ../qml/components/EmailListItem.qml:27
+#, fuzzy
+#| msgid "Remove the device"
+msgid "Remove this email address?"
+msgstr "Quitar el dispositivo"
 
 #: ../qml/components/FcPageHeader.qml:7 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr "FluffyChat"
 
-#: ../qml/components/ChatEvent.qml:91
-msgid "Download"
+#: ../qml/components/ChatEvent.qml:182
+#, fuzzy
+#| msgid "Download"
+msgid "Download file: "
 msgstr "Descargar"
 
-#: ../qml/components/DisableAccountDialog.qml:11
-msgid "Disable your account"
-msgstr "Desactivar su cuenta"
-
-#: ../qml/components/DisableAccountDialog.qml:24
-msgid ""
-"Are you sure, that you want to disable your account? This can not be undone!"
+#: ../qml/components/AddPhoneDialog.qml:11
+msgid "Connect new phone number"
 msgstr ""
-"¿Seguro que quiere desactivar su cuenta? ¡Esto no se puede deshacer!"
 
-#: ../qml/components/DisableAccountDialog.qml:39
-msgid "Disable"
-msgstr "Desactivar"
+#: ../qml/components/AddPhoneDialog.qml:11
+msgid "..."
+msgstr ""
 
-#: ../qml/components/LogoutDialog.qml:24
-msgid "Are you sure, that you want to logout?"
+#: ../qml/components/AddPhoneDialog.qml:21
+msgid "Please log out to change your country"
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:25
+msgid "Phone number..."
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:42
+#: ../qml/components/EnterSMSTokenDialog.qml:33
+#: ../qml/components/AddEmailDialog.qml:32
+msgid "Connect"
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:50
+msgid "Have you confirmed your phone number?"
+msgstr ""
+
+#: ../qml/components/DisableAccountDialog.qml:11
+#, fuzzy
+#| msgid "Remove chat background"
+msgid "Remove my account"
+msgstr "Eliminar el fondo de pantalla del chat"
+
+#: ../qml/components/DisableAccountDialog.qml:25
+#, fuzzy
+#| msgid ""
+#| "Are you sure, that you want to disable your account? This can not be "
+#| "undone!"
+msgid ""
+"Are you sure that you want to remove your account? This can not be undone."
+msgstr "¿Seguro que quiere desactivar su cuenta? ¡Esto no se puede deshacer!"
+
+#: ../qml/components/ConfirmDialog.qml:27
+msgid "Yes"
+msgstr ""
+
+#: ../qml/components/LogoutDialog.qml:25
+#, fuzzy
+#| msgid "Are you sure, that you want to logout?"
+msgid "Are you sure that you want to log out?"
 msgstr "¿Seguro que quiere cerrar la sesión?"
 
+#: ../qml/components/AddAliasDialog.qml:11
+msgid "Add new chat address"
+msgstr ""
+
+#: ../qml/components/AddAliasDialog.qml:19
+#, fuzzy
+#| msgid "Edit chat name"
+msgid "#chatname:%1"
+msgstr "Editar el nombre del chat"
+
+#: ../qml/components/AddAliasDialog.qml:32
+#: ../qml/components/ChangeDisplaynameDialog.qml:39
+#: ../qml/components/ChangeChatnameDialog.qml:48
+msgid "Save"
+msgstr "Guardar"
+
+#: ../qml/components/AddAliasDialog.qml:39
+#, fuzzy
+#| msgid "Please enter your password"
+msgid "Please try another address"
+msgstr "Introduzca su contraseña"
+
+#: ../qml/components/EnterSMSTokenDialog.qml:11
+msgid "Please enter the validation code"
+msgstr ""
+
+#: ../qml/components/EnterSMSTokenDialog.qml:19
+msgid "Validation code"
+msgstr ""
+
+#: ../qml/components/CountryPicker.qml:20
+#, fuzzy
+#| msgid "Choose a main color:"
+msgid "Choose a country"
+msgstr "Elegir un color principal:"
+
+#: ../qml/components/CountryPicker.qml:37
+msgid "Search country name..."
+msgstr ""
+
 #: ../qml/components/LoadingModal.qml:18
-msgid "Synchronizing ... Please wait!"
+#, fuzzy
+#| msgid "Synchronizing ... Please wait!"
+msgid "Synchronizing… Please wait."
 msgstr "Sincronizando ... ¡Espere por favor!"
 
-#: ../qml/components/ChatListItem.qml:29
+#: ../qml/components/ChatListItem.qml:33
 msgid "No previous messages"
 msgstr "No hay mensajes anteriores"
 
-#: ../qml/components/ChatListItem.qml:39
+#: ../qml/components/ChatListItem.qml:51
 msgid "You have been invited to this chat"
 msgstr "Ha sido invitado a este chat"
 
-#: ../qml/components/ChatListItem.qml:46
+#: ../qml/components/ChatListItem.qml:58
 msgid "You: "
 msgstr "Tú: "
+
+#: ../qml/components/JoinGroupDialog.qml:11
+msgid "Join group"
+msgstr "Unirse al grupo"
 
 #: ../qml/components/JoinGroupDialog.qml:19
 msgid "#groupname:"
 msgstr "#nombredelgrupo:"
 
-#: ../qml/components/InviteDialog.qml:20
-msgid "@yourfriend:%1"
-msgstr "@suamigo:%1"
-
-#: ../qml/components/InviteDialog.qml:32
-msgid "Invite"
-msgstr "Invitar"
-
-#: ../qml/components/ChatScrollView.qml:69
+#: ../qml/components/ChatScrollView.qml:67
 msgid "Get more messages from the server ..."
 msgstr "Obtener más mensajes del servidor ..."
+
+#: ../qml/components/ChatScrollView.qml:207
+msgid "Copy text"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:211
+#, fuzzy
+#| msgid "%1 has been banned from the chat"
+msgid "Text has been copied to the clipboard"
+msgstr "%1 ha sido expulsado del chat"
+
+#: ../qml/components/ChatScrollView.qml:215
+msgid "Redact message"
+msgstr ""
+
+#: ../qml/components/TargetListItem.qml:22
+msgid "This device"
+msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:11
 msgid "New single chat"
 msgstr "Nuevo chat individual"
 
-#: ../qml/components/NewContactDialog.qml:20
-msgid "@yourfriend:"
-msgstr "@suamigo:"
-
-#: ../qml/components/ChangeDisplaynameDialog.qml:11
-msgid "Change your display name"
-msgstr "Cambiar su nombre en pantalla"
-
-#: ../qml/pages/PrivacySettingsPage.qml:23
-msgid "Display 'I am typing' when I am typing"
-msgstr "Muestre 'Estoy escribiendo' cuando estoy escribiendo"
-
-#: ../qml/components/ChangeDisplaynameDialog.qml:19
-msgid "Enter your new nickname"
-msgstr "Introduzca su nuevo apodo"
-
-#: ../qml/components/ChangeDisplaynameDialog.qml:39
-#: ../qml/components/ChangeChatnameDialog.qml:39
-msgid "Save"
-msgstr "Guardar"
-
-#: ../qml/components/ChangeChatnameDialog.qml:19
-msgid "Enter a name for the chat"
-msgstr "Introduzca un nombre para el chat"
-
 #: ../qml/components/NewContactDialog.qml:18
-msgid "What is the username of your friend?"
-msgstr "¿Cuál es el nombre de usuario de tu amigo?"
+#, fuzzy
+#| msgid "What's your name?"
+msgid "What is your friends username?"
+msgstr "¿Cuál es su nombre?"
 
 #: ../qml/components/NewContactDialog.qml:23
 msgid "(Your username is: <b>%1</b>)"
 msgstr "(Tu nombre de usuario es: <b>%1</ b>)"
 
+#: ../qml/components/NewContactDialog.qml:31
+msgid "@yourfriend:"
+msgstr "@suamigo:"
+
+#: ../qml/components/LoadingScreen.qml:27
+#, fuzzy
+#| msgid ""
+#| "Synchronizing \n"
+#| " This can take a few minutes ..."
+msgid ""
+"Loading chats\n"
+"This can take a few minutes…"
+msgstr ""
+"Sincronizando \n"
+" Puede tardar unos minutos ..."
+
+#: ../qml/components/AddressesListItem.qml:11
+msgid "Canonical alias"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:110
+#, fuzzy
+#| msgid "Start a new chat"
+msgid "Start new chat"
+msgstr "Iniciar un chat nuevo"
+
+#: ../qml/components/UserSettingsViewer.qml:134
+msgid "Chats with this user:"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:134
+msgid "You are that!"
+msgstr ""
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:11
+msgid "Change your display name"
+msgstr "Cambiar su nombre en pantalla"
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:19
+msgid "Enter your new nickname"
+msgstr "Introduzca su nuevo apodo"
+
+#: ../qml/components/ChangeChatnameDialog.qml:20
+msgid "Enter a name for the chat"
+msgstr "Introduzca un nombre para el chat"
+
+#: ../qml/components/ChangeChatnameDialog.qml:33
+#, fuzzy
+#| msgid "Enter a name for the chat"
+msgid "Enter a description for the chat"
+msgstr "Introduzca un nombre para el chat"
+
 #: ../qml/components/DeviceListItem.qml:22
 msgid "Last seen: "
 msgstr "Visto por última vez: "
+
+#: ../qml/components/AddEmailDialog.qml:11
+msgid "Connect new email address"
+msgstr ""
+
+#: ../qml/components/AddEmailDialog.qml:19
+msgid "youremail@example.edu"
+msgstr ""
+
+#: ../qml/components/AddEmailDialog.qml:39
+msgid "Have you confirmed your email address?"
+msgstr ""
+
+#~ msgid "The chat has been created"
+#~ msgstr "Se ha creado el chat"
+
+#~ msgid "Please fill all textfields"
+#~ msgstr "Cumplimente todos los campos de texto"
+
+#~ msgid "Sign in"
+#~ msgstr "Iniciar sesión"
+
+#~ msgid "Sign up"
+#~ msgstr "Registrarse"
+
+#~ msgid "Logout"
+#~ msgstr "Cerrar la sesión"
+
+#~ msgid "Automatically accept chat invitations"
+#~ msgstr "Acepta automáticamente las invitaciones de chat"
+
+#~ msgid "Room was not found 😟"
+#~ msgstr "No se encontró la habitación 😟"
+
+#~ msgid "The passwords do not match"
+#~ msgstr "Las contraseñas no coinciden"
+
+#~ msgid "Disable your account"
+#~ msgstr "Desactivar su cuenta"
+
+#~ msgid "Disable"
+#~ msgstr "Desactivar"
+
+#~ msgid "@yourfriend:%1"
+#~ msgstr "@suamigo:%1"
+
+#~ msgid "What is the username of your friend?"
+#~ msgstr "¿Cuál es el nombre de usuario de tu amigo?"
