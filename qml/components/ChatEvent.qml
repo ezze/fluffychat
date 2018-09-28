@@ -248,9 +248,9 @@ Rectangle {
                     Icon {
                         id: statusIcon
                         visible: !isStateEvent && sent && event.status > 0
-                        name: event.status === msg_status.SENT ? "send" : (event.status === msg_status.HISTORY ? "clock" : "tick")
+                        name: event.status === msg_status.SENT ? "send" : (event.status === msg_status.HISTORY ? "clock" : (event.status === msg_status.SEEN ? "contact" : "tick"))
                         height: metaLabel.height
-                        color: event.status === msg_status.SEEN ? defaultMainColor : UbuntuColors.silk
+                        color: event.status === msg_status.SEEN ? defaultMainColor : UbuntuColors.graphite
                         width: height
                     }
                 }
