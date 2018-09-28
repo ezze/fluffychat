@@ -44,13 +44,13 @@ There seems to be a critical bug, when updating on vivid. If you have a "critica
 * Chat avatars
 * Search users in chats
 * Security & Privacy settings:
-* * Disable typing notifications
-* * Auto-accept invitations
+  * Disable typing notifications
+  * Auto-accept invitations
 * New message status:
-* * Sending: Activity indicator
-* * Sent: Little cloud
-* * Received: Tick
-* * Seen by someone: Usericon
+  * Sending: Activity indicator
+  * Sent: Little cloud
+  * Received: Tick
+  * Seen by someone: Usericon
 * Display stickers
 * Minor UI improvements
 
