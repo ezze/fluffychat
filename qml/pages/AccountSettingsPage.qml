@@ -42,6 +42,27 @@ Page {
                         }
                     })
                 }
+                onClickFunction: function () {
+                    var hasAvatar = avatarImage.mxc !== "" && avatarImage.mxc !== null
+                    if ( hasAvatar ) contextualAvatarActions.show()
+                    else if ( hasAvatar ) imageViewer.show ( mxc )
+                }
+                ActionSelectionPopover {
+                    id: contextualAvatarActions
+                    z: 10
+                    actions: ActionList {
+                        Action {
+                            text: i18n.tr("Show image")
+                            onTriggered: imageViewer.show ( avatarImage.mxc )
+                        }
+                        Action {
+                            text: i18n.tr("Delete Avatar")
+                            onTriggered: matrix.put ( "/client/r0/profile/" + matrix.matrixid + "/avatar_url", { avatar_url: "" }, function () {
+                                avatarImage.mxc = ""
+                            })
+                        }
+                    }
+                }
             }
             Component {
                 id: pickerComponent

@@ -58,6 +58,9 @@ Page {
             })
         })
 
+        // Get the chat avatar
+        roomnames.getAvatarUrl ( activeChat, function ( avatar_url ) { avatarImage.mxc = avatar_url } )
+
         // Request the full memberlist, from the database
         model.clear()
         memberCount = 0
@@ -127,7 +130,6 @@ Page {
     }
 
 
-
     ScrollView {
         id: scrollView
         width: parent.width
@@ -146,9 +148,24 @@ Page {
                 width: parent.width / 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 mxc: ""
-                Component.onCompleted: {
-                    roomnames.getAvatarUrl ( activeChat,
-                        function ( avatar_url ) { mxc = avatar_url } )
+                onClickFunction: function () {
+                    var hasAvatar = avatarImage.mxc !== "" && avatarImage.mxc !== null
+                    if ( canChangeAvatar && hasAvatar ) contextualAvatarActions.show()
+                    else if ( hasAvatar ) imageViewer.show ( mxc )
+                }
+                ActionSelectionPopover {
+                    id: contextualAvatarActions
+                    z: 10
+                    actions: ActionList {
+                        Action {
+                            text: i18n.tr("Show image")
+                            onTriggered: imageViewer.show ( avatarImage.mxc )
+                        }
+                        Action {
+                            text: i18n.tr("Delete Avatar")
+                            onTriggered: matrix.put ( "/client/r0/rooms/" + activeChat + "/state/m.room.avatar", { url: "" })
+                        }
+                    }
                 }
             }
             Component {
