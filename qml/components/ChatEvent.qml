@@ -73,7 +73,7 @@ Rectangle {
             anchors.margins: units.gu(0.5)
             color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
             radius: units.gu(2)
-            height: Math.max( contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) ), avatar.height )
+            height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
             width: contentColumn.width + ( isImage ? 0 : units.gu(2) )
 
             Column {
@@ -206,11 +206,14 @@ Rectangle {
                     anchors.leftMargin: units.gu(1)
                     anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
                     onLinkActivated: Qt.openUrlExternally(link)
-                    // Intital calculation of the max width and display URL's
+                    // Intital calculation of the max width and display URL's and
+                    // make sure, that the label text is not empty for the correct
+                    // height calculation.
                     Component.onCompleted: {
                         if ( !event.content_body ) event.content_body = event.content.body
                         var maxWidth = message.width - avatar.width - units.gu(5)
                         if ( width > maxWidth ) width = maxWidth
+                        if ( text === "" ) text = " "
                     }
                 }
 

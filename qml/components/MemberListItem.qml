@@ -48,8 +48,8 @@ ListItem {
         anchors.left: parent.left
         anchors.topMargin: units.gu(0.5)
         anchors.leftMargin: units.gu(1)
-        name: status === "Moderators" ? "unstarred" : "starred"
-        visible: status !== "Members"
+        name: status < 100 ? "unstarred" : "starred"
+        visible: userPower >= 50
         width: units.gu(2)
         height: width
     }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 13:44+0000\n"
+"POT-Creation-Date: 2018-09-28 15:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,6 +162,11 @@ msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
 "fluffychat/issues/new"
+msgstr ""
+
+#: ../qml/controller/StorageController.qml:35
+#: ../qml/controller/StorageController.qml:54
+msgid "Please restart your device to complete the update!"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:35
