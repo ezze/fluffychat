@@ -21,7 +21,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
-        title.color: settings.darkmode ? "white" : "black"
+        title.color: mainFontColor
         subtitle.text: membership !== "join" ? getDisplayMemberStatus ( membership ) : ""
 
         Avatar {

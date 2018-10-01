@@ -65,6 +65,7 @@ MainView {
     property var desiredPhoneNumber: null
     property var consentUrl: ""
     property var consentContent: ""
+    property var mainFontColor: settings.darkmode ? "#FFFFFF" : "#000000"
 
 
     /* =============================== LAYOUT ===============================

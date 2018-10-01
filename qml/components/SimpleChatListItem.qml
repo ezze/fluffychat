@@ -26,7 +26,7 @@ ListItem {
         id: layout
         width: parent.width
         title.text: i18n.tr("Unknown chat")
-        title.color: settings.darkmode ? "white" : "black"
+        title.color: mainFontColor"
 
         Avatar {
             id: avatar

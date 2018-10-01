@@ -244,7 +244,7 @@ Page {
             height: width
             anchors.centerIn: parent
             z: 14
-            color: settings.darkmode ? "white" : "black"
+            color: mainFontColor"
         }
         visible: !chatScrollView.atYEnd
     }

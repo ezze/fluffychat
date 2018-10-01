@@ -29,8 +29,9 @@ ListItem {
         width: parent.width - notificationBubble.width - highlightBubble.width
         title.text: i18n.tr("Unknown chat")
         title.font.bold: true
-        title.color: room.membership === "invite" ? settings.mainColor : (settings.darkmode ? "white" : "black")
+        title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
         subtitle.text: i18n.tr("No previous messages")
+        subtitle.color: "#888888"
         subtitle.linkColor: subtitle.color
 
         Avatar {
@@ -88,7 +89,7 @@ ListItem {
         anchors.top: parent.top
         anchors.margins: units.gu(2)
         text: stamp.getChatTime ( room.origin_server_ts )
-        color: settings.darkmode ? "white" : "black"
+        color: mainFontColor"
         textSize: Label.XSmall
         visible: text != ""
     }

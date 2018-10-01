@@ -24,7 +24,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: displayname
-        title.color: settings.darkmode ? "white" : "black"
+        title.color: mainFontColor"
 
         Avatar {
             name: displayname
