@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-01 12:35+0000\n"
-"PO-Revision-Date: 2018-10-01 14:40+0200\n"
+"PO-Revision-Date: 2018-10-01 12:55+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ../qml/Main.qml:170 ../qml/components/ChatScrollView.qml:217
 msgid "Are you sure?"
@@ -172,7 +172,7 @@ msgstr ""
 #: ../qml/controller/StorageController.qml:54
 #: ../qml/components/LockedScreen.qml:27
 msgid "Please restart your device to complete the update!"
-msgstr ""
+msgstr "¡Reinicie su dispositivo para completar la actualización!"
 
 #: ../qml/controller/UserNameController.qml:35
 msgid "⌨️ is typing…"
@@ -463,12 +463,12 @@ msgstr "Cuenta: %1"
 #: ../qml/pages/AccountSettingsPage.qml:55
 #: ../qml/pages/ChatSettingsPage.qml:163
 msgid "Show image"
-msgstr ""
+msgstr "Mostrar imagen"
 
 #: ../qml/pages/AccountSettingsPage.qml:59
 #: ../qml/pages/ChatSettingsPage.qml:167
 msgid "Delete Avatar"
-msgstr ""
+msgstr "Borrar avatar"
 
 #: ../qml/pages/AccountSettingsPage.qml:81 ../qml/pages/ChatPage.qml:310
 #: ../qml/pages/ChatSettingsPage.qml:188
@@ -888,7 +888,7 @@ msgstr "La contraseña ha sido cambiada"
 
 #: ../qml/components/ConsentViewer.qml:23
 msgid "Consent not given"
-msgstr ""
+msgstr "No se ha dado el consentimiento"
 
 #: ../qml/components/TargetInfoDialog.qml:11
 msgid "Target details"
