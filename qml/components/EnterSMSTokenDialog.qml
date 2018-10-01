@@ -32,17 +32,34 @@ Component {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Connect")
                 color: UbuntuColors.green
-                enabled: addressTextField.displayText !== ""
+                enabled: addressTextField.displayText !== "" && sid !== null
                 onClicked: {
                     var success_callback = function () {
                         PopupUtils.close(dialogue)
                         phoneSettingsPage.sync ()
                     }
+                    var _page = phoneSettingsPage || passwordCreationPage
+                    var _matrix = matrix
                     matrix.post ( "/identity/api/v1/validate/msisdn/submitToken", {
                         client_secret: client_secret,
                         sid: sid,
                         token: addressTextField.displayText
-                    }, success_callback )
+                    }, function () {
+                        console.log("SUBMITSUCCESS")
+                        PopupUtils.close(dialogue)
+                        var threePidCreds = {
+                            client_secret: _page.client_secret,
+                            sid: _page.sid,
+                            id_server: settings.id_server
+                        }
+                        console.log("threePidCreds",JSON.stringify(threePidCreds))
+                        _matrix.post ("/client/r0/account/3pid", {
+                            bind: true,
+                            threePidCreds: threePidCreds
+                        }, _page.sync )
+                    }, function ( error ) {
+                        dialogue.title = error.error
+                    } )
                 }
             }
         }

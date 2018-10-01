@@ -23,7 +23,7 @@ Component {
             TextField {
                 id: addressTextField
                 placeholderText: i18n.tr("Phone number...")
-                Keys.onReturnPressed: loginTextField.focus = true
+                Keys.onReturnPressed: okButton.clicked ()
                 inputMethodHints: Qt.ImhDigitsOnly
                 width: parent.width - units.gu(8)
                 focus: true
@@ -38,6 +38,7 @@ Component {
                 onClicked: PopupUtils.close(dialogue)
             }
             Button {
+                id: okButton
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Connect")
                 color: UbuntuColors.green
@@ -46,26 +47,25 @@ Component {
                     var address = addressTextField.displayText
                     if ( address.charAt(0) === "0" ) address = address.replace( "0", settings.countryTel )
                     PopupUtils.close(dialogue)
-                    var secret = "SECRET:" + new Date().getTime()
-                    var confirmText = i18n.tr("Have you confirmed your phone number?")
-                    var id_server = settings.id_server
-                    var _matrix = matrix
-                    var _showConfirmDialog = showConfirmDialog
+                    PopupUtils.open(enterSMSToken)
+                    client_secret = "SECRET:" + new Date().getTime()
                     var _phoneSettingsPage = phoneSettingsPage
-                    var success_callback = function ( response ) {
-                        sid = response.sid
-                        client_secret = secret
-                        PopupUtils.close(dialogue)
-                        PopupUtils.open(enterSMSToken)
+
+                    var callback = function ( response ) {
+                        if ( response.error ) return toast.show ( response.error )
+                        if ( response.sid ) {
+                            _phoneSettingsPage.sid = response.sid
+                        }
                     }
+
                     // Verify this address with this matrix id
                     matrix.post ( "/client/r0/account/3pid/msisdn/requestToken", {
-                        client_secret: secret,
+                        client_secret: client_secret,
                         country: settings.countryCode,
                         phone_number: address,
                         send_attempt: 1,
                         id_server: settings.id_server
-                    }, success_callback)
+                    }, callback, callback)
                 }
             }
         }

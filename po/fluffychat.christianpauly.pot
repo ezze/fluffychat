@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-01 10:28+0000\n"
+"POT-Creation-Date: 2018-10-01 11:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -326,53 +326,53 @@ msgstr ""
 msgid "Password has been copied"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:72
+#: ../qml/pages/LoginPage.qml:73
 msgid "The desired user ID is not a valid user name"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:73
+#: ../qml/pages/LoginPage.qml:74
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:74
+#: ../qml/pages/LoginPage.qml:75
 msgid "Registration on %1 failed..."
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:103
+#: ../qml/pages/LoginPage.qml:104
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:111
+#: ../qml/pages/LoginPage.qml:112
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:116
+#: ../qml/pages/LoginPage.qml:117
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:121
+#: ../qml/pages/LoginPage.qml:122
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:143
+#: ../qml/pages/LoginPage.qml:144
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:164
+#: ../qml/pages/LoginPage.qml:165
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:212
+#: ../qml/pages/LoginPage.qml:213
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:221
+#: ../qml/pages/LoginPage.qml:222
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:240
+#: ../qml/pages/LoginPage.qml:241
 msgid "Using the homeserver: "
 msgstr ""
 
@@ -998,14 +998,10 @@ msgstr ""
 msgid "Phone number..."
 msgstr ""
 
-#: ../qml/components/AddPhoneDialog.qml:42
+#: ../qml/components/AddPhoneDialog.qml:43
 #: ../qml/components/EnterSMSTokenDialog.qml:33
 #: ../qml/components/AddEmailDialog.qml:32
 msgid "Connect"
-msgstr ""
-
-#: ../qml/components/AddPhoneDialog.qml:50
-msgid "Have you confirmed your phone number?"
 msgstr ""
 
 #: ../qml/components/DisableAccountDialog.qml:11
@@ -1049,6 +1045,10 @@ msgstr ""
 
 #: ../qml/components/EnterSMSTokenDialog.qml:19
 msgid "Validation code"
+msgstr ""
+
+#: ../qml/components/EnterSMSTokenDialog.qml:33
+msgid "Waiting..."
 msgstr ""
 
 #: ../qml/components/CountryPicker.qml:20

@@ -82,5 +82,12 @@ cd fluffychat
 clickable click-build
 ```
 
-### Special thanks
-... to all [contributors](https://github.com/ChristianPauly/fluffychat/graphs/contributors)
+### Special thanks to
+<a href="https://www.regionetz.net"><img src="https://www.regionetz.net/wp-content/uploads/2017/12/logo.png" width="19%" /></a>
+Regionetz is an ISP company from southern Germany and hosts the official server "uborts.chat" as well as the website of fluffychat. Special thanks to the owner Norbert Herter.
+
+* <a href="https://github.com/fabiyamada">Fabiyamada</a> is a graphics designer from Brasil and has made the fluffychat logo and the banner. Big thanks for her great designs.
+
+* <a href="">Advocatux</a> has made the Spanish translation with great love and care. He always stands by my side and supports my work with great commitment.
+
+* Also thanks to all translators and testers! With your help, fluffychat is now available in 5 languages.

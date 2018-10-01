@@ -5,6 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Page {
+    id: passwordCreationPage
     anchors.fill: parent
 
     property var loginDomain: ""
@@ -16,21 +17,23 @@ Page {
     Component.onCompleted: {
         // If there is a desired phone number, try to register it now:
         if ( desiredPhoneNumber !== null ) {
-            toast.show( i18n.tr("Registering phone number...") )
-            var secret = "SECRET:" + new Date().getTime()
+            client_secret = "SECRET:" + new Date().getTime()
+            var _page = passwordCreationPage
+            PopupUtils.open(enterSMSToken)
             var success_callback = function ( response ) {
-                sid = response.sid
-                client_secret = secret
-                PopupUtils.open(enterSMSToken)
+                if ( response.error ) return toast.show ( response.error )
+                if ( response.sid ) {
+                    _page.sid = response.sid
+                }
             }
             // Verify this address with this matrix id
             matrix.post ( "/client/r0/account/3pid/msisdn/requestToken", {
-                client_secret: secret,
+                client_secret: client_secret,
                 country: settings.countryCode,
                 phone_number: desiredPhoneNumber,
                 send_attempt: 1,
                 id_server: settings.id_server
-            }, success_callback)
+            }, success_callback, success_callback)
         }
     }
 
