@@ -43,18 +43,20 @@ Page {
     function init () {
 
         // Get the member status of the user himself
-        storage.transaction ( "SELECT description, membership, power_event_name, power_kick, power_ban, power_invite, power_event_power_levels FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT description, membership, power_event_name, power_kick, power_ban, power_invite, power_event_power_levels, power_event_avatar FROM Chats WHERE id='" + activeChat + "'", function (res) {
 
             description = res.rows[0].description
-            storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function (res2) {
-                membership = res2.rows[0].membership
-                power = res2.rows[0].power_level
+            storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function (membershipResult) {
+                membership = membershipResult.rows[0].membership
+                power = membershipResult.rows[0].power_level
                 canChangeName = power >= res.rows[0].power_event_name
                 canKick = power >= res.rows[0].power_kick
                 canBan = power >= res.rows[0].power_ban
                 canInvite = power >= res.rows[0].power_invite
-                canChangeAvatar = power >= (res.rows[0].power_event_avatar || 0)
+                canChangeAvatar = power >= res.rows[0].power_event_avatar
                 canChangePermissions = power >= res.rows[0].power_event_power_levels
+
+                console.log("POWER:", power, "canChangeAvatar:", res.rows[0].power_event_avatar, JSON.stringify(res.rows[0]))
             })
         })
 
@@ -192,6 +194,11 @@ Page {
                     }
                     Component.onCompleted: show()
                 }
+            }
+            Rectangle {
+                width: parent.width
+                height: units.gu(2)
+                color: theme.palette.normal.background
             }
             Label {
                 visible: description !== ""

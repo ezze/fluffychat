@@ -79,8 +79,8 @@ Page {
 
     function powerlevelToIcon ( power_level ) {
         if ( power_level < 50 ) return "account"
-        else if ( power_level < 100 ) return "cancel"
-        else return "edit-clear"
+        else if ( power_level < 100 ) return "non-starred"
+        else return "starred"
     }
 
     header: FcPageHeader {
