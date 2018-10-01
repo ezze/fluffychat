@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-01 12:30+0000\n"
+"POT-Creation-Date: 2018-10-01 12:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:169 ../qml/components/ChatScrollView.qml:217
+#: ../qml/Main.qml:170 ../qml/components/ChatScrollView.qml:217
 msgid "Are you sure?"
 msgstr ""
 
@@ -164,8 +164,8 @@ msgid ""
 "fluffychat/issues/new"
 msgstr ""
 
-#: ../qml/controller/StorageController.qml:35
 #: ../qml/controller/StorageController.qml:54
+#: ../qml/components/LockedScreen.qml:27
 msgid "Please restart your device to complete the update!"
 msgstr ""
 

@@ -150,6 +150,7 @@ MainView {
     ImageViewer { id: imageViewer }
     VideoPlayer { id: videoPlayer }
     LoadingScreen { id: loadingScreen }
+    LockedScreen { id: lockedScreen }
     LoadingModal { id: loadingModal }
     Audio { id: audio }
     ConfirmDialog { id: confirmDialog }
