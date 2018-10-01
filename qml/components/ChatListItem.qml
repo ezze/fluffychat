@@ -89,7 +89,7 @@ ListItem {
         anchors.top: parent.top
         anchors.margins: units.gu(2)
         text: stamp.getChatTime ( room.origin_server_ts )
-        color: mainFontColor"
+        color: mainFontColor
         textSize: Label.XSmall
         visible: text != ""
     }

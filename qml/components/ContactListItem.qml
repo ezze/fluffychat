@@ -14,7 +14,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
-        title.color: mainFontColor"
+        title.color: mainFontColor
         subtitle.text: medium.replace("msisdn","📱").replace("email","✉") + " " + address
 
         Avatar {

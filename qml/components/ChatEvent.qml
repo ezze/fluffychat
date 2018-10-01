@@ -87,9 +87,12 @@ Rectangle {
                     Image {
                         id: thumbnail
                         visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
-                        width: visible ? Math.max( units.gu(24), messageLabel.width + units.gu(2) ) : 0
-                        source: event.content.url ? media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, 2*Math.round (width), 2*Math.round (width) ) : ""
-                        height: width * ( sourceSize.height / sourceSize.width )
+                        source: event.content.url ? media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) : ""
+
+                        //width: visible ? Math.max( units.gu(24), messageLabel.width + units.gu(2) ) : 0
+                        //height: width * ( sourceSize.height / sourceSize.width )
+                        height: visible * units.gu(30)
+                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
                         onStatusChanged: {
                             if ( status === Image.Error ) {
