@@ -202,7 +202,7 @@ Rectangle {
                     color: (sent || isStateEvent) ? "black" : "white"
                     linkColor: color
                     wrapMode: Text.Wrap
-                    textFormat: Text.StyledText
+                    textFormat: Text.AutoText
                     textSize: isStateEvent ? Label.XSmall : Label.Medium
                     anchors.left: parent.left
                     anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)

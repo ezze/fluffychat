@@ -269,9 +269,11 @@ Item {
                 var tempText = event.content.body || null
                 if ( tempText !== null ) {
                     tempText = tempText.split("\n").join("<br>")
-                    var urlRegex = /(https?:\/\/[^\s]+)/g
+                    var urlRegex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
                     tempText = tempText.replace(urlRegex, function(url) {
-                        return '<a href="%1">%1</a>'.arg(url)
+                        var link = url
+                        if ( url.indexOf ( "http" ) === -1 ) link = "http://" + url
+                        return '<a href="%1">%2</a>'.arg(link).arg(url)
                     })
                 }
                 event.content_body = tempText
