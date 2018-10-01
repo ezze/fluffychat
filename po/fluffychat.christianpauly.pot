@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-01 11:43+0000\n"
+"POT-Creation-Date: 2018-10-01 12:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -263,29 +263,25 @@ msgstr ""
 msgid "No email addresses connected"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:19
-msgid "Registering phone number..."
-msgstr ""
-
-#: ../qml/pages/PasswordCreationPage.qml:42
+#: ../qml/pages/PasswordCreationPage.qml:45
 msgid "Your password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:61
+#: ../qml/pages/PasswordCreationPage.qml:64
 msgid "Choose your own password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:69
+#: ../qml/pages/PasswordCreationPage.qml:72
 #: ../qml/components/ChangePasswordDialog.qml:25
 msgid "Enter your new password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:74
+#: ../qml/pages/PasswordCreationPage.qml:77
 #: ../qml/components/ChangePasswordDialog.qml:30
 msgid "Please repeat"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:82
+#: ../qml/pages/PasswordCreationPage.qml:85
 #: ../qml/components/ChangePasswordDialog.qml:38
 #: ../qml/components/LeaveChatDialog.qml:27
 #: ../qml/components/NewGroupDialog.qml:27
@@ -304,25 +300,25 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:87
+#: ../qml/pages/PasswordCreationPage.qml:90
 #: ../qml/components/ChangePasswordDialog.qml:43
 msgid "Change"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:91
+#: ../qml/pages/PasswordCreationPage.qml:94
 #: ../qml/components/ChangePasswordDialog.qml:11
 msgid "Change your password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:129
+#: ../qml/pages/PasswordCreationPage.qml:132
 msgid "In order to restore your account, please make a note of this secret"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:156
+#: ../qml/pages/PasswordCreationPage.qml:159
 msgid "Copy to clipboard"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:161
+#: ../qml/pages/PasswordCreationPage.qml:164
 msgid "Password has been copied"
 msgstr ""
 
@@ -1045,10 +1041,6 @@ msgstr ""
 
 #: ../qml/components/EnterSMSTokenDialog.qml:19
 msgid "Validation code"
-msgstr ""
-
-#: ../qml/components/EnterSMSTokenDialog.qml:33
-msgid "Waiting..."
 msgstr ""
 
 #: ../qml/components/CountryPicker.qml:20

@@ -33,7 +33,7 @@ Page {
         else {
             // Transform the phone number
             var phoneInput = phoneTextField.displayText.replace(/\D/g,'')
-            if ( phoneInput.charAt(0) === 0 ) phoneInput = phoneInput.substr(1)
+            if ( phoneInput.charAt(0) === "0" ) phoneInput = phoneInput.substr(1)
             phoneInput = settings.countryTel + phoneInput
 
             // Step 3.1: Look for this phone number
