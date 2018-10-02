@@ -11,7 +11,7 @@ Chatroom for FluffyChat: https://matrix.to/#/#fluffychat:matrix.org
 
 Follow me on Mastodon: https://metalhead.club/@krille
 
-### Screenshots
+# Screenshots
 
 <p>
   <img src="/docs/screenshots/screenshot20180710_172017850.png" width="19%" />
@@ -21,7 +21,7 @@ Follow me on Mastodon: https://metalhead.club/@krille
   <img src="/docs/screenshots/screenshot20180710_172240709.png" width="19%" />
 </p>
 
-##### Features
+# Features
  * Single and group chats
  * Send images and files
  * Offline chat history
@@ -30,13 +30,20 @@ Follow me on Mastodon: https://metalhead.club/@krille
  * Display user avatars
  * Themes, chat wallpapers and dark mode
  * Device management
+ * Edit chat settings and permissions
+ * Kick, ban and unban users
+ * Display and edit chat topics
+ * Change chat&user avatars
+ * Archived chats
+ * Display contacts and find contacts with their phone number or email address
+ * Discover public chats on the user's homeserver
+ * Registration (currently only working with ubports.chat and NOT with matrix.org due captchas)
 
 ##### Planned features
- * All common matrix.org features
+ * Communities
  * End2End-encryption
- * Find friends by phone number, using vector.im
 
-### FAQ
+# FAQ
 
 #### Why are you not just contributing to uMatriks?
 uMatriks is great and it's superb, that someone has created a Matrix Client for Ubuntu Touch. But sometimes you have a so
@@ -82,7 +89,7 @@ cd fluffychat
 clickable click-build
 ```
 
-### Special thanks to
+# Special thanks to
 <a href="https://www.regionetz.net"><img src="https://www.regionetz.net/wp-content/uploads/2017/12/logo.png" width="19%" /></a>
 Regionetz is an ISP company from southern Germany and hosts the official server "uborts.chat" as well as the website of fluffychat. Special thanks to the owner Norbert Herter.
 
