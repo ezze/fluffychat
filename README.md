@@ -95,6 +95,6 @@ Regionetz is an ISP company from southern Germany and hosts the official server 
 
 * <a href="https://github.com/fabiyamada">Fabiyamada</a> is a graphics designer from Brasil and has made the fluffychat logo and the banner. Big thanks for her great designs.
 
-* <a href="">Advocatux</a> has made the Spanish translation with great love and care. He always stands by my side and supports my work with great commitment.
+* <a href="https://github.com/advocatux">Advocatux</a> has made the Spanish translation with great love and care. He always stands by my side and supports my work with great commitment.
 
 * Also thanks to all translators and testers! With your help, fluffychat is now available in 5 languages.
