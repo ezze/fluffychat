@@ -56,6 +56,7 @@ a {
 .header_button img{
 	padding: var(--header-icon-padding);
 	height: var(--header-height);
+	margin-left: var(--header-icon-padding);
 }
 
 #header_toggle_mobile{
@@ -132,11 +133,11 @@ a {
 }
 
 .spacer {
-    height: 15rem;
+    height: 10rem;
 }
 
 .paddingColumn{
-    padding: 4vw 0;
+	padding: 2rem 0;
 }
 .gridItem{
     text-align: center;
