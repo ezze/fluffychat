@@ -1,0 +1,147 @@
+/* =============VALUES============== */
+:root {
+  --header-height: 46px;
+  --header-font-size: 1.75rem;
+  --header-font-padding: 10px 20px;
+  --header-icon-padding: 5px;
+  --border-color: #DDDDDD;
+  --header-background: #FFFFFF;
+}
+
+/* =============HEADER============== */
+.header{
+	border-bottom: 1px solid var(--border-color);
+	height: var(--header-height);
+	width: 80%;
+	white-space: nowrap;
+	position: fixed;
+	z-index: 100;
+	background: var(--header-background);
+	top: 0px;
+	max-width: 960px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+a {
+	color: #5625BA;
+}
+
+.header *{
+	max-height: var(--header-height);
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: var(--header-font-size);
+}
+
+.right_side{
+	float: right;
+	text-align: right;
+}
+
+.left_side{
+	float: left;
+	text-align: left;
+}
+
+.header a{
+	text-decoration: none;
+}
+
+.header_title, .header nav a{
+	padding: var(--header-font-padding);
+}
+
+.header_button img{
+	padding: var(--header-icon-padding);
+	height: var(--header-height);
+}
+
+#header_toggle_mobile{
+	display: none;
+}
+
+
+/* Desktop mode */
+@media (min-width: 610px) {
+	#header_main_nav{
+		display: inline-block !important;
+	}
+}
+
+/* Mobile mode */
+@media (max-width: 610px) {
+
+	.header {
+		width: 100%
+	}
+
+    #titleColumn{
+        text-align: center;
+    }
+
+    #banner {
+			   width: 100% !important;
+        max-width: 100% !important;
+    }
+
+	#header_main_nav{
+		display: none;
+		position: absolute;
+		top: var(--header-height);
+		left: 0px;
+		background: var(--header-background);
+		width: 100vw;
+		max-height: none;
+		border-bottom: 1px solid var(--border-color);
+		text-align: left;
+	}
+
+	#header_main_nav a{
+		display: block;
+	}
+
+	/* Visible by default */
+	#header_toggle_mobile{
+		display: inherit;
+	}
+}
+
+
+/* =============CONTENT============== */
+#content{
+	z-index: 0;
+	min-height: calc( 100vh - var(--header-height) );
+	padding-top: var(--header-height);
+}
+
+#banner {
+    width: 80%;
+    max-width: 960px;
+	margin: 0 auto;
+	display: block;
+}
+
+.article_image{
+	max-width: 100%;
+}
+
+.buttonImage{
+    width: 20rem;
+}
+
+.spacer {
+    height: 15rem;
+}
+
+.paddingColumn{
+    padding: 4vw 0;
+}
+.gridItem{
+    text-align: center;
+}
+
+#footer{
+    text-align: center;
+}
