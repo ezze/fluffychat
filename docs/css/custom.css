@@ -87,6 +87,10 @@ a {
         max-width: 100% !important;
     }
 
+#screenshot {
+	max-width: calc(100vw - 4rem) !important;
+}
+
 	#header_main_nav{
 		display: none;
 		position: absolute;
@@ -130,6 +134,11 @@ a {
 
 .buttonImage{
     width: 20rem;
+	transition: box-shadow 0.3s;
+}
+
+.buttonImage:hover{
+	box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.5);
 }
 
 .spacer {
@@ -141,6 +150,11 @@ a {
 }
 .gridItem{
     text-align: center;
+}
+
+#screenshot {
+	width: 30rem;
+	max-width: calc(50vw - 10rem);
 }
 
 #footer{
