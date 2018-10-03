@@ -17,7 +17,7 @@ Page {
             Action {
                 iconName: "contact-new"
                 text: i18n.tr("Add Contact")
-                onTriggered: mainStack.push (Qt.resolvedUrl("./AddContactPage.qml"))
+                onTriggered: contactImport.requestContact()
             }
             ]
         }
@@ -34,7 +34,8 @@ Page {
                     name: user.displayname || usernames.transformFromId(user.matrix_id),
                     avatar_url: user.avatar_url,
                     medium: user.medium,
-                    address: user.address
+                    address: user.address,
+                    temp: false
                 })
             }
         })
@@ -71,7 +72,9 @@ Page {
             TextField {
                 id: searchField
                 objectName: "searchField"
+                property var searchMatrixId: false
                 property var upperCaseText: displayText.toUpperCase()
+                property var tempElement: null
                 anchors {
                     left: parent.left
                     right: parent.right
@@ -79,7 +82,27 @@ Page {
                     leftMargin: units.gu(2)
                 }
                 inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search contacts...")
+                placeholderText: i18n.tr("Search contacts or usernames...")
+                onDisplayTextChanged: {
+                    if ( tempElement !== null ) {
+                        model.remove ( tempElement)
+                        tempElement = null
+                    }
+                    if ( displayText.indexOf( "@" ) === -1 ||  displayText.length < 2 ) return
+                        var input = displayText
+                    if ( input.indexOf(":") === -1 ) {
+                        input += ":" + settings.server
+                    }
+                    model.append ( {
+                        matrixid: input,
+                        address: input,
+                        name: usernames.getById(input),
+                        avatar_url: "",
+                        medium: "matrix",
+                        temp: true
+                    })
+                    tempElement = model.count - 1
+                }
             }
         }
         Rectangle {

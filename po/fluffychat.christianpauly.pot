@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-03 12:55+0000\n"
+"POT-Creation-Date: 2018-10-03 13:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -400,7 +400,7 @@ msgstr ""
 msgid "Chat permissions"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:51
+#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:52
 msgid "Create chat"
 msgstr ""
 
@@ -409,7 +409,6 @@ msgid "Invite selected"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:76
-#: ../qml/pages/AddChatPage.qml:82
 msgid "Search contacts..."
 msgstr ""
 
@@ -557,26 +556,6 @@ msgstr ""
 msgid "Invite user"
 msgstr ""
 
-#: ../qml/pages/AddContactPage.qml:12 ../qml/pages/AddContactPage.qml:20
-msgid "Start new private chat"
-msgstr ""
-
-#: ../qml/pages/AddContactPage.qml:47
-msgid "You need to enter a valid Email address or Matrix ID!"
-msgstr ""
-
-#: ../qml/pages/AddContactPage.qml:67
-msgid "Email or full username..."
-msgstr ""
-
-#: ../qml/pages/AddContactPage.qml:82
-msgid "Your full username is: <b>%1</b>"
-msgstr ""
-
-#: ../qml/pages/AddContactPage.qml:99 ../qml/pages/AddChatPage.qml:101
-msgid "Import from contacts"
-msgstr ""
-
 #: ../qml/pages/ChatPage.qml:163 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
@@ -636,7 +615,7 @@ msgstr ""
 msgid "Don't notify"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:14 ../qml/pages/AddChatPage.qml:57
+#: ../qml/pages/JoinChatPage.qml:14 ../qml/pages/AddChatPage.qml:58
 msgid "Join chat"
 msgstr ""
 
@@ -728,6 +707,14 @@ msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:19
 msgid "Add Contact"
+msgstr ""
+
+#: ../qml/pages/AddChatPage.qml:85
+msgid "Search contacts or usernames..."
+msgstr ""
+
+#: ../qml/pages/AddChatPage.qml:124
+msgid "Import from contacts"
 msgstr ""
 
 #: ../qml/pages/ThemeSettingsPage.qml:35

@@ -6,7 +6,7 @@ import "../components"
 
 ListItem {
 
-    visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
+    visible: { temp || layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
 
     onClicked: usernames.showUserSettings ( matrixid )
@@ -15,7 +15,7 @@ ListItem {
         id: layout
         title.text: name
         title.color: mainFontColor
-        subtitle.text: medium.replace("msisdn","📱").replace("email","✉") + " " + address
+        subtitle.text: medium.replace("msisdn","📱").replace("email","✉").replace("matrix","💬") + " " + address
 
         Avatar {
             name: layout.title.text
