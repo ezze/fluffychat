@@ -16,8 +16,7 @@ Item {
             return fullTimeString
         }
 
-        var fullDateString =  date.toLocaleDateString(locale, Locale.ShortFormat)
-        return fullDateString + i18n.tr(" - ") + fullTimeString
+        return date.toLocaleString(locale, Locale.ShortFormat)
     }
 
 }

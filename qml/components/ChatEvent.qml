@@ -233,7 +233,14 @@ Rectangle {
                     // display name of the sender of this message and the time.
                     Label {
                         id: metaLabel
-                        text: (chatMembers[event.sender] ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)) + " " + stamp.getChatTime ( event.origin_server_ts )
+                        text: {
+                            // Show the senders displayname only on the first message of
+                            // this sender and only if its not the user him-/herself.
+                            ((!event.sameSender && event.sender !== matrix.matrixid) ?
+                                ("<b>" + (chatMembers[event.sender] ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)) + "</b> ")
+                                : "")
+                                + stamp.getChatTime ( event.origin_server_ts )
+                        }
                         color: messageLabel.color
                         opacity: 0.66
                         textSize: Label.XSmall
