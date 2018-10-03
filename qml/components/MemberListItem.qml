@@ -26,6 +26,8 @@ ListItem {
 
         Avatar {
             id: avatar
+            width: units.gu(4)
+            height: width
             name: layout.title.text
             SlotsLayout.position: SlotsLayout.Leading
             mxc: avatar_url || ""

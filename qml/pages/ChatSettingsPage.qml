@@ -229,13 +229,6 @@ Page {
                     id: settingsColumn
                     width: parent.width
                     SettingsListLink {
-                        visible: canInvite
-                        name: i18n.tr("Invite friend")
-                        icon: "contact-new"
-                        page: "InvitePage"
-                        onClicked: model.clear()
-                    }
-                    SettingsListLink {
                         name: i18n.tr("Notifications")
                         icon: "notification"
                         page: "NotificationChatSettingsPage"
@@ -252,11 +245,6 @@ Page {
                         icon: "bookmark"
                         page: "ChatAliasSettingsPage"
                         onClicked: model.clear()
-                    }
-                    SettingsListItem {
-                        name: i18n.tr("Leave Chat")
-                        icon: "delete"
-                        onClicked: PopupUtils.open(leaveChatDialog)
                     }
                 }
             }
@@ -317,10 +305,16 @@ Page {
                 model: ListModel { id: model }
                 z: -1
 
+                header: SettingsListLink {
+                    visible: canInvite
+                    name: i18n.tr("Invite friend")
+                    icon: "contact-new"
+                    page: "InvitePage"
+                    onClicked: model.clear()
+                }
+
                 Button {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.top: parent.top
-                    anchors.topMargin: height
+                    anchors.centerIn: parent
                     text: i18n.tr("Reload")
                     color: UbuntuColors.green
                     onClicked: init()
