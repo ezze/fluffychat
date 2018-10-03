@@ -9,7 +9,19 @@ Page {
     anchors.fill: parent
 
     header: FcPageHeader {
-        title: i18n.tr('Account: %1').arg(matrix.matrixid)
+        title: i18n.tr('Settings for %1').arg(matrix.matrixid)
+
+        trailingActionBar {
+            numberOfSlots: 1
+            actions: [
+            Action {
+                visible: canChangeName
+                iconName: "compose"
+                text: i18n.tr("Edit displayname")
+                onTriggered: PopupUtils.open(displaynameDialog)
+            }
+            ]
+        }
     }
 
     ScrollView {
@@ -38,7 +50,7 @@ Page {
                             var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
                             avatarImage.name = displayname
                             avatarImage.mxc = rs.rows[0].avatar_url
-                            header.title = i18n.tr('Account: %1').arg( displayname )
+                            header.title = i18n.tr('Settings for %1').arg( displayname )
                         }
                     })
                 }
@@ -89,10 +101,57 @@ Page {
                 }
             }
 
-            SettingsListItem {
-                name: i18n.tr("Change display name")
+            SettingsListLink {
+                name: i18n.tr("Theme")
+                icon: "image-x-generic-symbolic"
+                page: "ThemeSettingsPage"
+            }
+
+            SettingsListLink {
+                name: i18n.tr("Notifications")
+                icon: "notification"
+                page: "NotificationSettingsPage"
+            }
+
+            Rectangle {
+                width: parent.width
+                height: units.gu(2)
+                color: theme.palette.normal.background
+            }
+
+            Label {
+                height: units.gu(2)
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(2)
+                text: i18n.tr("Chat settings:")
+                font.bold: true
+            }
+
+            SettingsListSwitch {
+                name: i18n.tr("Display 'I am typing' when typing")
                 icon: "edit"
-                onClicked: PopupUtils.open(displaynameDialog)
+                onSwitching: function () { settings.sendTypingNotification = isChecked }
+                Component.onCompleted: isChecked = settings.sendTypingNotification
+            }
+
+            SettingsListLink {
+                name: i18n.tr("Archived chats")
+                icon: "inbox-all"
+                page: "ArchivedChatsPage"
+            }
+
+            Rectangle {
+                width: parent.width
+                height: units.gu(2)
+                color: theme.palette.normal.background
+            }
+
+            Label {
+                height: units.gu(2)
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(2)
+                text: i18n.tr("Account settings:")
+                font.bold: true
             }
 
             SettingsListLink {
@@ -107,10 +166,30 @@ Page {
                 page: "EmailSettingsPage"
             }
 
+            SettingsListLink {
+                name: i18n.tr("Devices")
+                icon: "phone-smartphone-symbolic"
+                page: "DevicesSettingsPage"
+            }
+
             SettingsListItem {
                 name: i18n.tr("Change password")
                 icon: "lock"
                 onClicked: PopupUtils.open(passwordDialog)
+            }
+
+            Rectangle {
+                width: parent.width
+                height: units.gu(2)
+                color: theme.palette.normal.background
+            }
+
+            Label {
+                height: units.gu(2)
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(2)
+                text: i18n.tr("Check out:")
+                font.bold: true
             }
 
             SettingsListItem {
@@ -123,6 +202,26 @@ Page {
                 name: i18n.tr("Log out")
                 icon: "system-shutdown"
                 onClicked: PopupUtils.open(logoutDialog)
+            }
+
+            Rectangle {
+                width: parent.width
+                height: units.gu(2)
+                color: theme.palette.normal.background
+            }
+
+            Label {
+                height: units.gu(2)
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(2)
+                text: i18n.tr("More:")
+                font.bold: true
+            }
+
+            SettingsListLink {
+                name: i18n.tr("About FluffyChat")
+                icon: "info"
+                page: "InfoPage"
             }
         }
     }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-03 13:18+0000\n"
+"POT-Creation-Date: 2018-10-03 13:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -234,7 +234,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/MainSettingsPage.qml:57
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:138
 msgid "Archived chats"
 msgstr ""
 
@@ -246,8 +246,7 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:44
-#: ../qml/pages/AccountSettingsPage.qml:105
+#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:164
 msgid "Connected email addresses"
 msgstr ""
 
@@ -416,80 +415,86 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:11
-msgid "Settings"
+#: ../qml/pages/SettingsPage.qml:12 ../qml/pages/SettingsPage.qml:53
+msgid "Settings for %1"
 msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:33
+#: ../qml/pages/SettingsPage.qml:20
+msgid "Edit displayname"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:67 ../qml/pages/ChatSettingsPage.qml:163
+msgid "Show image"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:71 ../qml/pages/ChatSettingsPage.qml:167
+msgid "Delete Avatar"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:93 ../qml/pages/ChatPage.qml:310
+#: ../qml/pages/ChatSettingsPage.qml:188
+msgid "Error"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:97 ../qml/pages/ChatPage.qml:314
+#: ../qml/pages/ChatSettingsPage.qml:192
+msgid "OK"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:105 ../qml/pages/ThemeSettingsPage.qml:11
+msgid "Theme"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:111
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:239
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:39
-msgid "Account"
+#: ../qml/pages/SettingsPage.qml:126
+msgid "Chat settings:"
 msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:45 ../qml/pages/ThemeSettingsPage.qml:11
-msgid "Theme"
+#: ../qml/pages/SettingsPage.qml:131
+msgid "Display 'I am typing' when typing"
 msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:51
-#: ../qml/pages/PrivacySettingsPage.qml:11
-#: ../qml/pages/ChatSettingsPage.qml:245
-msgid "Security & Privacy"
+#: ../qml/pages/SettingsPage.qml:153
+msgid "Account settings:"
 msgstr ""
 
-#: ../qml/pages/MainSettingsPage.qml:63
-msgid "About FluffyChat"
-msgstr ""
-
-#: ../qml/pages/AccountSettingsPage.qml:12
-#: ../qml/pages/AccountSettingsPage.qml:41
-msgid "Account: %1"
-msgstr ""
-
-#: ../qml/pages/AccountSettingsPage.qml:55
-#: ../qml/pages/ChatSettingsPage.qml:163
-msgid "Show image"
-msgstr ""
-
-#: ../qml/pages/AccountSettingsPage.qml:59
-#: ../qml/pages/ChatSettingsPage.qml:167
-msgid "Delete Avatar"
-msgstr ""
-
-#: ../qml/pages/AccountSettingsPage.qml:81 ../qml/pages/ChatPage.qml:310
-#: ../qml/pages/ChatSettingsPage.qml:188
-msgid "Error"
-msgstr ""
-
-#: ../qml/pages/AccountSettingsPage.qml:85 ../qml/pages/ChatPage.qml:314
-#: ../qml/pages/ChatSettingsPage.qml:192
-msgid "OK"
-msgstr ""
-
-#: ../qml/pages/AccountSettingsPage.qml:93
-msgid "Change display name"
-msgstr ""
-
-#: ../qml/pages/AccountSettingsPage.qml:99
-#: ../qml/pages/PhoneSettingsPage.qml:47
+#: ../qml/pages/SettingsPage.qml:158 ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:111
+#: ../qml/pages/SettingsPage.qml:170 ../qml/pages/DevicesSettingsPage.qml:24
+msgid "Devices"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:176
 msgid "Change password"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:117
+#: ../qml/pages/SettingsPage.qml:191
+msgid "Check out:"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:196
 msgid "Disable account"
 msgstr ""
 
-#: ../qml/pages/AccountSettingsPage.qml:123
-#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
+#: ../qml/pages/SettingsPage.qml:202 ../qml/components/LogoutDialog.qml:11
+#: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:217
+msgid "More:"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:222
+msgid "About FluffyChat"
 msgstr ""
 
 #: ../qml/pages/PasswordInputPage.qml:26
@@ -631,15 +636,6 @@ msgstr ""
 msgid "Loading public chats..."
 msgstr ""
 
-#: ../qml/pages/PrivacySettingsPage.qml:23
-msgid "Display 'I am typing' when typing"
-msgstr ""
-
-#: ../qml/pages/PrivacySettingsPage.qml:30
-#: ../qml/pages/DevicesSettingsPage.qml:24
-msgid "Devices"
-msgstr ""
-
 #: ../qml/pages/ChatSettingsPage.qml:95
 msgid "Member"
 msgstr ""
@@ -675,6 +671,10 @@ msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:233
 msgid "Invite friend"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:245
+msgid "Security & Privacy"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:251

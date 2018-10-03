@@ -152,7 +152,7 @@ Page {
                     searching = false
                     searchField.text = ""
                     mainStack.toStart ()
-                    mainStack.push(Qt.resolvedUrl("./MainSettingsPage.qml"))
+                    mainStack.push(Qt.resolvedUrl("./SettingsPage.qml"))
                 }
             },
             Action {
