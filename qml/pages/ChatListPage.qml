@@ -23,6 +23,7 @@ Page {
         " WHERE rooms.membership!='leave' " +
         " AND (events.origin_server_ts IN (" +
         " SELECT MAX(origin_server_ts) FROM Events WHERE chat_id=rooms.id " +
+        " AND type='m.room.message' " +
         ") OR rooms.membership='invite')" +
         " GROUP BY rooms.id " +
         " ORDER BY origin_server_ts DESC "

@@ -134,6 +134,20 @@ Page {
                 Component.onCompleted: isChecked = settings.sendTypingNotification
             }
 
+            SettingsListSwitch {
+                name: i18n.tr("Show member change events")
+                icon: "contact-group"
+                onSwitching: function () { settings.showMemberChangeEvents = isChecked }
+                Component.onCompleted: isChecked = settings.showMemberChangeEvents
+            }
+
+            SettingsListSwitch {
+                name: i18n.tr("Show less important events")
+                icon: "info"
+                onSwitching: function () { settings.showLessImportantEvents = isChecked }
+                Component.onCompleted: isChecked = settings.showLessImportantEvents
+            }
+
             SettingsListLink {
                 name: i18n.tr("Archived chats")
                 icon: "inbox-all"

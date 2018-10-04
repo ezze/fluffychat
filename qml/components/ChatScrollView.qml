@@ -96,6 +96,18 @@ ListView {
     // This function writes the event in the chat. The event MUST have the format
     // of a database entry, described in the storage controller
     function addEventToList ( event, history ) {
+
+        // Display this event at all? In the chat settings the user can choose
+        // which events should be displayed. Less important events are all events,
+        // that or not member events from other users and the room create events.
+        if ( (!settings.showMemberChangeEvents && event.type === "m.room.member")
+            ||
+             (!settings.showLessImportantEvents &&
+             event.type !== "m.room.message" &&
+             event.type !== "m.sticker" &&
+             event.type !== "m.room.member" &&
+             event.type !== "m.room.create")) return
+
         if ( history ) event.status = msg_status.HISTORY
 
         // Find the right position for this event

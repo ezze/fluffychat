@@ -42,8 +42,14 @@ Settings {
     // The path to the chat background
     property var chatBackground
 
-    // Security & Privacy: Send typing notification?
+    // Chat settings: Send typing notification?
     property var sendTypingNotification: true
+
+    // Chat settings: Show less important events?
+    property var showLessImportantEvents: false
+
+    // Chat settings: Show member change events?
+    property var showMemberChangeEvents: true
 
     // Are archived chats synchronized too?
     property var requestedArchive: false
