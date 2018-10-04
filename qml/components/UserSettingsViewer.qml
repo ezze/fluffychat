@@ -22,10 +22,11 @@ BottomEdge {
 
             Component.onCompleted:  {
                 matrix_id = activeUser
-                userHeader.title = matrix_id.replace(":","<font color='%1'>:".arg(UbuntuColors.ash)) + "</font>"
+                userHeader.title = matrix_id
 
-                storage.transaction ( "SELECT avatar_url FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
+                storage.transaction ( "SELECT displayname, avatar_url FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
                     if ( res.rows.length === 1 ) avatar.mxc = res.rows[0].avatar_url
+                    userHeader.title = res.rows[0].displayname
                 })
 
                 if ( matrix_id === matrix.matrixid ) return
@@ -88,6 +89,17 @@ BottomEdge {
                         width: parent.width
                         height: 1
                         color: UbuntuColors.ash
+                    }
+
+                    ListItem {
+                        id: usernameListItem
+                        height: usernameListItemLayout.height
+                        color: Qt.rgba(0,0,0,0)
+                        ListItemLayout {
+                            id: usernameListItemLayout
+                            title.text: i18n.tr("Full username:")
+                            subtitle.text: matrix_id
+                        }
                     }
 
                     ListItem {

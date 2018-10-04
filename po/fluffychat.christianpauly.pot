@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-04 08:27+0000\n"
+"POT-Creation-Date: 2018-10-04 08:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -238,7 +238,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:152
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:169
 msgid "Archived chats"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:178
+#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:195
 msgid "Connected email addresses"
 msgstr ""
 
@@ -445,67 +445,72 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:105 ../qml/pages/ThemeSettingsPage.qml:11
+#: ../qml/pages/SettingsPage.qml:116
+#: ../qml/components/UserSettingsViewer.qml:100
+msgid "Full username:"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:122 ../qml/pages/ThemeSettingsPage.qml:11
 msgid "Theme"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:111
+#: ../qml/pages/SettingsPage.qml:128
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:126
+#: ../qml/pages/SettingsPage.qml:143
 msgid "Chat settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:131
+#: ../qml/pages/SettingsPage.qml:148
 msgid "Display 'I am typing' when typing"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:138
+#: ../qml/pages/SettingsPage.qml:155
 msgid "Show member change events"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:145
+#: ../qml/pages/SettingsPage.qml:162
 msgid "Show less important events"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:167
+#: ../qml/pages/SettingsPage.qml:184
 msgid "Account settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:172 ../qml/pages/PhoneSettingsPage.qml:47
+#: ../qml/pages/SettingsPage.qml:189 ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:184 ../qml/pages/DevicesSettingsPage.qml:24
+#: ../qml/pages/SettingsPage.qml:201 ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:190
+#: ../qml/pages/SettingsPage.qml:207
 msgid "Change password"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:205
+#: ../qml/pages/SettingsPage.qml:222
 msgid "Check out:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:210
+#: ../qml/pages/SettingsPage.qml:227
 msgid "Disable account"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:216 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:233 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:231
+#: ../qml/pages/SettingsPage.qml:248
 msgid "More:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:236
+#: ../qml/pages/SettingsPage.qml:253
 msgid "About FluffyChat"
 msgstr ""
 
@@ -1112,15 +1117,15 @@ msgstr ""
 msgid "Canonical alias"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:110
+#: ../qml/components/UserSettingsViewer.qml:122
 msgid "Start new chat"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:134
+#: ../qml/components/UserSettingsViewer.qml:146
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:134
+#: ../qml/components/UserSettingsViewer.qml:146
 msgid "You are that!"
 msgstr ""
 

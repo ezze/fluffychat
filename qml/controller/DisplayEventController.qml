@@ -19,7 +19,7 @@ Item {
                 if ( usernames.transformFromId(event.sender) === displayname ) {
                     body = i18n.tr("%1 is now participating").arg(displayname)
                 }
-                else body = i18n.tr("%1 is now participating as <b>%2</b>").arg(event.sender).arg(displayname)
+                else body = i18n.tr("%1 is now participating as <b>%2</b>").arg(sendername).arg(displayname)
             }
             else if ( event.content.membership === "invite" ) {
                 body = i18n.tr("%1 has invited %2").arg(sendername).arg( target )
