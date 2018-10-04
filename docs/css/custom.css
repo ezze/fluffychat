@@ -19,8 +19,10 @@
 	background: var(--header-background);
 	top: 0px;
 	max-width: 960px;
-	left: 50%;
-	transform: translateX(-50%);
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 a {
