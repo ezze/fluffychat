@@ -290,6 +290,16 @@ Item {
             }
 
 
+            // If the message contains an image, save it to media
+            if ( (event.content.msgtype === "m.image" || event.type === "sticker") && event.content.url ) {
+                transaction.executeSql( "INSERT OR IGNORE INTO Media VALUES(?, ?, ?)", [
+                (event.info && event.info.mimetype) ? event.info.mimetype : "",
+                event.content.url,
+                (event.info && event.info.thumbnail_url) ? event.info.thumbnail_url : ""
+                ])
+            }
+
+
             // If this timeline only contain events from the history, from the past,
             // then all other changes to the room are old and should not be saved.
             if ( type === "history" ) continue

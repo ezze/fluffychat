@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.1"
+    property var version: "0.3.1b"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -84,6 +84,7 @@ Item {
         transaction('DROP TABLE IF EXISTS Contacts')
         transaction('DROP TABLE IF EXISTS Addresses')
         transaction('DROP TABLE IF EXISTS ThirdPIDs')
+        transaction('DROP TABLE IF EXISTS Media')
 
         // TABLE SCHEMA FOR CHATS
         transaction('CREATE TABLE Chats(' +
@@ -165,10 +166,17 @@ Item {
         'address TEXT, ' + // The address in the form: #roomname:homeserver.org
         'UNIQUE(chat_id, address))')
 
-        // TABLE SCHEMA FOR CHAT ADDRESSES
+        // TABLE SCHEMA FOR THIRD PARTY IDENTIFIES
         transaction('CREATE TABLE ThirdPIDs(' +
         'medium TEXT, ' +    // Should be "email" or "msisdn"
         'address TEXT, ' + // The email address or phone number
         'UNIQUE(medium, address))')
+
+        // TABLE SCHEMA FOR UPLOADED MEDIA
+        transaction('CREATE TABLE Media(' +
+        'mimetype TEXT, ' +
+        'url TEXT, ' +
+        'thumbnail_url TEXT, ' +
+        'UNIQUE(url))')
     }
 }
