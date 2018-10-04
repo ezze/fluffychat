@@ -46,7 +46,7 @@ Rectangle {
 
     function show ( new_mxc ) {
         mxc = new_mxc
-        thumbnail.source = media.getThumbnailLinkFromMxc ( mxc, Math.round (parent.width), Math.round (parent.height-header.height) )
+        thumbnail.source = media.getLinkFromMxc ( mxc )
         visible = true
     }
 
@@ -59,7 +59,7 @@ Rectangle {
         contentItem: Column {
             width: imageViewer.width
 
-            Image {
+            AnimatedImage {
                 id: thumbnail
                 width: parent.width
                 height: width * ( sourceSize.height / sourceSize.width )

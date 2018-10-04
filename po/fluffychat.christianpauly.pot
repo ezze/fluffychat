@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-04 08:55+0000\n"
+"POT-Creation-Date: 2018-10-04 09:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:58
+#: ../qml/controller/SettingsController.qml:61
 msgid "USA"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:59
+#: ../qml/controller/SettingsController.qml:62
 msgid "1"
 msgstr ""
 
@@ -238,7 +238,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:169
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:176
 msgid "Archived chats"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:195
+#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:202
 msgid "Connected email addresses"
 msgstr ""
 
@@ -474,43 +474,47 @@ msgid "Show member change events"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:162
-msgid "Show less important events"
+msgid "Hide less important events"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:184
+#: ../qml/pages/SettingsPage.qml:169
+msgid "Autoload animated images"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:191
 msgid "Account settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:189 ../qml/pages/PhoneSettingsPage.qml:47
+#: ../qml/pages/SettingsPage.qml:196 ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:201 ../qml/pages/DevicesSettingsPage.qml:24
+#: ../qml/pages/SettingsPage.qml:208 ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:207
+#: ../qml/pages/SettingsPage.qml:214
 msgid "Change password"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:222
+#: ../qml/pages/SettingsPage.qml:229
 msgid "Check out:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:227
+#: ../qml/pages/SettingsPage.qml:234
 msgid "Disable account"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:233 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:240 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:248
+#: ../qml/pages/SettingsPage.qml:255
 msgid "More:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:253
+#: ../qml/pages/SettingsPage.qml:260
 msgid "About FluffyChat"
 msgstr ""
 
@@ -970,7 +974,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:185
+#: ../qml/components/ChatEvent.qml:190
 msgid "Download file: "
 msgstr ""
 

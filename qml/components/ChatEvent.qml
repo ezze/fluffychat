@@ -84,10 +84,15 @@ Rectangle {
                 MouseArea {
                     width: thumbnail.width
                     height: thumbnail.height
-                    Image {
+                    AnimatedImage {
                         id: thumbnail
                         visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
-                        source: event.content.url ? media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) : ""
+                        source: {
+                            (settings.autoloadGifs && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif") ?
+                            media.getLinkFromMxc ( event.content.url ) :
+                            ((event.content.url && event.content.info && event.content.info.thumbnail_url) ?
+                            media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) : "")
+                        }
 
                         //width: visible ? Math.max( units.gu(24), messageLabel.width + units.gu(2) ) : 0
                         //height: width * ( sourceSize.height / sourceSize.width )
@@ -237,9 +242,9 @@ Rectangle {
                             // Show the senders displayname only on the first message of
                             // this sender and only if its not the user him-/herself.
                             ((!event.sameSender && event.sender !== matrix.matrixid) ?
-                                ("<b>" + (chatMembers[event.sender] ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)) + "</b> ")
-                                : "")
-                                + stamp.getChatTime ( event.origin_server_ts )
+                            ("<b>" + (chatMembers[event.sender] ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)) + "</b> ")
+                            : "")
+                            + stamp.getChatTime ( event.origin_server_ts )
                         }
                         color: messageLabel.color
                         opacity: 0.66

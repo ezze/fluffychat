@@ -101,7 +101,7 @@ ListView {
         // which events should be displayed. Less important events are all events,
         // that or not member events from other users and the room create events.
         if ( (!settings.showMemberChangeEvents && event.type === "m.room.member") ||
-        (!settings.showLessImportantEvents &&
+        (settings.hideLessImportantEvents &&
             event.type !== "m.room.message" &&
             event.type !== "m.sticker" &&
             event.type !== "m.room.member" &&

@@ -46,10 +46,13 @@ Settings {
     property var sendTypingNotification: true
 
     // Chat settings: Show less important events?
-    property var showLessImportantEvents: false
+    property var hideLessImportantEvents: false
 
     // Chat settings: Show member change events?
     property var showMemberChangeEvents: true
+
+    // Chat settings: Autoload gifs?
+    property var autoloadGifs: true
 
     // Are archived chats synchronized too?
     property var requestedArchive: false

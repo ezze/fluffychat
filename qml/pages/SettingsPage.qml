@@ -159,10 +159,17 @@ Page {
             }
 
             SettingsListSwitch {
-                name: i18n.tr("Show less important events")
+                name: i18n.tr("Hide less important events")
                 icon: "info"
-                onSwitching: function () { settings.showLessImportantEvents = isChecked }
-                Component.onCompleted: isChecked = settings.showLessImportantEvents
+                onSwitching: function () { settings.hideLessImportantEvents = isChecked }
+                Component.onCompleted: isChecked = settings.hideLessImportantEvents
+            }
+
+            SettingsListSwitch {
+                name: i18n.tr("Autoload animated images")
+                icon: "stock_image"
+                onSwitching: function () { settings.autoloadGifs = isChecked }
+                Component.onCompleted: isChecked = settings.autoloadGifs
             }
 
             SettingsListLink {
