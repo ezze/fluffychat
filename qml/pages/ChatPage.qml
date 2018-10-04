@@ -17,8 +17,9 @@ Page {
     property var canSendMessages: true
     property var chatMembers: chatScrollView.chatMembers
 
-    function send () {
-        if ( sending || messageTextField.displayText === "" ) return
+    function send ( sticker ) {
+        console.log(JSON.stringify(sticker))
+        if ( (sending || messageTextField.displayText === "") && sticker === undefined ) return
 
 
         // Send the message
@@ -35,6 +36,17 @@ Page {
             return '<a href="%1">%1</a>'.arg(url)
         })
 
+        if ( sticker ) {
+            data.body = sticker.name
+            data.msgtype = "m.sticker"
+            data.url = sticker.url
+            data.info = {
+                "mimetype": sticker.mimetype,
+                "thumbnail_url": sticker.thumbnail_url || sticker.url,
+            }
+            console.log(JSON.stringify(data))
+        }
+
         // Save the message in the database
         storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
         [ messageID,
@@ -43,12 +55,12 @@ Page {
         matrix.matrixid,
         messageTextField.displayText,
         null,
-        "m.room.message",
+        data.msgtype,
         JSON.stringify(data),
         msg_status.SENDING ], function ( rs ) {
             // Send the message
             var fakeEvent = {
-                type: "m.room.message",
+                type: data.msgtype,
                 id: messageID,
                 sender: matrix.matrixid,
                 content_body: content_body,
@@ -254,6 +266,112 @@ Page {
     }
 
     Rectangle {
+        id: stickerInput
+        visible: false
+        width: parent.width + 2
+        property var desiredHeight: 3 * header.height
+        height: desiredHeight
+        border.width: 1
+        border.color: UbuntuColors.silk
+        color: theme.palette.normal.background
+        anchors.bottom: chatInput.top
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        ActionSelectionPopover {
+            id: deleteActions
+            property var contextElem
+            z: 10
+            actions: ActionList {
+                Action {
+                    text: i18n.tr("Delete sticker")
+                    onTriggered: {
+                        var url = deleteActions.contextElem.url
+                        storage.transaction ( "DELETE FROM Media WHERE url='" + url + "'")
+                        for ( var i = 0; i < stickerModel.count; i++ ) {
+                            if ( stickerModel.get(i).mediaElem.url === url ) {
+                                stickerModel.remove(i)
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function show() {
+            messageTextField.focus = false
+            visible = true
+            storage.transaction ("SELECT * FROM Media", function ( res ) {
+                stickerModel.clear()
+                for ( var i = res.rows.length-1; i >= 0; i-- ) {
+                    stickerModel.append( { mediaElem: res.rows[i] } )
+                }
+            })
+        }
+
+        function hide() { visible = false }
+
+        ListView {
+            id: grid
+            anchors.fill: parent
+            orientation: ListView.Horizontal
+            delegate: Rectangle {
+                id: delegate
+                width: grid.height
+                height: grid.height
+                AnimatedImage {
+                    id: image
+                    anchors.fill: delegate
+                    width: height * ( sourceSize.height / sourceSize.width )
+                    height: desiredHeight
+                    property var mediaElement: mediaElem
+                    source: {
+                        ( (settings.autoloadGifs && mediaElem.mimetype === "image/gif") || mediaElem.thumbnail_url === "") ?
+                        media.getLinkFromMxc ( mediaElem.url ) :
+                        media.getThumbnailLinkFromMxc ( mediaElem.thumbnail_url, Math.round (height), Math.round (height) )
+                    }
+                    fillMode: Image.PreserveAspectFit
+                }
+                MouseArea {
+                    anchors.fill: image
+                    onClicked: {
+                        stickerInput.hide ()
+                        send ( image.mediaElement )
+                    }
+                    onPressAndHold: {
+                        deleteActions.contextElem = image.mediaElement
+                        deleteActions.show()
+                    }
+                }
+            }
+            header: WebView {
+                id: uploader
+                url: "../components/upload.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
+                width: stickerInput.desiredHeight / 2
+                height: width
+                anchors.margins: stickerInput.desiredHeight / 2
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                preferences.allowFileAccessFromFileUrls: true
+                preferences.allowUniversalAccessFromFileUrls: true
+                filePicker: pickerComponent
+                visible: stickerInput.visible
+                alertDialog: Dialog {
+                    title: i18n.tr("Error")
+                    text: model.message
+                    parent: QuickUtils.rootItem(this)
+                    Button {
+                        text: i18n.tr("OK")
+                        onClicked: model.accept()
+                    }
+                    Component.onCompleted: show()
+                }
+            }
+            model: ListModel { id: stickerModel }
+        }
+    }
+
+    Rectangle {
         id: chatInput
         height: header.height
         width: parent.width + 2
@@ -269,20 +387,20 @@ Page {
         }
 
 
-            Button {
-                id: joinButton
-                color: UbuntuColors.green
-                text: membership === "invite" ? i18n.tr("Accept invitation") : i18n.tr("Join")
-                anchors.centerIn: parent
-                visible: membership !== "join"
-                onClicked: {
-                    loadingScreen.visible = true
-                    matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, function () {
-                        events.waitForSync ()
-                        membership = "join"
-                    })
-                }
+        Button {
+            id: joinButton
+            color: UbuntuColors.green
+            text: membership === "invite" ? i18n.tr("Accept invitation") : i18n.tr("Join")
+            anchors.centerIn: parent
+            visible: membership !== "join"
+            onClicked: {
+                loadingScreen.visible = true
+                matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, function () {
+                    events.waitForSync ()
+                    membership = "join"
+                })
             }
+        }
 
 
         Label {
@@ -295,29 +413,6 @@ Page {
             id: pickerComponent
             PickerDialog {}
         }
-
-        WebView {
-            id: uploader
-            url: "../components/upload.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
-            width: chatInputActionBar.width + units.gu(1)
-            height: width
-            anchors.verticalCenter: parent.verticalCenter
-            preferences.allowFileAccessFromFileUrls: true
-            preferences.allowUniversalAccessFromFileUrls: true
-            filePicker: pickerComponent
-            visible: membership === "join" && canSendMessages
-            alertDialog: Dialog {
-                title: i18n.tr("Error")
-                text: model.message
-                parent: QuickUtils.rootItem(this)
-                Button {
-                    text: i18n.tr("OK")
-                    onClicked: model.accept()
-                }
-                Component.onCompleted: show()
-            }
-        }
-
 
 
         Timer {
@@ -339,7 +434,10 @@ Page {
             Keys.onReturnPressed: sendButton.trigger ()
             // If the user leaves the focus of the textfield: Send that he is no
             // longer typing.
-            onActiveFocusChanged: if ( !activeFocus ) sendTypingNotification ( activeFocus )
+            onActiveFocusChanged: {
+                if ( activeFocus && stickerInput.visible ) stickerInput.hide()
+                if ( !activeFocus ) sendTypingNotification ( activeFocus )
+            }
             onDisplayTextChanged: {
                 // A message must not start with white space
                 if ( displayText === " " ) text = ""
@@ -354,6 +452,21 @@ Page {
                 }
             }
             visible: membership === "join" && canSendMessages
+        }
+
+        ActionBar {
+            id: showStickerInput
+            visible: membership === "join" && canSendMessages
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.leftMargin: units.gu(0.5)
+            actions: [
+            Action {
+                iconName: stickerInput.visible ? "close" : "add"
+                onTriggered: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
+                enabled: !sending
+            }
+            ]
         }
 
         ActionBar {

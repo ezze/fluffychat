@@ -17,7 +17,7 @@ Rectangle {
     color: Qt.rgba(0,0,0,0.75)
     radius: units.gu(0.5)
     visible: false
-    z: 12
+    z: 30
 
     MouseArea {
         anchors.fill: parent

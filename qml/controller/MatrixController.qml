@@ -163,7 +163,8 @@ Item {
         var callback = function () { if ( newMessageID !== "" ) success_callback ( newMessageID ) }
         if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
 
-        matrix.put( "/client/r0/rooms/" + chat_id + "/send/m.room.message/" + messageID, data, function ( response ) {
+        var msgtype = data.msgtype === "m.text" ? "m.room.message" : data.msgtype
+        matrix.put( "/client/r0/rooms/" + chat_id + "/send/" + msgtype + "/" + messageID, data, function ( response ) {
             newMessageID = response.event_id
             storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
                 if ( res.rows.length > 0 ) {
@@ -313,7 +314,7 @@ Item {
                     var responseType = http.getResponseHeader("Content-Type")
                     if ( responseType === "application/json" ) {
                         var response = JSON.parse(http.responseText)
-                        if ( "errcode" in response ) throw response
+                        if ( "errcode" in response || http.status !== 200 ) throw response
                         if ( callback ) callback( response )
                     }
                     else if ( responseType = "image/png" ) {

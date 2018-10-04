@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.1b"
+    property var version: "0.3.2"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -176,6 +176,7 @@ Item {
         transaction('CREATE TABLE Media(' +
         'mimetype TEXT, ' +
         'url TEXT, ' +
+        'name TEXT, ' +
         'thumbnail_url TEXT, ' +
         'UNIQUE(url))')
     }

@@ -90,7 +90,7 @@ Rectangle {
                         source: {
                             (settings.autoloadGifs && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif") ?
                             media.getLinkFromMxc ( event.content.url ) :
-                            ((event.content.url && event.content.info && event.content.info.thumbnail_url) ?
+                            ((event.content.url && event.content.info && event.content.info.thumbnail_url ) ?
                             media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) : "")
                         }
 
@@ -189,7 +189,7 @@ Rectangle {
                     id: downloadButton
                     text: i18n.tr("Download file: ") + event.content.body
                     onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
-                    visible: [ "m.file", "m.image" ].indexOf( event.content.msgtype ) !== -1 && (event.content.info === undefined || event.content.info.thumbnail_url === undefined)
+                    visible: event.content.msgtype === "m.file"
                     height: visible ? units.gu(4) : 0
                     width: visible ? units.gu(26) : 0
                     anchors.left: parent.left

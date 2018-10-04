@@ -291,10 +291,11 @@ Item {
 
 
             // If the message contains an image, save it to media
-            if ( (event.content.msgtype === "m.image" || event.type === "sticker") && event.content.url ) {
-                transaction.executeSql( "INSERT OR IGNORE INTO Media VALUES(?, ?, ?)", [
+            if ( event.type === "sticker" ) {
+                transaction.executeSql( "INSERT OR IGNORE INTO Media VALUES(?, ?, ?, ?)", [
                 (event.info && event.info.mimetype) ? event.info.mimetype : "",
                 event.content.url,
+                event.content.body || "image",
                 (event.info && event.info.thumbnail_url) ? event.info.thumbnail_url : ""
                 ])
             }
