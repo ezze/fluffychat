@@ -46,7 +46,7 @@ Settings {
     property var sendTypingNotification: true
 
     // Chat settings: Show less important events?
-    property var hideLessImportantEvents: false
+    property var hideLessImportantEvents: true
 
     // Chat settings: Show member change events?
     property var showMemberChangeEvents: true
