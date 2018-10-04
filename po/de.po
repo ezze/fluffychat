@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-04 08:24+0000\n"
-"PO-Revision-Date: 2018-10-04 10:27+0200\n"
+"PO-Revision-Date: 2018-10-04 10:30+0200\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -45,10 +45,8 @@ msgid "%1 is now participating"
 msgstr "%1 nimmt jetzt teil"
 
 #: ../qml/controller/DisplayEventController.qml:22
-#, fuzzy
-#| msgid "%1 has joined the chat as <b>%2</b>"
 msgid "%1 is now participating as <b>%2</b>"
-msgstr "%1 nimmt nun am Chat teil als <b>%2</b>"
+msgstr "%1 nimmt nun teil als <b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:25
 msgid "%1 has invited %2"
@@ -431,14 +429,10 @@ msgid "Welcome"
 msgstr "Willkommen"
 
 #: ../qml/pages/SettingsPage.qml:12 ../qml/pages/SettingsPage.qml:53
-#, fuzzy
-#| msgid "Settings"
 msgid "Settings for %1"
-msgstr "Einstellungen"
+msgstr "Einstellungen für %1"
 
 #: ../qml/pages/SettingsPage.qml:20
-#, fuzzy
-#| msgid "Change display name"
 msgid "Edit displayname"
 msgstr "Anzeigenamen ändern"
 
@@ -472,8 +466,6 @@ msgid "Notifications"
 msgstr "Benachrichtigungen"
 
 #: ../qml/pages/SettingsPage.qml:126
-#, fuzzy
-#| msgid "Chat Settings:"
 msgid "Chat settings:"
 msgstr "Chateinstellungen:"
 
@@ -482,20 +474,16 @@ msgid "Display 'I am typing' when typing"
 msgstr "Zeige 'Ich schreibe', wenn ich schreibe"
 
 #: ../qml/pages/SettingsPage.qml:138
-#, fuzzy
-#| msgid "Chat members change"
 msgid "Show member change events"
-msgstr "Chat-Mitglieder ändern sich"
+msgstr "Zeige Ereignisse zu Mitgliederwechsel"
 
 #: ../qml/pages/SettingsPage.qml:145
 msgid "Show less important events"
 msgstr "Zeige weniger wichtige Ereignisse"
 
 #: ../qml/pages/SettingsPage.qml:167
-#, fuzzy
-#| msgid "Chat Settings:"
 msgid "Account settings:"
-msgstr "Chateinstellungen:"
+msgstr "Kontoeinstellungen:"
 
 #: ../qml/pages/SettingsPage.qml:172 ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
@@ -739,10 +727,8 @@ msgid "Add Contact"
 msgstr "Kontakt hinzufügen"
 
 #: ../qml/pages/AddChatPage.qml:85
-#, fuzzy
-#| msgid "Search country name..."
 msgid "Search contacts or usernames..."
-msgstr "Suche Land ..."
+msgstr "Suche Kontakte oder Benutzernamen ..."
 
 #: ../qml/pages/AddChatPage.qml:124
 msgid "Import from contacts"
@@ -865,16 +851,12 @@ msgid "Make this user a normal member?"
 msgstr "Diesen Benutzer zu einem normalen Mitglied machen?"
 
 #: ../qml/components/MemberListItem.qml:78
-#, fuzzy
-#| msgid "Make this user an owner?"
 msgid "Make this user a moderator?"
-msgstr "Zum Besitzer ernennen?"
+msgstr "Zum Moderator ernennen?"
 
 #: ../qml/components/MemberListItem.qml:90
-#, fuzzy
-#| msgid "Make this user a guard?"
 msgid "Make this user an admin?"
-msgstr "Zum Wächter ernennen?"
+msgstr "Zum Admin ernennen?"
 
 #: ../qml/components/MemberListItem.qml:108
 msgid "Ban from this chat?"
@@ -894,10 +876,8 @@ msgid "Enter your old password"
 msgstr "Gib dein altes Passwort ein"
 
 #: ../qml/components/ChangePasswordDialog.qml:55
-#, fuzzy
-#| msgid "Password has been copied"
 msgid "Password has been changed"
-msgstr "Passwort wurde kopiert"
+msgstr "Passwort wurde geändert"
 
 #: ../qml/components/ConsentViewer.qml:23
 msgid "Consent not given"
