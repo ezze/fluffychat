@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-04 08:43+0000\n"
+"POT-Creation-Date: 2018-10-04 08:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:170 ../qml/components/ChatScrollView.qml:229
+#: ../qml/Main.qml:170 ../qml/components/ChatScrollView.qml:236
 msgid "Are you sure?"
 msgstr ""
 
@@ -106,49 +106,49 @@ msgstr ""
 msgid "The chat permissions have been changed"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:78
+#: ../qml/controller/DisplayEventController.qml:81
 #: ../qml/components/ChangeJoinRulesDialog.qml:35
 msgid "Only invited users"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:81
+#: ../qml/controller/DisplayEventController.qml:84
 #: ../qml/components/ChangeJoinRulesDialog.qml:19
 msgid "Public"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:84
+#: ../qml/controller/DisplayEventController.qml:87
 #: ../qml/components/ChangeJoinRulesDialog.qml:43
 msgid "Private"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:87
+#: ../qml/controller/DisplayEventController.qml:90
 #: ../qml/components/ChangeJoinRulesDialog.qml:27
 msgid "Knock"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:90
+#: ../qml/controller/DisplayEventController.qml:93
 msgid "All chatters"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:93
+#: ../qml/controller/DisplayEventController.qml:96
 msgid "All joined chat participants"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:96
+#: ../qml/controller/DisplayEventController.qml:99
 msgid "All invited chat participants"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:99
+#: ../qml/controller/DisplayEventController.qml:102
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:19
 msgid "Everyone"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:102
+#: ../qml/controller/DisplayEventController.qml:105
 #: ../qml/components/ChangeGuestAccessDialog.qml:19
 msgid "Can join"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:105
+#: ../qml/controller/DisplayEventController.qml:108
 #: ../qml/components/ChangeGuestAccessDialog.qml:27
 msgid "Forbidden"
 msgstr ""
@@ -1075,15 +1075,15 @@ msgstr ""
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:218
+#: ../qml/components/ChatScrollView.qml:225
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:222
+#: ../qml/components/ChatScrollView.qml:229
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:226
+#: ../qml/components/ChatScrollView.qml:233
 msgid "Redact message"
 msgstr ""
 

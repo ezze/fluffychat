@@ -100,13 +100,20 @@ ListView {
         // Display this event at all? In the chat settings the user can choose
         // which events should be displayed. Less important events are all events,
         // that or not member events from other users and the room create events.
-        if ( (!settings.showMemberChangeEvents && event.type === "m.room.member")
-            ||
-             (!settings.showLessImportantEvents &&
-             event.type !== "m.room.message" &&
-             event.type !== "m.sticker" &&
-             event.type !== "m.room.member" &&
-             event.type !== "m.room.create")) return
+        if ( (!settings.showMemberChangeEvents && event.type === "m.room.member") ||
+        (!settings.showLessImportantEvents &&
+            event.type !== "m.room.message" &&
+            event.type !== "m.sticker" &&
+            event.type !== "m.room.member" &&
+            event.type !== "m.room.create")
+        ) return
+
+        // Implement the /me feature
+        if ( event.type === "m.room.message" && event.content_body.slice(0,4) === "/me " ) {
+            event.type = "m.fluffy.me"
+            event.content_body = event.content_body.replace("/me", chatMembers[event.sender].displayname )
+        }
+
 
         if ( history ) event.status = msg_status.HISTORY
 

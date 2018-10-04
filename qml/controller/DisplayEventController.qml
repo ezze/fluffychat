@@ -70,6 +70,9 @@ Item {
         else if ( event.type === "m.room.power_levels" ) {
             body = i18n.tr("The chat permissions have been changed")
         }
+        else if ( event.type === "m.fluffy.me" ) {
+            body = event.content_body
+        }
         return body
     }
 
