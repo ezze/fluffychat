@@ -1,18 +1,11 @@
 ![](https://i.imgur.com/wi7RlVt.png)
 
-# FluffyChat
-
-Simple Matrix Messenger for Ubuntu Touch.
-FluffyChat is a work in progress Messenger for Ubuntu Touch.
-
-<a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a>
-
-Chatroom for FluffyChat: https://matrix.to/#/#fluffychat:matrix.org
-
-Follow me on Mastodon: https://metalhead.club/@krille
-
-# Screenshots
-
+<p align="center">
+  <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a><br>
+  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a>
+ </p>
+<br>
+<br>
 <p>
   <img src="/docs/screenshots/screenshot20180710_172017850.png" width="19%" />
   <img src="/docs/screenshots/screenshot20180710_172051018.png" width="19%" />
@@ -40,8 +33,9 @@ Follow me on Mastodon: https://metalhead.club/@krille
  * Registration (currently only working with ubports.chat and NOT with matrix.org due captchas)
 
 ##### Planned features
- * Communities
  * End2End-encryption
+ * Sharing files
+ * Android support
 
 # FAQ
 
