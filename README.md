@@ -2,10 +2,10 @@
 
 <p align="center">
   <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a><br>
-  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a><br>
-  <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a>
+  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a>
  </p>
-
+<br>
+<br>
 <p>
   <img src="/docs/screenshots/screenshot20180710_172017850.png" width="19%" />
   <img src="/docs/screenshots/screenshot20180710_172051018.png" width="19%" />
