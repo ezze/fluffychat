@@ -1,8 +1,8 @@
 ![](https://i.imgur.com/wi7RlVt.png)
 
 <p align="center">
-  <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a>
-  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> 
+  <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a><br>
+  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a><br>
   <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a>
  </p>
 
