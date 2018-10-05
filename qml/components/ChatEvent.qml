@@ -222,6 +222,28 @@ Rectangle {
                         var maxWidth = message.width - avatar.width - units.gu(5)
                         if ( width > maxWidth ) width = maxWidth
                         if ( text === "" ) text = " "
+
+                        // Transform the message body with the "/"-commands:
+                        if ( event.type === "m.room.message" && text.slice(0,1) === "/" ) {
+                            // Implement the /me feature
+                            if ( text.slice(0,4) === "/me " ) {
+                                font.italic = true
+                                text = text.replace("/me", chatMembers[event.sender].displayname ) + " - " + stamp.getChatTime ( event.origin_server_ts )
+                            }
+                            else if ( event.content_body.slice(0,9) === "/whisper " ) {
+                                text = text.replace("/whisper ","")
+                                font.weight = Font.Light
+                                textSize = Label.XxSmall
+                            }
+                            else if ( event.content_body.slice(0,6) === "/roar " ) {
+                                text = text.replace("/roar ","")
+                                font.weight = Font.Bold
+                                textSize = Label.XLarge
+                            }
+                            else if ( event.content_body.slice(0,7) === "/shrug " ) {
+                                text = text.replace("/shrug","¯_(ツ)_/¯")
+                            }
+                        }
                     }
                 }
 

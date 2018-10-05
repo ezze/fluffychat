@@ -110,20 +110,6 @@ ListView {
 
         if ( !("content_body" in event) ) event.content_body = event.content.body
 
-
-        // Transform the message body with the "/"-commands:
-        if ( event.type === "m.room.message" && event.content_body ) {
-            // Implement the /me feature
-            if ( event.content_body.slice(0,4) === "/me " ) {
-                event.type = "m.fluffy.me"
-                event.content_body = event.content_body.replace("/me", chatMembers[event.sender].displayname )
-            }
-            else if ( event.content_body.slice(0,4) === "/whisper " ) {
-
-            }
-        }
-
-
         if ( history ) event.status = msg_status.HISTORY
 
         // Find the right position for this event

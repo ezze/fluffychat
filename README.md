@@ -65,6 +65,19 @@ This gateway just beams the push to https://push.ubports.com/notify via https. T
 Sorry! 😕 On port 8448 the most homeservers use a different ssl certificate, which causes an error. Currently the xmlhttprequest in QML
 does not allow those certificates.
 
+#### Which /commands are available?
+* /me
+Displays an action.
+
+* /whisper
+The message text will be very small
+
+* /roar
+The message text will be very large, bold and in capital letters
+
+* /shrug
+Puts ¯\_(ツ)_/¯ at the start of the message
+
 #### I can not connect to my homeserver (self signed certificate)
 The same problem ... I recommend you to use a letsencrypt certificate.
 
