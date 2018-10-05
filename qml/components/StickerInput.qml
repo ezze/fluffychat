@@ -90,7 +90,6 @@ Rectangle {
             height: width
             anchors.margins: stickerInput.desiredHeight / 2
             anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
             preferences.allowFileAccessFromFileUrls: true
             preferences.allowUniversalAccessFromFileUrls: true
             filePicker: pickerComponent
