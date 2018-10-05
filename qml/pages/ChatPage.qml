@@ -16,26 +16,29 @@ Page {
     property var canSendMessages: true
     property var chatMembers: chatScrollView.chatMembers
 
-    function send ( sticker ) {
-        console.log(JSON.stringify(sticker))
-        if ( (sending || messageTextField.displayText === "") && sticker === undefined ) return
+    function send ( message ) {
+        console.log(message)
+        if ( (sending || messageTextField.displayText === "") && message === undefined ) return
 
+        var sticker = undefined
+        if ( message === "undefined" ) message = messageTextField.displayText
+        if ( typeof message !== "string" ) sticker = message
 
         // Send the message
         var now = new Date().getTime()
         var messageID = "" + now
         var data = {
             msgtype: "m.text",
-            body: messageTextField.displayText
+            body: message
         }
         var urlRegex = /(https?:\/\/[^\s]+)/g
-        var content_body = messageTextField.displayText || ""
+        var content_body = message || ""
         if ( content_body === "" ) content_body = " "
         content_body = content_body.replace(urlRegex, function(url) {
             return '<a href="%1">%1</a>'.arg(url)
         })
 
-        if ( sticker ) {
+        if ( sticker !== undefined ) {
             data.body = sticker.name
             data.msgtype = "m.sticker"
             data.url = sticker.url
@@ -52,7 +55,7 @@ Page {
         activeChat,
         now,
         matrix.matrixid,
-        messageTextField.displayText,
+        message,
         null,
         data.msgtype,
         JSON.stringify(data),
@@ -122,6 +125,25 @@ Page {
         })
         chatScrollView.init ()
         chatActive = true
+
+        // Is there something to share? Then now share it!
+        if ( shareObject !== null ) {
+            var message = ""
+            if ( shareObject.contentType === 6 ) {
+                for ( var i = 0; i < shareObject.items.length; i++ ) {
+                    if (String(shareObject.items[i].text).length > 0 && String(shareObject.items[i].url).length == 0) {
+                        message += String(shareObject.items[i].text)
+                    }
+                    else if (String(shareObject.items[i].url).length > 0 ) {
+                        message += String(shareObject.items[i].url)
+                    }
+                    if ( i+1 < shareObject.items.length ) message += "\n"
+                }
+            }
+            if ( messages !== "") send( message )
+            shareObject = null
+        }
+
     }
 
     Component.onDestruction: {

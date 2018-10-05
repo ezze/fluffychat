@@ -65,6 +65,7 @@ MainView {
     property var desiredPhoneNumber: null
     property var consentUrl: ""
     property var consentContent: ""
+    property var shareObject: null
     property var mainFontColor: settings.darkmode ? "#FFFFFF" : "#000000"
 
 
@@ -151,6 +152,7 @@ MainView {
     ImageViewer { id: imageViewer }
     VideoPlayer { id: videoPlayer }
     UriController { id: uriController }
+    ShareController { id: shareController }
     LoadingScreen { id: loadingScreen }
     LockedScreen { id: lockedScreen }
     LoadingModal { id: loadingModal }
@@ -191,7 +193,6 @@ MainView {
     }
 
     /* =============================== START POINT ===============================
-
     When the app starts, then this will be triggered!
     */
     Component.onCompleted: {

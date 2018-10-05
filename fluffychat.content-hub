@@ -1,10 +1,10 @@
 {
-    "destination": [
+    "share": [
         "contacts",
         "links",
         "text"
     ],
-    "share": [
+    "destination": [
         "pictures",
         "documents",
         "videos",

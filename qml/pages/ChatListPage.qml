@@ -137,6 +137,16 @@ Page {
 
     header: FcPageHeader {
         id: header
+        title: shareObject === null ? i18n.tr("Fluffychat") : i18n.tr("Share")
+
+        leadingActionBar {
+            actions: [
+            Action {
+                iconName: "close"
+                visible: shareObject !== null
+                onTriggered: shareObject = null
+            }]
+        }
 
         trailingActionBar {
             actions: [
@@ -149,6 +159,7 @@ Page {
             },
             Action {
                 iconName: "settings"
+                visible: shareObject === null
                 onTriggered: {
                     searching = false
                     searchField.text = ""
@@ -158,6 +169,7 @@ Page {
             },
             Action {
                 iconName: "message-new"
+                visible: shareObject === null
                 onTriggered: {
                     searching = false
                     searchField.text = ""
@@ -211,7 +223,7 @@ Page {
     // ============================== BOTTOM EDGE ==============================
     BottomEdge {
         id: bottomEdge
-        height: parent.height
+        height: shareObject === null ? parent.height : 0
 
         onCommitCompleted: {
             searching = false
