@@ -12,6 +12,7 @@ Item {
         if ( !Connectivity.online ) return console.log ("Offline!!!!!1111")
 
         var msgtype = data.msgtype === "m.text" ? "m.room.message" : data.msgtype
+        data = handleCommands ( data )
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/" + msgtype + "/" + messageID, data, function ( response ) {
             newMessageID = response.event_id
             storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
@@ -67,7 +68,7 @@ Item {
             var event = rs.rows[0]
             var data = {
                 msgtype: "m.text",
-                body: event.content_body
+                body: data.body
             }
             sendMessage ( event.id, data, event.chat_id, function (){} )
             if ( rs.rows.length > 1 ) {
@@ -82,7 +83,31 @@ Item {
             }
         } )
     }
-    
+
+
+    function handleCommands ( data ) {
+        // Transform the message body with the "/"-commands:
+        if ( data.body.slice(0,1) === "/" ) {
+            // Implement the /me feature
+            if ( data.body.slice(0,4) === "/me " ) {
+                data.body = data.body.replace("/me ", "" )
+                data.msgtype = "m.emote"
+            }
+            else if ( data.body.slice(0,9) === "/whisper " ) {
+                data.body = data.body.replace("/whisper ","")
+                data.msgtype = "m.fluffychat.whisper"
+            }
+            else if ( data.body.slice(0,6) === "/roar " ) {
+                data.body = data.body.replace("/roar ","")
+                data.msgtype = "m.fluffychat.roar"
+            }
+            else if ( data.body.slice(0,7) === "/shrug" ) {
+                data.body = data.body.replace("/shrug","¯_(ツ)_/¯")
+            }
+        }
+        return data
+    }
+
 
     Connections {
         target: Connectivity

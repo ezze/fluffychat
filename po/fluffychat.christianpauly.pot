@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-05 10:29+0000\n"
+"POT-Creation-Date: 2018-10-05 11:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Please restart your device to complete the update!"
 msgstr ""
 
-#: ../qml/controller/SenderController.qml:32
+#: ../qml/controller/SenderController.qml:33
 msgid "You are not allowed to chat here."
 msgstr ""
 
