@@ -1,6 +1,10 @@
 ![](https://i.imgur.com/wi7RlVt.png)
 
-# Screenshots
+<a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a>
+
+Community: https://matrix.to/#/#fluffychat:matrix.org
+
+Follow me on Mastodon: https://metalhead.club/@krille
 
 <p>
   <img src="/docs/screenshots/screenshot20180710_172017850.png" width="19%" />
@@ -9,14 +13,6 @@
   <img src="/docs/screenshots/screenshot20180710_172212362.png" width="19%" />
   <img src="/docs/screenshots/screenshot20180710_172240709.png" width="19%" />
 </p>
-
-<a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a>
-
-Chatroom for FluffyChat: https://matrix.to/#/#fluffychat:matrix.org
-
-Follow me on Mastodon: https://metalhead.club/@krille
-
-
 
 # Features
  * Single and group chats
