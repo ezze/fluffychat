@@ -1,10 +1,10 @@
 ![](https://i.imgur.com/wi7RlVt.png)
 
-<a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a>
-
-Community: https://matrix.to/#/#fluffychat:matrix.org
-
-Follow me on Mastodon: https://metalhead.club/@krille
+<p align="center">
+  <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a>
+  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> 
+  <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a>
+ </p>
 
 <p>
   <img src="/docs/screenshots/screenshot20180710_172017850.png" width="19%" />
