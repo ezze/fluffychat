@@ -66,13 +66,13 @@ Sorry! 😕 On port 8448 the most homeservers use a different ssl certificate, w
 does not allow those certificates.
 
 #### Which /commands are available?
-* /me
+* /me (Will send msgtype: m.emote)
 Displays an action.
 
-* /whisper
+* /whisper (Will send msgtype: m.fluffychat.whisper)
 The message text will be very small
 
-* /roar
+* /roar (Will send msgtype: m.fluffychat.roar)
 The message text will be very large, bold and in capital letters
 
 * /shrug
