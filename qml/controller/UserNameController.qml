@@ -52,4 +52,13 @@ Item {
         var item = Qt.createComponent("../components/UserSettingsViewer.qml")
         item.createObject(mainStack.currentPage, { })
     }
+
+    function handleUserUri ( uri ) {
+        if ( uri.slice(0,1) === "@" && uri.indexOf(":") !== -1 ) {
+            usernames.showUserSettings ( uri )
+        }
+        else {
+            toast.show(i18n.tr("%1 is not a valid username").arg(uri))
+        }
+    }
 }

@@ -150,6 +150,7 @@ MainView {
     Toast { id: toast }
     ImageViewer { id: imageViewer }
     VideoPlayer { id: videoPlayer }
+    UriController { id: uriController }
     LoadingScreen { id: loadingScreen }
     LockedScreen { id: lockedScreen }
     LoadingModal { id: loadingModal }
@@ -182,10 +183,6 @@ MainView {
 
     If the app suspend, then this will be triggered.
     */
-    Connections {
-        target: Qt.application
-        //onStateChanged: if(Qt.application.state === Qt.ApplicationActive) events.restartSync ()
-    }
 
     onActiveChatChanged: {
         roomnames.getById ( activeChat, function (name) {
@@ -200,5 +197,6 @@ MainView {
     Component.onCompleted: {
         storage.init ()
         matrix.init ()
+        console.log("========================ARGUMENTS:",Qt.application.arguments)
     }
 }

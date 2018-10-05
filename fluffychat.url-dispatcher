@@ -1,5 +1,9 @@
 [
     {
         "protocol": "fluffychat"
+    },
+    {
+        "protocol": "https",
+        "domain-suffix": "matrix.to/#/"
     }
 ]
