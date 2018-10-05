@@ -6,14 +6,15 @@
     "hooks": {
         "fluffychat": {
             "apparmor": "fluffychat.apparmor",
-            "desktop":  "fluffychat.desktop"
+            "desktop":  "fluffychat.desktop",
+            "urls": "fluffychat.url-dispatcher"
         },
         "helloHelper": {
             "apparmor": "helloHelper-apparmor.json",
             "push-helper": "helloHelper.json"
         }
     },
-    "version": "0.6.0",
+    "version": "0.7.0rc",
     "maintainer": "Christian Pauly <christian-pauly@posteo.de>",
     "framework" : "ubuntu-sdk-15.04.5"
 }
