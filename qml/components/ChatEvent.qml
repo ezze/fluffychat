@@ -66,7 +66,7 @@ Rectangle {
         }
         Rectangle {
             id: messageBubble
-            opacity: sending ? 0.66 : isStateEvent ? 0.75 : 1
+            opacity: (sending || event.status === msg_status.ERROR) ? 0.66 : isStateEvent ? 0.75 : 1
             z: 2
             border.width: 0
             border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
@@ -266,10 +266,14 @@ Rectangle {
                     // When the message is received, there should be an icon
                     Icon {
                         id: statusIcon
-                        visible: !isStateEvent && sent && event.status > 0
-                        name: event.status === msg_status.SENT ? "send" : (event.status === msg_status.HISTORY ? "clock" : (event.status === msg_status.SEEN ? "contact" : "tick"))
+                        visible: !isStateEvent && sent && event.status !== msg_status.SENDING
+                        name: event.status === msg_status.SEEN ? "contact" :
+                        (event.status === msg_status.RECEIVED ? "tick" :
+                        (event.status === msg_status.HISTORY ? "clock" : "edit-clear"))
                         height: metaLabel.height
-                        color: event.status === msg_status.SEEN ? defaultMainColor : UbuntuColors.graphite
+                        color: event.status === msg_status.SEEN ? defaultMainColor :
+                        (event.status === msg_status.ERROR ? UbuntuColors.red :
+                        (event.status === msg_status.SENT ? "white" : "black"))
                         width: height
                     }
                 }

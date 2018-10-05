@@ -17,11 +17,10 @@ Page {
     property var chatMembers: chatScrollView.chatMembers
 
     function send ( message ) {
-        console.log(message)
         if ( (sending || messageTextField.displayText === "") && message === undefined ) return
 
         var sticker = undefined
-        if ( message === "undefined" ) message = messageTextField.displayText
+        if ( message === undefined ) message = messageTextField.displayText
         if ( typeof message !== "string" ) sticker = message
 
         // Send the message
@@ -46,8 +45,9 @@ Page {
                 "mimetype": sticker.mimetype,
                 "thumbnail_url": sticker.thumbnail_url || sticker.url,
             }
-            console.log(JSON.stringify(data))
         }
+
+        var type = sticker === undefined ? "m.room.message" : data.msgtype
 
         // Save the message in the database
         storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -57,12 +57,12 @@ Page {
         matrix.matrixid,
         message,
         null,
-        data.msgtype,
+        type,
         JSON.stringify(data),
         msg_status.SENDING ], function ( rs ) {
             // Send the message
             var fakeEvent = {
-                type: data.msgtype,
+                type: type,
                 id: messageID,
                 sender: matrix.matrixid,
                 content_body: content_body,
@@ -76,8 +76,10 @@ Page {
 
             sender.sendMessage ( messageID, data, activeChat, function ( response ) {
                 chatScrollView.messageSent ( messageID, response )
-            }, function () {
-                chatScrollView.removeEvent ( messageID )
+            }, function ( error ) {
+                console.log("ERRORMSG", error)
+                if ( error === "DELETE" ) chatScrollView.removeEvent ( messageID )
+                else chatScrollView.errorEvent ( messageID )
             } )
 
             isTyping = true

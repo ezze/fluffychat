@@ -175,6 +175,21 @@ ListView {
     }
 
 
+    function errorEvent ( messageID ) {
+        console.log("ERRORMSG", messageID)
+        for ( var i = 0; i < model.count; i++ ) {
+            if ( model.get(i).event.id === messageID ) {
+                console.log(i,msg_status.ERROR)
+                var tempEvent = model.get(i).event
+                tempEvent.status = msg_status.ERROR
+                model.remove ( i )
+                model.insert ( i, { "event": tempEvent } )
+                break
+            }
+        }
+    }
+
+
     // This function handles new events, based on the signal from the event
     // controller. It just has to format the event to the database format
     function handleNewEvent ( type, eventContent ) {
@@ -217,6 +232,15 @@ ListView {
         z: 10
         actions: ActionList {
             Action {
+                text: i18n.tr("Try send again")
+                visible: contextEvent && contextEvent.msg_status === msg_status.ERROR
+                onTriggered: {
+                    storage.transaction ( "DELETE FROM Events WHERE id='" + contextualActions.contextEvent.id + "'")
+                    removeEvent ( contextualActions.contextEvent.id )
+                    chatPage.send ( contextualActions.contextEvent.content_body )
+                }
+            }
+            Action {
                 text: i18n.tr("Copy text")
                 onTriggered: {
                     mimeData.text = contextualActions.contextEvent.content.body
@@ -225,10 +249,15 @@ ListView {
                 }
             }
             Action {
-                text: i18n.tr("Redact message")
-                visible: canRedact
+                text: i18n.tr("Delete message")
+                visible: contextEvent && (canRedact && contextEvent.status >= msg_status.SENT ||
+                contextEvent.status === msg_status.ERROR)
                 onTriggered: {
-                    showConfirmDialog ( i18n.tr("Are you sure?"), function () {
+                    if ( contextualActions.contextEvent.status === msg_status.ERROR ) {
+                        storage.transaction ( "DELETE FROM Events WHERE id='" + contextualActions.contextEvent.id + "'")
+                        removeEvent ( contextualActions.contextEvent.id )
+                    }
+                    else showConfirmDialog ( i18n.tr("Are you sure?"), function () {
                         matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
                         .arg(activeChat)
                         .arg(contextualActions.contextEvent.id)

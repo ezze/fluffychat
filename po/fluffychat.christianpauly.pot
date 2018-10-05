@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-05 14:29+0000\n"
+"POT-Creation-Date: 2018-10-05 17:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:174 ../qml/components/ChatScrollView.qml:231
+#: ../qml/Main.qml:174 ../qml/components/ChatScrollView.qml:257
+#: ../qml/components/ChatScrollView.qml:262
 msgid "Are you sure?"
 msgstr ""
 
@@ -169,7 +170,7 @@ msgstr ""
 msgid "Please restart your device to complete the update!"
 msgstr ""
 
-#: ../qml/controller/SenderController.qml:33
+#: ../qml/controller/SenderController.qml:36
 msgid "You are not allowed to chat here."
 msgstr ""
 
@@ -214,7 +215,7 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:244
+#: ../qml/controller/MatrixController.qml:243
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -467,7 +468,7 @@ msgid "Theme"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:128
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:215
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:217
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Notifications"
@@ -594,42 +595,42 @@ msgstr ""
 msgid "Invite user"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:196 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:198 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:203 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:205 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:209
+#: ../qml/pages/ChatPage.qml:211
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:221
+#: ../qml/pages/ChatPage.qml:223
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:251
+#: ../qml/pages/ChatPage.qml:253
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:313
+#: ../qml/pages/ChatPage.qml:315
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:313
+#: ../qml/pages/ChatPage.qml:315
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:327
+#: ../qml/pages/ChatPage.qml:329
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:353
+#: ../qml/pages/ChatPage.qml:355
 msgid "Type something ..."
 msgstr ""
 
@@ -1103,16 +1104,20 @@ msgstr ""
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:220
+#: ../qml/components/ChatScrollView.qml:235
+msgid "Try send again"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:244
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:224
+#: ../qml/components/ChatScrollView.qml:248
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:228
-msgid "Redact message"
+#: ../qml/components/ChatScrollView.qml:252
+msgid "Delete message"
 msgstr ""
 
 #: ../qml/components/TargetListItem.qml:22

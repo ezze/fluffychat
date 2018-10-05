@@ -27,7 +27,6 @@ Item {
             else mainStack.push(Qt.resolvedUrl("../pages/ChatListPage.qml"))
             onlineStatus = true
             events.init ()
-            sender.resendAllMessages ()
         }
         else {
             mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
