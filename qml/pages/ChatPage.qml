@@ -77,17 +77,18 @@ Page {
             sender.sendMessage ( messageID, data, activeChat, function ( response ) {
                 chatScrollView.messageSent ( messageID, response )
             }, function ( error ) {
-                console.log("ERRORMSG", error)
                 if ( error === "DELETE" ) chatScrollView.removeEvent ( messageID )
                 else chatScrollView.errorEvent ( messageID )
             } )
 
-            isTyping = true
-            messageTextField.focus = false
-            messageTextField.text = ""
-            messageTextField.focus = true
-            isTyping = false
-            sendTypingNotification ( false )
+            if ( messageTextField.text !== "" ) {
+                isTyping = true
+                messageTextField.focus = false
+                messageTextField.text = ""
+                messageTextField.focus = true
+                isTyping = false
+                sendTypingNotification ( false )
+            }
         })
     }
 

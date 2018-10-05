@@ -16,7 +16,7 @@ Item {
 
         var msgtype = data.msgtype === "m.text" ? "m.room.message" : data.msgtype
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/" + msgtype + "/" + messageID, data, function ( response ) {
-            console.log("MESSAGE SENT :)))")
+
             newMessageID = response.event_id
             storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
                 if ( res.rows.length > 0 ) {
@@ -28,7 +28,6 @@ Item {
 
             })
         }, function ( error ) {
-            console.warn("Sending message error: ", error.errcode, ": ", error.error)
 
             // If the user has no permissions or there is an internal server error,
             // the message gets deleted
@@ -44,7 +43,6 @@ Item {
             }
             // Else: Try again in a few seconds
             else {
-                console.log("ERRORMSG")
                 storage.transaction ( "UPDATE Events SET status=-1 WHERE id='" + messageID + "'" )
                 if ( error_callback ) error_callback ("ERROR")
             }
