@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-05 10:06+0000\n"
+"POT-Creation-Date: 2018-10-05 10:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:170 ../qml/components/ChatScrollView.qml:238
+#: ../qml/Main.qml:171 ../qml/components/ChatScrollView.qml:232
 msgid "Are you sure?"
 msgstr ""
 
@@ -169,6 +169,10 @@ msgstr ""
 msgid "Please restart your device to complete the update!"
 msgstr ""
 
+#: ../qml/controller/SenderController.qml:32
+msgid "You are not allowed to chat here."
+msgstr ""
+
 #: ../qml/controller/UserNameController.qml:35
 msgid "⌨️ is typing…"
 msgstr ""
@@ -206,11 +210,7 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:184
-msgid "You are not allowed to chat here."
-msgstr ""
-
-#: ../qml/controller/MatrixController.qml:330
+#: ../qml/controller/MatrixController.qml:244
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
@@ -436,12 +436,12 @@ msgid "Delete Avatar"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:93 ../qml/pages/ChatSettingsPage.qml:188
-#: ../qml/components/StickerInput.qml:99
+#: ../qml/components/StickerInput.qml:98
 msgid "Error"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:97 ../qml/pages/ChatSettingsPage.qml:192
-#: ../qml/components/StickerInput.qml:103
+#: ../qml/components/StickerInput.qml:102
 msgid "OK"
 msgstr ""
 
@@ -1091,15 +1091,15 @@ msgstr ""
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:227
+#: ../qml/components/ChatScrollView.qml:221
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:231
+#: ../qml/components/ChatScrollView.qml:225
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:235
+#: ../qml/components/ChatScrollView.qml:229
 msgid "Redact message"
 msgstr ""
 

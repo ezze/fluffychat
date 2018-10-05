@@ -138,6 +138,7 @@ MainView {
     */
     StorageController { id: storage }
     MatrixController { id: matrix }
+    SenderController { id: sender }
     StampController { id: stamp }
     EventController { id: events }
     RoomNameController { id: roomnames }

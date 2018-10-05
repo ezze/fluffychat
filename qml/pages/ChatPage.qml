@@ -71,7 +71,7 @@ Page {
             }
             chatScrollView.addEventToList ( fakeEvent )
 
-            matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
+            sender.sendMessage ( messageID, data, activeChat, function ( response ) {
                 chatScrollView.messageSent ( messageID, response )
             }, function () {
                 chatScrollView.removeEvent ( messageID )
