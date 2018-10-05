@@ -7,7 +7,8 @@
         "fluffychat": {
             "apparmor": "fluffychat.apparmor",
             "desktop":  "fluffychat.desktop",
-            "urls": "fluffychat.url-dispatcher"
+            "urls": "fluffychat.url-dispatcher",
+            "content-hub": "fluffychat.content-hub"
         },
         "helloHelper": {
             "apparmor": "helloHelper-apparmor.json",

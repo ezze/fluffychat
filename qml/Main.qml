@@ -197,6 +197,5 @@ MainView {
     Component.onCompleted: {
         storage.init ()
         matrix.init ()
-        console.log("========================ARGUMENTS:",Qt.application.arguments)
     }
 }
