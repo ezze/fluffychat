@@ -40,8 +40,9 @@ Follow me on Mastodon: https://metalhead.club/@krille
  * Registration (currently only working with ubports.chat and NOT with matrix.org due captchas)
 
 ##### Planned features
- * Communities
  * End2End-encryption
+ * Sharing files
+ * Android support
 
 # FAQ
 
