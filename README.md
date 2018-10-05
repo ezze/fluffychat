@@ -78,6 +78,13 @@ The message text will be very large, bold and in capital letters
 * /shrug
 Puts ¯\_(ツ)_/¯ at the start of the message
 
+#### Which uri will open fluffychat?
+* fluffychat://@user:server.abc will launch the user profile
+
+* fluffychat://#room:server.abc will join the room with the given alias
+
+* fluffychat://!chatid:server.abc will open the room with the given ID
+
 #### I can not connect to my homeserver (self signed certificate)
 The same problem ... I recommend you to use a letsencrypt certificate.
 
