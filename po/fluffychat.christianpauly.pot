@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-04 11:25+0000\n"
+"POT-Creation-Date: 2018-10-04 12:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -435,13 +435,13 @@ msgstr ""
 msgid "Delete Avatar"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:93 ../qml/pages/ChatPage.qml:360
-#: ../qml/pages/ChatSettingsPage.qml:188
+#: ../qml/pages/SettingsPage.qml:93 ../qml/pages/ChatSettingsPage.qml:188
+#: ../qml/components/StickerInput.qml:99
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:97 ../qml/pages/ChatPage.qml:364
-#: ../qml/pages/ChatSettingsPage.qml:192
+#: ../qml/pages/SettingsPage.qml:97 ../qml/pages/ChatSettingsPage.qml:192
+#: ../qml/components/StickerInput.qml:103
 msgid "OK"
 msgstr ""
 
@@ -455,7 +455,7 @@ msgid "Theme"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:128
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:194
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:193
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Notifications"
@@ -582,46 +582,42 @@ msgstr ""
 msgid "Invite user"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:175 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:174 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:182 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:181 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:188
+#: ../qml/pages/ChatPage.qml:187
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:200
+#: ../qml/pages/ChatPage.qml:199
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:230
+#: ../qml/pages/ChatPage.qml:229
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:286
-msgid "Delete sticker"
-msgstr ""
-
-#: ../qml/pages/ChatPage.qml:393
+#: ../qml/pages/ChatPage.qml:291
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:393
+#: ../qml/pages/ChatPage.qml:291
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:407
+#: ../qml/pages/ChatPage.qml:305
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:433
+#: ../qml/pages/ChatPage.qml:331
 msgid "Type something ..."
 msgstr ""
 
@@ -1109,6 +1105,10 @@ msgstr ""
 
 #: ../qml/components/TargetListItem.qml:22
 msgid "This device"
+msgstr ""
+
+#: ../qml/components/StickerInput.qml:25
+msgid "Delete sticker"
 msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:11
