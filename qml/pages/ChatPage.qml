@@ -30,8 +30,11 @@ Page {
             msgtype: "m.text",
             body: message
         }
+
+        data = sender.handleCommands ( data )
+
         var urlRegex = /(https?:\/\/[^\s]+)/g
-        var content_body = message || ""
+        var content_body = data.body || ""
         if ( content_body === "" ) content_body = " "
         content_body = content_body.replace(urlRegex, function(url) {
             return '<a href="%1">%1</a>'.arg(url)
@@ -47,7 +50,7 @@ Page {
             }
         }
 
-        var type = sticker === undefined ? "m.room.message" : data.msgtype
+        var type = sticker === undefined ? "m.room.message" : "m.sticker"
 
         // Save the message in the database
         storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -70,7 +73,7 @@ Page {
                 avatar_url: chatMembers[matrix.matrixid].avatar_url,
                 status: msg_status.SENDING,
                 origin_server_ts: now,
-                content: {}
+                content: data
             }
             chatScrollView.addEventToList ( fakeEvent )
 
@@ -143,7 +146,7 @@ Page {
                     if ( i+1 < shareObject.items.length ) message += "\n"
                 }
             }
-            if ( messages !== "") send( message )
+            if ( message !== "") send( message )
             shareObject = null
         }
 

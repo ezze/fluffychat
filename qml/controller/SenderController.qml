@@ -14,7 +14,7 @@ Item {
             return error_callback ( "ERROR" )
         }
 
-        var msgtype = data.msgtype === "m.text" ? "m.room.message" : data.msgtype
+        var msgtype = data.msgtype === "m.sticker" ? data.msgtype : "m.room.message" 
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/" + msgtype + "/" + messageID, data, function ( response ) {
 
             newMessageID = response.event_id
@@ -48,6 +48,29 @@ Item {
             }
 
         } )
+    }
+
+    function handleCommands ( data ) {
+        // Transform the message body with the "/"-commands:
+        if ( data.body.slice(0,1) === "/" ) {
+            // Implement the /me feature
+            if ( data.body.slice(0,4) === "/me " ) {
+                data.body = data.body.replace("/me ", "" )
+                data.msgtype = "m.emote"
+            }
+            else if ( data.body.slice(0,9) === "/whisper " ) {
+                data.body = data.body.replace("/whisper ","")
+                data.msgtype = "m.fluffychat.whisper"
+            }
+            else if ( data.body.slice(0,6) === "/roar " ) {
+                data.body = data.body.replace("/roar ","")
+                data.msgtype = "m.fluffychat.roar"
+            }
+            else if ( data.body.slice(0,7) === "/shrug" ) {
+                data.body = data.body.replace("/shrug","¯_(ツ)_/¯")
+            }
+        }
+        return data
     }
 
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-05 17:59+0000\n"
+"POT-Creation-Date: 2018-10-06 07:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Please restart your device to complete the update!"
 msgstr ""
 
-#: ../qml/controller/SenderController.qml:36
+#: ../qml/controller/SenderController.qml:35
 msgid "You are not allowed to chat here."
 msgstr ""
 
@@ -467,7 +467,7 @@ msgid "Theme"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:128
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:218
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:221
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Notifications"
@@ -594,42 +594,42 @@ msgstr ""
 msgid "Invite user"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:199 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:202 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:206 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:209 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:212
+#: ../qml/pages/ChatPage.qml:215
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:224
+#: ../qml/pages/ChatPage.qml:227
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:254
+#: ../qml/pages/ChatPage.qml:257
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:316
+#: ../qml/pages/ChatPage.qml:319
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:316
+#: ../qml/pages/ChatPage.qml:319
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:330
+#: ../qml/pages/ChatPage.qml:333
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:356
+#: ../qml/pages/ChatPage.qml:359
 msgid "Type something ..."
 msgstr ""
 

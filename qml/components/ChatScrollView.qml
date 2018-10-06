@@ -233,7 +233,7 @@ ListView {
         actions: ActionList {
             Action {
                 text: i18n.tr("Try send again")
-                visible: contextualActions.contextEvent && contextualActions.contextEvent.status === msg_status.ERROR
+                visible: contextualActions.contextEvent !== undefined && contextualActions.contextEvent.status === msg_status.ERROR
                 onTriggered: {
                     storage.transaction ( "DELETE FROM Events WHERE id='" + contextualActions.contextEvent.id + "'")
                     removeEvent ( contextualActions.contextEvent.id )
@@ -250,7 +250,7 @@ ListView {
             }
             Action {
                 text: i18n.tr("Delete message")
-                visible: contextualActions.contextEvent && (canRedact && contextualActions.contextEvent.status >= msg_status.SENT ||
+                visible: contextualActions.contextEvent !== undefined && (canRedact && contextualActions.contextEvent.status >= msg_status.SENT ||
                 contextualActions.contextEvent.status === msg_status.ERROR)
                 onTriggered: {
                     if ( contextualActions.contextEvent.status === msg_status.ERROR ) {
