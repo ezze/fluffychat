@@ -102,33 +102,6 @@ BottomEdge {
                         }
                     }
 
-                    ListItem {
-                        id: startNewChatButton
-                        height: layout.height
-                        color: Qt.rgba(0,0,0,0)
-                        visible: matrix_id !== matrix.matrixid
-                        onClicked: {
-                            userSettingsViewer.collapse ()
-                            var data = {
-                                "invite": [ matrix_id ],
-                                "is_direct": true,
-                                "preset": "private_chat"
-                            }
-                            matrix.post( "/client/r0/createRoom", data )
-                        }
-
-                        ListItemLayout {
-                            id: layout
-                            title.text: i18n.tr("Start new chat")
-                            Icon {
-                                name: "message-new"
-                                width: units.gu(4)
-                                height: units.gu(4)
-                                SlotsLayout.position: SlotsLayout.Leading
-                            }
-                        }
-                    }
-
                     Rectangle {
                         width: parent.width
                         height: units.gu(2)
@@ -165,6 +138,32 @@ BottomEdge {
                         visible: matrix_id !== matrix.matrixid
                     }
 
+                    ListItem {
+                        id: startNewChatButton
+                        height: layout.height
+                        color: Qt.rgba(0,0,0,0)
+                        visible: matrix_id !== matrix.matrixid
+                        onClicked: {
+                            userSettingsViewer.collapse ()
+                            var data = {
+                                "invite": [ matrix_id ],
+                                "is_direct": true,
+                                "preset": "private_chat"
+                            }
+                            matrix.post( "/client/r0/createRoom", data )
+                        }
+
+                        ListItemLayout {
+                            id: layout
+                            title.text: i18n.tr("Start new chat")
+                            Icon {
+                                name: "message-new"
+                                width: units.gu(4)
+                                height: units.gu(4)
+                                SlotsLayout.position: SlotsLayout.Leading
+                            }
+                        }
+                    }
 
                 }
             }

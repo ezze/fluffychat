@@ -30,6 +30,7 @@ ListItem {
 
         Avatar {
             id: avatar
+            width: units.gu(4)
             SlotsLayout.position: SlotsLayout.Leading
             name: room.topic || room.id
             mxc: room.avatar_url || ""
