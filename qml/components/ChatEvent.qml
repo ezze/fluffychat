@@ -81,32 +81,41 @@ Rectangle {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: isStateEvent ? units.gu(0.75) : units.gu(1)
 
-                MouseArea {
-                    width: thumbnail.width
-                    height: thumbnail.height
+                Rectangle {
+                    width: thumbnail.status === Image.Ready ? thumbnail.width : height
+                    height: units.gu(30)
+                    visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
                     AnimatedImage {
                         id: thumbnail
-                        visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
                         source: {
                             (settings.autoloadGifs && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif") ?
                             media.getLinkFromMxc ( event.content.url ) :
                             ((event.content.url && event.content.info && event.content.info.thumbnail_url ) ?
                             media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) : "")
                         }
-
-                        //width: visible ? Math.max( units.gu(24), messageLabel.width + units.gu(2) ) : 0
-                        //height: width * ( sourceSize.height / sourceSize.width )
-                        height: visible * units.gu(30)
+                        height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
                         onStatusChanged: {
                             if ( status === Image.Error ) {
-                                visible = false
+                                parent.visible = false
                                 downloadButton.visible = true
                             }
                         }
                     }
-                    onClicked: imageViewer.show ( event.content.url )
+
+                    ActivityIndicator {
+                        visible: thumbnail.status === Image.Loading
+                        anchors.centerIn: parent
+                        width: units.gu(2)
+                        height: width
+                        running: visible
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: imageViewer.show ( event.content.url )
+                    }
                 }
 
 
