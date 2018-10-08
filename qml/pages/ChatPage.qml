@@ -31,15 +31,6 @@ Page {
             body: message
         }
 
-        data = sender.handleCommands ( data )
-
-        var urlRegex = /(https?:\/\/[^\s]+)/g
-        var content_body = data.body || ""
-        if ( content_body === "" ) content_body = " "
-        content_body = content_body.replace(urlRegex, function(url) {
-            return '<a href="%1">%1</a>'.arg(url)
-        })
-
         if ( sticker !== undefined ) {
             data.body = sticker.name
             data.msgtype = "m.sticker"
@@ -48,6 +39,16 @@ Page {
                 "mimetype": sticker.mimetype,
                 "thumbnail_url": sticker.thumbnail_url || sticker.url,
             }
+        }
+        else {
+            data = sender.handleCommands ( data )
+
+            var urlRegex = /(https?:\/\/[^\s]+)/g
+            var content_body = data.body || ""
+            if ( content_body === "" ) content_body = " "
+            content_body = content_body.replace(urlRegex, function(url) {
+                return '<a href="%1">%1</a>'.arg(url)
+            })
         }
 
         var type = sticker === undefined ? "m.room.message" : "m.sticker"
