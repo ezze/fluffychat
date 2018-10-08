@@ -9,13 +9,22 @@ Rectangle {
     id: stickerInput
     opacity: 0
     width: parent.width + 2
-    property bool stateVisible: false
     property var desiredHeight: 3 * header.height
+    visible: false
     height: desiredHeight
     border.width: 1
     border.color: UbuntuColors.silk
     color: theme.palette.normal.background
     anchors.horizontalCenter: parent.horizontalCenter
+
+    Rectangle {
+        width: parent.width
+        height: 1
+        z: 10
+        color: UbuntuColors.silk
+        anchors.top: parent.top
+        anchors.left: parent.left
+    }
 
     ActionSelectionPopover {
         id: deleteActions
@@ -109,18 +118,16 @@ Rectangle {
         model: ListModel { id: stickerModel }
     }
 
-    states: [
-    State { when: stateVisible;
-        PropertyChanges {   target: toast; opacity: 1.0;    }
-    },
-    State { when: !stateVisible;
-        PropertyChanges {   target: toast; opacity: 0.0;    }
+    states: State {
+        name: "visible"; when: stickerInput.visible
+        PropertyChanges {
+            target: stickerInput
+            opacity: 0.9
+        }
     }
-    ]
-
 
     transitions: Transition {
-        NumberAnimation { property: "opacity"; duration: 250}
+        NumberAnimation { property: "opacity"; duration: 300 }
     }
 
 }

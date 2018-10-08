@@ -369,7 +369,7 @@ Page {
             // If the user leaves the focus of the textfield: Send that he is no
             // longer typing.
             onActiveFocusChanged: {
-                if ( activeFocus && stickerInput.stateVisible ) stickerInput.hide()
+                if ( activeFocus && stickerInput.visible ) stickerInput.hide()
                 if ( !activeFocus ) sendTypingNotification ( activeFocus )
             }
             onDisplayTextChanged: {
@@ -396,8 +396,8 @@ Page {
             anchors.leftMargin: units.gu(0.5)
             actions: [
             Action {
-                iconName: stickerInput.stateVisible ? "close" : "attachment"
-                onTriggered: stickerInput.stateVisible ? stickerInput.hide() : stickerInput.show()
+                iconName: stickerInput.visible ? "close" : "attachment"
+                onTriggered: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
                 enabled: !sending
             }
             ]
