@@ -96,12 +96,7 @@ Rectangle {
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
-                        onStatusChanged: {
-                            if ( status === Image.Error ) {
-                                parent.visible = false
-                                downloadButton.visible = true
-                            }
-                        }
+                        visible: status !== Image.Error
                     }
 
                     ActivityIndicator {
@@ -110,6 +105,14 @@ Rectangle {
                         width: units.gu(2)
                         height: width
                         running: visible
+                    }
+
+                    Icon {
+                        visible: thumbnail.status === Image.Error
+                        anchors.centerIn: parent
+                        width: units.gu(6)
+                        height: width
+                        name: "sync-error"
                     }
 
                     MouseArea {
@@ -196,7 +199,7 @@ Rectangle {
 
                 Button {
                     id: downloadButton
-                    text: i18n.tr("Download file: ") + event.content.body
+                    text: i18n.tr("Download: ") + event.content.body
                     onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
                     visible: event.content.msgtype === "m.file"
                     height: visible ? units.gu(4) : 0
