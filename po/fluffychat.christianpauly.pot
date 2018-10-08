@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-08 13:51+0000\n"
+"POT-Creation-Date: 2018-10-08 14:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -167,6 +167,10 @@ msgstr ""
 #: ../qml/controller/StorageController.qml:54
 #: ../qml/components/LockedScreen.qml:27
 msgid "Please restart your device to complete the update!"
+msgstr ""
+
+#: ../qml/controller/ShareController.qml:26
+msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr ""
 
 #: ../qml/controller/SenderController.qml:35
