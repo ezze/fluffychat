@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-08 14:20+0000\n"
+"POT-Creation-Date: 2018-10-08 14:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -379,19 +379,19 @@ msgstr ""
 msgid "Using the homeserver: "
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:140
+#: ../qml/pages/ChatListPage.qml:142
 msgid "Fluffychat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:140
+#: ../qml/pages/ChatListPage.qml:142
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:203
+#: ../qml/pages/ChatListPage.qml:205
 msgid "Search for chat names…"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:218
+#: ../qml/pages/ChatListPage.qml:220
 msgid "Swipe from below to start a chat"
 msgstr ""
 
@@ -452,12 +452,12 @@ msgid "Delete Avatar"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:93 ../qml/pages/ChatSettingsPage.qml:188
-#: ../qml/components/StickerInput.qml:98
+#: ../qml/components/StickerInput.qml:99
 msgid "Error"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:97 ../qml/pages/ChatSettingsPage.qml:192
-#: ../qml/components/StickerInput.qml:102
+#: ../qml/components/StickerInput.qml:103
 msgid "OK"
 msgstr ""
 
@@ -621,19 +621,19 @@ msgstr ""
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:320
+#: ../qml/pages/ChatPage.qml:327
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:320
+#: ../qml/pages/ChatPage.qml:327
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:334
+#: ../qml/pages/ChatPage.qml:341
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:360
+#: ../qml/pages/ChatPage.qml:367
 msgid "Type something ..."
 msgstr ""
 
@@ -1127,7 +1127,7 @@ msgstr ""
 msgid "This device"
 msgstr ""
 
-#: ../qml/components/StickerInput.qml:25
+#: ../qml/components/StickerInput.qml:26
 msgid "Delete sticker"
 msgstr ""
 

@@ -261,23 +261,20 @@ Page {
     }
 
 
-    MouseArea {
-        width: scrollDownButton.width
-        height: scrollDownButton.height
-        onClicked: chatScrollView.positionViewAtBeginning ()
-        anchors.fill: scrollDownButton
-        z: 15
-        visible: scrollDownButton.visible
-    }
+
     Rectangle {
         id: scrollDownButton
         width: parent.width
         anchors.bottom: chatInput.top
         anchors.left: parent.left
         height: header.height - 2
-        opacity: 0.9
+        opacity: 0
         color: theme.palette.normal.background
         z: 14
+        MouseArea {
+            onClicked: chatScrollView.positionViewAtBeginning ()
+            anchors.fill: parent
+        }
         Icon {
             name: "toolkit_chevron-down_4gu"
             width: units.gu(2.5)
@@ -286,7 +283,17 @@ Page {
             z: 14
             color: mainFontColor
         }
-        visible: !chatScrollView.atYEnd
+        states: State {
+            name: "visible"; when: !chatScrollView.atYEnd
+            PropertyChanges {
+                target: scrollDownButton
+                opacity: 0.9
+            }
+        }
+
+        transitions: Transition {
+            NumberAnimation { property: "opacity"; duration: 300 }
+        }
     }
 
     ChatScrollView {
@@ -362,7 +369,7 @@ Page {
             // If the user leaves the focus of the textfield: Send that he is no
             // longer typing.
             onActiveFocusChanged: {
-                if ( activeFocus && stickerInput.visible ) stickerInput.hide()
+                if ( activeFocus && stickerInput.stateVisible ) stickerInput.hide()
                 if ( !activeFocus ) sendTypingNotification ( activeFocus )
             }
             onDisplayTextChanged: {
@@ -389,8 +396,8 @@ Page {
             anchors.leftMargin: units.gu(0.5)
             actions: [
             Action {
-                iconName: stickerInput.visible ? "close" : "attachment"
-                onTriggered: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
+                iconName: stickerInput.stateVisible ? "close" : "attachment"
+                onTriggered: stickerInput.stateVisible ? stickerInput.hide() : stickerInput.show()
                 enabled: !sending
             }
             ]

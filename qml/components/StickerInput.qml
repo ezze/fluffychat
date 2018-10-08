@@ -7,8 +7,9 @@ import "../components"
 
 Rectangle {
     id: stickerInput
-    visible: false
+    opacity: 0
     width: parent.width + 2
+    property bool stateVisible: false
     property var desiredHeight: 3 * header.height
     height: desiredHeight
     border.width: 1
@@ -107,4 +108,19 @@ Rectangle {
         }
         model: ListModel { id: stickerModel }
     }
+
+    states: [
+    State { when: stateVisible;
+        PropertyChanges {   target: toast; opacity: 1.0;    }
+    },
+    State { when: !stateVisible;
+        PropertyChanges {   target: toast; opacity: 0.0;    }
+    }
+    ]
+
+
+    transitions: Transition {
+        NumberAnimation { property: "opacity"; duration: 250}
+    }
+
 }
