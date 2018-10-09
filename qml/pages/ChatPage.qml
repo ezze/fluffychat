@@ -42,16 +42,31 @@ Page {
             }
         }
         else {
+
+            // Add reply event to message
             if ( replyEvent !== null ) {
+
+                // Add event ID to the reply object
                 data["m.relates_to"] = {
                     "m.in_reply_to": {
                         "event_id": replyEvent.id
                     }
                 }
+
+                // Use formatted body
+                data.format = "org.matrix.custom.html"
+                data.formatted_body = '<mx-reply><blockquote><a href="https://matrix.to/#/%1/%2">In reply to</a> <a href="https://matrix.to/#/%3">%4</a><br>%5</blockquote></mx-reply>'
+                .arg(activeChat).arg(replyEvent.id).arg(replyEvent.sender).arg(replyEvent.sender).arg(replyEvent.content.body)
+                 + data.body
+
+                // Change the normal body too
                 var replyBody = "> <%1> ".arg(replyEvent.sender) + replyEvent.content.body.split("\n").join("\n>")
                 data.body = replyBody + "\n" + data.body
+
                 replyEvent = null
             }
+
+            // Handle the commands
             data = sender.handleCommands ( data )
 
             var urlRegex = /(https?:\/\/[^\s]+)/g

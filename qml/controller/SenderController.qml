@@ -69,21 +69,6 @@ Item {
             else if ( data.body.slice(0,7) === "/shrug" ) {
                 data.body = data.body.replace("/shrug","¯_(ツ)_/¯")
             }
-            else if ( data.body.slice(0,7) === "/reply:" ) {
-                var words = data.body.split(" ")
-                var replyId = words[0].replace("/reply:","")
-                delete words[0]
-                data.body = words.join(" ")
-                data.formatted_body = '<mx-reply><blockquote><a href="https://matrix.to/#/%1/%2">' +
-                'In reply to</a> <a href="https://matrix.to/#/%3">%4</a><br>%5</blockquote></mx-reply>'
-                .arg(activeChat).arg(replyId).arg(replySender).arg(replySender).arg(data.body)
-                data["m.relates_to"] = {
-                    "m.in_reply_to": {
-                        "event_id": replyId
-                    }
-                }
-                data.formattedBody
-            }
         }
         return data
     }
