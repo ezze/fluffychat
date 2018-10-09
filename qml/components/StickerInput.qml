@@ -123,7 +123,7 @@ Rectangle {
         name: "visible"; when: stickerInput.visible
         PropertyChanges {
             target: stickerInput
-            opacity: 0.9
+            opacity: 1
         }
     }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-09 09:29+0000\n"
+"POT-Creation-Date: 2018-10-09 09:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -471,7 +471,7 @@ msgid "Theme"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:127
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:251
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:250
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Notifications"
@@ -598,46 +598,46 @@ msgstr ""
 msgid "Invite user"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:232 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:231 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/ChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:239 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:238 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:245
+#: ../qml/pages/ChatPage.qml:244
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:257
+#: ../qml/pages/ChatPage.qml:256
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:287
+#: ../qml/pages/ChatPage.qml:286
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:310
+#: ../qml/pages/ChatPage.qml:309
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:411
+#: ../qml/pages/ChatPage.qml:410
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:411
+#: ../qml/pages/ChatPage.qml:410
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:425
+#: ../qml/pages/ChatPage.qml:424
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:452
+#: ../qml/pages/ChatPage.qml:454
 msgid "Type something ..."
 msgstr ""
 

@@ -9,7 +9,6 @@ Page {
 
     id: chatPage
 
-    property var sending: false
     property var membership: "join"
     property var isTyping: false
     property var pageName: "chat"
@@ -18,7 +17,7 @@ Page {
     property var replyEvent: null
 
     function send ( message ) {
-        if ( (sending || messageTextField.displayText === "") && message === undefined ) return
+        if ( messageTextField.displayText === "" && message === undefined ) return
 
         var sticker = undefined
         if ( message === undefined ) message = messageTextField.displayText
@@ -443,10 +442,13 @@ Page {
 
         TextArea {
             id: messageTextField
-            anchors.bottom: parent.bottom
-            anchors.margins: units.gu(1)
-            anchors.right: chatInputActionBar.left
-            anchors.left: text !== "" ? parent.left : showStickerInput.right
+            anchors {
+                bottom: parent.bottom
+                margins: units.gu(1)
+                rightMargin: units.gu(0.5)
+                right: chatInputActionBar.left
+                left: showStickerInput.visible ? showStickerInput.right : parent.left
+            }
             autoSize: height <= mainStackWidth / 2 - header.height - units.gu(2)
             maximumLineCount: 0
             placeholderText: i18n.tr("Type something ...")
@@ -478,9 +480,9 @@ Page {
             iconName: stickerInput.visible ? "close" : "add"
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            anchors.leftMargin: units.gu(0.5)
+            anchors.leftMargin: units.gu(1)
             color: UbuntuColors.porcelain
-            visible: canSendMessages && messageTextField.text === ""
+            visible: canSendMessages && messageTextField.text === "" && !messageTextField.focus
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
         }
@@ -496,7 +498,6 @@ Page {
                 id: sendButton
                 iconName: "send"
                 onTriggered: send ()
-                enabled: !sending
             }
             ]
         }
