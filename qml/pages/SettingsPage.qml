@@ -15,7 +15,6 @@ Page {
             numberOfSlots: 1
             actions: [
             Action {
-                visible: canChangeName
                 iconName: "compose"
                 text: i18n.tr("Edit displayname")
                 onTriggered: PopupUtils.open(displaynameDialog)

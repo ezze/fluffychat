@@ -69,6 +69,8 @@ Page {
             // Handle the commands
             data = sender.handleCommands ( data )
 
+            data.body = data.body.split("<").join("&lt;").split(">").join("&gt;")
+
             var urlRegex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
             var content_body = data.body || ""
             if ( content_body === "" ) content_body = " "
