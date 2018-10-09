@@ -112,12 +112,10 @@ Page {
                 else chatScrollView.errorEvent ( messageID )
             } )
 
-            if ( messageTextField.text !== "" ) {
+            if ( sticker === undefined && messageTextField.text !== "" ) {
                 isTyping = true
-                messageTextField.focus = false
                 messageTextField.text = ""
                 messageTextField.height = header.height - units.gu(2)
-                messageTextField.focus = true
                 isTyping = false
                 sendTypingNotification ( false )
             }
@@ -447,8 +445,9 @@ Page {
                 margins: units.gu(1)
                 rightMargin: units.gu(0.5)
                 right: chatInputActionBar.left
-                left: showStickerInput.visible ? showStickerInput.right : parent.left
+                left: showStickerInput.right
             }
+            property var hasText: false
             autoSize: height <= mainStackWidth / 2 - header.height - units.gu(2)
             maximumLineCount: 0
             placeholderText: i18n.tr("Type something ...")
@@ -482,7 +481,7 @@ Page {
             anchors.left: parent.left
             anchors.leftMargin: units.gu(1)
             color: UbuntuColors.porcelain
-            visible: canSendMessages && messageTextField.text === "" && !messageTextField.focus
+            visible: canSendMessages
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
         }
