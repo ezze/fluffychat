@@ -2,7 +2,7 @@
 
 <p align="center">
   <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/downloadButton.jpg" /></a><br>
-  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a>
+  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a> - <a href="https://hosted.weblate.org/projects/fluffychat/" target="new">Help with translations</a>
  </p>
 <br>
 <br>
@@ -35,6 +35,7 @@
 ##### Planned features
  * End2End-encryption
  * Sharing files
+ * VOIP
  * Android support
 
 # FAQ
