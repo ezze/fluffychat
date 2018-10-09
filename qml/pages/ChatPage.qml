@@ -89,6 +89,7 @@ Page {
                 isTyping = true
                 messageTextField.focus = false
                 messageTextField.text = ""
+                messageTextField.height = header.height - units.gu(2)
                 messageTextField.focus = true
                 isTyping = false
                 sendTypingNotification ( false )
