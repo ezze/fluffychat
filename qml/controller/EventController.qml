@@ -266,17 +266,8 @@ Item {
                 var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
 
                 // Format the text for the app
-                var tempText = event.content.body || null
-                if ( tempText !== null ) {
-                    event.content.body = event.content.body.split("<").join("&lt;").split(">").join("&gt;")
-                    var urlRegex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
-                    tempText = tempText.replace(urlRegex, function(url) {
-                        var link = url
-                        if ( url.indexOf ( "http" ) === -1 ) link = "http://" + url
-                        return '<a href="%1">%2</a>'.arg(link).arg(url)
-                    })
-                }
-                event.content_body = tempText
+                if( event.content.body ) event.content_body = matrix.formatText ( event.content.body )
+                else event.content_body = null
                 transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
                 roomid,

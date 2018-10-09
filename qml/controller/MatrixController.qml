@@ -155,6 +155,48 @@ Item {
     }
 
 
+    function formatText ( tempText ) {
+        // HTML characters
+        tempText = tempText.split("&").join("&amp;")
+        .split("<").join("&lt;")
+        .split(">").join("&gt;")
+        .split('"').join("&quot;")
+
+        // Find urls and make them clickable
+        var urlRegex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
+        tempText = tempText.replace(urlRegex, function(url) {
+            var link = url
+            if ( url.indexOf ( "http" ) === -1 ) link = "http://" + url
+            return '<a href="%1">%2</a>'.arg(link).arg(url)
+        })
+
+        return formatReply ( tempText )
+    }
+
+    function formatReply ( tempText ) {
+        if ( tempText.slice(0,9) === "&gt; &lt;" ) {
+            var lines = tempText.split("\n")
+            console.log("FIRST LINE",lines[0])
+            lines[0] = lines[0].replace("&gt; ", "")
+            lines[0] = lines[0].replace("&gt;"," " + i18n.tr("wrote:"))
+            lines[0] = lines[0].replace("&lt;","<font color='#888888'>")
+            lines[0] += "</font>"
+            console.log("FIRST LINE AFTER FORMAT",lines[0])
+            for ( var i = 1; i < lines.length; i++ ) {
+                console.log("CHECK LINE", i, lines[i])
+                if ( lines[i].slice(0,4) === "&gt;" ) {
+                    lines[i] = lines[i].replace("&gt;", "<font color='#888888'>")
+                    lines[i] += "</font>"
+                    console.log("LINE AFTER FORMAT", i, lines[i])
+                }
+                else break
+            }
+            tempText = lines.join(" <br>")
+        }
+        return tempText
+    }
+
+
     function get ( action, data, callback, error_callback, status_callback ) {
         return xmlRequest ( "GET", data, action, callback, error_callback, status_callback )
     }

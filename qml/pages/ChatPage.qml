@@ -59,23 +59,22 @@ Page {
                  + data.body
 
                 // Change the normal body too
+                var contentLines = replyEvent.content.body.split("\n")
+                for ( var i = 0; i < contentLines.length; i++ ) {
+                    if ( contentLines[i].slice(0,1) === ">" ) {
+                        contentLines.splice(i,1)
+                        i--
+                    }
+                }
+                replyEvent.content.body = contentLines.join("\n")
                 var replyBody = "> <%1> ".arg(replyEvent.sender) + replyEvent.content.body.split("\n").join("\n>")
-                data.body = replyBody + "\n" + data.body
+                data.body = replyBody + "\n\n" + data.body
 
                 replyEvent = null
             }
 
-            // Handle the commands
             data = sender.handleCommands ( data )
 
-            data.body = data.body.split("<").join("&lt;").split(">").join("&gt;")
-
-            var urlRegex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
-            var content_body = data.body || ""
-            if ( content_body === "" ) content_body = " "
-            content_body = content_body.replace(urlRegex, function(url) {
-                return '<a href="%1">%1</a>'.arg(url)
-            })
         }
 
         var type = sticker === undefined ? "m.room.message" : "m.sticker"
@@ -96,7 +95,7 @@ Page {
                 type: type,
                 id: messageID,
                 sender: matrix.matrixid,
-                content_body: content_body,
+                content_body: matrix.formatText ( data.body ),
                 displayname: chatMembers[matrix.matrixid].displayname,
                 avatar_url: chatMembers[matrix.matrixid].avatar_url,
                 status: msg_status.SENDING,
