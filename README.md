@@ -77,7 +77,7 @@ The message text will be very small
 The message text will be very large, bold and in capital letters
 
 * /shrug
-Puts ¯\_(ツ)_/¯ at the start of the message
+Puts ¯&#92;_(ツ)_/¯ at the start of the message
 
 #### Which uri will open fluffychat?
 * fluffychat://@user:server.abc will launch the user profile

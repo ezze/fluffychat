@@ -66,8 +66,8 @@ Item {
                 data.body = data.body.replace("/roar ","")
                 data.msgtype = "m.fluffychat.roar"
             }
-            else if ( data.body.slice(0,7) === "/shrug" ) {
-                data.body = data.body.replace("/shrug","¯_(ツ)_/¯")
+            else if ( data.body.slice(0,6) === "/shrug" ) {
+                data.body = data.body.replace("/shrug","¯\_(ツ)_/¯")
             }
         }
         return data
