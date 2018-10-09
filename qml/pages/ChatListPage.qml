@@ -96,7 +96,7 @@ Page {
         if ( j === model.count ) return
         var tempRoom = model.get(j).room
 
-        if ( eventType === "timeline" ) {
+        if ( eventType === "timeline" && (type === "m.room.message" || type === "m.sticker") ) {
             // Update the last message preview
             tempRoom.eventsid = lastEvent.event_id
             tempRoom.origin_server_ts = lastEvent.origin_server_ts
