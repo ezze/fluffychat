@@ -260,10 +260,10 @@ Item {
                     if ( !longPolling ) progressBarRequests--
                     if ( progressBarRequests < 0 ) progressBarRequests = 0
 
-                    if ( !timer.running ) throw( "Timeout" )
+                    if ( !timer.running ) throw( "CONNERROR" )
                     timer.stop ()
 
-                    if ( http.responseText === "" ) throw( "No connection to the homeserver 😕" )
+                    if ( http.responseText === "" ) throw( "CONNERROR" )
 
                     var responseType = http.getResponseHeader("Content-Type")
                     if ( responseType === "application/json" ) {
@@ -279,9 +279,9 @@ Item {
                     if ( !isSyncRequest ) console.error("There was an error: When calling ", type, requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error, JSON.stringify(error))
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
-                    if ( !error_callback && error === "offline" && settings.token ) {
+                    if ( !error_callback && error.error === "CONNERROR" && settings.token ) {
                         onlineStatus = false
-                        toast.show (i18n.tr("No connection to the homeserver 😕"))
+                        toast.show (i18n.tr("😕 No connection..."))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
                         loadingScreen.visible = false

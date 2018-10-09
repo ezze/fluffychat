@@ -219,7 +219,7 @@ Rectangle {
                     color: (sent || isStateEvent) ? "black" : "white"
                     linkColor: color
                     wrapMode: Text.Wrap
-                    textFormat: Text.AutoText
+                    textFormat: Text.StyledText
                     textSize: isStateEvent ? Label.XSmall :
                     (event.content.msgtype === "m.fluffychat.whisper" ? Label.XxSmall :
                     (event.content.msgtype === "m.fluffychat.roar" ? Label.XLarge : Label.Medium))
