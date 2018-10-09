@@ -129,7 +129,7 @@ Page {
             isTyping = false
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
                 typing: false
-            } )
+            }, null, null )
         }
         else if ( typing && !isTyping ) {
             isTyping = true
@@ -137,7 +137,7 @@ Page {
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
                 typing: true,
                 timeout: typingTimeout
-            } )
+            }, null, null )
         }
     }
 

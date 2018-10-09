@@ -54,6 +54,7 @@ Item {
         initialized = true
         if ( settings.since ) {
             waitForSync ()
+            storage.transaction ( "UPDATE Events SET status=-1 WHERE status=0" )
             return sync ( 1 )
         }
         loadingScreen.visible = true

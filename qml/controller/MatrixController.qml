@@ -35,7 +35,7 @@ Item {
 
 
     // Login and set username, token and server! Needs to be done, before anything else
-    function login ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback, status_callback ) {
+    function login ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback) {
 
         settings.username = newUsername.toLowerCase()
         settings.server = newServer.toLowerCase()
@@ -64,10 +64,10 @@ Item {
             settings.username = settings.server = settings.deviceName = undefined
             if ( error_callback ) error_callback ( response )
         }
-        xmlRequest ( "POST", data, "/client/r0/login", onLogged, error_callback, status_callback )
+        xmlRequest ( "POST", data, "/client/r0/login", onLogged, error_callback)
     }
 
-    function register ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback, status_callback ) {
+    function register ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback) {
 
         settings.username = newUsername.toLowerCase()
         settings.server = newServer.toLowerCase()
@@ -92,7 +92,7 @@ Item {
                             "type": response.flows[i].stages[0],
                             "session": response.session
                         }
-                        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError, status_callback )
+                        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError )
                         forwarded = true
                         break
                     }
@@ -120,7 +120,7 @@ Item {
             if ( response.errcode !== "M_USER_IN_USE" ) settings.username = settings.server = settings.deviceName = undefined
             if ( error_callback ) error_callback ( response )
         }
-        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError, status_callback )
+        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError )
     }
 
     function logout () {
@@ -197,24 +197,24 @@ Item {
     }
 
 
-    function get ( action, data, callback, error_callback, status_callback ) {
-        return xmlRequest ( "GET", data, action, callback, error_callback, status_callback )
+    function get ( action, data, callback, error_callback ) {
+        return xmlRequest ( "GET", data, action, callback, error_callback )
     }
 
-    function post ( action, data, callback, error_callback, status_callback) {
-        return xmlRequest ( "POST", data, action, callback, error_callback, status_callback )
+    function post ( action, data, callback, error_callback ) {
+        return xmlRequest ( "POST", data, action, callback, error_callback )
     }
 
-    function put ( action, file, callback, error_callback, status_callback ) {
-        return xmlRequest ( "PUT", file, action, callback, error_callback, status_callback )
+    function put ( action, file, callback, error_callback ) {
+        return xmlRequest ( "PUT", file, action, callback, error_callback )
     }
 
     // Needs the name remove, because delete is reserved
-    function remove ( action, file, callback, error_callback, status_callback ) {
-        return xmlRequest ( "DELETE", file, action, callback, error_callback, status_callback )
+    function remove ( action, file, callback, error_callback ) {
+        return xmlRequest ( "DELETE", file, action, callback, error_callback )
     }
 
-    function xmlRequest ( type, data, action, callback, error_callback, status_callback ) {
+    function xmlRequest ( type, data, action, callback, error_callback ) {
 
         // Check if the same request is actual sent
         var checksum = type + JSON.stringify(data) + action
@@ -253,7 +253,6 @@ Item {
         if ( !(server === settings.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         if ( server === settings.server && settings.token ) http.setRequestHeader('Authorization', 'Bearer ' + settings.token);
         http.onreadystatechange = function() {
-            if ( status_callback ) status_callback ( http.readyState )
             if (http.readyState === XMLHttpRequest.DONE) {
                 try {
                     var index = activeRequests.indexOf(checksum);
