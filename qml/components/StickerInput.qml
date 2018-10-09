@@ -14,7 +14,7 @@ Rectangle {
     height: desiredHeight
     border.width: 1
     border.color: UbuntuColors.silk
-    color: theme.palette.normal.background
+    color: "white"
     anchors.horizontalCenter: parent.horizontalCenter
 
     Rectangle {
@@ -48,6 +48,7 @@ Rectangle {
     }
 
     function show() {
+        chatScrollView.positionViewAtBeginning ()
         messageTextField.focus = false
         visible = true
         storage.transaction ("SELECT * FROM Media", function ( res ) {

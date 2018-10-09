@@ -289,6 +289,10 @@ Page {
                 target: scrollDownButton
                 opacity: 0.9
             }
+            PropertyChanges {
+                target: stickerInput
+                visible: false
+            }
         }
 
         transitions: Transition {
@@ -388,19 +392,16 @@ Page {
             visible: membership === "join" && canSendMessages
         }
 
-        ActionBar {
+        Button {
             id: showStickerInput
-            visible: membership === "join" && canSendMessages
+            iconName: stickerInput.visible ? "close" : "add"
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: units.gu(0.5)
-            actions: [
-            Action {
-                iconName: stickerInput.visible ? "close" : "attachment"
-                onTriggered: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
-                enabled: !sending
-            }
-            ]
+            color: UbuntuColors.porcelain
+            //color: settings.mainColor
+            width: height
+            onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
         }
 
         ActionBar {

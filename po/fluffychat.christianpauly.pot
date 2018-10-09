@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-08 17:03+0000\n"
+"POT-Creation-Date: 2018-10-09 07:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -452,12 +452,12 @@ msgid "Delete Avatar"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:93 ../qml/pages/ChatSettingsPage.qml:188
-#: ../qml/components/StickerInput.qml:108
+#: ../qml/components/StickerInput.qml:109
 msgid "Error"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:97 ../qml/pages/ChatSettingsPage.qml:192
-#: ../qml/components/StickerInput.qml:112
+#: ../qml/components/StickerInput.qml:113
 msgid "OK"
 msgstr ""
 
@@ -621,19 +621,19 @@ msgstr ""
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:327
+#: ../qml/pages/ChatPage.qml:331
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:327
+#: ../qml/pages/ChatPage.qml:331
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:341
+#: ../qml/pages/ChatPage.qml:345
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:367
+#: ../qml/pages/ChatPage.qml:371
 msgid "Type something ..."
 msgstr ""
 
