@@ -15,6 +15,7 @@ Page {
     property var pageName: "chat"
     property var canSendMessages: true
     property var chatMembers: chatScrollView.chatMembers
+    property var replyEvent: null
 
     function send ( message ) {
         if ( (sending || messageTextField.displayText === "") && message === undefined ) return
@@ -41,6 +42,16 @@ Page {
             }
         }
         else {
+            if ( replyEvent !== null ) {
+                data["m.relates_to"] = {
+                    "m.in_reply_to": {
+                        "event_id": replyEvent.id
+                    }
+                }
+                var replyBody = "> <%1> ".arg(replyEvent.sender) + replyEvent.content.body.split("\n").join("\n>")
+                data.body = replyBody + "\n" + data.body
+                replyEvent = null
+            }
             data = sender.handleCommands ( data )
 
             var urlRegex = /(https?:\/\/[^\s]+)/g
@@ -262,6 +273,56 @@ Page {
     }
 
 
+    Rectangle {
+        id: replyEventView
+        width: parent.width
+        anchors.top: header.bottom
+        anchors.left: parent.left
+        height: header.height - 2
+        opacity: 0
+        color: theme.palette.normal.background
+        z: 14
+        Rectangle {
+            width: parent.width
+            height: 1
+            color: UbuntuColors.silk
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+        }
+        Label {
+            text: replyEvent !== null ? i18n.tr("Reply to <b>%1</b>: \"%2\"").arg(chatMembers[replyEvent.sender].displayname).arg(replyEvent.content.body.split("\n").join(" ")) : ""
+            anchors.left: parent.left
+            anchors.right: closeReplyIcon.left
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.leftMargin: units.gu(0.5)
+            elide: Text.ElideRight
+        }
+        ActionBar {
+            id: closeReplyIcon
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(0.5)
+            actions: [
+            Action {
+                iconName: "close"
+                onTriggered: replyEvent = null
+            }
+            ]
+        }
+        states: State {
+            name: "visible"; when: replyEvent !== null
+            PropertyChanges {
+                target: replyEventView
+                opacity: 1
+            }
+        }
+
+        transitions: Transition {
+            NumberAnimation { property: "opacity"; duration: 300 }
+        }
+    }
+
+
 
     Rectangle {
         id: scrollDownButton
@@ -275,6 +336,7 @@ Page {
         MouseArea {
             onClicked: chatScrollView.positionViewAtBeginning ()
             anchors.fill: parent
+            visible: parent.opacity > 0
         }
         Icon {
             name: "toolkit_chevron-down_4gu"
@@ -401,7 +463,7 @@ Page {
             anchors.left: parent.left
             anchors.leftMargin: units.gu(0.5)
             color: UbuntuColors.porcelain
-            visible: messageTextField.text === ""
+            visible: canSendMessages && messageTextField.text === ""
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
         }

@@ -241,6 +241,14 @@ ListView {
                 }
             }
             Action {
+                text: i18n.tr("Reply")
+                visible: chatPage.canSendMessages && contextualActions.contextEvent !== undefined && contextualActions.contextEvent.status >= msg_status.SENT
+                onTriggered: {
+                    chatPage.replyEvent = contextualActions.contextEvent
+                    messageTextField.focus = true
+                }
+            }
+            Action {
                 text: i18n.tr("Copy text")
                 onTriggered: {
                     mimeData.text = contextualActions.contextEvent.content.body
