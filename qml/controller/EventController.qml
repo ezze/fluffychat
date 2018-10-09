@@ -268,7 +268,6 @@ Item {
                 // Format the text for the app
                 var tempText = event.content.body || null
                 if ( tempText !== null ) {
-                    tempText = tempText.split("\n").join("<br>")
                     var urlRegex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
                     tempText = tempText.replace(urlRegex, function(url) {
                         var link = url

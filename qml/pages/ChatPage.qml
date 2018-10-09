@@ -69,7 +69,7 @@ Page {
             // Handle the commands
             data = sender.handleCommands ( data )
 
-            var urlRegex = /(https?:\/\/[^\s]+)/g
+            var urlRegex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
             var content_body = data.body || ""
             if ( content_body === "" ) content_body = " "
             content_body = content_body.replace(urlRegex, function(url) {
