@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-09 07:35+0000\n"
+"POT-Creation-Date: 2018-10-09 08:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:61
+#: ../qml/controller/SettingsController.qml:64
 msgid "USA"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:62
+#: ../qml/controller/SettingsController.qml:65
 msgid "1"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:176
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:183
 msgid "Archived chats"
 msgstr ""
 
@@ -258,7 +258,7 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:202
+#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:209
 msgid "Connected email addresses"
 msgstr ""
 
@@ -482,55 +482,59 @@ msgid "Chat settings:"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:148
-msgid "Display 'I am typing' when typing"
+msgid "Send on pressing enter key"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:155
-msgid "Show member change events"
+msgid "Display 'I am typing' when typing"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:162
-msgid "Hide less important events"
+msgid "Show member change events"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:169
+msgid "Hide less important events"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:176
 msgid "Autoload animated images"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:191
+#: ../qml/pages/SettingsPage.qml:198
 msgid "Account settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:196 ../qml/pages/PhoneSettingsPage.qml:47
+#: ../qml/pages/SettingsPage.qml:203 ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:208 ../qml/pages/DevicesSettingsPage.qml:24
+#: ../qml/pages/SettingsPage.qml:215 ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:214
+#: ../qml/pages/SettingsPage.qml:221
 msgid "Change password"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:229
+#: ../qml/pages/SettingsPage.qml:236
 msgid "Check out:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:234
+#: ../qml/pages/SettingsPage.qml:241
 msgid "Disable account"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:240 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:247 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:255
+#: ../qml/pages/SettingsPage.qml:262
 msgid "More:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:260
+#: ../qml/pages/SettingsPage.qml:267
 msgid "About FluffyChat"
 msgstr ""
 
@@ -633,7 +637,7 @@ msgstr ""
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:371
+#: ../qml/pages/ChatPage.qml:372
 msgid "Type something ..."
 msgstr ""
 

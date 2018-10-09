@@ -311,7 +311,7 @@ Page {
 
     Rectangle {
         id: chatInput
-        height: header.height
+        height: messageTextField.height + units.gu(2)
         width: parent.width + 2
         border.width: 1
         border.color: UbuntuColors.silk
@@ -361,13 +361,14 @@ Page {
             onTriggered: isTyping = false
         }
 
-        TextField {
+        TextArea {
             id: messageTextField
             anchors.bottom: parent.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
             anchors.margins: units.gu(1)
-            anchors.verticalCenter: parent.verticalCenter
-            width: parent.width - 2 * chatInputActionBar.width - units.gu(2)
+            anchors.right: chatInputActionBar.left
+            anchors.left: text !== "" ? parent.left : showStickerInput.right
+            autoSize: height <= mainStackWidth / 2 - header.height - units.gu(2)
+            maximumLineCount: 0
             placeholderText: i18n.tr("Type something ...")
             Keys.onReturnPressed: sendButton.trigger ()
             // If the user leaves the focus of the textfield: Send that he is no
@@ -399,7 +400,7 @@ Page {
             anchors.left: parent.left
             anchors.leftMargin: units.gu(0.5)
             color: UbuntuColors.porcelain
-            //color: settings.mainColor
+            visible: messageTextField.text === ""
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
         }
