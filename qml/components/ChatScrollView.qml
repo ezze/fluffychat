@@ -140,8 +140,7 @@ ListView {
                 var i = j-1
                 var tempEvent = model.get(i).event
                 tempEvent.sameSender = true
-                model.remove ( i )
-                model.insert ( i, { "event": tempEvent } )
+                model.set( i, { "event": tempEvent } )
             }
         }
         else {
@@ -166,8 +165,8 @@ ListView {
                 tempEvent.origin_server_ts = new Date().getTime()
                 var j = i
                 while ( j > 0 && tempEvent.origin_server_ts > model.get(j).event.origin_server_ts ) j--
-                model.remove ( i )
-                model.insert ( j, { "event": tempEvent } )
+                model.set( i, { "event": tempEvent } )
+                model.move( i, j, 1 )
                 break
             }
             else if ( model.get(i).event.id === newID ) break
@@ -182,8 +181,7 @@ ListView {
                 console.log(i,msg_status.ERROR)
                 var tempEvent = model.get(i).event
                 tempEvent.status = msg_status.ERROR
-                model.remove ( i )
-                model.insert ( i, { "event": tempEvent } )
+                model.set( i, { "event": tempEvent } )
                 break
             }
         }
@@ -218,8 +216,7 @@ ListView {
             model.get(i).event.status > msg_status.SENT ) {
                 var tempEvent = model.get(i).event
                 tempEvent.status = msg_status.SEEN
-                model.remove ( i )
-                model.insert ( i, { "event": tempEvent } )
+                model.set( i, { "event": tempEvent } )
             }
             else if ( model.get(i).event.status === msg_status.SEEN ) break
         }
@@ -288,4 +285,16 @@ ListView {
     delegate: ChatEvent {}
     model: ListModel { id: model }
     onContentYChanged: if ( atYBeginning ) requestHistory ()
+    move: Transition {
+        NumberAnimation { properties: "x,y"; duration: 200 }
+    }
+    displaced: Transition {
+        NumberAnimation { properties: "x,y"; duration: 200 }
+    }
+    add: Transition {
+        NumberAnimation { property: "opacity"; from: 0; duration: 200 }
+    }
+    remove: Transition {
+        NumberAnimation { property: "opacity"; from: 0; duration: 200 }
+    }
 }

@@ -83,9 +83,6 @@ Rectangle {
 
                 Rectangle {
                     width: thumbnail.status === Image.Ready ? thumbnail.width : height*(9/16)
-                    Behavior on width {
-                        NumberAnimation { duration: 300 }
-                    }
                     height: units.gu(30)
                     visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
                     AnimatedImage {
@@ -235,7 +232,9 @@ Rectangle {
                     // Intital calculation of the max width and display URL's and
                     // make sure, that the label text is not empty for the correct
                     // height calculation.
-                    Component.onCompleted: {
+                    onTextChanged: calcWidth ()
+                    Component.onCompleted: calcWidth ()
+                    function calcWidth () {
                         if ( !event.content_body ) event.content_body = event.content.body
                         var maxWidth = message.width - avatar.width - units.gu(5)
                         if ( width > maxWidth ) width = maxWidth
