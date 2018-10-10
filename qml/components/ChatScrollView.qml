@@ -121,18 +121,6 @@ ListView {
         // Check that there is no duplication:
         if ( model.count > j && event.id === model.get(j).event.id ) model.remove ( j )
 
-        // If there is a transaction id, remove the sending event
-        if ( "unsigned" in event && "transaction_id" in event.unsigned ) {
-            event.unsigned.transaction_id = event.unsigned.transaction_id
-            for ( var i = 0; i < model.count; i++ ) {
-                if ( model.get(i).event.id === event.unsigned.transaction_id ||
-                model.get(i).event.id === event.id) {
-                    model.remove( i )
-                    break
-                }
-            }
-        }
-
         // If the previous message has the same sender and is a normal message
         // then it is not necessary to show the user avatar again
         if ( history ) {
@@ -147,6 +135,18 @@ ListView {
             event.sameSender = model.count > j && model.count > 0 &&
             model.get(j).event.type === "m.room.message" &&
             model.get(j).event.sender === event.sender
+        }
+
+        // If there is a transaction id, remove the sending event
+        if ( "unsigned" in event && "transaction_id" in event.unsigned ) {
+            event.unsigned.transaction_id = event.unsigned.transaction_id
+            for ( var i = 0; i < model.count; i++ ) {
+                if ( model.get(i).event.id === event.unsigned.transaction_id ||
+                model.get(i).event.id === event.id) {
+                    model.set( i, { "event": event } )
+                    return
+                }
+            }
         }
 
 
@@ -286,10 +286,10 @@ ListView {
     model: ListModel { id: model }
     onContentYChanged: if ( atYBeginning ) requestHistory ()
     move: Transition {
-        NumberAnimation { properties: "x,y"; duration: 200 }
+        NumberAnimation { properties: "y"; duration: 200 }
     }
     displaced: Transition {
-        NumberAnimation { properties: "x,y"; duration: 200 }
+        NumberAnimation { properties: "y"; duration: 200 }
     }
     add: Transition {
         NumberAnimation { property: "opacity"; from: 0; duration: 200 }
