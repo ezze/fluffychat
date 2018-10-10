@@ -209,10 +209,10 @@ Page {
         delegate: ChatListItem {}
         model: ListModel { id: model }
         move: Transition {
-            NumberAnimation { properties: "x,y"; duration: 200 }
+            SpringAnimation { spring: 2; damping: 0.2; properties: "y"; duration: 200 }
         }
         displaced: Transition {
-            NumberAnimation { properties: "x,y"; duration: 200 }
+            SpringAnimation { spring: 2; damping: 0.2; properties: "y"; duration: 200 }
         }
         add: Transition {
             NumberAnimation { property: "opacity"; from: 0; duration: 200 }
