@@ -8,7 +8,6 @@ import "../components"
 ListItem {
     id: chatListItem
 
-    property var timeorder: 0
     property var previousMessage: ""
 
     visible: { searching ? layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 : true }
@@ -27,52 +26,42 @@ ListItem {
     ListItemLayout {
         id: layout
         width: parent.width - notificationBubble.width - highlightBubble.width
-        title.text: i18n.tr("Unknown chat")
+        title.text: room.topic !== "" ? room.topic : roomnames.getById ( room.id, function (displayname) {
+            layout.title.text = displayname
+        })
         title.font.bold: true
         title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
-        subtitle.text: i18n.tr("No previous messages")
+        subtitle.text: {
+            room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
+            (room.topic !== "" && room.typing && room.typing.length > 0 ? usernames.getTypingDisplayString ( room.typing, room.topic ) :
+            (room.content_body ? ( room.sender === matrix.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
+            i18n.tr("No preview messages")))
+        }
         subtitle.color: "#888888"
         subtitle.linkColor: subtitle.color
 
         Avatar {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
-            name: room.topic || room.id
-            mxc: room.avatar_url || ""
+            name: room.topic
+            mxc: room.avatar_url !== "" ? room.avatar_url : roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
+                avatar.mxc = avatar_url
+            } )
             onClickFunction: function () {
                 activeChat = room.id
                 mainStack.push (Qt.resolvedUrl("../pages/ChatSettingsPage.qml"))
             }
         }
 
-        Component.onCompleted: {
+        Component.onCompleted: update()
 
-            // Get the last message
-            if ( room.membership === "invite" ) {
-                layout.subtitle.text = i18n.tr("You have been invited to this chat")
-            }
-            else if ( room.topic !== "" && room.typing && room.typing.length > 0 ) {
-                layout.subtitle.text = usernames.getTypingDisplayString ( room.typing, room.topic )
-            }
-            else if ( room.content_body ){
-                var lastMessage = room.content_body
-                if ( room.sender === matrix.matrixid ) lastMessage = i18n.tr("You: ") + lastMessage
-                layout.subtitle.text = lastMessage
-            }
-            else if ( room.content_json ) {
-                layout.subtitle.text = displayEvents.getDisplay ( room )
-            }
-            previousMessage = layout.subtitle.text
+        function update () {
 
             // Get the room name
             if ( room.topic !== "" ) layout.title.text = room.topic
             else roomnames.getById ( room.id, function (displayname) {
                 layout.title.text = displayname
                 avatar.name = displayname
-                // Is there a typing notification?
-                if ( room.typing && room.typing.length > 0 ) {
-                    layout.subtitle.text = usernames.getTypingDisplayString ( room.typing, displayname )
-                }
             })
 
             // Get the room avatar if single chat

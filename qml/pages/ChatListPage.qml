@@ -78,8 +78,7 @@ Page {
             tempRoom.membership = membership
             tempRoom.notification_count = notification_count
             tempRoom.highlight_count = highlight_count
-            model.remove ( j )
-            model.insert ( j, { "room": tempRoom } )
+            model.set ( j, { "room": tempRoom })
         }
     }
 
@@ -117,15 +116,12 @@ Page {
             // Update the room avatar
             tempRoom.avatar_url = lastEvent.content.url
         }
-        model.remove ( j )
-        model.insert ( j, { "room": tempRoom } )
+        model.set ( j, { "room": tempRoom })
 
         // Now reorder this item
-        while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) {
-            model.remove ( j )
-            model.insert ( j-1, { "room": tempRoom } )
-            j--
-        }
+        var here = j
+        while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) j--
+        model.move( here, j, 1 )
     }
 
 
@@ -212,6 +208,18 @@ Page {
         anchors.topMargin: searching * (searchField.height + units.gu(2))
         delegate: ChatListItem {}
         model: ListModel { id: model }
+        move: Transition {
+            NumberAnimation { properties: "x,y"; duration: 200 }
+        }
+        displaced: Transition {
+            NumberAnimation { properties: "x,y"; duration: 200 }
+        }
+        add: Transition {
+            NumberAnimation { property: "opacity"; from: 0; duration: 200 }
+        }
+        remove: Transition {
+            NumberAnimation { property: "opacity"; from: 0; duration: 200 }
+        }
     }
 
     Label {

@@ -478,7 +478,7 @@ Page {
             anchors.left: parent.left
             anchors.leftMargin: units.gu(1)
             color: UbuntuColors.porcelain
-            visible: canSendMessages
+            visible: membership === "join" && canSendMessages
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
         }

@@ -82,7 +82,10 @@ Rectangle {
                 anchors.bottomMargin: isStateEvent ? units.gu(0.75) : units.gu(1)
 
                 Rectangle {
-                    width: thumbnail.status === Image.Ready ? thumbnail.width : height
+                    width: thumbnail.status === Image.Ready ? thumbnail.width : height*(9/16)
+                    Behavior on width {
+                        NumberAnimation { duration: 300 }
+                    }
                     height: units.gu(30)
                     visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
                     AnimatedImage {
@@ -285,13 +288,13 @@ Rectangle {
                         height: metaLabel.height
                         color: event.status === msg_status.SEEN ? defaultMainColor :
                         (event.status === msg_status.ERROR ? UbuntuColors.red :
-                        (event.status === msg_status.SENT ? "white" : "black"))
-                        width: height
+                            (event.status === msg_status.SENT ? "white" : "black"))
+                            width: height
+                        }
                     }
                 }
             }
         }
+
+
     }
-
-
-}
