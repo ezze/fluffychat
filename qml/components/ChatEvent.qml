@@ -19,6 +19,14 @@ Rectangle {
     color: "transparent"
 
 
+    function openContextMenu () {
+        if ( !isStateEvent && !thumbnail.visible && !contextualActions.visible ) {
+            contextualActions.contextEvent = event
+            contextualActions.show()
+        }
+    }
+
+
     // When the width of the "window" changes (rotation for example) then the maxWidth
     // of the message label must be calculated new. There is currently no "maxwidth"
     // property in qml.
@@ -36,7 +44,8 @@ Rectangle {
         name: chatMembers[event.sender] ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)
         anchors.left: isLeftSideEvent ? parent.left : undefined
         anchors.right: !isLeftSideEvent ? parent.right : undefined
-        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: units.gu(1)
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
         opacity: (event.sameSender && !isStateEvent) ? 0 : 1
@@ -50,20 +59,17 @@ Rectangle {
 
 
     MouseArea {
+        id: mouseArea
         width: messageBubble.width
         height: messageBubble.height
         anchors.left: isLeftSideEvent ? avatar.right : undefined
         anchors.right: !isLeftSideEvent ? avatar.left : undefined
-        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: units.gu(1)
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
 
-        onClicked: {
-            if ( !isStateEvent && !thumbnail.visible && !contextualActions.visible ) {
-                contextualActions.contextEvent = event
-                contextualActions.show()
-            }
-        }
+        onClicked: openContextMenu ()
         Rectangle {
             id: messageBubble
             opacity: (sending || event.status === msg_status.ERROR) ? 0.66 : isStateEvent ? 0.75 : 1
@@ -233,9 +239,8 @@ Rectangle {
                     // Intital calculation of the max width and display URL's and
                     // make sure, that the label text is not empty for the correct
                     // height calculation.
-                    onTextChanged: calcWidth ()
-                    Component.onCompleted: calcWidth ()
-                    function calcWidth () {
+                    //onTextChanged: calcWidth ()
+                    Component.onCompleted: {
                         if ( !event.content_body ) event.content_body = event.content.body
                         var maxWidth = message.width - avatar.width - units.gu(5)
                         if ( width > maxWidth ) width = maxWidth
@@ -260,11 +265,11 @@ Rectangle {
                         text: {
                             // Show the senders displayname only on the first message of
                             // this sender and only if its not the user him-/herself.
-                            ((!event.sameSender && event.sender !== matrix.matrixid) ?
+                            (event.sender !== matrix.matrixid ?
                             ("<b>" + (chatMembers[event.sender] ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)) + "</b> ")
                             : "")
                             + stamp.getChatTime ( event.origin_server_ts )
-                        }
+}
                         color: messageLabel.color
                         opacity: 0.66
                         textSize: Label.XSmall

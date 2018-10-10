@@ -118,24 +118,24 @@ ListView {
             while ( j < model.count-1 && event.origin_server_ts < model.get(j+1).event.origin_server_ts ) j++
         }
 
-        // Check that there is no duplication:
-        if ( model.count > j && event.id === model.get(j).event.id ) model.remove ( j )
-
         // If the previous message has the same sender and is a normal message
         // then it is not necessary to show the user avatar again
-        if ( history ) {
-            if ( model.count > 0 && model.get(j-1).event.sender === event.sender ) {
-                var i = j-1
-                var tempEvent = model.get(i).event
+        if ( model.count > j ) {
+            var tempEvent = model.get(j).event
+            if ( tempEvent.sender === event.sender && (event.type === "m.room.message" || event.type === "m.sticker") ) {
                 tempEvent.sameSender = true
-                model.set( i, { "event": tempEvent } )
+                model.set ( j, { "event": tempEvent })
             }
         }
-        else {
-            event.sameSender = model.count > j && model.count > 0 &&
-            model.get(j).event.type === "m.room.message" &&
-            model.get(j).event.sender === event.sender
+        if ( j > 0 ) {
+            var tempEvent = model.get(j-1).event
+            if ( tempEvent.sender === event.sender && (tempEvent.type === "m.room.message" || tempEvent.type === "m.sticker") ) {
+                event.sameSender = true
+                tempEvent.sameSender = false
+                model.set ( j-1, { "event": tempEvent })
+            }
         }
+
 
         // If there is a transaction id, remove the sending event
         if ( "unsigned" in event && "transaction_id" in event.unsigned ) {
@@ -147,6 +147,12 @@ ListView {
                     return
                 }
             }
+        }
+
+        // Check that there is no duplication:
+        if ( model.count > j && event.id === model.get(j).event.id ) {
+            model.set( j, { "event": event } )
+            return
         }
 
 
