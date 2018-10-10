@@ -101,7 +101,7 @@ BottomEdge {
                     }
 
                     UsernameListItem {
-                        matrix_id: matrix_id
+                        matrix_id: activeUser
                     }
 
                     Rectangle {
