@@ -6,6 +6,8 @@ ListItem {
     height: layout.height
     property var thisAddress: name
 
+    onClicked: shareController.shareLink ( "fluffychat://%1".arg(name) )
+
     ListItemLayout {
         id: layout
         title.text: name + (isCanonicalAlias ? " (<b>" + i18n.tr('Canonical alias') + "</b>)" : "")
@@ -15,6 +17,13 @@ ListItem {
             width: units.gu(4)
             height: units.gu(4)
             SlotsLayout.position: SlotsLayout.Leading
+        }
+
+        Icon {
+            name: "share"
+            width: units.gu(2)
+            height: width
+            SlotsLayout.position: SlotsLayout.Trailing
         }
     }
 

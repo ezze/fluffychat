@@ -18,6 +18,15 @@ BottomEdge {
             FcPageHeader {
                 id: userHeader
                 title: ""
+
+                trailingActionBar {
+                    actions: [
+                    Action {
+                        iconName: "mail-forward"
+                        onTriggered: shareController.shareLinkIntern ( "fluffychat://%1".arg(matrix_id) )
+                    }
+                    ]
+                }
             }
 
             Component.onCompleted:  {
@@ -91,15 +100,8 @@ BottomEdge {
                         color: UbuntuColors.ash
                     }
 
-                    ListItem {
-                        id: usernameListItem
-                        height: usernameListItemLayout.height
-                        color: Qt.rgba(0,0,0,0)
-                        ListItemLayout {
-                            id: usernameListItemLayout
-                            title.text: i18n.tr("Full username:")
-                            subtitle.text: matrix_id
-                        }
+                    UsernameListItem {
+                        matrix_id: matrix_id
                     }
 
                     Rectangle {

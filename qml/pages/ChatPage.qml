@@ -56,7 +56,7 @@ Page {
                 data.format = "org.matrix.custom.html"
                 data.formatted_body = '<mx-reply><blockquote><a href="https://matrix.to/#/%1/%2">In reply to</a> <a href="https://matrix.to/#/%3">%4</a><br>%5</blockquote></mx-reply>'
                 .arg(activeChat).arg(replyEvent.id).arg(replyEvent.sender).arg(replyEvent.sender).arg(replyEvent.content.body)
-                 + data.body
+                + data.body
 
                 // Change the normal body too
                 var contentLines = replyEvent.content.body.split("\n")
@@ -161,16 +161,14 @@ Page {
         // Is there something to share? Then now share it!
         if ( shareObject !== null ) {
             var message = ""
-            if ( shareObject.contentType === 6 ) {
-                for ( var i = 0; i < shareObject.items.length; i++ ) {
-                    if (String(shareObject.items[i].text).length > 0 && String(shareObject.items[i].url).length == 0) {
-                        message += String(shareObject.items[i].text)
-                    }
-                    else if (String(shareObject.items[i].url).length > 0 ) {
-                        message += String(shareObject.items[i].url)
-                    }
-                    if ( i+1 < shareObject.items.length ) message += "\n"
+            for ( var i = 0; i < shareObject.items.length; i++ ) {
+                if (String(shareObject.items[i].text).length > 0 && String(shareObject.items[i].url).length == 0) {
+                    message += String(shareObject.items[i].text)
                 }
+                else if (String(shareObject.items[i].url).length > 0 ) {
+                    message += String(shareObject.items[i].url)
+                }
+                if ( i+1 < shareObject.items.length ) message += "\n"
             }
             if ( message !== "") send( message )
             shareObject = null

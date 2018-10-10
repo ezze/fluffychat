@@ -124,15 +124,8 @@ Page {
                 color: UbuntuColors.ash
             }
 
-            ListItem {
-                id: usernameListItem
-                height: usernameListItemLayout.height
-                color: Qt.rgba(0,0,0,0)
-                ListItemLayout {
-                    id: usernameListItemLayout
-                    title.text: i18n.tr("Full username:")
-                    subtitle.text: matrix.matrixid
-                }
+            UsernameListItem {
+                matrix_id: matrix.matrixid
             }
 
             SettingsListLink {
