@@ -15,7 +15,7 @@ Rectangle {
     property var sending: sent && event.status === msg_status.SENDING
 
     width: mainStackWidth
-    height: messageBubble.height + units.gu(1)
+    height: (isStateEvent||isMediaEvent||isImage) ? messageBubble.height + units.gu(1) : messageLabel.height + units.gu(4.5)
     color: "transparent"
 
 
@@ -223,6 +223,7 @@ Rectangle {
                     textSize: isStateEvent ? Label.XSmall :
                     (event.content.msgtype === "m.fluffychat.whisper" ? Label.XxSmall :
                     (event.content.msgtype === "m.fluffychat.roar" ? Label.XLarge : Label.Medium))
+
                     font.italic: event.content.msgtype === "m.emote"
                     anchors.left: parent.left
                     anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)

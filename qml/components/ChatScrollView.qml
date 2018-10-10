@@ -150,7 +150,7 @@ ListView {
         }
 
 
-        // Now reorder this item and insert it
+        // Now insert it
         model.insert ( j, { "event": event } )
         initialized = model.count
     }
@@ -166,7 +166,7 @@ ListView {
                 var j = i
                 while ( j > 0 && tempEvent.origin_server_ts > model.get(j).event.origin_server_ts ) j--
                 model.set( i, { "event": tempEvent } )
-                model.move( i, j, 1 )
+                if ( i !== j ) model.move( i, j, 1 )
                 break
             }
             else if ( model.get(i).event.id === newID ) break
@@ -286,15 +286,15 @@ ListView {
     model: ListModel { id: model }
     onContentYChanged: if ( atYBeginning ) requestHistory ()
     move: Transition {
-        SpringAnimation { spring: 2; damping: 0.2; properties: "y"; duration: 200 }
+        SpringAnimation { spring: 2; damping: 0.2; property: "y"; duration: 300 }
     }
     displaced: Transition {
-        SpringAnimation { spring: 2; damping: 0.2; properties: "y"; duration: 200 }
+        SpringAnimation { spring: 2; damping: 0.2; property: "y"; duration: 300 }
     }
     add: Transition {
-        NumberAnimation { property: "opacity"; from: 0; duration: 200 }
+        NumberAnimation { property: "opacity"; from: 0; duration: 300 }
     }
     remove: Transition {
-        NumberAnimation { property: "opacity"; from: 0; duration: 200 }
+        NumberAnimation { property: "opacity"; from: 0; duration: 300 }
     }
 }

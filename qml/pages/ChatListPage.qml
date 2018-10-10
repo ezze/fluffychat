@@ -121,7 +121,7 @@ Page {
         // Now reorder this item
         var here = j
         while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) j--
-        model.move( here, j, 1 )
+        if ( here !== j ) model.move( here, j, 1 )
     }
 
 
@@ -209,10 +209,10 @@ Page {
         delegate: ChatListItem {}
         model: ListModel { id: model }
         move: Transition {
-            SpringAnimation { spring: 2; damping: 0.2; properties: "y"; duration: 200 }
+            SpringAnimation { spring: 2; damping: 0.2; property: "y"; duration: 200 }
         }
         displaced: Transition {
-            SpringAnimation { spring: 2; damping: 0.2; properties: "y"; duration: 200 }
+            SpringAnimation { spring: 2; damping: 0.2; property: "y"; duration: 200 }
         }
         add: Transition {
             NumberAnimation { property: "opacity"; from: 0; duration: 200 }
