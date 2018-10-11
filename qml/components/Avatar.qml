@@ -9,9 +9,7 @@ Rectangle {
     // rounded corners for img
     width: units.gu(6)
     height: width
-    color: avatar.status === Image.Ready ? settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 ) : usernames.stringToColor ( name )
-    border.width: 1
-    border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
+    color: avatar.status === Image.Ready ? "#00000000" : usernames.stringToColor ( name )
     radius: width / 6
     z:1
     clip: true
