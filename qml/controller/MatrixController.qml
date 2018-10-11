@@ -163,11 +163,9 @@ Item {
         .split('"').join("&quot;")
 
         // Find urls and make them clickable
-        var urlRegex = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
+        var urlRegex = /(?:(?:https?|ftp|fluffychat|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
         tempText = tempText.replace(urlRegex, function(url) {
-            var link = url
-            if ( url.indexOf ( "http" ) === -1 ) link = "http://" + url
-            return '<a href="%1">%2</a>'.arg(link).arg(url)
+            return '<a href="%1">%2</a>'.arg(url).arg(url)
         })
 
         return formatReply ( tempText )

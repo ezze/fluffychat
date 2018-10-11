@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-11 10:15+0000\n"
+"POT-Creation-Date: 2018-10-11 10:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:174 ../qml/components/ChatScrollView.qml:277
+#: ../qml/Main.qml:175 ../qml/components/ChatScrollView.qml:277
 msgid "Are you sure?"
 msgstr ""
 
@@ -218,11 +218,11 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:180
+#: ../qml/controller/MatrixController.qml:178
 msgid "wrote:"
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:280
+#: ../qml/controller/MatrixController.qml:278
 msgid "😕 No connection..."
 msgstr ""
 
@@ -449,7 +449,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:134
+#: ../qml/components/ChatEvent.qml:148
 msgid "Show image"
 msgstr ""
 
@@ -974,7 +974,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:235
+#: ../qml/components/ChatEvent.qml:249
 msgid "Download: "
 msgstr ""
 

@@ -62,6 +62,7 @@ Item {
         onFinished: {
             console.log ( "Downloaded: ", path )
             isDownloading = false
+            callback ( path )
         }
     }
 

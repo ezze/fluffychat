@@ -94,27 +94,41 @@ Rectangle {
                 Rectangle {
                     id: image
                     color: "#00000000"
-                    width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : height*(9/16))
+                    width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : (showGif ? gif.width : height*(9/16)))
                     height: visible * (!showButton ? units.gu(30) : showImageButton.height)
                     visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
                     property var showGif: visible && settings.autoloadGifs && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
                     property var showThumbnail: visible && !showGif && event.content.info && event.content.info.thumbnail_url
                     property var showButton: visible && !showGif && !showThumbnail
 
-                    AnimatedImage {
+                    Image {
                         id: thumbnail
-                        source: {
-                            image.showGif ? media.getLinkFromMxc ( event.content.url ) : (image.showThumbnail ?
-                            media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) : "")
+                        source: image.showThumbnail ? downloadPath + event.content.info.thumbnail_url.split("/")[3] : ""
+                        property var onlyOneError: true
+                        onStatusChanged: {
+                            if ( status === Image.Error && onlyOneError ) {
+                                thumbnail.source = media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) )
+                                onlyOneError = false
+                            }
                         }
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
-                        visible: !image.showButton && status === Image.Ready
+                        visible: image.showThumbnail && status === Image.Ready
+                        cache: true
+                    }
+
+                    AnimatedImage {
+                        id: gif
+                        source: image.showGif ? media.getLinkFromMxc ( event.content.url ) : ""
+                        height: parent.height
+                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
+                        fillMode: Image.PreserveAspectCrop
+                        visible: image.showGif && status === gif.Ready
                     }
 
                     ActivityIndicator {
-                        visible: thumbnail.status === Image.Loading
+                        visible: image.showThumbnail && thumbnail.status === Image.Loading || image.showGif && gif.status === Image.loading
                         anchors.centerIn: parent
                         width: units.gu(2)
                         height: width
@@ -122,7 +136,7 @@ Rectangle {
                     }
 
                     Icon {
-                        visible: thumbnail.status === Image.Error
+                        visible: image.showThumbnail && thumbnail.status === Image.Error || image.showGif && gif.status === Image.Error
                         anchors.centerIn: parent
                         width: units.gu(6)
                         height: width
@@ -264,7 +278,12 @@ Rectangle {
                     anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
                     anchors.leftMargin: units.gu(1)
                     anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
-                    onLinkActivated: Qt.openUrlExternally(link)
+                    onLinkActivated: {
+                        if ( link.split("fluffychat://").length > 0 ) {
+                            usernames.showUserSettings( link.split("fluffychat://")[1] )
+                        }
+                        else Qt.openUrlExternally(link)
+                    }
                     // Intital calculation of the max width and display URL's and
                     // make sure, that the label text is not empty for the correct
                     // height calculation.
