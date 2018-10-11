@@ -1,7 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
-import QtGraphicalEffects 1.0
 import Ubuntu.Components.Popups 1.3
 import "../components"
 
