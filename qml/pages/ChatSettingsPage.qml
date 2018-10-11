@@ -81,6 +81,7 @@ Page {
                     userPower: member.power_level
                 })
             }
+            memberList.positionViewAtBeginning ()
         })
     }
 
