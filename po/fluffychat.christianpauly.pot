@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 14:20+0000\n"
+"POT-Creation-Date: 2018-10-11 08:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -449,6 +449,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:84 ../qml/pages/ChatSettingsPage.qml:163
+#: ../qml/components/ChatEvent.qml:134
 msgid "Show image"
 msgstr ""
 
@@ -624,19 +625,19 @@ msgstr ""
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:407
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:407
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:419
+#: ../qml/pages/ChatPage.qml:421
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:450
+#: ../qml/pages/ChatPage.qml:452
 msgid "Type something ..."
 msgstr ""
 
@@ -1005,7 +1006,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:209
+#: ../qml/components/ChatEvent.qml:234
 msgid "Download: "
 msgstr ""
 

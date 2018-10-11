@@ -287,7 +287,7 @@ Page {
     Rectangle {
         id: replyEventView
         width: parent.width
-        anchors.top: header.bottom
+        anchors.bottom: chatInput.top
         anchors.left: parent.left
         height: header.height - 2
         opacity: 0
@@ -337,10 +337,12 @@ Page {
 
     Rectangle {
         id: scrollDownButton
-        width: parent.width
+        width: units.gu(8)
+        height: width
         anchors.bottom: chatInput.top
-        anchors.left: parent.left
-        height: header.height - 2
+        anchors.right: parent.right
+        anchors.margins: units.gu(2)
+        radius: width / 6
         opacity: 0
         color: theme.palette.normal.background
         z: 14
@@ -442,7 +444,7 @@ Page {
                 margins: units.gu(1)
                 rightMargin: units.gu(0.5)
                 right: chatInputActionBar.left
-                left: showStickerInput.right
+                left: showStickerInput.visible ? showStickerInput.right : parent.left
             }
             property var hasText: false
             autoSize: height <= mainStackWidth / 2 - header.height - units.gu(2)
@@ -477,8 +479,8 @@ Page {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: units.gu(1)
-            color: UbuntuColors.porcelain
-            visible: membership === "join" && canSendMessages
+            color: "#44" + settings.mainColor.replace("#","")
+            visible: membership === "join" && canSendMessages && replyEvent === null
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
         }

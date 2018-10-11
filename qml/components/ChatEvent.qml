@@ -69,7 +69,7 @@ Rectangle {
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
 
-        onClicked: openContextMenu ()
+        onPressAndHold: openContextMenu ()
         Rectangle {
             id: messageBubble
             opacity: (sending || event.status === msg_status.ERROR) ? 0.66 : isStateEvent ? 0.75 : 1
@@ -87,22 +87,30 @@ Rectangle {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: isStateEvent ? units.gu(0.75) : units.gu(1)
 
+
+                /* ====================IMAGE OR STICKER====================
+                 * If the message is an image or a sticker, then show this, following:
+                 * http://yuml.me/diagram/plain/activity/(start)-><a>[Gif-Image && autload active]->(Show full MXC), <a>[else]-><b>[Thumbnail exists]->(Show thumbnail), <b>[Thumbnail is null]->(Show "Show Image"-Button)               */
                 Rectangle {
-                    width: thumbnail.status === Image.Ready ? thumbnail.width : height*(9/16)
-                    height: units.gu(30)
-                    visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
+                    id: image
+                    color: "#00000000"
+                    width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : height*(9/16))
+                    height: visible * (!showButton ? units.gu(30) : showImageButton.height)
+                    visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
+                    property var showGif: visible && settings.autoloadGifs && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
+                    property var showThumbnail: visible && !showGif && event.content.info && event.content.info.thumbnail_url
+                    property var showButton: visible && !showGif && !showThumbnail
+
                     AnimatedImage {
                         id: thumbnail
                         source: {
-                            (settings.autoloadGifs && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif") ?
-                            media.getLinkFromMxc ( event.content.url ) :
-                            ((event.content.url && event.content.info && event.content.info.thumbnail_url ) ?
+                            image.showGif ? media.getLinkFromMxc ( event.content.url ) : (image.showThumbnail ?
                             media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) : "")
                         }
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
-                        visible: status !== Image.Error
+                        visible: !image.showButton && status === Image.Ready
                     }
 
                     ActivityIndicator {
@@ -121,13 +129,26 @@ Rectangle {
                         name: "sync-error"
                     }
 
+                    Button {
+                        id: showImageButton
+                        text: i18n.tr("Show image")
+                        onClicked: imageViewer.show ( event.content.url )
+                        visible: image.showButton
+                        height: visible ? units.gu(4) : 0
+                        width: visible ? units.gu(26) : 0
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(1)
+                    }
+
                     MouseArea {
-                        anchors.fill: parent
+                        anchors.fill: thumbnail
                         onClicked: imageViewer.show ( event.content.url )
                     }
                 }
 
 
+                /*  ====================AUDIO MESSAGE====================
+                */
                 Row {
                     id: audioPlayer
                     visible: event.content.msgtype === "m.audio"
@@ -175,6 +196,9 @@ Rectangle {
                     }
                 }
 
+
+                /*  ====================VIDEO MESSAGE====================
+                */
                 MouseArea {
                     width: videoLink.width
                     height: videoLink.height
@@ -203,6 +227,8 @@ Rectangle {
                 }
 
 
+                /*  ====================FILE MESSAGE====================
+                */
                 Button {
                     id: downloadButton
                     text: i18n.tr("Download: ") + event.content.body
@@ -215,8 +241,10 @@ Rectangle {
                 }
 
 
-                // In this label, the body of the matrix message is displayed. This label
-                // is main responsible for the width of the message bubble.
+                /*  ====================TEXT MESSAGE====================
+                 * In this label, the body of the matrix message is displayed. This label
+                 * is main responsible for the width of the message bubble.
+                */
                 Label {
                     id: messageLabel
                     opacity: (event.type === "m.sticker" || isMediaEvent) ? 0 : 1
