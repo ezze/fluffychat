@@ -252,7 +252,13 @@ ListView {
                 }
             }
             Action {
+                text: i18n.tr("Forward")
+                visible: contextualActions.contextEvent !== undefined && contextualActions.contextEvent.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( contextualActions.contextEvent.content.msgtype ) === -1
+                onTriggered: shareController.shareTextIntern ("%1 (%2): %3".arg( contextualActions.contextEvent.sender ).arg( stamp.getChatTime (contextualActions.contextEvent.origin_server_ts) ).arg( contextualActions.contextEvent.content.body ))
+            }
+            Action {
                 text: i18n.tr("Copy text")
+                visible: contextualActions.contextEvent !== undefined && contextualActions.contextEvent.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( contextualActions.contextEvent.content.msgtype ) === -1
                 onTriggered: {
                     mimeData.text = contextualActions.contextEvent.content.body
                     Clipboard.push( mimeData )

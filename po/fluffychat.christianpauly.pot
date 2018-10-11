@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-11 08:44+0000\n"
+"POT-Creation-Date: 2018-10-11 08:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:174 ../qml/components/ChatScrollView.qml:271
+#: ../qml/Main.qml:174 ../qml/components/ChatScrollView.qml:277
 msgid "Are you sure?"
 msgstr ""
 
@@ -1120,14 +1120,18 @@ msgid "Reply"
 msgstr ""
 
 #: ../qml/components/ChatScrollView.qml:255
+msgid "Forward"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:260
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:259
+#: ../qml/components/ChatScrollView.qml:265
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:263
+#: ../qml/components/ChatScrollView.qml:269
 msgid "Delete message"
 msgstr ""
 

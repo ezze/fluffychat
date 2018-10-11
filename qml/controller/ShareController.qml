@@ -74,6 +74,13 @@ Item {
         share( url, title, ContentType.Documents)
     }
 
+    function shareTextIntern ( text ) {
+        mainStack.toStart()
+        shareObject = {
+            items: [ contentItemComponent.createObject(shareController, {"url" : "", "text": text}) ]
+        }
+    }
+
     function shareLinkIntern ( url ) {
         uri = url
         mainStack.toStart()

@@ -170,7 +170,7 @@ Page {
                 }
                 if ( i+1 < shareObject.items.length ) message += "\n"
             }
-            if ( message !== "") send( message )
+            if ( message !== "") messageTextField.text = message
             shareObject = null
         }
 

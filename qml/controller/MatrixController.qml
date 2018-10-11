@@ -176,18 +176,14 @@ Item {
     function formatReply ( tempText ) {
         if ( tempText.slice(0,9) === "&gt; &lt;" ) {
             var lines = tempText.split("\n")
-            console.log("FIRST LINE",lines[0])
             lines[0] = lines[0].replace("&gt; ", "")
             lines[0] = lines[0].replace("&gt;"," " + i18n.tr("wrote:"))
             lines[0] = lines[0].replace("&lt;","<font color='#888888'>")
             lines[0] += "</font>"
-            console.log("FIRST LINE AFTER FORMAT",lines[0])
             for ( var i = 1; i < lines.length; i++ ) {
-                console.log("CHECK LINE", i, lines[i])
                 if ( lines[i].slice(0,4) === "&gt;" ) {
                     lines[i] = lines[i].replace("&gt;", "<font color='#888888'>")
                     lines[i] += "</font>"
-                    console.log("LINE AFTER FORMAT", i, lines[i])
                 }
                 else break
             }
