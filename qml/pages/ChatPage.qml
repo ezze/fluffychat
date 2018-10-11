@@ -339,12 +339,14 @@ Page {
         id: scrollDownButton
         width: units.gu(8)
         height: width
-        anchors.bottom: chatInput.top
+        anchors.bottom: replyEvent === null ? chatInput.top : replyEventView.top
         anchors.right: parent.right
         anchors.margins: units.gu(2)
+        border.width: 1
+        border.color: UbuntuColors.slate
         radius: width / 6
         opacity: 0
-        color: theme.palette.normal.background
+        color: UbuntuColors.jet
         z: 14
         MouseArea {
             onClicked: chatScrollView.positionViewAtBeginning ()
@@ -357,7 +359,7 @@ Page {
             height: width
             anchors.centerIn: parent
             z: 14
-            color: mainFontColor
+            color: "white"
         }
         states: State {
             name: "visible"; when: !chatScrollView.atYEnd

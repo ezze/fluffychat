@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-11 08:35+0000\n"
+"POT-Creation-Date: 2018-10-11 08:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -625,19 +625,19 @@ msgstr ""
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:407
+#: ../qml/pages/ChatPage.qml:409
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:407
+#: ../qml/pages/ChatPage.qml:409
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:421
+#: ../qml/pages/ChatPage.qml:423
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:452
+#: ../qml/pages/ChatPage.qml:454
 msgid "Type something ..."
 msgstr ""
 
