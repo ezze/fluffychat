@@ -13,6 +13,17 @@ Page {
         onNewEvent: updateAvatar ( type, chat_id, eventType, eventContent )
     }
 
+    MediaImport { id: backgroundImport }
+
+    Connections {
+        target: backgroundImport
+        onMediaReceived: changeBackground ( mediaUrl )
+    }
+
+    function changeBackground ( mediaUrl ) {
+        settings.chatBackground = mediaUrl
+    }
+
     function updateAvatar ( type, chat_id, eventType, eventContent ) {
         if ( type === "m.room.member" && eventContent.sender === matrix.matrixid ) {
             storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + matrix.matrixid + "'", function (rs) {
