@@ -220,7 +220,7 @@ Rectangle {
 
                 /*  ====================VIDEO MESSAGE====================
                 */
-                MouseArea {
+                /*MouseArea {
                     width: videoLink.width
                     height: videoLink.height
                     anchors.left: parent.left
@@ -245,7 +245,7 @@ Rectangle {
                             height: width
                         }
                     }
-                }
+                }*/
 
 
                 /*  ====================FILE MESSAGE====================
@@ -259,7 +259,7 @@ Rectangle {
                         downloadDialog.downloadUrl = media.getLinkFromMxc ( event.content.url )
                         downloadDialog.current = PopupUtils.open(downloadDialog)
                     }
-                    visible: event.content.msgtype === "m.file"
+                    visible: event.content.msgtype === "m.file" || event.content.msgtype === "m.video"
                     height: visible ? units.gu(4) : 0
                     width: visible ? units.gu(26) : 0
                     anchors.left: parent.left
