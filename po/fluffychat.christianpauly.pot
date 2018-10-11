@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-11 08:55+0000\n"
+"POT-Creation-Date: 2018-10-11 09:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -218,11 +218,11 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:181
+#: ../qml/controller/MatrixController.qml:180
 msgid "wrote:"
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:284
+#: ../qml/controller/MatrixController.qml:280
 msgid "😕 No connection..."
 msgstr ""
 
