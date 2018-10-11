@@ -9,7 +9,7 @@ Rectangle {
     // rounded corners for img
     width: units.gu(6)
     height: width
-    color: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
+    color: avatar.status === Image.Ready ? settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 ) : usernames.stringToColor ( name )
     border.width: 1
     border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
     radius: width / 6
@@ -20,15 +20,6 @@ Rectangle {
     property var mxc: ""
     property var onClickFunction: function () { if ( mxc !== "" && mxc !== undefined && mxc !== null ) imageViewer.show ( mxc ) }
     property var name: ""
-
-
-    function stringToColor ( str ) {
-        if ( str.indexOf("@") !== -1 ) str = usernames.getById ( str )
-        var number = 0
-        for( var i=0; i<str.length; i++ ) number += str.charCodeAt(i)
-        number = (number % 100) / 100
-        return Qt.hsla( number, 1, 0.35, 1 )
-    }
 
 
     MouseArea {
@@ -56,7 +47,7 @@ Rectangle {
     Label {
         anchors.centerIn: parent
         text: name.charAt(0) === "@" ? name.slice( 1, 3 ) : name.slice( 0, 2 )
-        color: stringToColor ( name )
+        color: "white"
         textSize: parent.width > units.gu(6) ? Label.XLarge : (parent.width < units.gu(6) ? Label.Small : Label.Large)
         z: 10
         visible: mxc === "" || avatar.status != Image.Ready

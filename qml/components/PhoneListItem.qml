@@ -12,7 +12,7 @@ ListItem {
         title.text: name
         Icon {
             name: "phone-symbolic"
-            color: settings.mainColor
+            color: defaultMainColor
             width: units.gu(4)
             height: units.gu(4)
             SlotsLayout.position: SlotsLayout.Leading

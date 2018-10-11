@@ -5,7 +5,7 @@ import Ubuntu.Components 1.3
 ListItem {
     property var name: ""
     property var icon: "settings"
-    property var iconColor: settings.mainColor
+    property var iconColor: defaultMainColor
     property var page
     height: layout.height
     onClicked: mainStack.push(Qt.resolvedUrl("../pages/%1.qml".arg(page)))

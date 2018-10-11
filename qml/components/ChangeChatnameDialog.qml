@@ -13,7 +13,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: defaultMainColor
         }
         TextField {
             id: chatnameTextField

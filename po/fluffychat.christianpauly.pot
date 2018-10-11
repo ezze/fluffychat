@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-11 09:01+0000\n"
+"POT-Creation-Date: 2018-10-11 09:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:61
+#: ../qml/controller/SettingsController.qml:58
 msgid "USA"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:62
+#: ../qml/controller/SettingsController.qml:59
 msgid "1"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:186
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:235
 msgid "Archived chats"
 msgstr ""
 
@@ -262,7 +262,7 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:212
+#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:261
 msgid "Connected email addresses"
 msgstr ""
 
@@ -467,71 +467,79 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:132 ../qml/pages/ThemeSettingsPage.qml:11
-msgid "Theme"
+#: ../qml/pages/SettingsPage.qml:139 ../qml/pages/ThemeSettingsPage.qml:50
+msgid "Change chat background"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:138
+#: ../qml/pages/SettingsPage.qml:163 ../qml/pages/ThemeSettingsPage.qml:74
+msgid "Background removed"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:179 ../qml/pages/ThemeSettingsPage.qml:35
+msgid "Dark mode"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:187
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:245
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:153
+#: ../qml/pages/SettingsPage.qml:202
 msgid "Chat settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:158
+#: ../qml/pages/SettingsPage.qml:207
 msgid "Display 'I am typing' when typing"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:165
+#: ../qml/pages/SettingsPage.qml:214
 msgid "Show member change events"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:172
+#: ../qml/pages/SettingsPage.qml:221
 msgid "Hide less important events"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:179
+#: ../qml/pages/SettingsPage.qml:228
 msgid "Autoload animated images"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:201
+#: ../qml/pages/SettingsPage.qml:250
 msgid "Account settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:206 ../qml/pages/PhoneSettingsPage.qml:47
+#: ../qml/pages/SettingsPage.qml:255 ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:218 ../qml/pages/DevicesSettingsPage.qml:24
+#: ../qml/pages/SettingsPage.qml:267 ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:224
+#: ../qml/pages/SettingsPage.qml:273
 msgid "Change password"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:239
+#: ../qml/pages/SettingsPage.qml:288
 msgid "Check out:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:244
+#: ../qml/pages/SettingsPage.qml:293
 msgid "Disable account"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:250 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:299 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:265
+#: ../qml/pages/SettingsPage.qml:314
 msgid "More:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:270
+#: ../qml/pages/SettingsPage.qml:319
 msgid "About FluffyChat"
 msgstr ""
 
@@ -754,44 +762,8 @@ msgstr ""
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/ThemeSettingsPage.qml:35
-msgid "Dark mode"
-msgstr ""
-
-#: ../qml/pages/ThemeSettingsPage.qml:50
-msgid "Change chat background"
-msgstr ""
-
-#: ../qml/pages/ThemeSettingsPage.qml:74
-msgid "Background removed"
-msgstr ""
-
-#: ../qml/pages/ThemeSettingsPage.qml:99
-msgid "Choose a main color:"
-msgstr ""
-
-#: ../qml/pages/ThemeSettingsPage.qml:104
-msgid "Purple"
-msgstr ""
-
-#: ../qml/pages/ThemeSettingsPage.qml:110
-msgid "Blue"
-msgstr ""
-
-#: ../qml/pages/ThemeSettingsPage.qml:116
-msgid "Red"
-msgstr ""
-
-#: ../qml/pages/ThemeSettingsPage.qml:122
-msgid "Orange"
-msgstr ""
-
-#: ../qml/pages/ThemeSettingsPage.qml:129
-msgid "Graphite"
-msgstr ""
-
-#: ../qml/pages/ThemeSettingsPage.qml:135
-msgid "Green"
+#: ../qml/pages/ThemeSettingsPage.qml:11
+msgid "Theme"
 msgstr ""
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:24

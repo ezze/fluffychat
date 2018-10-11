@@ -128,10 +128,59 @@ Page {
                 matrix_id: matrix.matrixid
             }
 
-            SettingsListLink {
-                name: i18n.tr("Theme")
-                icon: "image-x-generic-symbolic"
-                page: "ThemeSettingsPage"
+            ListItem {
+                property var name: ""
+                property var icon: "settings"
+                onClicked: backgroundImport.requestMedia ()
+                height: layout.height
+
+                ListItemLayout {
+                    id: layout
+                    title.text: i18n.tr("Change chat background")
+                    Icon {
+                        name: "image-x-generic-symbolic"
+                        color: defaultMainColor
+                        width: units.gu(4)
+                        height: units.gu(4)
+                        SlotsLayout.position: SlotsLayout.Leading
+                    }
+
+                    Rectangle {
+                        id: removeIcon
+                        SlotsLayout.position: SlotsLayout.Trailing
+                        width: units.gu(4)
+                        height: width
+                        visible: settings.chatBackground !== undefined
+                        color: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
+                        border.width: 1
+                        border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
+                        radius: width / 6
+                        MouseArea {
+                            anchors.fill: parent
+                            visible: settings.chatBackground !== undefined
+                            onClicked: {
+                                settings.chatBackground = undefined
+                                toast.show ( i18n.tr("Background removed") )
+                            }
+                        }
+                        Icon {
+                            width: units.gu(2)
+                            height: units.gu(2)
+                            anchors.centerIn: parent
+                            name: "edit-delete"
+                            color: UbuntuColors.red
+                            visible: settings.chatBackground !== undefined
+                        }
+                    }
+                }
+            }
+
+            SettingsListSwitch {
+                name: i18n.tr("Dark mode")
+                icon: "display-brightness-max"
+                onSwitching: function () { settings.darkmode = isChecked }
+                isChecked: settings.darkmode
+                isEnabled: true
             }
 
             SettingsListLink {

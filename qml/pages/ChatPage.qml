@@ -262,7 +262,7 @@ Page {
         visible: settings.chatBackground === undefined
         anchors.fill: parent
         opacity: 0.1
-        color: settings.mainColor
+        color: usernames.stringToColor ( activeChatDisplayName )
         z: 0
     }
 
@@ -481,7 +481,7 @@ Page {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: units.gu(1)
-            color: UbuntuColors.porcelain
+            color: UbuntuColors.silk
             visible: membership === "join" && canSendMessages && replyEvent === null
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()

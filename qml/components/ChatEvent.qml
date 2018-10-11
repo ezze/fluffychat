@@ -77,7 +77,7 @@ Rectangle {
             border.width: 0
             border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
             anchors.margins: units.gu(0.5)
-            color: (sent || isStateEvent) ? "#FFFFFF" : settings.mainColor
+            color: (!sent || isStateEvent) ? "#FFFFFF" : defaultMainColor
             radius: units.gu(2)
             height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
             width: contentColumn.width + ( isImage ? 0 : units.gu(2) )
@@ -250,7 +250,7 @@ Rectangle {
                     opacity: (event.type === "m.sticker" || isMediaEvent) ? 0 : 1
                     height: opacity ? undefined : 0
                     text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :  event.content_body || event.content.body
-                    color: (sent || isStateEvent) ? "black" : "white"
+                    color: (!sent || isStateEvent) ? "black" : "white"
                     linkColor: color
                     wrapMode: Text.Wrap
                     textFormat: Text.StyledText
@@ -294,7 +294,7 @@ Rectangle {
                             // Show the senders displayname only on the first message of
                             // this sender and only if its not the user him-/herself.
                             (event.sender !== matrix.matrixid ?
-                            ("<b>" + (chatMembers[event.sender] ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)) + "</b> ")
+                            ("<b><font color='" + usernames.stringToColor(chatMembers[event.sender].displayname) + "'>" + (chatMembers[event.sender].displayname) + "</font></b> ")
                             : "")
                             + stamp.getChatTime ( event.origin_server_ts )
 }
@@ -319,10 +319,8 @@ Rectangle {
                         (event.status === msg_status.RECEIVED ? "tick" :
                         (event.status === msg_status.HISTORY ? "clock" : "edit-clear"))
                         height: metaLabel.height
-                        color: event.status === msg_status.SEEN ? defaultMainColor :
-                        (event.status === msg_status.ERROR ? UbuntuColors.red :
-                            (event.status === msg_status.SENT ? "white" : "black"))
-                            width: height
+                        color: "white"
+                        width: height
                         }
                     }
                 }

@@ -7,7 +7,7 @@ ListItem {
     property var value: ""
     property var icon: "settings"
     property var rightIcon: ""
-    property var iconColor: settings.mainColor
+    property var iconColor: defaultMainColor
     height: layout.height
 
     ListItemLayout {

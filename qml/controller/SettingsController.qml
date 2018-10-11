@@ -33,9 +33,6 @@ Settings {
     // Is the pusher set?
     property var pushToken
 
-    // The main color of the theme
-    property var mainColor: defaultMainColor
-
     // Dark mode enabled?
     property var darkmode: false
 

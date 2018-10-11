@@ -193,7 +193,7 @@ Page {
             Icon {
                 id: banner
                 source: "../../assets/fluffychat-banner.png"
-                color: settings.mainColor
+                color: defaultMainColor
                 width: root.width
                 height: width * 2/5
             }
