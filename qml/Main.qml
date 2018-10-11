@@ -159,6 +159,14 @@ MainView {
     LoadingModal { id: loadingModal }
     Audio { id: audio }
     ConfirmDialog { id: confirmDialog }
+    DownloadDialog {
+        id: downloadDialog
+        property var current: null
+        property var downloadButton: null
+        property var filename: null
+        property var downloadUrl: null
+        property var shareFunc: shareController.shareFile
+    }
     Image {
         id: backgroundImage
         opacity: 0

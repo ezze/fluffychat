@@ -40,8 +40,8 @@ Rectangle {
 
     Avatar {
         id: avatar
-        mxc: chatMembers[event.sender] ? chatMembers[event.sender].avatar_url : ""
-        name: chatMembers[event.sender] ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)
+        mxc: opacity ? chatMembers[event.sender].avatar_url : ""
+        name: chatMembers[event.sender].displayname
         anchors.left: isLeftSideEvent ? parent.left : undefined
         anchors.right: !isLeftSideEvent ? parent.right : undefined
         anchors.bottom: parent.bottom
@@ -89,8 +89,8 @@ Rectangle {
 
 
                 /* ====================IMAGE OR STICKER====================
-                 * If the message is an image or a sticker, then show this, following:
-                 * http://yuml.me/diagram/plain/activity/(start)-><a>[Gif-Image && autload active]->(Show full MXC), <a>[else]-><b>[Thumbnail exists]->(Show thumbnail), <b>[Thumbnail is null]->(Show "Show Image"-Button)               */
+                * If the message is an image or a sticker, then show this, following:
+                * http://yuml.me/diagram/plain/activity/(start)-><a>[Gif-Image && autload active]->(Show full MXC), <a>[else]-><b>[Thumbnail exists]->(Show thumbnail), <b>[Thumbnail is null]->(Show "Show Image"-Button)               */
                 Rectangle {
                     id: image
                     color: "#00000000"
@@ -206,7 +206,13 @@ Rectangle {
                         anchors.verticalCenter: parent.verticalCenter
                         color: "white"
                         iconName: "document-save-as"
-                        onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
+                        onClicked: {
+                            downloadDialog.downloadButton = downloadAudioButton
+                            downloadDialog.filename = event.content_body
+                            downloadDialog.downloadUrl = media.getLinkFromMxc ( event.content.url )
+                            downloadDialog.shareFunc = shareController.shareAudio
+                            downloadDialog.current = PopupUtils.open(downloadDialog)
+                        }
                         width: units.gu(4)
                     }
                 }
@@ -247,7 +253,12 @@ Rectangle {
                 Button {
                     id: downloadButton
                     text: i18n.tr("Download: ") + event.content.body
-                    onClicked: Qt.openUrlExternally( media.getLinkFromMxc ( event.content.url ) )
+                    onClicked: {
+                        downloadDialog.downloadButton = downloadAudioButton
+                        downloadDialog.filename = event.content_body
+                        downloadDialog.downloadUrl = media.getLinkFromMxc ( event.content.url )
+                        downloadDialog.current = PopupUtils.open(downloadDialog)
+                    }
                     visible: event.content.msgtype === "m.file"
                     height: visible ? units.gu(4) : 0
                     width: visible ? units.gu(26) : 0
@@ -257,8 +268,8 @@ Rectangle {
 
 
                 /*  ====================TEXT MESSAGE====================
-                 * In this label, the body of the matrix message is displayed. This label
-                 * is main responsible for the width of the message bubble.
+                * In this label, the body of the matrix message is displayed. This label
+                * is main responsible for the width of the message bubble.
                 */
                 Label {
                     id: messageLabel
@@ -314,33 +325,33 @@ Rectangle {
                             // Show the senders displayname only on the first message of
                             // this sender and only if its not the user him-/herself.
                             (event.sender !== matrix.matrixid ?
-                            ("<b><font color='" + usernames.stringToColor(chatMembers[event.sender].displayname) + "'>" + (chatMembers[event.sender].displayname) + "</font></b> ")
-                            : "")
-                            + stamp.getChatTime ( event.origin_server_ts )
-}
-                        color: messageLabel.color
-                        opacity: 0.66
-                        textSize: Label.XSmall
-                        visible: !isStateEvent
-                    }
-                    // When the message is just sending, then this activity indicator is visible
-                    ActivityIndicator {
-                        id: activity
-                        visible: sending
-                        running: visible
-                        height: metaLabel.height
-                        width: height
-                    }
-                    // When the message is received, there should be an icon
-                    Icon {
-                        id: statusIcon
-                        visible: !isStateEvent && sent && event.status !== msg_status.SENDING
-                        name: event.status === msg_status.SEEN ? "contact" :
-                        (event.status === msg_status.RECEIVED ? "tick" :
-                        (event.status === msg_status.HISTORY ? "clock" : "edit-clear"))
-                        height: metaLabel.height
-                        color: "white"
-                        width: height
+                                ("<b><font color='" + usernames.stringToColor(chatMembers[event.sender].displayname) + "'>" + (chatMembers[event.sender].displayname) + "</font></b> ")
+                                : "")
+                                + stamp.getChatTime ( event.origin_server_ts )
+                            }
+                            color: messageLabel.color
+                            opacity: 0.66
+                            textSize: Label.XSmall
+                            visible: !isStateEvent
+                        }
+                        // When the message is just sending, then this activity indicator is visible
+                        ActivityIndicator {
+                            id: activity
+                            visible: sending
+                            running: visible
+                            height: metaLabel.height
+                            width: height
+                        }
+                        // When the message is received, there should be an icon
+                        Icon {
+                            id: statusIcon
+                            visible: !isStateEvent && sent && event.status !== msg_status.SENDING
+                            name: event.status === msg_status.SEEN ? "contact" :
+                            (event.status === msg_status.RECEIVED ? "tick" :
+                            (event.status === msg_status.HISTORY ? "clock" : "edit-clear"))
+                            height: metaLabel.height
+                            color: "white"
+                            width: height
                         }
                     }
                 }

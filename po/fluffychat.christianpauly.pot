@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-11 10:58+0000\n"
+"POT-Creation-Date: 2018-10-11 11:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:175 ../qml/components/ChatScrollView.qml:277
+#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:277
 msgid "Are you sure?"
 msgstr ""
 
@@ -294,6 +294,7 @@ msgstr ""
 
 #: ../qml/pages/PasswordCreationPage.qml:85
 #: ../qml/components/ChangePasswordDialog.qml:38
+#: ../qml/components/DownloadDialog.qml:26
 #: ../qml/components/LeaveChatDialog.qml:27
 #: ../qml/components/NewGroupDialog.qml:27
 #: ../qml/components/RemoveDeviceDialog.qml:42
@@ -826,15 +827,15 @@ msgstr ""
 msgid "Default user permissions:"
 msgstr ""
 
-#: ../qml/components/ImageViewer.qml:45
+#: ../qml/components/ImageViewer.qml:53
 msgid "Add this image as sticker?"
 msgstr ""
 
-#: ../qml/components/ImageViewer.qml:52
+#: ../qml/components/ImageViewer.qml:60
 msgid "Already added as sticker"
 msgstr ""
 
-#: ../qml/components/ImageViewer.qml:53
+#: ../qml/components/ImageViewer.qml:61
 msgid "Added as sticker"
 msgstr ""
 
@@ -907,6 +908,10 @@ msgstr ""
 msgid "<b>Gateway</b>: %2"
 msgstr ""
 
+#: ../qml/components/DownloadDialog.qml:11
+msgid "Download"
+msgstr ""
+
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:27
 msgid "Joined and invited chat participants"
 msgstr ""
@@ -974,7 +979,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:249
+#: ../qml/components/ChatEvent.qml:255
 msgid "Download: "
 msgstr ""
 

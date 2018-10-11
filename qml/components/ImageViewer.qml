@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 
 Rectangle {
 
@@ -36,8 +37,15 @@ Rectangle {
             actions: [
 
             Action {
+                id: downloadAction
                 iconName: "document-save-as"
-                onTriggered: Qt.openUrlExternally( media.getLinkFromMxc ( mxc ) )
+                onTriggered: {
+                    downloadDialog.downloadButton = downloadAction
+                    downloadDialog.filename = mxc
+                    downloadDialog.downloadUrl = media.getLinkFromMxc ( mxc )
+                    downloadDialog.shareFunc = shareController.sharePicture
+                    downloadDialog.current = PopupUtils.open(downloadDialog)
+                }
             },
             Action {
                 iconName: "add"

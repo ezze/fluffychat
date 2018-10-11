@@ -59,7 +59,7 @@ Item {
     }
 
     function sharePicture( url, title ) {
-        share( url, text, ContentType.Pictures)
+        share( url, title, ContentType.Pictures)
     }
 
     function shareAudio( url, title ) {
