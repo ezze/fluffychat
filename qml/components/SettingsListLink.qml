@@ -13,6 +13,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
+        title.color: settings.darkmode ? "white" : "black"
         Icon {
             name: icon
             color: iconColor

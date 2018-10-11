@@ -481,7 +481,7 @@ Page {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: units.gu(1)
-            color: UbuntuColors.silk
+            color: settings.darkmode ? UbuntuColors.graphite : UbuntuColors.silk
             visible: membership === "join" && canSendMessages && replyEvent === null
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
