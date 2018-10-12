@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-12 16:07+0000\n"
+"POT-Creation-Date: 2018-10-12 16:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -314,7 +314,6 @@ msgstr ""
 
 #: ../qml/pages/PasswordCreationPage.qml:90
 #: ../qml/components/ChangePasswordDialog.qml:43
-#: ../qml/components/ColorDialog.qml:39
 msgid "Change"
 msgstr ""
 
@@ -474,7 +473,7 @@ msgid "Change main color"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:156
-msgid "Change chat background"
+msgid "Change background"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:180
@@ -847,6 +846,7 @@ msgstr ""
 #: ../qml/components/ChangeJoinRulesDialog.qml:54
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:46
+#: ../qml/components/ColorDialog.qml:38
 #: ../qml/components/ChangePowerLevelDialog.qml:64
 #: ../qml/components/ChangeGuestAccessDialog.qml:37
 msgid "Close"
@@ -1089,11 +1089,11 @@ msgstr ""
 msgid "Change the main color"
 msgstr ""
 
-#: ../qml/components/ColorDialog.qml:25
+#: ../qml/components/ColorDialog.qml:24
 msgid "Hue: %1"
 msgstr ""
 
-#: ../qml/components/ColorDialog.qml:34
+#: ../qml/components/ColorDialog.qml:33
 msgid "Reset"
 msgstr ""
 
