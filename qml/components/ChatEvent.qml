@@ -335,7 +335,7 @@ Rectangle {
                                 : "")
                                 + stamp.getChatTime ( event.origin_server_ts )
                             }
-                            color: (!sent || isStateEvent) ? "#555555" : "#AAAAAA"
+                            color: (!sent || isStateEvent) ? "#666666" : "#999999"
                             textSize: Label.XSmall
                             visible: !isStateEvent
                         }
