@@ -214,12 +214,6 @@ Page {
         displaced: Transition {
             SmoothedAnimation { property: "y"; duration: 300 }
         }
-        add: Transition {
-            NumberAnimation { property: "opacity"; from: 0; to:1; duration: 200 }
-        }
-        remove: Transition {
-            NumberAnimation { property: "opacity"; from: 1; to:0; duration: 200 }
-        }
     }
 
     Label {
