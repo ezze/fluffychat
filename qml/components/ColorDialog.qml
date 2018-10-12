@@ -35,7 +35,7 @@ Component {
             }
             Button {
                 width: (parent.width - units.gu(1)) / 2
-                text: i18n.tr("Change")
+                text: i18n.tr("Close")
                 color: settings.mainColor
                 enabled: oldPass.displayText !== "" && newPass.displayText !== "" && newPass2.displayText !== "" && newPass.text === newPass2.text
                 onClicked: PopupUtils.close(dialogue)
