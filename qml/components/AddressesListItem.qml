@@ -13,7 +13,7 @@ ListItem {
         title.text: name + (isCanonicalAlias ? " (<b>" + i18n.tr('Canonical alias') + "</b>)" : "")
         Icon {
             name: "bookmark"
-            color: defaultMainColor
+            color: settings.mainColor
             width: units.gu(4)
             height: units.gu(4)
             SlotsLayout.position: SlotsLayout.Leading

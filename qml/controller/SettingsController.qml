@@ -54,6 +54,10 @@ Settings {
     // Are archived chats synchronized too?
     property var requestedArchive: false
 
+    // The main color and the 'h' value
+    property var mainColor: Qt.hsla(mainColorH, 0.67, 0.44, 1)
+    property var mainColorH: defaultMainColorH
+
     // The two country ISO name and phone code:
     property var countryCode: i18n.tr("USA")
     property var countryTel: i18n.tr("1")

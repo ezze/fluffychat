@@ -6,7 +6,7 @@ ListItem {
     property var name: ""
     property var value: ""
     property var icon: "toolkit_arrow-right"
-    property var iconColor: defaultMainColor
+    property var iconColor: settings.mainColor
     height: layout.height
 
     ListItemLayout {
@@ -24,7 +24,7 @@ ListItem {
         Icon {
             SlotsLayout.position: SlotsLayout.Trailing
             name: "tick"
-            visible: defaultMainColor === iconColor
+            visible: settings.mainColor === iconColor
             width: units.gu(2)
             height: width
         }

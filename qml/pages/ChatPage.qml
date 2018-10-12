@@ -261,6 +261,7 @@ Page {
     Icon {
         visible: settings.chatBackground === undefined
         source: "../../assets/chat.svg"
+        color: settings.mainColor
         anchors.centerIn: parent
         width: parent.width / 2
         height: width

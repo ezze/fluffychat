@@ -139,6 +139,12 @@ Page {
                 matrix_id: matrix.matrixid
             }
 
+            SettingsListItem {
+                name: i18n.tr("Change main color")
+                icon: "preferences-desktop-wallpaper-symbolic"
+                onClicked: PopupUtils.open(colorDialog)
+            }
+
             ListItem {
                 property var name: ""
                 property var icon: "settings"
@@ -147,10 +153,10 @@ Page {
 
                 ListItemLayout {
                     id: layout
-                    title.text: i18n.tr("Change chat background")
+                    title.text: i18n.tr("Change background")
                     Icon {
                         name: "image-x-generic-symbolic"
-                        color: defaultMainColor
+                        color: settings.mainColor
                         width: units.gu(4)
                         height: units.gu(4)
                         SlotsLayout.position: SlotsLayout.Leading
@@ -336,6 +342,7 @@ Page {
 
     ChangeDisplaynameDialog { id: displaynameDialog }
     ChangePasswordDialog { id: passwordDialog }
+    ColorDialog { id: colorDialog }
     DisableAccountDialog { id: accountDialog }
     LogoutDialog { id: logoutDialog }
 }

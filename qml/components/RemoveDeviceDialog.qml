@@ -26,7 +26,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: defaultMainColor
+            color: settings.mainColor
         }
         TextField {
             id: passwordInput

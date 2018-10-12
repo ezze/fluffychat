@@ -27,7 +27,7 @@ ListItem {
         id: layout
         title.text: i18n.tr("Unknown chat")
         title.font.bold: true
-        title.color: room.membership === "invite" ? defaultMainColor : mainFontColor
+        title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
 
         Avatar {
             id: avatar

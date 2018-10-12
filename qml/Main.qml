@@ -33,7 +33,7 @@ MainView {
 
     This config variables are readonly!
     */
-    readonly property var defaultMainColor: "#5625BA"
+    readonly property var defaultMainColorH: 0.72
     readonly property var defaultDomain: "ubports.chat"
     readonly property var defaultIDServer: "vector.im"
     readonly property var defaultDeviceName: "UbuntuPhone"

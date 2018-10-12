@@ -61,7 +61,7 @@ Page {
             Icon {
                 id: banner
                 name: "user-admin"
-                color: defaultMainColor
+                color: settings.mainColor
                 width: root.width * 2/5
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter

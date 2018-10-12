@@ -8,7 +8,7 @@ ListItem {
     property alias isChecked: switcher.checked
     property alias isEnabled: switcher.enabled
     property var onSwitching
-    property var iconColor: defaultMainColor
+    property var iconColor: settings.mainColor
     height: layout.height
 
     ListItemLayout {

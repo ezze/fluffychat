@@ -29,7 +29,7 @@ ListItem {
             layout.title.text = displayname
         })
         title.font.bold: true
-        title.color: room.membership === "invite" ? defaultMainColor : mainFontColor
+        title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
         subtitle.text: {
             room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
             (room.topic !== "" && room.typing && room.typing.length > 0 ? usernames.getTypingDisplayString ( room.typing, room.topic ) :
@@ -91,7 +91,7 @@ ListItem {
         anchors.margins: units.gu(2)
         width: unreadLabel.width + units.gu(1)
         height: units.gu(2)
-        color: defaultMainColor
+        color: settings.mainColor
         radius: units.gu(0.5)
         Label {
             id: unreadLabel

@@ -7,7 +7,7 @@ PageHeader {
     title: i18n.tr('FluffyChat')
 
     StyleHints {
-        foregroundColor: defaultMainColor
+        foregroundColor: settings.mainColor
         textSize: title.indexOf("\n") !== -1 ? Label.Medium : Label.Large
     }
 }

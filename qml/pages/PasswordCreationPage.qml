@@ -65,7 +65,7 @@ Page {
             Rectangle {
                 height: units.gu(0.2)
                 width: parent.width
-                color: defaultMainColor
+                color: settings.mainColor
             }
             TextField {
                 id: newPass
@@ -121,7 +121,7 @@ Page {
             Icon {
                 id: banner
                 name: "lock"
-                color: defaultMainColor
+                color: settings.mainColor
                 width: root.width * 2/5
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -140,14 +140,14 @@ Page {
                 width: loginTextField.width
                 height: loginTextField.height
                 border.width: 1
-                border.color: defaultMainColor
+                border.color: settings.mainColor
                 radius: units.gu(1)
                 color: UbuntuColors.porcelain
                 TextField {
                     anchors.centerIn: parent
                     id: loginTextField
                     text: generated_password
-                    color: defaultMainColor
+                    color: settings.mainColor
                     readOnly: true
                     font.bold: true
                     width: units.gu(15)
