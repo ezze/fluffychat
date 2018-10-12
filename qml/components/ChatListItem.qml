@@ -27,6 +27,7 @@ ListItem {
         width: parent.width - notificationBubble.width - highlightBubble.width
         title.text: room.topic !== "" && room.topic !== null ? room.topic : roomnames.getById ( room.id, function (displayname) {
             layout.title.text = displayname
+            console.log("displayname:", displayname)
         })
         title.font.bold: true
         title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
