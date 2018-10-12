@@ -12,8 +12,9 @@ Item {
     function getById ( chat_id, callback ) {
         var displayname = i18n.tr('Empty chat')
         storage.transaction( "SELECT topic FROM Chats WHERE id='" + chat_id + "'", function (rs) {
-            if ( rs.rows.length > 0 && rs.rows[0].topic !== "" ) {
-                callback ( rs.rows[0].topic )
+            if ( rs.rows.length > 0 && rs.rows[0].topic !== null && rs.rows[0].topic !== "" ) {
+                displayname = rs.rows[0].topic
+                if ( callback )  callback ( displayname )
             }
             else {
                 // If it is a one on one chat, then use the displayname of the buddy
@@ -33,7 +34,7 @@ Item {
                         displayname = displayname.substr(0, displayname.length-2)
                         if ( displayname === "" || displayname === null ) displayname = i18n.tr('Empty chat')
                     }
-                    callback ( displayname )
+                    if ( callback ) callback ( displayname )
                     // Else, use the default: "Empty chat"
                 })
             }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-12 16:10+0000\n"
+"POT-Creation-Date: 2018-10-12 16:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,8 +209,8 @@ msgid "%1 is not a valid username"
 msgstr ""
 
 #: ../qml/controller/RoomNameController.qml:13
-#: ../qml/controller/RoomNameController.qml:26
-#: ../qml/controller/RoomNameController.qml:34
+#: ../qml/controller/RoomNameController.qml:27
+#: ../qml/controller/RoomNameController.qml:35
 msgid "Empty chat"
 msgstr ""
 
