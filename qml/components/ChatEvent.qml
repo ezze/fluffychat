@@ -9,7 +9,7 @@ Rectangle {
     //property var event
     property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.sticker"
     property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1
-    property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker") && event.content.info !== undefined && event.content.info.thumbnail_url !== undefined
+    property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
@@ -72,7 +72,7 @@ Rectangle {
         onPressAndHold: openContextMenu ()
         Rectangle {
             id: messageBubble
-            opacity: (sending || event.status === msg_status.ERROR) ? 0.66 : isStateEvent ? 0.75 : 1
+            opacity: isStateEvent ? 0.75 : 1
             z: 2
             border.width: 0
             border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
@@ -97,17 +97,23 @@ Rectangle {
                     width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : (showGif ? gif.width : height*(9/16)))
                     height: visible * (!showButton ? units.gu(30) : showImageButton.height)
                     visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
+                    property var hasThumbnail: event.content.info && event.content.info.thumbnail_url
                     property var showGif: visible && settings.autoloadGifs && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
-                    property var showThumbnail: visible && !showGif && event.content.info && event.content.info.thumbnail_url
+                    property var showThumbnail: visible && !showGif && (hasThumbnail || settings.autoloadGifs)
                     property var showButton: visible && !showGif && !showThumbnail
 
                     Image {
                         id: thumbnail
-                        source: image.showThumbnail ? downloadPath + event.content.info.thumbnail_url.split("/")[3] : ""
+                        source: image.showThumbnail ? (image.hasThumbnail ? downloadPath + event.content.info.thumbnail_url.split("/")[3] : event.content.url.split("/")[3]) : ""
                         property var onlyOneError: true
                         onStatusChanged: {
                             if ( status === Image.Error && onlyOneError ) {
-                                thumbnail.source = media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) )
+                                if ( image.hasThumbnail ) {
+                                    thumbnail.source = media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) )
+                                }
+                                else {
+                                    thumbnail.source = media.getLinkFromMxc ( event.content.url )
+                                }
                                 onlyOneError = false
                             }
                         }
@@ -136,7 +142,7 @@ Rectangle {
                     }
 
                     Icon {
-                        visible: image.showThumbnail && thumbnail.status === Image.Error || image.showGif && gif.status === Image.Error
+                        visible: !image.showButton && (image.showThumbnail && thumbnail.status === Image.Error || image.showGif && gif.status === Image.Error)
                         anchors.centerIn: parent
                         width: units.gu(6)
                         height: width
@@ -155,7 +161,7 @@ Rectangle {
                     }
 
                     MouseArea {
-                        anchors.fill: thumbnail
+                        anchors.fill: parent
                         onClicked: imageViewer.show ( event.content.url )
                         onPressAndHold: openContextMenu ()
                     }
@@ -325,12 +331,11 @@ Rectangle {
                             // Show the senders displayname only on the first message of
                             // this sender and only if its not the user him-/herself.
                             (event.sender !== matrix.matrixid ?
-                                ("<b><font color='" + usernames.stringToColor(chatMembers[event.sender].displayname) + "'>" + (chatMembers[event.sender].displayname) + "</font></b> ")
+                                ("<font color='" + usernames.stringToColor(chatMembers[event.sender].displayname) + "'>" + (chatMembers[event.sender].displayname) + "</font> ")
                                 : "")
                                 + stamp.getChatTime ( event.origin_server_ts )
                             }
-                            color: messageLabel.color
-                            opacity: 0.66
+                            color: (!sent || isStateEvent) ? "#555555" : "#AAAAAA"
                             textSize: Label.XSmall
                             visible: !isStateEvent
                         }
@@ -348,9 +353,10 @@ Rectangle {
                             visible: !isStateEvent && sent && event.status !== msg_status.SENDING
                             name: event.status === msg_status.SEEN ? "contact" :
                             (event.status === msg_status.RECEIVED ? "tick" :
-                            (event.status === msg_status.HISTORY ? "clock" : "edit-clear"))
+                            (event.status === msg_status.HISTORY ? "history" : "edit-clear"))
                             height: metaLabel.height
-                            color: "white"
+                            color: event.status === msg_status.SENT ? messageBubble.color :
+                            (event.status === msg_status.ERROR ? UbuntuColors.red : "white")
                             width: height
                         }
                     }

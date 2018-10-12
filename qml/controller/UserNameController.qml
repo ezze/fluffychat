@@ -67,6 +67,6 @@ Item {
         var number = 0
         for( var i=0; i<str.length; i++ ) number += str.charCodeAt(i)
         number = (number % 100) / 100
-        return Qt.hsla( number, 1, 0.35, 1 )
+        return Qt.hsla( number, 0.67, 0.44, 1 )
     }
 }
