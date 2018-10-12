@@ -295,7 +295,7 @@ Rectangle {
                     anchors.leftMargin: units.gu(1)
                     anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
                     onLinkActivated: {
-                        if ( link.split("fluffychat://").length > 0 ) {
+                        if ( link.indexOf("fluffychat://") !== -1 ) {
                             usernames.showUserSettings( link.split("fluffychat://")[1] )
                         }
                         else Qt.openUrlExternally(link)
