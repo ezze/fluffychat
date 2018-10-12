@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-12 07:43+0000\n"
+"POT-Creation-Date: 2018-10-12 11:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:277
+#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:278
 msgid "Are you sure?"
 msgstr ""
 
@@ -450,7 +450,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:154
+#: ../qml/components/ChatEvent.qml:153
 msgid "Show image"
 msgstr ""
 
@@ -626,27 +626,27 @@ msgstr ""
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:281
+#: ../qml/pages/ChatPage.qml:273
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:304
+#: ../qml/pages/ChatPage.qml:296
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:409
+#: ../qml/pages/ChatPage.qml:401
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:409
+#: ../qml/pages/ChatPage.qml:401
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:423
+#: ../qml/pages/ChatPage.qml:415
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:454
+#: ../qml/pages/ChatPage.qml:446
 msgid "Type something ..."
 msgstr ""
 
@@ -979,7 +979,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:261
+#: ../qml/components/ChatEvent.qml:260
 msgid "Download: "
 msgstr ""
 
@@ -1080,31 +1080,31 @@ msgstr ""
 msgid "#groupname:"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:67
+#: ../qml/components/ChatScrollView.qml:68
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:238
+#: ../qml/components/ChatScrollView.qml:239
 msgid "Try send again"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:247
+#: ../qml/components/ChatScrollView.qml:248
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:255
+#: ../qml/components/ChatScrollView.qml:256
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:260
+#: ../qml/components/ChatScrollView.qml:261
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:265
+#: ../qml/components/ChatScrollView.qml:266
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:269
+#: ../qml/components/ChatScrollView.qml:270
 msgid "Delete message"
 msgstr ""
 

@@ -12,12 +12,21 @@ Page {
     }
 
 
-    Image {
-        id: coffeeImage
+    Rectangle {
+        visible: settings.chatBackground === undefined
+        anchors.fill: parent
+        color: UbuntuColors.jet
+        z: 0
+    }
+
+    Icon {
+        visible: settings.chatBackground === undefined
+        source: "../../assets/chat.svg"
         anchors.centerIn: parent
-        width: parent.width / 3
+        width: parent.width / 1.25
         height: width
-        source: "../../assets/info-logo.svg"
+        opacity: 0.15
+        z: 0
     }
 
 }

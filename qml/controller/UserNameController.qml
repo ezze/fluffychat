@@ -69,4 +69,12 @@ Item {
         number = (number % 100) / 100
         return Qt.hsla( number, 0.67, 0.44, 1 )
     }
+
+    function stringToDarkColor ( str ) {
+        if ( str.indexOf("@") !== -1 ) str = usernames.getById ( str )
+        var number = 0
+        for( var i=0; i<str.length; i++ ) number += str.charCodeAt(i)
+        number = (number % 100) / 100
+        return Qt.hsla( number, 0.67, 0.25, 1 )
+    }
 }

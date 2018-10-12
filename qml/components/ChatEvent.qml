@@ -13,6 +13,7 @@ Rectangle {
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
+    property var senderDisplayname: chatMembers[event.sender].displayname
 
     width: mainStackWidth
     height: (isStateEvent||isMediaEvent||isImage) ? messageBubble.height + units.gu(1) : messageLabel.height + units.gu(4.5)
@@ -41,7 +42,7 @@ Rectangle {
     Avatar {
         id: avatar
         mxc: opacity ? chatMembers[event.sender].avatar_url : ""
-        name: chatMembers[event.sender].displayname
+        name: senderDisplayname
         anchors.left: isLeftSideEvent ? parent.left : undefined
         anchors.right: !isLeftSideEvent ? parent.right : undefined
         anchors.bottom: parent.bottom
@@ -74,10 +75,8 @@ Rectangle {
             id: messageBubble
             opacity: isStateEvent ? 0.75 : 1
             z: 2
-            border.width: 0
-            border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
             anchors.margins: units.gu(0.5)
-            color: (!sent || isStateEvent) ? "#FFFFFF" : defaultMainColor
+            color: (!sent || isStateEvent) ? "#e6e5ea" : defaultMainColor
             radius: units.gu(2)
             height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
             width: contentColumn.width + ( isImage ? 0 : units.gu(2) )
@@ -310,7 +309,7 @@ Rectangle {
                         var maxWidth = message.width - avatar.width - units.gu(5)
                         if ( width > maxWidth ) width = maxWidth
                         if ( text === "" ) text = " "
-                        if ( event.content.msgtype === "m.emote" ) text = chatMembers[event.sender].displayname + " " + text
+                        if ( event.content.msgtype === "m.emote" ) text = senderDisplayname + " " + text
                     }
                 }
 
@@ -328,15 +327,15 @@ Rectangle {
                     Label {
                         id: metaLabel
                         text: {
-                            // Show the senders displayname only on the first message of
-                            // this sender and only if its not the user him-/herself.
-                            (event.sender !== matrix.matrixid ?
-                                ("<font color='" + usernames.stringToColor(chatMembers[event.sender].displayname) + "'>" + (chatMembers[event.sender].displayname) + "</font> ")
+                            // Show the senders displayname only if its not the user him-/herself.
+                            ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
+                                ("<b><font color='" + usernames.stringToDarkColor(senderDisplayname) + "'>" + (senderDisplayname) + "</font></b> ")
                                 : "")
                                 + stamp.getChatTime ( event.origin_server_ts )
                             }
-                            color: (!sent || isStateEvent) ? "#666666" : "#999999"
-                            textSize: Label.XSmall
+                            //opacity: 0.75
+                            color: messageLabel.color//(!sent || isStateEvent) ? "#666666" : "#999999"
+                            textSize: Label.XxSmall
                             visible: !isStateEvent
                         }
                         // When the message is just sending, then this activity indicator is visible

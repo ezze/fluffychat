@@ -9,7 +9,7 @@ Rectangle {
     // rounded corners for img
     width: units.gu(6)
     height: width
-    color: avatar.status === Image.Ready ? "#00000000" : usernames.stringToColor ( name )
+    color: avatar.status === Image.Ready ? UbuntuColors.porcelain : usernames.stringToColor ( name )
     radius: width / 6
     z:1
     clip: true

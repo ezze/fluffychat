@@ -258,21 +258,13 @@ Page {
 
     LeaveChatDialog { id: leaveChatDialog }
 
-    Rectangle {
-        visible: settings.chatBackground === undefined
-        anchors.fill: parent
-        opacity: 0.1
-        color: usernames.stringToColor ( activeChatDisplayName )
-        z: 0
-    }
-
     Icon {
         visible: settings.chatBackground === undefined
         source: "../../assets/chat.svg"
         anchors.centerIn: parent
-        width: parent.width / 1.25
+        width: parent.width / 2
         height: width
-        opacity: 0.15
+        opacity: 0.2
         z: 0
     }
 
@@ -481,7 +473,7 @@ Page {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: units.gu(1)
-            color: settings.darkmode ? UbuntuColors.graphite : UbuntuColors.silk
+            color: settings.darkmode ? UbuntuColors.graphite : UbuntuColors.porcelain
             visible: membership === "join" && canSendMessages && replyEvent === null
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
