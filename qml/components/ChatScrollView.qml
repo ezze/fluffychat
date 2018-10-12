@@ -130,10 +130,9 @@ ListView {
         }
         if ( j > 0 ) {
             var tempEvent = model.get(j-1).event
-            if ( tempEvent.sender === event.sender && (tempEvent.type === "m.room.message" || tempEvent.type === "m.sticker") ) {
-                event.sameSender = true
-            }
+            event.sameSender = tempEvent.sender === event.sender && (tempEvent.type === "m.room.message" || tempEvent.type === "m.sticker")
         }
+        else event.sameSender = false
 
 
         // If there is a transaction id, remove the sending event
@@ -142,6 +141,7 @@ ListView {
             for ( var i = 0; i < model.count; i++ ) {
                 if ( model.get(i).event.id === event.unsigned.transaction_id ||
                 model.get(i).event.id === event.id) {
+                    event.sameSender = model.get(i).event.sameSender
                     model.set( i, { "event": event } )
                     return
                 }
@@ -150,6 +150,7 @@ ListView {
 
         // Check that there is no duplication:
         if ( model.count > j && event.id === model.get(j).event.id ) {
+            event.sameSender = model.get(j).event.sameSender
             model.set( j, { "event": event } )
             return
         }
@@ -162,16 +163,34 @@ ListView {
 
 
     function messageSent ( oldID, newID ) {
+        // TODO: SameSender always true
         for ( var i = 0; i < model.count; i++ ) {
             if ( model.get(i).event.id === oldID ) {
                 var tempEvent = model.get(i).event
                 tempEvent.id = newID
                 tempEvent.status = msg_status.SENT
                 tempEvent.origin_server_ts = new Date().getTime()
+                tempEvent.sameSender = false
+                model.set( i, { "event": tempEvent } )
+
+                // Move the event to the correct position if necessary
                 var j = i
                 while ( j > 0 && tempEvent.origin_server_ts > model.get(j).event.origin_server_ts ) j--
-                model.set( i, { "event": tempEvent } )
-                if ( i !== j ) model.move( i, j, 1 )
+                if ( i !== j ) {
+                    model.move( i, j, 1 )
+                    if ( i > 0 ) {
+                        var tempEvent = model.get(i).event
+                        var nextEvent = model.get(i-1).event
+                        tempEvent.sameSender = tempEvent.sender === nextEvent.sender && (nextEvent.type === "m.room.message" || nextEvent.type === "m.sticker")
+                        model.set ( i, { "event": tempEvent })
+                    }
+                    if ( j > 0 ) {
+                        var tempEvent = model.get(j).event
+                        var nextEvent = model.get(j-1).event
+                        tempEvent.sameSender = tempEvent.sender === nextEvent.sender && (nextEvent.type === "m.room.message" || nextEvent.type === "m.sticker")
+                        model.set ( j, { "event": tempEvent })
+                    }
+                }
                 break
             }
             else if ( model.get(i).event.id === newID ) break
@@ -208,6 +227,17 @@ ListView {
         for ( var i = 0; i < model.count; i++ ) {
             if ( model.get(i).event.id === event_id ) {
                 model.remove ( i )
+                if ( i < model.count && i > 0 ) {
+                    var tempEvent = model.get(i).event
+                    var nextEvent = model.get(i-1).event
+                    tempEvent.sameSender = tempEvent.sender === nextEvent.sender && (nextEvent.type === "m.room.message" || nextEvent.type === "m.sticker")
+                    model.set ( i, { "event": tempEvent })
+                }
+                else if ( i === 0 ) {
+                    var tempEvent = model.get(i).event
+                    tempEvent.sameSender = true
+                    model.set ( i, { "event": tempEvent })
+                }
                 break
             }
         }
