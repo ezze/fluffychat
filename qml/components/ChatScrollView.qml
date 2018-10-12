@@ -121,7 +121,7 @@ ListView {
 
         // If the previous message has the same sender and is a normal message
         // then it is not necessary to show the user avatar again
-        if ( model.count > j ) {
+        if ( j < model.count ) {
             var tempEvent = model.get(j).event
             if ( tempEvent.sender === event.sender && (event.type === "m.room.message" || event.type === "m.sticker") ) {
                 tempEvent.sameSender = true
@@ -132,8 +132,6 @@ ListView {
             var tempEvent = model.get(j-1).event
             if ( tempEvent.sender === event.sender && (tempEvent.type === "m.room.message" || tempEvent.type === "m.sticker") ) {
                 event.sameSender = true
-                tempEvent.sameSender = false
-                model.set ( j-1, { "event": tempEvent })
             }
         }
 
