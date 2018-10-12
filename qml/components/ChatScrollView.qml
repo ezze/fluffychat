@@ -116,7 +116,7 @@ ListView {
         // Find the right position for this event
         var j = history ? model.count : 0
         if ( !history ) {
-            while ( j < model.count-1 && event.origin_server_ts < model.get(j+1).event.origin_server_ts ) j++
+            while ( j < model.count && event.origin_server_ts < model.get(j).event.origin_server_ts ) j++
         }
 
         // If the previous message has the same sender and is a normal message
@@ -299,7 +299,7 @@ ListView {
     model: ListModel { id: model }
     onContentYChanged: if ( atYBeginning ) requestHistory ()
     move: Transition {
-        SmoothedAnimation { property: "y"; duration: 300 }
+        NumberAnimation { property: "opacity"; to:1; duration: 200 }
     }
     displaced: Transition {
         SmoothedAnimation { property: "y"; duration: 300 }
