@@ -25,8 +25,9 @@ ListItem {
     ListItemLayout {
         id: layout
         width: parent.width - notificationBubble.width - highlightBubble.width
-        title.text: room.topic !== "" ? room.topic : roomnames.getById ( room.id, function (displayname) {
+        title.text: room.topic !== "" && room.topic !== null ? room.topic : roomnames.getById ( room.id, function (displayname) {
             layout.title.text = displayname
+            console.log("displayname:", displayname)
         })
         title.font.bold: true
         title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
@@ -42,7 +43,7 @@ ListItem {
         Avatar {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
-            name: room.topic
+            name: layout.title.text
             mxc: room.avatar_url !== "" ? room.avatar_url : roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
                 avatar.mxc = avatar_url
             } )
@@ -50,23 +51,6 @@ ListItem {
                 activeChat = room.id
                 mainStack.push (Qt.resolvedUrl("../pages/ChatSettingsPage.qml"))
             }
-        }
-
-        Component.onCompleted: update()
-
-        function update () {
-
-            // Get the room name
-            if ( room.topic !== "" ) layout.title.text = room.topic
-            else roomnames.getById ( room.id, function (displayname) {
-                layout.title.text = displayname
-                avatar.name = displayname
-            })
-
-            // Get the room avatar if single chat
-            if ( avatar.mxc === "") roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
-                avatar.mxc = avatar_url
-            } )
         }
     }
 
