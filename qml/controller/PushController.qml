@@ -13,7 +13,12 @@ PushClient {
     onTokenChanged: {
         if ( !settings.token ) return
         // Set the pusher if it is not set
-        if ( settings.pushToken !== token || settings.pushUrl !== pushUrl ) {
+        updatePusher ()
+    }
+
+
+    function updatePusher () {
+        if ( token !== "" && (settings.pushToken !== token || settings.pushUrl !== pushUrl) ) {
             console.log("👷 Trying to set pusher…")
             pushclient.setPusher ( true, function () {
                 settings.pushToken = pushtoken
@@ -36,9 +41,6 @@ PushClient {
     }
 
     function newNotification ( message ) {
-        if ( "message" in JSON.parse(message) ) {
-            console.error("================PUSHERROR================",message)
-        }
         if ( message == "" ) return
         try {
             // Clear the persistent notification if the user is in this room

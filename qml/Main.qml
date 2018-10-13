@@ -172,7 +172,7 @@ MainView {
         opacity: 0
         visible: settings.chatBackground !== undefined
         anchors.fill: mainStack
-        source: settings.chatBackground
+        source: settings.chatBackground || ""
         cache: true
         fillMode: Image.PreserveAspectCrop
         z: -1

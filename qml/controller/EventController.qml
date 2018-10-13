@@ -48,18 +48,9 @@ Item {
             storage.transaction ( "UPDATE Events SET status=-1 WHERE status=0" )
             return sync ( 1 )
         }
+        console.log("😉 Request the first synchronization")
         // Set the pusher if it is not set
-        if ( settings.pushToken !== token ) {
-            console.log("👷 Trying to set pusher…")
-            pushclient.setPusher ( true, function () {
-                settings.pushToken = pushtoken
-                settings.pushUrl = pushUrl
-                console.log("😊 Pusher is set!")
-            }, function ( error ) {
-                console.warn( "ERROR:", JSON.stringify(error))
-                toast.show ( error.error )
-            } )
-        }
+        pushclient.updatePusher ()
 
         loadingScreen.visible = true
         storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" +

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 14:29+0000\n"
+"POT-Creation-Date: 2018-10-13 15:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,11 +153,11 @@ msgstr ""
 msgid "Forbidden"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:106
+#: ../qml/controller/EventController.qml:97
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:163
+#: ../qml/controller/EventController.qml:154
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -214,11 +214,11 @@ msgstr ""
 msgid "Empty chat"
 msgstr ""
 
-#: ../qml/controller/PushController.qml:32
+#: ../qml/controller/PushController.qml:37
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/PushController.qml:68
+#: ../qml/controller/PushController.qml:70
 msgid "Push notifications are disabled..."
 msgstr ""
 
