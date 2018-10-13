@@ -35,7 +35,7 @@ Rectangle {
         sourceSize.width: width
         sourceSize.height: height
         fillMode: Image.PreserveAspectCrop
-        asynchronous: true
+        //asynchronous: true
         layer.enabled: true
         layer.effect: OpacityMask {
             maskSource: mask

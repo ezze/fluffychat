@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import QtGraphicalEffects 1.0
 import "../components"
 
 Rectangle {
@@ -97,6 +98,13 @@ Rectangle {
                 anchors.bottom: parent.bottom
             }
 
+            Rectangle {
+                id: mask
+                anchors.fill: parent
+                radius: parent.radius
+                visible: false
+            }
+
             Column {
                 id: contentColumn
                 anchors.bottom: parent.bottom
@@ -135,6 +143,10 @@ Rectangle {
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
+                        layer.enabled: true
+                        layer.effect: OpacityMask {
+                            maskSource: mask
+                        }
                         visible: image.showThumbnail
                         opacity: status === Image.Ready
                         cache: true
@@ -151,7 +163,7 @@ Rectangle {
                     }
 
                     ActivityIndicator {
-                        visible: thumbnail.status === Image.Loading || (image.showGif && !gif.opacity !image.showButton)
+                        visible: thumbnail.status === Image.Loading || (image.showGif && !gif.opacity && !image.showButton)
                         anchors.centerIn: parent
                         width: units.gu(2)
                         height: width
