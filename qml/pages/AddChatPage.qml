@@ -12,12 +12,17 @@ Page {
         title: i18n.tr('Start a new chat')
 
         trailingActionBar {
-            numberOfSlots: 1
             actions: [
             Action {
                 iconName: "contact-new"
                 text: i18n.tr("Add Contact")
                 onTriggered: contactImport.requestContact()
+            },
+
+            Action {
+                iconName: "webbrowser-app-symbolic"
+                text: i18n.tr("Discover public chats")
+                onTriggered: mainStack.push(Qt.resolvedUrl("./JoinChatPage.qml"))
             }
             ]
         }
@@ -52,12 +57,6 @@ Page {
             name: i18n.tr("Create chat")
             icon: "message-new"
             page: "CreateChatPage"
-        }
-
-        SettingsListLink {
-            name: i18n.tr("Join chat")
-            icon: "contact-group"
-            page: "JoinChatPage"
         }
 
         Rectangle {

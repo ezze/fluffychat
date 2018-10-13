@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 09:30+0000\n"
+"POT-Creation-Date: 2018-10-13 10:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -393,7 +393,7 @@ msgstr ""
 msgid "Chat permissions"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:52
+#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:57
 msgid "Create chat"
 msgstr ""
 
@@ -643,7 +643,7 @@ msgstr ""
 msgid "Don't notify"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:14 ../qml/pages/AddChatPage.qml:58
+#: ../qml/pages/JoinChatPage.qml:14
 msgid "Join chat"
 msgstr ""
 
@@ -724,15 +724,19 @@ msgstr ""
 msgid "Start a new chat"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:19
+#: ../qml/pages/AddChatPage.qml:18
 msgid "Add Contact"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:85
+#: ../qml/pages/AddChatPage.qml:24
+msgid "Discover public chats"
+msgstr ""
+
+#: ../qml/pages/AddChatPage.qml:84
 msgid "Search contacts or usernames..."
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:124
+#: ../qml/pages/AddChatPage.qml:123
 msgid "Import from contacts"
 msgstr ""
 
