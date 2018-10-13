@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 14:11+0000\n"
+"POT-Creation-Date: 2018-10-13 14:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -214,11 +214,11 @@ msgstr ""
 msgid "Empty chat"
 msgstr ""
 
-#: ../qml/controller/PushController.qml:31
+#: ../qml/controller/PushController.qml:32
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/PushController.qml:68
+#: ../qml/controller/PushController.qml:69
 msgid "Push notifications are disabled..."
 msgstr ""
 
