@@ -17,6 +17,27 @@ Rectangle {
     color: "white"
     anchors.horizontalCenter: parent.horizontalCenter
 
+    readonly property var defaultList: [
+        "mxc://ubports.chat/hMPVSdxMQoZmTqNpABGRfFTt",  // Winking cat
+        "mxc://ubports.chat/uWRyfILPTBgHhLBOxXeWeNnE",  // Coffee cat
+        "mxc://ubports.chat/fggtURHSHeXoZgQmMoOAwiTV",  // Show tongue cat
+        "mxc://ubports.chat/pybzaOmbBZhHbjQkjibgrCyT",  // Hunsting cat
+        "mxc://ubports.chat/jGNFehLdNXjbPTTCvdWaWziN",  // Loving cat
+        "mxc://ubports.chat/rPiZBdRsiZrSnlvgIMHPidqn",  // Sad cat
+        "mxc://ubports.chat/qhZEXxIgxWxVRLUtButgsbbM",  // Playing cat
+        "mxc://ubports.chat/YcHCZIjNbsktBfDfGAXMjlQc",  // Training cat
+        "mxc://ubports.chat/VMfpmawEJMyRUOhUCvwMjZFO",  // Crying cat
+        "mxc://ubports.chat/uaMAYHMsoEHSJPceeJjMflHC",  // Depri cat
+        "mxc://ubports.chat/yJsVquEaWEGaHIenSCUwYvOy",  // Smiling cat
+        "mxc://ubports.chat/WuQiokhMnFZDxLrmgmUtFclB",  // Lying cat
+        "mxc://ubports.chat/eoSpmepOlclpnoasXDEBlcRO",  // Happy cat
+        "mxc://ubports.chat/QaHKWggOLOwADLjSmPhnvbLq",  // Exciting cat
+        "mxc://ubports.chat/JcCNzymdQdNFCwfucyDtVeFU",  // Chilling cat
+        "mxc://ubports.chat/nPwnZOKkoivoAGcLZIQrXppv",  // Crying cat 2
+        "mxc://ubports.chat/pKEucOjlewDWCduWWJLvnLyf",  // Sleeping cat
+        "mxc://ubports.chat/mSQEBhUchahSBBJGoNstPCqs"   // Trash cat
+    ]
+
     Rectangle {
         width: parent.width
         height: 1
@@ -55,6 +76,14 @@ Rectangle {
             stickerModel.clear()
             for ( var i = res.rows.length-1; i >= 0; i-- ) {
                 stickerModel.append( { mediaElem: res.rows[i] } )
+            }
+            for ( var i = 0; i < defaultList.length; i++ ) {
+                var mediaElem = {
+                    url: defaultList[i],
+                    mimetype: "image/jpeg",
+                    thumbnail_url: ""
+                }
+                stickerModel.append( { mediaElem: mediaElem } )
             }
         })
     }
@@ -118,6 +147,7 @@ Rectangle {
         }
         model: ListModel { id: stickerModel }
     }
+
 
     states: State {
         name: "visible"; when: stickerInput.visible

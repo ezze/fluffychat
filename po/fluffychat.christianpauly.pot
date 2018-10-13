@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 07:40+0000\n"
+"POT-Creation-Date: 2018-10-13 07:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -455,12 +455,12 @@ msgid "Delete Avatar"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:121 ../qml/pages/ChatSettingsPage.qml:189
-#: ../qml/components/StickerInput.qml:109
+#: ../qml/components/StickerInput.qml:138
 msgid "Error"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:125 ../qml/pages/ChatSettingsPage.qml:193
-#: ../qml/components/StickerInput.qml:113
+#: ../qml/components/StickerInput.qml:142
 msgid "OK"
 msgstr ""
 
@@ -1125,7 +1125,7 @@ msgstr ""
 msgid "This device"
 msgstr ""
 
-#: ../qml/components/StickerInput.qml:35
+#: ../qml/components/StickerInput.qml:56
 msgid "Delete sticker"
 msgstr ""
 
