@@ -41,15 +41,6 @@ Item {
     function init () {
         if ( !Connectivity.online ) return
 
-        // Set the pusher if it is not set
-        if ( settings.pushToken !== pushtoken ) {
-            console.log("👷 Trying to set pusher…")
-            pushclient.setPusher ( true, function () {
-                settings.pushToken = pushtoken
-                console.log("😊 Pusher is set!")
-            } )
-        }
-
         // Start synchronizing
         initialized = true
         if ( settings.since ) {
@@ -57,6 +48,16 @@ Item {
             storage.transaction ( "UPDATE Events SET status=-1 WHERE status=0" )
             return sync ( 1 )
         }
+        // Set the pusher if it is not set
+        if ( settings.pushToken !== token ) {
+            console.log("👷 Trying to set pusher…")
+            pushclient.setPusher ( true, function () {
+                settings.pushToken = pushtoken
+                settings.pushUrl = pushUrl
+                console.log("😊 Pusher is set!")
+            } )
+        }
+
         loadingScreen.visible = true
         storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" +
         matrix.matrixid + "', '" + usernames.transformFromId(matrix.matrixid) + "', '' )" )
@@ -199,6 +200,8 @@ Item {
             " OR membership!='" + membership +
             "' OR limitedTimeline!=" + limitedTimeline +
             ") ")
+
+            if ( notification_count === 0 ) pushclient.clearPersistent ( id )
 
             // Update the GUI
             if ( updateResult.rowsAffected > 0 || insertResult.rowsAffected > 0 ) {

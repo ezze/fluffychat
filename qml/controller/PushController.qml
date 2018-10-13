@@ -7,6 +7,24 @@ PushClient {
     id: pushClient
 
     property var errorReport: null
+    property var pushUrl: "https://janian.de:7000"
+
+    onTokenChanged: {
+        console.log("TOKEN CHANGED:", token)
+        if ( !settings.token ) return
+        // Set the pusher if it is not set
+        if ( settings.pushToken !== token || settings.pushUrl !== pushUrl ) {
+            console.log("👷 Trying to set pusher…")
+            pushclient.setPusher ( true, function () {
+                settings.pushToken = pushtoken
+                settings.pushUrl = pushUrl
+                console.log("😊 Pusher is set!")
+            }, function ( error ) {
+                console.warn( "ERROR:", JSON.stringify(error))
+                toast.show ( error.error )
+            } )
+        }
+    }
 
     function pusherror ( reason ) {
         console.warn("PUSHERROR",reason)
@@ -43,19 +61,22 @@ PushClient {
         if ( intent && errorReport !== null ) {
             if ( error_callback ) error_callback ( {errcode: "NO_UBUNTUONE", error: errorReport} )
         }
+        else if ( token === "" ) {
+            if ( error_callback ) error_callback ( {errcode: "EMPTY_PUSHTOKEN", error: i18n.tr("Push notifications are disabled...")} )
+        }
         else {
             var data = {
                 "app_display_name": "FluffyChat",
                 "app_id": appId,
                 "append": true,
                 "data": {
-                    "url": "https://janian.de:7000"
+                    "url": pushUrl
                 },
                 "device_display_name": "UbuntuPhone",
                 "lang": "en",
                 "kind": intent ? "http" : null,
                 "profile_tag": "xxyyzz",
-                "pushkey": pushtoken
+                "pushkey": token
             }
             matrix.post ( "/client/r0/pushers/set", data, function() {
                 // This is a workaround for the problem with the riot web client, who disables the push notifications sometimes
