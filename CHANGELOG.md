@@ -1,3 +1,23 @@
+### 7.0:
+##### New features
+* First stable release
+* Implemented URI's: fluffychat://#roomalias:server.abc fluffychat://!roomid:server.abc and fluffychat://@matrixid:server.abc
+* Now using the official ubports push gateway
+* Repeat to messages
+* Forward messages
+* Content-hub integration: Share texts and links with fluffychat and export everything from fluffychat
+* Redesigned settings
+* New more minimalistic chat design
+* Offline cache for user avatars
+* STICKERS!!!111 Included the great stickerpack of mithgarthsormr (Malin Errenst)
+* Add all images you find as stickers
+* Animated stickers! Fluffy stickers! Cute stickers!
+* More stickers! :-)
+* Added animation to the chat list and chat messages
+* Bugfixes and stability improvements
+* Improved registration (No recaptcha-support yet so no registration on matrix.org possible. Just visit: https://matrix.org/_matrix/client for this)
+* Better support for matrix privacy policy
+
 ### 0.6.0:
 ##### New features
 * User profiles
