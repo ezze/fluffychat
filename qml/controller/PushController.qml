@@ -71,7 +71,7 @@ PushClient {
                 "data": {
                     "url": pushUrl
                 },
-                "device_display_name": "UbuntuPhone",
+                "device_display_name": "fluffychat on Ubuntu Touch",
                 "lang": "en",
                 "kind": intent ? "http" : null,
                 "profile_tag": "xxyyzz",

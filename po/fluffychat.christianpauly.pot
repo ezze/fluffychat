@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 12:20+0000\n"
+"POT-Creation-Date: 2018-10-13 12:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:305
+#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:306
 msgid "Are you sure?"
 msgstr ""
 
@@ -153,11 +153,11 @@ msgstr ""
 msgid "Forbidden"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:103
+#: ../qml/controller/EventController.qml:106
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:160
+#: ../qml/controller/EventController.qml:163
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -214,11 +214,11 @@ msgstr ""
 msgid "Empty chat"
 msgstr ""
 
-#: ../qml/controller/PushController.qml:32
+#: ../qml/controller/PushController.qml:31
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/PushController.qml:65
+#: ../qml/controller/PushController.qml:64
 msgid "Push notifications are disabled..."
 msgstr ""
 
@@ -1113,31 +1113,31 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:67
+#: ../qml/components/ChatScrollView.qml:68
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:266
+#: ../qml/components/ChatScrollView.qml:267
 msgid "Try send again"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:275
+#: ../qml/components/ChatScrollView.qml:276
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:283
+#: ../qml/components/ChatScrollView.qml:284
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:288
+#: ../qml/components/ChatScrollView.qml:289
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:293
+#: ../qml/components/ChatScrollView.qml:294
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:297
+#: ../qml/components/ChatScrollView.qml:298
 msgid "Delete message"
 msgstr ""
 
