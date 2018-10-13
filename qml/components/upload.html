@@ -99,10 +99,8 @@
         else if ( (/\.(mp4|avi|mng|wmv|amv)$/i).test( file.name) ) msgtype = "m.video"
 
         if ( msgtype === "m.image" ) {
-            request ( "upload", "https://" + variableList["domain"] + "/_matrix/media/r0/upload", file, function ( response1 ) {
-                request ( "upload", "https://" + variableList["domain"] + "/_matrix/media/r0/upload?filename=" + file.name, file, function ( response2 ) {
-                    send( JSON.parse(response2).content_uri, JSON.parse(response1).content_uri );
-                });
+            request ( "upload", "https://" + variableList["domain"] + "/_matrix/media/r0/upload", file, function ( response ) {
+                send( JSON.parse(response).content_uri, JSON.parse(response).content_uri );
             });
         }
         else {
