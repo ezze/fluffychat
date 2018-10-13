@@ -87,6 +87,16 @@ Rectangle {
             height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
             width: contentColumn.width + ( isImage ? -1 : units.gu(2) )
 
+            Rectangle {
+                width: units.gu(2)
+                height: width
+                color: messageBubble.color
+                visible: !isStateEvent && !event.sameSender
+                anchors.left: !sent ? parent.left : undefined
+                anchors.right: sent ? parent.right : undefined
+                anchors.bottom: parent.bottom
+            }
+
             Column {
                 id: contentColumn
                 anchors.bottom: parent.bottom
@@ -341,11 +351,12 @@ Row {
         text: {
             // Show the senders displayname only if its not the user him-/herself.
             ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
-            ("<b><font color='" + usernames.stringToColor(senderDisplayname) + "'>" + (senderDisplayname) + "</font></b> ")
+            (senderDisplayname + " ")
             : "")
             + stamp.getChatTime ( event.origin_server_ts )
         }
         color: messageLabel.color
+        opacity: 0.5
         textSize: Label.XxSmall
         visible: !isStateEvent
     }
