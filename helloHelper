@@ -20,7 +20,7 @@ elif 'sender' in message:
 
 # What is the body of the message?
 body = "New encrypted Message"
-if 'content' in message and 'content' in message["sender"]:
+if 'content' in message and 'body' in message["content"]:
     body = message["content"]["body"]
 if 'room_name' in message and message["room_name"] != sender:
     body = sender + ": " + message["content"]["body"]
