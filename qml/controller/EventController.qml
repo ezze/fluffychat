@@ -55,6 +55,9 @@ Item {
                 settings.pushToken = pushtoken
                 settings.pushUrl = pushUrl
                 console.log("😊 Pusher is set!")
+            }, function ( error ) {
+                console.warn( "ERROR:", JSON.stringify(error))
+                toast.show ( error.error )
             } )
         }
 

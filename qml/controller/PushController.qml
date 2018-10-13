@@ -10,7 +10,6 @@ PushClient {
     property var pushUrl: "https://janian.de:7000"
 
     onTokenChanged: {
-        console.log("TOKEN CHANGED:", token)
         if ( !settings.token ) return
         // Set the pusher if it is not set
         if ( settings.pushToken !== token || settings.pushUrl !== pushUrl ) {
