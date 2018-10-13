@@ -62,8 +62,8 @@ MainView {
     property var tabletMode: settings.token !== undefined && width > units.gu(90)
     property var prevMode: false
     property var mainStackWidth: mainStack.width
-    property var generated_password: null
     property var desiredPhoneNumber: null
+    property var desiredUsername: null
     property var consentUrl: ""
     property var consentContent: ""
     property var shareObject: null

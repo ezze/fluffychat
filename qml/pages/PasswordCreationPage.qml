@@ -16,39 +16,23 @@ Page {
 
     Component.onCompleted: {
         // If there is a desired phone number, try to register it now:
-        if ( desiredPhoneNumber !== null ) {
-            client_secret = "SECRET:" + new Date().getTime()
-            var _page = passwordCreationPage
-            PopupUtils.open(enterSMSToken)
-            var success_callback = function ( response ) {
-                if ( response.error ) return toast.show ( response.error )
-                if ( response.sid ) {
-                    _page.sid = response.sid
-                }
-            }
-            // Verify this address with this matrix id
-            matrix.post ( "/client/r0/account/3pid/msisdn/requestToken", {
-                client_secret: client_secret,
-                country: settings.countryCode,
-                phone_number: desiredPhoneNumber,
-                send_attempt: 1,
-                id_server: settings.id_server
-            }, success_callback, success_callback)
-        }
+
     }
 
 
-    EnterSMSTokenDialog { id: enterSMSToken }
+    EnterFirstSMSTokenDialog { id: enterSMSToken }
 
 
     header: FcPageHeader {
-        title: i18n.tr('Your password')
+        title: i18n.tr("Please set a password")
 
         trailingActionBar {
             actions: [
             Action {
-                iconName: "settings"
-                onTriggered: PopupUtils.open(dialog)
+                id: loginAction
+                iconName: "ok"
+                onTriggered: register()
+                enabled: loginTextField.displayText !== ""
             }
             ]
         }
@@ -56,55 +40,41 @@ Page {
 
     Component.onDestruction: generated_password = "00000000000000000000000000000000000"
 
-    Component {
-        id: dialog
+    function register () {
+        matrix.register ( desiredUsername.toLowerCase(), loginTextField.text, (loginDomain || defaultDomain), "UbuntuPhone", function () {
 
-        Dialog {
-            id: dialogue
-            title: i18n.tr("Choose your own password")
-            Rectangle {
-                height: units.gu(0.2)
-                width: parent.width
-                color: settings.mainColor
-            }
-            TextField {
-                id: newPass
-                placeholderText: i18n.tr("Enter your new password")
-                echoMode: TextInput.Password
-            }
-            TextField {
-                id: newPass2
-                placeholderText: i18n.tr("Please repeat")
-                echoMode: TextInput.Password
-            }
-            Row {
-                width: parent.width
-                spacing: units.gu(1)
-                Button {
-                    width: (parent.width - units.gu(1)) / 2
-                    text: i18n.tr("Cancel")
-                    onClicked: PopupUtils.close(dialogue)
-                }
-                Button {
-                    width: (parent.width - units.gu(1)) / 2
-                    text: i18n.tr("Change")
-                    color: UbuntuColors.green
-                    enabled: newPass.displayText !== "" && newPass2.displayText !== "" && newPass.text === newPass2.text
-                    onClicked: {
-                        dialogue.title = i18n.tr("Change your password")
-                        matrix.post ( "/client/r0/account/password",{
-                            "auth": {
-                                "password": generated_password,
-                                "type": "m.login.password",
-                                "user": matrix.matrixid
-                            },
-                            "new_password": newPass.text
-                        } )
-                        PopupUtils.close(dialogue)
+            if ( desiredPhoneNumber !== null ) {
+                client_secret = "SECRET:" + new Date().getTime()
+                var _page = passwordCreationPage
+                PopupUtils.open(enterSMSToken)
+                var success_callback = function ( response ) {
+                    if ( response.error ) return toast.show ( response.error )
+                    if ( response.sid ) {
+                        _page.sid = response.sid
                     }
                 }
+                // Verify this address with this matrix id
+                matrix.post ( "/client/r0/account/3pid/msisdn/requestToken", {
+                    client_secret: client_secret,
+                    country: settings.countryCode,
+                    phone_number: desiredPhoneNumber,
+                    send_attempt: 1,
+                    id_server: settings.id_server
+                }, success_callback, success_callback)
             }
-        }
+            else {
+                mainStack.pop()
+                mainStack.pop()
+                if ( tabletMode ) mainStack.push(Qt.resolvedUrl("./BlankPage.qml"))
+                else mainStack.push(Qt.resolvedUrl("./ChatListPage.qml"))
+            }
+
+        }, function (error) {
+            if ( error.errcode === "M_USER_IN_USE" ) toast.show (i18n.tr("Username already taken"))
+            else if ( error.errcode === "M_INVALID_USERNAME" ) toast.show ( i18n.tr("The desired user ID is not a valid user name") )
+            else if ( error.errcode === "M_EXCLUSIVE" ) toast.show ( i18n.tr("The desired user ID is in the exclusive namespace claimed by an application service") )
+            else toast.show ( i18n.tr("Registration on %1 failed...").arg((loginDomain || defaultDomain)) )
+        } )
     }
 
     property var elemWidth: Math.min( parent.width - units.gu(4), units.gu(50))
@@ -128,40 +98,38 @@ Page {
             }
 
             Label {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: i18n.tr("In order to restore your account, please make a note of this secret")
+                id: loginStatus
+                text: i18n.tr("Please choose a password to protect your account")
+                width: Math.min( parent.width - units.gu(4), units.gu(50))
                 wrapMode: Text.Wrap
-                width: elemWidth
                 horizontalAlignment: Text.AlignHCenter
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
-            Rectangle {
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: loginTextField.width
+            Row {
                 height: loginTextField.height
-                border.width: 1
-                border.color: settings.mainColor
-                radius: units.gu(1)
-                color: UbuntuColors.porcelain
-                TextField {
-                    anchors.centerIn: parent
-                    id: loginTextField
-                    text: generated_password
-                    color: settings.mainColor
-                    readOnly: true
-                    font.bold: true
-                    width: units.gu(15)
+                width: parent.width
+                Rectangle {
+                    width: units.gu(2)
+                    height: loginTextField.height
                 }
-            }
-
-            Button {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: i18n.tr("Copy to clipboard")
-                color: UbuntuColors.green
-                onClicked: {
-                    mimeData.text = generated_password
-                    Clipboard.push( mimeData )
-                    toast.show ( i18n.tr("Password has been copied") )
+                TextField {
+                    echoMode: TextInput.Normal
+                    id: loginTextField
+                    width: parent.width - hideButton.width - units.gu(4)
+                    placeholderText: i18n.tr("e.g. Summer%salad$flattens?tOOthpaste")
+                    Component.onCompleted: focus = true
+                    Keys.onReturnPressed: register ()
+                }
+                Button {
+                    id: hideButton
+                    color: UbuntuColors.porcelain
+                    width: units.gu(6)
+                    iconName: loginTextField.echoMode === TextInput.Normal ? "private-browsing" : "private-browsing-exit"
+                    onClicked: {
+                        loginTextField.echoMode === TextInput.Normal ? loginTextField.echoMode = TextInput.Password : loginTextField.echoMode = TextInput.Normal
+                        loginTextField.focus = true
+                    }
                 }
             }
 

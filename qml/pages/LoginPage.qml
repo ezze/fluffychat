@@ -12,11 +12,9 @@ Page {
     function login () {
         loginAction.enabled = false
         var username = loginTextField.displayText
+        desiredUsername = username
 
-        // Step 1: Generate a new password
-        generated_password = password_generator ( 12 )
-
-        // Transforming the username:
+        // Step 1: Transforming the username:
         // If it is a normal username, then use the current domain
         // If it is a matrix-id, then get the infos from this form:
         // @username:domain
@@ -26,8 +24,19 @@ Page {
             loginDomain = usernameSplitted [1]
         }
 
-        // Step 2: If there is no phone number, then try to register the username
-        if ( phoneTextField.displayText === "" ) register ( username )
+        // Step 2: If there is no phone number, and the user is new then try to register the username
+        if ( phoneTextField.displayText === "" && newHereCheckBox.checked ) register ( username )
+
+        // Step 2.1: If there is no phone number and the user is not new, then check if user exists:
+        else if  ( phoneTextField.displayText === "" ) {
+            matrix.get( "/client/r0/register/available", {"username": username.toLowerCase() }, function ( response ) {
+                if ( !response.available ) mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
+                else toast.show (i18n.tr("Username '%1' not found on %2").arg(username).arg(loginDomain))
+            }, function ( response ) {
+                if ( response.errcode === "M_USER_IN_USE" ) mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
+                else toast.show ( response.error )
+            })
+        }
 
         // Step 3: Try to get the username via the phone number and login
         else {
@@ -49,10 +58,11 @@ Page {
                     settings.server = splittedMxid[1]
                     mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
                 }
-                // Step 3.3: There is no registered matrix id. Try to register one...
+                // Step 3.3.1: There is no registered matrix id and user is not new, so abbort!
+                else if ( !newHereCheckBox.checked ) toast.show (i18n.tr("No user found with this phone number"))
+                // Step 3.3.2: There is no registered matrix id. Try to register one...
                 else {
                     desiredPhoneNumber = phoneInput
-                    console.log("desiredPhoneNumber",desiredPhoneNumber)
                     register ( username )
                 }
             })
@@ -61,42 +71,13 @@ Page {
     }
 
     function register ( username ) {
-        matrix.register ( username, generated_password, (loginDomain || defaultDomain), "UbuntuPhone", function () {
-            mainStack.pop()
-            if ( tabletMode ) mainStack.push(Qt.resolvedUrl("./BlankPage.qml"))
-            else mainStack.push(Qt.resolvedUrl("./ChatListPage.qml"))
-            mainStack.push(Qt.resolvedUrl("./PasswordCreationPage.qml"))
-        }, function (error) {
-            if ( error.errcode === "M_USER_IN_USE" ) {
-                mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
-            }
-            else if ( error.errcode === "M_INVALID_USERNAME" ) toast.show ( i18n.tr("The desired user ID is not a valid user name") )
-            else if ( error.errcode === "M_EXCLUSIVE" ) toast.show ( i18n.tr("The desired user ID is in the exclusive namespace claimed by an application service") )
-            else toast.show ( i18n.tr("Registration on %1 failed...").arg((loginDomain || defaultDomain)) )
-        } )
-    }
-
-    function password_generator( len ) {
-        var length = len;
-        var string = "abcdefghijklmnopqrstuvwxyz"; //to upper
-        var numeric = '0123456789';
-        var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
-        var password = "";
-        var character = "";
-        var crunch = true;
-        while( password.length<length ) {
-            var entity1 = Math.ceil(string.length * Math.random()*Math.random());
-            var entity2 = Math.ceil(numeric.length * Math.random()*Math.random());
-            var entity3 = Math.ceil(punctuation.length * Math.random()*Math.random());
-            var hold = string.charAt( entity1 );
-            hold = (password.length%2==0)?(hold.toUpperCase()):(hold);
-            character += hold;
-            character += numeric.charAt( entity2 );
-            character += punctuation.charAt( entity3 );
-            password = character;
-        }
-        password=password.split('').sort(function(){return 0.5-Math.random()}).join('');
-        return password.substr(0,len);
+        matrix.get( "/client/r0/register/available", {"username": username.toLowerCase() }, function ( response ) {
+            if ( response.available ) mainStack.push(Qt.resolvedUrl("./PasswordCreationPage.qml"))
+            else toast.show (i18n.tr("Username is already taken"))
+        }, function ( response ) {
+            if ( response.errcode === "M_USER_IN_USE" ) toast.show (i18n.tr("Username is already taken"))
+            else toast.show ( response.error )
+        })
     }
 
 
@@ -229,11 +210,27 @@ Page {
                     }
                 }
             }
+            Row {
+                id: newHere
+                width: loginTextField.width
+                anchors.horizontalCenter: parent.horizontalCenter
+                spacing: units.gu(1)
+                CheckBox {
+                    id: newHereCheckBox
+                    checked: true
+                    width: units.gu(3)
+                    height: width
+                }
+                Label {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: i18n.tr("I'm new here")
+                }
+            }
 
             Rectangle {
                 width: parent.width
                 color: theme.palette.normal.background
-                height: Math.max(scrollView.height - banner.height - 2 * loginTextField.height - 2 * serverLabel.height - units.gu(8),0)
+                height: Math.max(scrollView.height - newHere.height - banner.height - 2 * loginTextField.height - 2 * serverLabel.height - units.gu(9),0)
             }
 
             Label {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 08:09+0000\n"
+"POT-Creation-Date: 2018-10-13 09:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,113 +270,86 @@ msgstr ""
 msgid "No email addresses connected"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:45
-msgid "Your password"
+#: ../qml/pages/PasswordCreationPage.qml:27
+msgid "Please set a password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:64
-msgid "Choose your own password"
+#: ../qml/pages/PasswordCreationPage.qml:73
+msgid "Username already taken"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:72
-#: ../qml/components/ChangePasswordDialog.qml:25
-msgid "Enter your new password"
-msgstr ""
-
-#: ../qml/pages/PasswordCreationPage.qml:77
-#: ../qml/components/ChangePasswordDialog.qml:30
-msgid "Please repeat"
-msgstr ""
-
-#: ../qml/pages/PasswordCreationPage.qml:85
-#: ../qml/components/ChangePasswordDialog.qml:38
-#: ../qml/components/DownloadDialog.qml:26
-#: ../qml/components/LeaveChatDialog.qml:27
-#: ../qml/components/NewGroupDialog.qml:27
-#: ../qml/components/RemoveDeviceDialog.qml:42
-#: ../qml/components/AddPhoneDialog.qml:37
-#: ../qml/components/DisableAccountDialog.qml:42
-#: ../qml/components/ConfirmDialog.qml:22
-#: ../qml/components/LogoutDialog.qml:35
-#: ../qml/components/AddAliasDialog.qml:27
-#: ../qml/components/EnterSMSTokenDialog.qml:28
-#: ../qml/components/JoinGroupDialog.qml:27
-#: ../qml/components/NewContactDialog.qml:39
-#: ../qml/components/ChangeDisplaynameDialog.qml:34
-#: ../qml/components/ChangeChatnameDialog.qml:43
-#: ../qml/components/AddEmailDialog.qml:27
-msgid "Cancel"
-msgstr ""
-
-#: ../qml/pages/PasswordCreationPage.qml:90
-#: ../qml/components/ChangePasswordDialog.qml:43
-msgid "Change"
-msgstr ""
-
-#: ../qml/pages/PasswordCreationPage.qml:94
-#: ../qml/components/ChangePasswordDialog.qml:11
-msgid "Change your password"
-msgstr ""
-
-#: ../qml/pages/PasswordCreationPage.qml:132
-msgid "In order to restore your account, please make a note of this secret"
-msgstr ""
-
-#: ../qml/pages/PasswordCreationPage.qml:159
-msgid "Copy to clipboard"
-msgstr ""
-
-#: ../qml/pages/PasswordCreationPage.qml:164
-msgid "Password has been copied"
-msgstr ""
-
-#: ../qml/pages/LoginPage.qml:73
+#: ../qml/pages/PasswordCreationPage.qml:74
 msgid "The desired user ID is not a valid user name"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:74
+#: ../qml/pages/PasswordCreationPage.qml:75
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:75
+#: ../qml/pages/PasswordCreationPage.qml:76
 msgid "Registration on %1 failed..."
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:104
+#: ../qml/pages/PasswordCreationPage.qml:102
+msgid "Please choose a password to protect your account"
+msgstr ""
+
+#: ../qml/pages/PasswordCreationPage.qml:120
+#, javascript-format
+msgid "e.g. Summer%salad$flattens?tOOthpaste"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:34
+msgid "Username '%1' not found on %2"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:62
+msgid "No user found with this phone number"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:76 ../qml/pages/LoginPage.qml:78
+msgid "Username is already taken"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:85
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:112
+#: ../qml/pages/LoginPage.qml:93
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:117
+#: ../qml/pages/LoginPage.qml:98
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:122
+#: ../qml/pages/LoginPage.qml:103
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:144
+#: ../qml/pages/LoginPage.qml:125
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:165
+#: ../qml/pages/LoginPage.qml:146
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:213
+#: ../qml/pages/LoginPage.qml:194
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:222
+#: ../qml/pages/LoginPage.qml:203
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:241
+#: ../qml/pages/LoginPage.qml:226
+msgid "I'm new here"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:238
 msgid "Using the homeserver: "
 msgstr ""
 
@@ -872,9 +845,45 @@ msgstr ""
 msgid "Kick from this chat?"
 msgstr ""
 
+#: ../qml/components/ChangePasswordDialog.qml:11
+msgid "Change your password"
+msgstr ""
+
 #: ../qml/components/ChangePasswordDialog.qml:19
 #: ../qml/components/DisableAccountDialog.qml:33
 msgid "Enter your old password"
+msgstr ""
+
+#: ../qml/components/ChangePasswordDialog.qml:25
+msgid "Enter your new password"
+msgstr ""
+
+#: ../qml/components/ChangePasswordDialog.qml:30
+msgid "Please repeat"
+msgstr ""
+
+#: ../qml/components/ChangePasswordDialog.qml:38
+#: ../qml/components/DownloadDialog.qml:26
+#: ../qml/components/LeaveChatDialog.qml:27
+#: ../qml/components/NewGroupDialog.qml:27
+#: ../qml/components/RemoveDeviceDialog.qml:42
+#: ../qml/components/AddPhoneDialog.qml:37
+#: ../qml/components/DisableAccountDialog.qml:42
+#: ../qml/components/ConfirmDialog.qml:22
+#: ../qml/components/LogoutDialog.qml:35
+#: ../qml/components/AddAliasDialog.qml:27
+#: ../qml/components/EnterSMSTokenDialog.qml:28
+#: ../qml/components/JoinGroupDialog.qml:27
+#: ../qml/components/NewContactDialog.qml:39
+#: ../qml/components/ChangeDisplaynameDialog.qml:34
+#: ../qml/components/EnterFirstSMSTokenDialog.qml:28
+#: ../qml/components/ChangeChatnameDialog.qml:43
+#: ../qml/components/AddEmailDialog.qml:27
+msgid "Cancel"
+msgstr ""
+
+#: ../qml/components/ChangePasswordDialog.qml:43
+msgid "Change"
 msgstr ""
 
 #: ../qml/components/ChangePasswordDialog.qml:55
@@ -1002,6 +1011,7 @@ msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:43
 #: ../qml/components/EnterSMSTokenDialog.qml:33
+#: ../qml/components/EnterFirstSMSTokenDialog.qml:39
 #: ../qml/components/AddEmailDialog.qml:32
 msgid "Connect"
 msgstr ""
@@ -1042,10 +1052,12 @@ msgid "Please try another address"
 msgstr ""
 
 #: ../qml/components/EnterSMSTokenDialog.qml:11
+#: ../qml/components/EnterFirstSMSTokenDialog.qml:11
 msgid "Please enter the validation code"
 msgstr ""
 
 #: ../qml/components/EnterSMSTokenDialog.qml:19
+#: ../qml/components/EnterFirstSMSTokenDialog.qml:19
 msgid "Validation code"
 msgstr ""
 
