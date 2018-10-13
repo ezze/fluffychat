@@ -77,8 +77,9 @@ Rectangle {
             opacity: isStateEvent ? 0.75 : 1
             z: 2
             anchors.margins: units.gu(0.5)
-            color: (!sent || isStateEvent) ? "#e6e5ea" :
-            (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)
+            color: image.showGif || image.showThumbnail ? "#00000000" : (
+            (!sent || isStateEvent) ? "#e6e5ea" :
+            (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor))
 
             Behavior on color {
                 ColorAnimation { from: settings.brighterMainColor; duration: 300 }
@@ -349,6 +350,12 @@ Label {
     }
 }
 
+Rectangle {
+    anchors.fill: metaLabelRow
+    visible: image.showGif || image.showThumbnail
+    color: "#AAFFFFFF"
+    radius: units.gu(0.5)
+}
 
 Row {
     id: metaLabelRow
