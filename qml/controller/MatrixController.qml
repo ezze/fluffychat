@@ -174,9 +174,11 @@ Item {
     function formatReply ( tempText ) {
         if ( tempText.slice(0,9) === "&gt; &lt;" ) {
             var lines = tempText.split("\n")
+            var user = lines[0].split("&lt;")[1].split("&gt;")[0]
+            lines[0] = lines[0].replace( user, "<a href='fluffychat://%1'>%2</a>".arg(user).arg(user))
             lines[0] = lines[0].replace("&gt; ", "")
-            lines[0] = lines[0].replace("&gt;"," " + i18n.tr("wrote:"))
-            lines[0] = lines[0].replace("&lt;","<font color='#888888'>")
+            lines[0] = lines[0].replace("&gt;",":")
+            lines[0] = lines[0].replace("&lt;","<font color='" + settings.brightMainColor + "'>")
             lines[0] += "</font>"
             for ( var i = 1; i < lines.length; i++ ) {
                 if ( lines[i].slice(0,4) === "&gt;" ) {

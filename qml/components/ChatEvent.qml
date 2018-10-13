@@ -282,7 +282,7 @@ Rectangle {
                     height: opacity ? undefined : 0
                     text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :  event.content_body || event.content.body
                     color: (!sent || isStateEvent) ? "black" : "white"
-                    linkColor: color
+                    linkColor: settings.brightMainColor
                     wrapMode: Text.Wrap
                     textFormat: Text.StyledText
                     textSize: isStateEvent ? Label.XSmall :
