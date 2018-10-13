@@ -17,6 +17,7 @@ Page {
     property var replyEvent: null
 
     function send ( message ) {
+        console.log(JSON.stringify(message))
         if ( messageTextField.displayText === "" && message === undefined ) return
 
         var sticker = undefined
@@ -32,6 +33,7 @@ Page {
         }
 
         if ( sticker !== undefined ) {
+            if ( !sticker.name ) sticker.name = "sticker"
             data.body = sticker.name
             data.msgtype = "m.sticker"
             data.url = sticker.url
@@ -44,6 +46,7 @@ Page {
 
             // Add reply event to message
             if ( replyEvent !== null ) {
+                console.log("reply")
 
                 // Add event ID to the reply object
                 data["m.relates_to"] = {
@@ -95,7 +98,7 @@ Page {
                 type: type,
                 id: messageID,
                 sender: matrix.matrixid,
-                content_body: matrix.formatText ( data.body ),
+                content_body: sender.formatText ( data.body ),
                 displayname: chatMembers[matrix.matrixid].displayname,
                 avatar_url: chatMembers[matrix.matrixid].avatar_url,
                 status: msg_status.SENDING,

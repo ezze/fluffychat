@@ -79,7 +79,7 @@ Rectangle {
             color: (!sent || isStateEvent) ? "#e6e5ea" : settings.mainColor
             radius: units.gu(2)
             height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
-            width: contentColumn.width + ( isImage ? 0 : units.gu(2) )
+            width: contentColumn.width + ( isImage ? -1 : units.gu(2) )
 
             Column {
                 id: contentColumn

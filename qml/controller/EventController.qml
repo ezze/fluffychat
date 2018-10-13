@@ -267,7 +267,7 @@ Item {
                 var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
 
                 // Format the text for the app
-                if( event.content.body ) event.content_body = matrix.formatText ( event.content.body )
+                if( event.content.body ) event.content_body = sender.formatText ( event.content.body )
                 else event.content_body = null
                 transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
