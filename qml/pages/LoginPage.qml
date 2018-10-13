@@ -23,6 +23,8 @@ Page {
             username = usernameSplitted [0]
             loginDomain = usernameSplitted [1]
         }
+        settings.username = username
+        settings.server = loginDomain || defaultDomain
 
         // Step 2: If there is no phone number, and the user is new then try to register the username
         if ( phoneTextField.displayText === "" && newHereCheckBox.checked ) register ( username )

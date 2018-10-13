@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 10:38+0000\n"
+"POT-Creation-Date: 2018-10-13 11:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -301,55 +301,55 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:34
+#: ../qml/pages/LoginPage.qml:36
 msgid "Username '%1' not found on %2"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:62
+#: ../qml/pages/LoginPage.qml:64
 msgid "No user found with this phone number"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:76 ../qml/pages/LoginPage.qml:78
+#: ../qml/pages/LoginPage.qml:78 ../qml/pages/LoginPage.qml:80
 msgid "Username is already taken"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:85
+#: ../qml/pages/LoginPage.qml:87
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:93
+#: ../qml/pages/LoginPage.qml:95
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:98
+#: ../qml/pages/LoginPage.qml:100
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:103
+#: ../qml/pages/LoginPage.qml:105
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:125
+#: ../qml/pages/LoginPage.qml:127
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:146
+#: ../qml/pages/LoginPage.qml:148
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:194
+#: ../qml/pages/LoginPage.qml:196
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:203
+#: ../qml/pages/LoginPage.qml:205
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:226
+#: ../qml/pages/LoginPage.qml:228
 msgid "I'm new here"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:238
+#: ../qml/pages/LoginPage.qml:240
 msgid "Using the homeserver: "
 msgstr ""
 

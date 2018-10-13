@@ -77,7 +77,7 @@ Rectangle {
             z: 2
             anchors.margins: units.gu(0.5)
             color: (!sent || isStateEvent) ? "#e6e5ea" :
-            (event.status === msg_status.SEEN ? settings.mainColor : settings.brighterMainColor)
+            (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)
 
             Behavior on color {
                 ColorAnimation { from: settings.brighterMainColor; duration: 300 }
