@@ -327,10 +327,11 @@ ListView {
     model: ListModel { id: model }
     onContentYChanged: if ( atYBeginning ) requestHistory ()
     move: Transition {
-        NumberAnimation { property: "opacity"; to:1; duration: 200 }
+        NumberAnimation { property: "opacity"; to:1; duration: 1 }
     }
     displaced: Transition {
         SmoothedAnimation { property: "y"; duration: 300 }
+        NumberAnimation { property: "opacity"; to:1; duration: 1 }
     }
     add: Transition {
         NumberAnimation { property: "opacity"; from: 0; to:1; duration: 200 }

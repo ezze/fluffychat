@@ -288,7 +288,7 @@ Label {
     height: opacity ? undefined : 0
     text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :  event.content_body || event.content.body
     color: (!sent || isStateEvent) ? "black" :
-    (event.status === msg_status.SEEN ? "white" : "black")
+    (event.status < msg_status.SEEN ? "black" : "white")
     linkColor: settings.brightMainColor
     Behavior on color {
         ColorAnimation { from: "black"; duration: 300 }
