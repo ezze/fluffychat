@@ -350,13 +350,6 @@ Label {
     }
 }
 
-Rectangle {
-    anchors.fill: metaLabelRow
-    visible: image.showGif || image.showThumbnail
-    color: "#AAFFFFFF"
-    radius: units.gu(0.5)
-}
-
 Row {
     id: metaLabelRow
     anchors.left: sent ? undefined : parent.left
