@@ -109,7 +109,7 @@ Rectangle {
                 Rectangle {
                     id: image
                     color: "#00000000"
-                    width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : (showGif ? gif.width : height*(9/16)))
+                    width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : (showGif && gif.status === Image.Ready ? gif.width : height*(9/16)))
                     height: visible * (!showButton ? units.gu(30) : showImageButton.height)
                     visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
                     property var hasThumbnail: event.content.info && event.content.info.thumbnail_url
@@ -135,7 +135,8 @@ Rectangle {
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
-                        visible: image.showThumbnail && status === Image.Ready
+                        visible: image.showThumbnail
+                        opacity: status === Image.Ready
                         cache: true
                     }
 
@@ -145,11 +146,12 @@ Rectangle {
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
-                        visible: image.showGif && status === gif.Ready
+                        visible: image.showGif
+                        opacity: status === Image.Ready
                     }
 
                     ActivityIndicator {
-                        visible: image.showThumbnail && thumbnail.status === Image.Loading || image.showGif && gif.status === Image.loading
+                        visible: thumbnail.status === Image.Loading || (image.showGif && !gif.opacity !image.showButton)
                         anchors.centerIn: parent
                         width: units.gu(2)
                         height: width
@@ -157,7 +159,7 @@ Rectangle {
                     }
 
                     Icon {
-                        visible: !image.showButton && (image.showThumbnail && thumbnail.status === Image.Error || image.showGif && gif.status === Image.Error)
+                        visible: !image.showButton && (thumbnail.status === Image.Error || gif.status === Image.Error)
                         anchors.centerIn: parent
                         width: units.gu(6)
                         height: width

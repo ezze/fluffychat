@@ -43,7 +43,6 @@ Rectangle {
         property var onlyOneError: true
         onStatusChanged: {
             if ( status === Image.Error && onlyOneError ) {
-                console.log(mxc)
                 avatar.source = media.getThumbnailLinkFromMxc ( mxc, width, height )
                 onlyOneError = false
             }
