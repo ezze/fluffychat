@@ -163,6 +163,7 @@ Rectangle {
                         width: visible ? units.gu(26) : 0
                         anchors.left: parent.left
                         anchors.leftMargin: units.gu(1)
+                        color: settings.brightMainColor
                     }
 
                     MouseArea {
@@ -263,6 +264,7 @@ Rectangle {
 */
 Button {
     id: downloadButton
+    color: settings.brightMainColor
     text: i18n.tr("Download: ") + event.content.body
     onClicked: {
         downloadDialog.downloadButton = downloadAudioButton
@@ -339,12 +341,11 @@ Row {
         text: {
             // Show the senders displayname only if its not the user him-/herself.
             ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
-            ("<b><font color='" + usernames.stringToDarkColor(senderDisplayname) + "'>" + (senderDisplayname) + "</font></b> ")
+            ("<b><font color='" + usernames.stringToColor(senderDisplayname) + "'>" + (senderDisplayname) + "</font></b> ")
             : "")
             + stamp.getChatTime ( event.origin_server_ts )
         }
-        //opacity: 0.75
-        color: messageLabel.color//(!sent || isStateEvent) ? "#666666" : "#999999"
+        color: messageLabel.color
         textSize: Label.XxSmall
         visible: !isStateEvent
     }
