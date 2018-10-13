@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 10:09+0000\n"
+"POT-Creation-Date: 2018-10-13 10:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:63
+#: ../qml/controller/SettingsController.qml:64
 msgid "USA"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:64
+#: ../qml/controller/SettingsController.qml:65
 msgid "1"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:153
+#: ../qml/components/ChatEvent.qml:159
 msgid "Show image"
 msgstr ""
 
@@ -993,7 +993,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:260
+#: ../qml/components/ChatEvent.qml:266
 msgid "Download: "
 msgstr ""
 
