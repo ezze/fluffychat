@@ -350,51 +350,58 @@ Label {
     }
 }
 
-Row {
-    id: metaLabelRow
+Rectangle {
+    color: image.showGif || image.showThumbnail ? "#AAFFFFFF" : "#00000000"
+    height: metaLabelRow.height
+    width: metaLabelRow.width
     anchors.left: sent ? undefined : parent.left
     anchors.leftMargin: units.gu(1)
     anchors.right: sent ? parent.right : undefined
     anchors.rightMargin: isImage ? units.gu(1) : -units.gu(1)
-    spacing: units.gu(0.25)
+    radius: units.gu(0.5)
+    Row {
+        id: metaLabelRow
+        spacing: units.gu(0.25)
 
-    // This label is for the meta-informations, which means it displays the
-    // display name of the sender of this message and the time.
-    Label {
-        id: metaLabel
-        text: {
-            // Show the senders displayname only if its not the user him-/herself.
-            ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
-            (senderDisplayname + " ")
-            : "")
-            + stamp.getChatTime ( event.origin_server_ts )
+        // This label is for the meta-informations, which means it displays the
+        // display name of the sender of this message and the time.
+        Label {
+            id: metaLabel
+            text: {
+                // Show the senders displayname only if its not the user him-/herself.
+                ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
+                (senderDisplayname + " ")
+                : "")
+                + stamp.getChatTime ( event.origin_server_ts )
+            }
+            color: image.showGif || image.showThumbnail ? "black" : messageLabel.color
+            opacity: 0.5
+            textSize: Label.XxSmall
+            visible: !isStateEvent
         }
-        color: messageLabel.color
-        opacity: 0.5
-        textSize: Label.XxSmall
-        visible: !isStateEvent
-    }
-    // When the message is just sending, then this activity indicator is visible
-    ActivityIndicator {
-        id: activity
-        visible: sending
-        running: visible
-        height: metaLabel.height
-        width: height
-    }
-    // When the message is received, there should be an icon
-    Icon {
-        id: statusIcon
-        visible: !isStateEvent && sent && event.status !== msg_status.SENDING
-        name: event.status === msg_status.SEEN ? "contact" :
-        (event.status === msg_status.RECEIVED ? "tick" :
-        (event.status === msg_status.HISTORY ? "history" : "edit-clear"))
-        height: metaLabel.height
-        color: event.status === msg_status.SENT ? messageBubble.color :
-        (event.status === msg_status.ERROR ? UbuntuColors.red : metaLabel.color)
-        width: height
+        // When the message is just sending, then this activity indicator is visible
+        ActivityIndicator {
+            id: activity
+            visible: sending
+            running: visible
+            height: metaLabel.height
+            width: height
+        }
+        // When the message is received, there should be an icon
+        Icon {
+            id: statusIcon
+            visible: !isStateEvent && sent && event.status !== msg_status.SENDING
+            name: event.status === msg_status.SEEN ? "contact" :
+            (event.status === msg_status.RECEIVED ? "tick" :
+            (event.status === msg_status.HISTORY ? "history" : "edit-clear"))
+            height: metaLabel.height
+            color: event.status === msg_status.SENT ? messageBubble.color :
+            (event.status === msg_status.ERROR ? UbuntuColors.red : metaLabel.color)
+            width: height
+        }
     }
 }
+
 }
 }
 }
