@@ -266,8 +266,8 @@ Page {
         source: "../../assets/chat.svg"
         color: settings.mainColor
         anchors.centerIn: parent
-        width: parent.width / 2
-        height: width
+        width: parent.width
+        //height: width
         opacity: 0.2
         z: 0
     }
