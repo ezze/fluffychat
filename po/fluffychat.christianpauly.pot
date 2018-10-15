@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 12:46+0000\n"
+"POT-Creation-Date: 2018-10-15 13:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:306
+#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:309
 msgid "Are you sure?"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:184
+#: ../qml/components/ChatEvent.qml:186
 msgid "Show image"
 msgstr ""
 
@@ -992,7 +992,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:293
+#: ../qml/components/ChatEvent.qml:295
 msgid "Download: "
 msgstr ""
 
@@ -1112,27 +1112,27 @@ msgstr ""
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:267
+#: ../qml/components/ChatScrollView.qml:270
 msgid "Try send again"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:276
+#: ../qml/components/ChatScrollView.qml:279
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:284
+#: ../qml/components/ChatScrollView.qml:287
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:289
+#: ../qml/components/ChatScrollView.qml:292
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:294
+#: ../qml/components/ChatScrollView.qml:297
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:298
+#: ../qml/components/ChatScrollView.qml:301
 msgid "Delete message"
 msgstr ""
 

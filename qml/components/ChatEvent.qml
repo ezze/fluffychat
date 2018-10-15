@@ -7,7 +7,6 @@ import "../components"
 
 Rectangle {
     id: message
-    //property var event
     property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.sticker"
     property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1
     property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")

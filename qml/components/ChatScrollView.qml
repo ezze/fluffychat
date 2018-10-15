@@ -110,8 +110,24 @@ ListView {
         ) return
 
         if ( !("content_body" in event) ) event.content_body = event.content.body
-
+        event.sameSender = false
         if ( history ) event.status = msg_status.HISTORY
+
+
+        // If there is a transaction id, remove the sending event and end here
+        if ( "unsigned" in event && "transaction_id" in event.unsigned ) {
+            event.unsigned.transaction_id = event.unsigned.transaction_id
+            for ( var i = 0; i < model.count; i++ ) {
+                var tempEvent = model.get(i).event
+                if ( tempEvent.id === event.unsigned.transaction_id || tempEvent.id === event.id) {
+                    if ( i > 0 ) event.sameSender = tempEvent.sameSender
+                    console.log("Dublication Transaction!", i, event.sameSender)
+                    model.set( i, { "event": event } )
+                    return
+                }
+            }
+        }
+
 
         // Find the right position for this event
         var j = history ? model.count : 0
@@ -135,22 +151,9 @@ ListView {
         else event.sameSender = false
 
 
-        // If there is a transaction id, remove the sending event
-        if ( "unsigned" in event && "transaction_id" in event.unsigned ) {
-            event.unsigned.transaction_id = event.unsigned.transaction_id
-            for ( var i = 0; i < model.count; i++ ) {
-                if ( model.get(i).event.id === event.unsigned.transaction_id ||
-                model.get(i).event.id === event.id) {
-                    event.sameSender = model.get(i).event.sameSender
-                    model.set( i, { "event": event } )
-                    return
-                }
-            }
-        }
-
         // Check that there is no duplication:
         if ( model.count > j && event.id === model.get(j).event.id ) {
-            event.sameSender = model.get(j).event.sameSender
+            if ( j > 0 ) event.sameSender = model.get(j).event.sameSender
             model.set( j, { "event": event } )
             return
         }
@@ -297,46 +300,46 @@ ListView {
             Action {
                 text: i18n.tr("Delete message")
                 visible: contextualActions.contextEvent !== undefined && (canRedact && contextualActions.contextEvent.status >= msg_status.SENT ||
-                contextualActions.contextEvent.status === msg_status.ERROR)
-                onTriggered: {
-                    if ( contextualActions.contextEvent.status === msg_status.ERROR ) {
-                        storage.transaction ( "DELETE FROM Events WHERE id='" + contextualActions.contextEvent.id + "'")
-                        removeEvent ( contextualActions.contextEvent.id )
+                    contextualActions.contextEvent.status === msg_status.ERROR)
+                    onTriggered: {
+                        if ( contextualActions.contextEvent.status === msg_status.ERROR ) {
+                            storage.transaction ( "DELETE FROM Events WHERE id='" + contextualActions.contextEvent.id + "'")
+                            removeEvent ( contextualActions.contextEvent.id )
+                        }
+                        else showConfirmDialog ( i18n.tr("Are you sure?"), function () {
+                            matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
+                            .arg(activeChat)
+                            .arg(contextualActions.contextEvent.id)
+                            .arg(new Date().getTime()) )
+                        })
                     }
-                    else showConfirmDialog ( i18n.tr("Are you sure?"), function () {
-                        matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
-                        .arg(activeChat)
-                        .arg(contextualActions.contextEvent.id)
-                        .arg(new Date().getTime()) )
-                    })
                 }
             }
         }
-    }
 
-    MimeData {
-        id: mimeData
-        text: ""
-    }
+        MimeData {
+            id: mimeData
+            text: ""
+        }
 
-    width: parent.width
-    height: parent.height - 2 * chatInput.height
-    anchors.bottom: chatInput.top
-    verticalLayoutDirection: ListView.BottomToTop
-    delegate: ChatEvent {}
-    model: ListModel { id: model }
-    onContentYChanged: if ( atYBeginning ) requestHistory ()
-    move: Transition {
-        NumberAnimation { property: "opacity"; to:1; duration: 1 }
+        width: parent.width
+        height: parent.height - 2 * chatInput.height
+        anchors.bottom: chatInput.top
+        verticalLayoutDirection: ListView.BottomToTop
+        delegate: ChatEvent {}
+        model: ListModel { id: model }
+        onContentYChanged: if ( atYBeginning ) requestHistory ()
+        move: Transition {
+            NumberAnimation { property: "opacity"; to:1; duration: 1 }
+        }
+        displaced: Transition {
+            SmoothedAnimation { property: "y"; duration: 300 }
+            NumberAnimation { property: "opacity"; to:1; duration: 1 }
+        }
+        add: Transition {
+            NumberAnimation { property: "opacity"; from: 0; to:1; duration: 200 }
+        }
+        remove: Transition {
+            NumberAnimation { property: "opacity"; from: 1; to:0; duration: 200 }
+        }
     }
-    displaced: Transition {
-        SmoothedAnimation { property: "y"; duration: 300 }
-        NumberAnimation { property: "opacity"; to:1; duration: 1 }
-    }
-    add: Transition {
-        NumberAnimation { property: "opacity"; from: 0; to:1; duration: 200 }
-    }
-    remove: Transition {
-        NumberAnimation { property: "opacity"; from: 1; to:0; duration: 200 }
-    }
-}
