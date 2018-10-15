@@ -8,24 +8,21 @@ Page {
     id: page
 
     header: FcPageHeader {
-        title: i18n.tr('Welcome')
+        title: ""
+        StyleHints {
+            dividerColor: "#00000000"
+            backgroundColor: "#00000000"
+        }
     }
 
-
-    Rectangle {
-        visible: settings.chatBackground === undefined
-        anchors.fill: parent
-        color: UbuntuColors.jet
-        z: 0
-    }
 
     Icon {
-        visible: settings.chatBackground === undefined
         source: "../../assets/chat.svg"
+        color: settings.mainColor
         anchors.centerIn: parent
-        width: parent.width / 1.25
-        height: width
-        opacity: 0.15
+        width: parent.width
+        height: width * ( 1052 / 744 )
+        opacity: 0.2
         z: 0
     }
 

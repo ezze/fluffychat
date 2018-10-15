@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 11:31+0000\n"
+"POT-Creation-Date: 2018-10-15 12:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -409,10 +409,6 @@ msgstr ""
 msgid "Search contacts..."
 msgstr ""
 
-#: ../qml/pages/BlankPage.qml:11
-msgid "Welcome"
-msgstr ""
-
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:81
 msgid "Settings for %1"
@@ -603,27 +599,27 @@ msgstr ""
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:277
+#: ../qml/pages/ChatPage.qml:276
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:300
+#: ../qml/pages/ChatPage.qml:299
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:404
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:404
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:419
+#: ../qml/pages/ChatPage.qml:418
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:450
+#: ../qml/pages/ChatPage.qml:449
 msgid "Type something ..."
 msgstr ""
 

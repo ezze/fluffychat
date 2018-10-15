@@ -267,7 +267,7 @@ Page {
         color: settings.mainColor
         anchors.centerIn: parent
         width: parent.width
-        //height: width
+        height: width * ( 1052 / 744 )
         opacity: 0.2
         z: 0
     }
