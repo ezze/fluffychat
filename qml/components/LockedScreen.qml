@@ -10,12 +10,17 @@ Rectangle {
     property bool stateVisible: false
     z: 12
 
+    MouseArea {
+        anchors.fill: parent
+        onClicked: Qt.quit()
+    }
+
     Icon {
         id: icon
         anchors.centerIn: parent
-        width: units.gu(4)
+        width: units.gu(8)
         height: width
-        name: "edit-clear"
+        name: "sync-updating"
     }
 
     Label {

@@ -13,7 +13,7 @@ Rectangle {
     Icon {
         id: icon
         anchors.centerIn: parent
-        width: units.gu(4)
+        width: units.gu(8)
         height: width
         name: "sync-updating"
     }
