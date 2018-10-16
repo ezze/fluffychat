@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 13:16+0000\n"
+"POT-Creation-Date: 2018-10-16 09:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -419,7 +419,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:186
+#: ../qml/components/ChatEvent.qml:183
 msgid "Show image"
 msgstr ""
 
@@ -983,8 +983,8 @@ msgstr ""
 msgid "Please enter your password"
 msgstr ""
 
-#: ../qml/components/PhoneListItem.qml:27
-#: ../qml/components/EmailListItem.qml:27
+#: ../qml/components/PhoneListItem.qml:29
+#: ../qml/components/EmailListItem.qml:29
 msgid "Remove this email address?"
 msgstr ""
 
@@ -992,7 +992,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:295
+#: ../qml/components/ChatEvent.qml:292
 msgid "Download: "
 msgstr ""
 

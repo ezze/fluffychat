@@ -23,6 +23,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: displayname
+        title.color: mainFontColor
 
         Avatar {
             name: displayname

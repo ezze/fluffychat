@@ -10,6 +10,8 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
+        title.color: mainFontColor
+        
         Icon {
             name: "phone-symbolic"
             color: settings.mainColor

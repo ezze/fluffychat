@@ -11,6 +11,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name + (isCanonicalAlias ? " (<b>" + i18n.tr('Canonical alias') + "</b>)" : "")
+        title.color: mainFontColor
         Icon {
             name: "bookmark"
             color: settings.mainColor
