@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 09:50+0000\n"
+"POT-Creation-Date: 2018-10-16 10:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:65
+#: ../qml/controller/SettingsController.qml:66
 msgid "USA"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:66
+#: ../qml/controller/SettingsController.qml:67
 msgid "1"
 msgstr ""
 
@@ -214,11 +214,11 @@ msgstr ""
 msgid "Empty chat"
 msgstr ""
 
-#: ../qml/controller/PushController.qml:37
+#: ../qml/controller/PushController.qml:39
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/PushController.qml:70
+#: ../qml/controller/PushController.qml:72
 msgid "Push notifications are disabled..."
 msgstr ""
 
@@ -397,7 +397,7 @@ msgstr ""
 msgid "Chat permissions"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:57
+#: ../qml/pages/CreateChatPage.qml:14
 msgid "Create chat"
 msgstr ""
 
@@ -406,7 +406,8 @@ msgid "Invite selected"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:76
-msgid "Search contacts..."
+#: ../qml/pages/AddChatPage.qml:84
+msgid "Search for example @username:server.abc"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
@@ -725,15 +726,15 @@ msgid "Start a new chat"
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:18
-msgid "Add Contact"
+msgid "New contact"
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:24
 msgid "Discover public chats"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:84
-msgid "Search contacts or usernames..."
+#: ../qml/pages/AddChatPage.qml:57 ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
 msgstr ""
 
 #: ../qml/pages/AddChatPage.qml:123
@@ -943,10 +944,6 @@ msgstr ""
 
 #: ../qml/components/LeaveChatDialog.qml:32
 msgid "Leave"
-msgstr ""
-
-#: ../qml/components/NewGroupDialog.qml:11
-msgid "New group"
 msgstr ""
 
 #: ../qml/components/NewGroupDialog.qml:19

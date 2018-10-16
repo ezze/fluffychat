@@ -9,6 +9,7 @@ PushClient {
     property var errorReport: null
     property var pushUrl: "https://janian.de:7000"
     //property var pushUrl: "https://push.ubports.com:5003/"
+    property var deviceName: "fluffychat %1 on Ubuntu Touch".arg(version)
 
     onTokenChanged: {
         if ( !settings.token ) return
@@ -18,11 +19,12 @@ PushClient {
 
 
     function updatePusher () {
-        if ( token !== "" && (settings.pushToken !== token || settings.pushUrl !== pushUrl) ) {
+        if ( token !== "" && (settings.pushToken !== token || settings.pushUrl !== pushUrl || settings.deviceName !== deviceName) ) {
             console.log("👷 Trying to set pusher…")
             pushclient.setPusher ( true, function () {
                 settings.pushToken = pushtoken
                 settings.pushUrl = pushUrl
+                settings.pushDeviceName = deviceName
                 console.log("😊 Pusher is set!")
             }, function ( error ) {
                 console.warn( "ERROR:", JSON.stringify(error))
@@ -77,7 +79,7 @@ PushClient {
                 "data": {
                     "url": pushUrl
                 },
-                "device_display_name": "fluffychat %1 on Ubuntu Touch".arg(version),
+                "device_display_name": deviceName,
                 "lang": "en",
                 "kind": intent ? "http" : null,
                 "profile_tag": "xxyyzz",

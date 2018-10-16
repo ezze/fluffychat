@@ -70,7 +70,7 @@ Page {
         readOnly: !enabled
         focus: true
         inputMethodHints: Qt.ImhNoPredictiveText
-        placeholderText: i18n.tr("Search contacts...")
+        placeholderText: i18n.tr("Search for example @username:server.abc")
         onDisplayTextChanged: {
             searchMatrixId = displayText.indexOf( "@" ) !== -1
 

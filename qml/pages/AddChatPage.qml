@@ -15,7 +15,7 @@ Page {
             actions: [
             Action {
                 iconName: "contact-new"
-                text: i18n.tr("Add Contact")
+                text: i18n.tr("New contact")
                 onTriggered: contactImport.requestContact()
             },
 
@@ -54,8 +54,8 @@ Page {
         anchors.top: header.bottom
 
         SettingsListLink {
-            name: i18n.tr("Create chat")
-            icon: "message-new"
+            name: i18n.tr("New group")
+            icon: "contact-group"
             page: "CreateChatPage"
         }
 
@@ -81,7 +81,7 @@ Page {
                     leftMargin: units.gu(2)
                 }
                 inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search contacts or usernames...")
+                placeholderText: i18n.tr("Search for example @username:server.abc")
                 onDisplayTextChanged: {
                     if ( tempElement !== null ) {
                         model.remove ( tempElement)

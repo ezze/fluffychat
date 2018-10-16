@@ -33,6 +33,7 @@ Settings {
     // Is the pusher set?
     property var pushToken
     property var pushUrl
+    property var pushDeviceName
 
     // Dark mode enabled?
     property var darkmode: false

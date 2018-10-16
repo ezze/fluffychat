@@ -20,6 +20,7 @@ Item {
             }
             else if ( uri.slice(0,14) === "fluffychat://!" ) {
                 uri = uri.replace("fluffychat://","")
+                if ( activeChat === uri ) return
                 mainStack.toStart ()
                 activeChat = uri
                 mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
