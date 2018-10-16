@@ -10,7 +10,7 @@ Page {
     property var loginDomain: ""
 
     function login () {
-        loginAction.enabled = false
+        signInButton.enabled = false
         var username = loginTextField.displayText
         desiredUsername = username
 
@@ -69,7 +69,7 @@ Page {
                 }
             })
         }
-        loginAction.enabled = loginTextField.displayText !== "" && loginTextField.displayText !== " "
+        signInButton.enabled = loginTextField.displayText !== "" && loginTextField.displayText !== " "
     }
 
     function register ( username ) {
@@ -84,7 +84,7 @@ Page {
 
 
     header: FcPageHeader {
-        title: i18n.tr('Welcome to FluffyChat')
+        title: i18n.tr('Welcome to %1').arg( (loginDomain || defaultDomain) )
 
         leadingActionBar {
             numberOfSlots: 1
@@ -104,17 +104,6 @@ Page {
                 iconName: "display-brightness-max"
                 text: i18n.tr("Toggle dark mode")
                 onTriggered: settings.darkmode = !settings.darkmode
-            }
-            ]
-        }
-
-        trailingActionBar {
-            actions: [
-            Action {
-                id: loginAction
-                iconName: "ok"
-                onTriggered: login()
-                enabled: loginTextField.displayText !== "" && loginTextField.displayText !== " "
             }
             ]
         }
@@ -183,7 +172,6 @@ Page {
             Row {
                 anchors.horizontalCenter: parent.horizontalCenter
                 Button {
-                    color: UbuntuColors.green
                     width: units.gu(8)
                     text: settings.countryCode + " +%1".arg(settings.countryTel)
                     onClicked: {
@@ -220,24 +208,28 @@ Page {
                 CheckBox {
                     id: newHereCheckBox
                     checked: true
-                    width: units.gu(3)
+                    width: units.gu(2)
                     height: width
                 }
                 Label {
                     anchors.verticalCenter: parent.verticalCenter
-                    text: i18n.tr("I'm new here")
+                    text: i18n.tr("Create a new account")
                 }
             }
 
             Rectangle {
                 width: parent.width
                 color: theme.palette.normal.background
-                height: Math.max(scrollView.height - newHere.height - banner.height - 2 * loginTextField.height - 2 * serverLabel.height - units.gu(9),0)
+                height: Math.max(scrollView.height - newHere.height - banner.height - 2 * loginTextField.height - 2 * signInButton.height - units.gu(9),0)
             }
 
-            Label {
-                id: serverLabel
-                text: i18n.tr("Using the homeserver: ") + "<b>" + (loginDomain || defaultDomain) + "</b>"
+            Button {
+                id: signInButton
+                text: i18n.tr("Log in")
+                width: loginTextField.width
+                color: UbuntuColors.green
+                onClicked: login()
+                enabled: loginTextField.displayText !== "" && loginTextField.displayText !== " "
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 

@@ -25,17 +25,6 @@ Page {
 
     header: FcPageHeader {
         title: i18n.tr("Please set a password")
-
-        trailingActionBar {
-            actions: [
-            Action {
-                id: loginAction
-                iconName: "ok"
-                onTriggered: register()
-                enabled: loginTextField.displayText !== ""
-            }
-            ]
-        }
     }
 
     Component.onDestruction: generated_password = "00000000000000000000000000000000000"
@@ -85,6 +74,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
+            id: column
             width: root.width
             spacing: units.gu(2)
 
@@ -107,6 +97,7 @@ Page {
             }
 
             Row {
+                id: row
                 height: loginTextField.height
                 width: parent.width
                 Rectangle {
@@ -131,6 +122,22 @@ Page {
                         loginTextField.focus = true
                     }
                 }
+            }
+
+            Rectangle {
+                width: parent.width
+                color: theme.palette.normal.background
+                height: Math.max(scrollView.height - banner.height - loginStatus.height - row.height - signInButton.height - units.gu(9),0)
+            }
+
+            Button {
+                id: signInButton
+                text: i18n.tr("Sign up")
+                width: loginTextField.width + hideButton.width
+                color: UbuntuColors.green
+                onClicked: register ()
+                enabled: passwordInput.text !== ""
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
         }

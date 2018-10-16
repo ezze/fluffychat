@@ -8,11 +8,11 @@ Page {
     anchors.fill: parent
 
     function login () {
-        okAction.enabled = false
+        signInButton.enabled = false
 
         // If the login is successfull
         var success_callback = function ( response ) {
-            okAction.enabled = true
+            signInButton.enabled = true
             // Go to the ChatListPage
             mainStack.clear ()
             if ( tabletMode ) mainStack.push(Qt.resolvedUrl("./BlankPage.qml"))
@@ -21,7 +21,7 @@ Page {
 
         // If error
         var error_callback = function ( error ) {
-            okAction.enabled = true
+            signInButton.enabled = true
             if ( error.errcode == "M_FORBIDDEN" ) {
                 toast.show ( i18n.tr("Invalid username or password") )
             }
@@ -36,17 +36,6 @@ Page {
 
     header: FcPageHeader {
         title: i18n.tr('Enter your password')
-
-        trailingActionBar {
-            actions: [
-            Action {
-                id: okAction
-                iconName: "ok"
-                onTriggered: login()
-                enabled: passwordInput.displayText !== ""
-            }
-            ]
-        }
     }
 
     ScrollView {
@@ -84,6 +73,22 @@ Page {
                 width: Math.min( parent.width - units.gu(4), units.gu(50))
                 Keys.onReturnPressed: login()
                 Component.onCompleted: focus = true
+            }
+
+            Rectangle {
+                width: parent.width
+                color: theme.palette.normal.background
+                height: Math.max(scrollView.height - banner.height - loginStatus.height - passwordInput.height - signInButton.height - units.gu(9),0)
+            }
+
+            Button {
+                id: signInButton
+                text: i18n.tr("Sign in")
+                width: passwordInput.width
+                color: UbuntuColors.green
+                onClicked: login()
+                enabled: passwordInput.text !== ""
+                anchors.horizontalCenter: parent.horizontalCenter
             }
         }
     }

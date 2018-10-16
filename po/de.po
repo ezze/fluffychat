@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 10:29+0000\n"
-"PO-Revision-Date: 2018-10-16 12:30+0200\n"
+"POT-Creation-Date: 2018-10-16 12:00+0000\n"
+"PO-Revision-Date: 2018-10-16 14:03+0200\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -286,15 +286,15 @@ msgstr "Keine E-Mail-Adressen verbunden"
 msgid "Please set a password"
 msgstr "Bitte erstelle ein Passwort"
 
-#: ../qml/pages/PasswordCreationPage.qml:73
+#: ../qml/pages/PasswordCreationPage.qml:62
 msgid "Username already taken"
 msgstr "Benutzername schon vergeben"
 
-#: ../qml/pages/PasswordCreationPage.qml:74
+#: ../qml/pages/PasswordCreationPage.qml:63
 msgid "The desired user ID is not a valid user name"
 msgstr "Die gewünschte User-ID ist kein gültiger Nutzername"
 
-#: ../qml/pages/PasswordCreationPage.qml:75
+#: ../qml/pages/PasswordCreationPage.qml:64
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
@@ -302,18 +302,22 @@ msgstr ""
 "Die gewünschte Benutzer-ID befindet sich in dem exklusiven Namespace, der "
 "von einem Anwendungsdienst beansprucht wird"
 
-#: ../qml/pages/PasswordCreationPage.qml:76
+#: ../qml/pages/PasswordCreationPage.qml:65
 msgid "Registration on %1 failed..."
 msgstr "Registrierung auf %1 ist fehlgeschlagen ..."
 
-#: ../qml/pages/PasswordCreationPage.qml:102
+#: ../qml/pages/PasswordCreationPage.qml:92
 msgid "Please choose a password to protect your account"
 msgstr "Bitte wähle ein Passwort, um dein Konto zu schützen"
 
-#: ../qml/pages/PasswordCreationPage.qml:120
+#: ../qml/pages/PasswordCreationPage.qml:111
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "Z.B. Summer%salad$flattens?tOOthpaste"
+
+#: ../qml/pages/PasswordCreationPage.qml:135
+msgid "Sign up"
+msgstr "Registrieren"
 
 #: ../qml/pages/LoginPage.qml:36
 msgid "Username '%1' not found on %2"
@@ -328,8 +332,10 @@ msgid "Username is already taken"
 msgstr "Benutzername schon vergeben"
 
 #: ../qml/pages/LoginPage.qml:87
-msgid "Welcome to FluffyChat"
-msgstr "Willkommen bei FluffyChat"
+#, fuzzy
+#| msgid "Welcome"
+msgid "Welcome to %1"
+msgstr "Willkommen"
 
 #: ../qml/pages/LoginPage.qml:95
 msgid "Change homeserver"
@@ -343,29 +349,29 @@ msgstr "Ändere ID-Server"
 msgid "Toggle dark mode"
 msgstr "Nachtmodus umschalten"
 
-#: ../qml/pages/LoginPage.qml:127
+#: ../qml/pages/LoginPage.qml:116
 msgid "Choose your homeserver"
 msgstr "Wähle deinen Homeserver"
 
-#: ../qml/pages/LoginPage.qml:148
+#: ../qml/pages/LoginPage.qml:137
 msgid "Choose your identity server"
 msgstr "Wähle deinen Identity-Server"
 
-#: ../qml/pages/LoginPage.qml:196
+#: ../qml/pages/LoginPage.qml:184
 msgid "Phone number (optional)"
 msgstr "Handynummer (optional)"
 
-#: ../qml/pages/LoginPage.qml:205
+#: ../qml/pages/LoginPage.qml:193
 msgid "Username"
 msgstr "Benutzername"
 
-#: ../qml/pages/LoginPage.qml:228
-msgid "I'm new here"
-msgstr "Ich bin neu hier"
+#: ../qml/pages/LoginPage.qml:216
+msgid "Create a new account"
+msgstr "Neues Konto erstellen"
 
-#: ../qml/pages/LoginPage.qml:240
-msgid "Using the homeserver: "
-msgstr "Nutze den Homeserver: "
+#: ../qml/pages/LoginPage.qml:228
+msgid "Log in"
+msgstr "Anmelden"
 
 #: ../qml/pages/ChatListPage.qml:136
 msgid "Fluffychat"
@@ -540,13 +546,17 @@ msgstr "Keine Verbindung zu "
 msgid "Enter your password"
 msgstr "Gib dein Passwort ein"
 
-#: ../qml/pages/PasswordInputPage.qml:72
+#: ../qml/pages/PasswordInputPage.qml:61
 msgid "Please enter your password for: <b>%1</b>"
 msgstr "Bitte gib dein Passwort ein für: <b>%1</b>"
 
-#: ../qml/pages/PasswordInputPage.qml:81
+#: ../qml/pages/PasswordInputPage.qml:70
 msgid "Password..."
 msgstr "Passwort ..."
+
+#: ../qml/pages/PasswordInputPage.qml:86
+msgid "Sign in"
+msgstr "Einloggen"
 
 #: ../qml/pages/NotificationSettingsPage.qml:80
 msgid "Enable notifications"
@@ -1009,7 +1019,7 @@ msgstr "Verbinde neue Handynummer"
 
 #: ../qml/components/AddPhoneDialog.qml:11
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #: ../qml/components/AddPhoneDialog.qml:21
 msgid "Please log out to change your country"
@@ -1237,11 +1247,17 @@ msgstr ""
 "Bitte die App neu starten oder ggbf. das Gerät neu starten, um das Update "
 "abzuschließen!"
 
+#~ msgid "Welcome to FluffyChat"
+#~ msgstr "Willkommen bei FluffyChat"
+
+#~ msgid "I'm new here"
+#~ msgstr "Ich bin neu hier"
+
+#~ msgid "Using the homeserver: "
+#~ msgstr "Nutze den Homeserver: "
+
 #~ msgid "Search contacts..."
 #~ msgstr "Suche Kontakte ..."
-
-#~ msgid "Welcome"
-#~ msgstr "Willkommen"
 
 #~ msgid "Search contacts or usernames..."
 #~ msgstr "Suche Kontakte oder Benutzernamen ..."

@@ -10,7 +10,7 @@ ListItem {
     ListItemLayout {
         id: usernameListItemLayout
         title.text: i18n.tr("Full username:")
-        subtitle.text: matrix_id
+        subtitle.text: matrix_id || ""
     }
     Icon {
         name: "share"
