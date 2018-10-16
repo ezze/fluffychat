@@ -8,6 +8,7 @@ Page {
 
     property var enabled: true
     property var inviteList: []
+    property var selectedCount: 0
 
     // To disable the background image on this page
     Rectangle {
@@ -17,7 +18,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr('Invite user')
+        title: i18n.tr('Invite user: %1 selected').arg(selectedCount)
     }
 
     function invite ( i ) {
@@ -28,8 +29,8 @@ Page {
     }
 
     Component.onCompleted: {
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Contacts " +
-        "WHERE Contacts.matrix_id=Users.matrix_id GROUP BY Users.matrix_id",
+        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
+        " ON Contacts.matrix_id=Users.matrix_id ORDER BY Contacts.medium DESC LIMIT 1000",
         function( res )  {
             for( var i = 0; i < res.rows.length; i++ ) {
                 var user = res.rows[i]
@@ -64,7 +65,7 @@ Page {
         inputMethodHints: Qt.ImhNoPredictiveText
         placeholderText: i18n.tr("Search for example @username:server.abc")
         onDisplayTextChanged: {
-            searchMatrixId = displayText.indexOf( "@" ) !== -1
+            searchMatrixId = displayText.slice( 0,1 ) === "@"
 
             if ( searchMatrixId && displayText.indexOf(":") !== -1 ) {
                 if ( tempElement !== null ) {

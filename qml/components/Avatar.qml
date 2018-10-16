@@ -29,7 +29,7 @@ Rectangle {
 
     Image {
         id: avatar
-        source:  mxc !== null && mxc !== "" && mxc !== undefined ? downloadPath + mxc.split("/")[3] : ""
+        source:  mxc !== null && mxc !== "" && mxc !== undefined ? media.getThumbnailLinkFromMxc ( mxc, width, height ) : ""
         anchors.fill: parent
         cache: true
         sourceSize.width: width
@@ -39,13 +39,6 @@ Rectangle {
         layer.enabled: true
         layer.effect: OpacityMask {
             maskSource: mask
-        }
-        property var onlyOneError: true
-        onStatusChanged: {
-            if ( status === Image.Error && onlyOneError ) {
-                avatar.source = media.getThumbnailLinkFromMxc ( mxc, width, height )
-                onlyOneError = false
-            }
         }
         visible: status == Image.Ready
     }

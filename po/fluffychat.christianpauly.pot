@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 12:58+0000\n"
+"POT-Creation-Date: 2018-10-16 14:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -400,16 +400,16 @@ msgstr ""
 msgid "Chat permissions"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:14
-msgid "Create chat"
+#: ../qml/pages/CreateChatPage.qml:15
+msgid "New group: %1 selected"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:53 ../qml/pages/InvitePage.qml:65
-#: ../qml/pages/AddChatPage.qml:84
+#: ../qml/pages/CreateChatPage.qml:54 ../qml/pages/InvitePage.qml:66
+#: ../qml/pages/AddChatPage.qml:85
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:95
+#: ../qml/pages/CreateChatPage.qml:100
 msgid "Create group"
 msgstr ""
 
@@ -423,7 +423,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:183
+#: ../qml/components/ChatEvent.qml:172
 msgid "Show image"
 msgstr ""
 
@@ -585,11 +585,11 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/InvitePage.qml:20
-msgid "Invite user"
+#: ../qml/pages/InvitePage.qml:21
+msgid "Invite user: %1 selected"
 msgstr ""
 
-#: ../qml/pages/InvitePage.qml:107
+#: ../qml/pages/InvitePage.qml:108
 msgid "Invite"
 msgstr ""
 
@@ -744,11 +744,11 @@ msgstr ""
 msgid "Discover public chats"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:57 ../qml/components/NewGroupDialog.qml:11
+#: ../qml/pages/AddChatPage.qml:58 ../qml/components/NewGroupDialog.qml:11
 msgid "New group"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:123
+#: ../qml/pages/AddChatPage.qml:124
 msgid "Import from contacts"
 msgstr ""
 
@@ -1000,7 +1000,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:292
+#: ../qml/components/ChatEvent.qml:281
 msgid "Download: "
 msgstr ""
 

@@ -8,16 +8,17 @@ Page {
 
     property var enabled: true
     property var inviteList: []
+    property var selectedCount: 0
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr('Create chat')
+        title: i18n.tr('New group: %1 selected').arg(selectedCount)
     }
 
 
     Component.onCompleted: {
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url FROM Users, Contacts " +
-        "WHERE Contacts.matrix_id=Users.matrix_id GROUP BY Users.matrix_id",
+        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
+        " ON Contacts.matrix_id=Users.matrix_id ORDER BY Contacts.medium DESC LIMIT 1000",
         function( res )  {
             for( var i = 0; i < res.rows.length; i++ ) {
                 var user = res.rows[i]
@@ -52,16 +53,20 @@ Page {
         inputMethodHints: Qt.ImhNoPredictiveText
         placeholderText: i18n.tr("Search for example @username:server.abc")
         onDisplayTextChanged: {
-            searchMatrixId = displayText.indexOf( "@" ) !== -1
 
-            if ( searchMatrixId && displayText.indexOf(":") !== -1 ) {
+            if ( displayText.slice( 0,1 ) === "@" && displayText.length > 1 ) {
+                var input = displayText
+                if ( input.indexOf(":") === -1 ) {
+                    input += ":" + settings.server
+                }
                 if ( tempElement !== null ) {
                     model.remove ( tempElement)
                     tempElement = null
                 }
+                if ( input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
                 model.append ( {
-                    matrix_id: displayText,
-                    displayname: displayText,
+                    matrix_id: input,
+                    displayname: input,
                     avatar_url: "",
                     temp: true
                 })

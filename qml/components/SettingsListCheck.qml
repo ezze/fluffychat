@@ -18,6 +18,7 @@ ListItem {
         if ( selected ) inviteList[inviteList.length] = matrixid
         else inviteList.splice( inviteList.indexOf(matrixid), 1 )
         if ( selected && tempElement ) searchField.tempElement = null
+        selectedCount = inviteList.length
     }
 
     ListItemLayout {

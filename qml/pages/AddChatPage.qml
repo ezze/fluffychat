@@ -29,8 +29,8 @@ Page {
     }
 
     Component.onCompleted: {
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Contacts.medium, Contacts.address FROM Users, Contacts " +
-        " WHERE Contacts.matrix_id=Users.matrix_id",
+        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
+        " ON Contacts.matrix_id=Users.matrix_id ORDER BY Contacts.medium DESC LIMIT 1000",
         function( res )  {
             for( var i = 0; i < res.rows.length; i++ ) {
                 var user = res.rows[i]
@@ -38,8 +38,8 @@ Page {
                     matrixid: user.matrix_id,
                     name: user.displayname || usernames.transformFromId(user.matrix_id),
                     avatar_url: user.avatar_url,
-                    medium: user.medium,
-                    address: user.address,
+                    medium: user.medium || "matrix",
+                    address: user.address || user.matrix_id,
                     temp: false
                 })
             }
@@ -87,11 +87,11 @@ Page {
                         model.remove ( tempElement)
                         tempElement = null
                     }
-                    if ( displayText.indexOf( "@" ) === -1 ||  displayText.length < 2 ) return
-                        var input = displayText
+                    var input = displayText
                     if ( input.indexOf(":") === -1 ) {
                         input += ":" + settings.server
                     }
+                    if ( input.slice( 0,1 ) !== "@" || input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
                     model.append ( {
                         matrixid: input,
                         address: input,

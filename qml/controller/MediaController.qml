@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
+import Ubuntu.Connectivity 1.0
 
 /* =============================== MEDIA CONTROLLER ===============================
 
@@ -26,15 +27,13 @@ Item {
 
     function getThumbnailLinkFromMxc ( mxc, width, height ) {
         if ( mxc === undefined || mxc === "" ) return ""
-        return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width + "&height=" + height + "&method=scale"
-    }
+        if ( Connectivity.online ) {
+            return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width + "&height=" + height + "&method=scale"
+        }
+        else {
+            return downloadPath + mxc.split("/")[3]
+        }
 
-
-    function getLocalThumbnailFromMxc ( mxc ) {
-        if ( mxc === undefined ) return ""
-
-        var mxcID = mxc.replace("mxc://","").split("/")[1]
-        return "../../Downloads/%1".arg(mxcID)
     }
 
 

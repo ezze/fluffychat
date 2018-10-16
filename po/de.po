@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 12:15+0000\n"
-"PO-Revision-Date: 2018-10-16 14:18+0200\n"
+"POT-Creation-Date: 2018-10-16 14:19+0000\n"
+"PO-Revision-Date: 2018-10-16 16:23+0200\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -230,7 +230,7 @@ msgstr ""
 msgid "Push notifications are disabled..."
 msgstr "Push Benachrichtigungen sind deaktiviert ..."
 
-#: ../qml/controller/MatrixController.qml:242
+#: ../qml/controller/MatrixController.qml:255
 msgid "😕 No connection..."
 msgstr "Keine Verbindung ..."
 
@@ -286,15 +286,15 @@ msgstr "Keine E-Mail-Adressen verbunden"
 msgid "Please set a password"
 msgstr "Bitte erstelle ein Passwort"
 
-#: ../qml/pages/PasswordCreationPage.qml:62
+#: ../qml/pages/PasswordCreationPage.qml:60
 msgid "Username already taken"
 msgstr "Benutzername schon vergeben"
 
-#: ../qml/pages/PasswordCreationPage.qml:63
+#: ../qml/pages/PasswordCreationPage.qml:61
 msgid "The desired user ID is not a valid user name"
 msgstr "Die gewünschte User-ID ist kein gültiger Nutzername"
 
-#: ../qml/pages/PasswordCreationPage.qml:64
+#: ../qml/pages/PasswordCreationPage.qml:62
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
@@ -302,20 +302,20 @@ msgstr ""
 "Die gewünschte Benutzer-ID befindet sich in dem exklusiven Namespace, der "
 "von einem Anwendungsdienst beansprucht wird"
 
-#: ../qml/pages/PasswordCreationPage.qml:65
+#: ../qml/pages/PasswordCreationPage.qml:63
 msgid "Registration on %1 failed..."
 msgstr "Registrierung auf %1 ist fehlgeschlagen ..."
 
-#: ../qml/pages/PasswordCreationPage.qml:92
+#: ../qml/pages/PasswordCreationPage.qml:90
 msgid "Please choose a password to protect your account"
 msgstr "Bitte wähle ein Passwort, um dein Konto zu schützen"
 
-#: ../qml/pages/PasswordCreationPage.qml:111
+#: ../qml/pages/PasswordCreationPage.qml:109
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "Z.B. Summer%salad$flattens?tOOthpaste"
 
-#: ../qml/pages/PasswordCreationPage.qml:135
+#: ../qml/pages/PasswordCreationPage.qml:133
 msgid "Sign up"
 msgstr "Registrieren"
 
@@ -411,16 +411,16 @@ msgstr "Gastzugang?"
 msgid "Chat permissions"
 msgstr "Chat-Berechtigungen"
 
-#: ../qml/pages/CreateChatPage.qml:14
-msgid "Create chat"
-msgstr "Chat erstellen"
+#: ../qml/pages/CreateChatPage.qml:15
+msgid "New group: %1 selected"
+msgstr "Neue Gruppe: %1 ausgewählt"
 
-#: ../qml/pages/CreateChatPage.qml:53 ../qml/pages/InvitePage.qml:65
+#: ../qml/pages/CreateChatPage.qml:54 ../qml/pages/InvitePage.qml:66
 #: ../qml/pages/AddChatPage.qml:84
 msgid "Search for example @username:server.abc"
 msgstr "Suche z.B. nach @nutzername:server.abc"
 
-#: ../qml/pages/CreateChatPage.qml:95
+#: ../qml/pages/CreateChatPage.qml:100
 msgid "Create group"
 msgstr "Gruppe erstellen"
 
@@ -434,7 +434,7 @@ msgid "Edit displayname"
 msgstr "Anzeigenamen ändern"
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:183
+#: ../qml/components/ChatEvent.qml:172
 msgid "Show image"
 msgstr "Bild anzeigen"
 
@@ -469,7 +469,7 @@ msgid "Dark mode"
 msgstr "Nachtmodus"
 
 #: ../qml/pages/SettingsPage.qml:204
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:248
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:249
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:233
 msgid "Notifications"
@@ -596,53 +596,53 @@ msgstr "Nachrichten von Bots"
 msgid "Targets"
 msgstr "Ziele"
 
-#: ../qml/pages/InvitePage.qml:20
-msgid "Invite user"
-msgstr "Benutzer einladen"
+#: ../qml/pages/InvitePage.qml:21
+msgid "Invite user: %1 selected"
+msgstr "Benutzer einladen: %1 ausgewählt"
 
-#: ../qml/pages/InvitePage.qml:107
+#: ../qml/pages/InvitePage.qml:108
 msgid "Invite"
 msgstr "Benutzer einladen"
 
-#: ../qml/pages/ChatPage.qml:229 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:230 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr "Unbekannter Chat"
 
-#: ../qml/pages/ChatPage.qml:236 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:237 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr "Entfernen"
 
-#: ../qml/pages/ChatPage.qml:242
+#: ../qml/pages/ChatPage.qml:243
 msgid "Chat info"
 msgstr "Chat-Informationen"
 
-#: ../qml/pages/ChatPage.qml:254
+#: ../qml/pages/ChatPage.qml:255
 msgid "Invite a friend"
 msgstr "Freund einladen"
 
-#: ../qml/pages/ChatPage.qml:277
+#: ../qml/pages/ChatPage.qml:278
 msgid "No messages in this chat ..."
 msgstr "Keine Nachrichten in diesem Chat ..."
 
-#: ../qml/pages/ChatPage.qml:300
+#: ../qml/pages/ChatPage.qml:301
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "Antwort an <b>%1</b>: \"%2\""
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:406
 msgid "Accept invitation"
 msgstr "Einladung annehmen"
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:406
 msgid "Join"
 msgstr "Beitreten"
 
-#: ../qml/pages/ChatPage.qml:419
+#: ../qml/pages/ChatPage.qml:420
 msgid "You are not allowed to send messages"
 msgstr "Du darfst hier keine Nachrichten schreiben"
 
-#: ../qml/pages/ChatPage.qml:450
+#: ../qml/pages/ChatPage.qml:451
 msgid "Type something ..."
 msgstr "Schreibe etwas ..."
 
@@ -1011,7 +1011,7 @@ msgstr "Entferne diese Email-Adresse?"
 msgid "FluffyChat"
 msgstr "FluffyChat"
 
-#: ../qml/components/ChatEvent.qml:292
+#: ../qml/components/ChatEvent.qml:281
 msgid "Download: "
 msgstr "Herunterladen: "
 
@@ -1249,8 +1249,11 @@ msgstr ""
 "Bitte die App neu starten oder ggbf. das Gerät neu starten, um das Update "
 "abzuschließen!"
 
-#~ msgid "Invite selected"
-#~ msgstr "Einladung ausgewählt"
+#~ msgid "Create chat"
+#~ msgstr "Chat erstellen"
+
+#~ msgid "Invite user"
+#~ msgstr "Benutzer einladen"
 
 #~ msgid "Welcome to FluffyChat"
 #~ msgstr "Willkommen bei FluffyChat"

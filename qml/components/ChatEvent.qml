@@ -127,19 +127,8 @@ Rectangle {
 
                     Image {
                         id: thumbnail
-                        source: image.showThumbnail ? (image.hasThumbnail ? downloadPath + event.content.info.thumbnail_url.split("/")[3] : event.content.url.split("/")[3]) : ""
+                        source: media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) )
                         property var onlyOneError: true
-                        onStatusChanged: {
-                            if ( status === Image.Error && onlyOneError ) {
-                                if ( image.hasThumbnail ) {
-                                    thumbnail.source = media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) )
-                                }
-                                else {
-                                    thumbnail.source = media.getLinkFromMxc ( event.content.url )
-                                }
-                                onlyOneError = false
-                            }
-                        }
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
