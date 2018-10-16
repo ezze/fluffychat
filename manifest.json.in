@@ -15,7 +15,7 @@
             "push-helper": "helloHelper.json"
         }
     },
-    "version": "7.0Alpha3",
+    "version": "7.0Alpha4",
     "maintainer": "Christian Pauly <christian-pauly@posteo.de>",
     "framework" : "ubuntu-sdk-16.04"
 }

@@ -18,17 +18,6 @@ Page {
     header: FcPageHeader {
         id: header
         title: i18n.tr('Invite user')
-
-        trailingActionBar {
-            numberOfSlots: 1
-            actions: [
-            Action {
-                iconName: "ok"
-                text: i18n.tr("Invite selected")
-                onTriggered: invite ( 0 )
-            }
-            ]
-        }
     }
 
     function invite ( i ) {
@@ -103,9 +92,23 @@ Page {
         opacity: enabled ? 1 : 0.5
         id: chatListView
         width: parent.width
-        height: parent.height - header.height - searchField.height
+        height: parent.height - 2*header.height - searchField.height
         anchors.top: searchField.bottom
         delegate: SettingsListCheck {}
         model: ListModel { id: model }
+    }
+
+    Rectangle {
+        height: header.height
+        width: parent.width
+        anchors.bottom: parent.bottom
+
+        Button {
+            text: i18n.tr("Invite")
+            width: parent.width - units.gu(4)
+            color: UbuntuColors.green
+            anchors.centerIn: parent
+            onClicked: invite ( 0 )
+        }
     }
 }

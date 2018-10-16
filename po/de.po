@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 12:00+0000\n"
-"PO-Revision-Date: 2018-10-16 14:03+0200\n"
+"POT-Creation-Date: 2018-10-16 12:15+0000\n"
+"PO-Revision-Date: 2018-10-16 14:18+0200\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -332,10 +332,8 @@ msgid "Username is already taken"
 msgstr "Benutzername schon vergeben"
 
 #: ../qml/pages/LoginPage.qml:87
-#, fuzzy
-#| msgid "Welcome"
 msgid "Welcome to %1"
-msgstr "Willkommen"
+msgstr "Willkommen bei %1"
 
 #: ../qml/pages/LoginPage.qml:95
 msgid "Change homeserver"
@@ -417,14 +415,14 @@ msgstr "Chat-Berechtigungen"
 msgid "Create chat"
 msgstr "Chat erstellen"
 
-#: ../qml/pages/CreateChatPage.qml:21 ../qml/pages/InvitePage.qml:27
-msgid "Invite selected"
-msgstr "Einladung ausgewählt"
-
-#: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:76
+#: ../qml/pages/CreateChatPage.qml:53 ../qml/pages/InvitePage.qml:65
 #: ../qml/pages/AddChatPage.qml:84
 msgid "Search for example @username:server.abc"
 msgstr "Suche z.B. nach @nutzername:server.abc"
+
+#: ../qml/pages/CreateChatPage.qml:95
+msgid "Create group"
+msgstr "Gruppe erstellen"
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:81
@@ -600,6 +598,10 @@ msgstr "Ziele"
 
 #: ../qml/pages/InvitePage.qml:20
 msgid "Invite user"
+msgstr "Benutzer einladen"
+
+#: ../qml/pages/InvitePage.qml:107
+msgid "Invite"
 msgstr "Benutzer einladen"
 
 #: ../qml/pages/ChatPage.qml:229 ../qml/components/ArchivedChatListItem.qml:28
@@ -1246,6 +1248,9 @@ msgid ""
 msgstr ""
 "Bitte die App neu starten oder ggbf. das Gerät neu starten, um das Update "
 "abzuschließen!"
+
+#~ msgid "Invite selected"
+#~ msgstr "Einladung ausgewählt"
 
 #~ msgid "Welcome to FluffyChat"
 #~ msgstr "Willkommen bei FluffyChat"

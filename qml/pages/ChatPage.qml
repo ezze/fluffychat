@@ -116,6 +116,7 @@ Page {
 
             if ( sticker === undefined ) {
                 isTyping = true
+                messageTextField.text = " " // Workaround for bug on bq tablet
                 messageTextField.text = ""
                 messageTextField.height = header.height - units.gu(2)
                 isTyping = false

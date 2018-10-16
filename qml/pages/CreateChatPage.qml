@@ -12,26 +12,6 @@ Page {
     header: FcPageHeader {
         id: header
         title: i18n.tr('Create chat')
-
-        trailingActionBar {
-            numberOfSlots: 1
-            actions: [
-            Action {
-                iconName: "ok"
-                text: i18n.tr("Invite selected")
-                onTriggered: {
-                    loadingScreen.visible = true
-                    matrix.post( "/client/r0/createRoom", {
-                        invite: inviteList
-                    }, function ( response ) {
-                        activeChat = response.room_id
-                        mainStack.toStart ()
-                        mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
-                    } )
-                }
-            }
-            ]
-        }
     }
 
 
@@ -100,9 +80,32 @@ Page {
         opacity: enabled ? 1 : 0.5
         id: chatListView
         width: parent.width
-        height: parent.height - header.height - searchField.height
+        height: parent.height - 2*header.height - searchField.height
         anchors.top: searchField.bottom
         delegate: SettingsListCheck {}
         model: ListModel { id: model }
+    }
+
+    Rectangle {
+        height: header.height
+        width: parent.width
+        anchors.bottom: parent.bottom
+
+        Button {
+            text: i18n.tr("Create group")
+            width: parent.width - units.gu(4)
+            color: UbuntuColors.green
+            anchors.centerIn: parent
+            onClicked: {
+                loadingScreen.visible = true
+                matrix.post( "/client/r0/createRoom", {
+                    invite: inviteList
+                }, function ( response ) {
+                    activeChat = response.room_id
+                    mainStack.toStart ()
+                    mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
+                } )
+            }
+        }
     }
 }

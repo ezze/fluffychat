@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 12:05+0000\n"
+"POT-Creation-Date: 2018-10-16 12:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Push notifications are disabled..."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:242
+#: ../qml/controller/MatrixController.qml:255
 msgid "😕 No connection..."
 msgstr ""
 
@@ -277,34 +277,34 @@ msgstr ""
 msgid "Please set a password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:62
+#: ../qml/pages/PasswordCreationPage.qml:60
 msgid "Username already taken"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:63
+#: ../qml/pages/PasswordCreationPage.qml:61
 msgid "The desired user ID is not a valid user name"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:64
+#: ../qml/pages/PasswordCreationPage.qml:62
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:65
+#: ../qml/pages/PasswordCreationPage.qml:63
 msgid "Registration on %1 failed..."
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:92
+#: ../qml/pages/PasswordCreationPage.qml:90
 msgid "Please choose a password to protect your account"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:111
+#: ../qml/pages/PasswordCreationPage.qml:109
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:135
+#: ../qml/pages/PasswordCreationPage.qml:133
 msgid "Sign up"
 msgstr ""
 
@@ -404,13 +404,13 @@ msgstr ""
 msgid "Create chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:21 ../qml/pages/InvitePage.qml:27
-msgid "Invite selected"
-msgstr ""
-
-#: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:76
+#: ../qml/pages/CreateChatPage.qml:53 ../qml/pages/InvitePage.qml:65
 #: ../qml/pages/AddChatPage.qml:84
 msgid "Search for example @username:server.abc"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:95
+msgid "Create group"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
@@ -458,7 +458,7 @@ msgid "Dark mode"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:204
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:248
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:249
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:233
 msgid "Notifications"
@@ -589,45 +589,49 @@ msgstr ""
 msgid "Invite user"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:229 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/InvitePage.qml:107
+msgid "Invite"
+msgstr ""
+
+#: ../qml/pages/ChatPage.qml:230 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:236 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:237 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:242
+#: ../qml/pages/ChatPage.qml:243
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:254
+#: ../qml/pages/ChatPage.qml:255
 msgid "Invite a friend"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:277
+#: ../qml/pages/ChatPage.qml:278
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:300
+#: ../qml/pages/ChatPage.qml:301
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:406
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:406
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:419
+#: ../qml/pages/ChatPage.qml:420
 msgid "You are not allowed to send messages"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:450
+#: ../qml/pages/ChatPage.qml:451
 msgid "Type something ..."
 msgstr ""
 

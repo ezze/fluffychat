@@ -26,9 +26,7 @@ Page {
     header: FcPageHeader {
         title: i18n.tr("Please set a password")
     }
-
-    Component.onDestruction: generated_password = "00000000000000000000000000000000000"
-
+    
     function register () {
         matrix.register ( desiredUsername.toLowerCase(), loginTextField.text, (loginDomain || defaultDomain), "UbuntuPhone", function () {
 

@@ -79,7 +79,14 @@ Item {
             "password": newPassword
         }
 
-        var onLogged = function ( response ) {
+        var onResponse = function ( response ) {
+            // If error
+            if ( response.errcode ) {
+                if ( response.errcode !== "M_USER_IN_USE" ) settings.username = settings.server = settings.deviceName = undefined
+                if ( error_callback ) error_callback ( response )
+                return
+            }
+
             // The homeserver requires additional authentication information.
             if ( response.flows ) {
                 var forwarded = false
@@ -92,7 +99,17 @@ Item {
                             "type": response.flows[i].stages[0],
                             "session": response.session
                         }
-                        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError )
+                        xmlRequest ( "POST", data, "/client/r0/register", function ( response ) {
+                            settings.token = response.access_token
+                            settings.deviceID = response.device_id
+                            settings.username = (response.user_id.substr(1)).split(":")[0]
+                            settings.server = newServer.toLowerCase()
+                            settings.deviceName = newDeviceName
+                            settings.dbversion = storage.version
+                            onlineStatus = true
+                            events.init ()
+                            if ( callback ) callback ( response )
+                        }, error_callback )
                         forwarded = true
                         break
                     }
@@ -116,11 +133,7 @@ Item {
             }
         }
 
-        var onError = function ( response ) {
-            if ( response.errcode !== "M_USER_IN_USE" ) settings.username = settings.server = settings.deviceName = undefined
-            if ( error_callback ) error_callback ( response )
-        }
-        xmlRequest ( "POST", data, "/client/r0/register", onLogged, onError )
+        xmlRequest ( "POST", data, "/client/r0/register", onResponse, onResponse )
     }
 
     function logout () {
