@@ -52,7 +52,7 @@ Component {
                     var update = getDevices
                     var matrixObj = matrix
                     var password = passwordInput.text
-                    matrix.post ( "/client/unstable/delete_devices", { "devices": [device_id] }, function (res) {
+                    matrix.post ( "/client/unstable/delete_devices", { "devices": [device_id] }, update, function (res) {
                         console.log( "erste Antwort", JSON.stringify(res) )
                         if ( "session" in res ) {
                             matrixObj.post ( "/client/unstable/delete_devices", {
