@@ -10,6 +10,7 @@ Page {
     property var loginDomain: ""
 
     function login () {
+        if ( loginDomain === "" ) loginDomain = defaultDomain
         signInButton.enabled = false
         var username = loginTextField.displayText
         desiredUsername = username
@@ -24,7 +25,7 @@ Page {
             loginDomain = usernameSplitted [1]
         }
         settings.username = username
-        settings.server = loginDomain || defaultDomain
+        settings.server = loginDomain
 
         // Step 2: If there is no phone number, and the user is new then try to register the username
         if ( phoneTextField.displayText === "" && newHereCheckBox.checked ) register ( username )
@@ -124,6 +125,7 @@ Page {
                 text: "OK"
                 onClicked: {
                     loginDomain = homeserverInput.displayText.toLowerCase()
+                    if ( homeserverInput.displayText === "" ) loginDomain = defaultDomain
                     PopupUtils.close(dialogue)
                 }
             }

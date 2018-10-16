@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 14:25+0000\n"
+"POT-Creation-Date: 2018-10-16 15:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -308,55 +308,55 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:36
+#: ../qml/pages/LoginPage.qml:37
 msgid "Username '%1' not found on %2"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:64
+#: ../qml/pages/LoginPage.qml:65
 msgid "No user found with this phone number"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:78 ../qml/pages/LoginPage.qml:80
+#: ../qml/pages/LoginPage.qml:79 ../qml/pages/LoginPage.qml:81
 msgid "Username is already taken"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:87
+#: ../qml/pages/LoginPage.qml:88
 msgid "Welcome to %1"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:95
+#: ../qml/pages/LoginPage.qml:96
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:100
+#: ../qml/pages/LoginPage.qml:101
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:105
+#: ../qml/pages/LoginPage.qml:106
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:116
+#: ../qml/pages/LoginPage.qml:117
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:139
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:184
+#: ../qml/pages/LoginPage.qml:186
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:193
+#: ../qml/pages/LoginPage.qml:195
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:216
+#: ../qml/pages/LoginPage.qml:218
 msgid "Create a new account"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:228
+#: ../qml/pages/LoginPage.qml:230
 msgid "Log in"
 msgstr ""
 
@@ -405,7 +405,7 @@ msgid "New group: %1 selected"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:54 ../qml/pages/InvitePage.qml:66
-#: ../qml/pages/AddChatPage.qml:85
+#: ../qml/pages/AddChatPage.qml:84
 msgid "Search for example @username:server.abc"
 msgstr ""
 
@@ -744,11 +744,11 @@ msgstr ""
 msgid "Discover public chats"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:58 ../qml/components/NewGroupDialog.qml:11
+#: ../qml/pages/AddChatPage.qml:57 ../qml/components/NewGroupDialog.qml:11
 msgid "New group"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:124
+#: ../qml/pages/AddChatPage.qml:123
 msgid "Import from contacts"
 msgstr ""
 
