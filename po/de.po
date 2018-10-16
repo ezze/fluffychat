@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 10:20+0000\n"
-"PO-Revision-Date: 2018-10-16 12:25+0200\n"
+"POT-Creation-Date: 2018-10-16 10:29+0000\n"
+"PO-Revision-Date: 2018-10-16 12:30+0200\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -170,7 +170,6 @@ msgstr ""
 "ChristianPauly/fluffychat/issues/new"
 
 #: ../qml/controller/StorageController.qml:54
-#: ../qml/components/LockedScreen.qml:35
 msgid "Please restart your device to complete the update!"
 msgstr "Bitte starte dein Gerät neu, um das Update abzuschließen!"
 
@@ -1229,6 +1228,14 @@ msgstr "deineemail@example.edu"
 #: ../qml/components/AddEmailDialog.qml:39
 msgid "Have you confirmed your email address?"
 msgstr "Hast du deine Email-Adresse bestätigt?"
+
+#: ../qml/components/LockedScreen.qml:32
+msgid ""
+"Please restart the app or if necessary restart the device to complete the "
+"update!"
+msgstr ""
+"Bitte die App neu starten oder ggbf. das Gerät neu starten, um das Update "
+"abzuschließen!"
 
 #~ msgid "Search contacts..."
 #~ msgstr "Suche Kontakte ..."

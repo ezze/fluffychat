@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 10:20+0000\n"
+"POT-Creation-Date: 2018-10-16 10:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,7 +165,6 @@ msgid ""
 msgstr ""
 
 #: ../qml/controller/StorageController.qml:54
-#: ../qml/components/LockedScreen.qml:35
 msgid "Please restart your device to complete the update!"
 msgstr ""
 
@@ -1213,4 +1212,10 @@ msgstr ""
 
 #: ../qml/components/AddEmailDialog.qml:39
 msgid "Have you confirmed your email address?"
+msgstr ""
+
+#: ../qml/components/LockedScreen.qml:32
+msgid ""
+"Please restart the app or if necessary restart the device to complete the "
+"update!"
 msgstr ""
