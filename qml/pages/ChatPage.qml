@@ -114,7 +114,7 @@ Page {
                 else chatScrollView.errorEvent ( messageID )
             } )
 
-            if ( sticker === undefined && messageTextField.text !== "" ) {
+            if ( sticker === undefined ) {
                 isTyping = true
                 messageTextField.text = ""
                 messageTextField.height = header.height - units.gu(2)
