@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 12:20+0000\n"
-"PO-Revision-Date: 2018-10-13 14:30+0200\n"
+"POT-Creation-Date: 2018-10-16 10:20+0000\n"
+"PO-Revision-Date: 2018-10-16 12:25+0200\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 2.2\n"
 
-#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:305
+#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:309
 msgid "Are you sure?"
 msgstr "Bist du sicher?"
 
-#: ../qml/controller/SettingsController.qml:65
+#: ../qml/controller/SettingsController.qml:66
 msgid "USA"
 msgstr "DE"
 
-#: ../qml/controller/SettingsController.qml:66
+#: ../qml/controller/SettingsController.qml:67
 msgid "1"
 msgstr "49"
 
@@ -155,11 +155,11 @@ msgstr "Darf eintreten"
 msgid "Forbidden"
 msgstr "Verboten"
 
-#: ../qml/controller/EventController.qml:103
+#: ../qml/controller/EventController.qml:97
 msgid "You are offline 😕"
 msgstr "Du bist offline 😕"
 
-#: ../qml/controller/EventController.qml:160
+#: ../qml/controller/EventController.qml:154
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -170,7 +170,7 @@ msgstr ""
 "ChristianPauly/fluffychat/issues/new"
 
 #: ../qml/controller/StorageController.qml:54
-#: ../qml/components/LockedScreen.qml:27
+#: ../qml/components/LockedScreen.qml:35
 msgid "Please restart your device to complete the update!"
 msgstr "Bitte starte dein Gerät neu, um das Update abzuschließen!"
 
@@ -221,13 +221,13 @@ msgstr "%1 ist kein gültiger Nutzername"
 msgid "Empty chat"
 msgstr "Leerer Chat"
 
-#: ../qml/controller/PushController.qml:32
+#: ../qml/controller/PushController.qml:39
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 "Bitte bei Ubuntu One anmelden, um Push Benachrichtigungen empfangen zu "
 "können."
 
-#: ../qml/controller/PushController.qml:65
+#: ../qml/controller/PushController.qml:72
 msgid "Push notifications are disabled..."
 msgstr "Push Benachrichtigungen sind deaktiviert ..."
 
@@ -408,7 +408,7 @@ msgstr "Gastzugang?"
 msgid "Chat permissions"
 msgstr "Chat-Berechtigungen"
 
-#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:57
+#: ../qml/pages/CreateChatPage.qml:14
 msgid "Create chat"
 msgstr "Chat erstellen"
 
@@ -417,12 +417,9 @@ msgid "Invite selected"
 msgstr "Einladung ausgewählt"
 
 #: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:76
-msgid "Search contacts..."
-msgstr "Suche Kontakte ..."
-
-#: ../qml/pages/BlankPage.qml:11
-msgid "Welcome"
-msgstr "Willkommen"
+#: ../qml/pages/AddChatPage.qml:84
+msgid "Search for example @username:server.abc"
+msgstr "Suche z.B. nach @nutzername:server.abc"
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:81
@@ -434,7 +431,7 @@ msgid "Edit displayname"
 msgstr "Anzeigenamen ändern"
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:159
+#: ../qml/components/ChatEvent.qml:183
 msgid "Show image"
 msgstr "Bild anzeigen"
 
@@ -740,16 +737,16 @@ msgid "Start a new chat"
 msgstr "Neuen Chat starten"
 
 #: ../qml/pages/AddChatPage.qml:18
-msgid "Add Contact"
+msgid "New contact"
 msgstr "Kontakt hinzufügen"
 
 #: ../qml/pages/AddChatPage.qml:24
 msgid "Discover public chats"
 msgstr "Suche öffentliche Chats"
 
-#: ../qml/pages/AddChatPage.qml:84
-msgid "Search contacts or usernames..."
-msgstr "Suche Kontakte oder Benutzernamen ..."
+#: ../qml/pages/AddChatPage.qml:57 ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr "Neue Gruppe"
 
 #: ../qml/pages/AddChatPage.qml:123
 msgid "Import from contacts"
@@ -960,10 +957,6 @@ msgstr "Bist du sicher, dass du den Chat verlassen willst?"
 msgid "Leave"
 msgstr "Verlassen"
 
-#: ../qml/components/NewGroupDialog.qml:11
-msgid "New group"
-msgstr "Neue Gruppe"
-
 #: ../qml/components/NewGroupDialog.qml:19
 msgid "Group name"
 msgstr "Gruppenname"
@@ -998,8 +991,8 @@ msgstr "Bist du sicher, dass du dieses Gerät entfernen möchtest?"
 msgid "Please enter your password"
 msgstr "Bitte gib dein Passwort ein"
 
-#: ../qml/components/PhoneListItem.qml:27
-#: ../qml/components/EmailListItem.qml:27
+#: ../qml/components/PhoneListItem.qml:29
+#: ../qml/components/EmailListItem.qml:29
 msgid "Remove this email address?"
 msgstr "Entferne diese Email-Adresse?"
 
@@ -1007,7 +1000,7 @@ msgstr "Entferne diese Email-Adresse?"
 msgid "FluffyChat"
 msgstr "FluffyChat"
 
-#: ../qml/components/ChatEvent.qml:266
+#: ../qml/components/ChatEvent.qml:292
 msgid "Download: "
 msgstr "Herunterladen: "
 
@@ -1125,31 +1118,31 @@ msgstr "Farbwert: %1"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: ../qml/components/ChatScrollView.qml:67
+#: ../qml/components/ChatScrollView.qml:68
 msgid "Get more messages from the server ..."
 msgstr "Hole mehr Nachrichten vom Server ..."
 
-#: ../qml/components/ChatScrollView.qml:266
+#: ../qml/components/ChatScrollView.qml:270
 msgid "Try send again"
 msgstr "Nochmal senden"
 
-#: ../qml/components/ChatScrollView.qml:275
+#: ../qml/components/ChatScrollView.qml:279
 msgid "Reply"
 msgstr "Antworten"
 
-#: ../qml/components/ChatScrollView.qml:283
+#: ../qml/components/ChatScrollView.qml:287
 msgid "Forward"
 msgstr "Weiterleiten"
 
-#: ../qml/components/ChatScrollView.qml:288
+#: ../qml/components/ChatScrollView.qml:292
 msgid "Copy text"
 msgstr "Text kopieren"
 
-#: ../qml/components/ChatScrollView.qml:293
+#: ../qml/components/ChatScrollView.qml:297
 msgid "Text has been copied to the clipboard"
 msgstr "Text wurde in die Zwischenablage kopiert"
 
-#: ../qml/components/ChatScrollView.qml:297
+#: ../qml/components/ChatScrollView.qml:301
 msgid "Delete message"
 msgstr "Nachricht löschen"
 
@@ -1236,6 +1229,15 @@ msgstr "deineemail@example.edu"
 #: ../qml/components/AddEmailDialog.qml:39
 msgid "Have you confirmed your email address?"
 msgstr "Hast du deine Email-Adresse bestätigt?"
+
+#~ msgid "Search contacts..."
+#~ msgstr "Suche Kontakte ..."
+
+#~ msgid "Welcome"
+#~ msgstr "Willkommen"
+
+#~ msgid "Search contacts or usernames..."
+#~ msgstr "Suche Kontakte oder Benutzernamen ..."
 
 #~ msgid "No connection to the homeserver 😕"
 #~ msgstr "Keine Verbindung zum Homeserver 😕"
