@@ -358,12 +358,12 @@ Rectangle {
             text: {
                 // Show the senders displayname only if its not the user him-/herself.
                 ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
-                (senderDisplayname + " ")
+                ("<font color='" + usernames.stringToDarkColor ( senderDisplayname ) + "'>" + senderDisplayname + "</font> ")
                 : "")
                 + stamp.getChatTime ( event.origin_server_ts )
             }
             color: image.showGif || image.showThumbnail ? "black" : messageLabel.color
-            opacity: 0.5
+            //opacity: 0.5
             textSize: Label.XxSmall
             visible: !isStateEvent
         }
