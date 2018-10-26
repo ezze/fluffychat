@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-13 12:20+0000\n"
-"PO-Revision-Date: 2018-10-14 18:40+0000\n"
+"POT-Creation-Date: 2018-10-26 12:49+0000\n"
+"PO-Revision-Date: 2018-10-26 15:07+0200\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2.1\n"
+"X-Generator: Poedit 2.2\n"
 
-#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:305
+#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:309
 msgid "Are you sure?"
 msgstr "¿Seguro?"
 
-#: ../qml/controller/SettingsController.qml:65
+#: ../qml/controller/SettingsController.qml:66
 msgid "USA"
 msgstr "EEUU"
 
-#: ../qml/controller/SettingsController.qml:66
+#: ../qml/controller/SettingsController.qml:67
 msgid "1"
 msgstr "1"
 
@@ -155,11 +155,11 @@ msgstr "Pueden unirse"
 msgid "Forbidden"
 msgstr "Prohibido"
 
-#: ../qml/controller/EventController.qml:103
+#: ../qml/controller/EventController.qml:97
 msgid "You are offline 😕"
 msgstr "Está desconectado 😕"
 
-#: ../qml/controller/EventController.qml:160
+#: ../qml/controller/EventController.qml:154
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -170,7 +170,6 @@ msgstr ""
 "ChristianPauly/fluffychat/issues/new"
 
 #: ../qml/controller/StorageController.qml:54
-#: ../qml/components/LockedScreen.qml:27
 msgid "Please restart your device to complete the update!"
 msgstr "¡Reinicie su dispositivo para completar la actualización!"
 
@@ -219,15 +218,15 @@ msgstr "%1 no es un nombre de usuario válido"
 msgid "Empty chat"
 msgstr "Chat vacío"
 
-#: ../qml/controller/PushController.qml:32
+#: ../qml/controller/PushController.qml:38
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr "Conéctese a Ubuntu One para recibir notificaciones."
 
-#: ../qml/controller/PushController.qml:65
+#: ../qml/controller/PushController.qml:71
 msgid "Push notifications are disabled..."
 msgstr "Las notificaciones están desactivadas..."
 
-#: ../qml/controller/MatrixController.qml:242
+#: ../qml/controller/MatrixController.qml:255
 msgid "😕 No connection..."
 msgstr "😕 Sin conexión..."
 
@@ -239,19 +238,24 @@ msgstr "Información acerca de FluffyChat %1 en %2"
 msgid "Donate us a coffee"
 msgstr "Invítenos a un café"
 
-#: ../qml/pages/InfoPage.qml:39
+#: ../qml/pages/InfoPage.qml:39 ../qml/pages/LoginPage.qml:111
+#: ../qml/pages/PrivacyPolicyPage.qml:10
+msgid "Privacy Policy"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:45
 msgid "Website"
 msgstr "Sitio web"
 
-#: ../qml/pages/InfoPage.qml:45
+#: ../qml/pages/InfoPage.qml:51
 msgid "Contributors"
 msgstr "Colaboradores"
 
-#: ../qml/pages/InfoPage.qml:51
+#: ../qml/pages/InfoPage.qml:57
 msgid "Source code"
 msgstr "Código fuente"
 
-#: ../qml/pages/InfoPage.qml:57
+#: ../qml/pages/InfoPage.qml:63
 msgid "License"
 msgstr "Licencia"
 
@@ -283,15 +287,15 @@ msgstr "No hay ninguna dirección de correo electrónico conectada"
 msgid "Please set a password"
 msgstr "Establezca una contraseña"
 
-#: ../qml/pages/PasswordCreationPage.qml:73
+#: ../qml/pages/PasswordCreationPage.qml:60
 msgid "Username already taken"
 msgstr "Nombre de usuario ya tomado"
 
-#: ../qml/pages/PasswordCreationPage.qml:74
+#: ../qml/pages/PasswordCreationPage.qml:61
 msgid "The desired user ID is not a valid user name"
 msgstr "El ID de usuario deseado no es un nombre de usuario válido"
 
-#: ../qml/pages/PasswordCreationPage.qml:75
+#: ../qml/pages/PasswordCreationPage.qml:62
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
@@ -299,44 +303,56 @@ msgstr ""
 "El ID de usuario deseado se encuentra en el nombre de espacio exclusivo "
 "reclamado por un servicio de aplicación"
 
-#: ../qml/pages/PasswordCreationPage.qml:76
+#: ../qml/pages/PasswordCreationPage.qml:63
 msgid "Registration on %1 failed..."
 msgstr "El registro en %1 ha fallado..."
 
-#: ../qml/pages/PasswordCreationPage.qml:102
+#: ../qml/pages/PasswordCreationPage.qml:90
 msgid "Please choose a password to protect your account"
 msgstr "Elija una contraseña para proteger su cuenta"
 
-#: ../qml/pages/PasswordCreationPage.qml:120
+#: ../qml/pages/PasswordCreationPage.qml:109
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "p.ej. Summer%salad$flattens?tOOthpaste"
 
-#: ../qml/pages/LoginPage.qml:36
+#: ../qml/pages/PasswordCreationPage.qml:133
+msgid "Sign up"
+msgstr "Registrarse"
+
+#: ../qml/pages/LoginPage.qml:37
 msgid "Username '%1' not found on %2"
 msgstr "No se encontró el nombre de usuario «%1» en %2"
 
-#: ../qml/pages/LoginPage.qml:64
+#: ../qml/pages/LoginPage.qml:65
 msgid "No user found with this phone number"
 msgstr "No se encontró ningún usuario con este número de teléfono"
 
-#: ../qml/pages/LoginPage.qml:78 ../qml/pages/LoginPage.qml:80
+#: ../qml/pages/LoginPage.qml:79 ../qml/pages/LoginPage.qml:81
 msgid "Username is already taken"
 msgstr "El nombre de usuario ya está tomado"
 
-#: ../qml/pages/LoginPage.qml:87
-msgid "Welcome to FluffyChat"
-msgstr "Bienvenida/o a FluffyChat"
+#: ../qml/pages/LoginPage.qml:88
+#, fuzzy
+#| msgid "Welcome"
+msgid "Welcome to %1"
+msgstr "Bienvenida/o"
 
-#: ../qml/pages/LoginPage.qml:95
+#: ../qml/pages/LoginPage.qml:96
 msgid "Change homeserver"
 msgstr "Cambiar servidor de datos («homeserver»)"
 
-#: ../qml/pages/LoginPage.qml:100
+#: ../qml/pages/LoginPage.qml:101
 msgid "Change ID-server"
 msgstr "Cambiar servidor de identidad («identityserver»)"
 
-#: ../qml/pages/LoginPage.qml:105
+#: ../qml/pages/LoginPage.qml:106
+#, fuzzy
+#| msgid "About FluffyChat"
+msgid "About fluffychat"
+msgstr "Acerca de FluffyChat"
+
+#: ../qml/pages/LoginPage.qml:116
 msgid "Toggle dark mode"
 msgstr "Cambiar modo nocturno"
 
@@ -344,7 +360,7 @@ msgstr "Cambiar modo nocturno"
 msgid "Choose your homeserver"
 msgstr "Elija su servidor de datos («homeserver»)"
 
-#: ../qml/pages/LoginPage.qml:148
+#: ../qml/pages/LoginPage.qml:149
 msgid "Choose your identity server"
 msgstr "Elija su servidor de identidad («identityserver»)"
 
@@ -357,12 +373,16 @@ msgid "Username"
 msgstr "Nombre de usuario"
 
 #: ../qml/pages/LoginPage.qml:228
-msgid "I'm new here"
-msgstr "Primera vez aquí"
+#, fuzzy
+#| msgid "Start a new chat"
+msgid "Create a new account"
+msgstr "Iniciar un chat nuevo"
 
 #: ../qml/pages/LoginPage.qml:240
-msgid "Using the homeserver: "
-msgstr "Usando el servidor de datos («homeserver»): "
+#, fuzzy
+#| msgid "Log out"
+msgid "Log in"
+msgstr "Cerrar sesión"
 
 #: ../qml/pages/ChatListPage.qml:136
 msgid "Fluffychat"
@@ -404,21 +424,20 @@ msgstr "¿Acceso de invitados?"
 msgid "Chat permissions"
 msgstr "Permisos del chat"
 
-#: ../qml/pages/CreateChatPage.qml:14 ../qml/pages/AddChatPage.qml:57
-msgid "Create chat"
-msgstr "Crear chat"
+#: ../qml/pages/CreateChatPage.qml:15
+msgid "New group: %1 selected"
+msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:21 ../qml/pages/InvitePage.qml:27
-msgid "Invite selected"
-msgstr "Invitar al seleccionado"
+#: ../qml/pages/CreateChatPage.qml:54 ../qml/pages/InvitePage.qml:66
+#: ../qml/pages/AddChatPage.qml:84
+msgid "Search for example @username:server.abc"
+msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:73 ../qml/pages/InvitePage.qml:76
-msgid "Search contacts..."
-msgstr "Buscar contactos..."
-
-#: ../qml/pages/BlankPage.qml:11
-msgid "Welcome"
-msgstr "Bienvenida/o"
+#: ../qml/pages/CreateChatPage.qml:100
+#, fuzzy
+#| msgid "New group"
+msgid "Create group"
+msgstr "Nuevo grupo"
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:81
@@ -430,7 +449,7 @@ msgid "Edit displayname"
 msgstr "Editar el nombre mostrado en pantalla"
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:159
+#: ../qml/components/ChatEvent.qml:172
 msgid "Show image"
 msgstr "Mostrar imagen"
 
@@ -465,7 +484,7 @@ msgid "Dark mode"
 msgstr "Modo nocturno"
 
 #: ../qml/pages/SettingsPage.qml:204
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:248
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:249
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:233
 msgid "Notifications"
@@ -540,13 +559,17 @@ msgstr "Sin conexión a "
 msgid "Enter your password"
 msgstr "Introduzca su contraseña"
 
-#: ../qml/pages/PasswordInputPage.qml:72
+#: ../qml/pages/PasswordInputPage.qml:61
 msgid "Please enter your password for: <b>%1</b>"
 msgstr "Introduzca su contraseña para: <b>%1</b>"
 
-#: ../qml/pages/PasswordInputPage.qml:81
+#: ../qml/pages/PasswordInputPage.qml:70
 msgid "Password..."
 msgstr "Contraseña..."
+
+#: ../qml/pages/PasswordInputPage.qml:86
+msgid "Sign in"
+msgstr "Iniciar sesión"
 
 #: ../qml/pages/NotificationSettingsPage.qml:80
 msgid "Enable notifications"
@@ -588,49 +611,82 @@ msgstr "Mensajes de «bots»"
 msgid "Targets"
 msgstr "Objetivos"
 
-#: ../qml/pages/InvitePage.qml:20
-msgid "Invite user"
+#: ../qml/pages/InvitePage.qml:21
+#, fuzzy
+#| msgid "Invite selected"
+msgid "Invite user: %1 selected"
+msgstr "Invitar al seleccionado"
+
+#: ../qml/pages/InvitePage.qml:108
+#, fuzzy
+#| msgid "Invite user"
+msgid "Invite"
 msgstr "Invitar a un usuario"
 
-#: ../qml/pages/ChatPage.qml:229 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/PrivacyPolicyPage.qml:28
+msgid ""
+"<br><b>Matrix client</b><br><br>* Fluffychat is a matrix protocol client and "
+"compatible with all matrix servers and matrix identity servers. All "
+"communications made by the use while using fluffychat are done with the "
+"matrix server and the matrix identity server.<br>* The default server is "
+"https://ubports.chat and the default identity server is https://vector.im."
+"<br>* Fluffychat doesn't operate any server or service.<br>* All "
+"communications between fluffychat and any server is done in secure way, "
+"using encryption to protect it.<br>* Fluffychat is not responsible for the "
+"data processing by any matrix server or matrix identity server.<br>* "
+"Fluffychat offers the possibility to use phone numbers to find contacts. "
+"This is optional and no contacts are uploaded without user interaction! The "
+"user can choose, which contacts he want to upload to the identity server!"
+"<br><br><b>Push Notifications</b><br><br>* The matrix server the user is "
+"using, will automatically send push notifications to the UBports push "
+"service. This notifications are encrypted with https on the way from the "
+"matrix server to the official ubports matrix gateway at https://push.ubports."
+"com:5003/_matrix/push/r0/notify which forwards the notification to UBports "
+"push service at https://push.ubports.com and then sends this as a push "
+"notification to the user's device(s).<br>"
+msgstr ""
+
+#: ../qml/pages/ChatPage.qml:230 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr "Chat desconocido"
 
-#: ../qml/pages/ChatPage.qml:236 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:237 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr "Eliminar"
 
-#: ../qml/pages/ChatPage.qml:242
+#: ../qml/pages/ChatPage.qml:243
 msgid "Chat info"
 msgstr "Información del chat"
 
-#: ../qml/pages/ChatPage.qml:254
-msgid "Invite a friend"
+#: ../qml/pages/ChatPage.qml:255 ../qml/pages/ChatSettingsPage.qml:311
+#, fuzzy
+#| msgid "Invite friend"
+msgid "Invite friends"
 msgstr "Invitar a un amigo"
 
-#: ../qml/pages/ChatPage.qml:277
+#: ../qml/pages/ChatPage.qml:278
 msgid "No messages in this chat ..."
 msgstr "No hay mensajes en este chat ..."
 
-#: ../qml/pages/ChatPage.qml:300
+#: ../qml/pages/ChatPage.qml:301
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "Contestar a <b>%1</b>: «%2»"
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:406
 msgid "Accept invitation"
 msgstr "Aceptar la invitación"
 
-#: ../qml/pages/ChatPage.qml:405
+#: ../qml/pages/ChatPage.qml:406
 msgid "Join"
 msgstr "Unirse"
 
-#: ../qml/pages/ChatPage.qml:419
+#: ../qml/pages/ChatPage.qml:420
 msgid "You are not allowed to send messages"
 msgstr "No se le permite enviar mensajes"
 
-#: ../qml/pages/ChatPage.qml:450
+#: ../qml/pages/ChatPage.qml:451
 msgid "Type something ..."
 msgstr "Escriba algo ..."
 
@@ -723,10 +779,6 @@ msgstr "Pulsar el botón para volver a cargar los usuarios..."
 msgid "Search..."
 msgstr "Buscar..."
 
-#: ../qml/pages/ChatSettingsPage.qml:311
-msgid "Invite friend"
-msgstr "Invitar a un amigo"
-
 #: ../qml/pages/ChatSettingsPage.qml:319
 msgid "Reload"
 msgstr "Volver a cargar"
@@ -736,16 +788,18 @@ msgid "Start a new chat"
 msgstr "Iniciar un chat nuevo"
 
 #: ../qml/pages/AddChatPage.qml:18
-msgid "Add Contact"
+#, fuzzy
+#| msgid "Add Contact"
+msgid "New contact"
 msgstr "Añadir contacto"
 
 #: ../qml/pages/AddChatPage.qml:24
 msgid "Discover public chats"
 msgstr "Descubrir chats públicos"
 
-#: ../qml/pages/AddChatPage.qml:84
-msgid "Search contacts or usernames..."
-msgstr "Buscar contactos o nombre de usuarios..."
+#: ../qml/pages/AddChatPage.qml:57 ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr "Nuevo grupo"
 
 #: ../qml/pages/AddChatPage.qml:123
 msgid "Import from contacts"
@@ -956,10 +1010,6 @@ msgstr "¿Seguro que quiere salir del chat?"
 msgid "Leave"
 msgstr "Salir"
 
-#: ../qml/components/NewGroupDialog.qml:11
-msgid "New group"
-msgstr "Nuevo grupo"
-
 #: ../qml/components/NewGroupDialog.qml:19
 msgid "Group name"
 msgstr "Nombre del grupo"
@@ -994,8 +1044,8 @@ msgstr "¿Seguro que desea eliminar este dispositivo?"
 msgid "Please enter your password"
 msgstr "Introduzca su contraseña"
 
-#: ../qml/components/PhoneListItem.qml:27
-#: ../qml/components/EmailListItem.qml:27
+#: ../qml/components/PhoneListItem.qml:29
+#: ../qml/components/EmailListItem.qml:29
 msgid "Remove this email address?"
 msgstr "¿Eliminar esta dirección de correo electrónico?"
 
@@ -1003,7 +1053,7 @@ msgstr "¿Eliminar esta dirección de correo electrónico?"
 msgid "FluffyChat"
 msgstr "FluffyChat"
 
-#: ../qml/components/ChatEvent.qml:266
+#: ../qml/components/ChatEvent.qml:281
 msgid "Download: "
 msgstr "Descargar: "
 
@@ -1119,31 +1169,31 @@ msgstr "Tono: %1"
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: ../qml/components/ChatScrollView.qml:67
+#: ../qml/components/ChatScrollView.qml:68
 msgid "Get more messages from the server ..."
 msgstr "Obtener más mensajes del servidor ..."
 
-#: ../qml/components/ChatScrollView.qml:266
+#: ../qml/components/ChatScrollView.qml:270
 msgid "Try send again"
 msgstr "Intentar enviar de nuevo"
 
-#: ../qml/components/ChatScrollView.qml:275
+#: ../qml/components/ChatScrollView.qml:279
 msgid "Reply"
 msgstr "Contestar"
 
-#: ../qml/components/ChatScrollView.qml:283
+#: ../qml/components/ChatScrollView.qml:287
 msgid "Forward"
 msgstr "Reenviar"
 
-#: ../qml/components/ChatScrollView.qml:288
+#: ../qml/components/ChatScrollView.qml:292
 msgid "Copy text"
 msgstr "Copiar texto"
 
-#: ../qml/components/ChatScrollView.qml:293
+#: ../qml/components/ChatScrollView.qml:297
 msgid "Text has been copied to the clipboard"
 msgstr "Se ha copiado el texto al portapapeles"
 
-#: ../qml/components/ChatScrollView.qml:297
+#: ../qml/components/ChatScrollView.qml:301
 msgid "Delete message"
 msgstr "Borrar mensaje"
 
@@ -1231,6 +1281,35 @@ msgstr "sucorreo@example.edu"
 msgid "Have you confirmed your email address?"
 msgstr "¿Ha confirmado su dirección de correo electrónico?"
 
+#: ../qml/components/LockedScreen.qml:32
+#, fuzzy
+#| msgid "Please restart your device to complete the update!"
+msgid ""
+"Please restart the app or if necessary restart the device to complete the "
+"update!"
+msgstr "¡Reinicie su dispositivo para completar la actualización!"
+
+#~ msgid "Welcome to FluffyChat"
+#~ msgstr "Bienvenida/o a FluffyChat"
+
+#~ msgid "I'm new here"
+#~ msgstr "Primera vez aquí"
+
+#~ msgid "Using the homeserver: "
+#~ msgstr "Usando el servidor de datos («homeserver»): "
+
+#~ msgid "Create chat"
+#~ msgstr "Crear chat"
+
+#~ msgid "Search contacts..."
+#~ msgstr "Buscar contactos..."
+
+#~ msgid "Invite a friend"
+#~ msgstr "Invitar a un amigo"
+
+#~ msgid "Search contacts or usernames..."
+#~ msgstr "Buscar contactos o nombre de usuarios..."
+
 #~ msgid " - "
 #~ msgstr " - "
 
@@ -1307,12 +1386,6 @@ msgstr "¿Ha confirmado su dirección de correo electrónico?"
 
 #~ msgid "Please fill all textfields"
 #~ msgstr "Cumplimente todos los campos de texto"
-
-#~ msgid "Sign in"
-#~ msgstr "Iniciar sesión"
-
-#~ msgid "Sign up"
-#~ msgstr "Registrarse"
 
 #~ msgid "Logout"
 #~ msgstr "Cerrar la sesión"
