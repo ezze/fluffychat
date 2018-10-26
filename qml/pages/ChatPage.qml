@@ -334,7 +334,7 @@ Page {
 
     Rectangle {
         id: scrollDownButton
-        width: units.gu(8)
+        width: units.gu(7)
         height: width
         anchors.bottom: replyEvent === null ? chatInput.top : replyEventView.top
         anchors.right: parent.right
@@ -362,7 +362,7 @@ Page {
             name: "visible"; when: !chatScrollView.atYEnd
             PropertyChanges {
                 target: scrollDownButton
-                opacity: 0.9
+                opacity: 0.75
             }
             PropertyChanges {
                 target: stickerInput
