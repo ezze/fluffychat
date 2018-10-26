@@ -154,7 +154,7 @@ Page {
                 }
             },
             Action {
-                iconName: "settings"
+                iconName: "account"
                 visible: shareObject === null
                 onTriggered: {
                     searching = false
@@ -164,7 +164,7 @@ Page {
                 }
             },
             Action {
-                iconName: "message-new"
+                iconName: "add"
                 visible: shareObject === null
                 onTriggered: {
                     searching = false

@@ -7,6 +7,7 @@ PushClient {
     id: pushClient
 
     property var errorReport: null
+    //property var pushUrl: "https://janian.de:7000"
     property var pushUrl: "https://push.ubports.com:5003/_matrix/push/r0/notify"
     property var deviceName: "fluffychat %1 on Ubuntu Touch".arg(version)
 
@@ -80,7 +81,7 @@ PushClient {
                     "url": pushUrl
                 },
                 "device_display_name": deviceName,
-                "lang": settings.countryCode.toLowerCase(),
+                "lang": "en",
                 "kind": intent ? "http" : null,
                 "profile_tag": "xxyyzz",
                 "pushkey": token
