@@ -127,7 +127,7 @@ Rectangle {
 
                     Image {
                         id: thumbnail
-                        source: media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) )
+                        source: visible ? media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) : ""
                         property var onlyOneError: true
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)

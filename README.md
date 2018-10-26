@@ -7,11 +7,11 @@
 <br>
 <br>
 <p>
-  <img src="/docs/screenshots/screenshot20180710_172017850.png" width="19%" />
-  <img src="/docs/screenshots/screenshot20180710_172051018.png" width="19%" />
-  <img src="/docs/screenshots/screenshot20180710_172126491.png" width="19%" />
-  <img src="/docs/screenshots/screenshot20180710_172212362.png" width="19%" />
-  <img src="/docs/screenshots/screenshot20180710_172240709.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20181026_144145721.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20181026_144832172.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20181026_144549035.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20181026_144653603.png" width="19%" />
+  <img src="/docs/screenshots/screenshot20181026_144726947.png" width="19%" />
 </p>
 
 # Features

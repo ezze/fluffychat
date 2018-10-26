@@ -252,7 +252,7 @@ Page {
             },
             Action {
                 iconName: "contact-new"
-                text: i18n.tr("Invite a friend")
+                text: i18n.tr("Invite friends")
                 visible: membership === "join"
                 onTriggered: mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
             }

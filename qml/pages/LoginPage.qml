@@ -102,6 +102,16 @@ Page {
                 onTriggered: PopupUtils.open(changeIdentityserverDialog)
             },
             Action {
+                iconName: "info"
+                text: i18n.tr("About fluffychat")
+                onTriggered: mainStack.push(Qt.resolvedUrl("./InfoPage.qml"))
+            },
+            Action {
+                iconName: "private-browsing"
+                text: i18n.tr("Privacy Policy")
+                onTriggered: mainStack.push(Qt.resolvedUrl("./PrivacyPolicyPage.qml"))
+            },
+            Action {
                 iconName: "display-brightness-max"
                 text: i18n.tr("Toggle dark mode")
                 onTriggered: settings.darkmode = !settings.darkmode

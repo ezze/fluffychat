@@ -23,7 +23,7 @@ Page {
         " WHERE rooms.membership!='leave' " +
         " AND (events.origin_server_ts IN (" +
         " SELECT MAX(origin_server_ts) FROM Events WHERE chat_id=rooms.id " +
-        " AND type='m.room.message' " +
+        //" AND type='m.room.message' " +
         ") OR rooms.membership='invite')" +
         " GROUP BY rooms.id " +
         " ORDER BY origin_server_ts DESC "
@@ -95,7 +95,7 @@ Page {
         if ( j === model.count ) return
         var tempRoom = model.get(j).room
 
-        if ( eventType === "timeline" && (type === "m.room.message" || type === "m.sticker") ) {
+    if ( eventType === "timeline"/* && (type === "m.room.message" || type === "m.sticker")*/ ) {
             // Update the last message preview
             tempRoom.eventsid = lastEvent.event_id
             tempRoom.origin_server_ts = lastEvent.origin_server_ts

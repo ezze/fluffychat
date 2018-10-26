@@ -35,6 +35,12 @@ Page {
                 onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAGCFNJ2SKZY8")
             }
 
+            SettingsListLink {
+                name: i18n.tr("Privacy Policy")
+                icon: "private-browsing"
+                page: "PrivacyPolicyPage"
+            }
+
             SettingsListItem {
                 name: i18n.tr("Website")
                 icon: "external-link"

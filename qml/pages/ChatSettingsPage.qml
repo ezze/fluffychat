@@ -308,7 +308,7 @@ Page {
 
                 header: SettingsListLink {
                     visible: canInvite
-                    name: i18n.tr("Invite friend")
+                    name: i18n.tr("Invite friends")
                     icon: "contact-new"
                     page: "InvitePage"
                     onClicked: model.clear()
