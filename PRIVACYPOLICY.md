@@ -1,13 +1,13 @@
 # Privacy Policy
+
 ### Matrix client
+* Fluffychat is a Matrix protocol client and is compatible with all Matrix servers and Matrix identity servers. All communications conducted while using Fluffychat use a Matrix server and the Matrix identity server. 
+* The default server in Fluffychat is https://ubports.chat and the default identity server is https://vector.im. 
+* Fluffychat doesn't operate any server or remote service. 
+ * All communication of substantive content between Fluffychat and any server is done in secure way, using encryption to protect it. 
+ * Fluffychat is not responsible for the data processing carried out by any Matrix server or Matrix identity server. 
+ * Fluffychat offers the option to use phone numbers to find contacts. This is not a requirement of normal operation and is intended only as a convenience. No contact details are uploaded without user interaction! The user can choose to upload all or some or no contacts to the identity server! 
+    
+### Push Notifications
 
-* Fluffychat is a matrix protocol client and compatible with all matrix servers and matrix identity servers. All communications made by the use while using fluffychat are done with the matrix server and the matrix identity server.
-* The default server is https://ubports.chat and the default identity server is https://vector.im.
-* Fluffychat doesn't operate any server or service.
-* All communications between fluffychat and any server is done in secure way, using encryption to protect it.
-* Fluffychat is not responsible for the data processing by any matrix server or matrix identity server.
-* Fluffychat offers the possibility to use phone numbers to find contacts. This is optional and no contacts are uploaded without user interaction! The user can choose, which contacts he want to upload to the identity server!
-
-# Push Notifications
-
-* The matrix server the user is using, will automatically send push notifications to the UBports push service. This notifications are encrypted with https on the way from the matrix server to the official ubports matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/notify which forwards the notification to UBports push service at https://push.ubports.com and then sends this as a push notification to the user's device(s).
+* The Matrix server selected by the user will automatically send push notifications to the UBports push service. These notifications are encrypted with the https protocol between the device and the Matrix server and on to the official UBports Matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/notify This server forwards the notification to UBports push service at https://push.ubports.com and then sends this on as a push notification to the user's device(s). 
