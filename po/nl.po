@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-26 12:49+0000\n"
-"PO-Revision-Date: 2018-10-26 15:07+0200\n"
+"POT-Creation-Date: 2018-10-26 16:08+0000\n"
+"PO-Revision-Date: 2018-10-26 18:19+0200\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
 "translations/nl/>\n"
@@ -417,23 +417,23 @@ msgstr "Een nieuwe chat starten"
 msgid "Log in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:136
+#: ../qml/pages/ChatListPage.qml:145
 #, fuzzy
 #| msgid "FluffyChat"
 msgid "Fluffychat"
 msgstr "FluffyChat"
 
-#: ../qml/pages/ChatListPage.qml:136
+#: ../qml/pages/ChatListPage.qml:145
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:199
+#: ../qml/pages/ChatListPage.qml:208
 #, fuzzy
 #| msgid "Search chat names..."
 msgid "Search for chat names…"
 msgstr "Chatnamen zoeken..."
 
-#: ../qml/pages/ChatListPage.qml:220
+#: ../qml/pages/ChatListPage.qml:229
 #, fuzzy
 #| msgid "Swipe from the bottom to start a new chat"
 msgid "Swipe from below to start a chat"
@@ -694,23 +694,23 @@ msgstr "Uitnodigen"
 msgid ""
 "<br><b>Matrix client</b><br><br>* Fluffychat is a matrix protocol client and "
 "compatible with all matrix servers and matrix identity servers. All "
-"communications made by the use while using fluffychat are done with the "
-"matrix server and the matrix identity server.<br>* The default server is "
-"https://ubports.chat and the default identity server is https://vector.im."
-"<br>* Fluffychat doesn't operate any server or service.<br>* All "
-"communications between fluffychat and any server is done in secure way, "
-"using encryption to protect it.<br>* Fluffychat is not responsible for the "
-"data processing by any matrix server or matrix identity server.<br>* "
-"Fluffychat offers the possibility to use phone numbers to find contacts. "
-"This is optional and no contacts are uploaded without user interaction! The "
-"user can choose, which contacts he want to upload to the identity server!"
-"<br><br><b>Push Notifications</b><br><br>* The matrix server the user is "
-"using, will automatically send push notifications to the UBports push "
-"service. This notifications are encrypted with https on the way from the "
-"matrix server to the official ubports matrix gateway at https://push.ubports."
-"com:5003/_matrix/push/r0/notify which forwards the notification to UBports "
-"push service at https://push.ubports.com and then sends this as a push "
-"notification to the user's device(s).<br>"
+"communications made while using fluffychat are done with the matrix server "
+"and the matrix identity server.<br>* The default server is https://ubports."
+"chat and the default identity server is https://vector.im.<br>* Fluffychat "
+"doesn't operate any server or service.<br>* All communications between "
+"fluffychat and any server is done in secure way, using encryption to protect "
+"it.<br>* Fluffychat is not responsible for the data processing by any matrix "
+"server or matrix identity server.<br>* Fluffychat offers the possibility to "
+"use phone numbers to find contacts. This is optional and no contacts are "
+"uploaded without user interaction! The user can choose, which contacts he "
+"want to upload to the identity server!<br><br><b>Push Notifications</"
+"b><br><br>* The matrix server the user is using, will automatically send "
+"push notifications to the UBports push service. These notifications are "
+"encrypted with https on the way from the matrix server to the official "
+"ubports matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/"
+"notify which forwards the notification to UBports push service at https://"
+"push.ubports.com and then sends this as a push notification to the user's "
+"device(s).<br>"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:230 ../qml/components/ArchivedChatListItem.qml:28

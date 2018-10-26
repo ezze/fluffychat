@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-26 12:49+0000\n"
-"PO-Revision-Date: 2018-10-26 15:07+0200\n"
+"POT-Creation-Date: 2018-10-26 16:08+0000\n"
+"PO-Revision-Date: 2018-10-26 18:23+0200\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -241,7 +241,7 @@ msgstr "Invítenos a un café"
 #: ../qml/pages/InfoPage.qml:39 ../qml/pages/LoginPage.qml:111
 #: ../qml/pages/PrivacyPolicyPage.qml:10
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Política de privacidad"
 
 #: ../qml/pages/InfoPage.qml:45
 msgid "Website"
@@ -333,10 +333,8 @@ msgid "Username is already taken"
 msgstr "El nombre de usuario ya está tomado"
 
 #: ../qml/pages/LoginPage.qml:88
-#, fuzzy
-#| msgid "Welcome"
 msgid "Welcome to %1"
-msgstr "Bienvenida/o"
+msgstr "Bienvenida/o a %1"
 
 #: ../qml/pages/LoginPage.qml:96
 msgid "Change homeserver"
@@ -347,10 +345,8 @@ msgid "Change ID-server"
 msgstr "Cambiar servidor de identidad («identityserver»)"
 
 #: ../qml/pages/LoginPage.qml:106
-#, fuzzy
-#| msgid "About FluffyChat"
 msgid "About fluffychat"
-msgstr "Acerca de FluffyChat"
+msgstr "Acerca de fluffychat"
 
 #: ../qml/pages/LoginPage.qml:116
 msgid "Toggle dark mode"
@@ -373,30 +369,26 @@ msgid "Username"
 msgstr "Nombre de usuario"
 
 #: ../qml/pages/LoginPage.qml:228
-#, fuzzy
-#| msgid "Start a new chat"
 msgid "Create a new account"
-msgstr "Iniciar un chat nuevo"
+msgstr "Crear una cuenta nueva"
 
 #: ../qml/pages/LoginPage.qml:240
-#, fuzzy
-#| msgid "Log out"
 msgid "Log in"
-msgstr "Cerrar sesión"
+msgstr "Iniciar sesión"
 
-#: ../qml/pages/ChatListPage.qml:136
+#: ../qml/pages/ChatListPage.qml:145
 msgid "Fluffychat"
 msgstr "Fluffychat"
 
-#: ../qml/pages/ChatListPage.qml:136
+#: ../qml/pages/ChatListPage.qml:145
 msgid "Share"
 msgstr "Compartir"
 
-#: ../qml/pages/ChatListPage.qml:199
+#: ../qml/pages/ChatListPage.qml:208
 msgid "Search for chat names…"
 msgstr "Buscar nombres de chat…"
 
-#: ../qml/pages/ChatListPage.qml:220
+#: ../qml/pages/ChatListPage.qml:229
 msgid "Swipe from below to start a chat"
 msgstr "Deslizar desde abajo para comenzar un chat"
 
@@ -426,18 +418,16 @@ msgstr "Permisos del chat"
 
 #: ../qml/pages/CreateChatPage.qml:15
 msgid "New group: %1 selected"
-msgstr ""
+msgstr "Nuevo grupo: %1 seleccionado"
 
 #: ../qml/pages/CreateChatPage.qml:54 ../qml/pages/InvitePage.qml:66
 #: ../qml/pages/AddChatPage.qml:84
 msgid "Search for example @username:server.abc"
-msgstr ""
+msgstr "Buscar por ejemplo @nombredeusuario:servidor.abc"
 
 #: ../qml/pages/CreateChatPage.qml:100
-#, fuzzy
-#| msgid "New group"
 msgid "Create group"
-msgstr "Nuevo grupo"
+msgstr "Crear grupo"
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:81
@@ -612,39 +602,55 @@ msgid "Targets"
 msgstr "Objetivos"
 
 #: ../qml/pages/InvitePage.qml:21
-#, fuzzy
-#| msgid "Invite selected"
 msgid "Invite user: %1 selected"
-msgstr "Invitar al seleccionado"
+msgstr "Invitar usuario: %1 seleccionado"
 
 #: ../qml/pages/InvitePage.qml:108
-#, fuzzy
-#| msgid "Invite user"
 msgid "Invite"
-msgstr "Invitar a un usuario"
+msgstr "Invitar"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:28
 msgid ""
 "<br><b>Matrix client</b><br><br>* Fluffychat is a matrix protocol client and "
 "compatible with all matrix servers and matrix identity servers. All "
-"communications made by the use while using fluffychat are done with the "
-"matrix server and the matrix identity server.<br>* The default server is "
-"https://ubports.chat and the default identity server is https://vector.im."
-"<br>* Fluffychat doesn't operate any server or service.<br>* All "
-"communications between fluffychat and any server is done in secure way, "
-"using encryption to protect it.<br>* Fluffychat is not responsible for the "
-"data processing by any matrix server or matrix identity server.<br>* "
-"Fluffychat offers the possibility to use phone numbers to find contacts. "
-"This is optional and no contacts are uploaded without user interaction! The "
-"user can choose, which contacts he want to upload to the identity server!"
-"<br><br><b>Push Notifications</b><br><br>* The matrix server the user is "
-"using, will automatically send push notifications to the UBports push "
-"service. This notifications are encrypted with https on the way from the "
-"matrix server to the official ubports matrix gateway at https://push.ubports."
-"com:5003/_matrix/push/r0/notify which forwards the notification to UBports "
-"push service at https://push.ubports.com and then sends this as a push "
-"notification to the user's device(s).<br>"
+"communications made while using fluffychat are done with the matrix server "
+"and the matrix identity server.<br>* The default server is https://ubports."
+"chat and the default identity server is https://vector.im.<br>* Fluffychat "
+"doesn't operate any server or service.<br>* All communications between "
+"fluffychat and any server is done in secure way, using encryption to protect "
+"it.<br>* Fluffychat is not responsible for the data processing by any matrix "
+"server or matrix identity server.<br>* Fluffychat offers the possibility to "
+"use phone numbers to find contacts. This is optional and no contacts are "
+"uploaded without user interaction! The user can choose, which contacts he "
+"want to upload to the identity server!<br><br><b>Push Notifications</"
+"b><br><br>* The matrix server the user is using, will automatically send "
+"push notifications to the UBports push service. These notifications are "
+"encrypted with https on the way from the matrix server to the official "
+"ubports matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/"
+"notify which forwards the notification to UBports push service at https://"
+"push.ubports.com and then sends this as a push notification to the user's "
+"device(s).<br>"
 msgstr ""
+"<br><b>Cliente de Matrix</b><br><br>* Fluffychat es un cliente del protocolo "
+"matrix y es compatible con todos los servidores donde están alojados sus "
+"datos en matrix y con los servidores de identidad de matrix. Mientras usa "
+"fluffychat, todas las comunicaciones se realizan con ambos servidores. <br>* "
+"El servidor de datos predeterminado es https://ubports.chat y el servidor de "
+"identidad predeterminado es https://vector.im.<br>* Fluffychat no opera "
+"ningún servidor o servicio. <br>* Todas las comunicaciones entre fluffychat "
+"y cualquier servidor se realizan de manera segura, estando cifradas para su "
+"protección. <br>* Fluffychat no es responsable del procesamiento de datos "
+"que realice cualquier servidor de datos o de identidad de matrix. <br>* "
+"Fluffychat ofrece la posibilidad de usar números de teléfono para encontrar "
+"contactos. Esto es opcional y ¡ningún contacto es subido sin la interacción "
+"del usuario! ¡El usuario puede elegir que contactos quiere subir al servidor "
+"de identidad! <br><br><b>Notificaciones «Push»</b><br><br>* El servidor "
+"matrix que use el usuario enviará notificaciones automáticamente a través "
+"del servicio de notificaciones de UBports. Estas notificaciones se envían "
+"cifradas (https) desde el servidor en matrix a la pasarela de matrix de "
+"UBports en https://push.ubports.com:5003/_matrix/push/r0/notify que redirige "
+"la notificación al servicio «push» de UBports en https://push.ubports.com y "
+"luego la envía al dispositivo(s) del usuario.<br>"
 
 #: ../qml/pages/ChatPage.qml:230 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/SimpleChatListItem.qml:28
@@ -661,10 +667,8 @@ msgid "Chat info"
 msgstr "Información del chat"
 
 #: ../qml/pages/ChatPage.qml:255 ../qml/pages/ChatSettingsPage.qml:311
-#, fuzzy
-#| msgid "Invite friend"
 msgid "Invite friends"
-msgstr "Invitar a un amigo"
+msgstr "Invitar amigos"
 
 #: ../qml/pages/ChatPage.qml:278
 msgid "No messages in this chat ..."
@@ -788,10 +792,8 @@ msgid "Start a new chat"
 msgstr "Iniciar un chat nuevo"
 
 #: ../qml/pages/AddChatPage.qml:18
-#, fuzzy
-#| msgid "Add Contact"
 msgid "New contact"
-msgstr "Añadir contacto"
+msgstr "Nuevo contacto"
 
 #: ../qml/pages/AddChatPage.qml:24
 msgid "Discover public chats"
@@ -1282,12 +1284,12 @@ msgid "Have you confirmed your email address?"
 msgstr "¿Ha confirmado su dirección de correo electrónico?"
 
 #: ../qml/components/LockedScreen.qml:32
-#, fuzzy
-#| msgid "Please restart your device to complete the update!"
 msgid ""
 "Please restart the app or if necessary restart the device to complete the "
 "update!"
-msgstr "¡Reinicie su dispositivo para completar la actualización!"
+msgstr ""
+"¡Reinicie la aplicación o, de ser necesario, su dispositivo para completar "
+"la actualización!"
 
 #~ msgid "Welcome to FluffyChat"
 #~ msgstr "Bienvenida/o a FluffyChat"
