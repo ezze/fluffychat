@@ -7,7 +7,7 @@ f1, f2 = sys.argv[1:3]
 
 notificationString = open( f1 ).read()
 notification = json.loads( notificationString )
-message = {}
+message = notification
 if "message" in notification:
     message = notification["message"]
 
