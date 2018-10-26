@@ -10,4 +10,4 @@
 
 # Push Notifications
 
-* The matrix server the user is using, will automatically send push notifications to the UBports push service. This notifications are encrypted with https on the way from the matrix server to the official ubports matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/notify which forwards the notification to UBports push service at https://push.ubports.com and then sends this as a push notification to the user's device(s).
+* The matrix server the user is using, will automatically send push notifications to the UBports push service. These notifications are encrypted with https on the way from the matrix server to the official ubports matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/notify which forwards the notification to UBports push service at https://push.ubports.com and then sends this as a push notification to the user's device(s).
