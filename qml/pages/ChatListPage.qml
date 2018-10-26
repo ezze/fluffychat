@@ -23,7 +23,7 @@ Page {
         " WHERE rooms.membership!='leave' " +
         " AND (events.origin_server_ts IN (" +
         " SELECT MAX(origin_server_ts) FROM Events WHERE chat_id=rooms.id " +
-        //" AND type='m.room.message' " +
+        // " AND type='m.room.message' " +
         ") OR rooms.membership='invite')" +
         " GROUP BY rooms.id " +
         " ORDER BY origin_server_ts DESC "
@@ -31,6 +31,11 @@ Page {
             // We now write the rooms in the column
             for ( var i = 0; i < res.rows.length; i++ ) {
                 var room = res.rows.item(i)
+                var body = room.content_body || ""
+                room.content = JSON.parse(room.content_json)
+                if ( room.type !== "m.room.message" ) {
+                    room.content_body = displayEvents.getDisplay ( room )
+                }
                 // We request the room name, before we continue
                 model.append ( { "room": room } )
             }
@@ -97,9 +102,13 @@ Page {
 
     if ( eventType === "timeline"/* && (type === "m.room.message" || type === "m.sticker")*/ ) {
             // Update the last message preview
+            var body = lastEvent.content.body || ""
+            if ( type !== "m.room.message" ) {
+                body = displayEvents.getDisplay ( lastEvent )
+            }
             tempRoom.eventsid = lastEvent.event_id
             tempRoom.origin_server_ts = lastEvent.origin_server_ts
-            tempRoom.content_body = lastEvent.content.body || ""
+            tempRoom.content_body = body
             tempRoom.sender = lastEvent.sender
             tempRoom.content_json = JSON.stringify( lastEvent.content )
             tempRoom.type = lastEvent.type
