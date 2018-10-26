@@ -7,8 +7,7 @@ PushClient {
     id: pushClient
 
     property var errorReport: null
-    property var pushUrl: "https://janian.de:7000"
-    //property var pushUrl: "https://push.ubports.com:5003/"
+    property var pushUrl: "https://push.ubports.com:5003/_matrix/push/r0/notify"
     property var deviceName: "fluffychat %1 on Ubuntu Touch".arg(version)
 
     onTokenChanged: {
@@ -43,7 +42,8 @@ PushClient {
     }
 
     function newNotification ( message ) {
-        if ( message == "" ) return
+        console.log("NEWNOTIFICATION", JSON.stringify(message))
+       if ( message == "" ) return
         try {
             // Clear the persistent notification if the user is in this room
             var room = message.room_name || message.sender_display_name || message.sender
@@ -80,7 +80,7 @@ PushClient {
                     "url": pushUrl
                 },
                 "device_display_name": deviceName,
-                "lang": "en",
+                "lang": settings.countryCode.toLowerCase(),
                 "kind": intent ? "http" : null,
                 "profile_tag": "xxyyzz",
                 "pushkey": token
