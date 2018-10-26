@@ -1,7 +1,7 @@
 # Privacy Policy
 ### Matrix client
 
-* Fluffychat is a matrix protocol client and compatible with all matrix servers and matrix identity servers. All communications made by the use while using fluffychat are done with the matrix server and the matrix identity server.
+* Fluffychat is a matrix protocol client and compatible with all matrix servers and matrix identity servers. All communications made while using fluffychat are done with the matrix server and the matrix identity server.
 * The default server is https://ubports.chat and the default identity server is https://vector.im.
 * Fluffychat doesn't operate any server or service.
 * All communications between fluffychat and any server is done in secure way, using encryption to protect it.
