@@ -358,7 +358,7 @@ Rectangle {
             text: {
                 // Show the senders displayname only if its not the user him-/herself.
                 ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
-                ("<font color='" + usernames.stringToDarkColor ( senderDisplayname ) + "'>" + senderDisplayname + "</font> ")
+                ("<font color='" + usernames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
                 : "")
                 + stamp.getChatTime ( event.origin_server_ts )
             }
