@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the fluffychat.christianpauly package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
@@ -8,176 +8,156 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-26 12:49+0000\n"
-"PO-Revision-Date: 2018-11-08 03:07+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"fluffychat/translations/nb_NO/>\n"
-"Language: nb_NO\n"
+"PO-Revision-Date: 2018-11-17 15:07+0000\n"
+"Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
+"translations/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.3-dev\n"
 
 #: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:309
 msgid "Are you sure?"
-msgstr "Er du sikker?"
+msgstr "Určitě?"
 
 #: ../qml/controller/SettingsController.qml:66
-#, fuzzy
 msgid "USA"
-msgstr "NO"
+msgstr "USA"
 
 #: ../qml/controller/SettingsController.qml:67
-#, fuzzy
 msgid "1"
 msgstr "1"
 
 #: ../qml/controller/DisplayEventController.qml:13
 msgid "Unknown Event: "
-msgstr "Ukjent hendelse: "
+msgstr "Neznámá událost: "
 
 #: ../qml/controller/DisplayEventController.qml:15
 #: ../qml/controller/DisplayEventController.qml:16
 msgid "Someone"
-msgstr "Noen"
+msgstr "Někdo"
 
 #: ../qml/controller/DisplayEventController.qml:20
 msgid "%1 is now participating"
-msgstr "%1 deltar nå"
+msgstr "%1 je právě přítomen"
 
 #: ../qml/controller/DisplayEventController.qml:22
-#, fuzzy
 msgid "%1 is now participating as <b>%2</b>"
-msgstr "%1 deltar nå i sludringen som <b>%2</b>"
+msgstr "%1 je právě přítomen jako<b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:25
 msgid "%1 has invited %2"
-msgstr "%1 har invitert %2"
+msgstr "%1 pozval/a %2"
 
 #: ../qml/controller/DisplayEventController.qml:28
 msgid "%1 has left the chat"
-msgstr "%1 har forlatt sludringen"
+msgstr "%1 opustil konverzaci"
 
 #: ../qml/controller/DisplayEventController.qml:31
 msgid "%1 has been banned from the chat"
-msgstr "%1 har blitt bannlyst fra sludringen"
+msgstr "%1 byl vyloučen z konverzace"
 
 #: ../qml/controller/DisplayEventController.qml:35
 msgid "Chat created"
-msgstr "Sludring opprettet"
+msgstr "Chatovací místnost vytvořena"
 
 #: ../qml/controller/DisplayEventController.qml:38
-#, fuzzy
-#| msgid "%1 has changed the chat name"
 msgid "%1 has changed the chat name to: <b>%2</b>"
-msgstr "%1 har endret sludringsnavnet"
+msgstr "%1 změnil název chatovací místnosti na: <b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:41
-#, fuzzy
-#| msgid "%1 has changed the chat topic"
 msgid "%1 has changed the chat topic to: <b>%2</b>"
-msgstr "%1 har endret sludreemnet"
+msgstr "%1 změnil téma chatu na: <b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:44
 msgid "%1 has changed the chat avatar"
-msgstr "%1 har endret sludringsavataren"
+msgstr "%1 změnil avatar chatovací místnosti"
 
 #: ../qml/controller/DisplayEventController.qml:47
-#, fuzzy
-#| msgid "%1 has sent a sticker"
 msgid "%1 has redacted a message"
-msgstr "%1 har sendt et klistremerke"
+msgstr "%1 napsal zprávu"
 
 #: ../qml/controller/DisplayEventController.qml:50
 msgid "%1 has sent a sticker"
-msgstr "%1 har sendt et klistremerke"
+msgstr "%1 odeslal nálepku"
 
 #: ../qml/controller/DisplayEventController.qml:53
-#, fuzzy
-#| msgid "%1 has set the chat history visible to: "
 msgid "%1 has set the chat history visible to: %2"
-msgstr "%1 har satt sludrehistorikkens synlighet til: "
+msgstr "%1 zpřístupnil historii chatu pro: %2"
 
 #: ../qml/controller/DisplayEventController.qml:56
-#, fuzzy
-#| msgid "%1 has set the join rules to: "
 msgid "%1 has set the join rules to: %2"
-msgstr "%1 har satt deltagelsesreglene til: "
+msgstr "%1 nastavil pravidla pro zapojení se: %2"
 
 #: ../qml/controller/DisplayEventController.qml:59
-#, fuzzy
-#| msgid "%1 has set the guest access to: "
 msgid "%1 has set the guest access to: %2"
-msgstr "%1 har satt gjestetilgang til: "
+msgstr "%1 nastavil vstup pro hosty jako: %2"
 
 #: ../qml/controller/DisplayEventController.qml:62
 msgid "The chat aliases have been changed."
-msgstr "Sludrealiasene har blitt endret."
+msgstr "Aliasy chatovací místnosti byly změněny."
 
 #: ../qml/controller/DisplayEventController.qml:68
-#, fuzzy
 msgid "The canonical chat alias has been changed to: "
-msgstr "Det helhetlige sludringsaliaset har blitt endret til: "
+msgstr "Základní alias chatovací místnosti byl změněn na: "
 
 #: ../qml/controller/DisplayEventController.qml:71
 msgid "The chat permissions have been changed"
-msgstr "Sludretilgangene har blitt endret"
+msgstr "Podmínky chatu byly změněny"
 
 #: ../qml/controller/DisplayEventController.qml:81
 #: ../qml/components/ChangeJoinRulesDialog.qml:35
 msgid "Only invited users"
-msgstr "Kun inviterte brukere"
+msgstr "Pouze pro zvané účastníky"
 
 #: ../qml/controller/DisplayEventController.qml:84
 #: ../qml/components/ChangeJoinRulesDialog.qml:19
 msgid "Public"
-msgstr "Offentlig"
+msgstr "Veřejné"
 
 #: ../qml/controller/DisplayEventController.qml:87
 #: ../qml/components/ChangeJoinRulesDialog.qml:43
 msgid "Private"
-msgstr "Privat"
+msgstr "Soukromé"
 
 #: ../qml/controller/DisplayEventController.qml:90
 #: ../qml/components/ChangeJoinRulesDialog.qml:27
 msgid "Knock"
-msgstr "Bank på"
+msgstr "Klepat"
 
 #: ../qml/controller/DisplayEventController.qml:93
-#, fuzzy
-#| msgid "All chat participants"
 msgid "All chatters"
-msgstr "Alle sludredeltagere"
+msgstr "Všichní účastníci chatu"
 
 #: ../qml/controller/DisplayEventController.qml:96
-#, fuzzy
 msgid "All joined chat participants"
-msgstr "Alle tilknyttede sludrere"
+msgstr "Všichni připojení účastníci chatu"
 
 #: ../qml/controller/DisplayEventController.qml:99
-#, fuzzy
 msgid "All invited chat participants"
-msgstr "Alle inviterte sludrere"
+msgstr "Všichni pozvaní účastníci chatu"
 
 #: ../qml/controller/DisplayEventController.qml:102
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:19
 msgid "Everyone"
-msgstr "Alle"
+msgstr "Všichni"
 
 #: ../qml/controller/DisplayEventController.qml:105
 #: ../qml/components/ChangeGuestAccessDialog.qml:19
 msgid "Can join"
-msgstr "Kan ta del"
+msgstr "Můžete se připojit"
 
 #: ../qml/controller/DisplayEventController.qml:108
 #: ../qml/components/ChangeGuestAccessDialog.qml:27
 msgid "Forbidden"
-msgstr "Forbudt"
+msgstr "Zakázáno"
 
 #: ../qml/controller/EventController.qml:97
 msgid "You are offline 😕"
-msgstr "Du er frakoblet 😕"
+msgstr "Jste nedostupný 😕"
 
 #: ../qml/controller/EventController.qml:154
 msgid ""
@@ -185,344 +165,292 @@ msgid ""
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
 "fluffychat/issues/new"
 msgstr ""
-"😰 Kritisk feil. Tilkoblingen til tjeneren gikk ned. Innrapporter feil på: "
-"https://github.com/ChristianPauly/fluffychat/issues/new"
+"😰 Nastala kritická chyba! Omlouváme se, připojení k serveru bylo ukončeno! "
+"Ohlašte prosím chybu na: https://github.com/ChristianPauly/fluffychat/issues/"
+"new"
 
 #: ../qml/controller/StorageController.qml:54
 msgid "Please restart your device to complete the update!"
-msgstr "Start enheten din på ny for å fullføre oppdateringen."
+msgstr "Pro dokončení aktualizace restartujte zařízení!"
 
 #: ../qml/controller/ShareController.qml:44
-#, fuzzy
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
-msgstr "😕 Deling av bilder, videoer eller filer støttes ikke enda…"
+msgstr ""
+"Omlouváme se. 😕 Sdílení fotek a videí anebo souborů není dosud podporováno..."
 
 #: ../qml/controller/SenderController.qml:35
-#, fuzzy
 msgid "You are not allowed to chat here."
-msgstr "Du tillates ikke å sludre her."
+msgstr "Nemáte svolení k chatování v této místnosti."
 
 #: ../qml/controller/UserNameController.qml:35
-#, fuzzy
 msgid "⌨️ is typing…"
-msgstr ""
-"⌨️ Du kjenner blott blodets hvisken og benpipernes bøn fra det ubevisste "
-"sjeleliv…"
+msgstr "⌨️ píše…"
 
 #: ../qml/controller/UserNameController.qml:36
-#, fuzzy
 msgid "⌨️ %1 is typing…"
-msgstr ""
-"⌨️ Du kjenner blott blodets hvisken og benpipernes bøn fra det ubevisste "
-"sjeleliv…"
+msgstr "⌨️ %1 píší…"
 
 #: ../qml/controller/UserNameController.qml:39
-#, fuzzy
 msgid "⌨️ %1 and %2 more are typing…"
-msgstr ""
-"⌨️ Du kjenner blott blodets hvisken og benpipernes bøn fra de ubevisste "
-"sjeleliv…"
+msgstr "⌨️ %1 a %2 další píší…"
 
 #: ../qml/controller/UserNameController.qml:45
 #: ../qml/components/ChangePowerLevelDialog.qml:47
-#, fuzzy
-#| msgid "Member"
 msgid "Members"
-msgstr "Medlem"
+msgstr "Účastníci"
 
 #: ../qml/controller/UserNameController.qml:46
 #: ../qml/components/ChangePowerLevelDialog.qml:33
 msgid "Moderators"
-msgstr "Moderatorer"
+msgstr "Moderátoři"
 
 #: ../qml/controller/UserNameController.qml:47
 #: ../qml/components/ChangePowerLevelDialog.qml:19
 msgid "Admins"
-msgstr "Administratorer"
+msgstr "Správci"
 
 #: ../qml/controller/UserNameController.qml:61
-#, fuzzy
-#| msgid "What's your name?"
 msgid "%1 is not a valid username"
-msgstr "Hva heter du?"
+msgstr "%1 není platný název"
 
 #: ../qml/controller/RoomNameController.qml:13
 #: ../qml/controller/RoomNameController.qml:27
 #: ../qml/controller/RoomNameController.qml:35
 msgid "Empty chat"
-msgstr "Tom sludring"
+msgstr "Prázdná chatovací místnost"
 
 #: ../qml/controller/PushController.qml:38
-#, fuzzy
 msgid "Please log in to Ubuntu One to receive push notifications."
-msgstr "Logg inn på Ubuntu One for å motta push-merknader."
+msgstr "Pro příjem oznámení se přihlašte k Vašemu Ubuntu One účtu."
 
 #: ../qml/controller/PushController.qml:71
-#, fuzzy
 msgid "Push notifications are disabled..."
-msgstr "Push-merknader er avskrudd…"
+msgstr "Příjem oznámení je deaktivován..."
 
 #: ../qml/controller/MatrixController.qml:255
-#, fuzzy
-#| msgid "No connection to "
 msgid "😕 No connection..."
-msgstr "Ingen tilkobling til "
+msgstr "😕 Nejste připojení..."
 
 #: ../qml/pages/InfoPage.qml:10
-#, fuzzy
 msgid "Info about FluffyChat %1 on %2"
-msgstr "Info %1"
+msgstr "Informace o FluffyChat %1 na %2"
 
 #: ../qml/pages/InfoPage.qml:32
 msgid "Donate us a coffee"
-msgstr "Spander kaffe"
+msgstr "Přispěje nám na kávu"
 
 #: ../qml/pages/InfoPage.qml:39 ../qml/pages/LoginPage.qml:111
 #: ../qml/pages/PrivacyPolicyPage.qml:10
 msgid "Privacy Policy"
-msgstr "Personvernspraksis"
+msgstr "Zásady ochrany osobních údajů"
 
 #: ../qml/pages/InfoPage.qml:45
 msgid "Website"
-msgstr "Nettside"
+msgstr "Webová stránka"
 
 #: ../qml/pages/InfoPage.qml:51
 msgid "Contributors"
-msgstr "Bidragsytere"
+msgstr "Spolupracující"
 
 #: ../qml/pages/InfoPage.qml:57
 msgid "Source code"
-msgstr "Kildekode"
+msgstr "Zdrojový kód"
 
 #: ../qml/pages/InfoPage.qml:63
 msgid "License"
-msgstr "Lisens"
+msgstr "Licence"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:252
 msgid "Archived chats"
-msgstr "Arkiverte sludringer"
+msgstr "Archivované chaty"
 
 #: ../qml/pages/ArchivedChatsPage.qml:72
-#, fuzzy
 msgid "Search chat names..."
-msgstr "Søk etter sludringsnavn…"
+msgstr "Vyhledat názvy chatů..."
 
 #: ../qml/pages/ArchivedChatsPage.qml:80
 msgid "There are no archived chats"
-msgstr "Det finnes ingen arkiverte sludringer"
+msgstr "Žádné chaty archivovány"
 
 #: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:278
 msgid "Connected email addresses"
-msgstr "Tilkoblede e-postadresser"
+msgstr "Připojené e-mailové adresy"
 
 #: ../qml/pages/EmailSettingsPage.qml:51
 msgid "Add email address"
-msgstr "Legg til e-postadresse"
+msgstr "Vložit e-mailovou adresu"
 
 #: ../qml/pages/EmailSettingsPage.qml:62
 msgid "No email addresses connected"
-msgstr "Ingen tilknyttede e-postadresser"
+msgstr "Žádná e-mailová adresa připojena"
 
 #: ../qml/pages/PasswordCreationPage.qml:27
-#, fuzzy
-#| msgid "Please enter your password"
 msgid "Please set a password"
-msgstr "Skriv inn passordet ditt"
+msgstr "Zadejte Vaše budoucí heslo"
 
 #: ../qml/pages/PasswordCreationPage.qml:60
 msgid "Username already taken"
-msgstr "Brukernavn allerede i bruk"
+msgstr "Uživatelské jméno již použito"
 
 #: ../qml/pages/PasswordCreationPage.qml:61
-#, fuzzy
 msgid "The desired user ID is not a valid user name"
-msgstr "Ønsket bruker-ID er ikke et gyldig brukernavn"
+msgstr "Požadované ID uživatele je neplatné uživatelské jméno"
 
 #: ../qml/pages/PasswordCreationPage.qml:62
-#, fuzzy
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
-"Ønsket bruker-ID er i det eksklusive navnerommet forbeholdt en "
-"programtjeneste."
+"Požadované ID uživatele se nachází ve vyhrazeném prostoru pro funkce aplikace"
 
 #: ../qml/pages/PasswordCreationPage.qml:63
 msgid "Registration on %1 failed..."
-msgstr "Registrering på %1 mislyktes…"
+msgstr "Registrace na %1 selhala..."
 
 #: ../qml/pages/PasswordCreationPage.qml:90
 msgid "Please choose a password to protect your account"
-msgstr "Velg et passord for å beskytte kontoen din"
+msgstr "Pro ochranu Vašeho účtu si prosím zvolte heslo"
 
 #: ../qml/pages/PasswordCreationPage.qml:109
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
-msgstr "f.eks sommer%salat$utflater?taNNpasta"
+msgstr "např. Summer%salad$flattens?tOOthpaste"
 
 #: ../qml/pages/PasswordCreationPage.qml:133
 msgid "Sign up"
-msgstr "Registrer deg"
+msgstr "Registrace"
 
 #: ../qml/pages/LoginPage.qml:37
 msgid "Username '%1' not found on %2"
-msgstr "Brukernavn \"%1\" ikke funnet på %2"
+msgstr "Jméno uživatele '%1' nenalezeno v %2"
 
 #: ../qml/pages/LoginPage.qml:65
 msgid "No user found with this phone number"
-msgstr "Fant ingen bruker med dette telefonnummeret"
+msgstr "Nenalezen žádný uživatel s tímto telefonním číslem"
 
 #: ../qml/pages/LoginPage.qml:79 ../qml/pages/LoginPage.qml:81
 msgid "Username is already taken"
-msgstr "Brukernavn allerede i bruk"
+msgstr "Toto uživatelské jméno již někdo používá"
 
 #: ../qml/pages/LoginPage.qml:88
-#, fuzzy
-#| msgid "Welcome"
 msgid "Welcome to %1"
-msgstr "Velkommen"
+msgstr "Vítejte v %1"
 
 #: ../qml/pages/LoginPage.qml:96
-#, fuzzy
-#| msgid "Using the homeserver: "
 msgid "Change homeserver"
-msgstr "Bruker hjemmetjeneren: "
+msgstr "Změnit homeserver"
 
 #: ../qml/pages/LoginPage.qml:101
 msgid "Change ID-server"
-msgstr "Endre ID-tjener"
+msgstr "Změnit ID-server"
 
 #: ../qml/pages/LoginPage.qml:106
-#, fuzzy
-#| msgid "About FluffyChat"
 msgid "About fluffychat"
-msgstr "Om"
+msgstr "O fluffychat"
 
 #: ../qml/pages/LoginPage.qml:116
-#, fuzzy
-#| msgid "Dark mode"
 msgid "Toggle dark mode"
-msgstr "Nattmodus"
+msgstr "Přepnout na noční režim"
 
 #: ../qml/pages/LoginPage.qml:127
 msgid "Choose your homeserver"
-msgstr "Velg din hjemmetjener"
+msgstr "Zvolte Váš homeserver"
 
 #: ../qml/pages/LoginPage.qml:149
-#, fuzzy
-#| msgid "Choose your homeserver"
 msgid "Choose your identity server"
-msgstr "Velg din hjemmetjener"
+msgstr "Zvolte Váš identity server"
 
 #: ../qml/pages/LoginPage.qml:196
 msgid "Phone number (optional)"
-msgstr "Telefonnummer (valgfritt)"
+msgstr "Telefonní číslo (nepovinné)"
 
 #: ../qml/pages/LoginPage.qml:205
 msgid "Username"
-msgstr "Brukernavn"
+msgstr "Uživatelské jméno"
 
 #: ../qml/pages/LoginPage.qml:228
-#, fuzzy
-#| msgid "Start a new chat"
 msgid "Create a new account"
-msgstr "Start ny sludring"
+msgstr "Vytnořit nový účet"
 
 #: ../qml/pages/LoginPage.qml:240
 msgid "Log in"
-msgstr "Logg inn"
+msgstr "Přihlášení"
 
 #: ../qml/pages/ChatListPage.qml:136
-#, fuzzy
-#| msgid "FluffyChat"
 msgid "Fluffychat"
-msgstr "FluffyChat"
+msgstr "Fluffychat"
 
 #: ../qml/pages/ChatListPage.qml:136
 msgid "Share"
-msgstr "Del"
+msgstr "Sdílet"
 
 #: ../qml/pages/ChatListPage.qml:199
-#, fuzzy
 msgid "Search for chat names…"
-msgstr "Søk etter sludringsnavn…"
+msgstr "Vyhledat názvy chatů…"
 
 #: ../qml/pages/ChatListPage.qml:220
-#, fuzzy
 msgid "Swipe from below to start a chat"
-msgstr "Dra fra bunnen for å starte ny sludring"
+msgstr "Přetáhnout ze zdola pro zahájení chatu"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:62
-#, fuzzy
-#| msgid "Security & Privacy"
 msgid "Chat security & privacy settings"
-msgstr "Sikkerhet og personvern"
+msgstr "Nastavení zabezpečení a ochrany osobních údajů"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:81
 #: ../qml/components/ChangeJoinRulesDialog.qml:11
 msgid "Who is allowed to join?"
-msgstr "Hvem tillates å delta?"
+msgstr "Kdo se může připojit?"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:88
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:11
-#, fuzzy
-#| msgid "%1 has set the chat history visible to: "
 msgid "Who can see the chat history?"
-msgstr "%1 har satt sludrehistorikkens synlighet til: "
+msgstr "Kdo může vidět historii chatu?"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:95
 #: ../qml/components/ChangeGuestAccessDialog.qml:11
 msgid "Guest access?"
-msgstr "Gjestetilgang?"
+msgstr "Přístup hostů?"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:101
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:87
-#, fuzzy
-#| msgid "Chat Settings:"
 msgid "Chat permissions"
-msgstr "Sludringsinnstillinger:"
+msgstr "Podmínky chatu"
 
 #: ../qml/pages/CreateChatPage.qml:15
 msgid "New group: %1 selected"
-msgstr "Ny gruppe: %1 valgt"
+msgstr "Nová skupina: %1 zvoleno"
 
 #: ../qml/pages/CreateChatPage.qml:54 ../qml/pages/InvitePage.qml:66
 #: ../qml/pages/AddChatPage.qml:84
 msgid "Search for example @username:server.abc"
-msgstr "Søk etter for eksempel @brukernavn:tjener.abc"
+msgstr "Vyhledat například @username:server.abc"
 
 #: ../qml/pages/CreateChatPage.qml:100
-#, fuzzy
-#| msgid "New group"
 msgid "Create group"
-msgstr "Ny gruppe"
+msgstr "Vytvořit skupinu"
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:81
-#, fuzzy
-#| msgid "Settings"
 msgid "Settings for %1"
-msgstr "Innstillinger"
+msgstr "Nastavení pro %1"
 
 #: ../qml/pages/SettingsPage.qml:48
-#, fuzzy
-#| msgid "Change display name"
 msgid "Edit displayname"
-msgstr "Endre visningsnavn"
+msgstr "Změnit zobrazované jméno"
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
 #: ../qml/components/ChatEvent.qml:172
 msgid "Show image"
-msgstr "Vis bilde"
+msgstr "Ukázat obrázek"
 
 #: ../qml/pages/SettingsPage.qml:99 ../qml/pages/ChatSettingsPage.qml:168
 msgid "Delete Avatar"
-msgstr "Slett avatar"
+msgstr "Smazat avatar"
 
 #: ../qml/pages/SettingsPage.qml:121 ../qml/pages/ChatSettingsPage.qml:189
 #: ../qml/components/StickerInput.qml:138
 msgid "Error"
-msgstr "Feil"
+msgstr "Chyba"
 
 #: ../qml/pages/SettingsPage.qml:125 ../qml/pages/ChatSettingsPage.qml:193
 #: ../qml/components/StickerInput.qml:142
@@ -530,181 +458,156 @@ msgid "OK"
 msgstr "OK"
 
 #: ../qml/pages/SettingsPage.qml:143
-#, fuzzy
-#| msgid "Choose a main color:"
 msgid "Change main color"
-msgstr "Velg en hovedfarge:"
+msgstr "Změnit základní barvu"
 
 #: ../qml/pages/SettingsPage.qml:156
-#, fuzzy
-#| msgid "Set chat background"
 msgid "Change background"
-msgstr "Sett slurdrebakgrunn"
+msgstr "Změnit pozadí"
 
 #: ../qml/pages/SettingsPage.qml:180
 msgid "Background removed"
-msgstr "Bakgrunn fjernet"
+msgstr "Pozadí odstraněno"
 
 #: ../qml/pages/SettingsPage.qml:196
 msgid "Dark mode"
-msgstr "Nattmodus"
+msgstr "Noční režim"
 
 #: ../qml/pages/SettingsPage.qml:204
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:249
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:233
 msgid "Notifications"
-msgstr "Merknader"
+msgstr "Oznámení"
 
 #: ../qml/pages/SettingsPage.qml:219
-#, fuzzy
-#| msgid "Chat Settings:"
 msgid "Chat settings:"
-msgstr "Sludringsinnstillinger:"
+msgstr "Nastavení chatu:"
 
 #: ../qml/pages/SettingsPage.qml:224
-#, fuzzy
-#| msgid "Display 'I am typing' when I am typing"
 msgid "Display 'I am typing' when typing"
-msgstr "Vis \"Jeg skriver\" ved skriving"
+msgstr "Zobrazit 'právě píši' když píši"
 
 #: ../qml/pages/SettingsPage.qml:231
-#, fuzzy
 msgid "Show member change events"
-msgstr "Endring av sludringsmedlemmer"
+msgstr "Zobrazit události týkající se změn u účastníků"
 
 #: ../qml/pages/SettingsPage.qml:238
 msgid "Hide less important events"
-msgstr "Skjul mindre viktige hendelser"
+msgstr "Schovat méně důležité události"
 
 #: ../qml/pages/SettingsPage.qml:245
 msgid "Autoload animated images"
-msgstr "Automatisk innlasting av animerte bilder"
+msgstr "Automaticky stahovat animované obrázky"
 
 #: ../qml/pages/SettingsPage.qml:267
-#, fuzzy
-#| msgid "Chat Settings:"
 msgid "Account settings:"
-msgstr "Sludringsinnstillinger:"
+msgstr "Nastavení účtu:"
 
 #: ../qml/pages/SettingsPage.qml:272 ../qml/pages/PhoneSettingsPage.qml:47
-#, fuzzy
 msgid "Connected phone numbers"
-msgstr "Tilknyttede telefonnummer"
+msgstr "Připojená telefonní čísla"
 
 #: ../qml/pages/SettingsPage.qml:284 ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
-msgstr "Enheter"
+msgstr "Zařízení"
 
 #: ../qml/pages/SettingsPage.qml:290
 msgid "Change password"
-msgstr "Endre passord"
+msgstr "Změnit heslo"
 
 #: ../qml/pages/SettingsPage.qml:305
 msgid "Check out:"
-msgstr "Sjekk ut:"
+msgstr "Ověřit:"
 
 #: ../qml/pages/SettingsPage.qml:310
 msgid "Disable account"
-msgstr "Skru av konto"
+msgstr "Deaktivovat účet"
 
 #: ../qml/pages/SettingsPage.qml:316 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
-msgstr "Logg ut"
+msgstr "Odhlášení"
 
 #: ../qml/pages/SettingsPage.qml:331
 msgid "More:"
-msgstr "Mer:"
+msgstr "Více:"
 
 #: ../qml/pages/SettingsPage.qml:336
 msgid "About FluffyChat"
-msgstr "Om"
+msgstr "O FluffyChat"
 
 #: ../qml/pages/PasswordInputPage.qml:26
 msgid "Invalid username or password"
-msgstr "Ugyldig brukernavn eller passord"
+msgstr "Neplatné uživatelské jméno nebo heslo"
 
 #: ../qml/pages/PasswordInputPage.qml:29
 msgid "No connection to "
-msgstr "Ingen tilkobling til "
+msgstr "Bez připojení "
 
 #: ../qml/pages/PasswordInputPage.qml:38
-#, fuzzy
-#| msgid "Enter your old password"
 msgid "Enter your password"
-msgstr "Skriv inn ditt gamle passord"
+msgstr "Zadejte Vaše heslo"
 
 #: ../qml/pages/PasswordInputPage.qml:61
-#, fuzzy
-#| msgid "Please enter your password"
 msgid "Please enter your password for: <b>%1</b>"
-msgstr "Skriv inn passordet ditt"
+msgstr "Zadejte Vaše heslo pro: <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:70
-#, fuzzy
-#| msgid "Password"
 msgid "Password..."
-msgstr "Passord"
+msgstr "Heslo…"
 
 #: ../qml/pages/PasswordInputPage.qml:86
 msgid "Sign in"
-msgstr "Registrer deg"
+msgstr "Přihlášení"
 
 #: ../qml/pages/NotificationSettingsPage.qml:80
 msgid "Enable notifications"
-msgstr "Skru på merknader"
+msgstr "Aktivovat oznámení"
 
 #: ../qml/pages/NotificationSettingsPage.qml:90
-#, fuzzy
 msgid "Common messages"
-msgstr "Vanlige meldinger"
+msgstr "Obyčejné zprávy"
 
 #: ../qml/pages/NotificationSettingsPage.qml:100
 msgid "Messages from single chats"
-msgstr "Meldinger fra enkle sludringer"
+msgstr "Zprávy z jednotlivých chatů"
 
 #: ../qml/pages/NotificationSettingsPage.qml:110
-#, fuzzy
 msgid "Contains my display name"
-msgstr "Inneholder mitt visningsnavn"
+msgstr "Obsahuje mé zobrazované jméno"
 
 #: ../qml/pages/NotificationSettingsPage.qml:120
 msgid "Contains my user name"
-msgstr "Inneholder mitt brukernavn"
+msgstr "Obsahuje mé uživatelské jméno"
 
 #: ../qml/pages/NotificationSettingsPage.qml:130
 msgid "Invitations for me"
-msgstr "Invitasjoner for meg"
+msgstr "Pozvání určená mé osobě"
 
 #: ../qml/pages/NotificationSettingsPage.qml:140
-#, fuzzy
 msgid "Chat members change"
-msgstr "Endring av sludringsmedlemmer"
+msgstr "Změnit účastníky chatu"
 
 #: ../qml/pages/NotificationSettingsPage.qml:150
 msgid "Incoming VOIP calls"
-msgstr "Ankommende VOIP-anrop"
+msgstr "Příchozí VOIP hovory"
 
 #: ../qml/pages/NotificationSettingsPage.qml:160
 msgid "Messages from bots"
-msgstr "Meldinger fra bot-er"
+msgstr "Zprávy od botů"
 
 #: ../qml/pages/NotificationSettingsPage.qml:170
 msgid "Targets"
-msgstr "Mål"
+msgstr "Cíle"
 
 #: ../qml/pages/InvitePage.qml:21
-#, fuzzy
-#| msgid "Invite friend"
 msgid "Invite user: %1 selected"
-msgstr "Inviter venn"
+msgstr "Pozvat uživatele: %1 zvoleno"
 
 #: ../qml/pages/InvitePage.qml:108
-#, fuzzy
-#| msgid "Invite"
 msgid "Invite"
-msgstr "Inviter"
+msgstr "Pozvat"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:28
 msgid ""
@@ -728,270 +631,256 @@ msgid ""
 "push service at https://push.ubports.com and then sends this as a push "
 "notification to the user's device(s).<br>"
 msgstr ""
+"<br> <b> Klent Matrixu </ b> <br> <br> * Fluffychat je klient matrix "
+"protokolu a je kompatibilní se všemi matrix servery a matrix identifikačními "
+"servery. Veškerá komunikace při používání fluffychatu je realizována "
+"prostřednictvím matrix serveru a matrix serveru identity. * Výchozí server "
+"je https://ubports.chat a výchozí server identity je https://vector.im. <br> "
+"* Fluffychat neprovozuje žádné servery ani služby. <br> * Veškerá komunikace "
+"mezi fluffychat a servery je zajištěna a chráněna prostřednictvím šifrování. "
+"<br> <br> Fluffychat nenese žádnou odpovědnost za zpracování dat jakýmkoli z "
+"matrix serverů anebo matrix identifikačních serverů. <br> * Fluffychat "
+"nabízí možnost používat telefonní čísla pro nalezení kontaktů. Tato funkce "
+"je volitelná, žádné kontakty nebudou staženy bez povolení uživatele! "
+"Uživatel si může vybrat, které kontakty chce načíst na server identit! <br> "
+"<br> <b> Push Oznámení </ b> <br> <br> * Matrix server používaný uživatelem "
+"zašle automaticky push notifikace na UBports push službu. Tato oznámení jsou "
+"zašifrována pomocí protokolu https na cestě od matrix serveru k oficiální "
+"bráně matrix ubports na adrese https://push.ubports.com:5003/_matrix/push/r0/"
+"notify, a která předává oznámení službě UBports push na adrese https: //"
+"push.ubports.com a zašle tuto zprávu jako upozornění na zařízení uživatele. "
+"<br>"
 
 #: ../qml/pages/ChatPage.qml:230 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
-msgstr "Ukjent sludring"
+msgstr "Neznámý chat"
 
 #: ../qml/pages/ChatPage.qml:237 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
-msgstr "Fjern"
+msgstr "Odstranit"
 
 #: ../qml/pages/ChatPage.qml:243
 msgid "Chat info"
-msgstr "Slurdingsinfo"
+msgstr "Informace o chatovací místnosti"
 
 #: ../qml/pages/ChatPage.qml:255 ../qml/pages/ChatSettingsPage.qml:311
-#, fuzzy
-#| msgid "Invite friend"
 msgid "Invite friends"
-msgstr "Inviter venn"
+msgstr "Pozvat přátele"
 
 #: ../qml/pages/ChatPage.qml:278
 msgid "No messages in this chat ..."
-msgstr "Ingen meldinger i denne sludringen…"
+msgstr "Žádné zprávy v této místnosti …"
 
 #: ../qml/pages/ChatPage.qml:301
 msgid "Reply to <b>%1</b>: \"%2\""
-msgstr "Svar <b>%1</b>: \"%2\""
+msgstr "Odpovědět <b>%1</b>: \"%2\""
 
 #: ../qml/pages/ChatPage.qml:406
 msgid "Accept invitation"
-msgstr "Godta invitasjon"
+msgstr "Přijmout pozvání"
 
 #: ../qml/pages/ChatPage.qml:406
 msgid "Join"
-msgstr "Ta del"
+msgstr "Připojit se"
 
 #: ../qml/pages/ChatPage.qml:420
-#, fuzzy
 msgid "You are not allowed to send messages"
-msgstr "Du tillates ikke å sende meldinger"
+msgstr "Nemáte povoleno odesílat zprávy"
 
 #: ../qml/pages/ChatPage.qml:451
 msgid "Type something ..."
-msgstr "Skriv noe…"
+msgstr "Napište něco …"
 
 #: ../qml/pages/PhoneSettingsPage.qml:54
 msgid "Add phone number"
-msgstr "Legg til telefonnummer"
+msgstr "Přidat telefonní číslo"
 
 #: ../qml/pages/PhoneSettingsPage.qml:66
 msgid "No phone numbers connected"
-msgstr "Ingen tilknyttede telefonnummer"
+msgstr "Žádné telefonní číslo není připojeno"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:69
 msgid "Notify"
-msgstr "Send merknad"
+msgstr "Oznámit"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:88
 msgid "Only if mentioned"
-msgstr "Kun når nevnt"
+msgstr "Pouze pokud zmíněn"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:111
 msgid "Don't notify"
-msgstr "Ikke send merknad"
+msgstr "Neoznamovat"
 
 #: ../qml/pages/JoinChatPage.qml:14
-#, fuzzy
-#| msgid "Unknown chat"
 msgid "Join chat"
-msgstr "Ukjent sludring"
+msgstr "Připojit se k chatu"
 
 #: ../qml/pages/JoinChatPage.qml:23
-#, fuzzy
-#| msgid "New single chat"
 msgid "Nameless chat"
-msgstr "Ny enkeltsludring"
+msgstr "Chat bez názvu"
 
 #: ../qml/pages/JoinChatPage.qml:50
-#, fuzzy
 msgid "Search public chats..."
-msgstr "Søk etter sludringsnavn…"
+msgstr "Vyhledat veřejné chaty..."
 
 #: ../qml/pages/JoinChatPage.qml:86
-#, fuzzy
-#| msgid "Loading users ..."
 msgid "Loading public chats..."
-msgstr "Laster inn brukere…"
+msgstr "Stahuji veřejné chaty..."
 
 #: ../qml/pages/ChatSettingsPage.qml:96
 msgid "Member"
-msgstr "Medlem"
+msgstr "Člen"
 
 #: ../qml/pages/ChatSettingsPage.qml:97
 msgid "Was invited"
-msgstr "Ble invitert"
+msgstr "Byl pozván"
 
 #: ../qml/pages/ChatSettingsPage.qml:98
 msgid "Has left the chat"
-msgstr "Har forlatt slurdringen"
+msgstr "Opustil chat"
 
 #: ../qml/pages/ChatSettingsPage.qml:99
 msgid "Has knocked"
-msgstr "Har banket på"
+msgstr "Požádal o vstup"
 
 #: ../qml/pages/ChatSettingsPage.qml:100
 msgid "Was banned from the chat"
-msgstr "Ble bannlyst fra sludringen"
+msgstr "Byl z chatu vyloučen"
 
 #: ../qml/pages/ChatSettingsPage.qml:101
 msgid "Unknown"
-msgstr "Ukjent"
+msgstr "Neznámý"
 
 #: ../qml/pages/ChatSettingsPage.qml:128
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
-msgstr "Rediger sludringsnavn"
+msgstr "Editovat název chatu"
 
 #: ../qml/pages/ChatSettingsPage.qml:222
 msgid "Chat Settings:"
-msgstr "Sludringsinnstillinger:"
+msgstr "Nastavení chatu:"
 
 #: ../qml/pages/ChatSettingsPage.qml:239
 msgid "Security & Privacy"
-msgstr "Sikkerhet og personvern"
+msgstr "Bezpečnost a soukromí"
 
 #: ../qml/pages/ChatSettingsPage.qml:245
 msgid "Chat addresses"
-msgstr "Sludreadresser"
+msgstr "Adresy chatů"
 
 #: ../qml/pages/ChatSettingsPage.qml:267
 msgid "Users in this chat (%1):"
-msgstr "Brukere i denne slurdringen (%1):"
+msgstr "Uživatele tohoto chatu (%1):"
 
 #: ../qml/pages/ChatSettingsPage.qml:267
-#, fuzzy
 msgid "Press button to reload users..."
-msgstr "Trykk på knappen for å laste inn brukere igjen…"
+msgstr "Stiskněte tlačítko pro opětovné načítání uživatelů..."
 
 #: ../qml/pages/ChatSettingsPage.qml:291
 msgid "Search..."
-msgstr "Søk…"
+msgstr "Vyhledat..."
 
 #: ../qml/pages/ChatSettingsPage.qml:319
 msgid "Reload"
-msgstr "Last inn igjen"
+msgstr "Načíst znovu"
 
 #: ../qml/pages/AddChatPage.qml:12
 msgid "Start a new chat"
-msgstr "Start ny sludring"
+msgstr "Zahájit nový chat"
 
 #: ../qml/pages/AddChatPage.qml:18
-#, fuzzy
-#| msgid "New contact"
 msgid "New contact"
-msgstr "Ny kontakt"
+msgstr "Nový kontakt"
 
 #: ../qml/pages/AddChatPage.qml:24
-#, fuzzy
 msgid "Discover public chats"
-msgstr "Søk etter sludringsnavn…"
+msgstr "Objevit veřejné chaty"
 
 #: ../qml/pages/AddChatPage.qml:57 ../qml/components/NewGroupDialog.qml:11
 msgid "New group"
-msgstr "Ny gruppe"
+msgstr "Nová skupina"
 
 #: ../qml/pages/AddChatPage.qml:123
 msgid "Import from contacts"
-msgstr "Importer fra kontakter"
+msgstr "Importovat z kontaktů"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:24
-#, fuzzy
 msgid "Notification targets"
-msgstr "Merknadsmål"
+msgstr "Cíle oznámení"
 
 #: ../qml/pages/ChatAliasSettingsPage.qml:62
 msgid "Public chat addresses"
-msgstr "Offentlige sludreadresser"
+msgstr "Veřejné chatovací adresy"
 
 #: ../qml/pages/ChatAliasSettingsPage.qml:69
-#, fuzzy
-#| msgid "Edit chat name"
 msgid "Add chat address"
-msgstr "Rediger sludringsnavn"
+msgstr "Přidat adresu chatu"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:105
 msgid "Who can send messages?"
-msgstr "Hvem kan sende meldinger?"
+msgstr "Kdo může zasílat zprávy?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:117
 msgid "Who can configure this chat?"
-msgstr "Hvem kan sette opp denne sludringen?"
+msgstr "Kdo má oprávnění provádět nastavení chatu?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:129
-#, fuzzy
-#| msgid "No previous messages"
 msgid "Who can remove messages?"
-msgstr "Ingen tidligere meldinger"
+msgstr "Kdo má oprávnění pro mazání zpráv?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:141
-#, fuzzy
-#| msgid "Only invited users"
 msgid "Who can invite users?"
-msgstr "Kun inviterte brukere"
+msgstr "Kdo má oprávnění zvát uživatele?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:153
 msgid "Who can ban users?"
-msgstr "Hvem kan bannlyse brukere?"
+msgstr "Kdo má oprávnění zakázat uživatele?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:165
 msgid "Who can kick users?"
-msgstr "Hvem kan kaste ut brukere?"
+msgstr "Kdo má oprávnění vyloučit uživatele?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:177
-#, fuzzy
-#| msgid "%1 has changed the chat name"
 msgid "Who can change the chat name?"
-msgstr "%1 har endret sludringsnavnet"
+msgstr "Kdo má oprávnění změnit název chatu?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:189
-#, fuzzy
-#| msgid "%1 has changed the chat avatar"
 msgid "Who can change the chat avatar?"
-msgstr "%1 har endret sludringsavataren"
+msgstr "Kdo má oprávnění změnit avatar chatu?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:201
-#, fuzzy
-#| msgid "%1 has set the chat history visible to: "
 msgid "Who can change the chat history visibility?"
-msgstr "%1 har satt sludrehistorikkens synlighet til: "
+msgstr "Kdo má oprávnění změnit viditelnost historie chatu?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:213
-#, fuzzy
-#| msgid "%1 has changed the chat name"
 msgid "Who can change the chat addresses?"
-msgstr "%1 har endret sludringsnavnet"
+msgstr "Kdo má oprávnění změnit adresu chatu?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:225
-#, fuzzy
-#| msgid "%1 has changed the chat avatar"
 msgid "Who can change the canonical chat alias?"
-msgstr "%1 har endret sludringsavataren"
+msgstr "Kdo má oprávnění změnit kanonický alias chatu?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:237
 msgid "Who can change the user permissions?"
-msgstr "Hvem kan endre brukertilgangene?"
+msgstr "Kdo má oprávnění změnit oprávnění uživatelů?"
 
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:249
 msgid "Default user permissions:"
-msgstr "Forvalgte brukertilganger:"
+msgstr "Výchozí oprávnění uživatelů:"
 
 #: ../qml/components/ImageViewer.qml:53
-#, fuzzy
-#| msgid "%1 has sent a sticker"
 msgid "Add this image as sticker?"
-msgstr "%1 har sendt et klistremerke"
+msgstr "Přiložit obrázek jako štítek?"
 
 #: ../qml/components/ImageViewer.qml:60
 msgid "Already added as sticker"
-msgstr "Allerede lagt til som klistremerke"
+msgstr "Již byl přidán jako štítek"
 
 #: ../qml/components/ImageViewer.qml:61
 msgid "Added as sticker"
-msgstr "Lagt til som klistremerke"
+msgstr "Přidat jako štítek"
 
 #: ../qml/components/ChangeJoinRulesDialog.qml:54
 #: ../qml/components/TargetInfoDialog.qml:48
@@ -1000,50 +889,48 @@ msgstr "Lagt til som klistremerke"
 #: ../qml/components/ChangePowerLevelDialog.qml:64
 #: ../qml/components/ChangeGuestAccessDialog.qml:37
 msgid "Close"
-msgstr "Lukk"
+msgstr "Zavřít"
 
 #: ../qml/components/MemberListItem.qml:66
 msgid "Make this user a normal member?"
-msgstr "Gjør denne brukeren til normalt medlem?"
+msgstr "Učinit tohoto uživatele běžným členem?"
 
 #: ../qml/components/MemberListItem.qml:78
 msgid "Make this user a moderator?"
-msgstr "Gjør denne brukeren til moderator?"
+msgstr "Učinit tohoto uživatele moderátorem?"
 
 #: ../qml/components/MemberListItem.qml:90
 msgid "Make this user an admin?"
-msgstr "Gjør denne brukeren til administrator?"
+msgstr "Učinit tohoto uživatele správcem?"
 
 #: ../qml/components/MemberListItem.qml:108
-#, fuzzy
-#| msgid "Was banned from the chat"
 msgid "Ban from this chat?"
-msgstr "Ble bannlyst fra sludringen"
+msgstr "Zakázat v tomto chatu?"
 
 #: ../qml/components/MemberListItem.qml:116
 msgid "Cancel banishment?"
-msgstr "Opphev bannlysning?"
+msgstr "Zrušit zákaz?"
 
 #: ../qml/components/MemberListItem.qml:124
 msgid "Kick from this chat?"
-msgstr "Kast ut av denne sludringen?"
+msgstr "Vyloučit z tohoto chatu?"
 
 #: ../qml/components/ChangePasswordDialog.qml:11
 msgid "Change your password"
-msgstr "Endre passordet ditt"
+msgstr "Změňte své heslo"
 
 #: ../qml/components/ChangePasswordDialog.qml:19
 #: ../qml/components/DisableAccountDialog.qml:33
 msgid "Enter your old password"
-msgstr "Skriv inn ditt gamle passord"
+msgstr "Zadejte své původní heslo"
 
 #: ../qml/components/ChangePasswordDialog.qml:25
 msgid "Enter your new password"
-msgstr "Skriv inn ditt nye passord"
+msgstr "Zadejte své nové heslo"
 
 #: ../qml/components/ChangePasswordDialog.qml:30
 msgid "Please repeat"
-msgstr "Gjenta"
+msgstr "Prosím opakovat"
 
 #: ../qml/components/ChangePasswordDialog.qml:38
 #: ../qml/components/DownloadDialog.qml:26
@@ -1062,524 +949,343 @@ msgstr "Gjenta"
 #: ../qml/components/ChangeChatnameDialog.qml:43
 #: ../qml/components/AddEmailDialog.qml:27
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Zrušit"
 
 #: ../qml/components/ChangePasswordDialog.qml:43
 msgid "Change"
-msgstr "Endre"
+msgstr "Změnit"
 
 #: ../qml/components/ChangePasswordDialog.qml:55
-#, fuzzy
-#| msgid "The chat permissions have been changed"
 msgid "Password has been changed"
-msgstr "Sludretilgangene har blitt endret"
+msgstr "Heslo bylo změněno"
 
 #: ../qml/components/ConsentViewer.qml:23
 msgid "Consent not given"
-msgstr "Samtykke ikke gitt"
+msgstr "Souhlas neudělen"
 
 #: ../qml/components/TargetInfoDialog.qml:11
 msgid "Target details"
-msgstr "Måldetaljer"
+msgstr "Cílové detaily"
 
 #: ../qml/components/TargetInfoDialog.qml:25
 msgid "<b>Device name</b>: %2"
-msgstr "<b>Enhetsnavn</b>: %2"
+msgstr "<b>Název zařízení</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:29
 msgid "<b>App</b>: %2"
-msgstr "<b>Program</b>: %2"
+msgstr "<b>Aplikace</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:33
 msgid "<b>Kind</b>: %2"
-msgstr "<b>Art</b>: %2"
+msgstr "<b>Třída</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:37
 msgid "<b>Language</b>: %2"
-msgstr "<b>Språk</b>: %2"
+msgstr "<b>Jazyk</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:41
 msgid "<b>Gateway</b>: %2"
-msgstr "<b>Portner</b>: %2"
+msgstr "<b>Brána</b>: %2"
 
 #: ../qml/components/DownloadDialog.qml:11
-#, fuzzy
-#| msgid "Download"
 msgid "Download"
-msgstr "Last ned"
+msgstr "Stáhnout"
 
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:27
-#, fuzzy
 msgid "Joined and invited chat participants"
-msgstr "Alle inviterte sludrere"
+msgstr "Připojili se a pozvali účastníky chatu"
 
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:35
-#, fuzzy
-#| msgid "All chat participants"
 msgid "Only chat participants"
-msgstr "Alle sludredeltagere"
+msgstr "Pouze účastníci chatu"
 
 #: ../qml/components/LeaveChatDialog.qml:11
 msgid "Leave chat"
-msgstr "Forlat slurdring"
+msgstr "Opustit chat"
 
 #: ../qml/components/LeaveChatDialog.qml:19
 msgid "Are you sure you want to leave the chat?"
-msgstr "Er du sikker på at du ønsker å forlate sludringen?"
+msgstr "Opravdu chcete chat opustit?"
 
 #: ../qml/components/LeaveChatDialog.qml:32
 msgid "Leave"
-msgstr "Forlat"
+msgstr "Opustit"
 
 #: ../qml/components/NewGroupDialog.qml:19
 msgid "Group name"
-msgstr "Gruppenavn"
+msgstr "Název skupiny"
 
 #: ../qml/components/NewGroupDialog.qml:32
 #: ../qml/components/JoinGroupDialog.qml:32
 #: ../qml/components/NewContactDialog.qml:44
 msgid "Continue"
-msgstr "Fortsett"
+msgstr "Pokračovat"
 
 #: ../qml/components/ContactImport.qml:63
 msgid "%1 contacts were found"
-msgstr "Fant %1 kontakter"
+msgstr "%1 kontaktů nalezeno"
 
 #: ../qml/components/RemoveDeviceDialog.qml:11
 msgid "Remove the device"
-msgstr "Fjern enheten"
+msgstr "Odstranit toto zařízení"
 
 #: ../qml/components/RemoveDeviceDialog.qml:15
 msgid "<b>Device ID</b>: %1"
-msgstr "<b>Enhets-ID</b>: %1"
+msgstr "<b>ID Zařízení</b>: %1"
 
 #: ../qml/components/RemoveDeviceDialog.qml:19
 msgid "<b>Last IP</b>: %4"
-msgstr "<b>Siste IP</b>: %4"
+msgstr "<b>Poslední IP</b>: %4"
 
 #: ../qml/components/RemoveDeviceDialog.qml:24
 msgid "Are you sure, that you want to remove this device?"
-msgstr "Er du sikker på at du ønsker å fjerne denne enheten?"
+msgstr "Opravdu chcete odstranit toto zařízení?"
 
 #: ../qml/components/RemoveDeviceDialog.qml:33
 msgid "Please enter your password"
-msgstr "Skriv inn passordet ditt"
+msgstr "Prosím, zadejte své heslo"
 
 #: ../qml/components/PhoneListItem.qml:29
 #: ../qml/components/EmailListItem.qml:29
-#, fuzzy
-#| msgid "Remove the device"
 msgid "Remove this email address?"
-msgstr "Fjern enheten"
+msgstr "Odstranit tuto e-mailovou adresu?"
 
 #: ../qml/components/FcPageHeader.qml:7 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr "FluffyChat"
 
 #: ../qml/components/ChatEvent.qml:281
-#, fuzzy
-#| msgid "Download"
 msgid "Download: "
-msgstr "Last ned"
+msgstr "Stáhnout: "
 
 #: ../qml/components/AddPhoneDialog.qml:11
 msgid "Connect new phone number"
-msgstr "Koble til nytt telefonnummer"
+msgstr "Připojit nové telefonní číslo"
 
 #: ../qml/components/AddPhoneDialog.qml:11
-#, fuzzy
 msgid "..."
-msgstr "…"
+msgstr "..."
 
 #: ../qml/components/AddPhoneDialog.qml:21
 msgid "Please log out to change your country"
-msgstr "Logg ut for å endre ditt land"
+msgstr "Pro změnu země se prosím odhlaste"
 
 #: ../qml/components/AddPhoneDialog.qml:25
 msgid "Phone number..."
-msgstr "Telefonnummer…"
+msgstr "Telefonní číslo..."
 
 #: ../qml/components/AddPhoneDialog.qml:43
 #: ../qml/components/EnterSMSTokenDialog.qml:33
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:39
 #: ../qml/components/AddEmailDialog.qml:32
 msgid "Connect"
-msgstr "Koble til"
+msgstr "Spojit"
 
 #: ../qml/components/DisableAccountDialog.qml:11
-#, fuzzy
-#| msgid "Remove chat background"
 msgid "Remove my account"
-msgstr "Fjern slurdrebakgrunn"
+msgstr "Zrušit můj účet"
 
 #: ../qml/components/DisableAccountDialog.qml:25
-#, fuzzy
 msgid ""
 "Are you sure that you want to remove your account? This can not be undone."
-msgstr "Er du sikker på at du vil skru av kontoen din? Dette kan ikke angres."
+msgstr "Opravdu chcete odstranit Váš účet? Tato akce nelze vrátit zpět."
 
 #: ../qml/components/ConfirmDialog.qml:27
 msgid "Yes"
-msgstr "Ja"
+msgstr "Ano"
 
 #: ../qml/components/LogoutDialog.qml:25
-#, fuzzy
 msgid "Are you sure that you want to log out?"
-msgstr "Er du sikker på at du vil logge ut?"
+msgstr "Opravdu se chcete odhlásit?"
 
 #: ../qml/components/AddAliasDialog.qml:11
 msgid "Add new chat address"
-msgstr "Legg til ny sludreadresse"
+msgstr "Přidat novou adresu chatu"
 
 #: ../qml/components/AddAliasDialog.qml:19
-#, fuzzy
-#| msgid "Edit chat name"
 msgid "#chatname:%1"
-msgstr "Rediger sludringsnavn"
+msgstr "#názevchatu:%1"
 
 #: ../qml/components/AddAliasDialog.qml:32
 #: ../qml/components/ChangeDisplaynameDialog.qml:39
 #: ../qml/components/ChangeChatnameDialog.qml:48
 msgid "Save"
-msgstr "Lagre"
+msgstr "Uložit"
 
 #: ../qml/components/AddAliasDialog.qml:39
-#, fuzzy
-#| msgid "Please enter your password"
 msgid "Please try another address"
-msgstr "Skriv inn passordet ditt"
+msgstr "Prosím zkuste jinou adresu"
 
 #: ../qml/components/EnterSMSTokenDialog.qml:11
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:11
 msgid "Please enter the validation code"
-msgstr "Skriv inn bekreftelseskoden"
+msgstr "Vložte prosím potvrzovací kód"
 
 #: ../qml/components/EnterSMSTokenDialog.qml:19
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:19
 msgid "Validation code"
-msgstr "Bekreftelseskode"
+msgstr "Potvrzovací Kód"
 
 #: ../qml/components/CountryPicker.qml:20
-#, fuzzy
-#| msgid "Choose a main color:"
 msgid "Choose a country"
-msgstr "Velg en hovedfarge:"
+msgstr "Zvolit zemi"
 
 #: ../qml/components/CountryPicker.qml:37
-#, fuzzy
 msgid "Search country name..."
-msgstr "Søk etter sludringsnavn…"
+msgstr "Vyhledat název země..."
 
 #: ../qml/components/LoadingModal.qml:18
-#, fuzzy
 msgid "Synchronizing… Please wait."
-msgstr "Synkroniserer… Vent."
+msgstr "Synchronizuji… Prosím vyčkejte."
 
 #: ../qml/components/ChatListItem.qml:34
 msgid "You have been invited to this chat"
-msgstr "Du har blitt invitert til denne sludringen"
+msgstr "Byl pozván do tohoto chatu"
 
 #: ../qml/components/ChatListItem.qml:36
 msgid "You: "
-msgstr "Deg: "
+msgstr "Vy: "
 
 #: ../qml/components/ChatListItem.qml:37
-#, fuzzy
-#| msgid "No previous messages"
 msgid "No preview messages"
-msgstr "Ingen tidligere meldinger"
+msgstr "Žádná zpráva"
 
 #: ../qml/components/JoinGroupDialog.qml:11
 msgid "Join group"
-msgstr "Ta del i gruppe"
+msgstr "Připojit se ke skupině"
 
 #: ../qml/components/JoinGroupDialog.qml:19
 msgid "#groupname:"
-msgstr "#gruppenavn:"
+msgstr "#názevskupiny:"
 
 #: ../qml/components/ColorDialog.qml:11
-#, fuzzy
-#| msgid "Choose a main color:"
 msgid "Change the main color"
-msgstr "Velg en hovedfarge:"
+msgstr "Změnit základní barvu"
 
 #: ../qml/components/ColorDialog.qml:24
 msgid "Hue: %1"
-msgstr "Fargetone: %1"
+msgstr "Odstín: %1"
 
 #: ../qml/components/ColorDialog.qml:33
 msgid "Reset"
-msgstr "Tilbakestill"
+msgstr "Restartovat"
 
 #: ../qml/components/ChatScrollView.qml:68
 msgid "Get more messages from the server ..."
-msgstr "Hent flere meldinger fra tjeneren…"
+msgstr "Získat další zprávy ze serveru ..."
 
 #: ../qml/components/ChatScrollView.qml:270
-#, fuzzy
 msgid "Try send again"
-msgstr "Prøv å sende igjen"
+msgstr "Pokusit se odeslat znovu"
 
 #: ../qml/components/ChatScrollView.qml:279
 msgid "Reply"
-msgstr "Svar"
+msgstr "Odpovědět"
 
 #: ../qml/components/ChatScrollView.qml:287
 msgid "Forward"
-msgstr "Videresend"
+msgstr "Přeposlat"
 
 #: ../qml/components/ChatScrollView.qml:292
 msgid "Copy text"
-msgstr "Kopier tekst"
+msgstr "Kopírovat text"
 
 #: ../qml/components/ChatScrollView.qml:297
-#, fuzzy
-#| msgid "%1 has been banned from the chat"
 msgid "Text has been copied to the clipboard"
-msgstr "%1 har blitt bannlyst fra sludringen"
+msgstr "Text byl zkopírován do schránky"
 
 #: ../qml/components/ChatScrollView.qml:301
 msgid "Delete message"
-msgstr "Slett melding"
+msgstr "Smazat zprávu"
 
 #: ../qml/components/TargetListItem.qml:22
 msgid "This device"
-msgstr "Denne enheten"
+msgstr "Toto zařízení"
 
 #: ../qml/components/StickerInput.qml:56
 msgid "Delete sticker"
-msgstr "Slett klistremerke"
+msgstr "Odstranit štítek"
 
 #: ../qml/components/UsernameListItem.qml:12
-#, fuzzy
-#| msgid "Username"
 msgid "Full username:"
-msgstr "Brukernavn"
+msgstr "Celé jméno uživatele:"
 
 #: ../qml/components/NewContactDialog.qml:11
 msgid "New single chat"
-msgstr "Ny enkeltsludring"
+msgstr "Nový chat"
 
 #: ../qml/components/NewContactDialog.qml:18
-#, fuzzy
-#| msgid "What's your name?"
 msgid "What is your friends username?"
-msgstr "Hva heter du?"
+msgstr "Jaké je uživatelské jméno Vaše přítele?"
 
 #: ../qml/components/NewContactDialog.qml:23
 msgid "(Your username is: <b>%1</b>)"
-msgstr "(Ditt brukernavn er: <b>%1</b>)"
+msgstr "(Vaše uživatelské jméno je: <b>%1</b>)"
 
 #: ../qml/components/NewContactDialog.qml:31
 msgid "@yourfriend:"
-msgstr "@dinvenn:"
+msgstr "@vášpřítel:"
 
 #: ../qml/components/LoadingScreen.qml:27
-#, fuzzy
 msgid ""
 "Loading chats\n"
 "This can take a few minutes…"
 msgstr ""
-"Laster inn sludringer\n"
-"Dette kan ta noen minutter…"
+"Stahuji chaty\n"
+"Může trvat několik minut…"
 
 #: ../qml/components/AddressesListItem.qml:13
 msgid "Canonical alias"
-msgstr "Helhetlig alias"
+msgstr "Kanonický alias"
 
 #: ../qml/components/UserSettingsViewer.qml:121
-#, fuzzy
-#| msgid "Chats with %1:"
 msgid "Chats with this user:"
-msgstr "Sludrer med %1:"
+msgstr "Chaty s tímto uživatelem:"
 
 #: ../qml/components/UserSettingsViewer.qml:121
-#, fuzzy
 msgid "You are that!"
-msgstr "Det er deg!"
+msgstr "To jsi ty!"
 
 #: ../qml/components/UserSettingsViewer.qml:160
-#, fuzzy
-#| msgid "Start a new chat"
 msgid "Start new chat"
-msgstr "Start ny sludring"
+msgstr "Zahájit nový chat"
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11
 msgid "Change your display name"
-msgstr "Endre ditt visningsnavn"
+msgstr "Změnit Váš název viditelný na obrazovce"
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:19
 msgid "Enter your new nickname"
-msgstr "Skriv inn ditt nye kallenavn"
+msgstr "Vložit Vaší novou přezdívku"
 
 #: ../qml/components/ChangeChatnameDialog.qml:20
 msgid "Enter a name for the chat"
-msgstr "Skriv inn navn for denne sludringen"
+msgstr "Zadat název pro tento chat"
 
 #: ../qml/components/ChangeChatnameDialog.qml:33
-#, fuzzy
-#| msgid "Enter a name for the chat"
 msgid "Enter a description for the chat"
-msgstr "Skriv inn navn for denne sludringen"
+msgstr "Zadat popis chatu"
 
 #: ../qml/components/DeviceListItem.qml:22
 msgid "Last seen: "
-msgstr "Sist sett: "
+msgstr "Naposledy viděn: "
 
 #: ../qml/components/AddEmailDialog.qml:11
 msgid "Connect new email address"
-msgstr "Tilknytt ny e-postadresse"
+msgstr "Připojit novou emailovou adresu"
 
 #: ../qml/components/AddEmailDialog.qml:19
-#, fuzzy
 msgid "youremail@example.edu"
-msgstr "din-e-post@eksempel.no"
+msgstr "vášemail@example.edu"
 
 #: ../qml/components/AddEmailDialog.qml:39
 msgid "Have you confirmed your email address?"
-msgstr "Har du bekreftet din e-postadresse?"
+msgstr "Potvrdili jste Vaší emailovou adresu?"
 
 #: ../qml/components/LockedScreen.qml:32
-#, fuzzy
 msgid ""
 "Please restart the app or if necessary restart the device to complete the "
 "update!"
 msgstr ""
-"Start programmet på ny, eller hvis nødvendig, enheten, for å fullføre "
-"oppdateringen."
-
-#~ msgid "Welcome to FluffyChat"
-#~ msgstr "Velkommen til FluffyChat"
-
-#~ msgid "Using the homeserver: "
-#~ msgstr "Bruker hjemmetjeneren: "
-
-#, fuzzy
-#~| msgid "Leave chat"
-#~ msgid "Create chat"
-#~ msgstr "Forlat slurdring"
-
-#, fuzzy
-#~ msgid "Search contacts..."
-#~ msgstr "Søk etter sludringsnavn…"
-
-#~ msgid "Invite a friend"
-#~ msgstr "Inviter en venn"
-
-#, fuzzy
-#~ msgid "Search contacts or usernames..."
-#~ msgstr "Søk etter sludringsnavn…"
-
-#~ msgid " - "
-#~ msgstr " - "
-
-#, fuzzy
-#~ msgid "No connection to the homeserver 😕"
-#~ msgstr "Ingen tilkobling til hjemmetjeneren 😕"
-
-#, fuzzy
-#~| msgid "Change your password"
-#~ msgid "Your password"
-#~ msgstr "Endre passordet ditt"
-
-#, fuzzy
-#~| msgid "Change your password"
-#~ msgid "Choose your own password"
-#~ msgstr "Endre passordet ditt"
-
-#~ msgid "Account"
-#~ msgstr "Konto"
-
-#~ msgid "Theme"
-#~ msgstr "Drakt"
-
-#, fuzzy
-#~| msgid "Account"
-#~ msgid "Account: %1"
-#~ msgstr "Konto"
-
-#, fuzzy
-#~| msgid "Start a new chat"
-#~ msgid "Start new private chat"
-#~ msgstr "Start ny sludring"
-
-#, fuzzy
-#~| msgid "(Your username is: <b>%1</b>)"
-#~ msgid "Your full username is: <b>%1</b>"
-#~ msgstr "(Ditt brukernavn er: <b>%1</b>)"
-
-#~ msgid "Leave Chat"
-#~ msgstr "Forlat slurdring"
-
-#~ msgid "Purple"
-#~ msgstr "Lilla"
-
-#~ msgid "Blue"
-#~ msgstr "Blå"
-
-#~ msgid "Red"
-#~ msgstr "Rød"
-
-#~ msgid "Orange"
-#~ msgstr "Oransje"
-
-#~ msgid "Graphite"
-#~ msgstr "Grafitt"
-
-#~ msgid "Green"
-#~ msgstr "Grønn"
-
-#, fuzzy
-#~ msgid "The chat has been created"
-#~ msgstr "Sludring opprettet"
-
-#, fuzzy
-#~ msgid "You do not have permission to write to this chat."
-#~ msgstr "Du har ikke tilgang til å skrive i denne sludringen."
-
-#~ msgid "Please fill all textfields"
-#~ msgstr "Fyll inn alle tekstfeltene"
-
-#, fuzzy
-#~ msgid "Logout"
-#~ msgstr "Logg ut"
-
-#, fuzzy
-#~ msgid "Automatically accept chat invitations"
-#~ msgstr "Godta sludreinvitasjoner automatisk"
-
-#, fuzzy
-#~ msgid ""
-#~ "Synchronizing \n"
-#~ " This can take a few minutes ..."
-#~ msgstr ""
-#~ "Synkroniserer\n"
-#~ "Dette kan ta noen minutter…"
-
-#, fuzzy
-#~ msgid "Room was not found 😟"
-#~ msgstr "Fant ikke rommet 😟"
-
-#~ msgid "The passwords do not match"
-#~ msgstr "Passordene samsvarer ikke"
-
-#~ msgid "Disable your account"
-#~ msgstr "Skru av kontoen din"
-
-#, fuzzy
-#~ msgid "Disable"
-#~ msgstr "Skru av"
-
-#~ msgid "@yourfriend:%1"
-#~ msgstr "@dinvenn:%1"
-
-#, fuzzy
-#~ msgid "What is the username of your friend?"
-#~ msgstr "Hva er din venns brukernavn?"
-
-#, fuzzy
-#~ msgid "Start new Chat"
-#~ msgstr "Start ny sludring"
-
-#~ msgid "Ignore"
-#~ msgstr "Ignorer"
+"Prosím restartujte aplikaci, pokud bude třeba, restartujte zařízení pro "
+"dokončení aktualizace!"
