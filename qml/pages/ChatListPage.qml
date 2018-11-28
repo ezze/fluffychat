@@ -142,7 +142,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: shareObject === null ? i18n.tr("Fluffychat") : i18n.tr("Share")
+        title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
 
         leadingActionBar {
             actions: [

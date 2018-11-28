@@ -28,12 +28,12 @@ Page {
                 text: i18n.tr("<br>" +
                 "<b>Matrix client</b><br>" +
                 "<br>" +
-                "* Fluffychat is a Matrix protocol client and is compatible with all Matrix servers and Matrix identity servers. All communications conducted while using Fluffychat use a Matrix server and the Matrix identity server.<br>" +
-                "* The default server in Fluffychat is https://ubports.chat and the default identity server is https://vector.im.<br>" +
-                "* Fluffychat doesn't operate any server or remote service.<br>" +
-                "* All communication of substantive content between Fluffychat and any server is done in secure way, using transport encryption to protect it. End-to-end encryption will follow.<br>" +
-                "* Fluffychat is not responsible for the data processing carried out by any Matrix server or Matrix identity server.<br>" +
-                "* Fluffychat offers the option to use phone numbers to find contacts. This is not a requirement of normal operation and is intended only as a convenience. No contact details are uploaded without user interaction! The user can choose to upload all or some or no contacts to the identity server!<br>" +
+                "* FluffyChat is a Matrix protocol client and is compatible with all Matrix servers and Matrix identity servers. All communications conducted while using FluffyChat use a Matrix server and the Matrix identity server.<br>" +
+                "* The default server in FluffyChat is https://ubports.chat and the default identity server is https://vector.im.<br>" +
+                "* FluffyChat doesn't operate any server or remote service.<br>" +
+                "* All communication of substantive content between FluffyChat and any server is done in secure way, using transport encryption to protect it. End-to-end encryption will follow.<br>" +
+                "* FluffyChat is not responsible for the data processing carried out by any Matrix server or Matrix identity server.<br>" +
+                "* FluffyChat offers the option to use phone numbers to find contacts. This is not a requirement of normal operation and is intended only as a convenience. No contact details are uploaded without user interaction! The user can choose to upload all or some or no contacts to the identity server!<br>" +
                 "<br>" +
                 "<b>Push Notifications</b><br>" +
                 "<br>" +
