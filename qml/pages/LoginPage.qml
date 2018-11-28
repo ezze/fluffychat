@@ -103,7 +103,7 @@ Page {
             },
             Action {
                 iconName: "info"
-                text: i18n.tr("About fluffychat")
+                text: i18n.tr("About FluffyChat")
                 onTriggered: mainStack.push(Qt.resolvedUrl("./InfoPage.qml"))
             },
             Action {

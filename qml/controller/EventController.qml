@@ -8,7 +8,7 @@ import Ubuntu.Connectivity 1.0
 The event controller is responsible for handling all events and stay connected
 with the matrix homeserver via a long polling http request
 
-To try fluffychat with clickable --desktop you need to remove the line:
+To try FluffyChat with clickable --desktop you need to remove the line:
 import Ubuntu.Connectivity 1.0
 and the Connections{ } to Connectivity down there
 */

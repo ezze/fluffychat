@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-28 08:00+0000\n"
+"POT-Creation-Date: 2018-11-28 08:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -337,8 +337,8 @@ msgstr ""
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:106
-msgid "About fluffychat"
+#: ../qml/pages/LoginPage.qml:106 ../qml/pages/SettingsPage.qml:336
+msgid "About FluffyChat"
 msgstr ""
 
 #: ../qml/pages/LoginPage.qml:116
@@ -525,10 +525,6 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:331
 msgid "More:"
-msgstr ""
-
-#: ../qml/pages/SettingsPage.qml:336
-msgid "About FluffyChat"
 msgstr ""
 
 #: ../qml/pages/PasswordInputPage.qml:26
