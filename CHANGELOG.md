@@ -1,5 +1,6 @@
 ### 7.1:
 * Updates translations from weblate
+* Design changes for state events
 
 ###### Fixed bugs:
 * Typing notification was not set to false after sending a message

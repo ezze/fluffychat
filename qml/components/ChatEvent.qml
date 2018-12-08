@@ -76,12 +76,13 @@ Rectangle {
         onPressAndHold: openContextMenu ()
         Rectangle {
             id: messageBubble
-            opacity: isStateEvent ? 0.75 : 1
+            opacity: isStateEvent ? 0.5 : 1
             z: 2
             anchors.margins: units.gu(0.5)
-            color: image.showGif || image.showThumbnail ? "#00000000" : (
-            (!sent || isStateEvent) ? "#e6e5ea" :
-            (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor))
+            color: image.showGif || image.showThumbnail ? "#00000000" :
+            (isStateEvent ? theme.palette.normal.background :
+            (!sent ? "#e6e5ea" :
+            (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
 
             Behavior on color {
                 ColorAnimation { from: settings.brighterMainColor; duration: 300 }
