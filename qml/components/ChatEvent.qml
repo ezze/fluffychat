@@ -81,7 +81,7 @@ Rectangle {
             anchors.margins: units.gu(0.5)
             color: image.showGif || image.showThumbnail ? "#00000000" :
             (isStateEvent ? theme.palette.normal.background :
-            (!sent ? "#e6e5ea" :
+            (!sent ? settings.darkmode ? UbuntuColors.graphite : "#e6e5ea" :
             (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
 
             Behavior on color {
@@ -305,7 +305,7 @@ Label {
     opacity: (event.type === "m.sticker" || isMediaEvent) ? 0 : 1
     height: opacity ? undefined : 0
     text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :  event.content_body || event.content.body
-    color: (!sent || isStateEvent) ? "black" :
+    color: (!sent || isStateEvent) ? (settings.darkmode ? "white" : "black") :
     (event.status < msg_status.SEEN ? "black" : "white")
     linkColor: settings.brightMainColor
     Behavior on color {

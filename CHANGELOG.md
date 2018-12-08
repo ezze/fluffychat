@@ -1,3 +1,6 @@
+### 7.2:
+* Improve dark mode colors in chats
+
 ### 7.1:
 * Updates translations from weblate
 * Design changes for state events
