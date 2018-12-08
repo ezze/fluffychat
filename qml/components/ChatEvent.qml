@@ -16,7 +16,10 @@ Rectangle {
     property var senderDisplayname: chatMembers[event.sender].displayname
 
     width: mainStackWidth
-    height: (isStateEvent||isMediaEvent||isImage) ? messageBubble.height + units.gu(1) : messageLabel.height + units.gu(4.5)
+    height: (isMediaEvent ? messageBubble.height :  // Media event height is calculated by the message bubble height
+    Math.max(messageLabel.height + units.gu(2 + !isStateEvent*1.5), avatar.height))   // Text content is calculated by the label height for better performenace
+     + units.gu(1)  // Bottom margin for non-state-events
+
     color: "transparent"
 
 

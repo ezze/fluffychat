@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-08 15:05+0000\n"
+"POT-Creation-Date: 2018-12-08 15:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -433,7 +433,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:172
+#: ../qml/components/ChatEvent.qml:175
 msgid "Show image"
 msgstr ""
 
@@ -468,7 +468,7 @@ msgid "Dark mode"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:204
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:242
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:241
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:233
 msgid "Notifications"
@@ -624,45 +624,45 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:223 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:222 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:230 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:229 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:236
+#: ../qml/pages/ChatPage.qml:235
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:248 ../qml/pages/ChatSettingsPage.qml:311
+#: ../qml/pages/ChatPage.qml:247 ../qml/pages/ChatSettingsPage.qml:311
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:271
+#: ../qml/pages/ChatPage.qml:270
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:294
+#: ../qml/pages/ChatPage.qml:293
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:399
+#: ../qml/pages/ChatPage.qml:398
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:399
+#: ../qml/pages/ChatPage.qml:398
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:413
+#: ../qml/pages/ChatPage.qml:412
 msgid "You can not send messages here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:444
+#: ../qml/pages/ChatPage.qml:443
 msgid "Type something ..."
 msgstr ""
 
@@ -1023,7 +1023,7 @@ msgstr ""
 msgid "Remove this email address?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:281
+#: ../qml/components/ChatEvent.qml:284
 msgid "Download: "
 msgstr ""
 
