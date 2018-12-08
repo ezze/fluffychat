@@ -9,6 +9,8 @@ ListItem {
     visible: { temp || layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
 
+    color: settings.darkmode ? "#202020" : "white"
+
     onClicked: usernames.showUserSettings ( matrixid )
 
     ListItemLayout {
@@ -17,7 +19,7 @@ ListItem {
         title.color: mainFontColor
         subtitle.text: medium.replace("msisdn","📱").replace("email","✉").replace("matrix","💬") + " " + address
         subtitle.color: "#888888"
-        
+
         Avatar {
             name: layout.title.text
             SlotsLayout.position: SlotsLayout.Leading

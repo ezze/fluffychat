@@ -12,6 +12,8 @@ ListItem {
     visible: { searching ? layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 : true }
     height: visible ? layout.height : 0
 
+    color: settings.darkmode ? "#202020" : "white"
+
     onClicked: {
         searching = false
         searchField.text = ""

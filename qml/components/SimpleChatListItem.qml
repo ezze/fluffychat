@@ -8,6 +8,8 @@ import "../components"
 ListItem {
     id: chatListItem
 
+    color: settings.darkmode ? "#202020" : "white"
+
     property var timeorder: 0
     property var previousMessage: ""
     property var room

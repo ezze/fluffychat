@@ -7,11 +7,13 @@ ListItem {
     height: layout.height
     property var thisAddress: name
 
+    color: settings.darkmode ? "#202020" : "white"
+
     ListItemLayout {
         id: layout
         title.text: name
         title.color: mainFontColor
-        
+
         Icon {
             name: "phone-symbolic"
             color: settings.mainColor

@@ -8,6 +8,8 @@ import "../components"
 ListItem {
     id: chatListItem
 
+    color: settings.darkmode ? "#202020" : "white"
+
     property var timeorder: 0
 
     visible: { searching ? layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 : true }

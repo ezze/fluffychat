@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-08 16:33+0000\n"
+"POT-Creation-Date: 2018-12-08 17:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:182 ../qml/components/ChatScrollView.qml:309
+#: ../qml/Main.qml:182 ../qml/components/ChatScrollView.qml:310
 msgid "Are you sure?"
 msgstr ""
 
@@ -433,7 +433,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:163
-#: ../qml/components/ChatEvent.qml:177
+#: ../qml/components/ChatEvent.qml:176
 msgid "Show image"
 msgstr ""
 
@@ -624,8 +624,8 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:222 ../qml/components/ArchivedChatListItem.qml:28
-#: ../qml/components/SimpleChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:222 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/components/SimpleChatListItem.qml:30
 msgid "Unknown chat"
 msgstr ""
 
@@ -864,27 +864,27 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:66
+#: ../qml/components/MemberListItem.qml:68
 msgid "Make this user a normal member?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:78
+#: ../qml/components/MemberListItem.qml:80
 msgid "Make this user a moderator?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:90
+#: ../qml/components/MemberListItem.qml:92
 msgid "Make this user an admin?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:108
+#: ../qml/components/MemberListItem.qml:110
 msgid "Ban from this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:116
+#: ../qml/components/MemberListItem.qml:118
 msgid "Cancel banishment?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:124
+#: ../qml/components/MemberListItem.qml:126
 msgid "Kick from this chat?"
 msgstr ""
 
@@ -1018,12 +1018,12 @@ msgstr ""
 msgid "Please enter your password"
 msgstr ""
 
-#: ../qml/components/PhoneListItem.qml:29
-#: ../qml/components/EmailListItem.qml:29
+#: ../qml/components/PhoneListItem.qml:31
+#: ../qml/components/EmailListItem.qml:31
 msgid "Remove this email address?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:285
+#: ../qml/components/ChatEvent.qml:284
 msgid "Download: "
 msgstr ""
 
@@ -1107,15 +1107,15 @@ msgstr ""
 msgid "Synchronizing… Please wait."
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:34
+#: ../qml/components/ChatListItem.qml:36
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:36
+#: ../qml/components/ChatListItem.qml:38
 msgid "You: "
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:37
+#: ../qml/components/ChatListItem.qml:39
 msgid "No preview messages"
 msgstr ""
 
@@ -1139,35 +1139,35 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:68
+#: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:270
+#: ../qml/components/ChatScrollView.qml:271
 msgid "Try send again"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:279
+#: ../qml/components/ChatScrollView.qml:280
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:287
+#: ../qml/components/ChatScrollView.qml:288
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:292
+#: ../qml/components/ChatScrollView.qml:293
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:297
+#: ../qml/components/ChatScrollView.qml:298
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:301
+#: ../qml/components/ChatScrollView.qml:302
 msgid "Delete message"
 msgstr ""
 
-#: ../qml/components/TargetListItem.qml:22
+#: ../qml/components/TargetListItem.qml:24
 msgid "This device"
 msgstr ""
 
@@ -1201,7 +1201,7 @@ msgid ""
 "This can take a few minutes…"
 msgstr ""
 
-#: ../qml/components/AddressesListItem.qml:13
+#: ../qml/components/AddressesListItem.qml:15
 msgid "Canonical alias"
 msgstr ""
 
@@ -1233,7 +1233,7 @@ msgstr ""
 msgid "Enter a description for the chat"
 msgstr ""
 
-#: ../qml/components/DeviceListItem.qml:22
+#: ../qml/components/DeviceListItem.qml:25
 msgid "Last seen: "
 msgstr ""
 

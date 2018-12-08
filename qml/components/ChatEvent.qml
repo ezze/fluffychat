@@ -18,7 +18,6 @@ Rectangle {
     width: mainStackWidth
     height: (isMediaEvent ? messageBubble.height :  // Media event height is calculated by the message bubble height
     Math.max(messageLabel.height + units.gu(2 + !isStateEvent*1.5), avatar.height))   // Text content is calculated by the label height for better performenace
-     + units.gu(1)  // Bottom margin for non-state-events
 
     color: "transparent"
 
@@ -342,7 +341,7 @@ Label {
 }
 
 Rectangle {
-    color: image.showGif || image.showThumbnail ? "#AAFFFFFF" : "#00000000"
+    color: image.showGif || image.showThumbnail ? messageBubble.color : "#00000000"
     height: metaLabelRow.height
     width: metaLabelRow.width
     anchors.left: sent ? undefined : parent.left
@@ -365,7 +364,7 @@ Rectangle {
                 : "")
                 + stamp.getChatTime ( event.origin_server_ts )
             }
-            color: image.showGif || image.showThumbnail ? "black" : messageLabel.color
+            color: messageLabel.color
             //opacity: 0.5
             textSize: Label.XxSmall
             visible: !isStateEvent

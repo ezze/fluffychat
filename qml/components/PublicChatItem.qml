@@ -3,6 +3,9 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 
 ListItem {
+
+    color: settings.darkmode ? "#202020" : "white"
+
     height: visible * layout.height
     visible: {
         selected ? true :

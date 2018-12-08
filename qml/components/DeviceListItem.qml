@@ -6,6 +6,9 @@ import "../components"
 
 ListItem {
     id: deviceListItem
+
+    color: settings.darkmode ? "#202020" : "white"
+    
     height: layout.height
 
     property var device

@@ -6,6 +6,8 @@ ListItem {
     height: layout.height
     property var thisAddress: name
 
+    color: settings.darkmode ? "#202020" : "white"
+
     onClicked: shareController.shareLink ( "fluffychat://%1".arg(name) )
 
     ListItemLayout {

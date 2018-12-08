@@ -16,6 +16,7 @@ ListView {
     property var unread: ""
     property var canRedact: false
     property var chatMembers: []
+    spacing: units.gu(1)
 
     function init () {
         // Request all participants displaynames and avatars

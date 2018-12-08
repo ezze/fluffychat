@@ -8,6 +8,8 @@ ListItem {
     id: deviceListItem
     height: layout.height
 
+    color: settings.darkmode ? "#202020" : "white"
+
     property var target
     property var thisDevice: target.pushkey === pushtoken
 
