@@ -305,10 +305,10 @@ Label {
     height: opacity ? undefined : 0
     text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :  event.content_body || event.content.body
     color: (!sent || isStateEvent) ? (settings.darkmode ? "white" : "black") :
-    (event.status < msg_status.SEEN ? "black" : "white")
+    (event.status < msg_status.SEEN ? settings.mainColor : "white")
     linkColor: settings.brightMainColor
     Behavior on color {
-        ColorAnimation { from: "black"; duration: 300 }
+        ColorAnimation { from: settings.mainColor; duration: 300 }
     }
     wrapMode: Text.Wrap
     textFormat: Text.StyledText

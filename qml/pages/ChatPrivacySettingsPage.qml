@@ -13,6 +13,19 @@ Page {
     property var powerLevelDescription: ""
     property var activePowerLevel: ""
 
+    /*  TODO: Implement this system:
+     * # Access permissions
+     * - User's can be invited (Switch)
+     * - Chat is public accessable (Switch)
+     * - Guest users are allowed (Switch)
+     * # History visibility
+     * - Invited users can see the history (Switch)
+     * - History is public accessable (Switch)
+     * # Chat permissions
+     * - Chat permission A (Dialogue with slider)
+
+    */
+
     Component.onCompleted: init ()
 
     Connections {
