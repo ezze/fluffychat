@@ -1,5 +1,5 @@
 ### 7.2:
-* Improve dark mode colors in chats
+* Improved dark mode colors in chats
 
 ### 7.1:
 * Updates translations from weblate
@@ -14,7 +14,7 @@
 * Sending of whitespaces only was allowed
 * Fixed wrong message bubble height
 * Some thumbnails were not visible
-* Downloadbuttons became unenabled after one click
+* Downloadbuttons became disabled after one click
 
 ### 7.0:
 ##### New features
