@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-08 16:14+0000\n"
+"POT-Creation-Date: 2018-12-08 16:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -659,7 +659,7 @@ msgid "Join"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:412
-msgid "You can not send messages here"
+msgid "You do not have posting permissions here"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:443

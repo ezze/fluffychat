@@ -409,7 +409,7 @@ Page {
 
 
         Label {
-            text: i18n.tr("You can not send messages here")
+            text: i18n.tr("You do not have posting permissions here")
             anchors.centerIn: parent
             visible: !canSendMessages
         }
