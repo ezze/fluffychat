@@ -10,6 +10,7 @@
 * Sending of whitespaces only was allowed
 * Fixed wrong message bubble height
 * Some thumbnails were not visible
+* Downloadbuttons became unenabled after one click
 
 ### 7.0:
 ##### New features

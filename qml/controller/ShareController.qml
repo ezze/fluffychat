@@ -74,6 +74,10 @@ Item {
         share( url, title, ContentType.Documents)
     }
 
+    function shareAll( url, title ) {
+        share( url, title, ContentType.All)
+    }
+
     function shareTextIntern ( text ) {
         mainStack.toStart()
         shareObject = {

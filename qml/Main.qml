@@ -162,10 +162,9 @@ MainView {
     DownloadDialog {
         id: downloadDialog
         property var current: null
-        property var downloadButton: null
         property var filename: null
         property var downloadUrl: null
-        property var shareFunc: shareController.shareFile
+        property var shareFunc: shareController.shareAll
     }
     Image {
         id: backgroundImage

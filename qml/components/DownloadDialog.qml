@@ -51,7 +51,6 @@ Component {
             }
 
             onFinished: {
-                downloadButton.enabled = false
                 console.log('Downloaded to: '+path)
                 shareFunc ( path, filename )
                 PopupUtils.close(current)

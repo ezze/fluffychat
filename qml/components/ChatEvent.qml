@@ -237,7 +237,6 @@ Rectangle {
                         color: "white"
                         iconName: "document-save-as"
                         onClicked: {
-                            downloadDialog.downloadButton = downloadAudioButton
                             downloadDialog.filename = event.content_body
                             downloadDialog.downloadUrl = media.getLinkFromMxc ( event.content.url )
                             downloadDialog.shareFunc = shareController.shareAudio
@@ -285,7 +284,6 @@ Button {
     color: settings.brightMainColor
     text: i18n.tr("Download: ") + event.content.body
     onClicked: {
-        downloadDialog.downloadButton = downloadAudioButton
         downloadDialog.filename = event.content_body
         downloadDialog.downloadUrl = media.getLinkFromMxc ( event.content.url )
         downloadDialog.current = PopupUtils.open(downloadDialog)
