@@ -8,7 +8,8 @@
 * Renamed "You are not allowed to send messages" to "You can not send messages" (sounds nicer ❤)
 * Chatlist crashed randomly
 * Sending of whitespaces only was allowed
-+ Fixed wrong message bubble height
+* Fixed wrong message bubble height
+* Some thumbnails were not visible
 
 ### 7.0:
 ##### New features
