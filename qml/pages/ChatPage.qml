@@ -17,8 +17,7 @@ Page {
     property var replyEvent: null
 
     function send ( message ) {
-        console.log(JSON.stringify(message))
-        if ( messageTextField.displayText === "" && message === undefined ) return
+        if ( !messageTextField.displayText.replace(/\s/g, '').length && message === undefined ) return
 
         var sticker = undefined
         if ( message === undefined ) message = messageTextField.displayText

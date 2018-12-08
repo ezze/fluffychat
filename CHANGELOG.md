@@ -2,9 +2,10 @@
 * Updates translations from weblate
 
 ###### Fixed bugs:
-* Typing notification not set to false after sending a message
+* Typing notification was not set to false after sending a message
 * Renamed "You are not allowed to send messages" to "You can not send messages" (sounds nicer ❤)
 * Chatlist crashed randomly
+* Sending of whitespaces only was allowed
 
 ### 7.0:
 ##### New features

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-08 14:50+0000\n"
+"POT-Creation-Date: 2018-12-08 15:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -176,40 +176,40 @@ msgstr ""
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/controller/UserNameController.qml:35
+#: ../qml/controller/UserNameController.qml:36
 msgid "⌨️ is typing…"
 msgstr ""
 
-#: ../qml/controller/UserNameController.qml:36
+#: ../qml/controller/UserNameController.qml:37
 msgid "⌨️ %1 is typing…"
 msgstr ""
 
-#: ../qml/controller/UserNameController.qml:39
+#: ../qml/controller/UserNameController.qml:40
 msgid "⌨️ %1 and %2 more are typing…"
 msgstr ""
 
-#: ../qml/controller/UserNameController.qml:45
+#: ../qml/controller/UserNameController.qml:46
 #: ../qml/components/ChangePowerLevelDialog.qml:47
 msgid "Members"
 msgstr ""
 
-#: ../qml/controller/UserNameController.qml:46
+#: ../qml/controller/UserNameController.qml:47
 #: ../qml/components/ChangePowerLevelDialog.qml:33
 msgid "Moderators"
 msgstr ""
 
-#: ../qml/controller/UserNameController.qml:47
+#: ../qml/controller/UserNameController.qml:48
 #: ../qml/components/ChangePowerLevelDialog.qml:19
 msgid "Admins"
 msgstr ""
 
-#: ../qml/controller/UserNameController.qml:61
+#: ../qml/controller/UserNameController.qml:62
 msgid "%1 is not a valid username"
 msgstr ""
 
 #: ../qml/controller/RoomNameController.qml:13
 #: ../qml/controller/RoomNameController.qml:27
-#: ../qml/controller/RoomNameController.qml:35
+#: ../qml/controller/RoomNameController.qml:34
 msgid "Empty chat"
 msgstr ""
 
