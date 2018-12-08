@@ -3,7 +3,7 @@
 
 ###### Fixed bugs:
 * Typing notification not set to false after sending a message
-
+* Renamed "You are not allowed to send messages" to "You can not send messages" (sounds nicer ❤)
 
 ### 7.0:
 ##### New features

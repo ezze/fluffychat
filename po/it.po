@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-26 12:49+0000\n"
-"PO-Revision-Date: 2018-10-30 18:23+0000\n"
+"POT-Creation-Date: 2018-12-08 14:50+0000\n"
+"PO-Revision-Date: 2018-12-08 15:52+0100\n"
 "Last-Translator: garro95 <s252883@studenti.polito.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Poedit 2.2\n"
 
 #: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:309
 msgid "Are you sure?"
@@ -351,9 +351,9 @@ msgstr "Cambia homeserver"
 msgid "Change ID-server"
 msgstr "Cambia ID-server"
 
-#: ../qml/pages/LoginPage.qml:106
-msgid "About fluffychat"
-msgstr "Su fluffychat"
+#: ../qml/pages/LoginPage.qml:106 ../qml/pages/SettingsPage.qml:336
+msgid "About FluffyChat"
+msgstr "A proposito di FluffyChat"
 
 #: ../qml/pages/LoginPage.qml:116
 #, fuzzy
@@ -384,20 +384,21 @@ msgstr "Crea un nuovo account"
 msgid "Log in"
 msgstr "Accedi"
 
-#: ../qml/pages/ChatListPage.qml:136
-msgid "Fluffychat"
-msgstr "Fluffychat"
+#: ../qml/pages/ChatListPage.qml:145 ../qml/components/FcPageHeader.qml:7
+#: fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
 
-#: ../qml/pages/ChatListPage.qml:136
+#: ../qml/pages/ChatListPage.qml:145
 msgid "Share"
 msgstr "Condividi"
 
-#: ../qml/pages/ChatListPage.qml:199
+#: ../qml/pages/ChatListPage.qml:208
 #, fuzzy
 msgid "Search for chat names…"
 msgstr "Cerca chat per nome"
 
-#: ../qml/pages/ChatListPage.qml:220
+#: ../qml/pages/ChatListPage.qml:229
 msgid "Swipe from below to start a chat"
 msgstr "Scorri dal basso per iniziare una chat"
 
@@ -484,7 +485,7 @@ msgid "Dark mode"
 msgstr "Modalità notte"
 
 #: ../qml/pages/SettingsPage.qml:204
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:249
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:242
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:233
 msgid "Notifications"
@@ -544,10 +545,6 @@ msgstr "Esci"
 #: ../qml/pages/SettingsPage.qml:331
 msgid "More:"
 msgstr "Altro:"
-
-#: ../qml/pages/SettingsPage.qml:336
-msgid "About FluffyChat"
-msgstr "A proposito di FluffyChat"
 
 #: ../qml/pages/PasswordInputPage.qml:26
 msgid "Invalid username or password"
@@ -624,26 +621,49 @@ msgid "Invite"
 msgstr "Invita"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:28
+#, fuzzy
+#| msgid ""
+#| "<br><b>Matrix client</b><br><br>* Fluffychat is a matrix protocol client "
+#| "and compatible with all matrix servers and matrix identity servers. All "
+#| "communications made by the use while using fluffychat are done with the "
+#| "matrix server and the matrix identity server.<br>* The default server is "
+#| "https://ubports.chat and the default identity server is https://vector.im."
+#| "<br>* Fluffychat doesn't operate any server or service.<br>* All "
+#| "communications between fluffychat and any server is done in secure way, "
+#| "using encryption to protect it.<br>* Fluffychat is not responsible for "
+#| "the data processing by any matrix server or matrix identity server.<br>* "
+#| "Fluffychat offers the possibility to use phone numbers to find contacts. "
+#| "This is optional and no contacts are uploaded without user interaction! "
+#| "The user can choose, which contacts he want to upload to the identity "
+#| "server!<br><br><b>Push Notifications</b><br><br>* The matrix server the "
+#| "user is using, will automatically send push notifications to the UBports "
+#| "push service. This notifications are encrypted with https on the way from "
+#| "the matrix server to the official ubports matrix gateway at https://push."
+#| "ubports.com:5003/_matrix/push/r0/notify which forwards the notification "
+#| "to UBports push service at https://push.ubports.com and then sends this "
+#| "as a push notification to the user's device(s).<br>"
 msgid ""
-"<br><b>Matrix client</b><br><br>* Fluffychat is a matrix protocol client and "
-"compatible with all matrix servers and matrix identity servers. All "
-"communications made by the use while using fluffychat are done with the "
-"matrix server and the matrix identity server.<br>* The default server is "
-"https://ubports.chat and the default identity server is https://vector.im."
-"<br>* Fluffychat doesn't operate any server or service.<br>* All "
-"communications between fluffychat and any server is done in secure way, "
-"using encryption to protect it.<br>* Fluffychat is not responsible for the "
-"data processing by any matrix server or matrix identity server.<br>* "
-"Fluffychat offers the possibility to use phone numbers to find contacts. "
-"This is optional and no contacts are uploaded without user interaction! The "
-"user can choose, which contacts he want to upload to the identity server!"
-"<br><br><b>Push Notifications</b><br><br>* The matrix server the user is "
-"using, will automatically send push notifications to the UBports push "
-"service. This notifications are encrypted with https on the way from the "
-"matrix server to the official ubports matrix gateway at https://push.ubports."
-"com:5003/_matrix/push/r0/notify which forwards the notification to UBports "
-"push service at https://push.ubports.com and then sends this as a push "
-"notification to the user's device(s).<br>"
+"<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
+"is compatible with all Matrix servers and Matrix identity servers. All "
+"communications conducted while using FluffyChat use a Matrix server and the "
+"Matrix identity server.<br>* The default server in FluffyChat is https://"
+"ubports.chat and the default identity server is https://vector.im.<br>* "
+"FluffyChat doesn't operate any server or remote service.<br>* All "
+"communication of substantive content between FluffyChat and any server is "
+"done in secure way, using transport encryption to protect it. End-to-end "
+"encryption will follow.<br>* FluffyChat is not responsible for the data "
+"processing carried out by any Matrix server or Matrix identity server.<br>* "
+"FluffyChat offers the option to use phone numbers to find contacts. This is "
+"not a requirement of normal operation and is intended only as a convenience. "
+"No contact details are uploaded without user interaction! The user can "
+"choose to upload all or some or no contacts to the identity server!"
+"<br><br><b>Push Notifications</b><br><br>* The Matrix server selected by the "
+"user will automatically send push notifications to the UBports push service. "
+"These notifications are encrypted with the https protocol between the device "
+"and the Matrix server and on to the official UBports Matrix gateway at "
+"https://push.ubports.com:5003/_matrix/push/r0/notify This server forwards "
+"the notification to UBports push service at https://push.ubports.com and "
+"then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 "<br><b>Client Matrix</b><br><br>* Fluffychat è un client per il protocollo "
 "matrix ed è compatibile con tutti i server matrix e i server di "
@@ -654,58 +674,60 @@ msgstr ""
 "nessun server o servizio.<br>* Tutte le comunicazioni tra fluffychat e "
 "qualsiasi server sono fatte in maniera sicura, usando la cifratura per "
 "proteggerle.<br>* Fluffychat non è responsabile per l'elaborazione dei dati "
-"da parte di qualunque server matrix o server di identificazione di "
-"matrix.<br>* Fluffychat offre la possibilità di usare il numero di telefono "
-"per trovare i contatti. Questo è opzionale e nessun contatto sarà caricato "
-"senza l'interazione dell'utente! L'utente può scegliere quali contatti vuole "
-"caricare sul server di identificazione!<br><br><b>Notifiche Push</b><br><br>*"
-" Il server matrix che l'utente sta usando invierà automaticamente notifiche "
-"push al servizio UBports. Queste notifiche sono cifrate con https lungo il "
-"percorso tra il server matrix e il gateway ufficiale matrix di ubports "
-"all'indirizzo https://push.ubports.com:5003/_matrix/push/r0/notify che "
-"inoltra la notifica al servizio push di UBports a https://push.ubports.com e "
-"poi invia questa come notifica push al dispositivo(o ai dispositivi) "
+"da parte di qualunque server matrix o server di identificazione di matrix."
+"<br>* Fluffychat offre la possibilità di usare il numero di telefono per "
+"trovare i contatti. Questo è opzionale e nessun contatto sarà caricato senza "
+"l'interazione dell'utente! L'utente può scegliere quali contatti vuole "
+"caricare sul server di identificazione!<br><br><b>Notifiche Push</"
+"b><br><br>* Il server matrix che l'utente sta usando invierà automaticamente "
+"notifiche push al servizio UBports. Queste notifiche sono cifrate con https "
+"lungo il percorso tra il server matrix e il gateway ufficiale matrix di "
+"ubports all'indirizzo https://push.ubports.com:5003/_matrix/push/r0/notify "
+"che inoltra la notifica al servizio push di UBports a https://push.ubports."
+"com e poi invia questa come notifica push al dispositivo(o ai dispositivi) "
 "dell'utente.<br>"
 
-#: ../qml/pages/ChatPage.qml:230 ../qml/components/ArchivedChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:223 ../qml/components/ArchivedChatListItem.qml:28
 #: ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr "Chat sconosciuta"
 
-#: ../qml/pages/ChatPage.qml:237 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:230 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: ../qml/pages/ChatPage.qml:243
+#: ../qml/pages/ChatPage.qml:236
 msgid "Chat info"
 msgstr "Informazioni sulla chat"
 
-#: ../qml/pages/ChatPage.qml:255 ../qml/pages/ChatSettingsPage.qml:311
+#: ../qml/pages/ChatPage.qml:248 ../qml/pages/ChatSettingsPage.qml:311
 msgid "Invite friends"
 msgstr "Invita amici"
 
-#: ../qml/pages/ChatPage.qml:278
+#: ../qml/pages/ChatPage.qml:271
 msgid "No messages in this chat ..."
 msgstr "Nessun messaggio in questa chat..."
 
-#: ../qml/pages/ChatPage.qml:301
+#: ../qml/pages/ChatPage.qml:294
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "Rispondi a <b>%1</b>: \"%2\""
 
-#: ../qml/pages/ChatPage.qml:406
+#: ../qml/pages/ChatPage.qml:399
 msgid "Accept invitation"
 msgstr "Accetta invito"
 
-#: ../qml/pages/ChatPage.qml:406
+#: ../qml/pages/ChatPage.qml:399
 msgid "Join"
 msgstr "Unisciti"
 
-#: ../qml/pages/ChatPage.qml:420
-msgid "You are not allowed to send messages"
-msgstr "Non puoi inviare messaggi"
+#: ../qml/pages/ChatPage.qml:413
+#, fuzzy
+#| msgid "Who can send messages?"
+msgid "You can not send messages here"
+msgstr "Chi può inviare messaggi?"
 
-#: ../qml/pages/ChatPage.qml:451
+#: ../qml/pages/ChatPage.qml:444
 msgid "Type something ..."
 msgstr "Digita qualcosa..."
 
@@ -1068,10 +1090,6 @@ msgstr "Per favore inserisci la tua password"
 msgid "Remove this email address?"
 msgstr "Rimuovere questo indirizzo email?"
 
-#: ../qml/components/FcPageHeader.qml:7 fluffychat.desktop.in.h:1
-msgid "FluffyChat"
-msgstr "FluffyChat"
-
 #: ../qml/components/ChatEvent.qml:281
 msgid "Download: "
 msgstr "Scarica: "
@@ -1310,3 +1328,12 @@ msgid ""
 msgstr ""
 "Per favore riavvia l'applicazione o, se necessario, riavvia il dispositivo "
 "per completare l'aggiornamento!"
+
+#~ msgid "About fluffychat"
+#~ msgstr "Su fluffychat"
+
+#~ msgid "Fluffychat"
+#~ msgstr "Fluffychat"
+
+#~ msgid "You are not allowed to send messages"
+#~ msgstr "Non puoi inviare messaggi"
