@@ -40,7 +40,6 @@ Rectangle {
                 id: downloadAction
                 iconName: "document-save-as"
                 onTriggered: {
-                    downloadDialog.downloadButton = downloadAction
                     downloadDialog.filename = mxc
                     downloadDialog.downloadUrl = media.getLinkFromMxc ( mxc )
                     downloadDialog.shareFunc = shareController.sharePicture
