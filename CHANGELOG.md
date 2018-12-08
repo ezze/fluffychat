@@ -1,6 +1,7 @@
 ### 7.1:
 * Updates translations from weblate
 * Design changes for state events
+* Hide chatroom avatar when there is no
 
 ###### Fixed bugs:
 * Typing notification was not set to false after sending a message
