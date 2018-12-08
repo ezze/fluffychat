@@ -2,6 +2,7 @@
 * Updates translations from weblate
 * Design changes for state events
 * Hide chatroom avatar when there is no
+* Change the app name from "Fluffychat" or "fluffychat" to: "FluffyChat"
 
 ###### Fixed bugs:
 * Typing notification was not set to false after sending a message
