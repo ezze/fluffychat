@@ -81,7 +81,7 @@ Rectangle {
             anchors.margins: units.gu(0.5)
             color: image.showGif || image.showThumbnail ? "#00000000" :
             (isStateEvent ? theme.palette.normal.background :
-            (!sent ? settings.darkmode ? UbuntuColors.graphite : "#e6e5ea" :
+            (!sent ? settings.darkmode ? "#191A15" : "#e6e5ea" :
             (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
 
             Behavior on color {
