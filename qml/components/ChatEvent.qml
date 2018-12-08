@@ -8,7 +8,7 @@ import "../components"
 Rectangle {
     id: message
     property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.sticker"
-    property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1
+    property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1 || event.type === "m.sticker"
     property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
@@ -301,7 +301,7 @@ Button {
 */
 Label {
     id: messageLabel
-    opacity: (event.type === "m.sticker" || isMediaEvent) ? 0 : 1
+    opacity: isMediaEvent ? 0 : 1
     height: opacity ? undefined : 0
     text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :  event.content_body || event.content.body
     color: (!sent || isStateEvent) ? (settings.darkmode ? "white" : "black") :
