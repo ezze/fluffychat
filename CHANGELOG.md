@@ -1,5 +1,7 @@
 ### 7.2:
 * Improved dark mode colors in chats
+* Header in chat list is now "flickable"
+* More bug fixes with message styles
 
 ### 7.1:
 * Updates translations from weblate
