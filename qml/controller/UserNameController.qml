@@ -20,6 +20,7 @@ Item {
 
     // This returns the local part of a matrix id
     function transformFromId ( matrixid ) {
+        if ( typeof matrixid !== "string" ) return ""
         return capitalizeFirstLetter ( (matrixid.substr(1)).split(":")[0] )
     }
 

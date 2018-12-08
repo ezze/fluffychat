@@ -31,8 +31,8 @@ Item {
                             var username = rs.rows[i].displayname || usernames.transformFromId ( rs.rows[i].matrix_id )
                             if ( rs.rows[i].state_key !== matrix.matrixid ) displayname += username + ", "
                         }
-                        displayname = displayname.substr(0, displayname.length-2)
                         if ( displayname === "" || displayname === null ) displayname = i18n.tr('Empty chat')
+                        else displayname = displayname.substr(0, displayname.length-2)
                     }
                     if ( callback ) callback ( displayname )
                     // Else, use the default: "Empty chat"
