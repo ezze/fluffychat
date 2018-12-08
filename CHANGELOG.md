@@ -1,3 +1,10 @@
+### 7.1:
+* Updates translations from weblate
+
+###### Fixed bugs:
+* Typing notification not set to false after 
+
+
 ### 7.0:
 ##### New features
 * First stable release

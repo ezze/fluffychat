@@ -119,8 +119,8 @@ Page {
                 messageTextField.text = " " // Workaround for bug on bq tablet
                 messageTextField.text = ""
                 messageTextField.height = header.height - units.gu(2)
-                isTyping = false
                 sendTypingNotification ( false )
+                isTyping = false
             }
         })
     }
@@ -128,19 +128,12 @@ Page {
 
     function sendTypingNotification ( typing ) {
         if ( !settings.sendTypingNotification ) return
-        if ( !typing && isTyping) {
+        if ( typing !== isTyping) {
+            console.log("Send isTyping:",typing)
             typingTimer.stop ()
-            isTyping = false
+            isTyping = typing
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
-                typing: false
-            }, null, null )
-        }
-        else if ( typing && !isTyping ) {
-            isTyping = true
-            typingTimer.start ()
-            matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
-                typing: true,
-                timeout: typingTimeout
+                typing: typing
             }, null, null )
         }
     }
