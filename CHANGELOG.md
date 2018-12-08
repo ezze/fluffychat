@@ -2,7 +2,7 @@
 * Updates translations from weblate
 
 ###### Fixed bugs:
-* Typing notification not set to false after 
+* Typing notification not set to false after sending a message
 
 
 ### 7.0:
