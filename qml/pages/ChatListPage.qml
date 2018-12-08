@@ -143,6 +143,7 @@ Page {
     header: FcPageHeader {
         id: header
         title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
+        flickable: chatListView
 
         leadingActionBar {
             actions: [
@@ -212,8 +213,8 @@ Page {
     ListView {
         id: chatListView
         width: parent.width
-        height: parent.height - header.height
-        anchors.top: header.bottom
+        height: parent.height
+        anchors.top: parent.top
         anchors.topMargin: searching * (searchField.height + units.gu(2))
         delegate: ChatListItem {}
         model: ListModel { id: model }
