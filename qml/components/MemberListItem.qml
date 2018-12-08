@@ -5,9 +5,6 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 
 ListItem {
-
-    color: settings.darkmode ? "#202020" : "white"
-
     visible: {
         searchField.upperCaseText === "" ? membership === "join" :
         layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1

@@ -138,15 +138,13 @@ Page {
         anchors.top: header.bottom
         contentItem: Column {
             width: mainStackWidth
-            Rectangle {
-                width: parent.width
-                height: units.gu(2)
-                color: theme.palette.normal.background
-            }
+
             Avatar {  // Useravatar
                 id: avatarImage
                 name: activeChatDisplayName
-                width: parent.width / 2
+                width: parent.width
+                height: width * 10/16
+                radius: 0
                 anchors.horizontalCenter: parent.horizontalCenter
                 mxc: ""
                 visible: mxc !== "" && mxc !== undefined

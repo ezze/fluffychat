@@ -381,7 +381,7 @@ Page {
         height: messageTextField.height + units.gu(2)
         width: parent.width + 2
         border.width: 1
-        border.color: UbuntuColors.silk
+        border.color: settings.darkMode ? UbuntuColors.slate : UbuntuColors.silk
         color: theme.palette.normal.background
         anchors {
             horizontalCenter: parent.horizontalCenter

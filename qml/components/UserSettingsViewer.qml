@@ -68,30 +68,20 @@ BottomEdge {
                 contentItem: Column {
                     width: userSettingsViewer.width
 
-                    Rectangle {
-                        width: parent.width
-                        height: units.gu(2)
-                        color: Qt.rgba(0,0,0,0)
-                    }
-
                     Avatar {  // Useravatar
                         id: avatar
-                        width: parent.width / 2
+                        width: parent.width
+                        height: width * 10/16
                         name: activeUser
                         anchors.horizontalCenter: parent.horizontalCenter
                         mxc: ""
+                        radius: 0
                         onClickFunction: function () {
                             if ( mxc !== "" ) {
                                 userSettingsViewer.collapse ()
                                 imageViewer.show ( mxc )
                             }
                         }
-                    }
-
-                    Rectangle {
-                        width: parent.width
-                        height: units.gu(2)
-                        color: Qt.rgba(0,0,0,0)
                     }
 
                     Rectangle {

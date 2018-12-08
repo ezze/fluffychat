@@ -26,6 +26,8 @@ Item {
 
 
     function getThumbnailLinkFromMxc ( mxc, width, height ) {
+        width = Math.round(width)
+        height = Math.round(height)
         if ( mxc === undefined || mxc === "" ) return ""
         if ( Connectivity.online ) {
             return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width + "&height=" + height + "&method=scale"
