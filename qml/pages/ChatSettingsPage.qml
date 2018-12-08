@@ -48,7 +48,7 @@ Page {
             description = res.rows[0].description
             storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function (membershipResult) {
                 membership = membershipResult.rows[0].membership
-                avatarImage.mxc = membershipResult.rows[0].avatar_url
+                avatarImage.mxc = res.rows[0].avatar_url
                 power = membershipResult.rows[0].power_level
                 canChangeName = power >= res.rows[0].power_event_name
                 canKick = power >= res.rows[0].power_kick
@@ -56,7 +56,7 @@ Page {
                 canInvite = power >= res.rows[0].power_invite
                 canChangeAvatar = power >= res.rows[0].power_event_avatar
                 canChangePermissions = power >= res.rows[0].power_event_power_levels
-                console.log("AVATARURL:", membershipResult.rows[0].avatar_url)
+                console.log("AVATARURL:", res.rows[0].avatar_url)
                 console.log("POWER:", power, "canChangeAvatar:", res.rows[0].power_event_avatar, JSON.stringify(res.rows[0]))
             })
         })
