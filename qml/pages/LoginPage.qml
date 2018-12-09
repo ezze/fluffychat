@@ -156,7 +156,8 @@ Page {
             Button {
                 text: "OK"
                 onClicked: {
-                    settings.id_server = identityserverInput.displayText.toLowerCase()
+                    if ( identityserverInput.displayText === "" ) settings.id_server = defaultIDServer
+                    else settings.id_server = identityserverInput.displayText.toLowerCase()
                     PopupUtils.close(dialogue)
                 }
             }
