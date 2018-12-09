@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-08 19:58+0000\n"
+"POT-Creation-Date: 2018-12-09 09:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -353,19 +353,19 @@ msgstr ""
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:196
+#: ../qml/pages/LoginPage.qml:197
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:205
+#: ../qml/pages/LoginPage.qml:206
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:228
+#: ../qml/pages/LoginPage.qml:229
 msgid "Create a new account"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:240
+#: ../qml/pages/LoginPage.qml:241
 msgid "Log in"
 msgstr ""
 
@@ -843,15 +843,15 @@ msgstr ""
 msgid "Default user permissions:"
 msgstr ""
 
-#: ../qml/components/ImageViewer.qml:53
+#: ../qml/components/ImageViewer.qml:52
 msgid "Add this image as sticker?"
 msgstr ""
 
-#: ../qml/components/ImageViewer.qml:60
+#: ../qml/components/ImageViewer.qml:59
 msgid "Already added as sticker"
 msgstr ""
 
-#: ../qml/components/ImageViewer.qml:61
+#: ../qml/components/ImageViewer.qml:60
 msgid "Added as sticker"
 msgstr ""
 
