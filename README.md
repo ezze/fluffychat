@@ -98,4 +98,6 @@ Regionetz is an ISP company from southern Germany and hosts the official server 
 
 * <a href="https://github.com/advocatux">Advocatux</a> has made the Spanish translation with great love and care. He always stands by my side and supports my work with great commitment.
 
+* Thanks to Mark for all his support and the chat background.
+
 * Also thanks to all translators and testers! With your help, fluffychat is now available in 5 languages.
