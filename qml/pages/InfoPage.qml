@@ -29,10 +29,10 @@ Page {
             }
 
             SettingsListItem {
-                name: i18n.tr("Donate us a coffee")
+                name: i18n.tr("Become a patron")
                 icon: "like"
                 iconColor: UbuntuColors.red
-                onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAGCFNJ2SKZY8")
+                onClicked: Qt.openUrlExternally("https://www.patreon.com/krillechritzelius")
             }
 
             SettingsListLink {
