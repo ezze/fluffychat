@@ -149,7 +149,6 @@ Page {
                 mxc: ""
                 visible: mxc !== "" && mxc !== undefined
                 onClickFunction: function () {
-                    var hasAvatar = avatarImage.mxc !== "" && avatarImage.mxc !== null
                     if ( canChangeAvatar && hasAvatar ) contextualAvatarActions.show()
                     else if ( hasAvatar ) imageViewer.show ( mxc )
                 }
