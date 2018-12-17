@@ -18,8 +18,8 @@ PushClient {
 
 
     function updatePusher () {
-        if ( token !== "" && (settings.pushToken !== token || settings.pushUrl !== pushUrl || settings.deviceName !== deviceName) ) {
-            console.log("👷 Trying to set pusher…")
+        if ( token !== "" && (settings.pushToken !== token || settings.pushUrl !== pushUrl || settings.pushDeviceName !== deviceName) ) {
+            console.log("👷 Trying to set pusher… '%1':'%2'".arg(settings.pushDeviceName).arg(deviceName))
             pushclient.setPusher ( true, function () {
                 settings.pushToken = pushtoken
                 settings.pushUrl = pushUrl
