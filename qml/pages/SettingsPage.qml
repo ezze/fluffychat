@@ -193,7 +193,6 @@ Page {
                 icon: "display-brightness-max"
                 onSwitching: function () { settings.darkmode = isChecked }
                 isChecked: settings.darkmode
-                isEnabled: true
             }
 
             SettingsListLink {
@@ -220,28 +219,28 @@ Page {
                 name: i18n.tr("Display 'I am typing' when typing")
                 icon: "edit"
                 onSwitching: function () { settings.sendTypingNotification = isChecked }
-                Component.onCompleted: isChecked = settings.sendTypingNotification
+                isChecked: settings.sendTypingNotification
             }
 
             SettingsListSwitch {
                 name: i18n.tr("Show member change events")
                 icon: "contact-group"
                 onSwitching: function () { settings.showMemberChangeEvents = isChecked }
-                Component.onCompleted: isChecked = settings.showMemberChangeEvents
+                isChecked: settings.showMemberChangeEvents
             }
 
             SettingsListSwitch {
                 name: i18n.tr("Hide less important events")
                 icon: "info"
                 onSwitching: function () { settings.hideLessImportantEvents = isChecked }
-                Component.onCompleted: isChecked = settings.hideLessImportantEvents
+                isChecked: settings.hideLessImportantEvents
             }
 
             SettingsListSwitch {
                 name: i18n.tr("Autoload animated images")
                 icon: "stock_image"
                 onSwitching: function () { settings.autoloadGifs = isChecked }
-                Component.onCompleted: isChecked = settings.autoloadGifs
+                isChecked: settings.autoloadGifs
             }
 
             SettingsListLink {

@@ -42,16 +42,16 @@ Settings {
     property var chatBackground
 
     // Chat settings: Send typing notification?
-    property var sendTypingNotification: true
+    property var sendTypingNotification: false
 
-    // Chat settings: Show less important events?
-    property var hideLessImportantEvents: true
+    // Chat settings: Hide less important events?
+    property var hideLessImportantEvents: false
 
     // Chat settings: Show member change events?
-    property var showMemberChangeEvents: true
+    property var showMemberChangeEvents: false
 
     // Chat settings: Autoload gifs?
-    property var autoloadGifs: true
+    property var autoloadGifs: false
 
     // Are archived chats synchronized too?
     property var requestedArchive: false
