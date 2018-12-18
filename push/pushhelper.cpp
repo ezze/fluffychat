@@ -1,0 +1,181 @@
+#include "pushhelper.h"
+#include "i18n.h"
+#include <QApplication>
+#include <QDebug>
+#include <QDir>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QStringList>
+
+
+PushHelper::PushHelper(const QString appId, const QString infile, const QString outfile, QObject *parent) : QObject(parent),
+mInfile(infile), mOutfile(outfile)
+{
+    connect(&mPushClient, SIGNAL(persistentCleared()),
+    this, SLOT(notificationDismissed()));
+
+    mPushClient.setAppId(appId);
+    mPushClient.registerApp(appId);
+}
+
+void PushHelper::process() {
+    QString tag = "";
+
+    QJsonObject pushMessage = readPushMessage(mInfile);
+    mPostalMessage = pushToPostalMessage(pushMessage, tag);
+    if (!tag.isEmpty()) {
+        dismissNotification(tag);
+    }
+
+    // persistentCleared not called!
+    notificationDismissed();
+}
+
+void PushHelper::notificationDismissed() {
+    writePostalMessage(mPostalMessage, mOutfile);
+    Q_EMIT done(); // Why does this not work?
+}
+
+QJsonObject PushHelper::readPushMessage(const QString &filename) {
+    QFile file(filename);
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+
+    QString val = file.readAll();
+    file.close();
+    return QJsonDocument::fromJson(val.toUtf8()).object();
+}
+
+void PushHelper::writePostalMessage(const QJsonObject &postalMessage, const QString &filename) {
+    QFile out;
+    out.setFileName(filename);
+    out.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate);
+
+    QTextStream(&out) << QJsonDocument(postalMessage).toJson();
+    out.close();
+}
+
+void PushHelper::dismissNotification(const QString &tag) {
+    QStringList tags;
+    tags << tag;
+    mPushClient.clearPersistent(tags);
+}
+
+QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QString &tag) {
+
+    // Get the matrix-message object
+    QJsonObject push;
+    if (pushMessage.contains("message")) {
+        push = pushMessage["message"].toObject();
+    }
+
+
+    // Unread count
+    qint32 unread = 0;
+    if (push.contains("counts")) {
+        const QJsonObject counts = push["counts"].toObject();
+        if (counts.contains("unread")) {
+            unread = qint32(counts["unread"].toInt());
+        }
+    }
+
+    // Get the id and clear persistent notifications
+    QString id = QString("");
+    if (push.contains("room_id")) {
+        id = push["room_id"].toString();
+
+        // Clear tag
+        if (!id.isEmpty()) {
+            dismissNotification(id);
+        }
+    }
+
+    // If there is no unread message, then this is the signal to just clear persistent
+    // notifications with this id and reset the unread counter
+    if (unread == 0 ) {
+        //The notification object to be passed to Postal
+        QJsonObject notification{
+            {"tag", id},
+            {"emblem-counter", QJsonObject{
+                {"count", unread},
+                {"visible", false},
+            }},
+        };
+        return QJsonObject{
+            {"message", push}, // Include the original matrix push object to be delivered to the app
+            {"notification", notification}
+        };
+    }
+
+    // Get the type
+    if ( push.contains("type") ) {
+        const QString type = push["type"].toString();
+        if (type != QStringLiteral("m.room.message") && type != QStringLiteral("m.call.invite")) {
+            return QJsonObject{
+                {"message", push},
+            };
+        }
+    }
+
+
+    // First try the sender displayname otherwise fallback
+    // to the full length username type string thingy
+    QString sender = QString("");
+    if (push.contains("sender_display_name")) {
+        sender = push["sender_display_name"].toString();
+    }
+    else if (push.contains("sender") && !push["sender"].toString().isEmpty()) {
+        sender = push["sender"].toString();
+    }
+
+
+    // The summary will be the room name or the sender
+    QString summary = QString(N_("Unknown"));
+    if (push.contains("room_name") ) {
+        summary = push["room_name"].toString();
+    }
+    else if(push.contains("sender_display_name") ) {
+        summary = push["sender_display_name"].toString();
+    }
+    else if(push.contains("sender") ) {
+        summary = push["sender"].toString();
+    }
+
+
+    // Get the body
+    QString body = QString(N_("New message"));
+    if (push.contains("content")) {
+        const QJsonObject content = push["content"].toObject();
+        if (content.contains("body")) {
+            body = content["body"].toString();
+        }
+    }
+    if (push.contains("room_name") && push["room_name"].toString() != sender) {
+        body = sender + QString(": ") + body;
+    }
+
+
+    //The notification object to be passed to Postal
+    QJsonObject notification{
+        {"tag", id},
+        {"card", QJsonObject{
+            {"summary", summary},
+            {"body", body},
+            {"popup", true},
+            {"persist", true},
+            {"actions", QJsonArray() << QString("fluffychat://%1").arg(id)},
+            {"icon", QString("contact")},
+        }},
+        {"emblem-counter", QJsonObject{
+            {"count", unread},
+            {"visible", unread > 0},
+        }},
+        {"sound", true},
+        {"vibrate", true},
+    };
+
+    return QJsonObject{
+        {"message", push}, // Include the original matrix push object to be delivered to the app
+        {"notification", notification}
+    };
+}

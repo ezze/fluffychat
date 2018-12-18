@@ -10,9 +10,9 @@
             "urls": "fluffychat.url-dispatcher",
             "content-hub": "fluffychat.content-hub"
         },
-        "helloHelper": {
-            "apparmor": "helloHelper-apparmor.json",
-            "push-helper": "helloHelper.json"
+        "push": {
+            "apparmor": "push/push-apparmor.json",
+            "push-helper": "push/push-helper.json"
         }
     },
     "version": "8.0dev",

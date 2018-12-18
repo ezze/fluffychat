@@ -37,9 +37,6 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INST
 install(FILES ${PROJECT_NAME}.apparmor DESTINATION ${DATA_DIR})
 install(FILES ${PROJECT_NAME}.url-dispatcher DESTINATION ${DATA_DIR})
 install(FILES ${PROJECT_NAME}.content-hub DESTINATION ${DATA_DIR})
-install(FILES helloHelper PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ DESTINATION ${DATA_DIR})
-install(FILES helloHelper.json DESTINATION ${DATA_DIR})
-install(FILES helloHelper-apparmor.json DESTINATION ${DATA_DIR})
 install(DIRECTORY qml DESTINATION ${DATA_DIR})
 install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
@@ -65,6 +62,7 @@ add_custom_target(${DESKTOP_FILE_NAME} ALL
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME} DESTINATION ${DATA_DIR})
 
 add_subdirectory(po)
+add_subdirectory(push)
 
 # Make source files visible in qtcreator
 # We don't need to add plugin sources here as they get exposed
