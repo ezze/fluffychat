@@ -140,7 +140,7 @@ Page {
 
     Component.onCompleted: {
         backgroundImage.opacity = 1
-        storage.transaction ( "SELECT draft, membership, unread, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT draft, membership, unread, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
             if ( res.rows.length === 0 ) return
             membership = res.rows[0].membership
             if ( res.rows[0].draft !== "" && res.rows[0].draft !== null ) messageTextField.text = res.rows[0].draft
@@ -150,9 +150,13 @@ Page {
                 chatScrollView.canRedact = rs.rows[0].power_level >= res.rows[0].power_redact
                 canSendMessages = rs.rows[0].power_level >= res.rows[0].power_events_default
             })
+            chatScrollView.init ()
+            chatActive = true
+
+            // Is there an unread marker? Then mark as read!
+            if ( res.rows[0].notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + chatScrollView.model.get(0).event.id, null )
         })
-        chatScrollView.init ()
-        chatActive = true
+
 
         // Is there something to share? Then now share it!
         if ( shareObject !== null ) {

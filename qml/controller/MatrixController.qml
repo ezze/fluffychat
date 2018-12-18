@@ -165,9 +165,7 @@ Item {
         matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
             loadingScreen.visible = true
             events.waitForSync()
-            activeChat = response.room_id
-            mainStack.toStart ()
-            mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
+            mainStack.toChat( response.room_id )
         } )
     }
 

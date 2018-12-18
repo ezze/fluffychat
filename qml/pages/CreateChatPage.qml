@@ -106,9 +106,7 @@ Page {
                 matrix.post( "/client/r0/createRoom", {
                     invite: inviteList
                 }, function ( response ) {
-                    activeChat = response.room_id
-                    mainStack.toStart ()
-                    mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
+                    mainStack.toChat ( response.room_id )
                 } )
             }
         }

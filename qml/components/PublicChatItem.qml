@@ -16,9 +16,7 @@ ListItem {
     onClicked: {
         storage.transaction ( "SELECT * FROM Chats WHERE id='" + matrixid + "'", function (rs) {
             if ( rs.rows.length > 0 ) {
-                activeChat = matrixid
-                mainStack.toStart ()
-                mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
+                mainStack.toChat( matrixid )
             }
             else matrix.joinChat ( matrixid )
         })

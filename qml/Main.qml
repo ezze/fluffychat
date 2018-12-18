@@ -129,6 +129,12 @@ MainView {
         anchors.top: parent.top
         width: tabletMode ? parent.width - units.gu(45) : parent.width
         function toStart () { while (depth > 1) pop() }
+        function toChat( chatID ) {
+            if ( activeChat === chatID ) return
+            mainStack.toStart ()
+            activeChat = chatID
+            mainStack.push (Qt.resolvedUrl("./pages/ChatPage.qml"))
+        }
         height: parent.height
     }
 
