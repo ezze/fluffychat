@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 16:29+0000\n"
+"POT-Creation-Date: 2018-12-18 16:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -418,24 +418,23 @@ msgstr ""
 msgid "New chat: %1 selected"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:21 ../qml/pages/AddChatPage.qml:18
+#: ../qml/pages/CreateChatPage.qml:21
 msgid "New contact"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:27 ../qml/pages/AddChatPage.qml:24
+#: ../qml/pages/CreateChatPage.qml:27
 msgid "Discover public chats"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:72 ../qml/pages/InvitePage.qml:66
-#: ../qml/pages/AddChatPage.qml:84
+#: ../qml/pages/CreateChatPage.qml:74 ../qml/pages/InvitePage.qml:66
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:113 ../qml/pages/AddChatPage.qml:123
+#: ../qml/pages/CreateChatPage.qml:115
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:127
+#: ../qml/pages/CreateChatPage.qml:132
 msgid "Create chat"
 msgstr ""
 
@@ -775,14 +774,6 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:12
-msgid "Start a new chat"
-msgstr ""
-
-#: ../qml/pages/AddChatPage.qml:57 ../qml/components/NewGroupDialog.qml:11
-msgid "New group"
-msgstr ""
-
 #: ../qml/pages/NotificationTargetSettingsPage.qml:24
 msgid "Notification targets"
 msgstr ""
@@ -988,6 +979,10 @@ msgstr ""
 msgid "Leave"
 msgstr ""
 
+#: ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr ""
+
 #: ../qml/components/NewGroupDialog.qml:19
 msgid "Group name"
 msgstr ""
@@ -998,7 +993,7 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: ../qml/components/ContactImport.qml:63
+#: ../qml/components/ContactImport.qml:66
 msgid "%1 contacts were found"
 msgstr ""
 

@@ -32,7 +32,9 @@ Page {
     }
 
 
-    Component.onCompleted: {
+    Component.onCompleted: update ()
+
+    function update () {
         storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
         " ON Contacts.matrix_id=Users.matrix_id ORDER BY Contacts.medium DESC LIMIT 1000",
         function( res )  {
@@ -108,7 +110,7 @@ Page {
         delegate: ContactListItem {}
         model: ListModel { id: model }
         Button {
-            anchors.centerIn: contactList
+            anchors.centerIn: chatListView
             color: UbuntuColors.green
             text: i18n.tr("Import from contacts")
             visible: model.count === 0
@@ -116,7 +118,10 @@ Page {
         }
     }
 
-    ContactImport { id: contactImport }
+    ContactImport {
+        id: contactImport
+        newContactsFound: function () { update() }
+    }
 
     Rectangle {
         height: header.height

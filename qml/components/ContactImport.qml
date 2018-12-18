@@ -25,6 +25,8 @@ Item {
     property var importDialog: null
     property var contentType: ContentHub.ContentType.Contacts
 
+    property var newContactsFound: function () {}
+
     function mediaReceived ( url ) {
         // Request the VCF file
         var xhr = new XMLHttpRequest;
@@ -58,8 +60,9 @@ Item {
                         storage.transaction( "INSERT OR IGNORE INTO Users VALUES( '" +
                         response.threepids[j][2] + "', '', '' )")
                     }
-                    mainStack.toStart()
-                    mainStack.push(Qt.resolvedUrl("../pages/AddChatPage.qml"))
+
+                    newContactsFound () // TODO: Why is this not working?
+
                     toast.show ( i18n.tr('%1 contacts were found').arg(response.threepids.length) )
                     if ( response.threepids.length === 1 ) {
                         usernames.showUserSettings ( response.threepids[0][2] )
