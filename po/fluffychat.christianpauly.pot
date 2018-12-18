@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 16:40+0000\n"
+"POT-Creation-Date: 2018-12-18 16:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -426,15 +426,15 @@ msgstr ""
 msgid "Discover public chats"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:74 ../qml/pages/InvitePage.qml:66
+#: ../qml/pages/CreateChatPage.qml:80 ../qml/pages/InvitePage.qml:66
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:115
+#: ../qml/pages/CreateChatPage.qml:121
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:132
+#: ../qml/pages/CreateChatPage.qml:139
 msgid "Create chat"
 msgstr ""
 

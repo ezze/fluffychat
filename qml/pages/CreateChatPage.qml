@@ -31,6 +31,12 @@ Page {
         }
     }
 
+    Rectangle {
+        anchors.fill: parent
+        color: settings.darkmode ? "#202020" : "white"
+        z: -2
+    }
+
 
     Component.onCompleted: update ()
 
@@ -127,6 +133,7 @@ Page {
         height: header.height
         width: parent.width
         anchors.bottom: parent.bottom
+        color: theme.palette.normal.background
 
         Button {
             text: i18n.tr("Create chat")
