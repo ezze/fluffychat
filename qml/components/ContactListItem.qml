@@ -6,12 +6,27 @@ import "../components"
 
 ListItem {
 
-    visible: { temp || layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
-    height: visible ? layout.height : 0
+    height: visible * layout.height
+    visible: {
+        selected ? true :
+        (searchField.searchMatrixId ? matrixid.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
+        : layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1)
+    }
 
     color: settings.darkmode ? "#202020" : "white"
 
-    onClicked: usernames.showUserSettings ( matrixid )
+    property var isSelected: selected
+    property var matrixid: matrix_id
+    property var tempElement: temp
+
+    selectMode: true
+    onClicked: {
+        selected = !selected
+        if ( selected ) inviteList[inviteList.length] = matrixid
+        else inviteList.splice( inviteList.indexOf(matrixid), 1 )
+        if ( selected && tempElement ) searchField.tempElement = null
+        selectedCount = inviteList.length
+    }
 
     ListItemLayout {
         id: layout

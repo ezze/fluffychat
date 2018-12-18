@@ -179,8 +179,12 @@ Page {
                 onTriggered: {
                     searching = false
                     searchField.text = ""
-                    mainStack.toStart ()
-                    mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
+                    if ( tabletMode ) {
+                        mainStack.toStart ()
+                        mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
+                    }
+                    else bottomEdge.commit ()
+
                 }
             }
             ]
@@ -237,21 +241,13 @@ Page {
         id: bottomEdge
         height: shareObject === null ? parent.height : 0
 
-        onCommitCompleted: {
-            searching = false
-            searchField.text = ""
-            mainStack.toStart ()
-            mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
-            collapse()
-        }
-
         enabled: !tabletMode
 
         contentComponent: Rectangle {
             width: mainStackWidth
             height: root.height
             color: theme.palette.normal.background
-            AddChatPage { }
+            CreateChatPage { }
         }
     }
 

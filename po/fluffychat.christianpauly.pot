@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 15:51+0000\n"
+"POT-Creation-Date: 2018-12-18 16:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -382,11 +382,11 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:209
+#: ../qml/pages/ChatListPage.qml:213
 msgid "Search for chat names…"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:230
+#: ../qml/pages/ChatListPage.qml:234
 msgid "Swipe from below to start a chat"
 msgstr ""
 
@@ -415,16 +415,28 @@ msgid "Chat permissions"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:15
-msgid "New group: %1 selected"
+msgid "New chat: %1 selected"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:54 ../qml/pages/InvitePage.qml:66
+#: ../qml/pages/CreateChatPage.qml:21 ../qml/pages/AddChatPage.qml:18
+msgid "New contact"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:27 ../qml/pages/AddChatPage.qml:24
+msgid "Discover public chats"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:72 ../qml/pages/InvitePage.qml:66
 #: ../qml/pages/AddChatPage.qml:84
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:100
-msgid "Create group"
+#: ../qml/pages/CreateChatPage.qml:113 ../qml/pages/AddChatPage.qml:123
+msgid "Import from contacts"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:127
+msgid "Create chat"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
@@ -767,20 +779,8 @@ msgstr ""
 msgid "Start a new chat"
 msgstr ""
 
-#: ../qml/pages/AddChatPage.qml:18
-msgid "New contact"
-msgstr ""
-
-#: ../qml/pages/AddChatPage.qml:24
-msgid "Discover public chats"
-msgstr ""
-
 #: ../qml/pages/AddChatPage.qml:57 ../qml/components/NewGroupDialog.qml:11
 msgid "New group"
-msgstr ""
-
-#: ../qml/pages/AddChatPage.qml:123
-msgid "Import from contacts"
 msgstr ""
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:24

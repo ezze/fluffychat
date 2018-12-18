@@ -12,7 +12,23 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr('New group: %1 selected').arg(selectedCount)
+        title: i18n.tr('New chat: %1 selected').arg(selectedCount)
+
+        trailingActionBar {
+            actions: [
+            Action {
+                iconName: "contact-new"
+                text: i18n.tr("New contact")
+                onTriggered: contactImport.requestContact()
+            },
+
+            Action {
+                iconName: "webbrowser-app-symbolic"
+                text: i18n.tr("Discover public chats")
+                onTriggered: mainStack.push(Qt.resolvedUrl("./JoinChatPage.qml"))
+            }
+            ]
+        }
     }
 
 
@@ -24,8 +40,10 @@ Page {
                 var user = res.rows[i]
                 model.append({
                     matrix_id: user.matrix_id,
-                    displayname: user.displayname || usernames.transformFromId(user.matrix_id),
+                    name: user.displayname || usernames.transformFromId(user.matrix_id),
                     avatar_url: user.avatar_url,
+                    medium: user.medium || "matrix",
+                    address: user.address || user.matrix_id,
                     temp: false
                 })
             }
@@ -87,9 +105,18 @@ Page {
         width: parent.width
         height: parent.height - 2*header.height - searchField.height
         anchors.top: searchField.bottom
-        delegate: SettingsListCheck {}
+        delegate: ContactListItem {}
         model: ListModel { id: model }
+        Button {
+            anchors.centerIn: contactList
+            color: UbuntuColors.green
+            text: i18n.tr("Import from contacts")
+            visible: model.count === 0
+            onClicked: contactImport.requestContact()
+        }
     }
+
+    ContactImport { id: contactImport }
 
     Rectangle {
         height: header.height
@@ -97,7 +124,7 @@ Page {
         anchors.bottom: parent.bottom
 
         Button {
-            text: i18n.tr("Create group")
+            text: i18n.tr("Create chat")
             width: parent.width - units.gu(4)
             color: UbuntuColors.green
             anchors.centerIn: parent
