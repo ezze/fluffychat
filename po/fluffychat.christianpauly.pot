@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 18:35+0000\n"
+"POT-Creation-Date: 2018-12-18 18:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:188 ../qml/components/ChatScrollView.qml:308
+#: ../qml/Main.qml:188 ../qml/components/ChatScrollView.qml:310
 msgid "Are you sure?"
 msgstr ""
 
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/controller/PushController.qml:69
+#: ../qml/controller/PushController.qml:71
 msgid "Push notifications are disabled..."
 msgstr ""
 
@@ -1138,31 +1138,31 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:67
+#: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:269
+#: ../qml/components/ChatScrollView.qml:271
 msgid "Try send again"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:278
+#: ../qml/components/ChatScrollView.qml:280
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:286
+#: ../qml/components/ChatScrollView.qml:288
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:291
+#: ../qml/components/ChatScrollView.qml:293
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:296
+#: ../qml/components/ChatScrollView.qml:298
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:300
+#: ../qml/components/ChatScrollView.qml:302
 msgid "Delete message"
 msgstr ""
 
