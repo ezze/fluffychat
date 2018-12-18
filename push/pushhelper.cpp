@@ -90,9 +90,15 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
         }
     }
 
+    // Get the type and return if it is not a supported type
+    QString type = QString("");
+    if ( push.contains("type") ) {
+        type = push["type"].toString();
+    }
+
     // If there is no unread message, then this is the signal to just clear persistent
     // notifications with this id and reset the unread counter
-    if (unread == 0 ) {
+    if ( unread == 0 || type != QStringLiteral("m.room.message") ) {
         //The notification object to be passed to Postal
         QJsonObject notification{
             {"tag", id},
@@ -105,16 +111,6 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
             {"message", push}, // Include the original matrix push object to be delivered to the app
             {"notification", notification}
         };
-    }
-
-    // Get the type
-    if ( push.contains("type") ) {
-        const QString type = push["type"].toString();
-        if (type != QStringLiteral("m.room.message") && type != QStringLiteral("m.call.invite")) {
-            return QJsonObject{
-                {"message", push},
-            };
-        }
     }
 
 
@@ -144,14 +140,19 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
 
     // Get the body
     QString body = QString(N_("New message"));
-    if (push.contains("content")) {
-        const QJsonObject content = push["content"].toObject();
-        if (content.contains("body")) {
-            body = content["body"].toString();
+    if (type == QStringLiteral("m.room.message")) {
+        if (push.contains("content")) {
+            const QJsonObject content = push["content"].toObject();
+            if (content.contains("body")) {
+                body = content["body"].toString();
+            }
+        }
+        if (push.contains("room_name") && push["room_name"].toString() != sender) {
+            body = sender + QString(": ") + body;
         }
     }
-    if (push.contains("room_name") && push["room_name"].toString() != sender) {
-        body = sender + QString(": ") + body;
+    if (type == QStringLiteral("m.room.member")) {
+        QString body = QString(N_("New member event..."));
     }
 
 
