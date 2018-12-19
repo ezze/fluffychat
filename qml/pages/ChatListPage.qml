@@ -125,6 +125,12 @@ Page {
             // Update the room avatar
             tempRoom.avatar_url = lastEvent.content.url
         }
+        else if ( type === "m.room.member" && ((tempRoom.topic === "" || tempRoom.topic === null) || (tempRoom.avatar_url === "" || tempRoom.avatar_url === null)) ) {
+            // Update the room name or room avatar calculation
+            model.remove ( j )
+            model.insert ( j, { "room": tempRoom })
+            console.log("RELOADED!!!111")
+        }
         model.set ( j, { "room": tempRoom })
 
         // Now reorder this item
