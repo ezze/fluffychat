@@ -60,9 +60,19 @@ Item {
 
         // Find urls and make them clickable
         var urlRegex = /(?:(?:https?|ftp|fluffychat|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
+        var aliasRegex = /#(\w+):(\w+)\.(\w+)/gm
+        var usernameRegex = /@(\w+):(\w+)\.(\w+)/gm
+        var roomIdRegex = /!(\w+):(\w+)\.(\w+)/gm
+        var replaceMatrixUri = function(url) {
+            return '<a href="fluffychat://%1">%2</a>'.arg(url).arg(url)
+        }
         tempText = tempText.replace(urlRegex, function(url) {
             return '<a href="%1">%2</a>'.arg(url).arg(url)
         })
+        tempText = tempText.replace(aliasRegex, replaceMatrixUri)
+        tempText = tempText.replace(usernameRegex, replaceMatrixUri)
+        tempText = tempText.replace(roomIdRegex, replaceMatrixUri)
+
 
         return formatReply ( tempText )
     }
