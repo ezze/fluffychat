@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-19 08:52+0000\n"
+"POT-Creation-Date: 2018-12-19 09:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,76 +83,87 @@ msgid "%1 has redacted a message"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:51
-msgid "%1 has sent a sticker"
+msgid ""
+"%1 has initialized end to end encryption. Be aware that FluffyChat does not "
+"yet support end to end encryption. You will not be able to send or read "
+"messages in this chat!"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:54
-msgid "%1 has set the chat history visible to: %2"
+msgid "Encrypted message"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:57
-msgid "%1 has set the join rules to: %2"
+msgid "%1 has sent a sticker"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:60
-msgid "%1 has set the guest access to: %2"
+msgid "%1 has set the chat history visible to: %2"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:63
-msgid "The chat aliases have been changed."
+msgid "%1 has set the join rules to: %2"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:66
+msgid "%1 has set the guest access to: %2"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:69
+msgid "The chat aliases have been changed."
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:75
 msgid "The canonical chat alias has been changed to: "
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:72
+#: ../qml/controller/DisplayEventController.qml:78
 msgid "The chat permissions have been changed"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:82
+#: ../qml/controller/DisplayEventController.qml:88
 #: ../qml/components/ChangeJoinRulesDialog.qml:35
 msgid "Only invited users"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:85
+#: ../qml/controller/DisplayEventController.qml:91
 #: ../qml/components/ChangeJoinRulesDialog.qml:19
 msgid "Public"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:88
+#: ../qml/controller/DisplayEventController.qml:94
 #: ../qml/components/ChangeJoinRulesDialog.qml:43
 msgid "Private"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:91
+#: ../qml/controller/DisplayEventController.qml:97
 #: ../qml/components/ChangeJoinRulesDialog.qml:27
 msgid "Knock"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:94
+#: ../qml/controller/DisplayEventController.qml:100
 msgid "All chatters"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:97
+#: ../qml/controller/DisplayEventController.qml:103
 msgid "All joined chat participants"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:100
+#: ../qml/controller/DisplayEventController.qml:106
 msgid "All invited chat participants"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:103
+#: ../qml/controller/DisplayEventController.qml:109
 #: ../qml/components/ChangeHistoryVisibilityDialog.qml:19
 msgid "Everyone"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:106
+#: ../qml/controller/DisplayEventController.qml:112
 #: ../qml/components/ChangeGuestAccessDialog.qml:19
 msgid "Can join"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:109
+#: ../qml/controller/DisplayEventController.qml:115
 #: ../qml/components/ChangeGuestAccessDialog.qml:27
 msgid "Forbidden"
 msgstr ""

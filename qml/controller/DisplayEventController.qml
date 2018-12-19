@@ -47,6 +47,12 @@ Item {
         else if ( event.type === "m.room.redaction" ) {
             body = i18n.tr("%1 has redacted a message").arg(displayname)
         }
+        else if ( event.type === "m.room.encryption" ) {
+            body = i18n.tr("%1 has initialized end to end encryption. Be aware that FluffyChat does not yet support end to end encryption. You will not be able to send or read messages in this chat!").arg(displayname)
+        }
+        else if ( event.type === "m.room.encrypted" ) {
+            body = i18n.tr("Encrypted message")
+        }
         else if ( event.type === "m.sticker" ) {
             body = i18n.tr("%1 has sent a sticker").arg(displayname)
         }
