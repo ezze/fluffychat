@@ -6,10 +6,6 @@ import "../components"
 Page {
     anchors.fill: parent
 
-    property var enabled: true
-    property var inviteList: []
-    property var selectedCount: 0
-
     // To disable the background image on this page
     Rectangle {
         anchors.fill: parent
@@ -18,14 +14,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr('Invite user: %1 selected').arg(selectedCount)
-    }
-
-    function invite ( i ) {
-        if ( i >= inviteList.length ) return mainStack.pop()
-        enabled = false
-        matrix.post ( "/client/r0/rooms/%1/invite".arg(activeChat),
-        { user_id: inviteList[i] }, function () { invite( i+1 ) } )
+        title: i18n.tr('Invite users')
     }
 
     Component.onCompleted: {
@@ -36,8 +25,10 @@ Page {
                 var user = res.rows[i]
                 model.append({
                     matrix_id: user.matrix_id,
-                    displayname: user.displayname || usernames.transformFromId(user.matrix_id),
+                    name: user.displayname || usernames.transformFromId(user.matrix_id),
                     avatar_url: user.avatar_url,
+                    medium: user.medium || "matrix",
+                    address: user.address || user.matrix_id,
                     temp: false
                 })
             }
@@ -60,7 +51,6 @@ Page {
             rightMargin: units.gu(2)
             leftMargin: units.gu(2)
         }
-        readOnly: !enabled
         focus: true
         inputMethodHints: Qt.ImhNoPredictiveText
         placeholderText: i18n.tr("Search for example @username:server.abc")
@@ -74,7 +64,9 @@ Page {
                 }
                 model.append ( {
                     matrix_id: displayText,
-                    displayname: displayText,
+                    name: usernames.transformFromId(displayText),
+                    medium: "matrix",
+                    address: displayText,
                     avatar_url: "",
                     temp: true
                 })
@@ -83,33 +75,12 @@ Page {
         }
     }
 
-    ActivityIndicator {
-        visible: !enabled
-        running: visible
-        anchors.centerIn: parent
-    }
-
     ListView {
-        opacity: enabled ? 1 : 0.5
         id: chatListView
         width: parent.width
         height: parent.height - 2*header.height - searchField.height
         anchors.top: searchField.bottom
-        delegate: SettingsListCheck {}
+        delegate: InviteListItem {}
         model: ListModel { id: model }
-    }
-
-    Rectangle {
-        height: header.height
-        width: parent.width
-        anchors.bottom: parent.bottom
-
-        Button {
-            text: i18n.tr("Invite")
-            width: parent.width - units.gu(4)
-            color: UbuntuColors.green
-            anchors.centerIn: parent
-            onClicked: invite ( 0 )
-        }
     }
 }

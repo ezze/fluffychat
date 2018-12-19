@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-19 10:21+0000\n"
+"POT-Creation-Date: 2018-12-19 10:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -441,7 +441,7 @@ msgstr ""
 msgid "Discover public chats"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:80 ../qml/pages/InvitePage.qml:66
+#: ../qml/pages/CreateChatPage.qml:80 ../qml/pages/InvitePage.qml:56
 msgid "Search for example @username:server.abc"
 msgstr ""
 
@@ -621,12 +621,8 @@ msgstr ""
 msgid "Targets"
 msgstr ""
 
-#: ../qml/pages/InvitePage.qml:21
-msgid "Invite user: %1 selected"
-msgstr ""
-
-#: ../qml/pages/InvitePage.qml:108
-msgid "Invite"
+#: ../qml/pages/InvitePage.qml:17
+msgid "Invite users"
 msgstr ""
 
 #: ../qml/pages/PrivacyPolicyPage.qml:28
@@ -872,6 +868,10 @@ msgstr ""
 #: ../qml/components/ChangePowerLevelDialog.qml:64
 #: ../qml/components/ChangeGuestAccessDialog.qml:37
 msgid "Close"
+msgstr ""
+
+#: ../qml/components/InviteListItem.qml:24
+msgid "%1 has been invited"
 msgstr ""
 
 #: ../qml/components/MemberListItem.qml:65
