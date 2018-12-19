@@ -179,12 +179,8 @@ Page {
                 onTriggered: {
                     searching = false
                     searchField.text = ""
-                    if ( tabletMode ) {
-                        mainStack.toStart ()
-                        mainStack.push(Qt.resolvedUrl("./AddChatPage.qml"))
-                    }
-                    else bottomEdge.commit ()
-
+                    mainStack.toStart ()
+                    mainStack.push(Qt.resolvedUrl("./CreateChatPage.qml"))
                 }
             }
             ]
@@ -237,7 +233,7 @@ Page {
     }
 
     // ============================== BOTTOM EDGE ==============================
-    BottomEdge {
+    /*BottomEdge {
         id: bottomEdge
         height: shareObject === null ? parent.height : 0
 
@@ -249,6 +245,6 @@ Page {
             color: theme.palette.normal.background
             CreateChatPage { }
         }
-    }
+    }*/
 
 }
