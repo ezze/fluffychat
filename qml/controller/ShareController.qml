@@ -23,12 +23,22 @@ Item {
         }
     }
 
+    MimeData {
+        id: mimeData
+        text: ""
+    }
+
     Component {
         id: contentItemComponent
         ContentItem { }
     }
 
     ContactImport { id: contactImport }
+
+    function toClipboard ( text ) {
+        mimeData.text = text
+        Clipboard.push( mimeData )
+    }
 
     function startImport ( transfer ) {
         console.log("NEW TRANSFER:",JSON.stringify(transfer))

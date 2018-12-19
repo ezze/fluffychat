@@ -293,8 +293,7 @@ ListView {
                 text: i18n.tr("Copy text")
                 visible: contextualActions.contextEvent !== undefined && contextualActions.contextEvent.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( contextualActions.contextEvent.content.msgtype ) === -1
                 onTriggered: {
-                    mimeData.text = contextualActions.contextEvent.content.body
-                    Clipboard.push( mimeData )
+                    shareController.toClipboard ( contextualActions.contextEvent.content.body )
                     toast.show( i18n.tr("Text has been copied to the clipboard") )
                 }
             }
@@ -316,11 +315,6 @@ ListView {
                     }
                 }
             }
-        }
-
-        MimeData {
-            id: mimeData
-            text: ""
         }
 
         width: parent.width

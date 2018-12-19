@@ -26,7 +26,7 @@ Page {
     header: FcPageHeader {
         title: i18n.tr("Please set a password")
     }
-    
+
     function register () {
         matrix.register ( desiredUsername.toLowerCase(), loginTextField.text, (loginDomain || defaultDomain), "UbuntuPhone", function () {
 
@@ -139,11 +139,6 @@ Page {
             }
 
         }
-    }
-
-    MimeData {
-        id: mimeData
-        text: ""
     }
 
 }

@@ -13,12 +13,15 @@ ListItem {
         subtitle.text: matrix_id || ""
     }
     Icon {
-        name: "share"
+        name: "edit-copy"
         width: units.gu(2)
         height: width
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.margins: (parent.height - width) / 2
     }
-    onClicked: shareController.shareLink ( "fluffychat://%1".arg(matrix_id) )
+    onClicked: {
+        shareController.toClipboard ( matrix_id )
+        toast.show( i18n.tr("Username has been copied to the clipboard") )
+    }
 }
