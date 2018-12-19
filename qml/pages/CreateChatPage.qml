@@ -12,7 +12,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr('New chat: %1 selected').arg(selectedCount)
+        title: selectedCount===0 ? i18n.tr('New chat') : i18n.tr('New chat: %1 selected').arg(selectedCount)
 
         trailingActionBar {
             actions: [
@@ -129,25 +129,27 @@ Page {
         newContactsFound: function () { update() }
     }
 
-    Rectangle {
-        height: header.height
-        width: parent.width
-        anchors.bottom: parent.bottom
-        color: theme.palette.normal.background
+    Button {
+        text: i18n.tr("Create chat")
+        width: parent.width - units.gu(4)
+        color: UbuntuColors.green
+        anchors {
+            bottom: parent.bottom
+            topMargin: units.gu(1)
+            bottomMargin: units.gu(1)
+            left: parent.left
+            right: parent.right
+            rightMargin: units.gu(2)
+            leftMargin: units.gu(2)
+        }
 
-        Button {
-            text: i18n.tr("Create chat")
-            width: parent.width - units.gu(4)
-            color: UbuntuColors.green
-            anchors.centerIn: parent
-            onClicked: {
-                loadingScreen.visible = true
-                matrix.post( "/client/r0/createRoom", {
-                    invite: inviteList
-                }, function ( response ) {
-                    mainStack.toChat ( response.room_id )
-                } )
-            }
+        onClicked: {
+            loadingScreen.visible = true
+            matrix.post( "/client/r0/createRoom", {
+                invite: inviteList
+            }, function ( response ) {
+                mainStack.toChat ( response.room_id )
+            } )
         }
     }
 }

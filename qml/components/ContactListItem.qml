@@ -20,13 +20,15 @@ ListItem {
     property var tempElement: temp
 
     selectMode: true
-    onClicked: {
-        selected = !selected
+    onSelectedChanged: {
+        //selected = !selected
         if ( selected ) inviteList[inviteList.length] = matrixid
         else inviteList.splice( inviteList.indexOf(matrixid), 1 )
         if ( selected && tempElement ) searchField.tempElement = null
         selectedCount = inviteList.length
     }
+
+    onClicked: usernames.showUserSettings ( matrixid )
 
     ListItemLayout {
         id: layout
@@ -37,7 +39,7 @@ ListItem {
 
         Avatar {
             name: layout.title.text
-            SlotsLayout.position: SlotsLayout.Leading
+            SlotsLayout.position: SlotsLayout.Trailing
             width: units.gu(4)
             height: width
             mxc: avatar_url || ""

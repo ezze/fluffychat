@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 18:41+0000\n"
+"POT-Creation-Date: 2018-12-19 08:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -415,6 +415,10 @@ msgid "Chat permissions"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:15
+msgid "New chat"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:15
 msgid "New chat: %1 selected"
 msgstr ""
 
@@ -434,7 +438,7 @@ msgstr ""
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:139
+#: ../qml/pages/CreateChatPage.qml:133
 msgid "Create chat"
 msgstr ""
 
