@@ -32,14 +32,13 @@ ListItem {
 
     ListItemLayout {
         id: layout
-        title.text: name
+        title.text: name + (medium !== "matrix" ? " (%1)".arg(address) : "")
         title.color: mainFontColor
-        subtitle.text: medium.replace("msisdn","📱").replace("email","✉").replace("matrix","💬") + " " + address
-        subtitle.color: "#888888"
+        summary.text: "No status message"
 
         Avatar {
             name: layout.title.text
-            SlotsLayout.position: SlotsLayout.Trailing
+            SlotsLayout.position: SlotsLayout.Leading
             width: units.gu(4)
             height: width
             mxc: avatar_url || ""
@@ -47,5 +46,15 @@ ListItem {
                 usernames.showUserSettings ( matrixid )
             }
         }
+
+        Icon {
+            name: medium==="msisdn" ? "phone-smartphone-symbolic" :
+            ( medium==="email" ? "dekko-app-symbolic" :
+            ( "messaging-app-symbolic" ) )
+            SlotsLayout.position: SlotsLayout.Trailing
+            width: units.gu(3)
+            height: width
+        }
+
     }
 }

@@ -20,12 +20,6 @@ Page {
                 iconName: "contact-new"
                 text: i18n.tr("New contact")
                 onTriggered: contactImport.requestContact()
-            },
-
-            Action {
-                iconName: "webbrowser-app-symbolic"
-                text: i18n.tr("Discover public chats")
-                onTriggered: mainStack.push(Qt.resolvedUrl("./JoinChatPage.qml"))
             }
             ]
         }
@@ -129,7 +123,20 @@ Page {
         newContactsFound: function () { update() }
     }
 
+    Rectangle {
+        z: 2
+        width: parent.width
+        anchors.bottom: parent.bottom
+        height: header.height * 3
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "#00FFFFFF" }
+            GradientStop { position: 1.0; color: "#FFFFFFFF" }
+        }
+    }
+
     Button {
+        z: 3
+        id: button
         text: i18n.tr("Create chat")
         width: parent.width - units.gu(4)
         color: UbuntuColors.green
