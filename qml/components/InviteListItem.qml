@@ -46,5 +46,11 @@ ListItem {
                 usernames.showUserSettings ( matrixid )
             }
         }
+        Icon {
+            SlotsLayout.position: SlotsLayout.Trailing
+            width: units.gu(2)
+            height: width
+            name: "contact-new"
+        }
     }
 }

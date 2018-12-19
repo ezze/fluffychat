@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-19 10:43+0000\n"
+"POT-Creation-Date: 2018-12-19 10:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -872,6 +872,14 @@ msgstr ""
 
 #: ../qml/components/InviteListItem.qml:24
 msgid "%1 has been invited"
+msgstr ""
+
+#: ../qml/components/InviteListItem.qml:26
+msgid "An error occured. Maybe the username %1 is wrong?"
+msgstr ""
+
+#: ../qml/components/InviteListItem.qml:27
+msgid "%1 is banned from the chat."
 msgstr ""
 
 #: ../qml/components/MemberListItem.qml:65

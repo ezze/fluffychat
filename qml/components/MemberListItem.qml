@@ -6,7 +6,7 @@ import "../components"
 
 ListItem {
     visible: {
-        searchField.upperCaseText === "" ? membership === "join" :
+        searchField.upperCaseText === "" ? (membership === "join" || membership === "invite") :
         layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
     }
     height: visible ? layout.height : 0
