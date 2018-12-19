@@ -145,8 +145,11 @@ Page {
 
         onClicked: {
             loadingScreen.visible = true
+            var is_direct = inviteList.length === 1
             matrix.post( "/client/r0/createRoom", {
-                invite: inviteList
+                invite: inviteList,
+                is_direct: is_direct,
+                preset: is_direct ? "trusted_private_chat" : "private_chat"
             }, function ( response ) {
                 mainStack.toChat ( response.room_id )
             } )

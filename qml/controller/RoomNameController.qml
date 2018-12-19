@@ -21,7 +21,7 @@ Item {
                 storage.query( "SELECT Users.displayname, Users.matrix_id FROM Users, Memberships " +
                 " WHERE Memberships.matrix_id=Users.matrix_id " +
                 " AND Memberships.chat_id=? " +
-                " AND Memberships.membership='join' " +
+                " AND (Memberships.membership='join' OR Memberships.membership='invite') " +
                 " AND Memberships.matrix_id!=? ",
                 [ chat_id, matrix.matrixid ], function (rs) {
                     var displayname = i18n.tr('Empty chat')
