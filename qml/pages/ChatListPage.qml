@@ -129,7 +129,6 @@ Page {
             // Update the room name or room avatar calculation
             model.remove ( j )
             model.insert ( j, { "room": tempRoom })
-            console.log("RELOADED!!!111")
         }
         model.set ( j, { "room": tempRoom })
 
