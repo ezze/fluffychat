@@ -39,6 +39,7 @@ Page {
 
     header: FcPageHeader {
         title: i18n.tr('Settings for %1').arg(matrix.matrixid)
+        flickable: scrollView.flickableItem
 
         trailingActionBar {
             numberOfSlots: 1
@@ -56,7 +57,7 @@ Page {
         id: scrollView
         width: parent.width
         height: parent.height - header.height
-        anchors.top: header.bottom
+        anchors.top: parent.top
         contentItem: Column {
             width: mainStackWidth
 

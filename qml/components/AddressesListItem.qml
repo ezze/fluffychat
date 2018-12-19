@@ -15,7 +15,7 @@ ListItem {
         title.text: name + (isCanonicalAlias ? " (<b>" + i18n.tr('Canonical alias') + "</b>)" : "")
         title.color: mainFontColor
         Icon {
-            name: "bookmark"
+            name: "stock_link"
             color: settings.mainColor
             width: units.gu(4)
             height: units.gu(4)

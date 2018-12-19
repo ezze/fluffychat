@@ -53,6 +53,7 @@ Page {
                         isCanonicalAlias: response.rows[ i ].address === canonical_alias
                     })
                 }
+                if ( response.rows.length === 0 ) PopupUtils.open( addAliasDialog )
             })
         })
     }
@@ -65,7 +66,7 @@ Page {
             numberOfSlots: 1
             actions: [
             Action {
-                iconName: "bookmark-new"
+                iconName: "insert-link"
                 text: i18n.tr("Add chat address")
                 onTriggered: PopupUtils.open( addAliasDialog )
                 visible: canEditAddresses

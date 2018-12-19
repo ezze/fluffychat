@@ -242,7 +242,7 @@ Page {
                     }
                     SettingsListLink {
                         name: i18n.tr("Chat addresses")
-                        icon: "bookmark"
+                        icon: "stock_link"
                         page: "ChatAliasSettingsPage"
                         onClicked: model.clear()
                     }
