@@ -56,7 +56,7 @@ Page {
     ScrollView {
         id: scrollView
         width: parent.width
-        height: parent.height - header.height
+        height: parent.height
         anchors.top: parent.top
         contentItem: Column {
             width: mainStackWidth
