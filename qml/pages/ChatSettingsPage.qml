@@ -147,10 +147,10 @@ Page {
                 radius: 0
                 anchors.horizontalCenter: parent.horizontalCenter
                 mxc: ""
-                visible: mxc !== "" && mxc !== undefined
+                visible: mxc !== "" && mxc !== null
                 onClickFunction: function () {
-                    if ( canChangeAvatar && hasAvatar ) contextualAvatarActions.show()
-                    else if ( hasAvatar ) imageViewer.show ( mxc )
+                    if ( canChangeAvatar ) contextualAvatarActions.show()
+                    else imageViewer.show ( mxc )
                 }
                 ActionSelectionPopover {
                     id: contextualAvatarActions

@@ -47,7 +47,7 @@ Item {
         storage.transaction( "SELECT avatar_url FROM Chats " +
         " WHERE id='" + chat_id + "' ",
         function (rs) {
-            if ( rs.rows.length > 0 && rs.rows[0].avatar_url !== "" ) callback ( rs.rows[0].avatar_url )
+            if ( rs.rows.length > 0 && rs.rows[0].avatar_url !== "" && rs.rows[0].avatar_url !== null ) callback ( rs.rows[0].avatar_url )
             else getAvatarFromSingleChat ( chat_id, callback )
         })
     }
