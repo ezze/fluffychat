@@ -204,6 +204,9 @@ Page {
                 anchors.leftMargin: units.gu(2)
                 wrapMode: Text.Wrap
                 text: description
+                linkColor: settings.brightMainColor
+                textFormat: Text.StyledText
+                onLinkActivated: uriController.openUrlExternally ( link )
             }
             Rectangle {
                 width: parent.width

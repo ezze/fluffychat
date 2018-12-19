@@ -5,25 +5,33 @@ Item {
 
     Connections {
         target: UriHandler
-        onOpened: {
-            // no url
-            if (uris.length === 0 ) return
+        onOpened: openUri ( uri )
+    }
 
-            var uri = uris[0]
-            if ( uri.slice(0,14) === "fluffychat://@" ) {
-                uri = uri.replace("fluffychat://","")
-                usernames.handleUserUri( uri )
-            }
-            else if ( uri.slice(0,14) === "fluffychat://#" ) {
-                uri = uri.replace("fluffychat://","")
-                matrix.joinChat ( uri )
-            }
-            else if ( uri.slice(0,14) === "fluffychat://!" ) {
-                uri = uri.replace("fluffychat://","")
-                mainStack.toChat ( uri )
-            }
-            else console.error("Unkown uri...")
+    function openUri ( uris ) {
+        // no url
+        if (uris.length === 0 ) return
+
+        var uri = uris[0]
+        if ( uri.slice(0,14) === "fluffychat://@" ) {
+            uri = uri.replace("fluffychat://","")
+            usernames.handleUserUri( uri )
         }
+        else if ( uri.slice(0,14) === "fluffychat://#" ) {
+            uri = uri.replace("fluffychat://","")
+            matrix.joinChat ( uri )
+        }
+        else if ( uri.slice(0,14) === "fluffychat://!" ) {
+            uri = uri.replace("fluffychat://","")
+            mainStack.toChat ( uri )
+        }
+        else console.error("Unkown uri...")
+    }
+
+    function openUrlExternally ( link ) {
+        if ( link.indexOf("fluffychat://") !== -1 ) uriController.openUri ( [link] )
+        else if ( link.indexOf("http") !== -1 ) Qt.openUrlExternally ( link )
+        else Qt.openUrlExternally ( "http://" + link )
     }
 
 }

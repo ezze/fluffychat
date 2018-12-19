@@ -314,7 +314,7 @@ Item {
             // it has to be changed in the database
             if ( event.type === "m.room.topic" ) {
                 transaction.executeSql( "UPDATE Chats SET description=? WHERE id=?",
-                [ event.content.topic || "",
+                [ sender.formatText(event.content.topic) || "",
                 roomid ])
             }
 
