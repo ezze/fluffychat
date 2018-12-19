@@ -25,8 +25,8 @@ ListItem {
         Switch {
             id: switcher
             SlotsLayout.position: SlotsLayout.Trailing
-            onCheckedChanged: onSwitching ()
+            onCheckedChanged: if ( enabled ) onSwitching ()
         }
     }
-    onClicked: switcher.checked ? switcher.checked = false : switcher.checked = true
+    onClicked: if ( isEnabled ) switcher.checked ? switcher.checked = false : switcher.checked = true
 }
