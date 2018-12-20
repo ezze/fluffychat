@@ -8,7 +8,10 @@ ListItem {
 
     color: settings.darkmode ? "#202020" : "white"
 
-    onClicked: shareController.shareLink ( "fluffychat://%1".arg(name) )
+    onClicked: {
+        shareController.toClipboard ( name )
+        toast.show ( i18n.tr('Copied to clipboard') )
+    }
 
     ListItemLayout {
         id: layout
@@ -23,7 +26,7 @@ ListItem {
         }
 
         Icon {
-            name: "share"
+            name: "edit-copy"
             width: units.gu(2)
             height: width
             SlotsLayout.position: SlotsLayout.Trailing

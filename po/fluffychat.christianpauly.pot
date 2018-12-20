@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-20 13:34+0000\n"
+"POT-Creation-Date: 2018-12-20 13:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1235,7 +1235,11 @@ msgid ""
 "This can take a few minutes…"
 msgstr ""
 
-#: ../qml/components/AddressesListItem.qml:15
+#: ../qml/components/AddressesListItem.qml:13
+msgid "Copied to clipboard"
+msgstr ""
+
+#: ../qml/components/AddressesListItem.qml:18
 msgid "Canonical alias"
 msgstr ""
 
