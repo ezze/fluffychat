@@ -21,7 +21,6 @@ ListItem {
 
     selectMode: true
     onSelectedChanged: {
-        //selected = !selected
         if ( selected ) inviteList[inviteList.length] = matrixid
         else inviteList.splice( inviteList.indexOf(matrixid), 1 )
         if ( selected && tempElement ) searchField.tempElement = null

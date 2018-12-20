@@ -130,7 +130,7 @@ Page {
         height: header.height * 3
         gradient: Gradient {
             GradientStop { position: 0.0; color: "#00FFFFFF" }
-            GradientStop { position: 1.0; color: "#FFFFFFFF" }
+            GradientStop { position: 1.0; color: darkmode ? "#FF000000" : "#FFFFFFFF" }
         }
     }
 
