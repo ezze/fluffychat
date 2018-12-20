@@ -5,7 +5,7 @@ Item {
 
     Connections {
         target: UriHandler
-        onOpened: openUri ( uri )
+        onOpened: openUri ( uris )
     }
 
     function openUri ( uris ) {
