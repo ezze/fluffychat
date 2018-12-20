@@ -87,7 +87,7 @@ Page {
 
             Label {
                 id: loginStatus
-                text: i18n.tr("Please choose a password to protect your account")
+                text: i18n.tr("To reset your password, you will need to provide an e-mail address later")
                 width: Math.min( parent.width - units.gu(4), units.gu(50))
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
