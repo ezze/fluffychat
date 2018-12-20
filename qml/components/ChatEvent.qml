@@ -307,7 +307,7 @@ Label {
         (event.type === "m.room.encrypted" ? displayEvents.getDisplay ( event ) :
         event.content_body || event.content.body)
     color: (!sent || isStateEvent) ? (settings.darkmode ? "white" : "black") :
-    (event.status < msg_status.SEEN ? settings.mainColor : "white")
+    (event.status < msg_status.SEEN || isImage ? settings.mainColor : "white")
     linkColor: settings.brightMainColor
     Behavior on color {
         ColorAnimation { from: settings.mainColor; duration: 300 }
