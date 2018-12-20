@@ -4,6 +4,12 @@ import Ubuntu.Connectivity 1.0
 
 Item {
 
+    property var urlRegex: /((^| )(?:(?:https?|ftp|fluffychat|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$]))/igm
+    property var aliasRegex: /((^| )#(\w+):(\w+)(\.(\w+))+)/gm
+    property var usernameRegex: /((^| )@(\w+):(\w+)(\.(\w+))+)/gm
+    property var roomIdRegex: /((^| )!(\w+):(\w+)(\.(\w+))+)/gm
+    property var markdownLinkRegex: /\[([^\[\]]+)\]\(([^)]+\))/gm
+
     // This function helps to send a message. It automatically repeats, if there
     // was an error with the connection.
     function sendMessage ( messageID, data, chat_id, success_callback, error_callback ) {
@@ -58,21 +64,36 @@ Item {
         .split(">").join("&gt;")
         .split('"').join("&quot;")
 
-        // Find urls and make them clickable
-        var urlRegex = /(?:(?:https?|ftp|fluffychat|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
-        var aliasRegex = /((^| )#(\w+):(\w+)(\.(\w+))+)/gm
-        var usernameRegex = /((^| )@(\w+):(\w+)(\.(\w+))+)/gm
-        var roomIdRegex = /((^| )!(\w+):(\w+)(\.(\w+))+)/gm
-        var replaceMatrixUri = function(url) {
-            return '<a href="fluffychat://%1">%2</a>'.arg(url).arg(url)
-        }
-        tempText = tempText.replace(urlRegex, function(url) {
-            return '<a href="%1">%2</a>'.arg(url).arg(url)
+        // Format markdown links
+        tempText = tempText.replace(markdownLinkRegex, function(str) {
+            var name = str.split("[")[1].split("]")[0]
+            var link = str.split("(")[1].split(")")[0]
+            return '<a href="%1">%2</a>'.arg(link).arg(name)
         })
+
+        // Detect common https urls and make them clickable
+        tempText = tempText.replace(urlRegex, function(url) {
+            if ( url.indexOf(" ") !== -1 ) {
+                url = url.replace(" ","")
+                return ' <a href="%1">%2</a>'.arg(url).arg(url)
+            }
+            else return '<a href="%1">%2</a>'.arg(url).arg(url)
+        })
+
+        // Make matrix identifier clickable
+        var replaceMatrixUri = function(url) {
+            if ( url.indexOf(" ") !== -1 ) {
+                url = url.replace(" ","")
+                return ' <a href="fluffychat://%1">%2</a>'.arg(url).arg(url)
+            }
+            else return '<a href="fluffychat://%1">%2</a>'.arg(url).arg(url)
+        }
         tempText = tempText.replace(aliasRegex, replaceMatrixUri)
         tempText = tempText.replace(usernameRegex, replaceMatrixUri)
         tempText = tempText.replace(roomIdRegex, replaceMatrixUri)
 
+        // Set the newline tags correct
+        tempText = tempText.replace("\n","<br>")
 
         return formatReply ( tempText )
     }

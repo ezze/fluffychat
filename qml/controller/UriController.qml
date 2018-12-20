@@ -26,7 +26,7 @@ Item {
             uri = uri.replace("fluffychat://","")
             mainStack.toChat ( uri )
         }
-        else console.error("Unkown uri...")
+        else console.error("Unkown uri...", uri)
     }
 
     function openUrlExternally ( link ) {
