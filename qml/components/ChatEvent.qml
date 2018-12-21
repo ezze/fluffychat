@@ -73,6 +73,8 @@ Rectangle {
         anchors.rightMargin: units.gu(1)
 
         onPressAndHold: openContextMenu ()
+        onClicked: if (mouse.button == Qt.RightButton) openContextMenu ()
+        
         Rectangle {
             id: messageBubble
             opacity: isStateEvent ? 0.5 : 1

@@ -16,11 +16,13 @@ Item {
 
     property var statusMap: ["Offline", "Connecting", "Online"]
 
+    property var online: Connectivity ? Connectivity.online : true
+
     Connections {
-        target: Connectivity
         // full status can be retrieved from the base C++ class
         // status property
-        onOnlineChanged: if ( Connectivity.online ) restartSync ()
+        target: Connectivity
+        onOnlineChanged: if ( online ) restartSync ()
     }
 
     /* The newEvent signal is the most importent signal in this concept. Every time
@@ -39,7 +41,7 @@ Item {
     property var abortSync: false
 
     function init () {
-        if ( !Connectivity.online ) return
+        if ( !online ) return
 
         // Start synchronizing
         initialized = true
@@ -93,7 +95,7 @@ Item {
                     mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
                 }
                 else {
-                    if ( Connectivity && Connectivity.online ) restartSync ()
+                    if ( online ) restartSync ()
                     else console.error ( i18n.tr("You are offline 😕") )
                 }
             }

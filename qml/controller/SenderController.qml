@@ -1,6 +1,5 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
-import Ubuntu.Connectivity 1.0
 
 Item {
 
@@ -15,7 +14,7 @@ Item {
     function sendMessage ( messageID, data, chat_id, success_callback, error_callback ) {
         var newMessageID = ""
         var callback = function () { if ( newMessageID !== "" ) success_callback ( newMessageID ) }
-        if ( !Connectivity.online ) {
+        if ( !events.online ) {
             storage.transaction ( "UPDATE Events SET status=-1 WHERE id='" + messageID + "'" )
             return error_callback ( "ERROR" )
         }
