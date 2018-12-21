@@ -10,6 +10,33 @@ Page {
 
     property var searching: false
 
+    onSearchingChanged: {
+        if ( searching ) {
+            for( var i = 0; i < model.count; i++ ) tempModel.append ( model.get(i) )
+            matrix.get ( "/client/r0/publicRooms", { limit: 1000 }, function ( res ) {
+                for( var i = 0; i < res.chunk.length; i++ ) {
+                    var chat = res.chunk[i]
+                    tempModel.append ( { "room": {
+                        id: chat.room_id,
+                        topic: chat.name || i18n.tr("Nameless chat"),
+                        membership: "leave",
+                        avatar_url: chat.avatar_url || "",
+                        origin_server_ts: new Date().getTime(),
+                        typing: [],
+                        notification_count: 0,
+                        highlight_count: 0
+                    } } )
+                }
+                enabled = true
+            } )
+            chatListView.model = tempModel
+        }
+        else {
+            chatListView.model = model
+            tempModel.clear ()
+        }
+    }
+
 
     // This is the most importent function of this page! It updates all rooms, based
     // on the informations in the sqlite database!
@@ -101,155 +128,157 @@ Page {
         var tempRoom = model.get(j).room
 
     if ( eventType === "timeline"/* && (type === "m.room.message" || type === "m.sticker")*/ ) {
-            // Update the last message preview
-            var body = lastEvent.content.body || ""
-            if ( type !== "m.room.message" ) {
-                body = displayEvents.getDisplay ( lastEvent )
+        // Update the last message preview
+        var body = lastEvent.content.body || ""
+        if ( type !== "m.room.message" ) {
+            body = displayEvents.getDisplay ( lastEvent )
+        }
+        tempRoom.eventsid = lastEvent.event_id
+        tempRoom.origin_server_ts = lastEvent.origin_server_ts
+        tempRoom.content_body = body
+        tempRoom.sender = lastEvent.sender
+        tempRoom.content_json = JSON.stringify( lastEvent.content )
+        tempRoom.type = lastEvent.type
+    }
+    if ( type === "m.typing" ) {
+        // Update the typing list
+        tempRoom.typing = lastEvent
+    }
+    else if ( type === "m.room.name" ) {
+        // Update the room name
+        tempRoom.topic = lastEvent.content.name
+    }
+    else if ( type === "m.room.avatar" ) {
+        // Update the room avatar
+        tempRoom.avatar_url = lastEvent.content.url
+    }
+    else if ( type === "m.room.member" && ((tempRoom.topic === "" || tempRoom.topic === null) || (tempRoom.avatar_url === "" || tempRoom.avatar_url === null)) ) {
+        // Update the room name or room avatar calculation
+        model.remove ( j )
+        model.insert ( j, { "room": tempRoom })
+    }
+    model.set ( j, { "room": tempRoom })
+
+    // Now reorder this item
+    var here = j
+    while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) j--
+    if ( here !== j ) model.move( here, j, 1 )
+}
+
+
+Connections {
+    target: events
+    onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
+    onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
+}
+
+header: FcPageHeader {
+    id: header
+    title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
+    flickable: chatListView
+
+    leadingActionBar {
+        actions: [
+        Action {
+            iconName: "close"
+            visible: shareObject !== null
+            onTriggered: shareObject = null
+        }]
+    }
+
+    trailingActionBar {
+        actions: [
+        Action {
+            iconName: searching ? "close" : "search"
+            onTriggered: {
+                searching = searchField.focus = !searching
+                if ( !searching ) searchField.text = ""
             }
-            tempRoom.eventsid = lastEvent.event_id
-            tempRoom.origin_server_ts = lastEvent.origin_server_ts
-            tempRoom.content_body = body
-            tempRoom.sender = lastEvent.sender
-            tempRoom.content_json = JSON.stringify( lastEvent.content )
-            tempRoom.type = lastEvent.type
-        }
-        if ( type === "m.typing" ) {
-            // Update the typing list
-            tempRoom.typing = lastEvent
-        }
-        else if ( type === "m.room.name" ) {
-            // Update the room name
-            tempRoom.topic = lastEvent.content.name
-        }
-        else if ( type === "m.room.avatar" ) {
-            // Update the room avatar
-            tempRoom.avatar_url = lastEvent.content.url
-        }
-        else if ( type === "m.room.member" && ((tempRoom.topic === "" || tempRoom.topic === null) || (tempRoom.avatar_url === "" || tempRoom.avatar_url === null)) ) {
-            // Update the room name or room avatar calculation
-            model.remove ( j )
-            model.insert ( j, { "room": tempRoom })
-        }
-        model.set ( j, { "room": tempRoom })
-
-        // Now reorder this item
-        var here = j
-        while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) j--
-        if ( here !== j ) model.move( here, j, 1 )
-    }
-
-
-    Connections {
-        target: events
-        onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
-        onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
-    }
-
-    header: FcPageHeader {
-        id: header
-        title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
-        flickable: chatListView
-
-        leadingActionBar {
-            actions: [
-            Action {
-                iconName: "close"
-                visible: shareObject !== null
-                onTriggered: shareObject = null
-            }]
-        }
-
-        trailingActionBar {
-            actions: [
-            Action {
-                iconName: searching ? "close" : "search"
-                onTriggered: {
-                    searching = searchField.focus = !searching
-                    if ( !searching ) searchField.text = ""
-                }
-            },
-            Action {
-                iconName: "account"
-                visible: shareObject === null
-                onTriggered: {
-                    searching = false
-                    searchField.text = ""
-                    mainStack.toStart ()
-                    mainStack.push(Qt.resolvedUrl("./SettingsPage.qml"))
-                }
-            },
-            Action {
-                iconName: "add"
-                visible: shareObject === null
-                onTriggered: {
-                    searching = false
-                    searchField.text = ""
-                    mainStack.toStart ()
-                    mainStack.push(Qt.resolvedUrl("./CreateChatPage.qml"))
-                }
+        },
+        Action {
+            iconName: "account"
+            visible: shareObject === null
+            onTriggered: {
+                searching = false
+                searchField.text = ""
+                mainStack.toStart ()
+                mainStack.push(Qt.resolvedUrl("./SettingsPage.qml"))
             }
-            ]
+        },
+        Action {
+            iconName: "add"
+            visible: shareObject === null
+            onTriggered: {
+                searching = false
+                searchField.text = ""
+                mainStack.toStart ()
+                mainStack.push(Qt.resolvedUrl("./CreateChatPage.qml"))
+            }
         }
+        ]
     }
+}
 
 
-    LeaveChatDialog { id: leaveChatDialog }
+LeaveChatDialog { id: leaveChatDialog }
 
 
-    TextField {
-        id: searchField
-        objectName: "searchField"
-        visible: searching
-        z: 5
-        anchors {
-            top: header.bottom
-            topMargin: units.gu(1)
-            bottomMargin: units.gu(1)
-            left: parent.left
-            right: parent.right
-            rightMargin: units.gu(2)
-            leftMargin: units.gu(2)
-        }
-        inputMethodHints: Qt.ImhNoPredictiveText
-        placeholderText: i18n.tr("Search for chat names…")
+TextField {
+    id: searchField
+    objectName: "searchField"
+    visible: searching
+    z: 5
+    anchors {
+        top: header.bottom
+        topMargin: units.gu(1)
+        bottomMargin: units.gu(1)
+        left: parent.left
+        right: parent.right
+        rightMargin: units.gu(2)
+        leftMargin: units.gu(2)
     }
+    inputMethodHints: Qt.ImhNoPredictiveText
+    placeholderText: i18n.tr("Search for chat names…")
+}
 
+ListModel { id: model }
+ListModel { id: tempModel }
 
-    ListView {
-        id: chatListView
-        width: parent.width
-        height: parent.height
-        anchors.top: parent.top
-        anchors.topMargin: searching * (searchField.height + units.gu(2))
-        delegate: ChatListItem {}
-        model: ListModel { id: model }
-        move: Transition {
-            SmoothedAnimation { property: "y"; duration: 300 }
-        }
-        displaced: Transition {
-            SmoothedAnimation { property: "y"; duration: 300 }
-        }
+ListView {
+    id: chatListView
+    width: parent.width
+    height: parent.height
+    anchors.top: parent.top
+    anchors.topMargin: searching * (searchField.height + units.gu(2))
+    delegate: ChatListItem {}
+    model: model
+    move: Transition {
+        SmoothedAnimation { property: "y"; duration: 300 }
     }
-
-    Label {
-        text: i18n.tr('Swipe from below to start a chat')
-        anchors.centerIn: parent
-        visible: model.count === 0
+    displaced: Transition {
+        SmoothedAnimation { property: "y"; duration: 300 }
     }
+}
 
-    // ============================== BOTTOM EDGE ==============================
-    /*BottomEdge {
-        id: bottomEdge
-        height: shareObject === null ? parent.height : 0
+Label {
+    text: i18n.tr('Swipe from below to start a chat')
+    anchors.centerIn: parent
+    visible: model.count === 0
+}
 
-        enabled: !tabletMode
+// ============================== BOTTOM EDGE ==============================
+/*BottomEdge {
+id: bottomEdge
+height: shareObject === null ? parent.height : 0
 
-        contentComponent: Rectangle {
-            width: mainStackWidth
-            height: root.height
-            color: theme.palette.normal.background
-            CreateChatPage { }
-        }
-    }*/
+enabled: !tabletMode
+
+contentComponent: Rectangle {
+width: mainStackWidth
+height: root.height
+color: theme.palette.normal.background
+CreateChatPage { }
+}
+}*/
 
 }

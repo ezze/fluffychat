@@ -15,10 +15,13 @@ ListItem {
     color: settings.darkmode ? "#202020" : "white"
 
     onClicked: {
-        searching = false
+        if ( room.membership !== "leave" ) {
+            activeChatTypingUsers = room.typing || []
+            mainStack.toChat ( room.id )
+        }
+        else matrix.joinChat ( room.id )
         searchField.text = ""
-        activeChatTypingUsers = room.typing || []
-        mainStack.toChat ( room.id )
+        searching = false
     }
 
     ListItemLayout {
@@ -31,9 +34,10 @@ ListItem {
         title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
         subtitle.text: {
             room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
+            (room.membership === "leave" ? "" :
             (room.topic !== "" && room.typing && room.typing.length > 0 ? usernames.getTypingDisplayString ( room.typing, room.topic ) :
             (room.content_body ? ( room.sender === matrix.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
-            i18n.tr("No preview messages")))
+            i18n.tr("No preview messages"))))
         }
         subtitle.color: "#888888"
         subtitle.linkColor: subtitle.color

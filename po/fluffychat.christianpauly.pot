@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-20 15:03+0000\n"
+"POT-Creation-Date: 2018-12-21 13:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -378,20 +378,24 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:150 ../qml/components/FcPageHeader.qml:7
+#: ../qml/pages/ChatListPage.qml:21
+msgid "Nameless chat"
+msgstr ""
+
+#: ../qml/pages/ChatListPage.qml:177 ../qml/components/FcPageHeader.qml:7
 #: fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:150
+#: ../qml/pages/ChatListPage.qml:177
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:214
+#: ../qml/pages/ChatListPage.qml:241
 msgid "Search for chat names…"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:235
+#: ../qml/pages/ChatListPage.qml:264
 msgid "Swipe from below to start a chat"
 msgstr ""
 
@@ -784,22 +788,6 @@ msgstr ""
 msgid "Don't notify"
 msgstr ""
 
-#: ../qml/pages/JoinChatPage.qml:14
-msgid "Join chat"
-msgstr ""
-
-#: ../qml/pages/JoinChatPage.qml:23
-msgid "Nameless chat"
-msgstr ""
-
-#: ../qml/pages/JoinChatPage.qml:50
-msgid "Search public chats..."
-msgstr ""
-
-#: ../qml/pages/JoinChatPage.qml:86
-msgid "Loading public chats..."
-msgstr ""
-
 #: ../qml/pages/ChatSettingsPage.qml:94
 msgid "Member"
 msgstr ""
@@ -1138,15 +1126,15 @@ msgstr ""
 msgid "Synchronizing… Please wait."
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:33
+#: ../qml/components/ChatListItem.qml:36
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:35
+#: ../qml/components/ChatListItem.qml:39
 msgid "You: "
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:36
+#: ../qml/components/ChatListItem.qml:40
 msgid "No preview messages"
 msgstr ""
 
