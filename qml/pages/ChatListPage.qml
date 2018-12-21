@@ -267,18 +267,26 @@ Label {
 }
 
 // ============================== BOTTOM EDGE ==============================
-/*BottomEdge {
-id: bottomEdge
-height: shareObject === null ? parent.height : 0
+BottomEdge {
+    id: bottomEdge
+    height: shareObject === null ? parent.height : 0
 
-enabled: !tabletMode
+    enabled: !tabletMode
 
-contentComponent: Rectangle {
-width: mainStackWidth
-height: root.height
-color: theme.palette.normal.background
-CreateChatPage { }
+    onCommitCompleted: {
+        searching = false
+        searchField.text = ""
+        mainStack.toStart ()
+        mainStack.push(Qt.resolvedUrl("./CreateChatPage.qml"))
+        collapse()
+    }
+
+    contentComponent: Rectangle {
+        width: mainStackWidth
+        height: root.height
+        color: theme.palette.normal.background
+        CreateChatPage { dummy: true }
+    }
 }
-}*/
 
 }

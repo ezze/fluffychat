@@ -9,6 +9,7 @@ Page {
     property var enabled: true
     property var inviteList: []
     property var selectedCount: 0
+    property var dummy: false
 
     header: FcPageHeader {
         id: header
@@ -35,6 +36,7 @@ Page {
     Component.onCompleted: update ()
 
     function update () {
+        if ( dummy ) return
         storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
         " ON Contacts.matrix_id=Users.matrix_id ORDER BY Contacts.medium DESC LIMIT 1000",
         function( res )  {
@@ -111,8 +113,11 @@ Page {
         model: ListModel { id: model }
         Button {
             anchors.centerIn: chatListView
-            color: UbuntuColors.green
+            iconName: "contact-new"
+            color: UbuntuColors.porcelain
             text: i18n.tr("Import from contacts")
+            width: parent.width - units.gu(10)
+            height: units.gu(5)
             visible: model.count === 0
             onClicked: contactImport.requestContact()
         }
