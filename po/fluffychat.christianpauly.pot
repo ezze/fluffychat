@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 14:39+0000\n"
+"POT-Creation-Date: 2018-12-21 14:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -578,7 +578,7 @@ msgid "Dark mode"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:200
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:245
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:243
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Notifications"
@@ -730,45 +730,45 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:226 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:224 ../qml/components/ArchivedChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:31
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:233 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:231 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:239
+#: ../qml/pages/ChatPage.qml:237
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:251 ../qml/pages/ChatSettingsPage.qml:310
+#: ../qml/pages/ChatPage.qml:249 ../qml/pages/ChatSettingsPage.qml:310
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:274
+#: ../qml/pages/ChatPage.qml:272
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:297
+#: ../qml/pages/ChatPage.qml:295
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:402
+#: ../qml/pages/ChatPage.qml:400
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:402
+#: ../qml/pages/ChatPage.qml:400
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:416
+#: ../qml/pages/ChatPage.qml:414
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:447
+#: ../qml/pages/ChatPage.qml:445
 msgid "Type something ..."
 msgstr ""
 

@@ -531,7 +531,7 @@ msgstr "Neuer Chat"
 
 #: ../qml/pages/CreateChatPage.qml:15
 msgid "New chat: %1 selected"
-msgstr "Neue Chat: %1 ausgewählt"
+msgstr "Neuer Chat: %1 ausgewählt"
 
 #: ../qml/pages/CreateChatPage.qml:21
 msgid "New contact"
