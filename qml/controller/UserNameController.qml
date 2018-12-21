@@ -54,6 +54,12 @@ Item {
         item.createObject(mainStack.currentPage, { })
     }
 
+    function showCommunity ( matrix_id ) {
+        activeCommunity = matrix_id
+        var item = Qt.createComponent("../components/CommunityViewer.qml")
+        item.createObject(mainStack.currentPage, { })
+    }
+
     function handleUserUri ( uri ) {
         if ( uri.slice(0,1) === "@" && uri.indexOf(":") !== -1 ) {
             usernames.showUserSettings ( uri )

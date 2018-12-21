@@ -23,7 +23,7 @@ BottomEdge {
                     actions: [
                     Action {
                         iconName: "mail-forward"
-                        onTriggered: shareController.shareLinkIntern ( "fluffychat://%1".arg(matrix_id) )
+                        onTriggered: shareController.shareLinkIntern ( matrix_id )
                     }
                     ]
                 }

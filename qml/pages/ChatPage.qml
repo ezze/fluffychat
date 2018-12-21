@@ -45,7 +45,6 @@ Page {
 
             // Add reply event to message
             if ( replyEvent !== null ) {
-                console.log("reply")
 
                 // Add event ID to the reply object
                 data["m.relates_to"] = {
@@ -128,7 +127,6 @@ Page {
     function sendTypingNotification ( typing ) {
         if ( !settings.sendTypingNotification ) return
         if ( typing !== isTyping) {
-            console.log("Send isTyping:",typing)
             typingTimer.stop ()
             isTyping = typing
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {

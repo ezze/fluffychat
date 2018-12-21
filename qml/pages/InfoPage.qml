@@ -35,6 +35,12 @@ Page {
                 onClicked: Qt.openUrlExternally("https://www.patreon.com/krillechritzelius")
             }
 
+            SettingsListItem {
+                name: i18n.tr("Join the community")
+                icon: "contact-group"
+                onClicked: usernames.showCommunity("+ubports_community:matrix.org")
+            }
+
             SettingsListLink {
                 name: i18n.tr("Privacy Policy")
                 icon: "private-browsing"

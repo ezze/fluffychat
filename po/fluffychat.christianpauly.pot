@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 13:38+0000\n"
+"POT-Creation-Date: 2018-12-21 14:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:188 ../qml/components/ChatScrollView.qml:309
+#: ../qml/Main.qml:189 ../qml/components/ChatScrollView.qml:309
 msgid "Are you sure?"
 msgstr ""
 
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Admins"
 msgstr ""
 
-#: ../qml/controller/UserNameController.qml:62
+#: ../qml/controller/UserNameController.qml:68
 msgid "%1 is not a valid username"
 msgstr ""
 
@@ -241,24 +241,28 @@ msgstr ""
 msgid "Become a patron"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:39 ../qml/pages/LoginPage.qml:111
+#: ../qml/pages/InfoPage.qml:39
+msgid "Join the community"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:45 ../qml/pages/LoginPage.qml:111
 #: ../qml/pages/PrivacyPolicyPage.qml:10
 msgid "Privacy Policy"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:45
+#: ../qml/pages/InfoPage.qml:51
 msgid "Website"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:51
+#: ../qml/pages/InfoPage.qml:57
 msgid "Contributors"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:57
+#: ../qml/pages/InfoPage.qml:63
 msgid "Source code"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:63
+#: ../qml/pages/InfoPage.qml:69
 msgid "License"
 msgstr ""
 
@@ -727,7 +731,7 @@ msgid ""
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:226 ../qml/components/ArchivedChatListItem.qml:30
-#: ../qml/components/SimpleChatListItem.qml:30
+#: ../qml/components/SimpleChatListItem.qml:31
 msgid "Unknown chat"
 msgstr ""
 
@@ -1250,6 +1254,10 @@ msgstr ""
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:19
 msgid "Enter your new nickname"
+msgstr ""
+
+#: ../qml/components/CommunityViewer.qml:107
+msgid "No description found"
 msgstr ""
 
 #: ../qml/components/ChangeChatnameDialog.qml:20

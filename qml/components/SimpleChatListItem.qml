@@ -16,7 +16,8 @@ ListItem {
     height: layout.height
 
     onClicked: {
-        userSettingsViewer.collapse ()
+        if ( userSettingsViewer ) userSettingsViewer.collapse ()
+        if ( communityViewer ) communityViewer.collapse ()
         mainStack.toStart ()
         activeChat = room.id
         activeChatTypingUsers = []

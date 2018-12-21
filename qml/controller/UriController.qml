@@ -26,6 +26,10 @@ Item {
             uri = uri.replace("fluffychat://","")
             mainStack.toChat ( uri )
         }
+        else if ( uri.slice(0,14) === "fluffychat://+" ) {
+            uri = uri.replace("fluffychat://","")
+            usernames.showCommunity(uri)
+        }
         else console.error("Unkown uri...", uri)
     }
 
