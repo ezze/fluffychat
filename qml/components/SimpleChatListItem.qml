@@ -18,11 +18,7 @@ ListItem {
     onClicked: {
         if ( userSettingsViewer ) userSettingsViewer.collapse ()
         if ( communityViewer ) communityViewer.collapse ()
-        mainStack.toStart ()
-        activeChat = room.id
-        activeChatTypingUsers = []
-        mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
-        if ( room.notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + room.eventsid, null )
+        mainStack.toChat ( room.id )
     }
 
     ListItemLayout {
