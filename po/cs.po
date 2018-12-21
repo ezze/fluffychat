@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-08 14:50+0000\n"
-"PO-Revision-Date: 2018-12-08 15:52+0100\n"
+"POT-Creation-Date: 2018-12-21 14:39+0000\n"
+"PO-Revision-Date: 2018-12-21 15:51+0100\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Poedit 2.2\n"
 
-#: ../qml/Main.qml:183 ../qml/components/ChatScrollView.qml:309
+#: ../qml/Main.qml:189 ../qml/components/ChatScrollView.qml:309
 msgid "Are you sure?"
 msgstr "Určitě?"
 
@@ -32,134 +32,146 @@ msgid "1"
 msgstr "1"
 
 #: ../qml/controller/DisplayEventController.qml:13
+#, fuzzy
+#| msgid "Unknown Event: "
+msgid "Unknown event"
+msgstr "Neznámá událost: "
+
+#: ../qml/controller/DisplayEventController.qml:14
 msgid "Unknown Event: "
 msgstr "Neznámá událost: "
 
-#: ../qml/controller/DisplayEventController.qml:15
 #: ../qml/controller/DisplayEventController.qml:16
+#: ../qml/controller/DisplayEventController.qml:17
 msgid "Someone"
 msgstr "Někdo"
 
-#: ../qml/controller/DisplayEventController.qml:20
+#: ../qml/controller/DisplayEventController.qml:21
 msgid "%1 is now participating"
 msgstr "%1 je právě přítomen"
 
-#: ../qml/controller/DisplayEventController.qml:22
+#: ../qml/controller/DisplayEventController.qml:23
 msgid "%1 is now participating as <b>%2</b>"
 msgstr "%1 je právě přítomen jako<b>%2</b>"
 
-#: ../qml/controller/DisplayEventController.qml:25
+#: ../qml/controller/DisplayEventController.qml:26
 msgid "%1 has invited %2"
 msgstr "%1 pozval/a %2"
 
-#: ../qml/controller/DisplayEventController.qml:28
+#: ../qml/controller/DisplayEventController.qml:29
 msgid "%1 has left the chat"
 msgstr "%1 opustil konverzaci"
 
-#: ../qml/controller/DisplayEventController.qml:31
+#: ../qml/controller/DisplayEventController.qml:32
 msgid "%1 has been banned from the chat"
 msgstr "%1 byl vyloučen z konverzace"
 
-#: ../qml/controller/DisplayEventController.qml:35
+#: ../qml/controller/DisplayEventController.qml:36
 msgid "Chat created"
 msgstr "Chatovací místnost vytvořena"
 
-#: ../qml/controller/DisplayEventController.qml:38
+#: ../qml/controller/DisplayEventController.qml:39
 msgid "%1 has changed the chat name to: <b>%2</b>"
 msgstr "%1 změnil název chatovací místnosti na: <b>%2</b>"
 
-#: ../qml/controller/DisplayEventController.qml:41
+#: ../qml/controller/DisplayEventController.qml:42
 msgid "%1 has changed the chat topic to: <b>%2</b>"
 msgstr "%1 změnil téma chatu na: <b>%2</b>"
 
-#: ../qml/controller/DisplayEventController.qml:44
+#: ../qml/controller/DisplayEventController.qml:45
 msgid "%1 has changed the chat avatar"
 msgstr "%1 změnil avatar chatovací místnosti"
 
-#: ../qml/controller/DisplayEventController.qml:47
+#: ../qml/controller/DisplayEventController.qml:48
 msgid "%1 has redacted a message"
 msgstr "%1 napsal zprávu"
 
-#: ../qml/controller/DisplayEventController.qml:50
+#: ../qml/controller/DisplayEventController.qml:51
+msgid ""
+"%1 has initialized end to end encryption. Be aware that FluffyChat does not "
+"yet support end to end encryption. You will not be able to send or read "
+"messages in this chat!"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:54
+#, fuzzy
+#| msgid "Delete message"
+msgid "Encrypted message"
+msgstr "Smazat zprávu"
+
+#: ../qml/controller/DisplayEventController.qml:57
 msgid "%1 has sent a sticker"
 msgstr "%1 odeslal nálepku"
 
-#: ../qml/controller/DisplayEventController.qml:53
+#: ../qml/controller/DisplayEventController.qml:60
 msgid "%1 has set the chat history visible to: %2"
 msgstr "%1 zpřístupnil historii chatu pro: %2"
 
-#: ../qml/controller/DisplayEventController.qml:56
+#: ../qml/controller/DisplayEventController.qml:63
 msgid "%1 has set the join rules to: %2"
 msgstr "%1 nastavil pravidla pro zapojení se: %2"
 
-#: ../qml/controller/DisplayEventController.qml:59
+#: ../qml/controller/DisplayEventController.qml:66
 msgid "%1 has set the guest access to: %2"
 msgstr "%1 nastavil vstup pro hosty jako: %2"
 
-#: ../qml/controller/DisplayEventController.qml:62
+#: ../qml/controller/DisplayEventController.qml:69
 msgid "The chat aliases have been changed."
 msgstr "Aliasy chatovací místnosti byly změněny."
 
-#: ../qml/controller/DisplayEventController.qml:68
+#: ../qml/controller/DisplayEventController.qml:75
 msgid "The canonical chat alias has been changed to: "
 msgstr "Základní alias chatovací místnosti byl změněn na: "
 
-#: ../qml/controller/DisplayEventController.qml:71
+#: ../qml/controller/DisplayEventController.qml:78
 msgid "The chat permissions have been changed"
 msgstr "Podmínky chatu byly změněny"
 
-#: ../qml/controller/DisplayEventController.qml:81
-#: ../qml/components/ChangeJoinRulesDialog.qml:35
+#: ../qml/controller/DisplayEventController.qml:88
 msgid "Only invited users"
 msgstr "Pouze pro zvané účastníky"
 
-#: ../qml/controller/DisplayEventController.qml:84
-#: ../qml/components/ChangeJoinRulesDialog.qml:19
+#: ../qml/controller/DisplayEventController.qml:91
 msgid "Public"
 msgstr "Veřejné"
 
-#: ../qml/controller/DisplayEventController.qml:87
-#: ../qml/components/ChangeJoinRulesDialog.qml:43
+#: ../qml/controller/DisplayEventController.qml:94
 msgid "Private"
 msgstr "Soukromé"
 
-#: ../qml/controller/DisplayEventController.qml:90
-#: ../qml/components/ChangeJoinRulesDialog.qml:27
+#: ../qml/controller/DisplayEventController.qml:97
 msgid "Knock"
 msgstr "Klepat"
 
-#: ../qml/controller/DisplayEventController.qml:93
+#: ../qml/controller/DisplayEventController.qml:100
 msgid "All chatters"
 msgstr "Všichní účastníci chatu"
 
-#: ../qml/controller/DisplayEventController.qml:96
+#: ../qml/controller/DisplayEventController.qml:103
 msgid "All joined chat participants"
 msgstr "Všichni připojení účastníci chatu"
 
-#: ../qml/controller/DisplayEventController.qml:99
+#: ../qml/controller/DisplayEventController.qml:106
 msgid "All invited chat participants"
 msgstr "Všichni pozvaní účastníci chatu"
 
-#: ../qml/controller/DisplayEventController.qml:102
-#: ../qml/components/ChangeHistoryVisibilityDialog.qml:19
+#: ../qml/controller/DisplayEventController.qml:109
 msgid "Everyone"
 msgstr "Všichni"
 
-#: ../qml/controller/DisplayEventController.qml:105
-#: ../qml/components/ChangeGuestAccessDialog.qml:19
+#: ../qml/controller/DisplayEventController.qml:112
 msgid "Can join"
 msgstr "Můžete se připojit"
 
-#: ../qml/controller/DisplayEventController.qml:108
-#: ../qml/components/ChangeGuestAccessDialog.qml:27
+#: ../qml/controller/DisplayEventController.qml:115
 msgid "Forbidden"
 msgstr "Zakázáno"
 
-#: ../qml/controller/EventController.qml:97
+#: ../qml/controller/EventController.qml:99
 msgid "You are offline 😕"
 msgstr "Jste nedostupný 😕"
 
-#: ../qml/controller/EventController.qml:154
+#: ../qml/controller/EventController.qml:156
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -173,49 +185,49 @@ msgstr ""
 msgid "Please restart your device to complete the update!"
 msgstr "Pro dokončení aktualizace restartujte zařízení!"
 
-#: ../qml/controller/ShareController.qml:44
+#: ../qml/controller/ShareController.qml:54
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr ""
 "Omlouváme se. 😕 Sdílení fotek a videí anebo souborů není dosud podporováno..."
 
-#: ../qml/controller/SenderController.qml:35
+#: ../qml/controller/SenderController.qml:40
 msgid "You are not allowed to chat here."
 msgstr "Nemáte svolení k chatování v této místnosti."
 
-#: ../qml/controller/UserNameController.qml:35
+#: ../qml/controller/UserNameController.qml:36
 msgid "⌨️ is typing…"
 msgstr "⌨️ píše…"
 
-#: ../qml/controller/UserNameController.qml:36
+#: ../qml/controller/UserNameController.qml:37
 msgid "⌨️ %1 is typing…"
 msgstr "⌨️ %1 píší…"
 
-#: ../qml/controller/UserNameController.qml:39
+#: ../qml/controller/UserNameController.qml:40
 msgid "⌨️ %1 and %2 more are typing…"
 msgstr "⌨️ %1 a %2 další píší…"
 
-#: ../qml/controller/UserNameController.qml:45
+#: ../qml/controller/UserNameController.qml:46
 #: ../qml/components/ChangePowerLevelDialog.qml:47
 msgid "Members"
 msgstr "Účastníci"
 
-#: ../qml/controller/UserNameController.qml:46
+#: ../qml/controller/UserNameController.qml:47
 #: ../qml/components/ChangePowerLevelDialog.qml:33
 msgid "Moderators"
 msgstr "Moderátoři"
 
-#: ../qml/controller/UserNameController.qml:47
+#: ../qml/controller/UserNameController.qml:48
 #: ../qml/components/ChangePowerLevelDialog.qml:19
 msgid "Admins"
 msgstr "Správci"
 
-#: ../qml/controller/UserNameController.qml:61
+#: ../qml/controller/UserNameController.qml:68
 msgid "%1 is not a valid username"
 msgstr "%1 není platný název"
 
 #: ../qml/controller/RoomNameController.qml:13
 #: ../qml/controller/RoomNameController.qml:27
-#: ../qml/controller/RoomNameController.qml:35
+#: ../qml/controller/RoomNameController.qml:34
 msgid "Empty chat"
 msgstr "Prázdná chatovací místnost"
 
@@ -227,7 +239,7 @@ msgstr "Pro příjem oznámení se přihlašte k Vašemu Ubuntu One účtu."
 msgid "Push notifications are disabled..."
 msgstr "Příjem oznámení je deaktivován..."
 
-#: ../qml/controller/MatrixController.qml:255
+#: ../qml/controller/MatrixController.qml:257
 msgid "😕 No connection..."
 msgstr "😕 Nejste připojení..."
 
@@ -236,31 +248,35 @@ msgid "Info about FluffyChat %1 on %2"
 msgstr "Informace o FluffyChat %1 na %2"
 
 #: ../qml/pages/InfoPage.qml:32
-msgid "Donate us a coffee"
-msgstr "Přispěje nám na kávu"
+msgid "Become a patron"
+msgstr ""
 
-#: ../qml/pages/InfoPage.qml:39 ../qml/pages/LoginPage.qml:111
+#: ../qml/pages/InfoPage.qml:39
+msgid "Join the community"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:45 ../qml/pages/LoginPage.qml:111
 #: ../qml/pages/PrivacyPolicyPage.qml:10
 msgid "Privacy Policy"
 msgstr "Zásady ochrany osobních údajů"
 
-#: ../qml/pages/InfoPage.qml:45
+#: ../qml/pages/InfoPage.qml:51
 msgid "Website"
 msgstr "Webová stránka"
 
-#: ../qml/pages/InfoPage.qml:51
+#: ../qml/pages/InfoPage.qml:57
 msgid "Contributors"
 msgstr "Spolupracující"
 
-#: ../qml/pages/InfoPage.qml:57
+#: ../qml/pages/InfoPage.qml:63
 msgid "Source code"
 msgstr "Zdrojový kód"
 
-#: ../qml/pages/InfoPage.qml:63
+#: ../qml/pages/InfoPage.qml:69
 msgid "License"
 msgstr "Licence"
 
-#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:252
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:248
 msgid "Archived chats"
 msgstr "Archivované chaty"
 
@@ -272,7 +288,7 @@ msgstr "Vyhledat názvy chatů..."
 msgid "There are no archived chats"
 msgstr "Žádné chaty archivovány"
 
-#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:278
+#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:274
 msgid "Connected email addresses"
 msgstr "Připojené e-mailové adresy"
 
@@ -308,8 +324,9 @@ msgid "Registration on %1 failed..."
 msgstr "Registrace na %1 selhala..."
 
 #: ../qml/pages/PasswordCreationPage.qml:90
-msgid "Please choose a password to protect your account"
-msgstr "Pro ochranu Vašeho účtu si prosím zvolte heslo"
+msgid ""
+"To reset your password, you will need to provide an e-mail address later"
+msgstr ""
 
 #: ../qml/pages/PasswordCreationPage.qml:109
 #, javascript-format
@@ -344,7 +361,7 @@ msgstr "Změnit homeserver"
 msgid "Change ID-server"
 msgstr "Změnit ID-server"
 
-#: ../qml/pages/LoginPage.qml:106 ../qml/pages/SettingsPage.qml:336
+#: ../qml/pages/LoginPage.qml:106 ../qml/pages/SettingsPage.qml:332
 msgid "About FluffyChat"
 msgstr "O FluffyChat"
 
@@ -360,177 +377,282 @@ msgstr "Zvolte Váš homeserver"
 msgid "Choose your identity server"
 msgstr "Zvolte Váš identity server"
 
-#: ../qml/pages/LoginPage.qml:196
+#: ../qml/pages/LoginPage.qml:197
 msgid "Phone number (optional)"
 msgstr "Telefonní číslo (nepovinné)"
 
-#: ../qml/pages/LoginPage.qml:205
+#: ../qml/pages/LoginPage.qml:206
 msgid "Username"
 msgstr "Uživatelské jméno"
 
-#: ../qml/pages/LoginPage.qml:228
+#: ../qml/pages/LoginPage.qml:229
 msgid "Create a new account"
 msgstr "Vytnořit nový účet"
 
-#: ../qml/pages/LoginPage.qml:240
+#: ../qml/pages/LoginPage.qml:241
 msgid "Log in"
 msgstr "Přihlášení"
 
-#: ../qml/pages/ChatListPage.qml:145 ../qml/components/FcPageHeader.qml:7
+#: ../qml/pages/ChatListPage.qml:21
+msgid "Nameless chat"
+msgstr "Chat bez názvu"
+
+#: ../qml/pages/ChatListPage.qml:177 ../qml/components/FcPageHeader.qml:7
 #: fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr "FluffyChat"
 
-#: ../qml/pages/ChatListPage.qml:145
+#: ../qml/pages/ChatListPage.qml:177
 msgid "Share"
 msgstr "Sdílet"
 
-#: ../qml/pages/ChatListPage.qml:208
+#: ../qml/pages/ChatListPage.qml:241
 msgid "Search for chat names…"
 msgstr "Vyhledat názvy chatů…"
 
-#: ../qml/pages/ChatListPage.qml:229
+#: ../qml/pages/ChatListPage.qml:264
 msgid "Swipe from below to start a chat"
 msgstr "Přetáhnout ze zdola pro zahájení chatu"
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:62
+#: ../qml/pages/ChatPrivacySettingsPage.qml:137
 msgid "Chat security & privacy settings"
 msgstr "Nastavení zabezpečení a ochrany osobních údajů"
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:81
-#: ../qml/components/ChangeJoinRulesDialog.qml:11
-msgid "Who is allowed to join?"
-msgstr "Kdo se může připojit?"
+#: ../qml/pages/ChatPrivacySettingsPage.qml:160
+#, fuzzy
+#| msgid "Chat permissions"
+msgid "Access permissions"
+msgstr "Podmínky chatu"
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:88
-#: ../qml/components/ChangeHistoryVisibilityDialog.qml:11
-msgid "Who can see the chat history?"
-msgstr "Kdo může vidět historii chatu?"
+#: ../qml/pages/ChatPrivacySettingsPage.qml:172
+msgid "Users can be invited"
+msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:95
-#: ../qml/components/ChangeGuestAccessDialog.qml:11
-msgid "Guest access?"
-msgstr "Přístup hostů?"
+#: ../qml/pages/ChatPrivacySettingsPage.qml:184
+msgid "Chat is public accessable"
+msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:101
+#: ../qml/pages/ChatPrivacySettingsPage.qml:196
+msgid "Guest users are allowed"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:215
+msgid "History visibility"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:227
+msgid "History is visible from invitation"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:238
+msgid "Complete History is visible for members"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:249
+msgid "Complete History is world readable"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:268
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:87
 msgid "Chat permissions"
 msgstr "Podmínky chatu"
 
+#: ../qml/pages/ChatPrivacySettingsPage.qml:280
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:105
+msgid "Who can send messages?"
+msgstr "Kdo může zasílat zprávy?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:292
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:117
+msgid "Who can configure this chat?"
+msgstr "Kdo má oprávnění provádět nastavení chatu?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:304
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:129
+msgid "Who can remove messages?"
+msgstr "Kdo má oprávnění pro mazání zpráv?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:316
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:141
+msgid "Who can invite users?"
+msgstr "Kdo má oprávnění zvát uživatele?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:328
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:153
+msgid "Who can ban users?"
+msgstr "Kdo má oprávnění zakázat uživatele?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:340
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:165
+msgid "Who can kick users?"
+msgstr "Kdo má oprávnění vyloučit uživatele?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:352
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:177
+msgid "Who can change the chat name?"
+msgstr "Kdo má oprávnění změnit název chatu?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:364
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:189
+msgid "Who can change the chat avatar?"
+msgstr "Kdo má oprávnění změnit avatar chatu?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:376
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:201
+msgid "Who can change the chat history visibility?"
+msgstr "Kdo má oprávnění změnit viditelnost historie chatu?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:388
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:213
+msgid "Who can change the chat addresses?"
+msgstr "Kdo má oprávnění změnit adresu chatu?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:400
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:225
+msgid "Who can change the canonical chat alias?"
+msgstr "Kdo má oprávnění změnit kanonický alias chatu?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:412
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:237
+msgid "Who can change the user permissions?"
+msgstr "Kdo má oprávnění změnit oprávnění uživatelů?"
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:424
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:249
+msgid "Default user permissions:"
+msgstr "Výchozí oprávnění uživatelů:"
+
 #: ../qml/pages/CreateChatPage.qml:15
-msgid "New group: %1 selected"
+#, fuzzy
+#| msgid "New contact"
+msgid "New chat"
+msgstr "Nový kontakt"
+
+#: ../qml/pages/CreateChatPage.qml:15
+#, fuzzy
+#| msgid "New group: %1 selected"
+msgid "New chat: %1 selected"
 msgstr "Nová skupina: %1 zvoleno"
 
-#: ../qml/pages/CreateChatPage.qml:54 ../qml/pages/InvitePage.qml:66
-#: ../qml/pages/AddChatPage.qml:84
+#: ../qml/pages/CreateChatPage.qml:21
+msgid "New contact"
+msgstr "Nový kontakt"
+
+#: ../qml/pages/CreateChatPage.qml:74 ../qml/pages/InvitePage.qml:56
 msgid "Search for example @username:server.abc"
 msgstr "Vyhledat například @username:server.abc"
 
-#: ../qml/pages/CreateChatPage.qml:100
-msgid "Create group"
-msgstr "Vytvořit skupinu"
+#: ../qml/pages/CreateChatPage.qml:115
+msgid "Import from contacts"
+msgstr "Importovat z kontaktů"
+
+#: ../qml/pages/CreateChatPage.qml:140
+#, fuzzy
+#| msgid "Leave chat"
+msgid "Create chat"
+msgstr "Opustit chat"
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
-#: ../qml/pages/SettingsPage.qml:81
+#: ../qml/pages/SettingsPage.qml:78
 msgid "Settings for %1"
 msgstr "Nastavení pro %1"
 
-#: ../qml/pages/SettingsPage.qml:48
+#: ../qml/pages/SettingsPage.qml:49
 msgid "Edit displayname"
 msgstr "Změnit zobrazované jméno"
 
-#: ../qml/pages/SettingsPage.qml:95 ../qml/pages/ChatSettingsPage.qml:164
-#: ../qml/components/ChatEvent.qml:172
+#: ../qml/pages/SettingsPage.qml:92 ../qml/pages/ChatSettingsPage.qml:160
+#: ../qml/components/ChatEvent.qml:178
 msgid "Show image"
 msgstr "Ukázat obrázek"
 
-#: ../qml/pages/SettingsPage.qml:99 ../qml/pages/ChatSettingsPage.qml:168
+#: ../qml/pages/SettingsPage.qml:96 ../qml/pages/ChatSettingsPage.qml:164
 msgid "Delete Avatar"
 msgstr "Smazat avatar"
 
-#: ../qml/pages/SettingsPage.qml:121 ../qml/pages/ChatSettingsPage.qml:189
+#: ../qml/pages/SettingsPage.qml:118 ../qml/pages/ChatSettingsPage.qml:185
 #: ../qml/components/StickerInput.qml:138
 msgid "Error"
 msgstr "Chyba"
 
-#: ../qml/pages/SettingsPage.qml:125 ../qml/pages/ChatSettingsPage.qml:193
+#: ../qml/pages/SettingsPage.qml:122 ../qml/pages/ChatSettingsPage.qml:189
 #: ../qml/components/StickerInput.qml:142
 msgid "OK"
 msgstr "OK"
 
-#: ../qml/pages/SettingsPage.qml:143
+#: ../qml/pages/SettingsPage.qml:140
 msgid "Change main color"
 msgstr "Změnit základní barvu"
 
-#: ../qml/pages/SettingsPage.qml:156
+#: ../qml/pages/SettingsPage.qml:153
 msgid "Change background"
 msgstr "Změnit pozadí"
 
-#: ../qml/pages/SettingsPage.qml:180
+#: ../qml/pages/SettingsPage.qml:177
 msgid "Background removed"
 msgstr "Pozadí odstraněno"
 
-#: ../qml/pages/SettingsPage.qml:196
+#: ../qml/pages/SettingsPage.qml:193
 msgid "Dark mode"
 msgstr "Noční režim"
 
-#: ../qml/pages/SettingsPage.qml:204
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:242
+#: ../qml/pages/SettingsPage.qml:200
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:245
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
-#: ../qml/pages/ChatSettingsPage.qml:233
+#: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Notifications"
 msgstr "Oznámení"
 
-#: ../qml/pages/SettingsPage.qml:219
+#: ../qml/pages/SettingsPage.qml:215
 msgid "Chat settings:"
 msgstr "Nastavení chatu:"
 
-#: ../qml/pages/SettingsPage.qml:224
+#: ../qml/pages/SettingsPage.qml:220
 msgid "Display 'I am typing' when typing"
 msgstr "Zobrazit 'právě píši' když píši"
 
-#: ../qml/pages/SettingsPage.qml:231
+#: ../qml/pages/SettingsPage.qml:227
 msgid "Show member change events"
 msgstr "Zobrazit události týkající se změn u účastníků"
 
-#: ../qml/pages/SettingsPage.qml:238
+#: ../qml/pages/SettingsPage.qml:234
 msgid "Hide less important events"
 msgstr "Schovat méně důležité události"
 
-#: ../qml/pages/SettingsPage.qml:245
+#: ../qml/pages/SettingsPage.qml:241
 msgid "Autoload animated images"
 msgstr "Automaticky stahovat animované obrázky"
 
-#: ../qml/pages/SettingsPage.qml:267
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Account settings:"
 msgstr "Nastavení účtu:"
 
-#: ../qml/pages/SettingsPage.qml:272 ../qml/pages/PhoneSettingsPage.qml:47
+#: ../qml/pages/SettingsPage.qml:268 ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr "Připojená telefonní čísla"
 
-#: ../qml/pages/SettingsPage.qml:284 ../qml/pages/DevicesSettingsPage.qml:24
+#: ../qml/pages/SettingsPage.qml:280 ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
 msgstr "Zařízení"
 
-#: ../qml/pages/SettingsPage.qml:290
+#: ../qml/pages/SettingsPage.qml:286
 msgid "Change password"
 msgstr "Změnit heslo"
 
-#: ../qml/pages/SettingsPage.qml:305
+#: ../qml/pages/SettingsPage.qml:301
 msgid "Check out:"
 msgstr "Ověřit:"
 
-#: ../qml/pages/SettingsPage.qml:310
+#: ../qml/pages/SettingsPage.qml:306
 msgid "Disable account"
 msgstr "Deaktivovat účet"
 
-#: ../qml/pages/SettingsPage.qml:316 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:312 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Odhlášení"
 
-#: ../qml/pages/SettingsPage.qml:331
+#: ../qml/pages/SettingsPage.qml:327
 msgid "More:"
 msgstr "Více:"
 
@@ -598,15 +720,34 @@ msgstr "Zprávy od botů"
 msgid "Targets"
 msgstr "Cíle"
 
-#: ../qml/pages/InvitePage.qml:21
-msgid "Invite user: %1 selected"
-msgstr "Pozvat uživatele: %1 zvoleno"
-
-#: ../qml/pages/InvitePage.qml:108
-msgid "Invite"
-msgstr "Pozvat"
+#: ../qml/pages/InvitePage.qml:17
+#, fuzzy
+#| msgid "Only invited users"
+msgid "Invite users"
+msgstr "Pouze pro zvané účastníky"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:28
+#, fuzzy
+#| msgid ""
+#| "<br><b>Matrix client</b><br><br>* Fluffychat is a matrix protocol client "
+#| "and compatible with all matrix servers and matrix identity servers. All "
+#| "communications made by the use while using fluffychat are done with the "
+#| "matrix server and the matrix identity server.<br>* The default server is "
+#| "https://ubports.chat and the default identity server is https://vector.im."
+#| "<br>* Fluffychat doesn't operate any server or service.<br>* All "
+#| "communications between fluffychat and any server is done in secure way, "
+#| "using encryption to protect it.<br>* Fluffychat is not responsible for "
+#| "the data processing by any matrix server or matrix identity server.<br>* "
+#| "Fluffychat offers the possibility to use phone numbers to find contacts. "
+#| "This is optional and no contacts are uploaded without user interaction! "
+#| "The user can choose, which contacts he want to upload to the identity "
+#| "server!<br><br><b>Push Notifications</b><br><br>* The matrix server the "
+#| "user is using, will automatically send push notifications to the UBports "
+#| "push service. This notifications are encrypted with https on the way from "
+#| "the matrix server to the official ubports matrix gateway at https://push."
+#| "ubports.com:5003/_matrix/push/r0/notify which forwards the notification "
+#| "to UBports push service at https://push.ubports.com and then sends this "
+#| "as a push notification to the user's device(s).<br>"
 msgid ""
 "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
 "is compatible with all Matrix servers and Matrix identity servers. All "
@@ -630,12 +771,12 @@ msgid ""
 "the notification to UBports push service at https://push.ubports.com and "
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
-"<br> <b> Klent Matrixu </ b> <br> <br> * FluffyChat je klient matrix "
+"<br> <b> Klent Matrixu </ b> <br> <br> * Fluffychat je klient matrix "
 "protokolu a je kompatibilní se všemi matrix servery a matrix identifikačními "
 "servery. Veškerá komunikace při používání fluffychatu je realizována "
 "prostřednictvím matrix serveru a matrix serveru identity. * Výchozí server "
 "je https://ubports.chat a výchozí server identity je https://vector.im. <br> "
-"* FluffyChat neprovozuje žádné servery ani služby. <br> * Veškerá komunikace "
+"* Fluffychat neprovozuje žádné servery ani služby. <br> * Veškerá komunikace "
 "mezi fluffychat a servery je zajištěna a chráněna prostřednictvím šifrování. "
 "<br> <br> Fluffychat nenese žádnou odpovědnost za zpracování dat jakýmkoli z "
 "matrix serverů anebo matrix identifikačních serverů. <br> * Fluffychat "
@@ -649,47 +790,45 @@ msgstr ""
 "notify, a která předává oznámení službě UBports push na adrese https: //push."
 "ubports.com a zašle tuto zprávu jako upozornění na zařízení uživatele. <br>"
 
-#: ../qml/pages/ChatPage.qml:223 ../qml/components/ArchivedChatListItem.qml:28
-#: ../qml/components/SimpleChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:226 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/components/SimpleChatListItem.qml:31
 msgid "Unknown chat"
 msgstr "Neznámý chat"
 
-#: ../qml/pages/ChatPage.qml:230 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:233 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr "Odstranit"
 
-#: ../qml/pages/ChatPage.qml:236
+#: ../qml/pages/ChatPage.qml:239
 msgid "Chat info"
 msgstr "Informace o chatovací místnosti"
 
-#: ../qml/pages/ChatPage.qml:248 ../qml/pages/ChatSettingsPage.qml:311
+#: ../qml/pages/ChatPage.qml:251 ../qml/pages/ChatSettingsPage.qml:310
 msgid "Invite friends"
 msgstr "Pozvat přátele"
 
-#: ../qml/pages/ChatPage.qml:271
+#: ../qml/pages/ChatPage.qml:274
 msgid "No messages in this chat ..."
 msgstr "Žádné zprávy v této místnosti …"
 
-#: ../qml/pages/ChatPage.qml:294
+#: ../qml/pages/ChatPage.qml:297
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "Odpovědět <b>%1</b>: \"%2\""
 
-#: ../qml/pages/ChatPage.qml:399
+#: ../qml/pages/ChatPage.qml:402
 msgid "Accept invitation"
 msgstr "Přijmout pozvání"
 
-#: ../qml/pages/ChatPage.qml:399
+#: ../qml/pages/ChatPage.qml:402
 msgid "Join"
 msgstr "Připojit se"
 
-#: ../qml/pages/ChatPage.qml:413
-#, fuzzy
-#| msgid "Who can send messages?"
-msgid "You can not send messages here"
-msgstr "Kdo může zasílat zprávy?"
+#: ../qml/pages/ChatPage.qml:416
+msgid "You do not have posting permissions here"
+msgstr ""
 
-#: ../qml/pages/ChatPage.qml:444
+#: ../qml/pages/ChatPage.qml:447
 msgid "Type something ..."
 msgstr "Napište něco …"
 
@@ -713,205 +852,124 @@ msgstr "Pouze pokud zmíněn"
 msgid "Don't notify"
 msgstr "Neoznamovat"
 
-#: ../qml/pages/JoinChatPage.qml:14
-msgid "Join chat"
-msgstr "Připojit se k chatu"
-
-#: ../qml/pages/JoinChatPage.qml:23
-msgid "Nameless chat"
-msgstr "Chat bez názvu"
-
-#: ../qml/pages/JoinChatPage.qml:50
-msgid "Search public chats..."
-msgstr "Vyhledat veřejné chaty..."
-
-#: ../qml/pages/JoinChatPage.qml:86
-msgid "Loading public chats..."
-msgstr "Stahuji veřejné chaty..."
-
-#: ../qml/pages/ChatSettingsPage.qml:96
+#: ../qml/pages/ChatSettingsPage.qml:94
 msgid "Member"
 msgstr "Člen"
 
-#: ../qml/pages/ChatSettingsPage.qml:97
+#: ../qml/pages/ChatSettingsPage.qml:95
 msgid "Was invited"
 msgstr "Byl pozván"
 
-#: ../qml/pages/ChatSettingsPage.qml:98
+#: ../qml/pages/ChatSettingsPage.qml:96
 msgid "Has left the chat"
 msgstr "Opustil chat"
 
-#: ../qml/pages/ChatSettingsPage.qml:99
+#: ../qml/pages/ChatSettingsPage.qml:97
 msgid "Has knocked"
 msgstr "Požádal o vstup"
 
-#: ../qml/pages/ChatSettingsPage.qml:100
+#: ../qml/pages/ChatSettingsPage.qml:98
 msgid "Was banned from the chat"
 msgstr "Byl z chatu vyloučen"
 
-#: ../qml/pages/ChatSettingsPage.qml:101
+#: ../qml/pages/ChatSettingsPage.qml:99
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: ../qml/pages/ChatSettingsPage.qml:128
+#: ../qml/pages/ChatSettingsPage.qml:126
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr "Editovat název chatu"
 
-#: ../qml/pages/ChatSettingsPage.qml:222
+#: ../qml/pages/ChatSettingsPage.qml:221
 msgid "Chat Settings:"
 msgstr "Nastavení chatu:"
 
-#: ../qml/pages/ChatSettingsPage.qml:239
+#: ../qml/pages/ChatSettingsPage.qml:238
 msgid "Security & Privacy"
 msgstr "Bezpečnost a soukromí"
 
-#: ../qml/pages/ChatSettingsPage.qml:245
+#: ../qml/pages/ChatSettingsPage.qml:244
 msgid "Chat addresses"
 msgstr "Adresy chatů"
 
-#: ../qml/pages/ChatSettingsPage.qml:267
+#: ../qml/pages/ChatSettingsPage.qml:266
 msgid "Users in this chat (%1):"
 msgstr "Uživatele tohoto chatu (%1):"
 
-#: ../qml/pages/ChatSettingsPage.qml:267
+#: ../qml/pages/ChatSettingsPage.qml:266
 msgid "Press button to reload users..."
 msgstr "Stiskněte tlačítko pro opětovné načítání uživatelů..."
 
-#: ../qml/pages/ChatSettingsPage.qml:291
+#: ../qml/pages/ChatSettingsPage.qml:290
 msgid "Search..."
 msgstr "Vyhledat..."
 
-#: ../qml/pages/ChatSettingsPage.qml:319
+#: ../qml/pages/ChatSettingsPage.qml:318
 msgid "Reload"
 msgstr "Načíst znovu"
-
-#: ../qml/pages/AddChatPage.qml:12
-msgid "Start a new chat"
-msgstr "Zahájit nový chat"
-
-#: ../qml/pages/AddChatPage.qml:18
-msgid "New contact"
-msgstr "Nový kontakt"
-
-#: ../qml/pages/AddChatPage.qml:24
-msgid "Discover public chats"
-msgstr "Objevit veřejné chaty"
-
-#: ../qml/pages/AddChatPage.qml:57 ../qml/components/NewGroupDialog.qml:11
-msgid "New group"
-msgstr "Nová skupina"
-
-#: ../qml/pages/AddChatPage.qml:123
-msgid "Import from contacts"
-msgstr "Importovat z kontaktů"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:24
 msgid "Notification targets"
 msgstr "Cíle oznámení"
 
-#: ../qml/pages/ChatAliasSettingsPage.qml:62
+#: ../qml/pages/ChatAliasSettingsPage.qml:63
 msgid "Public chat addresses"
 msgstr "Veřejné chatovací adresy"
 
-#: ../qml/pages/ChatAliasSettingsPage.qml:69
+#: ../qml/pages/ChatAliasSettingsPage.qml:70
 msgid "Add chat address"
 msgstr "Přidat adresu chatu"
 
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:105
-msgid "Who can send messages?"
-msgstr "Kdo může zasílat zprávy?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:117
-msgid "Who can configure this chat?"
-msgstr "Kdo má oprávnění provádět nastavení chatu?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:129
-msgid "Who can remove messages?"
-msgstr "Kdo má oprávnění pro mazání zpráv?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:141
-msgid "Who can invite users?"
-msgstr "Kdo má oprávnění zvát uživatele?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:153
-msgid "Who can ban users?"
-msgstr "Kdo má oprávnění zakázat uživatele?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:165
-msgid "Who can kick users?"
-msgstr "Kdo má oprávnění vyloučit uživatele?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:177
-msgid "Who can change the chat name?"
-msgstr "Kdo má oprávnění změnit název chatu?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:189
-msgid "Who can change the chat avatar?"
-msgstr "Kdo má oprávnění změnit avatar chatu?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:201
-msgid "Who can change the chat history visibility?"
-msgstr "Kdo má oprávnění změnit viditelnost historie chatu?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:213
-msgid "Who can change the chat addresses?"
-msgstr "Kdo má oprávnění změnit adresu chatu?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:225
-msgid "Who can change the canonical chat alias?"
-msgstr "Kdo má oprávnění změnit kanonický alias chatu?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:237
-msgid "Who can change the user permissions?"
-msgstr "Kdo má oprávnění změnit oprávnění uživatelů?"
-
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:249
-msgid "Default user permissions:"
-msgstr "Výchozí oprávnění uživatelů:"
-
-#: ../qml/components/ImageViewer.qml:53
+#: ../qml/components/ImageViewer.qml:52
 msgid "Add this image as sticker?"
 msgstr "Přiložit obrázek jako štítek?"
 
-#: ../qml/components/ImageViewer.qml:60
+#: ../qml/components/ImageViewer.qml:59
 msgid "Already added as sticker"
 msgstr "Již byl přidán jako štítek"
 
-#: ../qml/components/ImageViewer.qml:61
+#: ../qml/components/ImageViewer.qml:60
 msgid "Added as sticker"
 msgstr "Přidat jako štítek"
 
-#: ../qml/components/ChangeJoinRulesDialog.qml:54
-#: ../qml/components/TargetInfoDialog.qml:48
-#: ../qml/components/ChangeHistoryVisibilityDialog.qml:46
-#: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangePowerLevelDialog.qml:64
-#: ../qml/components/ChangeGuestAccessDialog.qml:37
-msgid "Close"
-msgstr "Zavřít"
+#: ../qml/components/InviteListItem.qml:24
+#, fuzzy
+#| msgid "%1 has invited %2"
+msgid "%1 has been invited"
+msgstr "%1 pozval/a %2"
 
-#: ../qml/components/MemberListItem.qml:66
+#: ../qml/components/InviteListItem.qml:26
+msgid "An error occured. Maybe the username %1 is wrong?"
+msgstr ""
+
+#: ../qml/components/InviteListItem.qml:27
+#, fuzzy
+#| msgid "Was banned from the chat"
+msgid "%1 is banned from the chat."
+msgstr "Byl z chatu vyloučen"
+
+#: ../qml/components/MemberListItem.qml:65
 msgid "Make this user a normal member?"
 msgstr "Učinit tohoto uživatele běžným členem?"
 
-#: ../qml/components/MemberListItem.qml:78
+#: ../qml/components/MemberListItem.qml:77
 msgid "Make this user a moderator?"
 msgstr "Učinit tohoto uživatele moderátorem?"
 
-#: ../qml/components/MemberListItem.qml:90
+#: ../qml/components/MemberListItem.qml:89
 msgid "Make this user an admin?"
 msgstr "Učinit tohoto uživatele správcem?"
 
-#: ../qml/components/MemberListItem.qml:108
+#: ../qml/components/MemberListItem.qml:107
 msgid "Ban from this chat?"
 msgstr "Zakázat v tomto chatu?"
 
-#: ../qml/components/MemberListItem.qml:116
+#: ../qml/components/MemberListItem.qml:115
 msgid "Cancel banishment?"
 msgstr "Zrušit zákaz?"
 
-#: ../qml/components/MemberListItem.qml:124
+#: ../qml/components/MemberListItem.qml:123
 msgid "Kick from this chat?"
 msgstr "Vyloučit z tohoto chatu?"
 
@@ -987,17 +1045,15 @@ msgstr "<b>Jazyk</b>: %2"
 msgid "<b>Gateway</b>: %2"
 msgstr "<b>Brána</b>: %2"
 
+#: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/ColorDialog.qml:38
+#: ../qml/components/ChangePowerLevelDialog.qml:64
+msgid "Close"
+msgstr "Zavřít"
+
 #: ../qml/components/DownloadDialog.qml:11
 msgid "Download"
 msgstr "Stáhnout"
-
-#: ../qml/components/ChangeHistoryVisibilityDialog.qml:27
-msgid "Joined and invited chat participants"
-msgstr "Připojili se a pozvali účastníky chatu"
-
-#: ../qml/components/ChangeHistoryVisibilityDialog.qml:35
-msgid "Only chat participants"
-msgstr "Pouze účastníci chatu"
 
 #: ../qml/components/LeaveChatDialog.qml:11
 msgid "Leave chat"
@@ -1011,6 +1067,10 @@ msgstr "Opravdu chcete chat opustit?"
 msgid "Leave"
 msgstr "Opustit"
 
+#: ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr "Nová skupina"
+
 #: ../qml/components/NewGroupDialog.qml:19
 msgid "Group name"
 msgstr "Název skupiny"
@@ -1021,7 +1081,7 @@ msgstr "Název skupiny"
 msgid "Continue"
 msgstr "Pokračovat"
 
-#: ../qml/components/ContactImport.qml:63
+#: ../qml/components/ContactImport.qml:67
 msgid "%1 contacts were found"
 msgstr "%1 kontaktů nalezeno"
 
@@ -1045,12 +1105,12 @@ msgstr "Opravdu chcete odstranit toto zařízení?"
 msgid "Please enter your password"
 msgstr "Prosím, zadejte své heslo"
 
-#: ../qml/components/PhoneListItem.qml:29
-#: ../qml/components/EmailListItem.qml:29
+#: ../qml/components/PhoneListItem.qml:31
+#: ../qml/components/EmailListItem.qml:31
 msgid "Remove this email address?"
 msgstr "Odstranit tuto e-mailovou adresu?"
 
-#: ../qml/components/ChatEvent.qml:281
+#: ../qml/components/ChatEvent.qml:286
 msgid "Download: "
 msgstr "Stáhnout: "
 
@@ -1134,15 +1194,15 @@ msgstr "Vyhledat název země..."
 msgid "Synchronizing… Please wait."
 msgstr "Synchronizuji… Prosím vyčkejte."
 
-#: ../qml/components/ChatListItem.qml:34
+#: ../qml/components/ChatListItem.qml:36
 msgid "You have been invited to this chat"
 msgstr "Byl pozván do tohoto chatu"
 
-#: ../qml/components/ChatListItem.qml:36
+#: ../qml/components/ChatListItem.qml:39
 msgid "You: "
 msgstr "Vy: "
 
-#: ../qml/components/ChatListItem.qml:37
+#: ../qml/components/ChatListItem.qml:40
 msgid "No preview messages"
 msgstr "Žádná zpráva"
 
@@ -1166,23 +1226,23 @@ msgstr "Odstín: %1"
 msgid "Reset"
 msgstr "Restartovat"
 
-#: ../qml/components/ChatScrollView.qml:68
+#: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
 msgstr "Získat další zprávy ze serveru ..."
 
-#: ../qml/components/ChatScrollView.qml:270
+#: ../qml/components/ChatScrollView.qml:271
 msgid "Try send again"
 msgstr "Pokusit se odeslat znovu"
 
-#: ../qml/components/ChatScrollView.qml:279
+#: ../qml/components/ChatScrollView.qml:280
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: ../qml/components/ChatScrollView.qml:287
+#: ../qml/components/ChatScrollView.qml:288
 msgid "Forward"
 msgstr "Přeposlat"
 
-#: ../qml/components/ChatScrollView.qml:292
+#: ../qml/components/ChatScrollView.qml:293
 msgid "Copy text"
 msgstr "Kopírovat text"
 
@@ -1194,7 +1254,7 @@ msgstr "Text byl zkopírován do schránky"
 msgid "Delete message"
 msgstr "Smazat zprávu"
 
-#: ../qml/components/TargetListItem.qml:22
+#: ../qml/components/TargetListItem.qml:24
 msgid "This device"
 msgstr "Toto zařízení"
 
@@ -1205,6 +1265,12 @@ msgstr "Odstranit štítek"
 #: ../qml/components/UsernameListItem.qml:12
 msgid "Full username:"
 msgstr "Celé jméno uživatele:"
+
+#: ../qml/components/UsernameListItem.qml:25
+#, fuzzy
+#| msgid "Text has been copied to the clipboard"
+msgid "Username has been copied to the clipboard"
+msgstr "Text byl zkopírován do schránky"
 
 #: ../qml/components/NewContactDialog.qml:11
 msgid "New single chat"
@@ -1231,18 +1297,24 @@ msgstr ""
 "Může trvat několik minut…"
 
 #: ../qml/components/AddressesListItem.qml:13
+#, fuzzy
+#| msgid "Text has been copied to the clipboard"
+msgid "Copied to clipboard"
+msgstr "Text byl zkopírován do schránky"
+
+#: ../qml/components/AddressesListItem.qml:18
 msgid "Canonical alias"
 msgstr "Kanonický alias"
 
-#: ../qml/components/UserSettingsViewer.qml:121
+#: ../qml/components/UserSettingsViewer.qml:111
 msgid "Chats with this user:"
 msgstr "Chaty s tímto uživatelem:"
 
-#: ../qml/components/UserSettingsViewer.qml:121
+#: ../qml/components/UserSettingsViewer.qml:111
 msgid "You are that!"
 msgstr "To jsi ty!"
 
-#: ../qml/components/UserSettingsViewer.qml:160
+#: ../qml/components/UserSettingsViewer.qml:153
 msgid "Start new chat"
 msgstr "Zahájit nový chat"
 
@@ -1254,6 +1326,10 @@ msgstr "Změnit Váš název viditelný na obrazovce"
 msgid "Enter your new nickname"
 msgstr "Vložit Vaší novou přezdívku"
 
+#: ../qml/components/CommunityViewer.qml:107
+msgid "No description found"
+msgstr ""
+
 #: ../qml/components/ChangeChatnameDialog.qml:20
 msgid "Enter a name for the chat"
 msgstr "Zadat název pro tento chat"
@@ -1262,7 +1338,7 @@ msgstr "Zadat název pro tento chat"
 msgid "Enter a description for the chat"
 msgstr "Zadat popis chatu"
 
-#: ../qml/components/DeviceListItem.qml:22
+#: ../qml/components/DeviceListItem.qml:25
 msgid "Last seen: "
 msgstr "Naposledy viděn: "
 
@@ -1286,11 +1362,56 @@ msgstr ""
 "Prosím restartujte aplikaci, pokud bude třeba, restartujte zařízení pro "
 "dokončení aktualizace!"
 
+#~ msgid "Donate us a coffee"
+#~ msgstr "Přispěje nám na kávu"
+
+#~ msgid "Please choose a password to protect your account"
+#~ msgstr "Pro ochranu Vašeho účtu si prosím zvolte heslo"
+
 #~ msgid "About fluffychat"
 #~ msgstr "O fluffychat"
 
 #~ msgid "Fluffychat"
 #~ msgstr "Fluffychat"
 
+#~ msgid "Who is allowed to join?"
+#~ msgstr "Kdo se může připojit?"
+
+#~ msgid "Who can see the chat history?"
+#~ msgstr "Kdo může vidět historii chatu?"
+
+#~ msgid "Guest access?"
+#~ msgstr "Přístup hostů?"
+
+#~ msgid "Create group"
+#~ msgstr "Vytvořit skupinu"
+
+#~ msgid "Invite user: %1 selected"
+#~ msgstr "Pozvat uživatele: %1 zvoleno"
+
+#~ msgid "Invite"
+#~ msgstr "Pozvat"
+
 #~ msgid "You are not allowed to send messages"
 #~ msgstr "Nemáte povoleno odesílat zprávy"
+
+#~ msgid "Join chat"
+#~ msgstr "Připojit se k chatu"
+
+#~ msgid "Search public chats..."
+#~ msgstr "Vyhledat veřejné chaty..."
+
+#~ msgid "Loading public chats..."
+#~ msgstr "Stahuji veřejné chaty..."
+
+#~ msgid "Start a new chat"
+#~ msgstr "Zahájit nový chat"
+
+#~ msgid "Discover public chats"
+#~ msgstr "Objevit veřejné chaty"
+
+#~ msgid "Joined and invited chat participants"
+#~ msgstr "Připojili se a pozvali účastníky chatu"
+
+#~ msgid "Only chat participants"
+#~ msgstr "Pouze účastníci chatu"
