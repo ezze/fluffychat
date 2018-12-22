@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-22 11:48+0000\n"
+"POT-Creation-Date: 2018-12-22 12:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,22 @@ msgstr ""
 
 #: ../qml/controller/SettingsController.qml:67
 msgid "1"
+msgstr ""
+
+#: ../qml/controller/StampController.qml:24
+msgid "1 minute"
+msgstr ""
+
+#: ../qml/controller/StampController.qml:27
+msgid "%1 minutes"
+msgstr ""
+
+#: ../qml/controller/StampController.qml:30
+msgid "%1 hours"
+msgstr ""
+
+#: ../qml/controller/StampController.qml:33
+msgid "%1 days"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:13
@@ -165,7 +181,7 @@ msgstr ""
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:156
+#: ../qml/controller/EventController.qml:157
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -521,15 +537,15 @@ msgstr ""
 msgid "New contact"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:76 ../qml/pages/InvitePage.qml:56
+#: ../qml/pages/CreateChatPage.qml:93 ../qml/pages/InvitePage.qml:56
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:118
+#: ../qml/pages/CreateChatPage.qml:135
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:145
+#: ../qml/pages/CreateChatPage.qml:162
 msgid "Create chat"
 msgstr ""
 
@@ -578,7 +594,7 @@ msgid "Dark mode"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:200
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:247
+#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:245
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:232
 msgid "Notifications"
@@ -730,45 +746,45 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:228 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:226 ../qml/components/ArchivedChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:235 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:233 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:241
+#: ../qml/pages/ChatPage.qml:239
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:253 ../qml/pages/ChatSettingsPage.qml:310
+#: ../qml/pages/ChatPage.qml:251 ../qml/pages/ChatSettingsPage.qml:310
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:274
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:299
+#: ../qml/pages/ChatPage.qml:297
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:404
+#: ../qml/pages/ChatPage.qml:402
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:404
+#: ../qml/pages/ChatPage.qml:402
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:418
+#: ../qml/pages/ChatPage.qml:416
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:449
+#: ../qml/pages/ChatPage.qml:447
 msgid "Type something ..."
 msgstr ""
 
@@ -1162,6 +1178,11 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
+#: ../qml/components/ContactListItem.qml:36
+#: ../qml/components/UserSettingsViewer.qml:110
+msgid "Last active: %1"
+msgstr ""
+
 #: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
 msgstr ""
@@ -1202,7 +1223,7 @@ msgstr ""
 msgid "Full username:"
 msgstr ""
 
-#: ../qml/components/UsernameListItem.qml:25
+#: ../qml/components/UsernameListItem.qml:31
 msgid "Username has been copied to the clipboard"
 msgstr ""
 
@@ -1236,15 +1257,23 @@ msgstr ""
 msgid "Canonical alias"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "Status: %1 "
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "and currently active"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:136
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:136
 msgid "You are that!"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:153
+#: ../qml/components/UserSettingsViewer.qml:178
 msgid "Start new chat"
 msgstr ""
 

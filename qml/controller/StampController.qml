@@ -19,4 +19,21 @@ Item {
         return date.toLocaleString(locale, Locale.ShortFormat)
     }
 
+    function getAgoFormat ( ago ) {
+        ago = Math.round(ago / 1000)
+        if ( ago < 60 ) return i18n.tr("1 minute")
+        else {
+            ago = Math.round(ago / 60)
+            if ( ago < 60 ) return i18n.tr("%1 minutes").arg(ago)
+            else {
+                ago = Math.round(ago / 60)
+                if ( ago < 24 ) return i18n.tr("%1 hours").arg(ago)
+                else {
+                    ago = Math.round(ago / 24)
+                    return i18n.tr("%1 days").arg(ago)
+                }
+            }
+        }
+    }
+
 }

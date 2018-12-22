@@ -56,7 +56,7 @@ Item {
 
         loadingScreen.visible = true
         storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" +
-        matrix.matrixid + "', '" + usernames.transformFromId(matrix.matrixid) + "', '' )" )
+        matrix.matrixid + "', '" + usernames.transformFromId(matrix.matrixid) + "', '', 'offline', 0, 0 )" )
 
         matrix.get( "/client/r0/sync", {}, function ( response ) {
             if ( waitingForSync ) progressBarRequests--
@@ -145,6 +145,7 @@ Item {
                     handleRooms ( response.rooms.join, "join" )
                     handleRooms ( response.rooms.leave, "leave" )
                     handleRooms ( response.rooms.invite, "invite" )
+                    handlePresences ( response.presence)
 
                     settings.since = response.next_batch
                     loadingScreen.visible = false
@@ -217,6 +218,20 @@ Item {
                 handleRoomEvents ( id, room.timeline.events, "timeline", room )
             }
             if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
+        }
+    }
+
+
+    // Handle the presences
+    function handlePresences ( presences ) {
+        for ( var i = 0; i < presences.events.length; i++ ) {
+            var pEvent = presences.events[i]
+            var query = "UPDATE Users SET presence = '%1' ".arg( pEvent.content.presence )
+            if ( pEvent.content.currently_active !== undefined ) query += ", currently_active = %1 ".arg( pEvent.content.currently_active ? "1" : "0" )
+            if ( pEvent.content.last_active_ago !== undefined ) query += ", last_active_ago = %1 ".arg( (new Date().getTime() - pEvent.content.last_active_ago).toString() )
+            query += "WHERE matrix_id = '%1'".arg(pEvent.sender)
+            transaction.executeSql( query )
+            newEvent ( pEvent.type, null, "presence", pEvent )
         }
     }
 
@@ -389,7 +404,7 @@ Item {
             // or has changed his nickname
             else if ( event.type === "m.room.member" ) {
 
-                if ( event.content.membership !== "leave" && event.content.membership !== "ban" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?)",
+                if ( event.content.membership !== "leave" && event.content.membership !== "ban" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, 'offline', 0, 0)",
                 [ event.state_key,
                 event.content.displayname || usernames.transformFromId(event.state_key),
                 event.content.avatar_url || "" ])

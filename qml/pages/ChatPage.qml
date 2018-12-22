@@ -138,7 +138,6 @@ Page {
 
 
     Component.onCompleted: {
-        console.log("CONSTRUCTION:", activeChat)
         storage.transaction ( "SELECT draft, membership, unread, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
             if ( res.rows.length === 0 ) return
             membership = res.rows[0].membership
@@ -178,7 +177,6 @@ Page {
 
     Component.onDestruction: {
         if ( chat_id !== activeChat ) return
-        console.log("DESTRUCTION:", activeChat)
         var lastEventId = chatScrollView.count > 0 ? chatScrollView.lastEventId : ""
         storage.query ( "UPDATE Chats SET draft=?, unread=? WHERE id=?", [
         messageTextField.displayText,

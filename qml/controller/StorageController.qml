@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.2"
+    property var version: "0.3.3"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -143,6 +143,9 @@ Item {
         'matrix_id TEXT, ' +
         'displayname TEXT, ' +
         'avatar_url TEXT, ' +
+        'presence TEXT, ' +
+        'currently_active INTEGER, ' +
+        'last_active_ago INTEGER, ' +
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR MEMBERSHIPS

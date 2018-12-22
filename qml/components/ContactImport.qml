@@ -58,7 +58,7 @@ Item {
                         response.threepids[j][1] + "', '" +
                         response.threepids[j][2] + "' )")
                         storage.transaction( "INSERT OR IGNORE INTO Users VALUES( '" +
-                        response.threepids[j][2] + "', '', '' )")
+                        response.threepids[j][2] + "', '', '', 'offline', 0, 0 )")
                     }
 
                     newContactsFound () // TODO: Why is this not working?

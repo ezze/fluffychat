@@ -33,9 +33,12 @@ BottomEdge {
                 matrix_id = activeUser
                 userHeader.title = matrix_id
 
-                storage.transaction ( "SELECT displayname, avatar_url FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
+                storage.transaction ( "SELECT displayname, avatar_url, presence, last_active_ago, currently_active FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
                     if ( res.rows.length === 1 ) avatar.mxc = res.rows[0].avatar_url
                     userHeader.title = res.rows[0].displayname
+                    presenceListItem.presence = res.rows[0].presence
+                    presenceListItem.last_active_ago = res.rows[0].last_active_ago
+                    presenceListItem.currently_active = res.rows[0].currently_active
                 })
 
                 if ( matrix_id === matrix.matrixid ) return
@@ -92,6 +95,28 @@ BottomEdge {
 
                     UsernameListItem {
                         matrix_id: activeUser
+                    }
+
+                    ListItem {
+                        id: presenceListItem
+                        property var presence: "offline"
+                        property var last_active_ago: 0
+                        property var currently_active: false
+                        height: statusListItemLayout.height
+                        color: Qt.rgba(0,0,0,0)
+                        ListItemLayout {
+                            id: statusListItemLayout
+                            title.text: i18n.tr("Status: %1 ").arg(presenceListItem.presence) + (presenceListItem.presence==="online" && presenceListItem.currently_active ? i18n.tr("and currently active") : "")
+                            subtitle.text: presenceListItem.last_active_ago !== 0 ? i18n.tr("Last active: %1").arg( stamp.getChatTime ( presenceListItem.last_active_ago ) ) : ""
+
+                            Icon {
+                                name: presenceListItem.presence === "online" ? "sync-idle" :
+                                    (presenceListItem.presence === "unavailable" ? "sync-paused" : "sync-offline")
+                                    SlotsLayout.position: SlotsLayout.Leading
+                                    width: units.gu(3)
+                                    height: width
+                            }
+                        }
                     }
 
                     Rectangle {

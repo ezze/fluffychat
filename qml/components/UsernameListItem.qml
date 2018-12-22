@@ -11,14 +11,20 @@ ListItem {
         id: usernameListItemLayout
         title.text: i18n.tr("Full username:")
         subtitle.text: matrix_id || ""
-    }
-    Icon {
-        name: "edit-copy"
-        width: units.gu(2)
-        height: width
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.margins: (parent.height - width) / 2
+
+        Icon {
+            name: "contact"
+            SlotsLayout.position: SlotsLayout.Leading
+            width: units.gu(3)
+            height: width
+        }
+
+        Icon {
+            name: "edit-copy"
+            SlotsLayout.position: SlotsLayout.Trailing
+            width: units.gu(3)
+            height: width
+        }
     }
     onClicked: {
         shareController.toClipboard ( matrix_id )

@@ -32,12 +32,27 @@ Page {
         z: -2
     }
 
+    Connections {
+        target: events
+        onNewEvent: updatePresence ( type, chat_id, eventType, eventContent )
+    }
+
+    function updatePresence ( type, chat_id, eventType, eventContent ) {
+        if ( type === "m.presence" ) {
+            for ( var i = 0; i < model.count; i++ ) {
+                if ( model.get(i).matrix_id === eventContent.sender ) {
+                    model.set(i).matrix_id = eventContent.presence
+                    if ( eventContent.last_active_ago ) model.set(i).last_active_ago = eventContent.last_active_ago
+                }
+            }
+        }
+    }
 
     Component.onCompleted: update ()
 
     function update () {
         if ( dummy ) return
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
+        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Users.presence, Users.last_active_ago, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
         " ON Contacts.matrix_id=Users.matrix_id ORDER BY Contacts.medium DESC LIMIT 1000",
         function( res )  {
             for( var i = 0; i < res.rows.length; i++ ) {
@@ -48,6 +63,8 @@ Page {
                     avatar_url: user.avatar_url,
                     medium: user.medium || "matrix",
                     address: user.address || user.matrix_id,
+                    last_active_ago: user.last_active_ago,
+                    presence: user.presence,
                     temp: false
                 })
             }

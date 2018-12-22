@@ -33,7 +33,7 @@ ListItem {
         id: layout
         title.text: name + (medium !== "matrix" ? " (%1)".arg(address) : "")
         title.color: mainFontColor
-        summary.text: "No status message"
+        summary.text: last_active_ago !== 0 ? i18n.tr("Last active: %1").arg( stamp.getChatTime ( last_active_ago ) ) : presence
 
         Avatar {
             name: layout.title.text
