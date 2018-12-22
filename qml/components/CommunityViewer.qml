@@ -25,7 +25,7 @@ BottomEdge {
                     },
                     Action {
                         iconName: "mail-forward"
-                        onTriggered: shareController.shareLinkIntern ( activeCommunity )
+                        onTriggered: shareController.shareTextIntern ( activeCommunity )
                     }
                     ]
                 }

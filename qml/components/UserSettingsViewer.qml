@@ -23,7 +23,7 @@ BottomEdge {
                     actions: [
                     Action {
                         iconName: "mail-forward"
-                        onTriggered: shareController.shareLinkIntern ( matrix_id )
+                        onTriggered: shareController.shareTextIntern ( matrix_id )
                     }
                     ]
                 }

@@ -7,6 +7,7 @@ Item {
     property var aliasRegex: /((^| )#(\w+):(\w+)(\.(\w+))+)/gm
     property var usernameRegex: /((^| )@(\w+):(\w+)(\.(\w+))+)/gm
     property var roomIdRegex: /((^| )!(\w+):(\w+)(\.(\w+))+)/gm
+    property var communityIdRegex: /((^| )\+(\w+):(\w+)(\.(\w+))+)/gm
     property var markdownLinkRegex: /\[([^\[\]]+)\]\(([^)]+\))/gm
 
     // This function helps to send a message. It automatically repeats, if there
@@ -90,6 +91,7 @@ Item {
         tempText = tempText.replace(aliasRegex, replaceMatrixUri)
         tempText = tempText.replace(usernameRegex, replaceMatrixUri)
         tempText = tempText.replace(roomIdRegex, replaceMatrixUri)
+        tempText = tempText.replace(communityIdRegex, replaceMatrixUri)
 
         // Set the newline tags correct
         tempText = tempText.replace("\n","<br>")
