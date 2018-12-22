@@ -1,6 +1,17 @@
 ### 8.0:
 ##### New features:
-* 
+* Communities: Implemented a community viewer
+* Presences: See which user is currently active, online status and last active ago. Please notice that presences at matrix.org are currently disabled
+* Redesigned and simplified new chat page
+* Support for markdown links and line breaks
+* All usernames, room ids, room addresses and community ids are now clickable
+* Push Notifications are now grouped by chats
+
+##### Bugs fixed:
+* Invitations now much more stable
+* Links in room description now clickable
+
+And much more little improvements in performance, usability and stability.
 
 ### 7.2:
 * Improved dark mode colors in chats
