@@ -74,7 +74,7 @@ Rectangle {
 
         onPressAndHold: openContextMenu ()
         onClicked: if (mouse.button == Qt.RightButton) openContextMenu ()
-        
+
         Rectangle {
             id: messageBubble
             opacity: isStateEvent ? 0.5 : 1
@@ -286,6 +286,7 @@ Button {
     text: i18n.tr("Download: ") + event.content.body
     onClicked: {
         downloadDialog.filename = event.content_body
+        downloadDialog.shareFunc = shareController.shareAll
         downloadDialog.downloadUrl = media.getLinkFromMxc ( event.content.url )
         downloadDialog.current = PopupUtils.open(downloadDialog)
     }

@@ -1,15 +1,9 @@
 {
     "share": [
-        "contacts",
         "links",
         "text"
     ],
     "destination": [
-        "pictures",
-        "documents",
-        "videos",
-        "contacts",
-        "music",
         "links",
         "text"
     ]

@@ -32,7 +32,7 @@ PopupBase {
         anchors.fill: parent
         ContentPeerPicker {
             id: peerPicker
-            handler: ContentHandler.Share
+            handler: ContentHandler.Destination
             visible: parent.visible
 
             onPeerSelected: {
