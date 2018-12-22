@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-22 12:57+0000\n"
+"POT-Creation-Date: 2018-12-22 13:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,22 +27,6 @@ msgstr ""
 
 #: ../qml/controller/SettingsController.qml:67
 msgid "1"
-msgstr ""
-
-#: ../qml/controller/StampController.qml:24
-msgid "1 minute"
-msgstr ""
-
-#: ../qml/controller/StampController.qml:27
-msgid "%1 minutes"
-msgstr ""
-
-#: ../qml/controller/StampController.qml:30
-msgid "%1 hours"
-msgstr ""
-
-#: ../qml/controller/StampController.qml:33
-msgid "%1 days"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:13

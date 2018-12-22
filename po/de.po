@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 14:39+0000\n"
-"PO-Revision-Date: 2018-12-21 15:49+0100\n"
+"POT-Creation-Date: 2018-12-22 13:00+0000\n"
+"PO-Revision-Date: 2018-12-22 14:01+0100\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -170,7 +170,7 @@ msgstr "Verboten"
 msgid "You are offline 😕"
 msgstr "Du bist offline 😕"
 
-#: ../qml/controller/EventController.qml:156
+#: ../qml/controller/EventController.qml:157
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -190,7 +190,7 @@ msgstr ""
 "Entschuldigung. 😕 Photo, Videos  und Dateien können noch nicht geteilt "
 "werden ..."
 
-#: ../qml/controller/SenderController.qml:40
+#: ../qml/controller/SenderController.qml:41
 msgid "You are not allowed to chat here."
 msgstr "Du hast keine Berechtigungen, um Nachrichten zu schreiben."
 
@@ -525,27 +525,27 @@ msgstr "Wer kann die Nutzer-Berechtigungen ändern?"
 msgid "Default user permissions:"
 msgstr "Standardbenutzerberechtigungen:"
 
-#: ../qml/pages/CreateChatPage.qml:15
+#: ../qml/pages/CreateChatPage.qml:16
 msgid "New chat"
 msgstr "Neuer Chat"
 
-#: ../qml/pages/CreateChatPage.qml:15
+#: ../qml/pages/CreateChatPage.qml:16
 msgid "New chat: %1 selected"
 msgstr "Neuer Chat: %1 ausgewählt"
 
-#: ../qml/pages/CreateChatPage.qml:21
+#: ../qml/pages/CreateChatPage.qml:22
 msgid "New contact"
 msgstr "Kontakt hinzufügen"
 
-#: ../qml/pages/CreateChatPage.qml:74 ../qml/pages/InvitePage.qml:56
+#: ../qml/pages/CreateChatPage.qml:93 ../qml/pages/InvitePage.qml:56
 msgid "Search for example @username:server.abc"
 msgstr "Suche z.B. nach @nutzername:server.abc"
 
-#: ../qml/pages/CreateChatPage.qml:115
+#: ../qml/pages/CreateChatPage.qml:135
 msgid "Import from contacts"
 msgstr "Aus Kontakten importieren"
 
-#: ../qml/pages/CreateChatPage.qml:140
+#: ../qml/pages/CreateChatPage.qml:162
 msgid "Create chat"
 msgstr "Chat erstellen"
 
@@ -769,7 +769,7 @@ msgstr ""
 "Benutzers. <br>"
 
 #: ../qml/pages/ChatPage.qml:226 ../qml/components/ArchivedChatListItem.qml:30
-#: ../qml/components/SimpleChatListItem.qml:31
+#: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr "Unbekannter Chat"
 
@@ -1202,6 +1202,11 @@ msgstr "Farbwert: %1"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
+#: ../qml/components/ContactListItem.qml:36
+#: ../qml/components/UserSettingsViewer.qml:110
+msgid "Last active: %1"
+msgstr "Zuletzt gesehen: %1"
+
 #: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
 msgstr "Hole mehr Nachrichten vom Server ..."
@@ -1242,7 +1247,7 @@ msgstr "Sticker löschen"
 msgid "Full username:"
 msgstr "Vollständiger Benutzername:"
 
-#: ../qml/components/UsernameListItem.qml:25
+#: ../qml/components/UsernameListItem.qml:31
 msgid "Username has been copied to the clipboard"
 msgstr "Benutzername wurde in die Zwischenablage kopiert"
 
@@ -1278,15 +1283,23 @@ msgstr "In Zwischenablage kopiert"
 msgid "Canonical alias"
 msgstr "Hauptadresse"
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "Status: %1 "
+msgstr "Status: %1"
+
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "and currently active"
+msgstr "und gerade aktiv"
+
+#: ../qml/components/UserSettingsViewer.qml:136
 msgid "Chats with this user:"
 msgstr "Chats mit diesem Nutzer:"
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:136
 msgid "You are that!"
 msgstr "Das bist du!"
 
-#: ../qml/components/UserSettingsViewer.qml:153
+#: ../qml/components/UserSettingsViewer.qml:178
 msgid "Start new chat"
 msgstr "Neuen Chat starten"
 
@@ -1333,6 +1346,9 @@ msgid ""
 msgstr ""
 "Bitte die App neu starten oder ggbf. das Gerät neu starten, um das Update "
 "abzuschließen!"
+
+#~ msgid "1 minute"
+#~ msgstr "1 Minute"
 
 #~ msgid "Donate us a coffee"
 #~ msgstr "Spende uns einen Kaffee"
