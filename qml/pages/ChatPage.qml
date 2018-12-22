@@ -184,6 +184,7 @@ Page {
         ])
         sendTypingNotification ( false )
         chatActive = false
+        activeChat = null
         audio.stop ()
         audio.source = ""
     }
