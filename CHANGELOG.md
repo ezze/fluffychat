@@ -1,3 +1,7 @@
+### 8.0:
+##### New features:
+* 
+
 ### 7.2:
 * Improved dark mode colors in chats
 * Header in chat list is now "flickable"
