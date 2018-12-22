@@ -15,6 +15,7 @@ Page {
     property var canSendMessages: true
     property var chatMembers: chatScrollView.chatMembers
     property var replyEvent: null
+    property var chat_id
 
     function send ( message ) {
         if ( !messageTextField.displayText.replace(/\s/g, '').length && message === undefined ) return
@@ -137,7 +138,7 @@ Page {
 
 
     Component.onCompleted: {
-        backgroundImage.opacity = 1
+        console.log("CONSTRUCTION:", activeChat)
         storage.transaction ( "SELECT draft, membership, unread, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
             if ( res.rows.length === 0 ) return
             membership = res.rows[0].membership
@@ -150,6 +151,7 @@ Page {
             })
             chatScrollView.init ()
             chatActive = true
+            chat_id = activeChat
 
             // Is there an unread marker? Then mark as read!
             if ( res.rows[0].notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + chatScrollView.model.get(0).event.id, null )
@@ -175,7 +177,8 @@ Page {
     }
 
     Component.onDestruction: {
-        backgroundImage.opacity = 0
+        if ( chat_id !== activeChat ) return
+        console.log("DESTRUCTION:", activeChat)
         var lastEventId = chatScrollView.count > 0 ? chatScrollView.lastEventId : ""
         storage.query ( "UPDATE Chats SET draft=?, unread=? WHERE id=?", [
         messageTextField.displayText,

@@ -175,7 +175,7 @@ MainView {
     }
     Image {
         id: backgroundImage
-        opacity: 0
+        opacity: chatActive
         visible: settings.chatBackground !== undefined
         anchors.fill: mainStack
         source: settings.chatBackground || ""
