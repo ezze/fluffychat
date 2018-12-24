@@ -113,7 +113,7 @@ BottomEdge {
                                 name: presenceListItem.presence === "online" ? "sync-idle" :
                                     (presenceListItem.presence === "unavailable" ? "sync-paused" : "sync-offline")
                                     SlotsLayout.position: SlotsLayout.Leading
-                                    width: units.gu(3)
+                                    width: units.gu(4)
                                     height: width
                             }
                         }
