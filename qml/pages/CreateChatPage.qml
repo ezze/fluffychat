@@ -105,8 +105,12 @@ Page {
                 if ( input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
                 model.append ( {
                     matrix_id: input,
-                    displayname: input,
+                    medium: "matrix",
+                    name: input,
+                    address: input,
                     avatar_url: "",
+                    last_active_ago: 0,
+                    presence: "offline",
                     temp: true
                 })
                 tempElement = model.count - 1
