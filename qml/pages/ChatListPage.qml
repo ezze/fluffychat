@@ -189,11 +189,8 @@ header: FcPageHeader {
     trailingActionBar {
         actions: [
         Action {
-            iconName: searching ? "close" : "search"
-            onTriggered: {
-                searching = searchField.focus = !searching
-                if ( !searching ) searchField.text = ""
-            }
+            iconName: "search"
+            onTriggered: searching = searchField.focus = true
         },
         Action {
             iconName: "account"
@@ -226,8 +223,10 @@ LeaveChatDialog { id: leaveChatDialog }
 TextField {
     id: searchField
     objectName: "searchField"
-    visible: searching
     z: 5
+    property var searchMatrixId: false
+    property var upperCaseText: displayText.toUpperCase()
+    property var tempElement: null
     anchors {
         top: header.bottom
         topMargin: units.gu(1)
@@ -236,6 +235,32 @@ TextField {
         right: parent.right
         rightMargin: units.gu(2)
         leftMargin: units.gu(2)
+    }
+    onDisplayTextChanged: {
+        if ( displayText !== "" && !searching ) searching = true
+        else if ( displayText === "" ) searching = false
+        if ( tempElement ) {
+            tempModel.remove ( tempModel.count - 1 )
+            tempElement  = false
+        }
+
+        if ( displayText.slice( 0,1 ) === "#" ) {
+            searchMatrixId = displayText
+            if ( searchMatrixId.indexOf(":") === -1 ) searchMatrixId += ":%1".arg(settings.server)
+
+
+            tempModel.append ( { "room": {
+                id: searchMatrixId,
+                topic: searchMatrixId,
+                membership: "leave",
+                avatar_url: "",
+                origin_server_ts: new Date().getTime(),
+                typing: [],
+                notification_count: 0,
+                highlight_count: 0
+            } } )
+            tempElement = true
+        }
     }
     inputMethodHints: Qt.ImhNoPredictiveText
     placeholderText: i18n.tr("Search for chat names…")
@@ -249,7 +274,7 @@ ListView {
     width: parent.width
     height: parent.height
     anchors.top: parent.top
-    anchors.topMargin: searching * (searchField.height + units.gu(2))
+    anchors.topMargin: searchField.height + units.gu(2)
     delegate: ChatListItem {}
     model: model
     move: Transition {
