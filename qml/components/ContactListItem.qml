@@ -8,7 +8,7 @@ ListItem {
 
     height: visible * layout.height
     visible: {
-        selected ? true :
+        selected||tempElement ? true :
         (searchField.searchMatrixId ? matrixid.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
         : layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1)
     }
