@@ -263,7 +263,7 @@ TextField {
         }
     }
     inputMethodHints: Qt.ImhNoPredictiveText
-    placeholderText: i18n.tr("Search for chat names…")
+    placeholderText: i18n.tr("Search for chats or public rooms...")
 }
 
 ListModel { id: model }
@@ -272,7 +272,7 @@ ListModel { id: tempModel }
 ListView {
     id: chatListView
     width: parent.width
-    height: parent.height
+    height: parent.height - header.height
     anchors.top: parent.top
     anchors.topMargin: searchField.height + units.gu(2)
     delegate: ChatListItem {}
