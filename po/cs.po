@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 14:39+0000\n"
-"PO-Revision-Date: 2018-12-21 15:51+0100\n"
+"POT-Creation-Date: 2018-12-25 09:55+0000\n"
+"PO-Revision-Date: 2018-12-23 12:08+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ../qml/Main.qml:189 ../qml/components/ChatScrollView.qml:309
 msgid "Are you sure?"
@@ -32,10 +32,8 @@ msgid "1"
 msgstr "1"
 
 #: ../qml/controller/DisplayEventController.qml:13
-#, fuzzy
-#| msgid "Unknown Event: "
 msgid "Unknown event"
-msgstr "Neznámá událost: "
+msgstr "Neznámá událost"
 
 #: ../qml/controller/DisplayEventController.qml:14
 msgid "Unknown Event: "
@@ -92,12 +90,12 @@ msgid ""
 "yet support end to end encryption. You will not be able to send or read "
 "messages in this chat!"
 msgstr ""
+"%1 zahájil end to end šifrování. Upozorňujeme, že FluffyChat tuto funkci "
+"zatím nepodporuje. V tomto chatu nebude možné číst ani odesílat žádné zprávy!"
 
 #: ../qml/controller/DisplayEventController.qml:54
-#, fuzzy
-#| msgid "Delete message"
 msgid "Encrypted message"
-msgstr "Smazat zprávu"
+msgstr "Šifrovaná zpráva"
 
 #: ../qml/controller/DisplayEventController.qml:57
 msgid "%1 has sent a sticker"
@@ -171,7 +169,7 @@ msgstr "Zakázáno"
 msgid "You are offline 😕"
 msgstr "Jste nedostupný 😕"
 
-#: ../qml/controller/EventController.qml:156
+#: ../qml/controller/EventController.qml:157
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -190,7 +188,7 @@ msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..
 msgstr ""
 "Omlouváme se. 😕 Sdílení fotek a videí anebo souborů není dosud podporováno..."
 
-#: ../qml/controller/SenderController.qml:40
+#: ../qml/controller/SenderController.qml:41
 msgid "You are not allowed to chat here."
 msgstr "Nemáte svolení k chatování v této místnosti."
 
@@ -249,11 +247,11 @@ msgstr "Informace o FluffyChat %1 na %2"
 
 #: ../qml/pages/InfoPage.qml:32
 msgid "Become a patron"
-msgstr ""
+msgstr "Staňte se mecenášem"
 
 #: ../qml/pages/InfoPage.qml:39
 msgid "Join the community"
-msgstr ""
+msgstr "Připojte se ke komunitě"
 
 #: ../qml/pages/InfoPage.qml:45 ../qml/pages/LoginPage.qml:111
 #: ../qml/pages/PrivacyPolicyPage.qml:10
@@ -326,7 +324,7 @@ msgstr "Registrace na %1 selhala..."
 #: ../qml/pages/PasswordCreationPage.qml:90
 msgid ""
 "To reset your password, you will need to provide an e-mail address later"
-msgstr ""
+msgstr "K obnovení vašeho hesla bude později třeba e-mailová adresa"
 
 #: ../qml/pages/PasswordCreationPage.qml:109
 #, javascript-format
@@ -406,11 +404,12 @@ msgstr "FluffyChat"
 msgid "Share"
 msgstr "Sdílet"
 
-#: ../qml/pages/ChatListPage.qml:241
-msgid "Search for chat names…"
-msgstr "Vyhledat názvy chatů…"
+#: ../qml/pages/ChatListPage.qml:266
+#, fuzzy
+msgid "Search for chats or public rooms..."
+msgstr "Vyhledat veřejné chaty..."
 
-#: ../qml/pages/ChatListPage.qml:264
+#: ../qml/pages/ChatListPage.qml:289
 msgid "Swipe from below to start a chat"
 msgstr "Přetáhnout ze zdola pro zahájení chatu"
 
@@ -419,38 +418,36 @@ msgid "Chat security & privacy settings"
 msgstr "Nastavení zabezpečení a ochrany osobních údajů"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:160
-#, fuzzy
-#| msgid "Chat permissions"
 msgid "Access permissions"
-msgstr "Podmínky chatu"
+msgstr "Podmínky k připojení"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:172
 msgid "Users can be invited"
-msgstr ""
+msgstr "Uživatelé mohou být pozváni"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:184
 msgid "Chat is public accessable"
-msgstr ""
+msgstr "Chat s přístupem veřejnosti"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:196
 msgid "Guest users are allowed"
-msgstr ""
+msgstr "Hosté jsou povolení"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:215
 msgid "History visibility"
-msgstr ""
+msgstr "Přístup k historii"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:227
 msgid "History is visible from invitation"
-msgstr ""
+msgstr "Historie je přístupná od okamžiku pozvání"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:238
 msgid "Complete History is visible for members"
-msgstr ""
+msgstr "Kompletní historie je dostupná pro členy"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:249
 msgid "Complete History is world readable"
-msgstr ""
+msgstr "Historie je dostupná pro celý svět"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:268
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:87
@@ -522,35 +519,29 @@ msgstr "Kdo má oprávnění změnit oprávnění uživatelů?"
 msgid "Default user permissions:"
 msgstr "Výchozí oprávnění uživatelů:"
 
-#: ../qml/pages/CreateChatPage.qml:15
-#, fuzzy
-#| msgid "New contact"
+#: ../qml/pages/CreateChatPage.qml:16
 msgid "New chat"
-msgstr "Nový kontakt"
+msgstr "Nový chat"
 
-#: ../qml/pages/CreateChatPage.qml:15
-#, fuzzy
-#| msgid "New group: %1 selected"
+#: ../qml/pages/CreateChatPage.qml:16
 msgid "New chat: %1 selected"
-msgstr "Nová skupina: %1 zvoleno"
+msgstr "Nový chat: %1 zvolen"
 
-#: ../qml/pages/CreateChatPage.qml:21
+#: ../qml/pages/CreateChatPage.qml:22
 msgid "New contact"
 msgstr "Nový kontakt"
 
-#: ../qml/pages/CreateChatPage.qml:74 ../qml/pages/InvitePage.qml:56
+#: ../qml/pages/CreateChatPage.qml:93 ../qml/pages/InvitePage.qml:56
 msgid "Search for example @username:server.abc"
 msgstr "Vyhledat například @username:server.abc"
 
-#: ../qml/pages/CreateChatPage.qml:115
+#: ../qml/pages/CreateChatPage.qml:139
 msgid "Import from contacts"
 msgstr "Importovat z kontaktů"
 
-#: ../qml/pages/CreateChatPage.qml:140
-#, fuzzy
-#| msgid "Leave chat"
+#: ../qml/pages/CreateChatPage.qml:166
 msgid "Create chat"
-msgstr "Opustit chat"
+msgstr "Vytvořit chat"
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:78
@@ -721,33 +712,10 @@ msgid "Targets"
 msgstr "Cíle"
 
 #: ../qml/pages/InvitePage.qml:17
-#, fuzzy
-#| msgid "Only invited users"
 msgid "Invite users"
-msgstr "Pouze pro zvané účastníky"
+msgstr "Pozvat úživatele"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:28
-#, fuzzy
-#| msgid ""
-#| "<br><b>Matrix client</b><br><br>* Fluffychat is a matrix protocol client "
-#| "and compatible with all matrix servers and matrix identity servers. All "
-#| "communications made by the use while using fluffychat are done with the "
-#| "matrix server and the matrix identity server.<br>* The default server is "
-#| "https://ubports.chat and the default identity server is https://vector.im."
-#| "<br>* Fluffychat doesn't operate any server or service.<br>* All "
-#| "communications between fluffychat and any server is done in secure way, "
-#| "using encryption to protect it.<br>* Fluffychat is not responsible for "
-#| "the data processing by any matrix server or matrix identity server.<br>* "
-#| "Fluffychat offers the possibility to use phone numbers to find contacts. "
-#| "This is optional and no contacts are uploaded without user interaction! "
-#| "The user can choose, which contacts he want to upload to the identity "
-#| "server!<br><br><b>Push Notifications</b><br><br>* The matrix server the "
-#| "user is using, will automatically send push notifications to the UBports "
-#| "push service. This notifications are encrypted with https on the way from "
-#| "the matrix server to the official ubports matrix gateway at https://push."
-#| "ubports.com:5003/_matrix/push/r0/notify which forwards the notification "
-#| "to UBports push service at https://push.ubports.com and then sends this "
-#| "as a push notification to the user's device(s).<br>"
 msgid ""
 "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
 "is compatible with all Matrix servers and Matrix identity servers. All "
@@ -771,27 +739,28 @@ msgid ""
 "the notification to UBports push service at https://push.ubports.com and "
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
-"<br> <b> Klent Matrixu </ b> <br> <br> * Fluffychat je klient matrix "
-"protokolu a je kompatibilní se všemi matrix servery a matrix identifikačními "
-"servery. Veškerá komunikace při používání fluffychatu je realizována "
-"prostřednictvím matrix serveru a matrix serveru identity. * Výchozí server "
-"je https://ubports.chat a výchozí server identity je https://vector.im. <br> "
-"* Fluffychat neprovozuje žádné servery ani služby. <br> * Veškerá komunikace "
-"mezi fluffychat a servery je zajištěna a chráněna prostřednictvím šifrování. "
-"<br> <br> Fluffychat nenese žádnou odpovědnost za zpracování dat jakýmkoli z "
-"matrix serverů anebo matrix identifikačních serverů. <br> * Fluffychat "
-"nabízí možnost používat telefonní čísla pro nalezení kontaktů. Tato funkce "
-"je volitelná, žádné kontakty nebudou staženy bez povolení uživatele! "
-"Uživatel si může vybrat, které kontakty chce načíst na server identit! <br> "
-"<br> <b> Push Oznámení </ b> <br> <br> * Matrix server používaný uživatelem "
-"zašle automaticky push notifikace na UBports push službu. Tato oznámení jsou "
-"zašifrována pomocí protokolu https na cestě od matrix serveru k oficiální "
-"bráně matrix ubports na adrese https://push.ubports.com:5003/_matrix/push/r0/"
-"notify, a která předává oznámení službě UBports push na adrese https: //push."
-"ubports.com a zašle tuto zprávu jako upozornění na zařízení uživatele. <br>"
+"<br><b>Klient Matrixu</ b><br> <br>* FluffyChat je klient matrix protokolu a "
+"je kompatibilní se všemi matrix servery a matrix identifikačními servery. "
+"Veškerá komunikace při používání FluffyChatu je realizována prostřednictvím "
+"matrix serveru a matrix serveru identity.<br>* Výchozí server FluffyChat je "
+"https://ubports.chat a výchozím serverem identity je https://vector.im.<br>* "
+"FluffyChat neprovozuje žádné servery ani služby.<br>* Veškerý přenos zpráv "
+"mezi FluffyChat a servery je zajištěn a chráněn šifrováním. End-to-end "
+"šifrování není zatím podporováno.<br>* FluffyChat nenese žádnou odpovědnost "
+"za zpracování dat jakýmkoli z matrix serverů anebo matrix identifikačních "
+"serverů.<br>* Pro nalezení kontaktů nabízí FluffyChat možnost použití "
+"telefonních čísel. Tato funkce je volitelná, žádné kontakty nebudou staženy "
+"bez povolení uživatele! Uživatel si může vybrat, které kontakty chce načíst "
+"na server identit!<br><br><b> Push Oznámení</ b><br<br>* Matrix server "
+"používaný uživatelem zašle automaticky push notifikace na UBports push "
+"službu. Tato oznámení jsou šifrována pomocí protokolu https při přenosu od "
+"matrix serveru k oficiální bráně matrix ubports na adrese https://push."
+"ubports.com:5003/_matrix/push/r0/notify, která předává oznámení službě "
+"UBports push na adrese https://push.ubports.com a zasílá tyto zprávy jako "
+"upozornění na zařízení uživatele.<br>"
 
 #: ../qml/pages/ChatPage.qml:226 ../qml/components/ArchivedChatListItem.qml:30
-#: ../qml/components/SimpleChatListItem.qml:31
+#: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr "Neznámý chat"
 
@@ -826,7 +795,7 @@ msgstr "Připojit se"
 
 #: ../qml/pages/ChatPage.qml:416
 msgid "You do not have posting permissions here"
-msgstr ""
+msgstr "Nemáte zde oprávněni k zasílání zpráv"
 
 #: ../qml/pages/ChatPage.qml:447
 msgid "Type something ..."
@@ -934,20 +903,16 @@ msgid "Added as sticker"
 msgstr "Přidat jako štítek"
 
 #: ../qml/components/InviteListItem.qml:24
-#, fuzzy
-#| msgid "%1 has invited %2"
 msgid "%1 has been invited"
-msgstr "%1 pozval/a %2"
+msgstr "%1 byl pozván"
 
 #: ../qml/components/InviteListItem.qml:26
 msgid "An error occured. Maybe the username %1 is wrong?"
-msgstr ""
+msgstr "Došlo k chybě. Pravděpodobně nesprávný uživatel %1 ?"
 
 #: ../qml/components/InviteListItem.qml:27
-#, fuzzy
-#| msgid "Was banned from the chat"
 msgid "%1 is banned from the chat."
-msgstr "Byl z chatu vyloučen"
+msgstr "%1 byl z chatu vyloučen."
 
 #: ../qml/components/MemberListItem.qml:65
 msgid "Make this user a normal member?"
@@ -1226,6 +1191,12 @@ msgstr "Odstín: %1"
 msgid "Reset"
 msgstr "Restartovat"
 
+#: ../qml/components/ContactListItem.qml:36
+#: ../qml/components/UserSettingsViewer.qml:110
+#, fuzzy
+msgid "Last active: %1"
+msgstr "Naposledy viděn: "
+
 #: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
 msgstr "Získat další zprávy ze serveru ..."
@@ -1266,11 +1237,9 @@ msgstr "Odstranit štítek"
 msgid "Full username:"
 msgstr "Celé jméno uživatele:"
 
-#: ../qml/components/UsernameListItem.qml:25
-#, fuzzy
-#| msgid "Text has been copied to the clipboard"
+#: ../qml/components/UsernameListItem.qml:32
 msgid "Username has been copied to the clipboard"
-msgstr "Text byl zkopírován do schránky"
+msgstr "Jméno uživatele bylo zkopírováno do schránky"
 
 #: ../qml/components/NewContactDialog.qml:11
 msgid "New single chat"
@@ -1297,24 +1266,30 @@ msgstr ""
 "Může trvat několik minut…"
 
 #: ../qml/components/AddressesListItem.qml:13
-#, fuzzy
-#| msgid "Text has been copied to the clipboard"
 msgid "Copied to clipboard"
-msgstr "Text byl zkopírován do schránky"
+msgstr "Zkopírováno do schránky"
 
 #: ../qml/components/AddressesListItem.qml:18
 msgid "Canonical alias"
 msgstr "Kanonický alias"
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "Status: %1"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "and currently active"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "Chats with this user:"
 msgstr "Chaty s tímto uživatelem:"
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "You are that!"
 msgstr "To jsi ty!"
 
-#: ../qml/components/UserSettingsViewer.qml:153
+#: ../qml/components/UserSettingsViewer.qml:179
 msgid "Start new chat"
 msgstr "Zahájit nový chat"
 
@@ -1328,7 +1303,7 @@ msgstr "Vložit Vaší novou přezdívku"
 
 #: ../qml/components/CommunityViewer.qml:107
 msgid "No description found"
-msgstr ""
+msgstr "Nenalezen žádný popis"
 
 #: ../qml/components/ChangeChatnameDialog.qml:20
 msgid "Enter a name for the chat"
@@ -1361,6 +1336,9 @@ msgid ""
 msgstr ""
 "Prosím restartujte aplikaci, pokud bude třeba, restartujte zařízení pro "
 "dokončení aktualizace!"
+
+#~ msgid "Search for chat names…"
+#~ msgstr "Vyhledat názvy chatů…"
 
 #~ msgid "Donate us a coffee"
 #~ msgstr "Přispěje nám na kávu"
@@ -1397,9 +1375,6 @@ msgstr ""
 
 #~ msgid "Join chat"
 #~ msgstr "Připojit se k chatu"
-
-#~ msgid "Search public chats..."
-#~ msgstr "Vyhledat veřejné chaty..."
 
 #~ msgid "Loading public chats..."
 #~ msgstr "Stahuji veřejné chaty..."

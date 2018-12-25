@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 14:39+0000\n"
+"POT-Creation-Date: 2018-12-25 09:55+0000\n"
 "PO-Revision-Date: 2018-12-21 15:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,7 +31,6 @@ msgstr "1"
 
 #: ../qml/controller/DisplayEventController.qml:13
 #, fuzzy
-#| msgid "Unknown Event: "
 msgid "Unknown event"
 msgstr "Événement inconnu : "
 
@@ -93,7 +92,6 @@ msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:54
 #, fuzzy
-#| msgid "Delete message"
 msgid "Encrypted message"
 msgstr "Supprimer le message"
 
@@ -169,7 +167,7 @@ msgstr "Interdit"
 msgid "You are offline 😕"
 msgstr "Vous êtes hors ligne 😕"
 
-#: ../qml/controller/EventController.qml:156
+#: ../qml/controller/EventController.qml:157
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -189,7 +187,7 @@ msgstr ""
 "Nous sommes désolés. 😕 Le partage de photos, de vidéos ou de fichiers n'est "
 "pas encore pris en charge..."
 
-#: ../qml/controller/SenderController.qml:40
+#: ../qml/controller/SenderController.qml:41
 msgid "You are not allowed to chat here."
 msgstr "Vous n'êtes pas autorisé(e) à discuter ici."
 
@@ -408,11 +406,12 @@ msgstr "FluffyChat"
 msgid "Share"
 msgstr "Partager"
 
-#: ../qml/pages/ChatListPage.qml:241
-msgid "Search for chat names…"
-msgstr "Chercher des noms de discussion…"
+#: ../qml/pages/ChatListPage.qml:266
+#, fuzzy
+msgid "Search for chats or public rooms..."
+msgstr "Chercher des discussions publiques..."
 
-#: ../qml/pages/ChatListPage.qml:264
+#: ../qml/pages/ChatListPage.qml:289
 msgid "Swipe from below to start a chat"
 msgstr "Effectuez un glissement vers le haut pour commencer une discussion"
 
@@ -422,7 +421,6 @@ msgstr "Paramètres de sécurité et de confidentialité de la discussion"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:160
 #, fuzzy
-#| msgid "Chat permissions"
 msgid "Access permissions"
 msgstr "Permissions de la discussion"
 
@@ -524,33 +522,30 @@ msgstr "Qui peut modifier les permissions des participant(e)s ?"
 msgid "Default user permissions:"
 msgstr "Permissions des participant(e)s par défaut :"
 
-#: ../qml/pages/CreateChatPage.qml:15
+#: ../qml/pages/CreateChatPage.qml:16
 #, fuzzy
-#| msgid "New contact"
 msgid "New chat"
 msgstr "Nouveau contact"
 
-#: ../qml/pages/CreateChatPage.qml:15
+#: ../qml/pages/CreateChatPage.qml:16
 #, fuzzy
-#| msgid "New group: %1 selected"
 msgid "New chat: %1 selected"
 msgstr "Nouveau groupe : %1 sélectionné"
 
-#: ../qml/pages/CreateChatPage.qml:21
+#: ../qml/pages/CreateChatPage.qml:22
 msgid "New contact"
 msgstr "Nouveau contact"
 
-#: ../qml/pages/CreateChatPage.qml:74 ../qml/pages/InvitePage.qml:56
+#: ../qml/pages/CreateChatPage.qml:93 ../qml/pages/InvitePage.qml:56
 msgid "Search for example @username:server.abc"
 msgstr "Cherchez par exemple @identifiant:serveur.abc"
 
-#: ../qml/pages/CreateChatPage.qml:115
+#: ../qml/pages/CreateChatPage.qml:139
 msgid "Import from contacts"
 msgstr "Importer à partir des contacts"
 
-#: ../qml/pages/CreateChatPage.qml:140
+#: ../qml/pages/CreateChatPage.qml:166
 #, fuzzy
-#| msgid "Leave chat"
 msgid "Create chat"
 msgstr "Quitter la discussion"
 
@@ -724,35 +719,11 @@ msgstr "Cibles"
 
 #: ../qml/pages/InvitePage.qml:17
 #, fuzzy
-#| msgid "Only invited users"
 msgid "Invite users"
 msgstr "Seulement les invité(e)s"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:28
 #, fuzzy
-#| msgid ""
-#| "<br><b>Matrix client</b><br><br>* Fluffychat is a Matrix protocol client "
-#| "and is compatible with all Matrix servers and Matrix identity servers. "
-#| "All communications conducted while using Fluffychat use a Matrix server "
-#| "and the Matrix identity server.<br>* The default server in Fluffychat is "
-#| "https://ubports.chat and the default identity server is https://vector.im."
-#| "<br>* Fluffychat doesn't operate any server or remote service.<br>* All "
-#| "communication of substantive content between Fluffychat and any server is "
-#| "done in secure way, using transport encryption to protect it. End-to-end "
-#| "encryption will follow.<br>* Fluffychat is not responsible for the data "
-#| "processing carried out by any Matrix server or Matrix identity server."
-#| "<br>* Fluffychat offers the option to use phone numbers to find contacts. "
-#| "This is not a requirement of normal operation and is intended only as a "
-#| "convenience. No contact details are uploaded without user interaction! "
-#| "The user can choose to upload all or some or no contacts to the identity "
-#| "server!<br><br><b>Push Notifications</b><br><br>* The Matrix server "
-#| "selected by the user will automatically send push notifications to the "
-#| "UBports push service. These notifications are encrypted with the https "
-#| "protocol between the device and the Matrix server and on to the official "
-#| "UBports Matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/"
-#| "notify This server forwards the notification to UBports push service at "
-#| "https://push.ubports.com and then sends this on as a push notification to "
-#| "the user's device(s).<br>"
 msgid ""
 "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
 "is compatible with all Matrix servers and Matrix identity servers. All "
@@ -803,7 +774,7 @@ msgstr ""
 "appareils des utilisateurs et utilisatrices.<br>"
 
 #: ../qml/pages/ChatPage.qml:226 ../qml/components/ArchivedChatListItem.qml:30
-#: ../qml/components/SimpleChatListItem.qml:31
+#: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr "Discussion inconnue"
 
@@ -947,7 +918,6 @@ msgstr "Ajoutée aux autocollants"
 
 #: ../qml/components/InviteListItem.qml:24
 #, fuzzy
-#| msgid "%1 has invited %2"
 msgid "%1 has been invited"
 msgstr "%1 a invité %2"
 
@@ -957,7 +927,6 @@ msgstr ""
 
 #: ../qml/components/InviteListItem.qml:27
 #, fuzzy
-#| msgid "Was banned from the chat"
 msgid "%1 is banned from the chat."
 msgstr "A été banni(e) de la discussion"
 
@@ -1240,6 +1209,12 @@ msgstr "Couleur : %1"
 msgid "Reset"
 msgstr "Réinitialiser"
 
+#: ../qml/components/ContactListItem.qml:36
+#: ../qml/components/UserSettingsViewer.qml:110
+#, fuzzy
+msgid "Last active: %1"
+msgstr "Dernière vue : "
+
 #: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
 msgstr "recevoir plus de messages de ce serveur..."
@@ -1280,9 +1255,8 @@ msgstr "Supprimer l'autocollant"
 msgid "Full username:"
 msgstr "Identifiant complet :"
 
-#: ../qml/components/UsernameListItem.qml:25
+#: ../qml/components/UsernameListItem.qml:32
 #, fuzzy
-#| msgid "Text has been copied to the clipboard"
 msgid "Username has been copied to the clipboard"
 msgstr "Le texte a été copié dans le presse-papier"
 
@@ -1312,7 +1286,6 @@ msgstr ""
 
 #: ../qml/components/AddressesListItem.qml:13
 #, fuzzy
-#| msgid "Text has been copied to the clipboard"
 msgid "Copied to clipboard"
 msgstr "Le texte a été copié dans le presse-papier"
 
@@ -1320,15 +1293,23 @@ msgstr "Le texte a été copié dans le presse-papier"
 msgid "Canonical alias"
 msgstr "Alias canonique"
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "Status: %1"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "and currently active"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "Chats with this user:"
 msgstr "Discussions avec cet utilisateur / cette utilisatrice :"
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "You are that!"
 msgstr "Vous êtes ça !"
 
-#: ../qml/components/UserSettingsViewer.qml:153
+#: ../qml/components/UserSettingsViewer.qml:179
 msgid "Start new chat"
 msgstr "Commencer une nouvelle discussion"
 
@@ -1376,6 +1357,9 @@ msgstr ""
 "Veuillez redémarrer l'application ou si nécessaire redémarrer l'appareil "
 "pour terminer la mise à jour !"
 
+#~ msgid "Search for chat names…"
+#~ msgstr "Chercher des noms de discussion…"
+
 #~ msgid "Donate us a coffee"
 #~ msgstr "Nous offrir un café"
 
@@ -1411,9 +1395,6 @@ msgstr ""
 
 #~ msgid "Join chat"
 #~ msgstr "Rejoindre la discussion"
-
-#~ msgid "Search public chats..."
-#~ msgstr "Chercher des discussions publiques..."
 
 #~ msgid "Loading public chats..."
 #~ msgstr "Chargement des discussions publiques..."

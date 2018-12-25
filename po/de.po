@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-22 13:00+0000\n"
-"PO-Revision-Date: 2018-12-22 14:01+0100\n"
+"POT-Creation-Date: 2018-12-25 09:55+0000\n"
+"PO-Revision-Date: 2018-12-25 10:57+0100\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -411,11 +411,11 @@ msgstr "FluffyChat"
 msgid "Share"
 msgstr "Teilen"
 
-#: ../qml/pages/ChatListPage.qml:241
-msgid "Search for chat names…"
-msgstr "Suche nach Chat-Namen …"
+#: ../qml/pages/ChatListPage.qml:266
+msgid "Search for chats or public rooms..."
+msgstr "Suche Chats oder öffentliche Räume ..."
 
-#: ../qml/pages/ChatListPage.qml:264
+#: ../qml/pages/ChatListPage.qml:289
 msgid "Swipe from below to start a chat"
 msgstr "Wische von unten, um einen Chat zu beginnen"
 
@@ -541,11 +541,11 @@ msgstr "Kontakt hinzufügen"
 msgid "Search for example @username:server.abc"
 msgstr "Suche z.B. nach @nutzername:server.abc"
 
-#: ../qml/pages/CreateChatPage.qml:135
+#: ../qml/pages/CreateChatPage.qml:139
 msgid "Import from contacts"
 msgstr "Aus Kontakten importieren"
 
-#: ../qml/pages/CreateChatPage.qml:162
+#: ../qml/pages/CreateChatPage.qml:166
 msgid "Create chat"
 msgstr "Chat erstellen"
 
@@ -1247,7 +1247,7 @@ msgstr "Sticker löschen"
 msgid "Full username:"
 msgstr "Vollständiger Benutzername:"
 
-#: ../qml/components/UsernameListItem.qml:31
+#: ../qml/components/UsernameListItem.qml:32
 msgid "Username has been copied to the clipboard"
 msgstr "Benutzername wurde in die Zwischenablage kopiert"
 
@@ -1284,22 +1284,22 @@ msgid "Canonical alias"
 msgstr "Hauptadresse"
 
 #: ../qml/components/UserSettingsViewer.qml:109
-msgid "Status: %1 "
+msgid "Status: %1"
 msgstr "Status: %1"
 
 #: ../qml/components/UserSettingsViewer.qml:109
 msgid "and currently active"
 msgstr "und gerade aktiv"
 
-#: ../qml/components/UserSettingsViewer.qml:136
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "Chats with this user:"
 msgstr "Chats mit diesem Nutzer:"
 
-#: ../qml/components/UserSettingsViewer.qml:136
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "You are that!"
 msgstr "Das bist du!"
 
-#: ../qml/components/UserSettingsViewer.qml:178
+#: ../qml/components/UserSettingsViewer.qml:179
 msgid "Start new chat"
 msgstr "Neuen Chat starten"
 
@@ -1346,6 +1346,9 @@ msgid ""
 msgstr ""
 "Bitte die App neu starten oder ggbf. das Gerät neu starten, um das Update "
 "abzuschließen!"
+
+#~ msgid "Search for chat names…"
+#~ msgstr "Suche nach Chat-Namen …"
 
 #~ msgid "1 minute"
 #~ msgstr "1 Minute"
@@ -1418,9 +1421,6 @@ msgstr ""
 
 #~ msgid "Search contacts..."
 #~ msgstr "Suche Kontakte ..."
-
-#~ msgid "Search contacts or usernames..."
-#~ msgstr "Suche Kontakte oder Benutzernamen ..."
 
 #~ msgid "No connection to the homeserver 😕"
 #~ msgstr "Keine Verbindung zum Homeserver 😕"

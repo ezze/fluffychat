@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 14:39+0000\n"
-"PO-Revision-Date: 2018-12-21 15:52+0100\n"
+"POT-Creation-Date: 2018-12-25 09:55+0000\n"
+"PO-Revision-Date: 2018-12-23 12:08+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ../qml/Main.qml:189 ../qml/components/ChatScrollView.qml:309
 msgid "Are you sure?"
@@ -35,7 +35,6 @@ msgstr "1"
 
 #: ../qml/controller/DisplayEventController.qml:13
 #, fuzzy
-#| msgid "Unknown Event: "
 msgid "Unknown event"
 msgstr "Ukjent hendelse: "
 
@@ -75,13 +74,11 @@ msgstr "Sludring opprettet"
 
 #: ../qml/controller/DisplayEventController.qml:39
 #, fuzzy
-#| msgid "%1 has changed the chat name"
 msgid "%1 has changed the chat name to: <b>%2</b>"
 msgstr "%1 har endret sludringsnavnet"
 
 #: ../qml/controller/DisplayEventController.qml:42
 #, fuzzy
-#| msgid "%1 has changed the chat topic"
 msgid "%1 has changed the chat topic to: <b>%2</b>"
 msgstr "%1 har endret sludreemnet"
 
@@ -91,7 +88,6 @@ msgstr "%1 har endret sludringsavataren"
 
 #: ../qml/controller/DisplayEventController.qml:48
 #, fuzzy
-#| msgid "%1 has sent a sticker"
 msgid "%1 has redacted a message"
 msgstr "%1 har sendt et klistremerke"
 
@@ -101,10 +97,12 @@ msgid ""
 "yet support end to end encryption. You will not be able to send or read "
 "messages in this chat!"
 msgstr ""
+"%1 har igangsatt ende-til-ende -kryptering. Ha i minnet at Fluffychat ikke "
+"støtter dette enda. Du vil ikke kunne se eller lese meldinger i denne "
+"sludringen."
 
 #: ../qml/controller/DisplayEventController.qml:54
 #, fuzzy
-#| msgid "Delete message"
 msgid "Encrypted message"
 msgstr "Slett melding"
 
@@ -114,19 +112,16 @@ msgstr "%1 har sendt et klistremerke"
 
 #: ../qml/controller/DisplayEventController.qml:60
 #, fuzzy
-#| msgid "%1 has set the chat history visible to: "
 msgid "%1 has set the chat history visible to: %2"
 msgstr "%1 har satt sludrehistorikkens synlighet til: "
 
 #: ../qml/controller/DisplayEventController.qml:63
 #, fuzzy
-#| msgid "%1 has set the join rules to: "
 msgid "%1 has set the join rules to: %2"
 msgstr "%1 har satt deltagelsesreglene til: "
 
 #: ../qml/controller/DisplayEventController.qml:66
 #, fuzzy
-#| msgid "%1 has set the guest access to: "
 msgid "%1 has set the guest access to: %2"
 msgstr "%1 har satt gjestetilgang til: "
 
@@ -161,7 +156,6 @@ msgstr "Bank på"
 
 #: ../qml/controller/DisplayEventController.qml:100
 #, fuzzy
-#| msgid "All chat participants"
 msgid "All chatters"
 msgstr "Alle sludredeltagere"
 
@@ -191,7 +185,7 @@ msgstr "Forbudt"
 msgid "You are offline 😕"
 msgstr "Du er frakoblet 😕"
 
-#: ../qml/controller/EventController.qml:156
+#: ../qml/controller/EventController.qml:157
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -209,7 +203,7 @@ msgstr "Start enheten din på ny for å fullføre oppdateringen."
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr "😕 Deling av bilder, videoer eller filer støttes ikke enda…"
 
-#: ../qml/controller/SenderController.qml:40
+#: ../qml/controller/SenderController.qml:41
 #, fuzzy
 msgid "You are not allowed to chat here."
 msgstr "Du tillates ikke å sludre her."
@@ -238,7 +232,6 @@ msgstr ""
 #: ../qml/controller/UserNameController.qml:46
 #: ../qml/components/ChangePowerLevelDialog.qml:47
 #, fuzzy
-#| msgid "Member"
 msgid "Members"
 msgstr "Medlem"
 
@@ -254,7 +247,6 @@ msgstr "Administratorer"
 
 #: ../qml/controller/UserNameController.qml:68
 #, fuzzy
-#| msgid "What's your name?"
 msgid "%1 is not a valid username"
 msgstr "Hva heter du?"
 
@@ -276,7 +268,6 @@ msgstr "Push-merknader er avskrudd…"
 
 #: ../qml/controller/MatrixController.qml:257
 #, fuzzy
-#| msgid "No connection to "
 msgid "😕 No connection..."
 msgstr "Ingen tilkobling til "
 
@@ -287,11 +278,11 @@ msgstr "Info %1"
 
 #: ../qml/pages/InfoPage.qml:32
 msgid "Become a patron"
-msgstr ""
+msgstr "Bli en kroneruller"
 
 #: ../qml/pages/InfoPage.qml:39
 msgid "Join the community"
-msgstr ""
+msgstr "Ta del i gemenskapen"
 
 #: ../qml/pages/InfoPage.qml:45 ../qml/pages/LoginPage.qml:111
 #: ../qml/pages/PrivacyPolicyPage.qml:10
@@ -341,7 +332,6 @@ msgstr "Ingen tilknyttede e-postadresser"
 
 #: ../qml/pages/PasswordCreationPage.qml:27
 #, fuzzy
-#| msgid "Please enter your password"
 msgid "Please set a password"
 msgstr "Skriv inn passordet ditt"
 
@@ -370,7 +360,7 @@ msgstr "Registrering på %1 mislyktes…"
 #: ../qml/pages/PasswordCreationPage.qml:90
 msgid ""
 "To reset your password, you will need to provide an e-mail address later"
-msgstr ""
+msgstr "For å tilbakestille ditt passord, må du oppgi en e-postadresse senere"
 
 #: ../qml/pages/PasswordCreationPage.qml:109
 #, javascript-format
@@ -395,13 +385,11 @@ msgstr "Brukernavn allerede i bruk"
 
 #: ../qml/pages/LoginPage.qml:88
 #, fuzzy
-#| msgid "Welcome"
 msgid "Welcome to %1"
 msgstr "Velkommen"
 
 #: ../qml/pages/LoginPage.qml:96
 #, fuzzy
-#| msgid "Using the homeserver: "
 msgid "Change homeserver"
 msgstr "Bruker hjemmetjeneren: "
 
@@ -415,7 +403,6 @@ msgstr "Om"
 
 #: ../qml/pages/LoginPage.qml:116
 #, fuzzy
-#| msgid "Dark mode"
 msgid "Toggle dark mode"
 msgstr "Nattmodus"
 
@@ -425,7 +412,6 @@ msgstr "Velg din hjemmetjener"
 
 #: ../qml/pages/LoginPage.qml:149
 #, fuzzy
-#| msgid "Choose your homeserver"
 msgid "Choose your identity server"
 msgstr "Velg din hjemmetjener"
 
@@ -439,7 +425,6 @@ msgstr "Brukernavn"
 
 #: ../qml/pages/LoginPage.qml:229
 #, fuzzy
-#| msgid "Start a new chat"
 msgid "Create a new account"
 msgstr "Start ny sludring"
 
@@ -449,7 +434,6 @@ msgstr "Logg inn"
 
 #: ../qml/pages/ChatListPage.qml:21
 #, fuzzy
-#| msgid "New single chat"
 msgid "Nameless chat"
 msgstr "Ny enkeltsludring"
 
@@ -462,60 +446,57 @@ msgstr "FluffyChat"
 msgid "Share"
 msgstr "Del"
 
-#: ../qml/pages/ChatListPage.qml:241
+#: ../qml/pages/ChatListPage.qml:266
 #, fuzzy
-msgid "Search for chat names…"
+msgid "Search for chats or public rooms..."
 msgstr "Søk etter sludringsnavn…"
 
-#: ../qml/pages/ChatListPage.qml:264
+#: ../qml/pages/ChatListPage.qml:289
 #, fuzzy
 msgid "Swipe from below to start a chat"
 msgstr "Dra fra bunnen for å starte ny sludring"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:137
 #, fuzzy
-#| msgid "Security & Privacy"
 msgid "Chat security & privacy settings"
 msgstr "Sikkerhet og personvern"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:160
 #, fuzzy
-#| msgid "Chat Settings:"
 msgid "Access permissions"
 msgstr "Sludringsinnstillinger:"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:172
 msgid "Users can be invited"
-msgstr ""
+msgstr "Brukere kan inviteres"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:184
 msgid "Chat is public accessable"
-msgstr ""
+msgstr "Sludringen er offentlig tilgjengelig"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:196
 msgid "Guest users are allowed"
-msgstr ""
+msgstr "Gjestebrukere tillates"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:215
 msgid "History visibility"
-msgstr ""
+msgstr "Historikksynlighet"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:227
 msgid "History is visible from invitation"
-msgstr ""
+msgstr "Historikk er synlig ved invitasjon"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:238
 msgid "Complete History is visible for members"
-msgstr ""
+msgstr "Fullstendig historikk er tilgjengelig for medlemmer"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:249
 msgid "Complete History is world readable"
-msgstr ""
+msgstr "Fullstendig historikk er tilgjengelig for hele verden"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:268
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:87
 #, fuzzy
-#| msgid "Chat Settings:"
 msgid "Chat permissions"
 msgstr "Sludringsinnstillinger:"
 
@@ -532,14 +513,12 @@ msgstr "Hvem kan sette opp denne sludringen?"
 #: ../qml/pages/ChatPrivacySettingsPage.qml:304
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:129
 #, fuzzy
-#| msgid "No previous messages"
 msgid "Who can remove messages?"
 msgstr "Ingen tidligere meldinger"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:316
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:141
 #, fuzzy
-#| msgid "Only invited users"
 msgid "Who can invite users?"
 msgstr "Kun inviterte brukere"
 
@@ -556,35 +535,30 @@ msgstr "Hvem kan kaste ut brukere?"
 #: ../qml/pages/ChatPrivacySettingsPage.qml:352
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:177
 #, fuzzy
-#| msgid "%1 has changed the chat name"
 msgid "Who can change the chat name?"
 msgstr "%1 har endret sludringsnavnet"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:364
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:189
 #, fuzzy
-#| msgid "%1 has changed the chat avatar"
 msgid "Who can change the chat avatar?"
 msgstr "%1 har endret sludringsavataren"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:376
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:201
 #, fuzzy
-#| msgid "%1 has set the chat history visible to: "
 msgid "Who can change the chat history visibility?"
 msgstr "%1 har satt sludrehistorikkens synlighet til: "
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:388
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:213
 #, fuzzy
-#| msgid "%1 has changed the chat name"
 msgid "Who can change the chat addresses?"
 msgstr "%1 har endret sludringsnavnet"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:400
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:225
 #, fuzzy
-#| msgid "%1 has changed the chat avatar"
 msgid "Who can change the canonical chat alias?"
 msgstr "%1 har endret sludringsavataren"
 
@@ -598,48 +572,42 @@ msgstr "Hvem kan endre brukertilgangene?"
 msgid "Default user permissions:"
 msgstr "Forvalgte brukertilganger:"
 
-#: ../qml/pages/CreateChatPage.qml:15
+#: ../qml/pages/CreateChatPage.qml:16
 #, fuzzy
-#| msgid "New contact"
 msgid "New chat"
 msgstr "Ny kontakt"
 
-#: ../qml/pages/CreateChatPage.qml:15
+#: ../qml/pages/CreateChatPage.qml:16
 #, fuzzy
-#| msgid "New group: %1 selected"
 msgid "New chat: %1 selected"
 msgstr "Ny gruppe: %1 valgt"
 
-#: ../qml/pages/CreateChatPage.qml:21
+#: ../qml/pages/CreateChatPage.qml:22
 #, fuzzy
-#| msgid "New contact"
 msgid "New contact"
 msgstr "Ny kontakt"
 
-#: ../qml/pages/CreateChatPage.qml:74 ../qml/pages/InvitePage.qml:56
+#: ../qml/pages/CreateChatPage.qml:93 ../qml/pages/InvitePage.qml:56
 msgid "Search for example @username:server.abc"
 msgstr "Søk etter for eksempel @brukernavn:tjener.abc"
 
-#: ../qml/pages/CreateChatPage.qml:115
+#: ../qml/pages/CreateChatPage.qml:139
 msgid "Import from contacts"
 msgstr "Importer fra kontakter"
 
-#: ../qml/pages/CreateChatPage.qml:140
+#: ../qml/pages/CreateChatPage.qml:166
 #, fuzzy
-#| msgid "Leave chat"
 msgid "Create chat"
 msgstr "Forlat slurdring"
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:78
 #, fuzzy
-#| msgid "Settings"
 msgid "Settings for %1"
 msgstr "Innstillinger"
 
 #: ../qml/pages/SettingsPage.qml:49
 #, fuzzy
-#| msgid "Change display name"
 msgid "Edit displayname"
 msgstr "Endre visningsnavn"
 
@@ -664,13 +632,11 @@ msgstr "OK"
 
 #: ../qml/pages/SettingsPage.qml:140
 #, fuzzy
-#| msgid "Choose a main color:"
 msgid "Change main color"
 msgstr "Velg en hovedfarge:"
 
 #: ../qml/pages/SettingsPage.qml:153
 #, fuzzy
-#| msgid "Set chat background"
 msgid "Change background"
 msgstr "Sett slurdrebakgrunn"
 
@@ -691,13 +657,11 @@ msgstr "Merknader"
 
 #: ../qml/pages/SettingsPage.qml:215
 #, fuzzy
-#| msgid "Chat Settings:"
 msgid "Chat settings:"
 msgstr "Sludringsinnstillinger:"
 
 #: ../qml/pages/SettingsPage.qml:220
 #, fuzzy
-#| msgid "Display 'I am typing' when I am typing"
 msgid "Display 'I am typing' when typing"
 msgstr "Vis \"Jeg skriver\" ved skriving"
 
@@ -716,7 +680,6 @@ msgstr "Automatisk innlasting av animerte bilder"
 
 #: ../qml/pages/SettingsPage.qml:263
 #, fuzzy
-#| msgid "Chat Settings:"
 msgid "Account settings:"
 msgstr "Sludringsinnstillinger:"
 
@@ -760,19 +723,16 @@ msgstr "Ingen tilkobling til "
 
 #: ../qml/pages/PasswordInputPage.qml:38
 #, fuzzy
-#| msgid "Enter your old password"
 msgid "Enter your password"
 msgstr "Skriv inn ditt gamle passord"
 
 #: ../qml/pages/PasswordInputPage.qml:61
 #, fuzzy
-#| msgid "Please enter your password"
 msgid "Please enter your password for: <b>%1</b>"
 msgstr "Skriv inn passordet ditt"
 
 #: ../qml/pages/PasswordInputPage.qml:70
 #, fuzzy
-#| msgid "Password"
 msgid "Password..."
 msgstr "Passord"
 
@@ -825,7 +785,6 @@ msgstr "Mål"
 
 #: ../qml/pages/InvitePage.qml:17
 #, fuzzy
-#| msgid "Only invited users"
 msgid "Invite users"
 msgstr "Kun inviterte brukere"
 
@@ -855,7 +814,7 @@ msgid ""
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:226 ../qml/components/ArchivedChatListItem.qml:30
-#: ../qml/components/SimpleChatListItem.qml:31
+#: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr "Ukjent sludring"
 
@@ -870,7 +829,6 @@ msgstr "Slurdingsinfo"
 
 #: ../qml/pages/ChatPage.qml:251 ../qml/pages/ChatSettingsPage.qml:310
 #, fuzzy
-#| msgid "Invite friend"
 msgid "Invite friends"
 msgstr "Inviter venn"
 
@@ -988,13 +946,11 @@ msgstr "Offentlige sludreadresser"
 
 #: ../qml/pages/ChatAliasSettingsPage.qml:70
 #, fuzzy
-#| msgid "Edit chat name"
 msgid "Add chat address"
 msgstr "Rediger sludringsnavn"
 
 #: ../qml/components/ImageViewer.qml:52
 #, fuzzy
-#| msgid "%1 has sent a sticker"
 msgid "Add this image as sticker?"
 msgstr "%1 har sendt et klistremerke"
 
@@ -1008,17 +964,15 @@ msgstr "Lagt til som klistremerke"
 
 #: ../qml/components/InviteListItem.qml:24
 #, fuzzy
-#| msgid "%1 has invited %2"
 msgid "%1 has been invited"
 msgstr "%1 har invitert %2"
 
 #: ../qml/components/InviteListItem.qml:26
 msgid "An error occured. Maybe the username %1 is wrong?"
-msgstr ""
+msgstr "En feil inntraff. Kanskje brukernavnet %1 er galt?"
 
 #: ../qml/components/InviteListItem.qml:27
 #, fuzzy
-#| msgid "Was banned from the chat"
 msgid "%1 is banned from the chat."
 msgstr "Ble bannlyst fra sludringen"
 
@@ -1036,7 +990,6 @@ msgstr "Gjør denne brukeren til administrator?"
 
 #: ../qml/components/MemberListItem.qml:107
 #, fuzzy
-#| msgid "Was banned from the chat"
 msgid "Ban from this chat?"
 msgstr "Ble bannlyst fra sludringen"
 
@@ -1090,7 +1043,6 @@ msgstr "Endre"
 
 #: ../qml/components/ChangePasswordDialog.qml:55
 #, fuzzy
-#| msgid "The chat permissions have been changed"
 msgid "Password has been changed"
 msgstr "Sludretilgangene har blitt endret"
 
@@ -1130,7 +1082,6 @@ msgstr "Lukk"
 
 #: ../qml/components/DownloadDialog.qml:11
 #, fuzzy
-#| msgid "Download"
 msgid "Download"
 msgstr "Last ned"
 
@@ -1187,13 +1138,11 @@ msgstr "Skriv inn passordet ditt"
 #: ../qml/components/PhoneListItem.qml:31
 #: ../qml/components/EmailListItem.qml:31
 #, fuzzy
-#| msgid "Remove the device"
 msgid "Remove this email address?"
 msgstr "Fjern enheten"
 
 #: ../qml/components/ChatEvent.qml:286
 #, fuzzy
-#| msgid "Download"
 msgid "Download: "
 msgstr "Last ned"
 
@@ -1223,7 +1172,6 @@ msgstr "Koble til"
 
 #: ../qml/components/DisableAccountDialog.qml:11
 #, fuzzy
-#| msgid "Remove chat background"
 msgid "Remove my account"
 msgstr "Fjern slurdrebakgrunn"
 
@@ -1248,7 +1196,6 @@ msgstr "Legg til ny sludreadresse"
 
 #: ../qml/components/AddAliasDialog.qml:19
 #, fuzzy
-#| msgid "Edit chat name"
 msgid "#chatname:%1"
 msgstr "Rediger sludringsnavn"
 
@@ -1260,7 +1207,6 @@ msgstr "Lagre"
 
 #: ../qml/components/AddAliasDialog.qml:39
 #, fuzzy
-#| msgid "Please enter your password"
 msgid "Please try another address"
 msgstr "Skriv inn passordet ditt"
 
@@ -1276,7 +1222,6 @@ msgstr "Bekreftelseskode"
 
 #: ../qml/components/CountryPicker.qml:20
 #, fuzzy
-#| msgid "Choose a main color:"
 msgid "Choose a country"
 msgstr "Velg en hovedfarge:"
 
@@ -1300,7 +1245,6 @@ msgstr "Deg: "
 
 #: ../qml/components/ChatListItem.qml:40
 #, fuzzy
-#| msgid "No previous messages"
 msgid "No preview messages"
 msgstr "Ingen tidligere meldinger"
 
@@ -1314,7 +1258,6 @@ msgstr "#gruppenavn:"
 
 #: ../qml/components/ColorDialog.qml:11
 #, fuzzy
-#| msgid "Choose a main color:"
 msgid "Change the main color"
 msgstr "Velg en hovedfarge:"
 
@@ -1325,6 +1268,12 @@ msgstr "Fargetone: %1"
 #: ../qml/components/ColorDialog.qml:33
 msgid "Reset"
 msgstr "Tilbakestill"
+
+#: ../qml/components/ContactListItem.qml:36
+#: ../qml/components/UserSettingsViewer.qml:110
+#, fuzzy
+msgid "Last active: %1"
+msgstr "Sist sett: "
 
 #: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
@@ -1349,7 +1298,6 @@ msgstr "Kopier tekst"
 
 #: ../qml/components/ChatScrollView.qml:297
 #, fuzzy
-#| msgid "%1 has been banned from the chat"
 msgid "Text has been copied to the clipboard"
 msgstr "%1 har blitt bannlyst fra sludringen"
 
@@ -1367,13 +1315,11 @@ msgstr "Slett klistremerke"
 
 #: ../qml/components/UsernameListItem.qml:12
 #, fuzzy
-#| msgid "Username"
 msgid "Full username:"
 msgstr "Brukernavn"
 
-#: ../qml/components/UsernameListItem.qml:25
+#: ../qml/components/UsernameListItem.qml:32
 #, fuzzy
-#| msgid "%1 has been banned from the chat"
 msgid "Username has been copied to the clipboard"
 msgstr "%1 har blitt bannlyst fra sludringen"
 
@@ -1383,7 +1329,6 @@ msgstr "Ny enkeltsludring"
 
 #: ../qml/components/NewContactDialog.qml:18
 #, fuzzy
-#| msgid "What's your name?"
 msgid "What is your friends username?"
 msgstr "Hva heter du?"
 
@@ -1406,7 +1351,6 @@ msgstr ""
 
 #: ../qml/components/AddressesListItem.qml:13
 #, fuzzy
-#| msgid "%1 has been banned from the chat"
 msgid "Copied to clipboard"
 msgstr "%1 har blitt bannlyst fra sludringen"
 
@@ -1414,20 +1358,26 @@ msgstr "%1 har blitt bannlyst fra sludringen"
 msgid "Canonical alias"
 msgstr "Helhetlig alias"
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "Status: %1"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "and currently active"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:137
 #, fuzzy
-#| msgid "Chats with %1:"
 msgid "Chats with this user:"
 msgstr "Sludrer med %1:"
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:137
 #, fuzzy
 msgid "You are that!"
 msgstr "Det er deg!"
 
-#: ../qml/components/UserSettingsViewer.qml:153
+#: ../qml/components/UserSettingsViewer.qml:179
 #, fuzzy
-#| msgid "Start a new chat"
 msgid "Start new chat"
 msgstr "Start ny sludring"
 
@@ -1441,7 +1391,7 @@ msgstr "Skriv inn ditt nye kallenavn"
 
 #: ../qml/components/CommunityViewer.qml:107
 msgid "No description found"
-msgstr ""
+msgstr "Fant ingen beskrivelse"
 
 #: ../qml/components/ChangeChatnameDialog.qml:20
 msgid "Enter a name for the chat"
@@ -1449,7 +1399,6 @@ msgstr "Skriv inn navn for denne sludringen"
 
 #: ../qml/components/ChangeChatnameDialog.qml:33
 #, fuzzy
-#| msgid "Enter a name for the chat"
 msgid "Enter a description for the chat"
 msgstr "Skriv inn navn for denne sludringen"
 
@@ -1478,6 +1427,10 @@ msgid ""
 msgstr ""
 "Start programmet på ny, eller hvis nødvendig, enheten, for å fullføre "
 "oppdateringen."
+
+#, fuzzy
+#~ msgid "Search for chat names…"
+#~ msgstr "Søk etter sludringsnavn…"
 
 #~ msgid "Donate us a coffee"
 #~ msgstr "Spander kaffe"
@@ -1567,10 +1520,6 @@ msgstr ""
 
 #~ msgid "Invite a friend"
 #~ msgstr "Inviter en venn"
-
-#, fuzzy
-#~ msgid "Search contacts or usernames..."
-#~ msgstr "Søk etter sludringsnavn…"
 
 #~ msgid " - "
 #~ msgstr " - "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 14:39+0000\n"
+"POT-Creation-Date: 2018-12-25 09:55+0000\n"
 "PO-Revision-Date: 2018-12-21 15:52+0100\n"
 "Last-Translator: M.Sugahara <equaaqua@hotmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/fluffychat/"
@@ -171,7 +171,7 @@ msgstr ""
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/controller/EventController.qml:156
+#: ../qml/controller/EventController.qml:157
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -186,7 +186,7 @@ msgstr ""
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr ""
 
-#: ../qml/controller/SenderController.qml:40
+#: ../qml/controller/SenderController.qml:41
 msgid "You are not allowed to chat here."
 msgstr ""
 
@@ -402,11 +402,11 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:241
-msgid "Search for chat names…"
+#: ../qml/pages/ChatListPage.qml:266
+msgid "Search for chats or public rooms..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:264
+#: ../qml/pages/ChatListPage.qml:289
 msgid "Swipe from below to start a chat"
 msgstr ""
 
@@ -516,29 +516,28 @@ msgstr ""
 msgid "Default user permissions:"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:15
+#: ../qml/pages/CreateChatPage.qml:16
 msgid "New chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:15
+#: ../qml/pages/CreateChatPage.qml:16
 msgid "New chat: %1 selected"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:21
+#: ../qml/pages/CreateChatPage.qml:22
 msgid "New contact"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:74 ../qml/pages/InvitePage.qml:56
+#: ../qml/pages/CreateChatPage.qml:93 ../qml/pages/InvitePage.qml:56
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:115
+#: ../qml/pages/CreateChatPage.qml:139
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:140
+#: ../qml/pages/CreateChatPage.qml:166
 #, fuzzy
-#| msgid "Chat created"
 msgid "Create chat"
 msgstr "チャットが作成されました"
 
@@ -740,7 +739,7 @@ msgid ""
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:226 ../qml/components/ArchivedChatListItem.qml:30
-#: ../qml/components/SimpleChatListItem.qml:31
+#: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
@@ -884,7 +883,6 @@ msgstr ""
 
 #: ../qml/components/InviteListItem.qml:24
 #, fuzzy
-#| msgid "%1 has invited %2"
 msgid "%1 has been invited"
 msgstr "%1 が %2 を招待しました"
 
@@ -894,7 +892,6 @@ msgstr ""
 
 #: ../qml/components/InviteListItem.qml:27
 #, fuzzy
-#| msgid "%1 has been banned from the chat"
 msgid "%1 is banned from the chat."
 msgstr "%1 がブロックされました"
 
@@ -1175,6 +1172,11 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
+#: ../qml/components/ContactListItem.qml:36
+#: ../qml/components/UserSettingsViewer.qml:110
+msgid "Last active: %1"
+msgstr ""
+
 #: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
 msgstr ""
@@ -1215,7 +1217,7 @@ msgstr ""
 msgid "Full username:"
 msgstr ""
 
-#: ../qml/components/UsernameListItem.qml:25
+#: ../qml/components/UsernameListItem.qml:32
 msgid "Username has been copied to the clipboard"
 msgstr ""
 
@@ -1249,15 +1251,23 @@ msgstr ""
 msgid "Canonical alias"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "Status: %1"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:109
+msgid "and currently active"
+msgstr ""
+
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:111
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "You are that!"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:153
+#: ../qml/components/UserSettingsViewer.qml:179
 msgid "Start new chat"
 msgstr ""
 
