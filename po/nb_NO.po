@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-25 09:55+0000\n"
-"PO-Revision-Date: 2018-12-23 12:08+0000\n"
+"PO-Revision-Date: 2018-12-26 17:09+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -1360,11 +1360,11 @@ msgstr "Helhetlig alias"
 
 #: ../qml/components/UserSettingsViewer.qml:109
 msgid "Status: %1"
-msgstr ""
+msgstr "Status: %1"
 
 #: ../qml/components/UserSettingsViewer.qml:109
 msgid "and currently active"
-msgstr ""
+msgstr "og aktiv nå"
 
 #: ../qml/components/UserSettingsViewer.qml:137
 #, fuzzy
