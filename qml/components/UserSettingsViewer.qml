@@ -114,6 +114,7 @@ BottomEdge {
                             (presenceListItem.presence === "unavailable" ? "sync-paused" : "sync-offline")
                             SlotsLayout.position: SlotsLayout.Leading
                             width: units.gu(4)
+                            color: presenceListItem.presence === "offline" ? UbuntuColors.slate : settings.mainColor
                             height: width
                         }
                     }

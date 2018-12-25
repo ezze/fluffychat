@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-25 09:53+0000\n"
+"POT-Creation-Date: 2018-12-25 09:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1249,15 +1249,15 @@ msgstr ""
 msgid "and currently active"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:136
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:136
+#: ../qml/components/UserSettingsViewer.qml:137
 msgid "You are that!"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:178
+#: ../qml/components/UserSettingsViewer.qml:179
 msgid "Start new chat"
 msgstr ""
 
