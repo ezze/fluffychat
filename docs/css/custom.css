@@ -35,6 +35,11 @@ a {
 	color: #5625BA;
 }
 
+.centered {
+    text-align: center;
+    display: block;
+}
+
 .header *{
 	max-height: var(--header-height);
 	box-sizing: border-box;
@@ -166,5 +171,6 @@ a {
 }
 
 #footer{
+    border-top: 1px solid var(--border-color);
     text-align: center;
 }
