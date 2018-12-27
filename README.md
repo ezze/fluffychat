@@ -28,6 +28,8 @@
  * Display and edit chat topics
  * Change chat&user avatars
  * Archived chats
+ * Display communities
+ * User status (presences)
  * Display contacts and find contacts with their phone number or email address
  * Discover public chats on the user's homeserver
  * Registration (currently only working with ubports.chat and NOT with matrix.org due captchas)
@@ -35,8 +37,7 @@
 ##### Planned features
  * End2End-encryption
  * Sharing files
- * VOIP
- * Android support
+ * Search for messages and files
 
 # FAQ
 
