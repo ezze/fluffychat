@@ -63,7 +63,11 @@ a {
 }
 
 .header_title, .header nav a{
-	padding: var(--header-font-padding);
+	padding: calc(2*var(--header-icon-padding));
+}
+
+.header_button{
+    padding: 0 !important;
 }
 
 .header_button img{
