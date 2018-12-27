@@ -76,6 +76,10 @@ Puts ¯&#92;_(ツ)_/¯ at the start of the message
 #### I can not connect to my homeserver (self signed certificate)
 The same problem ... I recommend you to use a letsencrypt certificate.
 
+#### How can I support FluffyChat?
+* <a href="https://www.patreon.com/krillechritzelius">Patreon</a>
+* <a href="https://liberapay.com/KrilleChritzelius">Liberapay</a>
+
 #### How to build
 
 1. Install clickable as described here: https://github.com/bhdouglass/clickable
