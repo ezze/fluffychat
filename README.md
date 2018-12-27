@@ -80,6 +80,9 @@ The same problem ... I recommend you to use a letsencrypt certificate.
 * <a href="https://www.patreon.com/krillechritzelius">Patreon</a>
 * <a href="https://liberapay.com/KrilleChritzelius">Liberapay</a>
 
+#### Which features will FluffyChat NOT support?
+I have written a blog post about this. <a href="https://janian.de/index.php/s/Kxx7qYP8x9XKg5Y">Find it here</a>!
+
 #### How to build
 
 1. Install clickable as described here: https://github.com/bhdouglass/clickable
