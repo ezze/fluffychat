@@ -1,0 +1,256 @@
+<html lang="en"><head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>FluffyChat - Official Website</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="css/font.css" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- JS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="js/nav.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+    <!-- Header
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container" id="headerContainer">
+        <div class="header">
+            <div class="left_side">
+                <a class="header_button" href="index.html"><img src="images/favicon.png"></a>
+            </div>
+            <div class="right_side">
+                <nav id="header_main_nav">
+                    <a href="faq.html">FAQ</a>
+                    <a href="https://matrix.to/#/%23fluffychat:matrix.org" target="new">Community</a>
+                    <a href="https://github.com/ChristianPauly/fluffychat" target="new">Github</a>
+                    <a href="https://www.patreon.com/krillechritzelius/posts" target="new">Blog</a>
+                    <a class="header_button" rel="me" href="https://metalhead.club/@krille" target="new"><img src="images/mastodon.png"></a>
+                </nav>
+                <a id="header_toggle_mobile" class="header_button"><img src="images/menu.svg"></a>
+            </div>
+        </div>
+    </div>
+    <!-- Content
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div id="content">
+
+        <div class="container">
+
+            <h1>Frequently Asked Questions</h1>
+
+            <ul>
+                <li><a href="#WhatisMatrix">What is Matrix?</a></li>
+                <li><a href="#HowcanIresetmypassword">How can I reset my password?</a></li>
+                <li><a href="#HowcanIcreateanewaccount">How can I create a new account?</a></li>
+                <li><a href="#HowcanIloginmyoldaccount">How can I log in my old account?</a></li>
+                <li><a href="#WhatisaMatrixID">What is a Matrix ID?</a></li>
+                <li><a href="#Whatisahomeserver">What is a homeserver?</a></li>
+                <li><a href="#Whatisanidentityserver">What is an identity server?</a></li>
+                <li><a href="#HowcanIstartanewchat">How can I start a new chat?</a></li>
+                <li><a href="#HowcanIjoinapublicchat">How can I join a public chat?</a></li>
+                <li><a href="#HowcanIjoinacommunity">How can I join a community?</a></li>
+                <li><a href="#HowcanIkickorbanauserfromachat">How can I kick or ban a user from a chat?</a></li>
+                <li><a href="#HowcanIchangetheuserpermissionsinachat">How can I change the user permissions in a chat?</a></li>
+                <li><a href="#HowcanIchangethechattopicanddescription">How can I change the chat topic and description?</a></li>
+                <li><a href="#HowcanIeditthechatprivacysettings">How can I edit the chat privacy settings?</a></li>
+                <li><a href="#HowcanIaddcontactsbytheirphonenumber">How can I add contacts by their phone number?</a></li>
+                <li><a href="#WhatarechataliasesandhowcanIeditthem">What are chat aliases and how can I edit them?</a></li>
+                <li><a href="#HowcanIsendanimatedstickerswithGiphy">How can I send animated stickers with Giphy?</a></li>
+                <li><a href="#HowcanIbridgeagroupchatwithaTelegramgroupchat">How can I bridge a group chat with a Telegram group chat?</a></li>
+                <li><a href="#WhydontIreceivepushnotifications">Why don't I receive push notifications?</a></li>
+                <li><a href="#WhycantIconnectwithport8448">Why can't I connect with port 8448?</a></li>
+                <li><a href="#WhycantIconnectwithselfsignedcertificate">Why can't I connect with self signed certificate?</a></li>
+                <li><a href="#Whichcommandsareavailable">Which /commands are available?</a></li>
+                <li><a href="#Whichuriwillopenfluffychat">Which uri will open fluffychat?</a></li>
+                <li><a href="#HowisFluffyChatfunded">How is FluffyChat funded?</a></li>
+            </ul>
+
+            <h4 id="WhatisMatrix">What is Matrix?</h4>
+            Matrix is an open standard for interoperable, decentralised, real-time communication over IP. It can be used to power Instant Messaging, VoIP/WebRTC signalling, Internet of Things communication - or anywhere you need a standard HTTP API for publishing and subscribing to data whilst tracking the conversation history.
+
+            <h4 id="HowcanIresetmypassword">How can I reset my password?</h4>
+            You must connect an email address with your account. This can be done in the account settings. If you don't have connected an email address, you have to contact the support of your homeserver. (<a href="#Whatisahomeserver">What is a homeserver?</a>)</br>
+            <a href="https://www.ubports.chat/#/forgot_password">Click here to reset your password</a>.
+
+            <h4 id="HowcanIcreateanewaccount">How can I create a new account?</h4>
+            <ol>
+                <li>If you are already logged in in FluffyChat then go to the settings and tab on "Logout" at the bottom.</li>
+                <li>Choose a new username and make sure that "I am new here" is checked.</li>
+                <li>If you want to create an account on another homeserver than the default (ubports.chat), go to the top left menu and change the homeserver. (<a href="#Whatisahomeserver">What is a homeserver?</a>)</li>
+                <li>Go to "Log In" and choose a new password.</li>
+            </ol>
+
+            <h4 id="HowcanIloginmyoldaccount">How can I log in my old account?</h4>
+            <ol>
+                <li>If you are already logged in in FluffyChat then go to the settings and tab on "Logout" at the bottom.</li>
+                <li>Enter the username or your Matrix ID of your old account. (<a href="#WhatisaMatrixID">What is a Matrix ID?</a>) If you don't remember your username or Matrix ID but you remember the phone number connected with your account, then you can just enter any username and enter the correct phone number in the next step. The username will be automatically found.</li>
+                <li>(Optional) Enter the phone number of your old account.</li>
+                <li>If your old account is not on the default homeserver (ubports.chat), go to the top left menu and change the homeserver. (<a href="#Whatisahomeserver">What is a homeserver?</a>)</li>
+                <li>Go to "Log In" and enter your password. (<a href="#HowcanIresetmypassword">Password forgotten?</a>)</li>
+            </ol>
+
+            <h4 id="WhatisaMatrixID">What is a Matrix ID?</h4>
+            Your Matrix ID is your unique identifier in the Matrix network. It is a combination of your username and your homeserver. (<a href="#Whatisahomeserver">What is a homeserver?</a>)</br>
+            The format of a Matrix ID is simple: @username:homeserver.
+            For example, if your username is "alice" and your homeserver is "homeserver.abc", then your Matrix ID is: @alice:homeserver.abc
+
+            <h4 id="Whatisahomeserver">What is a homeserver?</h4>
+            Matrix is a federated network of homeservers. What does this mean? There is no centralized "FluffyChat server" but there are multiple homeservers you can use. You are free to pick the homeserver you want. Like the email all users from all homeservers can communicate with eachother. There is a default homeserver on FluffyChat named "https://ubports.chat". You are able to host your own homeserver. <a href="https://matrix.org/docs/guides/installing-synapse">Click here for a guide how to start</a>.
+
+            <h4 id="Whatisanidentityserver">What is an identity server?</h4>
+            Users in Matrix are identified internally via their Matrix ID. However, existing 3rd party ID (3PID) namespaces such as email addresses or phone numbers should be used publicly to identify Matrix users, at least for invitation purposes. A Matrix "Identity" describes both the user ID and any other existing IDs from third party namespaces linked to their account.</br>
+            Matrix users can link third-party IDs (3PIDs) to their user ID. Linking 3PIDs creates a mapping from a 3PID to a user ID. This mapping can then be used by Matrix users in order to discover the MXIDs of their contacts.
+            In order to ensure that the mapping from 3PID to user ID is genuine, the intention is for a globally federated cluster of trusted "Identity Servers" (IS) be used to verify the 3PID and persist and replicate the mappings. Usage of an IS is not required in order for a client application to be part of the Matrix ecosystem. However, without one clients will not be able to look up user IDs using 3PIDs.
+
+            <h4 id="HowcanIstartanewchat">How can I start a new chat?</h4>
+            <ol>
+                <li>Go to the "+" button at the start page or swipe up from the bottom on phones.</li>
+                <li>Choose your contacts you want to invite to your new chat. You can at least invite zero contacts.</li>
+                <li>If you don't find a contact, you can <a href="#HowcanIaddcontactsbytheirphonenumber">add them by their phone number</a> or enter their Matrix ID in the search field. (<a href="#WhatisaMatrixID">What is a Matrix ID?</a>)
+                <li>Go to "Create Chat"</li>
+                <li>If you want to create a direct chat with one contact, just select only one contact or touch the avatar and go to "Start direct chat".</li>
+            </ol>
+
+            <h4 id="HowcanIjoinapublicchat">How can I join a public chat?</h4>
+            A public chat has one or more public addresses called aliases. They always start with '#' and end with ':homeserver.abc'. For example: <a href="fluffychat://#fluffychat:matrix.org">#fluffychat:matrix.org</a>. Just click on the link to participate in the chat or enter an alias in the search field at the start page of FluffyChat.
+
+            <h4 id="HowcanIjoinacommunity">How can I join a community?</h4>
+            A public chat has one or more public addresses called aliases. They always start with '+' and end with ':homeserver.abc'. For example: <a href="fluffychat://+ubports_community:matrix.org">+ubports_community:matrix.org</a>. Just click on the link to see all chats associated with this community. For more features, visit the <a href="https://www.ubports.chat">desktop web app</a>.
+
+            <h4 id="HowcanIkickorbanauserfromachat">How can I kick or ban a user from a chat?</h4>
+            You need the permission to kick or ban a user from a chat.
+            <ol>
+                <li>Go to the chat</li>
+                <li>Go to "Chat infos" in the top right menu</li>
+                <li>Find the user you want to kick or ban and swipe the user list item to the right.</li>
+                <li>Click on the kick or the ban button and confirm</li>
+            </ol>
+
+            <h4 id="HowcanIchangetheuserpermissionsinachat">How can I change the user permissions in a chat?</h4>
+            You need the permission to change the user permissions.
+            <ol>
+                <li>Go to the chat</li>
+                <li>Go to "Chat infos" in the top right menu</li>
+                <li>Find the user you want to kick or ban and swipe the user list item to the left.</li>
+                <li>Click on the desired user permission button and confirm</li>
+            </ol>
+
+            <h4 id="HowcanIchangethechattopicanddescription">How can I change the chat topic and description?</h4>
+            You need the permission to change the chat topic and description.
+            <ol>
+                <li>Go to the chat</li>
+                <li>Go to "Chat infos" in the top right menu</li>
+                <li>Click on the top right edit button and enter the desired chat topic and/or description</li>
+            </ol>
+
+            <h4 id="HowcanIeditthechatprivacysettings">How can I edit the chat privacy settings?</h4>
+            You need the permission to edit the chat privacy settings.
+            <ol>
+                <li>Go to the chat</li>
+                <li>Go to "Chat infos" in the top right menu</li>
+                <li>Go to "Privacy and security"</li>
+                <li>Toggle or untoggle the desired options and edit the user permission options</li>
+            </ol>
+
+            <h4 id="HowcanIaddcontactsbytheirphonenumber">How can I add contacts by their phone number?</h4>
+            <ol>
+                <li>Go to the "+" button at the start page or swipe up from the bottom on phones.</li>
+                <li>Go to the add contact button at the top left.</li>
+                <li>Choose your address book app.</li>
+                <li>Select the contact you want to add or select all contacts and confirm.</li>
+                <li>FluffyChat will search for these contacts in the identity server. (<a href="#Whatisanidentityserver">What is an identity server?</a>)</li>
+            </ol>
+
+            <h4 id="WhatarechataliasesandhowcanIeditthem">What are chat aliases and how can I edit them?</h4>
+            Chat aliases are public chat addresses which can be used to join a chat. You need the chat permissions to change them.
+            <ol>
+                <li>Go to the chat</li>
+                <li>Go to "Chat infos" in the top right menu</li>
+                <li>Go to "Privacy and security"</li>
+                <li>Toggle or untoggle the desired options and edit the user permission options</li>
+            </ol>
+
+            <h4 id="HowcanIsendanimatedstickerswithGiphy">How can I send animated stickers with Giphy?</h4>
+            <ol>
+                <li>Start a new chat with <a href="fluffychat://@neb_giphy:​matrix.org">@neb_giphy:​matrix.org</a>.</li>
+                <li>Search for gifs by typing: '!giphy KEYWORD'</li>
+                <li>Add an animated sticker by clicking on the sticker and add it to your local sticker collection by clicking on the "+" on the rop right.</li>
+            </ol>
+
+            <h4 id="HowcanIbridgeagroupchatwithaTelegramgroupchat">How can I bridge a group chat with a Telegram group chat?</h4>
+
+            <h4 id="WhydontIreceivepushnotifications">Why don't I receive push notifications?</h4>
+            Do you have an Ubuntu One account in the system settings?</br>
+            When you go into fluffychat -> Settings -> Notifications -> Targets: Is there a device "UbuntuPhone"?</br>
+            Have you tried to logout and login?</br>
+            Do you have the latest version of fluffychat installed from the OpenStore?</br>
+            Have you tried to turn airplaine mode on and off again? Sometimes notifications are sent with a delay from the UBports push service (will be fixed soon) If you still have the problem, then please contact me at the room: <a href="fluffychat://#fluffychat:matrix.org">#fluffychat:matrix.org</a>
+
+            <h4 id="WhycantIconnectwithport8448">Why can't I connect with port 8448?</h4>
+            Sorry! confused On port 8448 the most homeservers use a different ssl certificate, which causes an error. Currently the xmlhttprequest in QML does not allow those certificates.
+
+            <h4 id="WhycantIconnectwithselfsignedcertificate">Why can't I connect with self signed certificate?</h4>
+            The same problem... I recommend you to use a letsencrypt certificate.
+
+            <h4 id="Whichcommandsareavailable">Which /commands are available?</h4>
+            /me (Will send msgtype: m.emote) Displays an action.</br>
+            /whisper (Will send msgtype: m.fluffychat.whisper) The message text will be very small</br>
+            /roar (Will send msgtype: m.fluffychat.roar) The message text will be very large, bold and in capital letters</br>
+            /shrug Puts ¯\(ツ)/¯ at the start of the message
+
+            <h4 id="Whichuriwillopenfluffychat">Which uri will open fluffychat?</h4>
+            fluffychat://@user:server.abc will launch the user profile</br>
+            fluffychat://#room:server.abc will join the room with the given alias</br>
+            fluffychat://!chatid:server.abc will open the room with the given ID</br>
+            fluffychat://#community:server.abc will open the community with the given name
+
+            <h4 id="HowisFluffyChatfunded">How can I support FluffyChat?</h4>
+            FluffyChat is funded by the community. You can support FluffyChat on <a href="https://www.patreon.com/krillechritzelius">Patreon</a> or <a href="https://liberapay.com/KrilleChritzelius">Liberapay</a>
+
+            <div class="spacer"> </div>
+
+            <a href="https://www.patreon.com/bePatron?u=11123241" class="centered" target="new"><img class="buttonImage animated bounceIn" src="images/become_a_patron_button@2x.png"/></a>
+
+            <div class="spacer"> </div>
+
+            <div id="footer">
+                <a href="https://github.com/ChristianPauly/fluffychat/blob/master/LICENSE" target="new">GNU General Public License</a> -
+                <a href="https://github.com/ChristianPauly/fluffychat/blob/master/CHANGELOG.md" target="new">Changelog</a> -
+                <a href="https://hosted.weblate.org/projects/fluffychat/" target="new">Help with translations</a> -
+                <a href="https://github.com/ChristianPauly" target="new">Created by Christian Pauly</a> -
+                <a href="https://github.com/ChristianPauly/fluffychat/blob/master/PRIVACYPOLICY.md" target="new">Privacy Policy</a> -
+                <a href="https://github.com/ChristianPauly/fluffychat/graphs/contributors" target="new">Contributors</a> -
+                <a href="https://github.com/ChristianPauly/fluffychat#special-thanks-to" target="new">Special thanks to</a> -
+                <a href="https://ubports.com" target="new">UBports</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+
+</body></html>

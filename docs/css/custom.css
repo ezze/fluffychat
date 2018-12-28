@@ -1,11 +1,11 @@
 /* =============VALUES============== */
 :root {
-  --header-height: 46px;
-  --header-font-size: 1.75rem;
-  --header-font-padding: 10px 20px;
-  --header-icon-padding: 5px;
-  --border-color: #DDDDDD;
-  --header-background: rgba(255,255,255,0.9);
+    --header-height: 46px;
+    --header-font-size: 1.75rem;
+    --header-font-padding: 10px 20px;
+    --header-icon-padding: 5px;
+    --border-color: #DDDDDD;
+    --header-background: rgba(255,255,255,0.9);
 }
 
 /* =============HEADER============== */
@@ -32,7 +32,7 @@
 }
 
 a {
-	color: #5625BA;
+    color: #5625BA;
 }
 
 .centered {
@@ -40,30 +40,40 @@ a {
     display: block;
 }
 
+h1 {
+    #font-size: 200%;
+    text-align: center;
+}
+
+h4 {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+}
+
 .header *{
-	max-height: var(--header-height);
-	box-sizing: border-box;
-	display: inline-block;
-	vertical-align: middle;
-	font-size: var(--header-font-size);
+    max-height: var(--header-height);
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: var(--header-font-size);
 }
 
 .right_side{
-	float: right;
-	text-align: right;
+    float: right;
+    text-align: right;
 }
 
 .left_side{
-	float: left;
-	text-align: left;
+    float: left;
+    text-align: left;
 }
 
 .header a{
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .header_title, .header nav a{
-	padding: calc(2*var(--header-icon-padding));
+    padding: calc(2*var(--header-icon-padding));
 }
 
 .header_button{
@@ -71,91 +81,91 @@ a {
 }
 
 .header_button img{
-	padding: var(--header-icon-padding);
-	height: var(--header-height);
-	margin-left: var(--header-icon-padding);
+    padding: var(--header-icon-padding);
+    height: var(--header-height);
+    margin-left: var(--header-icon-padding);
 }
 
 #header_toggle_mobile{
-	display: none;
+    display: none;
 }
 
 
 /* Desktop mode */
 @media (min-width: 610px) {
-	#header_main_nav{
-		display: inline-block !important;
-	}
+    #header_main_nav{
+        display: inline-block !important;
+    }
 }
 
 /* Mobile mode */
 @media (max-width: 610px) {
 
-	.header {
-		width: 100%
-	}
+    .header {
+        width: 100%
+    }
 
     #titleColumn{
         text-align: center;
     }
 
     #banner {
-			   width: 100% !important;
+        width: 100% !important;
         max-width: 100% !important;
     }
 
-#screenshot {
-	max-width: calc(100vw - 4rem) !important;
-}
+    #screenshot {
+        max-width: calc(100vw - 4rem) !important;
+    }
 
-	#header_main_nav{
-		display: none;
-		position: absolute;
-		top: var(--header-height);
-		left: 0px;
-		background: var(--header-background);
-		width: 100vw;
-		max-height: none;
-		border-bottom: 1px solid var(--border-color);
-		text-align: left;
-	}
+    #header_main_nav{
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0px;
+        background: var(--header-background);
+        width: 100vw;
+        max-height: none;
+        border-bottom: 1px solid var(--border-color);
+        text-align: left;
+    }
 
-	#header_main_nav a{
-		display: block;
-	}
+    #header_main_nav a{
+        display: block;
+    }
 
-	/* Visible by default */
-	#header_toggle_mobile{
-		display: inherit;
-	}
+    /* Visible by default */
+    #header_toggle_mobile{
+        display: inherit;
+    }
 }
 
 
 /* =============CONTENT============== */
 #content{
-	z-index: 0;
-	min-height: calc( 100vh - var(--header-height) );
-	padding-top: var(--header-height);
+    z-index: 0;
+    min-height: calc( 100vh - var(--header-height) );
+    padding-top: var(--header-height);
 }
 
 #banner {
     width: 80%;
     max-width: 960px;
-	margin: 0 auto;
-	display: block;
+    margin: 0 auto;
+    display: block;
 }
 
 .article_image{
-	max-width: 100%;
+    max-width: 100%;
 }
 
 .buttonImage{
     width: 20rem;
-	transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s;
 }
 
 .buttonImage:hover{
-	box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.5);
 }
 
 .spacer {
@@ -163,15 +173,15 @@ a {
 }
 
 .paddingColumn{
-	padding: 2rem 0;
+    padding: 2rem 0;
 }
 .gridItem{
     text-align: center;
 }
 
 #screenshot {
-	width: 30rem;
-	max-width: calc(50vw - 10rem);
+    width: 30rem;
+    max-width: calc(50vw - 10rem);
 }
 
 #footer{
