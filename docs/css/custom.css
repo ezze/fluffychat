@@ -5,7 +5,7 @@
   --header-font-padding: 10px 20px;
   --header-icon-padding: 5px;
   --border-color: #DDDDDD;
-  --header-background: #FFFFFF;
+  --header-background: rgba(255,255,255,0.9);
 }
 
 /* =============HEADER============== */
