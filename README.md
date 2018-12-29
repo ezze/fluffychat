@@ -39,50 +39,6 @@
  * Sharing files
  * Search for messages and files
 
-# FAQ
-
-#### I do not receive push notifications :-(
- * Have you tried to logout and login?
- * Do you have an Ubuntu One account in the system settings?
- * When you go into fluffychat -> Settings -> Notifications -> Targets: Is there a device "UbuntuPhone"?
- * Do you have the latest version of fluffychat installed from the OpenStore?
- * Have you tried to turn airplaine mode on and off again? Sometimes notifications are sent with a delay from the UBports push service (will be fixed soon)
- If you still have the problem, then please contact me at the room: #fluffychat:matrix.org
-
-#### I can not connect to my homeserver with port 8448
-Sorry! 😕 On port 8448 the most homeservers use a different ssl certificate, which causes an error. Currently the xmlhttprequest in QML
-does not allow those certificates.
-
-#### Which /commands are available?
-* /me (Will send msgtype: m.emote)
-Displays an action.
-
-* /whisper (Will send msgtype: m.fluffychat.whisper)
-The message text will be very small
-
-* /roar (Will send msgtype: m.fluffychat.roar)
-The message text will be very large, bold and in capital letters
-
-* /shrug
-Puts ¯&#92;_(ツ)_/¯ at the start of the message
-
-#### Which uri will open fluffychat?
-* fluffychat://@user:server.abc will launch the user profile
-
-* fluffychat://#room:server.abc will join the room with the given alias
-
-* fluffychat://!chatid:server.abc will open the room with the given ID
-
-#### I can not connect to my homeserver (self signed certificate)
-The same problem ... I recommend you to use a letsencrypt certificate.
-
-#### How can I support FluffyChat?
-* <a href="https://www.patreon.com/krillechritzelius">Patreon</a>
-* <a href="https://liberapay.com/KrilleChritzelius">Liberapay</a>
-
-#### Which features will FluffyChat NOT support?
-I have written a blog post about this. <a href="https://janian.de/index.php/s/Kxx7qYP8x9XKg5Y">Find it here</a>!
-
 #### How to build
 
 1. Install clickable as described here: https://github.com/bhdouglass/clickable

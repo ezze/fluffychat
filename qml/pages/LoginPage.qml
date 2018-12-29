@@ -85,7 +85,7 @@ Page {
 
 
     header: FcPageHeader {
-        title: i18n.tr('Welcome to %1').arg( (loginDomain || defaultDomain) )
+        title: i18n.tr('Homeserver %1').arg( (loginDomain || defaultDomain) )
 
         leadingActionBar {
             numberOfSlots: 1
@@ -213,6 +213,13 @@ Page {
                     }
                 }
             }
+
+            Rectangle {
+                width: parent.width
+                color: theme.palette.normal.background
+                height: Math.max(scrollView.height - newHere.height - banner.height - 2 * loginTextField.height - 2 * signInButton.height - units.gu(9),0)
+            }
+
             Row {
                 id: newHere
                 width: loginTextField.width
@@ -230,15 +237,9 @@ Page {
                 }
             }
 
-            Rectangle {
-                width: parent.width
-                color: theme.palette.normal.background
-                height: Math.max(scrollView.height - newHere.height - banner.height - 2 * loginTextField.height - 2 * signInButton.height - units.gu(9),0)
-            }
-
             Button {
                 id: signInButton
-                text: i18n.tr("Log in")
+                text: newHereCheckBox.checked ? i18n.tr("Sign up") : i18n.tr("Sign in")
                 width: loginTextField.width
                 color: UbuntuColors.green
                 onClicked: login()
