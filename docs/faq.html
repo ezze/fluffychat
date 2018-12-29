@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/codeblocks.css">
 
     <!-- JS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -115,8 +116,8 @@
 
             <h4 id="WhatisaMatrixID">What is a Matrix ID?</h4>
             Your Matrix ID is your unique identifier in the Matrix network. It is a combination of your username and your homeserver. (<a href="#Whatisahomeserver">What is a homeserver?</a>)</br>
-            The format of a Matrix ID is simple: @username:homeserver.
-            For example, if your username is "alice" and your homeserver is "homeserver.abc", then your Matrix ID is: @alice:homeserver.abc
+            The format of a Matrix ID is simple: <code>@username:homeserver</code>.
+            For example, if your username is "alice" and your homeserver is "homeserver.abc", then your Matrix ID is: <code>@alice:homeserver.abc</code>
 
             <h4 id="Whatisahomeserver">What is a homeserver?</h4>
             Matrix is a federated network of homeservers. What does this mean? There is no centralized "FluffyChat server" but there are multiple homeservers you can use. You are free to pick the homeserver you want. Like the email all users from all homeservers can communicate with eachother. There is a default homeserver on FluffyChat named "https://ubports.chat". You are able to host your own homeserver. <a href="https://matrix.org/docs/guides/installing-synapse">Click here for a guide how to start</a>.
@@ -197,7 +198,7 @@
             <h4 id="HowcanIsendanimatedstickerswithGiphy">How can I send animated stickers with Giphy?</h4>
             <ol>
                 <li>Start a new chat with <a href="fluffychat://@neb_giphy:​matrix.org">@neb_giphy:​matrix.org</a>.</li>
-                <li>Search for gifs by typing: '!giphy KEYWORD'</li>
+                <li>Search for gifs by typing: <code>!giphy KEYWORD</code></li>
                 <li>Add an animated sticker by clicking on the sticker and add it to your local sticker collection by clicking on the "+" on the rop right.</li>
             </ol>
 
@@ -219,18 +220,18 @@
 
             <h4 id="Whichcommandsareavailable">Which /commands are available?</h4>
             <ul>
-                <li>/me (Will send msgtype: m.emote) Displays an action.</li>
-                <li>/whisper (Will send msgtype: m.fluffychat.whisper) The message text will be very small</li>
-                <li>/roar (Will send msgtype: m.fluffychat.roar) The message text will be very large, bold and in capital letters</li>
-                <li>/shrug Puts ¯\(ツ)/¯ at the start of the message</li>
+                <li><code>/me</code> (Will send msgtype: m.emote) Displays an action.</li>
+                <li><code>/whisper</code> (Will send msgtype: m.fluffychat.whisper) The message text will be very small</li>
+                <li><code>/roar</code> (Will send msgtype: m.fluffychat.roar) The message text will be very large, bold and in capital letters</li>
+                <li><code>/shrug</code> Puts ¯\(ツ)/¯ at the start of the message</li>
             </ul>
 
             <h4 id="Whichuriwillopenfluffychat">Which uri will open FluffyChat?</h4>
             <ul>
-                <li>fluffychat://@user:server.abc will launch the user profile</li>
-                <li>fluffychat://#room:server.abc will join the room with the given alias</li>
-                <li>fluffychat://!chatid:server.abc will open the room with the given ID</li>
-                <li>fluffychat://#community:server.abc will open the community with the given name</li>
+                <li><code>fluffychat://@user:server.abc</code> will launch the user profile</li>
+                <li><code>fluffychat://#room:server.abc</code> will join the room with the given alias</li>
+                <li><code>fluffychat://!chatid:server.abc</code> will open the room with the given ID</li>
+                <li><code>fluffychat://+community:server.abc</code> will open the community with the given name</li>
             </ul>
 
             <h4 id="HowisFluffyChatfunded">How can I support FluffyChat?</h4>
