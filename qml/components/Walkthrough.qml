@@ -114,7 +114,7 @@ Page {
     Label {
         id: skipLabel
 
-        color: "black"
+        color: settings.darkmode ? "white" : "black"
         fontSize: "medium"
         objectName: "skipLabel"
         text: i18n.tr("Skip")
@@ -143,7 +143,7 @@ Page {
             anchors {
                 fill: parent
             }
-            color: "#000000"
+            color: settings.darkmode ? "white" : "black"
             opacity: parent.pressed ? 0.1 : 0
 
             Behavior on opacity {
@@ -184,7 +184,7 @@ Page {
             right: parent.right
             margins: units.gu(2)
         }
-        color: "black"
+        color: settings.darkmode ? "white" : "black"
         height: units.gu(2)
         name: "chevron"
         width: height
@@ -205,7 +205,7 @@ Page {
             anchors {
                 fill: parent
             }
-            color: "#000000"
+            color: settings.darkmode ? "white" : "black"
             opacity: parent.pressed ? 0.1 : 0
 
             Behavior on opacity {
