@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-04 14:35+0000\n"
-"PO-Revision-Date: 2018-12-25 10:57+0100\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2019-01-04 14:44+0000\n"
+"Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ../qml/Main.qml:191 ../qml/components/ChatEvent.qml:81
 msgid "Are you sure?"
@@ -255,7 +255,7 @@ msgstr "Werde ein Patron"
 
 #: ../qml/pages/InfoPage.qml:39
 msgid "Support on Liberapay"
-msgstr ""
+msgstr "Mit Liberapay unterstützen"
 
 #: ../qml/pages/InfoPage.qml:46
 msgid "Join the community"
@@ -355,11 +355,12 @@ msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or an unique username to find friends."
 msgstr ""
+"Chatte mit deinen Freunden und trete der Community bei. Du kannst deine "
+"Handynummer oder einen Benutzernamen verwenden, um Freunde zu finden."
 
 #: ../qml/pages/WalkthroughPage.qml:102
-#, fuzzy
 msgid "Join the Matrix"
-msgstr "Chat beitreten"
+msgstr "Trete der Matrix bei"
 
 #: ../qml/pages/WalkthroughPage.qml:116
 msgid ""
@@ -367,26 +368,33 @@ msgid ""
 "uMatriks. You can also join IRC channels, participate in XMPP chats and "
 "bridge Telegram groups."
 msgstr ""
+"FluffyChat ist kompatibel mit anderen Messengern wie Riot, Fractal oder "
+"uMatriks. Du kannst außerdem IRC Channels beitreten, in XMPP Chats mitmachen "
+"oder Telegram Gruppen verknüpfen."
 
 #: ../qml/pages/WalkthroughPage.qml:153
 msgid "What's new in version %1?"
-msgstr ""
+msgstr "Was gibt's neues in Version %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:167
 msgid ""
 "This version does not implement new features but improves the user "
 "experience. The design has been revised and there is now a FAQ."
 msgstr ""
+"Diese Version implementiert keine neuen Features aber verbessert die "
+"Benutzererfahrung. Das Design wurde überarbeitet und es gibt nun ein FAQ."
 
 #: ../qml/pages/WalkthroughPage.qml:204
 msgid "Community funded"
-msgstr ""
+msgstr "Finanziert durch die Gemeinschaft"
 
 #: ../qml/pages/WalkthroughPage.qml:217
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers are all "
 "funded by the community."
 msgstr ""
+"FluffyChat ist offen, unkommerziell und süß. Die Entwicklung sowie die "
+"Server sind alle durch Spenden finanziert."
 
 #: ../qml/pages/LoginPage.qml:37
 msgid "Username '%1' not found on %2"
@@ -401,9 +409,8 @@ msgid "Username is already taken"
 msgstr "Benutzername schon vergeben"
 
 #: ../qml/pages/LoginPage.qml:88
-#, fuzzy
 msgid "Homeserver %1"
-msgstr "Ändere Homeserver"
+msgstr "Homeserver %1"
 
 #: ../qml/pages/LoginPage.qml:96
 msgid "Change homeserver"
@@ -423,7 +430,7 @@ msgstr "Nachtmodus umschalten"
 
 #: ../qml/pages/LoginPage.qml:126 ../qml/pages/ChatSettingsPage.qml:125
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #: ../qml/pages/LoginPage.qml:137
 msgid "Choose your homeserver"
@@ -1134,7 +1141,7 @@ msgstr "Entferne diese Email-Adresse?"
 
 #: ../qml/components/ChatEvent.qml:26
 msgid "Swipe to the left or the right for actions. 😉"
-msgstr ""
+msgstr "Nach links oder rechts wischen für Aktionen. 😉"
 
 #: ../qml/components/ChatEvent.qml:32
 #, fuzzy
@@ -1252,9 +1259,8 @@ msgid "No preview messages"
 msgstr "Keine vorhergehenden Nachrichten"
 
 #: ../qml/components/ChatListItem.qml:113
-#, fuzzy
 msgid "Notification settings"
-msgstr "Benachrichtungsziele"
+msgstr "Benachrichtigungseinstellungen"
 
 #: ../qml/components/ChatListItem.qml:127
 #, fuzzy
@@ -1360,7 +1366,7 @@ msgstr "Neuen Chat starten"
 
 #: ../qml/components/Walkthrough.qml:120
 msgid "Skip"
-msgstr ""
+msgstr "Überspringen"
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11
 msgid "Change your display name"
