@@ -230,6 +230,7 @@ Walkthrough {
                 height: units.gu(5)
                 iconName: "like"
                 text: i18n.tr("Become a patron")
+                width: units.gu(36)
 
                 onClicked: Qt.openUrlExternally("https://www.patreon.com/krillechritzelius")
             }
