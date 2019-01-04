@@ -18,7 +18,7 @@ ListItem {
     highlightColor: "#00000000"
 
     width: mainStackWidth
-    height: (isMediaEvent ? messageBubble.height :  // Media event height is calculated by the message bubble height
+    height: (isMediaEvent ? messageBubble.height + units.gu(1) :  // Media event height is calculated by the message bubble height
         messageLabel.height + units.gu(2.5 + !isStateEvent*1.75))   // Text content is calculated by the label height for better performenace
 
         color: "transparent"
@@ -183,6 +183,11 @@ ListItem {
                     property var showGif: visible && settings.autoloadGifs && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
                     property var showThumbnail: visible && !showGif && (hasThumbnail || settings.autoloadGifs)
                     property var showButton: visible && !showGif && !showThumbnail
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: imageViewer.show ( event.content.url )
+                    }
 
                     Image {
                         id: thumbnail

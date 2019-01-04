@@ -15,7 +15,7 @@
             "push-helper": "push/push-helper.json"
         }
     },
-    "version": "9.0rc2",
+    "version": "9.0rc3",
     "maintainer": "Christian Pauly <christian-pauly@posteo.de>",
     "framework" : "ubuntu-sdk-16.04"
 }

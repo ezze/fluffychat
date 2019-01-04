@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 15:23+0000\n"
+"POT-Creation-Date: 2019-01-04 15:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -592,7 +592,7 @@ msgid "Edit displayname"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:96 ../qml/pages/ChatSettingsPage.qml:160
-#: ../qml/components/ChatEvent.qml:232
+#: ../qml/components/ChatEvent.qml:237
 msgid "Show image"
 msgstr ""
 
@@ -1112,7 +1112,7 @@ msgstr ""
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:334
+#: ../qml/components/ChatEvent.qml:339
 msgid "Download: "
 msgstr ""
 
