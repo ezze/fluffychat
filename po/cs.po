@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-25 09:55+0000\n"
-"PO-Revision-Date: 2018-12-23 12:08+0000\n"
+"PO-Revision-Date: 2018-12-26 17:08+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -90,7 +90,7 @@ msgid ""
 "yet support end to end encryption. You will not be able to send or read "
 "messages in this chat!"
 msgstr ""
-"%1 zahájil end to end šifrování. Upozorňujeme, že FluffyChat tuto funkci "
+"%1 zahájil end-to-end šifrování. Upozorňujeme, že FluffyChat tuto funkci "
 "zatím nepodporuje. V tomto chatu nebude možné číst ani odesílat žádné zprávy!"
 
 #: ../qml/controller/DisplayEventController.qml:54
@@ -405,9 +405,8 @@ msgid "Share"
 msgstr "Sdílet"
 
 #: ../qml/pages/ChatListPage.qml:266
-#, fuzzy
 msgid "Search for chats or public rooms..."
-msgstr "Vyhledat veřejné chaty..."
+msgstr "Vyhledat chaty anebo veřejné místnosti..."
 
 #: ../qml/pages/ChatListPage.qml:289
 msgid "Swipe from below to start a chat"
@@ -1193,9 +1192,8 @@ msgstr "Restartovat"
 
 #: ../qml/components/ContactListItem.qml:36
 #: ../qml/components/UserSettingsViewer.qml:110
-#, fuzzy
 msgid "Last active: %1"
-msgstr "Naposledy viděn: "
+msgstr "Naposledy aktivní: %1"
 
 #: ../qml/components/ChatScrollView.qml:69
 msgid "Get more messages from the server ..."
@@ -1275,11 +1273,11 @@ msgstr "Kanonický alias"
 
 #: ../qml/components/UserSettingsViewer.qml:109
 msgid "Status: %1"
-msgstr ""
+msgstr "Status: %1"
 
 #: ../qml/components/UserSettingsViewer.qml:109
 msgid "and currently active"
-msgstr ""
+msgstr "a nyní aktivní"
 
 #: ../qml/components/UserSettingsViewer.qml:137
 msgid "Chats with this user:"
