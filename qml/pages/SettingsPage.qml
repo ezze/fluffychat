@@ -42,8 +42,12 @@ Page {
         flickable: scrollView.flickableItem
 
         trailingActionBar {
-            numberOfSlots: 1
             actions: [
+            Action {
+                iconName: "help"
+                text: i18n.tr("FAQ")
+                onTriggered: Qt.openUrlExternally("https://christianpauly.github.io/fluffychat/faq.html")
+            },
             Action {
                 iconName: "compose"
                 text: i18n.tr("Edit displayname")
