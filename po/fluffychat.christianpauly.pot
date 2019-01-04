@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:51+0000\n"
+"POT-Creation-Date: 2019-01-04 12:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,7 +322,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:133 ../qml/pages/LoginPage.qml:242
+#: ../qml/pages/PasswordCreationPage.qml:133 ../qml/pages/LoginPage.qml:252
 msgid "Sign up"
 msgstr ""
 
@@ -358,27 +358,31 @@ msgstr ""
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:127
+#: ../qml/pages/LoginPage.qml:126
+msgid "FAQ"
+msgstr ""
+
+#: ../qml/pages/LoginPage.qml:137
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:149
+#: ../qml/pages/LoginPage.qml:159
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:197
+#: ../qml/pages/LoginPage.qml:207
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:206
+#: ../qml/pages/LoginPage.qml:216
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:236
+#: ../qml/pages/LoginPage.qml:246
 msgid "Create a new account"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:242 ../qml/pages/PasswordInputPage.qml:86
+#: ../qml/pages/LoginPage.qml:252 ../qml/pages/PasswordInputPage.qml:86
 msgid "Sign in"
 msgstr ""
 

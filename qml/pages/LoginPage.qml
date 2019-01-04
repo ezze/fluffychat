@@ -118,6 +118,16 @@ Page {
             }
             ]
         }
+
+        trailingActionBar {
+            actions: [
+            Action {
+                iconName: "help"
+                text: i18n.tr("FAQ")
+                onTriggered: Qt.openUrlExternally("https://christianpauly.github.io/fluffychat/faq.html")
+            }
+            ]
+        }
     }
 
     Component {
@@ -189,7 +199,7 @@ Page {
                     text: settings.countryCode + " +%1".arg(settings.countryTel)
                     onClicked: {
                         var item = Qt.createComponent("../components/CountryPicker.qml")
-                        item.createObject(mainStack.currentPage, { })
+                        item.createObject(mainStack.currentItem, { })
                     }
                 }
                 TextField {

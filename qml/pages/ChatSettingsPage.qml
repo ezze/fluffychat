@@ -121,6 +121,11 @@ Page {
             numberOfSlots: 1
             actions: [
             Action {
+                iconName: "help"
+                text: i18n.tr("FAQ")
+                onTriggered: Qt.openUrlExternally("https://christianpauly.github.io/fluffychat/faq.html")
+            },
+            Action {
                 visible: canChangeName
                 iconName: "compose"
                 text: i18n.tr("Edit chat name")
