@@ -16,9 +16,8 @@ ListItem {
         subtitle.text: value
         Icon {
             name: icon
-            color: iconColor
-            width: units.gu(4)
-            height: units.gu(4)
+            width: units.gu(3)
+            height: units.gu(3)
             visible: icon !== ""
             SlotsLayout.position: SlotsLayout.Leading
         }

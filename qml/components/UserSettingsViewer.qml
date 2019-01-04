@@ -15,7 +15,7 @@ BottomEdge {
         property var displayname: ""
         height: userSettingsViewer.height
 
-        FcPageHeader {
+        StyledPageHeader {
             id: userHeader
             title: ""
 
@@ -113,7 +113,7 @@ BottomEdge {
                             name: presenceListItem.presence === "online" ? "sync-idle" :
                             (presenceListItem.presence === "unavailable" ? "sync-paused" : "sync-offline")
                             SlotsLayout.position: SlotsLayout.Leading
-                            width: units.gu(4)
+                            width: units.gu(3)
                             color: presenceListItem.presence === "offline" ? UbuntuColors.slate : settings.mainColor
                             height: width
                         }

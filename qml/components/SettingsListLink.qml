@@ -16,9 +16,8 @@ ListItem {
         title.color: settings.darkmode ? "white" : "black"
         Icon {
             name: icon
-            color: iconColor
-            width: units.gu(4)
-            height: units.gu(4)
+            width: units.gu(3)
+            height: units.gu(3)
             SlotsLayout.position: SlotsLayout.Leading
         }
         Icon {

@@ -16,7 +16,6 @@ ListView {
     property var unread: ""
     property var canRedact: false
     property var chatMembers: []
-    spacing: units.gu(0.5)
 
     function init () {
         // Request all participants displaynames and avatars
@@ -261,80 +260,24 @@ ListView {
         }
     }
 
-
-    ActionSelectionPopover {
-        id: contextualActions
-        property var contextEvent
-        z: 10
-        actions: ActionList {
-            Action {
-                text: i18n.tr("Try send again")
-                visible: contextualActions.contextEvent !== undefined && contextualActions.contextEvent.status === msg_status.ERROR
-                onTriggered: {
-                    storage.transaction ( "DELETE FROM Events WHERE id='" + contextualActions.contextEvent.id + "'")
-                    removeEvent ( contextualActions.contextEvent.id )
-                    chatPage.send ( contextualActions.contextEvent.content_body )
-                }
-            }
-            Action {
-                text: i18n.tr("Reply")
-                visible: chatPage.canSendMessages && contextualActions.contextEvent !== undefined && contextualActions.contextEvent.status >= msg_status.SENT
-                onTriggered: {
-                    chatPage.replyEvent = contextualActions.contextEvent
-                    messageTextField.focus = true
-                }
-            }
-            Action {
-                text: i18n.tr("Forward")
-                visible: contextualActions.contextEvent !== undefined && contextualActions.contextEvent.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( contextualActions.contextEvent.content.msgtype ) === -1
-                onTriggered: shareController.shareTextIntern ("%1 (%2): %3".arg( contextualActions.contextEvent.sender ).arg( stamp.getChatTime (contextualActions.contextEvent.origin_server_ts) ).arg( contextualActions.contextEvent.content.body ))
-            }
-            Action {
-                text: i18n.tr("Copy text")
-                visible: contextualActions.contextEvent !== undefined && contextualActions.contextEvent.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( contextualActions.contextEvent.content.msgtype ) === -1
-                onTriggered: {
-                    shareController.toClipboard ( contextualActions.contextEvent.content.body )
-                    toast.show( i18n.tr("Text has been copied to the clipboard") )
-                }
-            }
-            Action {
-                text: i18n.tr("Delete message")
-                visible: contextualActions.contextEvent !== undefined && (canRedact && contextualActions.contextEvent.status >= msg_status.SENT ||
-                    contextualActions.contextEvent.status === msg_status.ERROR)
-                    onTriggered: {
-                        if ( contextualActions.contextEvent.status === msg_status.ERROR ) {
-                            storage.transaction ( "DELETE FROM Events WHERE id='" + contextualActions.contextEvent.id + "'")
-                            removeEvent ( contextualActions.contextEvent.id )
-                        }
-                        else showConfirmDialog ( i18n.tr("Are you sure?"), function () {
-                            matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
-                            .arg(activeChat)
-                            .arg(contextualActions.contextEvent.id)
-                            .arg(new Date().getTime()) )
-                        })
-                    }
-                }
-            }
-        }
-
-        width: parent.width
-        height: parent.height - 2 * chatInput.height
-        anchors.bottom: chatInput.top
-        verticalLayoutDirection: ListView.BottomToTop
-        delegate: ChatEvent {}
-        model: ListModel { id: model }
-        onContentYChanged: if ( atYBeginning ) requestHistory ()
-        move: Transition {
-            NumberAnimation { property: "opacity"; to:1; duration: 1 }
-        }
-        displaced: Transition {
-            SmoothedAnimation { property: "y"; duration: 300 }
-            NumberAnimation { property: "opacity"; to:1; duration: 1 }
-        }
-        add: Transition {
-            NumberAnimation { property: "opacity"; from: 0; to:1; duration: 200 }
-        }
-        remove: Transition {
-            NumberAnimation { property: "opacity"; from: 1; to:0; duration: 200 }
-        }
+    width: parent.width
+    height: parent.height - 2 * chatInput.height
+    anchors.bottom: chatInput.top
+    verticalLayoutDirection: ListView.BottomToTop
+    delegate: ChatEvent {}
+    model: ListModel { id: model }
+    onContentYChanged: if ( atYBeginning ) requestHistory ()
+    move: Transition {
+        NumberAnimation { property: "opacity"; to:1; duration: 1 }
     }
+    displaced: Transition {
+        SmoothedAnimation { property: "y"; duration: 300 }
+        NumberAnimation { property: "opacity"; to:1; duration: 1 }
+    }
+    add: Transition {
+        NumberAnimation { property: "opacity"; from: 0; to:1; duration: 200 }
+    }
+    remove: Transition {
+        NumberAnimation { property: "opacity"; from: 1; to:0; duration: 200 }
+    }
+}

@@ -51,13 +51,13 @@ Item {
     function showUserSettings ( matrix_id ) {
         activeUser = matrix_id
         var item = Qt.createComponent("../components/UserSettingsViewer.qml")
-        item.createObject(mainStack.currentPage, { })
+        item.createObject(mainStack.currentItem, { })
     }
 
     function showCommunity ( matrix_id ) {
         activeCommunity = matrix_id
         var item = Qt.createComponent("../components/CommunityViewer.qml")
-        item.createObject(mainStack.currentPage, { })
+        item.createObject(mainStack.currentItem, { })
     }
 
     function handleUserUri ( uri ) {

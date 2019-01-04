@@ -42,6 +42,7 @@ PushClient {
     }
 
     function newNotification ( message ) {
+        console.log("==============================NEW NOTIFICATION==============================\n",message)
        if ( message == "" ) return
         try {
             // Clear the persistent notification if the user is in this room

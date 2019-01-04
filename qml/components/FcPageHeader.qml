@@ -1,13 +1,18 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import "../components/"
 
-PageHeader {
+StyledPageHeader {
     id: header
-    title: i18n.tr('FluffyChat')
 
-    StyleHints {
-        foregroundColor: settings.mainColor
-        textSize: title.indexOf("\n") !== -1 ? Label.Medium : Label.Large
+    leadingActionBar {
+        actions: [
+        Action {
+            visible: mainStack.depth > 1
+            iconName: "go-previous"
+            onTriggered: mainStack.pop()
+        }
+        ]
     }
 }

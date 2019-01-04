@@ -172,7 +172,7 @@ Connections {
     onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
 }
 
-header: FcPageHeader {
+header: StyledPageHeader {
     id: header
     title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
     flickable: chatListView
@@ -206,10 +206,8 @@ header: FcPageHeader {
             iconName: "add"
             visible: shareObject === null
             onTriggered: {
-                searching = false
-                searchField.text = ""
-                mainStack.toStart ()
-                mainStack.push(Qt.resolvedUrl("./CreateChatPage.qml"))
+                    mainStack.toStart ()
+                    mainStack.push(Qt.resolvedUrl("./CreateChatPage.qml"))
             }
         }
         ]
@@ -289,29 +287,6 @@ Label {
     text: i18n.tr('Swipe from below to start a chat')
     anchors.centerIn: parent
     visible: model.count === 0
-}
-
-// ============================== BOTTOM EDGE ==============================
-BottomEdge {
-    id: bottomEdge
-    height: shareObject === null ? parent.height : 0
-
-    enabled: !tabletMode
-
-    onCommitCompleted: {
-        searching = false
-        searchField.text = ""
-        mainStack.toStart ()
-        mainStack.push(Qt.resolvedUrl("./CreateChatPage.qml"))
-        collapse()
-    }
-
-    contentComponent: Rectangle {
-        width: mainStackWidth
-        height: root.height
-        color: theme.palette.normal.background
-        CreateChatPage { dummy: true }
-    }
 }
 
 }

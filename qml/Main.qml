@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.2
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import QtMultimedia 5.4
@@ -42,7 +43,7 @@ MainView {
     readonly property var longPollingTimeout: 10000
     readonly property var typingTimeout: 30000
     readonly property var borderColor: settings.darkmode ? UbuntuColors.jet : UbuntuColors.silk
-    readonly property var version: "8.0"
+    readonly property var version: "9.0dev"
     readonly property var downloadPath: "/home/phablet/.local/share/ubuntu-download-manager/fluffychat.christianpauly/Downloads/"
     readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "HISTORY": 4, "ERROR": -1 }
 
@@ -69,6 +70,7 @@ MainView {
     property var consentContent: ""
     property var shareObject: null
     property var mainFontColor: settings.darkmode ? "#FFFFFF" : "#000000"
+    property var bottomEdgeCommited: false
 
 
     /* =============================== LAYOUT ===============================
@@ -123,7 +125,7 @@ MainView {
         z: 11
     }
 
-    PageStack {
+    StackView {
         id: mainStack
         anchors.fill: undefined
         anchors.right: parent.right

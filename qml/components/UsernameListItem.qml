@@ -15,9 +15,8 @@ ListItem {
         Icon {
             name: "contact"
             SlotsLayout.position: SlotsLayout.Leading
-            width: units.gu(4)
+            width: units.gu(3)
             height: width
-            color: settings.mainColor
         }
 
         Icon {

@@ -13,7 +13,7 @@ BottomEdge {
     contentComponent: Page {
             height: communityViewer.height
 
-            FcPageHeader {
+            StyledPageHeader {
                 id: communityHeader
                 title: activeCommunity
 

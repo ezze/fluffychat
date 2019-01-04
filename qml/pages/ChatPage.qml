@@ -17,6 +17,8 @@ Page {
     property var replyEvent: null
     property var chat_id
 
+    width: mainStack.width
+
     function send ( message ) {
         if ( !messageTextField.displayText.replace(/\s/g, '').length && message === undefined ) return
 
@@ -265,7 +267,7 @@ Page {
         anchors.centerIn: parent
         width: parent.width
         height: width * ( 1052 / 744 )
-        opacity: 0.2
+        opacity: 0.1
         z: 0
     }
 
@@ -385,8 +387,8 @@ Page {
         height: messageTextField.height + units.gu(2)
         width: parent.width + 2
         border.width: 1
-        border.color: settings.darkMode ? UbuntuColors.slate : UbuntuColors.silk
-        color: theme.palette.normal.background
+        border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
+        color: settings.darkmode ? "#CC000000" : "#CCFFFFFF"
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom

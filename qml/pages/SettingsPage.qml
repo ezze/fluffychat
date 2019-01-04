@@ -153,9 +153,8 @@ Page {
                     title.text: i18n.tr("Change background")
                     Icon {
                         name: "image-x-generic-symbolic"
-                        color: settings.mainColor
-                        width: units.gu(4)
-                        height: units.gu(4)
+                        width: units.gu(3)
+                        height: units.gu(3)
                         SlotsLayout.position: SlotsLayout.Leading
                     }
 

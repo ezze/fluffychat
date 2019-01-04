@@ -14,6 +14,8 @@ ListItem {
 
     color: settings.darkmode ? "#202020" : "white"
 
+    highlightColor: settings.darkmode ? settings.mainColor : settings.brighterMainColor
+
     onClicked: {
         if ( room.membership !== "leave" ) {
             activeChatTypingUsers = room.typing || []
@@ -108,6 +110,7 @@ ListItem {
         actions: [
         Action {
             iconName: "notification"
+            text: i18n.tr("Notification settings")
             onTriggered: {
                 activeChat = room.id
                 mainStack.push (Qt.resolvedUrl("../pages/NotificationChatSettingsPage.qml"))
@@ -121,6 +124,7 @@ ListItem {
         actions: [
         Action {
             iconName: "edit-delete"
+            text: i18n.tr("Leave this chat")
             onTriggered: {
                 activeChat = room.id
                 PopupUtils.open(leaveChatDialog)

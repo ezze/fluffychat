@@ -21,7 +21,7 @@ Rectangle {
         onClicked: function () {}
     }
 
-    FcPageHeader {
+    StyledPageHeader {
         id: header
         z: 20
         title: ""

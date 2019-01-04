@@ -5,7 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import QtGraphicalEffects 1.0
 import "../components"
 
-Rectangle {
+ListItem {
     id: message
     property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker"
     property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1 || event.type === "m.sticker"
@@ -14,75 +14,129 @@ Rectangle {
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
     property var senderDisplayname: chatMembers[event.sender].displayname
+    divider.visible: false
+    highlightColor: "#00000000"
 
     width: mainStackWidth
     height: (isMediaEvent ? messageBubble.height :  // Media event height is calculated by the message bubble height
-    Math.max(messageLabel.height + units.gu(2 + !isStateEvent*1.5), avatar.height))   // Text content is calculated by the label height for better performenace
+        messageLabel.height + units.gu(2.5 + !isStateEvent*1.75))   // Text content is calculated by the label height for better performenace
 
-    color: "transparent"
+        color: "transparent"
 
+        onPressAndHold: toast.show ( i18n.tr("Swipe to the left or the right for actions. 😉"))
 
-    function openContextMenu () {
-        if ( !isStateEvent && !thumbnail.visible && !contextualActions.visible ) {
-            contextualActions.contextEvent = event
-            contextualActions.show()
+        // Notification-settings Button
+        trailingActions: ListItemActions {
+            actions: [
+            Action {
+                text: i18n.tr("Try to send again")
+                iconName: "send"
+                visible: event.status === msg_status.ERROR
+                onTriggered: {
+                    var body = event.content_body
+                    storage.transaction ( "DELETE FROM Events WHERE id='" + event.id + "'")
+                    removeEvent ( event.id )
+                    chatPage.send ( body )
+                }
+            },
+            Action {
+                text: i18n.tr("Reply")
+                iconName: "mail-reply"
+                visible: event.status >= msg_status.SENT && canSendMessages
+                onTriggered: {
+                    chatPage.replyEvent = event
+                    messageTextField.focus = true
+                }
+            },
+            Action {
+                text: i18n.tr("Share")
+                iconName: "share"
+                visible: event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
+                onTriggered: shareController.shareTextIntern ("%1 (%2): %3".arg( event.sender ).arg( stamp.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
+            },
+            Action {
+                text: i18n.tr("Copy text")
+                iconName: "edit-copy"
+                visible: event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
+                onTriggered: {
+                    shareController.toClipboard ( event.content.body )
+                    toast.show( i18n.tr("Text has been copied to the clipboard") )
+                }
+            }
+            ]
         }
-    }
 
-
-    // When the width of the "window" changes (rotation for example) then the maxWidth
-    // of the message label must be calculated new. There is currently no "maxwidth"
-    // property in qml.
-    onWidthChanged: {
-        messageLabel.width = undefined
-        var maxWidth = width - avatar.width - units.gu(5)
-        if ( messageLabel.width > maxWidth ) messageLabel.width = maxWidth
-        else messageLabel.width = undefined
-    }
-
-
-    Avatar {
-        id: avatar
-        mxc: opacity ? chatMembers[event.sender].avatar_url : ""
-        name: senderDisplayname
-        anchors.left: isLeftSideEvent ? parent.left : undefined
-        anchors.right: !isLeftSideEvent ? parent.right : undefined
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: units.gu(1)
-        anchors.leftMargin: units.gu(1)
-        anchors.rightMargin: units.gu(1)
-        opacity: (event.sameSender && !isStateEvent) ? 0 : 1
-        width: isStateEvent ? units.gu(3) : units.gu(6)
-        onClickFunction: function () {
-            if ( !opacity ) return
-            activeUser = event.sender
-            usernames.showUserSettings ( event.sender )
+        // Delete Button
+        leadingActions: ListItemActions {
+            actions: [
+            Action {
+                text: i18n.tr("Remove")
+                iconName: "edit-delete"
+                visible: (canRedact && event.status >= msg_status.SENT || event.status === msg_status.ERROR)
+                onTriggered: {
+                    if ( event.status === msg_status.ERROR ) {
+                        storage.transaction ( "DELETE FROM Events WHERE id='" + event.id + "'")
+                        removeEvent ( event.id )
+                    }
+                    else showConfirmDialog ( i18n.tr("Are you sure?"), function () {
+                        matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
+                        .arg(activeChat)
+                        .arg(event.id)
+                        .arg(new Date().getTime()) )
+                    })
+                }
+            }
+            ]
         }
-    }
 
 
-    MouseArea {
-        id: mouseArea
-        width: messageBubble.width
-        height: messageBubble.height
-        anchors.left: isLeftSideEvent ? avatar.right : undefined
-        anchors.right: !isLeftSideEvent ? avatar.left : undefined
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: units.gu(1)
-        anchors.leftMargin: units.gu(1)
-        anchors.rightMargin: units.gu(1)
+        // When the width of the "window" changes (rotation for example) then the maxWidth
+        // of the message label must be calculated new. There is currently no "maxwidth"
+        // property in qml.
+        onWidthChanged: {
+            messageLabel.width = undefined
+            var maxWidth = width - avatar.width - units.gu(5)
+            if ( messageLabel.width > maxWidth ) messageLabel.width = maxWidth
+            else messageLabel.width = undefined
+        }
 
-        onPressAndHold: openContextMenu ()
-        onClicked: if (mouse.button == Qt.RightButton) openContextMenu ()
+
+        Avatar {
+            id: avatar
+            mxc: opacity ? chatMembers[event.sender].avatar_url : ""
+            name: senderDisplayname
+            anchors.left: isLeftSideEvent ? parent.left : undefined
+            anchors.right: !isLeftSideEvent ? parent.right : undefined
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(1)
+            anchors.leftMargin: units.gu(1)
+            anchors.rightMargin: units.gu(1)
+            opacity: (event.sameSender && !isStateEvent) ? 0 : 1
+            width: isStateEvent ? units.gu(3) : units.gu(5)
+            onClickFunction: function () {
+                if ( !opacity ) return
+                activeUser = event.sender
+                usernames.showUserSettings ( event.sender )
+            }
+        }
+
+
+
 
         Rectangle {
             id: messageBubble
-            opacity: isStateEvent ? 0.5 : 1
+            anchors.left: isLeftSideEvent ? avatar.right : undefined
+            anchors.right: !isLeftSideEvent ? avatar.left : undefined
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(1)
+            anchors.leftMargin: units.gu(1)
+            anchors.rightMargin: units.gu(1)
+
+            opacity: isStateEvent ? 0.75 : 1
             z: 2
-            anchors.margins: units.gu(0.5)
             color: image.showGif || image.showThumbnail ? "#00000000" :
-            (isStateEvent ? theme.palette.normal.background :
-            (!sent ? settings.darkmode ? "#191A15" : "#e6e5ea" :
+            (isStateEvent ? (settings.chatBackground === undefined ? "#00000000" : theme.palette.normal.background) :
+            (!sent ? settings.darkmode ? "#191A15" : UbuntuColors.porcelain :
             (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
 
             Behavior on color {
@@ -183,12 +237,6 @@ Rectangle {
                         anchors.left: parent.left
                         anchors.leftMargin: units.gu(1)
                         color: settings.brightMainColor
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: imageViewer.show ( event.content.url )
-                        onPressAndHold: openContextMenu ()
                     }
                 }
 
@@ -307,8 +355,8 @@ Label {
     opacity: isMediaEvent ? 0 : 1
     height: opacity ? undefined : 0
     text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :
-        (event.type === "m.room.encrypted" ? displayEvents.getDisplay ( event ) :
-        event.content_body || event.content.body)
+    (event.type === "m.room.encrypted" ? displayEvents.getDisplay ( event ) :
+    event.content_body || event.content.body)
     color: (!sent || isStateEvent) ? (settings.darkmode ? "white" : "black") :
     (event.status < msg_status.SEEN || isImage ? settings.mainColor : "white")
     linkColor: settings.brightMainColor
@@ -392,7 +440,6 @@ Rectangle {
     }
 }
 
-}
 }
 }
 

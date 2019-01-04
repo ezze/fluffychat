@@ -17,7 +17,7 @@ Rectangle {
         onClicked: imageViewer.visible = false
     }
 
-    FcPageHeader {
+    StyledPageHeader {
         id: header
         z: 20
         title: ""
