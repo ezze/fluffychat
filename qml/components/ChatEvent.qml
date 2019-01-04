@@ -72,7 +72,7 @@ ListItem {
             Action {
                 text: i18n.tr("Remove")
                 iconName: "edit-delete"
-                enabled: (canRedact && event.status >= msg_status.SENT || event.status === msg_status.ERROR)
+                enabled: ((canRedact || sent) && event.status >= msg_status.SENT || event.status === msg_status.ERROR)
                 onTriggered: {
                     if ( event.status === msg_status.ERROR ) {
                         storage.transaction ( "DELETE FROM Events WHERE id='" + event.id + "'")
