@@ -22,14 +22,18 @@ Item {
     // session and autoconnect with them. If not, then just go to the login Page.
     function init () {
 
-        if ( settings.token ) {
+        mainStack.clear()
+        if ( settings.token && settings.updateInfosFinished === version ) {
             if ( tabletMode ) mainStack.push(Qt.resolvedUrl("../pages/BlankPage.qml"))
             else mainStack.push(Qt.resolvedUrl("../pages/ChatListPage.qml"))
             onlineStatus = true
             events.init ()
         }
-        else {
+        else if ( settings.walkthroughFinished && settings.updateInfosFinished === version ){
             mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
+        }
+        else {
+            mainStack.push(Qt.resolvedUrl("../pages/WalkthroughPage.qml"))
         }
     }
 

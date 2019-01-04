@@ -36,6 +36,13 @@ Page {
             }
 
             SettingsListItem {
+                name: i18n.tr("Support on Liberapay")
+                icon: "like"
+                iconColor: settings.mainColor
+                onClicked: Qt.openUrlExternally("https://liberapay.com/KrilleChritzelius")
+            }
+
+            SettingsListItem {
                 name: i18n.tr("Join the community")
                 icon: "contact-group"
                 onClicked: usernames.showCommunity("+ubports_community:matrix.org")

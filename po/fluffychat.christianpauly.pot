@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 12:04+0000\n"
+"POT-Creation-Date: 2019-01-04 14:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:66
+#: ../qml/controller/SettingsController.qml:70
 msgid "USA"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:67
+#: ../qml/controller/SettingsController.qml:71
 msgid "1"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr ""
 msgid "Push notifications are disabled..."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:257
+#: ../qml/controller/MatrixController.qml:261
 msgid "😕 No connection..."
 msgstr ""
 
@@ -237,32 +237,36 @@ msgstr ""
 msgid "Info about FluffyChat %1 on %2"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:32
+#: ../qml/pages/InfoPage.qml:32 ../qml/pages/WalkthroughPage.qml:232
 msgid "Become a patron"
 msgstr ""
 
 #: ../qml/pages/InfoPage.qml:39
+msgid "Support on Liberapay"
+msgstr ""
+
+#: ../qml/pages/InfoPage.qml:46
 msgid "Join the community"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:45 ../qml/pages/LoginPage.qml:111
+#: ../qml/pages/InfoPage.qml:52 ../qml/pages/LoginPage.qml:111
 #: ../qml/pages/PrivacyPolicyPage.qml:10
 msgid "Privacy Policy"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:51
+#: ../qml/pages/InfoPage.qml:58
 msgid "Website"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:57
+#: ../qml/pages/InfoPage.qml:64
 msgid "Contributors"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:63
+#: ../qml/pages/InfoPage.qml:70
 msgid "Source code"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:69
+#: ../qml/pages/InfoPage.qml:76
 msgid "License"
 msgstr ""
 
@@ -326,6 +330,47 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
+#: ../qml/pages/WalkthroughPage.qml:51
+msgid "Welcome to FluffyChat"
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:65
+msgid ""
+"Chat with your friends and join the community. You can use your phone number "
+"or an unique username to find friends."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:102
+msgid "Join the Matrix"
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:116
+msgid ""
+"FluffyChat is compatible with other messengers like Riot, Fractal or "
+"uMatriks. You can also join IRC channels, participate in XMPP chats and "
+"bridge Telegram groups."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:153
+msgid "What's new in version %1?"
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:167
+msgid ""
+"This version does not implement new features but improves the user "
+"experience. The design has been revised and there is now a FAQ."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:204
+msgid "Community funded"
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:217
+msgid ""
+"FluffyChat is open, nonprofit and cute. The development and servers are all "
+"funded by the community."
+msgstr ""
+
 #: ../qml/pages/LoginPage.qml:37
 msgid "Username '%1' not found on %2"
 msgstr ""
@@ -358,7 +403,7 @@ msgstr ""
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:126
+#: ../qml/pages/LoginPage.qml:126 ../qml/pages/ChatSettingsPage.qml:125
 msgid "FAQ"
 msgstr ""
 
@@ -546,21 +591,21 @@ msgstr ""
 msgid "Edit displayname"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:92 ../qml/pages/ChatSettingsPage.qml:160
+#: ../qml/pages/SettingsPage.qml:92 ../qml/pages/ChatSettingsPage.qml:165
 #: ../qml/components/ChatEvent.qml:232
 msgid "Show image"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:96 ../qml/pages/ChatSettingsPage.qml:164
+#: ../qml/pages/SettingsPage.qml:96 ../qml/pages/ChatSettingsPage.qml:169
 msgid "Delete Avatar"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:118 ../qml/pages/ChatSettingsPage.qml:185
+#: ../qml/pages/SettingsPage.qml:118 ../qml/pages/ChatSettingsPage.qml:190
 #: ../qml/components/StickerInput.qml:138
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:122 ../qml/pages/ChatSettingsPage.qml:189
+#: ../qml/pages/SettingsPage.qml:122 ../qml/pages/ChatSettingsPage.qml:194
 #: ../qml/components/StickerInput.qml:142
 msgid "OK"
 msgstr ""
@@ -584,7 +629,7 @@ msgstr ""
 #: ../qml/pages/SettingsPage.qml:199
 #: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:247
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
-#: ../qml/pages/ChatSettingsPage.qml:232
+#: ../qml/pages/ChatSettingsPage.qml:237
 msgid "Notifications"
 msgstr ""
 
@@ -745,7 +790,7 @@ msgstr ""
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:253 ../qml/pages/ChatSettingsPage.qml:310
+#: ../qml/pages/ChatPage.qml:253 ../qml/pages/ChatSettingsPage.qml:315
 msgid "Invite friends"
 msgstr ""
 
@@ -817,36 +862,36 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:126
+#: ../qml/pages/ChatSettingsPage.qml:131
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:221
+#: ../qml/pages/ChatSettingsPage.qml:226
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:238
+#: ../qml/pages/ChatSettingsPage.qml:243
 msgid "Security & Privacy"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:244
+#: ../qml/pages/ChatSettingsPage.qml:249
 msgid "Chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:266
+#: ../qml/pages/ChatSettingsPage.qml:271
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:266
+#: ../qml/pages/ChatSettingsPage.qml:271
 msgid "Press button to reload users..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:290
+#: ../qml/pages/ChatSettingsPage.qml:295
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:318
+#: ../qml/pages/ChatSettingsPage.qml:323
 msgid "Reload"
 msgstr ""
 
@@ -1264,6 +1309,10 @@ msgstr ""
 
 #: ../qml/components/UserSettingsViewer.qml:179
 msgid "Start new chat"
+msgstr ""
+
+#: ../qml/components/Walkthrough.qml:120
+msgid "Skip"
 msgstr ""
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11

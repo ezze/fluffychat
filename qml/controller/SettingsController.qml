@@ -38,6 +38,10 @@ Settings {
     // Dark mode enabled?
     property var darkmode: false
 
+    // First walkthrough seen?
+    property var walkthroughFinished: false
+    property var updateInfosFinished: "0"
+
     // The path to the chat background
     property var chatBackground
 
