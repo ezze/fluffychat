@@ -13,7 +13,7 @@ ListItem {
     property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
-    property var senderDisplayname: chatMembers[event.sender].displayname
+    property var senderDisplayname: chatMembers[event.sender].displayname!==undefined ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)
     divider.visible: false
     highlightColor: "#00000000"
 

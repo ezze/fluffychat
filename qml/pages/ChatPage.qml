@@ -388,7 +388,7 @@ Page {
         width: parent.width + 2
         border.width: 1
         border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
-        color: settings.darkmode ? "#CC000000" : "#CCFFFFFF"
+        color: theme.palette.normal.background
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom

@@ -109,6 +109,29 @@ ListView {
             event.type !== "m.room.create")
         ) return
 
+        // Is the sender of this event in the local database? If not, then request
+        // the displayname and avatar url of this sender.
+        if ( chatMembers[event.sender] === undefined) {
+            chatMembers[event.sender] = {
+                "displayname": usernames.transformFromId ( event.sender ),
+                "avatar_url": ""
+            }
+            matrix.get ( "/client/r0/rooms/%1/state/m.room.member/%2".arg(activeChat).arg(event.sender), {}, function ( response ) {
+                var newEvent = {
+                    content: response,
+                    state_key: event.sender,
+                    type: "m.room.member"
+                }
+                storage.db.transaction(
+                    function(tx) {
+                        events.transaction = tx
+                        events.handleRoomEvents ( activeChat, [ newEvent ], "state" )
+                    }
+                )
+            })
+        }
+
+
         if ( !("content_body" in event) ) event.content_body = event.content.body
         event.sameSender = false
         if ( history ) event.status = msg_status.HISTORY

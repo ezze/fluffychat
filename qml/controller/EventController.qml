@@ -58,15 +58,22 @@ Item {
         storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" +
         matrix.matrixid + "', '" + usernames.transformFromId(matrix.matrixid) + "', '', 'offline', 0, 0 )" )
 
-        matrix.get( "/client/r0/sync", {}, function ( response ) {
-            if ( waitingForSync ) progressBarRequests--
-            handleEvents ( response )
-            matrix.onlineStatus = true
+        // Discover which features the server does support
+        matrix.get ( "/client/versions", {}, function ( matrixVersions ) {
+            settings.matrixVersions = matrixVersions.versions
+            if ( "unstable_features" in matrixVersions && "m.lazy_load_members" in matrixVersions["unstable_features"] ) {
+                settings.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
+            }
 
-            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"not_types\":[\"m.room.member\"]}}}" }, handleEvents )
+            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(settings.lazy_load_members)}, function ( response ) {
+                if ( waitingForSync ) progressBarRequests--
+                handleEvents ( response )
+                matrix.onlineStatus = true
 
-            if ( !abortSync ) sync ()
-        }, init, null, longPollingTimeout )
+                if ( !abortSync ) sync ()
+            }, init, null, longPollingTimeout )
+        })
+
     }
 
 
@@ -74,7 +81,7 @@ Item {
 
         if ( settings.token === null || settings.token === undefined || abortSync ) return
 
-        var data = { "since": settings.since }
+        var data = { "since": settings.since, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(settings.lazy_load_members) }
 
         if ( !timeout ) data.timeout = longPollingTimeout
 
@@ -149,7 +156,7 @@ Item {
 
                     settings.since = response.next_batch
                     loadingScreen.visible = false
-                    //console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
+                    console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
                 }
             )
         }

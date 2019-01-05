@@ -38,6 +38,13 @@ Page {
     }
 
 
+    // To disable the background image on this page
+    Rectangle {
+        anchors.fill: parent
+        color: theme.palette.normal.background
+    }
+
+
     // This is the most importent function of this page! It updates all rooms, based
     // on the informations in the sqlite database!
     Component.onCompleted: {

@@ -61,7 +61,7 @@ Page {
             })
         })
 
-        // Request the full memberlist, from the database
+        // Request the full memberlist, from the database AND from the server (lazy loading)
         model.clear()
         memberCount = 0
         storage.transaction ( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Memberships.membership, Memberships.power_level " +
@@ -81,6 +81,25 @@ Page {
             }
             memberList.positionViewAtBeginning ()
         })
+
+        if ( settings.lazy_load_members ) {
+            matrix.get ( "/client/r0/rooms/%1/members".arg(activeChat), {}, function ( response ) {
+                model.clear()
+                memberCount = 0
+                for ( var i = 0; i < response.chunk.length; i++ ) {
+                    var member = response.chunk[ i ]
+                    if ( member.content.membership === "join" ) memberCount++
+                    model.append({
+                        name: member.content.displayname !== null ? member.content.displayname : usernames.transformFromId( member.state_key ),
+                        matrixid: member.state_key,
+                        membership: member.content.membership,
+                        avatar_url: member.content.avatar_url,
+                        userPower: 0
+                    })
+                }
+                memberList.positionViewAtBeginning ()
+            })
+        }
     }
 
 
@@ -300,7 +319,7 @@ Page {
             ListView {
                 id: memberList
                 width: parent.width
-                height: root.height / 1.5
+                height: root.height - header.height - searchField.height - units.gu(8)
                 delegate: MemberListItem { }
                 model: ListModel { id: model }
                 z: -1
@@ -310,6 +329,7 @@ Page {
                     name: i18n.tr("Invite friends")
                     icon: "contact-new"
                     page: "InvitePage"
+                    iconWidth: units.gu(4)
                     onClicked: model.clear()
                 }
 

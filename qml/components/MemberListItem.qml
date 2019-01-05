@@ -15,8 +15,6 @@ ListItem {
 
     onClicked: usernames.showUserSettings ( matrixid )
 
-    opacity: membership === "join" ? 1 : 0.5
-
     ListItemLayout {
         id: layout
         title.text: name
@@ -30,6 +28,7 @@ ListItem {
             name: layout.title.text
             SlotsLayout.position: SlotsLayout.Leading
             mxc: avatar_url || ""
+            opacity: membership === "join" ? 1 : 0.5
             onClickFunction: function () {
                 usernames.showUserSettings ( matrixid )
             }

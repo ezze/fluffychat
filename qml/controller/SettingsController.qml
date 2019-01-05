@@ -23,6 +23,12 @@ Settings {
     // The device name is a human readable identifier for this device
     property var deviceName
 
+    // Which version of the matrix specification does this server support?
+    property var matrixVersions: []
+
+    // Wheither the server supports lazy load members
+    property var lazy_load_members: "true"
+
     // This points to the position in the synchronization history, that this
     // client has got
     property var since

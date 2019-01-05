@@ -7,6 +7,7 @@ ListItem {
     property var icon: "settings"
     property var iconColor: settings.mainColor
     property var page
+    property var iconWidth: units.gu(3)
     height: layout.height
     onClicked: mainStack.push(Qt.resolvedUrl("../pages/%1.qml".arg(page)))
 
@@ -16,8 +17,8 @@ ListItem {
         title.color: settings.darkmode ? "white" : "black"
         Icon {
             name: icon
-            width: units.gu(3)
-            height: units.gu(3)
+            width: iconWidth
+            height: iconWidth
             SlotsLayout.position: SlotsLayout.Leading
         }
         Icon {
