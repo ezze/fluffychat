@@ -25,10 +25,10 @@ Page {
     }
 
     function updateAvatar ( type, chat_id, eventType, eventContent ) {
-        if ( type === "m.room.member" && eventContent.sender === matrix.matrixid ) {
-            storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + matrix.matrixid + "'", function (rs) {
+        if ( type === "m.room.member" && eventContent.sender === settings.matrixid ) {
+            storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + settings.matrixid + "'", function (rs) {
                 if ( rs.rows.length > 0 ) {
-                    var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
+                    var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
                     avatarImage.name = displayname
                     avatarImage.mxc = rs.rows[0].avatar_url
                     header.title = i18n.tr('Settings for %1').arg( displayname )
@@ -38,7 +38,7 @@ Page {
     }
 
     header: FcPageHeader {
-        title: i18n.tr('Settings for %1').arg(matrix.matrixid)
+        title: i18n.tr('Settings for %1').arg(settings.matrixid)
         flickable: scrollView.flickableItem
 
         trailingActionBar {
@@ -67,16 +67,16 @@ Page {
 
             Avatar {  // Useravatar
                 id: avatarImage
-                name: matrix.matrixid
+                name: settings.matrixid
                 width: parent.width
                 height: width * 10/16
                 radius: 0
                 anchors.horizontalCenter: parent.horizontalCenter
                 mxc: ""
                 Component.onCompleted: {
-                    storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + matrix.matrixid + "'", function (rs) {
+                    storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + settings.matrixid + "'", function (rs) {
                         if ( rs.rows.length > 0 ) {
-                            var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
+                            var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
                             avatarImage.name = displayname
                             avatarImage.mxc = rs.rows[0].avatar_url
                             header.title = i18n.tr('Settings for %1').arg( displayname )
@@ -98,7 +98,7 @@ Page {
                         }
                         Action {
                             text: i18n.tr("Delete Avatar")
-                            onTriggered: matrix.put ( "/client/r0/profile/" + matrix.matrixid + "/avatar_url", { avatar_url: "" }, function () {
+                            onTriggered: matrix.put ( "/client/r0/profile/" + settings.matrixid + "/avatar_url", { avatar_url: "" }, function () {
                                 avatarImage.mxc = ""
                             })
                         }
@@ -111,7 +111,7 @@ Page {
             }
             WebView {
                 id: uploader
-                url: "../components/ChangeUserAvatar.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&matrixID=" + encodeURIComponent(matrix.matrixid)
+                url: "../components/ChangeUserAvatar.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&matrixID=" + encodeURIComponent(settings.matrixid)
                 width: units.gu(6)
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -137,7 +137,7 @@ Page {
             }
 
             UsernameListItem {
-                matrix_id: matrix.matrixid
+                matrix_id: settings.matrixid
             }
 
             SettingsListItem {

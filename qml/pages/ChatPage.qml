@@ -88,7 +88,7 @@ Page {
         [ messageID,
         activeChat,
         now,
-        matrix.matrixid,
+        settings.matrixid,
         message,
         null,
         type,
@@ -98,10 +98,10 @@ Page {
             var fakeEvent = {
                 type: type,
                 id: messageID,
-                sender: matrix.matrixid,
+                sender: settings.matrixid,
                 content_body: sender.formatText ( data.body ),
-                displayname: chatMembers[matrix.matrixid].displayname,
-                avatar_url: chatMembers[matrix.matrixid].avatar_url,
+                displayname: chatMembers[settings.matrixid].displayname,
+                avatar_url: chatMembers[settings.matrixid].avatar_url,
                 status: msg_status.SENDING,
                 origin_server_ts: now,
                 content: data
@@ -132,7 +132,7 @@ Page {
         if ( typing !== isTyping) {
             typingTimer.stop ()
             isTyping = typing
-            matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
+            matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( settings.matrixid ), {
                 typing: typing
             }, null, null )
         }
@@ -146,7 +146,7 @@ Page {
             if ( res.rows[0].draft !== "" && res.rows[0].draft !== null ) messageTextField.text = res.rows[0].draft
             chatScrollView.unread = res.rows[0].unread
             storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
-            "matrix_id='" + matrix.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
+            "matrix_id='" + settings.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
                 chatScrollView.canRedact = rs.rows[0].power_level >= res.rows[0].power_redact
                 canSendMessages = rs.rows[0].power_level >= res.rows[0].power_events_default
             })

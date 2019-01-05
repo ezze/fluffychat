@@ -10,7 +10,7 @@ ListItem {
     property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker"
     property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1 || event.type === "m.sticker"
     property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
-    property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
+    property var sent: event.sender.toLowerCase() === settings.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
     property var senderDisplayname: chatMembers[event.sender].displayname!==undefined ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)
@@ -412,7 +412,7 @@ Rectangle {
             id: metaLabel
             text: {
                 // Show the senders displayname only if its not the user him-/herself.
-                ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
+                ((event.sender !== settings.matrixid) && senderDisplayname !== activeChatDisplayName ?
                 ("<font color='" + usernames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
                 : "")
                 + stamp.getChatTime ( event.origin_server_ts )

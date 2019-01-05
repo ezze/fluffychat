@@ -23,13 +23,13 @@ Item {
                 " AND Memberships.chat_id=? " +
                 " AND (Memberships.membership='join' OR Memberships.membership='invite') " +
                 " AND Memberships.matrix_id!=? ",
-                [ chat_id, matrix.matrixid ], function (rs) {
+                [ chat_id, settings.matrixid ], function (rs) {
                     var displayname = i18n.tr('Empty chat')
                     if ( rs.rows.length > 0 ) {
                         displayname = ""
                         for ( var i = 0; i < rs.rows.length; i++ ) {
                             var username = rs.rows[i].displayname || usernames.transformFromId ( rs.rows[i].matrix_id )
-                            if ( rs.rows[i].state_key !== matrix.matrixid ) displayname += username + ", "
+                            if ( rs.rows[i].state_key !== settings.matrixid ) displayname += username + ", "
                         }
                         if ( displayname === "" || displayname === null ) displayname = i18n.tr('Empty chat')
                         else displayname = displayname.substr(0, displayname.length-2)
@@ -59,7 +59,7 @@ Item {
         " AND Memberships.chat_id=? " +
         " AND (Memberships.membership='join' OR Memberships.membership='invite') " +
         " AND Memberships.matrix_id!=? ",
-        [ chat_id, matrix.matrixid ], function (rs) {
+        [ chat_id, settings.matrixid ], function (rs) {
             if ( rs.rows.length === 1 ) callback ( rs.rows[0].avatar_url )
             else callback ( "" )
         })

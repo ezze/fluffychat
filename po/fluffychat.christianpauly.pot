@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-05 16:23+0000\n"
+"POT-Creation-Date: 2019-01-05 16:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:76
+#: ../qml/controller/SettingsController.qml:79
 msgid "USA"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:77
+#: ../qml/controller/SettingsController.qml:80
 msgid "1"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr ""
 msgid "Push notifications are disabled..."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:261
+#: ../qml/controller/MatrixController.qml:265
 msgid "😕 No connection..."
 msgstr ""
 
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Join the community"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:52 ../qml/pages/LoginPage.qml:111
+#: ../qml/pages/InfoPage.qml:52 ../qml/pages/LoginPage.qml:116
 #: ../qml/pages/PrivacyPolicyPage.qml:10
 msgid "Privacy Policy"
 msgstr ""
@@ -326,7 +326,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:133 ../qml/pages/LoginPage.qml:252
+#: ../qml/pages/PasswordCreationPage.qml:133 ../qml/pages/LoginPage.qml:257
 msgid "Sign up"
 msgstr ""
 
@@ -371,63 +371,63 @@ msgid ""
 "funded by the community."
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:37
+#: ../qml/pages/LoginPage.qml:39
 msgid "Username '%1' not found on %2"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:65
+#: ../qml/pages/LoginPage.qml:67
 msgid "No user found with this phone number"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:79 ../qml/pages/LoginPage.qml:81
+#: ../qml/pages/LoginPage.qml:81 ../qml/pages/LoginPage.qml:83
 msgid "Username is already taken"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:88
+#: ../qml/pages/LoginPage.qml:90
 msgid "Homeserver %1"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:96
+#: ../qml/pages/LoginPage.qml:98
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:101
+#: ../qml/pages/LoginPage.qml:106
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:106 ../qml/pages/SettingsPage.qml:335
+#: ../qml/pages/LoginPage.qml:111 ../qml/pages/SettingsPage.qml:335
 msgid "About FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:116
+#: ../qml/pages/LoginPage.qml:121
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:126 ../qml/pages/SettingsPage.qml:48
+#: ../qml/pages/LoginPage.qml:131 ../qml/pages/SettingsPage.qml:48
 msgid "FAQ"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:142
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:159
+#: ../qml/pages/LoginPage.qml:164
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:207
+#: ../qml/pages/LoginPage.qml:212
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:216
+#: ../qml/pages/LoginPage.qml:221
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:246
+#: ../qml/pages/LoginPage.qml:251
 msgid "Create a new account"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:252 ../qml/pages/PasswordInputPage.qml:86
+#: ../qml/pages/LoginPage.qml:257 ../qml/pages/PasswordInputPage.qml:86
 msgid "Sign in"
 msgstr ""
 

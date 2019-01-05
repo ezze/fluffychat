@@ -19,7 +19,7 @@ Component {
             placeholderText: i18n.tr("Enter your new nickname")
             focus: true
             Component.onCompleted: {
-                storage.transaction ( "SELECT displayname FROM Users WHERE matrix_id='%1'".arg(matrix.matrixid), function ( res ) {
+                storage.transaction ( "SELECT displayname FROM Users WHERE matrix_id='%1'".arg(settings.matrixid), function ( res ) {
                     if ( res.rows.length > 0 ) {
                         displaynameTextField.text = res.rows[0].displayname
                     }
@@ -39,7 +39,7 @@ Component {
                 text: i18n.tr("Save")
                 color: UbuntuColors.green
                 onClicked: {
-                    matrix.put ( "/client/r0/profile/%1/displayname".arg(matrix.matrixid),
+                    matrix.put ( "/client/r0/profile/%1/displayname".arg(settings.matrixid),
                     { displayname: displaynameTextField.displayText} )
                     PopupUtils.close(dialogue)
                 }

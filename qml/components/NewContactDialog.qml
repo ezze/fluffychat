@@ -20,7 +20,7 @@ Component {
             wrapMode: Text.Wrap
         }
         Label {
-            text: i18n.tr("(Your username is: <b>%1</b>)").arg(matrix.matrixid)
+            text: i18n.tr("(Your username is: <b>%1</b>)").arg(settings.matrixid)
             width: parent.width
             wrapMode: Text.Wrap
             textSize: Label.Small

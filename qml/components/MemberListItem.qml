@@ -10,7 +10,7 @@ ListItem {
         layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
     }
     height: visible ? layout.height : 0
-    property var settings: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === matrix.matrixid)
+    property var settings: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === settings.matrixid)
     property var status: usernames.powerlevelToStatus(userPower)
 
     onClicked: usernames.showUserSettings ( matrixid )

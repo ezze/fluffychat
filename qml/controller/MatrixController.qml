@@ -10,8 +10,6 @@ credentials
 
 Item {
 
-    property var matrixid: settings.server ? "@" + settings.username + ":" + settings.server.split(":")[0] : null
-
     // The online status (bool)
     property var onlineStatus: false
 
@@ -56,6 +54,7 @@ Item {
             settings.token = response.access_token
             settings.deviceID = response.device_id
             settings.username = (response.user_id.substr(1)).split(":")[0]
+            settings.matrixid = response.user_id
             settings.server = newServer.toLowerCase()
             settings.deviceName = newDeviceName
             settings.dbversion = storage.version
@@ -69,7 +68,7 @@ Item {
         }
 
         var onError = function ( response ) {
-            settings.username = settings.server = settings.deviceName = undefined
+            resetSettings ()
             if ( error_callback ) error_callback ( response )
         }
         xmlRequest ( "POST", data, "/client/r0/login", onLogged, error_callback)
@@ -90,7 +89,7 @@ Item {
         var onResponse = function ( response ) {
             // If error
             if ( response.errcode ) {
-                if ( response.errcode !== "M_USER_IN_USE" ) settings.username = settings.server = settings.deviceName = undefined
+                if ( response.errcode !== "M_USER_IN_USE" ) resetSettings ()
                 if ( error_callback ) error_callback ( response )
                 return
             }
@@ -158,7 +157,7 @@ Item {
     function reset () {
         storage.drop ()
         onlineStatus = false
-        settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.requestedArchive = settings.since = undefined
+        resetSettings ()
         mainStack.clear ()
         mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
     }
@@ -171,6 +170,11 @@ Item {
             events.waitForSync()
             mainStack.toChat( response.room_id )
         } )
+    }
+
+
+    function resetSettings () {
+        settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.requestedArchive = settings.since = settings.matrixVersions = settings.matrixid = settings.lazy_load_members = undefined
     }
 
 

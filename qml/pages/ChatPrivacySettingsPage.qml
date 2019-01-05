@@ -54,7 +54,7 @@ Page {
 
     function init () {
 
-        storage.transaction ( "SELECT power_level FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function ( rs ) {
+        storage.transaction ( "SELECT power_level FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + settings.matrixid + "'", function ( rs ) {
             ownPower = rs.rows[0].power_level
 
             // Get the member status of the user himself
@@ -86,7 +86,7 @@ Page {
 
     function initPermissions () {
 
-        storage.transaction ( "SELECT power_level FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function ( rs ) {
+        storage.transaction ( "SELECT power_level FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + settings.matrixid + "'", function ( rs ) {
             ownPower = rs.rows[0].power_level
 
             // Get the member status of the user himself

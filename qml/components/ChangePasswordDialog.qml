@@ -48,7 +48,7 @@ Component {
                         "auth": {
                             "password": oldPass.text,
                             "type": "m.login.password",
-                            "user": matrix.matrixid
+                            "user": settings.matrixid
                         },
                         "new_password": newPass.text
                     }, function () {

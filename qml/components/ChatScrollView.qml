@@ -272,7 +272,7 @@ ListView {
 
     function markRead ( timestamp ) {
         for ( var i = 0; i < model.count; i++ ) {
-            if ( model.get(i).event.sender === matrix.matrixid &&
+            if ( model.get(i).event.sender === settings.matrixid &&
             model.get(i).event.origin_server_ts <= timestamp &&
             model.get(i).event.status > msg_status.SENT ) {
                 var tempEvent = model.get(i).event

@@ -11,6 +11,9 @@ Settings {
     // The username is the local part of the matrix id
     property var username
 
+    // The matrix id of the username (can be different from @username:server)
+    property var matrixid: "@%1:%2".arg(settings.username).arg(settings.server)
+
     // The server is the domain part of the matrix id
     property var server
 

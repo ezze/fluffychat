@@ -56,7 +56,7 @@ Item {
 
         loadingScreen.visible = true
         storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" +
-        matrix.matrixid + "', '" + usernames.transformFromId(matrix.matrixid) + "', '', 'offline', 0, 0 )" )
+        settings.matrixid + "', '" + usernames.transformFromId(settings.matrixid) + "', '', 'offline', 0, 0 )" )
 
         // Discover which features the server does support
         matrix.get ( "/client/versions", {}, function ( matrixVersions ) {
@@ -249,7 +249,7 @@ Item {
             if ( events[i].type === "m.receipt" ) {
                 for ( var e in events[i].content ) {
                     for ( var user in events[i].content[e]["m.read"]) {
-                        if ( user === matrix.matrixid ) continue
+                        if ( user === settings.matrixid ) continue
                         var timestamp = events[i].content[e]["m.read"][user].ts
 
                         // Call the newEvent signal for updating the GUI
@@ -265,7 +265,7 @@ Item {
             if ( events[ i ].type === "m.typing" ) {
                 var user_ids = events[ i ].content.user_ids
                 // If the user is typing, remove his id from the list of typing users
-                var ownTyping = user_ids.indexOf( matrix.matrixid )
+                var ownTyping = user_ids.indexOf( settings.matrixid )
                 if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
                 // Call the signal
                 newEvent ( events[ i ].type, id, "ephemeral", user_ids )

@@ -9,6 +9,8 @@ Page {
 
     property var loginDomain: ""
 
+    property var domainChanged: false
+
     function login () {
         if ( loginDomain === "" ) loginDomain = defaultDomain
         signInButton.enabled = false
@@ -94,7 +96,10 @@ Page {
             Action {
                 iconName: "sync-idle"
                 text: i18n.tr("Change homeserver")
-                onTriggered: PopupUtils.open(changeHomeserverDialog)
+                onTriggered: {
+                    domainChanged = true
+                    PopupUtils.open(changeHomeserverDialog)
+                }
             },
             Action {
                 iconName: "hotspot-connected"
@@ -174,7 +179,7 @@ Page {
         }
     }
 
-    property var elemWidth: Math.min( parent.width - units.gu(4), units.gu(50))
+    property var elemWidth: Math.min( root.width - units.gu(4), units.gu(50))
 
     ScrollView {
         id: scrollView
@@ -217,7 +222,7 @@ Page {
                 Keys.onReturnPressed: login()
                 width: elemWidth
                 onDisplayTextChanged: {
-                    if ( displayText.indexOf ("@") !== -1 ) {
+                    if ( displayText.indexOf ("@") !== -1 && !domainChanged ) {
                         var usernameSplitted = displayText.substr(1).split ( ":" )
                         loginDomain = usernameSplitted [1]
                     }

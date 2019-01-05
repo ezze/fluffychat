@@ -46,7 +46,7 @@ Page {
         storage.transaction ( "SELECT description, avatar_url, membership, power_event_name, power_kick, power_ban, power_invite, power_event_power_levels, power_event_avatar FROM Chats WHERE id='" + activeChat + "'", function (res) {
 
             description = res.rows[0].description
-            storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function (membershipResult) {
+            storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + settings.matrixid + "'", function (membershipResult) {
                 membership = membershipResult.rows[0].membership
                 avatarImage.mxc = res.rows[0].avatar_url
                 power = membershipResult.rows[0].power_level
