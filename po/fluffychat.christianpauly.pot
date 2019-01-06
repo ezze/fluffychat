@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-06 13:44+0000\n"
+"POT-Creation-Date: 2019-01-06 14:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Info about FluffyChat %1 on %2"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:32 ../qml/pages/WalkthroughPage.qml:232
+#: ../qml/pages/InfoPage.qml:32 ../qml/pages/WalkthroughPage.qml:233
 msgid "Become a patron"
 msgstr ""
 
@@ -361,11 +361,11 @@ msgid ""
 "experience. The design has been revised and there is now a FAQ."
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:204
+#: ../qml/pages/WalkthroughPage.qml:205
 msgid "Community funded"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:217
+#: ../qml/pages/WalkthroughPage.qml:218
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers are all "
 "funded by the community."

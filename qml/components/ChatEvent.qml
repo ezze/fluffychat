@@ -383,7 +383,6 @@ Label {
     // Intital calculation of the max width and display URL's and
     // make sure, that the label text is not empty for the correct
     // height calculation.
-    //onTextChanged: calcWidth ()
     Component.onCompleted: {
         if ( !event.content_body ) event.content_body = event.content.body
         var maxWidth = message.width - avatar.width - units.gu(5)
@@ -418,9 +417,17 @@ Rectangle {
                 + stamp.getChatTime ( event.origin_server_ts )
             }
             color: messageLabel.color
-            //opacity: 0.5
             textSize: Label.XxSmall
             visible: !isStateEvent
+            wrapMode: Text.NoWrap
+
+            // Check that the sender displayname is not too long
+            Component.onCompleted: {
+                if ( senderDisplayname.length > 40 ) {
+                    senderDisplayname = senderDisplayname.substr(0,39)
+                }
+            }
+
         }
         // When the message is just sending, then this activity indicator is visible
         ActivityIndicator {
