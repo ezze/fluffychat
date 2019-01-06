@@ -19,7 +19,7 @@ ListItem {
 
     width: mainStackWidth
     height: (isMediaEvent ? messageBubble.height + units.gu(1) :  // Media event height is calculated by the message bubble height
-        messageLabel.height + units.gu(2.5 + !isStateEvent*1.75))   // Text content is calculated by the label height for better performenace
+        messageLabel.height + units.gu(2.75 + !isStateEvent*1.5))   // Text content is calculated by the label height for better performenace
 
         color: "transparent"
 

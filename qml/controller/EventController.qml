@@ -285,7 +285,6 @@ Item {
             // Only this events will call the notification signal or change the
             // current displayed chat!
             if ( type === "timeline" || type === "history" ) {
-                console.log(event.content.body)
                 var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
 
                 // Format the text for the app

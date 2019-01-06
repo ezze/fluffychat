@@ -48,7 +48,7 @@ Rectangle {
         anchors.centerIn: parent
         text: name.charAt(0) === "@" ? name.slice( 1, 3 ) : name.slice( 0, 2 )
         color: "white"
-        textSize: parent.width > units.gu(6) ? Label.XLarge : Label.Large
+        textSize: parent.width > units.gu(6) ? Label.XLarge : ( parent.width > units.gu(4) ? Label.Large : Label.Small )
         z: 10
         visible: mxc === "" || avatar.status != Image.Ready
     }
