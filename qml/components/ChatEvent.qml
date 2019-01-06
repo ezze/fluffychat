@@ -144,8 +144,8 @@ ListItem {
             }
 
             radius: units.gu(2)
-            height: contentColumn.height + ( isImage ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
-            width: contentColumn.width + ( isImage ? -1 : units.gu(2) )
+            height: contentColumn.height + ( isImage && !image.showButton ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
+            width: contentColumn.width + ( isImage && !image.showButton ? -1 : units.gu(2) )
 
             Rectangle {
                 width: units.gu(2)
