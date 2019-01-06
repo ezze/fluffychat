@@ -9,6 +9,7 @@ Item {
     property var roomIdRegex: /((^| )!(\w+):(\w+)(\.(\w+))+)/gm
     property var communityIdRegex: /((^| )\+(\w+):(\w+)(\.(\w+))+)/gm
     property var markdownLinkRegex: /\[([^\[\]]+)\]\(([^)]+\))/gm
+    property var linebreakRegex: /[\r\n]+/gm
 
     // This function helps to send a message. It automatically repeats, if there
     // was an error with the connection.
@@ -94,7 +95,7 @@ Item {
         tempText = tempText.replace(communityIdRegex, replaceMatrixUri)
 
         // Set the newline tags correct
-        tempText = tempText.replace("\n","<br>")
+        tempText = tempText.replace(linebreakRegex,"<br>")
 
         return formatReply ( tempText )
     }
@@ -106,7 +107,7 @@ Item {
             lines[0] = lines[0].replace( user, "<a href='fluffychat://%1'>%2</a>".arg(user).arg(user))
             lines[0] = lines[0].replace("&gt; ", "")
             lines[0] = lines[0].replace("&gt;",":")
-            lines[0] = lines[0].replace("&lt;","<font color='" + settings.brightMainColor + "'>")
+            lines[0] = lines[0].replace("&lt;","<font color='#888888'>")
             lines[0] += "</font>"
             for ( var i = 1; i < lines.length; i++ ) {
                 if ( lines[i].slice(0,4) === "&gt;" ) {
