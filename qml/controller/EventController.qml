@@ -156,7 +156,7 @@ Item {
 
                     settings.since = response.next_batch
                     loadingScreen.visible = false
-                    console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
+                    //console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
                 }
             )
         }
@@ -285,6 +285,7 @@ Item {
             // Only this events will call the notification signal or change the
             // current displayed chat!
             if ( type === "timeline" || type === "history" ) {
+                console.log(event.content.body)
                 var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
 
                 // Format the text for the app
