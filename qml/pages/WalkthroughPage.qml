@@ -185,7 +185,8 @@ Walkthrough {
                     topMargin: units.gu(4)
                     horizontalCenter: slide4Container.horizontalCenter
                 }
-                height: (parent.height - introductionText.height - finalMessage.contentHeight - 4.5*units.gu(4))
+                height: (parent.height - introductionText.height - finalMessage.contentHeight - continueButton.height - 4.5*units.gu(4))
+                visible: height > 0
                 fillMode: Image.PreserveAspectFit
                 source: Qt.resolvedUrl("../../assets/sticker12.jpg")
                 asynchronous: true
