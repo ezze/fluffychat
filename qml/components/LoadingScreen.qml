@@ -5,7 +5,7 @@ import Ubuntu.Components 1.3
 Rectangle {
 
     color: theme.palette.normal.background
-    anchors.fill: root
+    anchors.fill: parent
     visible: false
     property bool stateVisible: false
     z: 12
