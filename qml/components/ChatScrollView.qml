@@ -24,6 +24,11 @@ ListView {
         " WHERE membership.chat_id='" + activeChat +
         "' AND membership.matrix_id=user.matrix_id "
         , function (memberResults) {
+            // Make sure that the event for the users matrix id exists
+            chatMembers[settings.matrixid] = {
+                displayname: usernames.transformFromId(settings.matrixid),
+                avatar_url: ""
+            }
             for ( var i = 0; i < memberResults.rows.length; i++ ) {
                 chatMembers[ memberResults.rows[i].matrix_id ] = memberResults.rows[i]
             }
