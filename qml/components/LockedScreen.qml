@@ -28,6 +28,7 @@ Rectangle {
         elide: Text.ElideMiddle
         anchors.top: icon.bottom
         anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width - units.gu(4)
         horizontalAlignment: Text.AlignHCenter
         text: i18n.tr("Please restart the app or if necessary restart the device to complete the update!" )
         wrapMode: Text.Wrap
