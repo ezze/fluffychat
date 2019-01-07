@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-07 15:16+0000\n"
+"POT-Creation-Date: 2019-01-07 16:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -627,7 +627,7 @@ msgid "Dark mode"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:203
-#: ../qml/pages/NotificationSettingsPage.qml:64 ../qml/pages/ChatPage.qml:247
+#: ../qml/pages/NotificationSettingsPage.qml:64
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:251
 msgid "Notifications"
@@ -790,31 +790,27 @@ msgstr ""
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:253 ../qml/pages/ChatSettingsPage.qml:329
-msgid "Invite friends"
-msgstr ""
-
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:264
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:299
+#: ../qml/pages/ChatPage.qml:287
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:404
+#: ../qml/pages/ChatPage.qml:392
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:404
+#: ../qml/pages/ChatPage.qml:392
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:418
+#: ../qml/pages/ChatPage.qml:406
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:449
+#: ../qml/pages/ChatPage.qml:437
 msgid "Type something ..."
 msgstr ""
 
@@ -889,6 +885,10 @@ msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:309
 msgid "Search..."
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:329
+msgid "Invite friends"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:338

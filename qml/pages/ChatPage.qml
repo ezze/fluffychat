@@ -241,18 +241,6 @@ Page {
                 text: i18n.tr("Chat info")
                 visible: membership === "join"
                 onTriggered: mainStack.push(Qt.resolvedUrl("./ChatSettingsPage.qml"))
-            },
-            Action {
-                iconName: "notification"
-                text: i18n.tr("Notifications")
-                visible: membership === "join"
-                onTriggered: mainStack.push(Qt.resolvedUrl("./NotificationChatSettingsPage.qml"))
-            },
-            Action {
-                iconName: "contact-new"
-                text: i18n.tr("Invite friends")
-                visible: membership === "join"
-                onTriggered: mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
             }
             ]
         }
