@@ -1,3 +1,8 @@
+### 9.0:
+* Implemented lazy loading members
+* Design improvements
+* A lot of tiny bug fixes
+
 ### 8.0:
 ##### New features:
 * Communities: Implemented a community viewer
