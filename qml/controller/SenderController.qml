@@ -94,10 +94,12 @@ Item {
         tempText = tempText.replace(roomIdRegex, replaceMatrixUri)
         tempText = tempText.replace(communityIdRegex, replaceMatrixUri)
 
+        tempText = formatReply ( tempText )
+
         // Set the newline tags correct
         tempText = tempText.replace(linebreakRegex,"<br>")
 
-        return formatReply ( tempText )
+        return tempText
     }
 
     function formatReply ( tempText ) {
@@ -107,7 +109,7 @@ Item {
             lines[0] = lines[0].replace( user, "<a href='fluffychat://%1'>%2</a>".arg(user).arg(user))
             lines[0] = lines[0].replace("&gt; ", "")
             lines[0] = lines[0].replace("&gt;",":")
-            lines[0] = lines[0].replace("&lt;","<font color='#888888'>")
+            lines[0] = lines[0].replace("&lt;","")
             lines[0] += "</font>"
             for ( var i = 1; i < lines.length; i++ ) {
                 if ( lines[i].slice(0,4) === "&gt;" ) {
@@ -116,7 +118,7 @@ Item {
                 }
                 else break
             }
-            tempText = lines.join(" <br>")
+            tempText = lines.join(" </font><br><br>")
         }
         return tempText
     }
