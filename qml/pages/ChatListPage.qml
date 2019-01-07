@@ -296,4 +296,21 @@ Label {
     visible: model.count === 0
 }
 
+// ============================== BOTTOM EDGE ==============================
+BottomEdge {
+    id: bottomEdge
+    height: shareObject === null ? parent.height : 0
+
+    enabled: !tabletMode
+
+    onCommitCompleted: startBottomEdgeCommited()
+
+    contentComponent: Rectangle {
+        width: mainStackWidth
+        height: root.height
+        color: theme.palette.normal.background
+        CreateChatPage { isBottomEdge: true }
+    }
+}
+
 }

@@ -9,10 +9,26 @@ Page {
     property var enabled: true
     property var inviteList: []
     property var selectedCount: 0
+    property var isBottomEdge: false
 
-    header: FcPageHeader {
+    header: StyledPageHeader {
         id: header
         title: selectedCount===0 ? i18n.tr('New chat') : i18n.tr('New chat: %1 selected').arg(selectedCount)
+
+        leadingActionBar {
+            actions: [
+            Action {
+                visible: !isBottomEdge
+                iconName: "go-previous"
+                onTriggered: mainStack.pop()
+            },
+            Action {
+                visible: isBottomEdge
+                iconName: "go-down"
+                onTriggered: bottomEdge.collapse()
+            }
+            ]
+        }
 
         trailingActionBar {
             actions: [
@@ -36,6 +52,11 @@ Page {
         onNewEvent: updatePresence ( type, chat_id, eventType, eventContent )
     }
 
+    Connections {
+        target: root
+        onStartBottomEdgeCommited: update()
+    }
+
     function updatePresence ( type, chat_id, eventType, eventContent ) {
         if ( type === "m.presence" ) {
             for ( var i = 0; i < model.count; i++ ) {
@@ -47,7 +68,7 @@ Page {
         }
     }
 
-    Component.onCompleted: update ()
+    Component.onCompleted: if ( !isBottomEdge ) update ()
 
     function update () {
         storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Users.presence, Users.last_active_ago, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
