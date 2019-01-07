@@ -10,10 +10,15 @@ ListItem {
     property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker"
     property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1 || event.type === "m.sticker"
     property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
+    property var imageVisible: image.showGif || image.showThumbnail ? true : false
     property var sent: event.sender.toLowerCase() === settings.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
     property var senderDisplayname: chatMembers[event.sender].displayname!==undefined ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)
+    property var bgcolor: (isStateEvent ? (settings.chatBackground === undefined ? "#00000000" : theme.palette.normal.background) :
+    (!sent ? settings.darkmode ? "#191A15" : UbuntuColors.porcelain :
+    (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
+
     divider.visible: false
     highlightColor: "#00000000"
 
@@ -128,24 +133,21 @@ ListItem {
             anchors.left: isLeftSideEvent ? avatar.right : undefined
             anchors.right: !isLeftSideEvent ? avatar.left : undefined
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: units.gu(1)
+            anchors.bottomMargin: !imageVisible*units.gu(1)
             anchors.leftMargin: units.gu(1)
             anchors.rightMargin: units.gu(1)
 
             opacity: isStateEvent ? 0.75 : 1
             z: 2
-            color: image.showGif || image.showThumbnail ? "#00000000" :
-            (isStateEvent ? (settings.chatBackground === undefined ? "#00000000" : theme.palette.normal.background) :
-            (!sent ? settings.darkmode ? "#191A15" : UbuntuColors.porcelain :
-            (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
+            color: imageVisible ? "#00000000" : bgcolor
 
             Behavior on color {
                 ColorAnimation { from: settings.brighterMainColor; duration: 300 }
             }
 
             radius: units.gu(2)
-            height: contentColumn.height + ( isImage && !image.showButton ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
-            width: contentColumn.width + ( isImage && !image.showButton ? -1 : units.gu(2) )
+            height: contentColumn.height + ( imageVisible ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
+            width: contentColumn.width + ( imageVisible ? -1 : units.gu(2) )
 
             Rectangle {
                 width: units.gu(2)
@@ -363,7 +365,7 @@ Label {
     (event.type === "m.room.encrypted" ? displayEvents.getDisplay ( event ) :
     event.content_body || event.content.body)
     color: (!sent || isStateEvent) ? (settings.darkmode ? "white" : "black") :
-    (event.status < msg_status.SEEN || isImage ? settings.mainColor : "white")
+    (event.status < msg_status.SEEN ? settings.mainColor : "white")
     linkColor: settings.brightMainColor
     Behavior on color {
         ColorAnimation { from: settings.mainColor; duration: 300 }
@@ -393,17 +395,19 @@ Label {
 }
 
 Rectangle {
-    color: image.showGif || image.showThumbnail ? messageBubble.color : "#00000000"
-    height: metaLabelRow.height
-    width: metaLabelRow.width
+    color: imageVisible ? bgcolor : "#00000000"
+    height: metaLabelRow.height + imageVisible*units.gu(0.5)
+    width: metaLabelRow.width + imageVisible*units.gu(0.5)
     anchors.left: sent ? undefined : parent.left
-    anchors.leftMargin: units.gu(1)
+    anchors.leftMargin: !imageVisible*units.gu(1)
     anchors.right: sent ? parent.right : undefined
-    anchors.rightMargin: isImage ? units.gu(1) : -units.gu(1)
-    radius: units.gu(0.5)
+    anchors.rightMargin: imageVisible ? 0 : -units.gu(1)
+    radius: width / 10
+
     Row {
         id: metaLabelRow
         spacing: units.gu(0.25)
+        anchors.centerIn: parent
 
         // This label is for the meta-informations, which means it displays the
         // display name of the sender of this message and the time.
@@ -441,9 +445,11 @@ Rectangle {
         Icon {
             id: statusIcon
             visible: !isStateEvent && sent && event.status !== msg_status.SENDING
-            name: event.status === msg_status.SEEN ? "contact" :
-            (event.status === msg_status.RECEIVED ? "tick" :
-            (event.status === msg_status.HISTORY ? "history" : "edit-clear"))
+            source: "../../assets/" +
+            (event.status === msg_status.SEEN ? "seen" :
+            (event.status === msg_status.RECEIVED ? "received" :
+            (event.status === msg_status.HISTORY ? "received" : "error")))
+            + ".svg"
             height: metaLabel.height
             color: event.status === msg_status.SENT ? messageBubble.color :
             (event.status === msg_status.ERROR ? UbuntuColors.red : metaLabel.color)
