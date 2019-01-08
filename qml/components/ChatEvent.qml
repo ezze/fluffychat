@@ -448,7 +448,8 @@ Rectangle {
             source: "../../assets/" +
             (event.status === msg_status.SEEN ? "seen" :
             (event.status === msg_status.RECEIVED ? "received" :
-            (event.status === msg_status.HISTORY ? "received" : "error")))
+            (event.status === msg_status.ERROR ? "error" :
+            (event.status === msg_status.HISTORY ? "received" : ""))))
             + ".svg"
             height: metaLabel.height
             color: event.status === msg_status.SENT ? messageBubble.color :
