@@ -291,7 +291,9 @@ ListView {
 }
 
 Label {
-    text: i18n.tr('Swipe from below to start a chat')
+    text: i18n.tr("Click on '+' to start a chat")
+    textSize: Label.Large
+    color: UbuntuColors.graphite
     anchors.centerIn: parent
     visible: model.count === 0
 }

@@ -60,10 +60,10 @@ Item {
 
     function formatText ( tempText ) {
         // HTML characters
-        tempText = tempText.split("&").join("&amp;")
+        /*tempText = tempText.split("&").join("&amp;")
         .split("<").join("&lt;")
         .split(">").join("&gt;")
-        .split('"').join("&quot;")
+        .split('"').join("&quot;")*/
 
         // Format markdown links
         tempText = tempText.replace(markdownLinkRegex, function(str) {
@@ -76,9 +76,8 @@ Item {
         tempText = tempText.replace(urlRegex, function(url) {
             if ( url.indexOf(" ") !== -1 ) {
                 url = url.replace(" ","")
-                return ' <a href="%1">%2</a>'.arg(url).arg(url)
             }
-            else return '<a href="%1">%2</a>'.arg(url).arg(url)
+            return '<a href="%1">%2</a>'.arg(url).arg(url)
         })
 
         // Make matrix identifier clickable
