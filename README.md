@@ -56,7 +56,7 @@ clickable click-build
 
 # Special thanks to
 <a href="https://www.regionetz.net"><img src="https://www.regionetz.net/wp-content/uploads/2017/12/logo.png" width="19%" /></a>
-Regionetz is an ISP company from southern Germany and hosts the official server "uborts.chat" as well as the website of fluffychat. Special thanks to the owner Norbert Herter.
+Regionetz is an ISP company from southern Germany and hosts the official server "ubports.chat" as well as the website of fluffychat. Special thanks to the owner Norbert Herter.
 
 * <a href="https://github.com/fabiyamada">Fabiyamada</a> is a graphics designer from Brasil and has made the fluffychat logo and the banner. Big thanks for her great designs.
 
