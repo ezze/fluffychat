@@ -1,3 +1,7 @@
+### 9.1:
+* Little bug fixes
+* Registration is now fixed
+
 ### 9.0:
 * Implemented lazy loading members
 * Design improvements

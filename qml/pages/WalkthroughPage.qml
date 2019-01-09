@@ -164,7 +164,7 @@ Walkthrough {
                 fontSize: "large"
                 height: contentHeight
                 horizontalAlignment: Text.AlignHLeft
-                text: i18n.tr("This version does not implement new features but improves the user experience. The design has been revised and there is now a FAQ.")
+                text: i18n.tr("Some bugs have been fixed and registation is now working again.")
                 width: units.gu(36)
                 wrapMode: Text.WordWrap
             }

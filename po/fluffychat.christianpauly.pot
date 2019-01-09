@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 15:11+0000\n"
+"POT-Creation-Date: 2019-01-09 15:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -352,9 +352,7 @@ msgid "What's new in version %1?"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:167
-msgid ""
-"This version does not implement new features but improves the user "
-"experience. The design has been revised and there is now a FAQ."
+msgid "Some bugs have been fixed and registation is now working again."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:205
