@@ -1,9 +1,9 @@
-#ifndef OLMTESTPLUGIN_H
-#define OLMTESTPLUGIN_H
+#ifndef QOLMPLUGINPLUGIN_H
+#define QOLMPLUGINPLUGIN_H
 
 #include <QQmlExtensionPlugin>
 
-class OlmtestPlugin : public QQmlExtensionPlugin {
+class QolmpluginPlugin : public QQmlExtensionPlugin {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 

@@ -2,9 +2,9 @@
 #include <QtQml/QQmlContext>
 
 #include "plugin.h"
-#include "olmtest.h"
+#include "qolmplugin.h"
 
-void OlmtestPlugin::registerTypes(const char *uri) {
+void QolmpluginPlugin::registerTypes(const char *uri) {
     //@uri Olmtest
-    qmlRegisterSingletonType<Olmtest>(uri, 1, 0, "Olmtest", [](QQmlEngine*, QJSEngine*) -> QObject* { return new Olmtest; });
+    qmlRegisterSingletonType<Qolmplugin>(uri, 1, 0, "Qolmplugin", [](QQmlEngine*, QJSEngine*) -> QObject* { return new Qolmplugin; });
 }

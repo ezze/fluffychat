@@ -1,10 +1,10 @@
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(PLUGIN "Olmtest")
+set(PLUGIN "qolmplugin")
 
 set(
     SRC
     plugin.cpp
-    olmtest.cpp
+    qolmplugin.cpp
 )
 
 set(CMAKE_AUTOMOC ON)
