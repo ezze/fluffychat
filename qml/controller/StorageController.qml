@@ -51,7 +51,7 @@ Item {
         catch (e) {
             if ( e.code && e.code === 2 ) {
                 console.log("Database locked!")
-                toast.show ( i18n.tr("Please restart your device to complete the update!" ) )
+                lockedScreen.visible = true
             }
             else console.warn(e,transaction)
         }
