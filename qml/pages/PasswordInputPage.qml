@@ -58,7 +58,7 @@ Page {
 
             Label {
                 id: loginStatus
-                text: i18n.tr("Please enter your password for: <b>%1</b>").arg(settings.matrixid)
+                text: i18n.tr("Please enter your password for: <b>%1</b>").arg(settings.username)
                 width: Math.min( parent.width - units.gu(4), units.gu(50))
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter

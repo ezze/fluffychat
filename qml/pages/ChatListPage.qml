@@ -295,7 +295,7 @@ Label {
     textSize: Label.Large
     color: UbuntuColors.graphite
     anchors.centerIn: parent
-    visible: model.count === 0
+    visible: model.count === 0 && !searching
 }
 
 }
