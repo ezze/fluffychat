@@ -51,7 +51,7 @@ Page {
 
         // On the top are the rooms, which the user is invited to
         storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, " +
-        " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.content_json, events.type " +
+        " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, event.state_key, events.content_json, events.type " +
         " FROM Chats rooms LEFT JOIN Events events " +
         " ON rooms.id=events.chat_id " +
         " WHERE rooms.membership!='leave' " +

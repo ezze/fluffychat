@@ -84,10 +84,11 @@ Page {
         var type = sticker === undefined ? "m.room.message" : "m.sticker"
 
         // Save the message in the database
-        storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         [ messageID,
         activeChat,
         now,
+        settings.matrixid,
         settings.matrixid,
         message,
         null,

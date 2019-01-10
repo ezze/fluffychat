@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 15:21+0000\n"
+"POT-Creation-Date: 2019-01-10 17:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,127 +37,138 @@ msgstr ""
 msgid "Unknown Event: "
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:16
-#: ../qml/controller/DisplayEventController.qml:17
-msgid "Someone"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:21
-msgid "%1 is now participating"
-msgstr ""
-
 #: ../qml/controller/DisplayEventController.qml:23
-msgid "%1 is now participating as <b>%2</b>"
+msgid "%1 has changed the avatar."
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:26
-msgid "%1 has invited %2"
+msgid "%1 has changed the displayname to %2."
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:29
-msgid "%1 has left the chat"
+#: ../qml/controller/DisplayEventController.qml:30
+msgid "%1 is now participating."
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:32
-msgid "%1 has been banned from the chat"
+msgid "%1 is now participating as <b>%2</b>."
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:36
-msgid "Chat created"
+#: ../qml/controller/DisplayEventController.qml:35
+msgid "%1 has invited %2."
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:39
-msgid "%1 has changed the chat name to: <b>%2</b>"
+msgid "%1 has pardoned %2."
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:42
-msgid "%1 has changed the chat topic to: <b>%2</b>"
+msgid "%1 has left the chat."
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:45
-msgid "%1 has changed the chat avatar"
+#: ../qml/controller/DisplayEventController.qml:44
+msgid "%1 has kicked %2."
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:48
-msgid "%1 has redacted a message"
+#: ../qml/controller/DisplayEventController.qml:47
+msgid "%1 has banned %2 from the chat."
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:51
+msgid "%1 has created the chat."
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:54
+msgid "%1 has changed the chat name to: <b>%2</b>."
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:57
+msgid "%1 has changed the chat topic to: <b>%2</b>."
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:60
+msgid "%1 has changed the chat avatar."
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:63
+msgid "%1 has redacted a message."
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:66
 msgid ""
 "%1 has initialized end to end encryption. Be aware that FluffyChat does not "
 "yet support end to end encryption. You will not be able to send or read "
 "messages in this chat!"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:54
-msgid "Encrypted message"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:57
-msgid "%1 has sent a sticker"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:60
-msgid "%1 has set the chat history visible to: %2"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:63
-msgid "%1 has set the join rules to: %2"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:66
-msgid "%1 has set the guest access to: %2"
-msgstr ""
-
 #: ../qml/controller/DisplayEventController.qml:69
-msgid "The chat aliases have been changed."
+msgid "Encrypted message."
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:72
+msgid "%1 has sent a sticker."
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:75
-msgid "The canonical chat alias has been changed to: "
+msgid "%1 has set the chat history visible to: %2."
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:78
-msgid "The chat permissions have been changed"
+msgid "%1 has set the join rules to: %2."
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:88
-msgid "Only invited users"
+#: ../qml/controller/DisplayEventController.qml:81
+msgid "%1 has set the guest access to: %2."
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:91
-msgid "Public"
+#: ../qml/controller/DisplayEventController.qml:84
+msgid "The chat aliases have been changed."
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:94
-msgid "Private"
+#: ../qml/controller/DisplayEventController.qml:90
+msgid "The canonical chat alias has been changed to: "
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:97
-msgid "Knock"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:100
-msgid "All chatters"
+#: ../qml/controller/DisplayEventController.qml:93
+msgid "The chat permissions have been changed."
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:103
-msgid "All joined chat participants"
+msgid "Only invited users"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:106
-msgid "All invited chat participants"
+msgid "Public"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:109
-msgid "Everyone"
+msgid "Private"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:112
-msgid "Can join"
+msgid "Knock"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:115
+msgid "All chatters"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:118
+msgid "All joined chat participants"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:121
+msgid "All invited chat participants"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:124
+msgid "Everyone"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:127
+msgid "Can join"
+msgstr ""
+
+#: ../qml/controller/DisplayEventController.qml:130
 msgid "Forbidden"
 msgstr ""
 
@@ -769,42 +780,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:228 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:229 ../qml/components/ArchivedChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:235 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:236 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:78
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:241
+#: ../qml/pages/ChatPage.qml:242
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:264
+#: ../qml/pages/ChatPage.qml:265
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:287
+#: ../qml/pages/ChatPage.qml:288
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:392
+#: ../qml/pages/ChatPage.qml:393
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:392
+#: ../qml/pages/ChatPage.qml:393
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:406
+#: ../qml/pages/ChatPage.qml:407
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:437
+#: ../qml/pages/ChatPage.qml:438
 msgid "Type something ..."
 msgstr ""
 

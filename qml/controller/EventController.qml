@@ -290,11 +290,18 @@ Item {
                 // Format the text for the app
                 if( event.content.body ) event.content_body = sender.formatText ( event.content.body )
                 else event.content_body = null
-                transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+
+                // Make unsigned part of the content
+                if ( event.content.unsigned === undefined && event.unsigned !== undefined ) {
+                    event.content.unsigned = event.unsigned
+                }
+
+                transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
                 roomid,
                 event.origin_server_ts,
                 event.sender,
+                event.state_key || event.sender,
                 event.content_body,
                 event.content.msgtype || null,
                 event.type,

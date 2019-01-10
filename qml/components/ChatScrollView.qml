@@ -38,7 +38,7 @@ ListView {
     }
 
     function update ( sync ) {
-        storage.transaction ( "SELECT id, type, content_json, content_body, origin_server_ts, sender, status " +
+        storage.transaction ( "SELECT id, type, content_json, content_body, origin_server_ts, sender, state_key, status " +
         " FROM Events " +
         " WHERE chat_id='" + activeChat +
         "' ORDER BY origin_server_ts DESC"
