@@ -1,9 +1,9 @@
-#ifndef QOLMPLUGINPLUGIN_H
-#define QOLMPLUGINPLUGIN_H
+#ifndef QOLMPLUGIN_H
+#define QOLMPLUGIN_H
 
 #include <QQmlExtensionPlugin>
 
-class QolmpluginPlugin : public QQmlExtensionPlugin {
+class QolmPlugin : public QQmlExtensionPlugin {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 

@@ -1,4 +1,12 @@
 {
   "template": "cmake",
-  "kill": "qmlscene"
+  "kill": "qmlscene",
+  "libraries": [
+  {
+    "template": "cmake",
+    "name": "olm",
+    "make_jobs": "1",
+    "architectures": ["armhf", "amd64"],
+    "prebuild": "git submodule update --init --recursive"
+}]
 }
