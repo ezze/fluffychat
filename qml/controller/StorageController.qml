@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.4"
+    property var version: "0.3.3"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -31,7 +31,7 @@ Item {
         }
         catch (e) {
             if ( e.code && e.code === 2 ) {
-                console.log("Database locked!")
+                console.warn(e,transaction)
                 lockedScreen.visible = true
             }
             else console.warn(e,transaction)
@@ -50,10 +50,10 @@ Item {
         }
         catch (e) {
             if ( e.code && e.code === 2 ) {
-                console.log("Database locked!")
+                console.warn(e,transaction)
                 lockedScreen.visible = true
             }
-            else console.warn(e,transaction)
+            else console.warn(e,query)
         }
     }
 

@@ -10,27 +10,47 @@ Page {
 
     property var searching: false
 
+    // Add public rooms from a server side search to the tempModel.
+    function addPublicRoomsToTempModel ( res ) {
+        for( var i = 0; i < res.chunk.length; i++ ) {
+            var chat = res.chunk[i]
+            tempModel.append ( { "room": {
+                id: chat.room_id,
+                topic: chat.name || i18n.tr("Nameless chat"),
+                membership: "leave",
+                avatar_url: chat.avatar_url || "",
+                origin_server_ts: new Date().getTime(),
+                typing: [],
+                notification_count: 0,
+                highlight_count: 0
+            } } )
+        }
+        enabled = true
+    }
+
     onSearchingChanged: {
+        // There are two models for the listView: The normal model and the tempModel.
+        // When the page is in 'searching'-mode, the tempModel will be created by
+        // copy the normal model and adding public rooms.
         if ( searching ) {
+
+            // Copy to tempModel
             for( var i = 0; i < model.count; i++ ) tempModel.append ( model.get(i) )
-            matrix.get ( "/client/r0/publicRooms", { limit: 1000 }, function ( res ) {
-                for( var i = 0; i < res.chunk.length; i++ ) {
-                    var chat = res.chunk[i]
-                    tempModel.append ( { "room": {
-                        id: chat.room_id,
-                        topic: chat.name || i18n.tr("Nameless chat"),
-                        membership: "leave",
-                        avatar_url: chat.avatar_url || "",
-                        origin_server_ts: new Date().getTime(),
-                        typing: [],
-                        notification_count: 0,
-                        highlight_count: 0
-                    } } )
-                }
-                enabled = true
-            } )
+
+            // Set the limit
+            var limit = 400
+
+            // Search for public rooms on the homeserver
+            matrix.get ( "/client/r0/publicRooms", { "limit": limit }, addPublicRoomsToTempModel )
+
+            // Also search on matrix.org if not already
+            if ( settings.server !== "matrix.org" ) {
+                matrix.get ( "/client/r0/publicRooms", { "limit": limit, "server": "matrix.org" }, addPublicRoomsToTempModel )
+            }
+
             chatListView.model = tempModel
         }
+        // Restore the normal model and clear the tempModel
         else {
             chatListView.model = model
             tempModel.clear ()
@@ -51,7 +71,7 @@ Page {
 
         // On the top are the rooms, which the user is invited to
         storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, " +
-        " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, event.state_key, events.content_json, events.type " +
+        " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.state_key, events.content_json, events.type " +
         " FROM Chats rooms LEFT JOIN Events events " +
         " ON rooms.id=events.chat_id " +
         " WHERE rooms.membership!='leave' " +
@@ -268,7 +288,7 @@ TextField {
         }
     }
     inputMethodHints: Qt.ImhNoPredictiveText
-    placeholderText: i18n.tr("Search for chats or public rooms...")
+    placeholderText: i18n.tr("Search for chats or #aliases...")
 }
 
 ListModel { id: model }

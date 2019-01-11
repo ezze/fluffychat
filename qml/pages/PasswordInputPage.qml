@@ -16,17 +16,17 @@ Page {
         var success_callback = function ( response ) {
             signInButton.enabled = true
             // Go to the ChatListPage
-            matrix.init()
+            root.init()
         }
 
         // If error
         var error_callback = function ( error ) {
             signInButton.enabled = true
             if ( error.errcode == "M_FORBIDDEN" ) {
-                root.toast.show ( i18n.tr("Invalid username or password") )
+                toast.show ( i18n.tr("Invalid username or password") )
             }
             else {
-                root.toast.show ( i18n.tr("No connection to ") + settings.server )
+                toast.show ( i18n.tr("No connection to ") + settings.server )
             }
         }
 

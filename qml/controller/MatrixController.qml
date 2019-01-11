@@ -16,25 +16,6 @@ Item {
     // The list of the current active requests, to prevent multiple same requests
     property var activeRequests: []
 
-    // Check if there are username, password and domain saved from a previous
-    // session and autoconnect with them. If not, then just go to the login Page.
-    function init () {
-
-        mainStack.clear()
-        if ( settings.token && settings.updateInfosFinished === version ) {
-            if ( tabletMode ) mainStack.push(Qt.resolvedUrl("../pages/BlankPage.qml"))
-            else mainStack.push(Qt.resolvedUrl("../pages/ChatListPage.qml"))
-            onlineStatus = true
-            events.init ()
-        }
-        else if ( settings.walkthroughFinished && settings.updateInfosFinished === version ){
-            mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
-        }
-        else {
-            mainStack.push(Qt.resolvedUrl("../pages/WalkthroughPage.qml"))
-        }
-    }
-
 
     // Login and set username, token and server! Needs to be done, before anything else
     function login ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback) {
@@ -225,8 +206,13 @@ Item {
         var server = settings.server
         if ( action.substring(0,10) === "/identity/" ) server = settings.id_server
 
+        // Calculate the action url
+        var requestUrl = action + getData
+        if ( action.indexOf ( "https://" ) === -1 ) {
+            requestUrl = "https://" + server + "/_matrix" + requestUrl
+        }
+
         // Build the request
-        var requestUrl = "https://" + server + "/_matrix" + action + getData
         var longPolling = (data != null && data.timeout)
         var isSyncRequest = (action === "/client/r0/sync")
         http.open( type, requestUrl, true);

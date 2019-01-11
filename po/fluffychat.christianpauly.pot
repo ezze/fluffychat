@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-10 17:13+0000\n"
+"POT-Creation-Date: 2019-01-11 08:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:191 ../qml/components/ChatEvent.qml:86
+#: ../qml/Main.qml:211 ../qml/components/ChatEvent.qml:86
 msgid "Are you sure?"
 msgstr ""
 
@@ -236,7 +236,7 @@ msgstr ""
 msgid "Push notifications are disabled..."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:265
+#: ../qml/controller/MatrixController.qml:251
 msgid "😕 No connection..."
 msgstr ""
 
@@ -436,24 +436,24 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:21
+#: ../qml/pages/ChatListPage.qml:19
 msgid "Nameless chat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:184 ../qml/components/StyledPageHeader.qml:7
+#: ../qml/pages/ChatListPage.qml:204 ../qml/components/StyledPageHeader.qml:7
 #: fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:184 ../qml/components/ChatEvent.qml:57
+#: ../qml/pages/ChatListPage.qml:204 ../qml/components/ChatEvent.qml:57
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:271
-msgid "Search for chats or public rooms..."
+#: ../qml/pages/ChatListPage.qml:291
+msgid "Search for chats or #aliases..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:294
+#: ../qml/pages/ChatListPage.qml:314
 msgid "Click on '+' to start a chat"
 msgstr ""
 
