@@ -44,7 +44,7 @@ BottomEdge {
             if ( matrix_id === settings.matrixid ) return
             storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url " +
             " FROM Chats rooms, Memberships memberships " +
-            " WHERE rooms.membership!='leave' " +
+            " WHERE (memberships.membership='join' OR memberships.membership='invite') " +
             " AND memberships.matrix_id='" + matrix_id + "' " +
             " AND memberships.chat_id=rooms.id " +
             " ORDER BY rooms.topic "

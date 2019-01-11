@@ -27,7 +27,6 @@ Item {
                     if ( rs.rows.length > 0 ) {
                         displayname = ""
                         for ( var i = 0; i < rs.rows.length; i++ ) {
-                            console.log(JSON.stringify(rs.rows[i]))
                             var username = rs.rows[i].displayname || usernames.transformFromId ( rs.rows[i].matrix_id )
                             if ( rs.rows[i].state_key !== settings.matrixid ) displayname += username + ", "
                         }
