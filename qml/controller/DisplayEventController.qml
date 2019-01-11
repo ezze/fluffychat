@@ -26,6 +26,9 @@ Item {
                         body = i18n.tr("%1 has changed the displayname to %2.").arg(usernames.transformFromId(event.state_key)).arg(displayname)
                     }
                 }
+                else if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "invite" ) {
+                    body = i18n.tr("%1 has accepted the invitation.").arg(displayname)
+                }
                 else if ( usernames.transformFromId(event.state_key) === displayname ) {
                     body = i18n.tr("%1 is now participating.").arg(displayname)
                 }
@@ -37,6 +40,9 @@ Item {
             else if ( event.content.membership === "leave" ) {
                 if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "ban" ) {
                     body = i18n.tr("%1 has pardoned %2.").arg(sendername).arg(displayname)
+                }
+                else if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "invite" ) {
+                    body = i18n.tr("%1 has declined the invitation.").arg(displayname)
                 }
                 else if ( event.sender === event.state_key ) {
                     body = i18n.tr("%1 has left the chat.").arg(displayname)
