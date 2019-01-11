@@ -48,7 +48,8 @@ ListItem {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
             name: layout.title.text
-            mxc: room.avatar_url !== "" && room.avatar_url !== null ? room.avatar_url : roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
+            mxc: room.avatar_url !== "" && room.avatar_url !== null && room.avatar_url !== undefined ? room.avatar_url : roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
+                console.log("Init:",avatar_url)
                 avatar.mxc = avatar_url
             } )
             onClickFunction: function () {
