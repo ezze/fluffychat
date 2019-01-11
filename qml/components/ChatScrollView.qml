@@ -19,10 +19,9 @@ ListView {
 
     function init () {
         // Request all participants displaynames and avatars
-        storage.transaction ( "SELECT user.matrix_id, user.displayname, user.avatar_url, membership.membership " +
-        " FROM Memberships membership, Users user " +
-        " WHERE membership.chat_id='" + activeChat +
-        "' AND membership.matrix_id=user.matrix_id "
+        storage.transaction ( "SELECT membership.matrix_id, membership.displayname, membership.avatar_url, membership.membership " +
+        " FROM Memberships membership " +
+        " WHERE membership.chat_id='" + activeChat + "'"
         , function (memberResults) {
             // Make sure that the event for the users matrix id exists
             chatMembers[settings.matrixid] = {

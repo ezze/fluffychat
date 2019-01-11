@@ -418,18 +418,26 @@ Item {
             // or has changed his nickname
             else if ( event.type === "m.room.member" ) {
 
+                var newDisplayname = event.content.displayname || usernames.transformFromId(event.state_key)
+                if ( newDisplayname === null ) newDisplayname = ""
+                var newAvatar = event.content.avatar_url || ""
+                if ( newAvatar === null ) newAvatar = ""
+
                 if ( event.content.membership !== "leave" && event.content.membership !== "ban" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, 'offline', 0, 0)",
                 [ event.state_key,
-                event.content.displayname || usernames.transformFromId(event.state_key),
-                event.content.avatar_url || "" ])
+                newDisplayname,
+                newAvatar ])
 
-                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, " +
+                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, ?, ?, " +
                 "COALESCE(" +
                 "(SELECT power_level FROM Memberships WHERE chat_id='" + roomid + "' AND matrix_id='" + event.state_key + "'), " +
                 "(SELECT power_user_default FROM Chats WHERE id='" + roomid + "')" +
                 "))",
-                [ event.content.membership ])
+                [ newDisplayname,
+                newAvatar,
+                event.content.membership ])
             }
+            
 
             // This event changes the permissions of the users and the power levels
             else if ( event.type === "m.room.power_levels" ) {

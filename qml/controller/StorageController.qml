@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.3"
+    property var version: "0.3.4"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -153,6 +153,8 @@ Item {
         transaction('CREATE TABLE Memberships(' +
         'chat_id TEXT, ' +      // The chat id of this membership
         'matrix_id TEXT, ' +    // The matrix id of this user
+        'displayname TEXT, ' +
+        'avatar_url TEXT, ' +
         'membership TEXT, ' +   // The status of the membership. Must be one of [join, invite, ban, leave]
         'power_level INTEGER, ' +   // The power level of this user. Must be in [0,..,100]
         'UNIQUE(chat_id, matrix_id))')

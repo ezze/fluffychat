@@ -64,9 +64,8 @@ Page {
         // Request the full memberlist, from the database AND from the server (lazy loading)
         model.clear()
         memberCount = 0
-        storage.transaction ( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Memberships.membership, Memberships.power_level " +
-        " FROM Users, Memberships WHERE Memberships.chat_id='" + activeChat + "' " +
-        " AND Users.matrix_id=Memberships.matrix_id " +
+        storage.transaction ( "SELECT Memberships.matrix_id, Memberships.displayname, Memberships.avatar_url, Memberships.membership, Memberships.power_level " +
+        " FROM Memberships WHERE Memberships.chat_id='" + activeChat + "' " +
         " ORDER BY Memberships.membership", function (response) {
             for ( var i = 0; i < response.rows.length; i++ ) {
                 var member = response.rows[ i ]
