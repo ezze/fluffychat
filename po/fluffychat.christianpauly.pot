@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 11:03+0000\n"
+"POT-Creation-Date: 2019-01-11 11:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -231,7 +231,7 @@ msgid "%1 is not a valid username"
 msgstr ""
 
 #: ../qml/controller/RoomNameController.qml:13
-#: ../qml/controller/RoomNameController.qml:27
+#: ../qml/controller/RoomNameController.qml:26
 #: ../qml/controller/RoomNameController.qml:34
 msgid "Empty chat"
 msgstr ""
@@ -789,42 +789,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:233 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:242 ../qml/components/ArchivedChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:240 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:249 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:78
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:246
+#: ../qml/pages/ChatPage.qml:255
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:269
+#: ../qml/pages/ChatPage.qml:278
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:292
+#: ../qml/pages/ChatPage.qml:301
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:397
+#: ../qml/pages/ChatPage.qml:406
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:397
+#: ../qml/pages/ChatPage.qml:406
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:411
+#: ../qml/pages/ChatPage.qml:420
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:442
+#: ../qml/pages/ChatPage.qml:451
 msgid "Type something ..."
 msgstr ""
 

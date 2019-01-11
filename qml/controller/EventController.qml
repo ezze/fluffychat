@@ -440,7 +440,7 @@ Item {
                 event.content.avatar_url || "",
                 event.content.membership ])
 
-                if ( memberInsertResult.rowsAffected === 0 && (event.content.displayname || event.content.avatar_url) ) {
+                if ( memberInsertResult.rowsAffected === 0 ) {
                     var queryStr = "UPDATE Memberships SET membership='" + event.content.membership + "'"
                     if ( event.content.displayname ) queryStr += ", displayname='" + event.content.displayname + "' "
                     if ( event.content.avatar_url ) queryStr += ", avatar_url='" + event.content.avatar_url + "' "

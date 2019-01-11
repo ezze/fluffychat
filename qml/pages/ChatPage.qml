@@ -16,6 +16,7 @@ Page {
     property var chatMembers: chatScrollView.chatMembers
     property var replyEvent: null
     property var chat_id
+    property var topic: ""
 
     width: mainStack.width
 
@@ -145,7 +146,7 @@ Page {
 
 
     Component.onCompleted: {
-        storage.transaction ( "SELECT draft, membership, unread, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT draft, topic, membership, unread, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
             if ( res.rows.length === 0 ) return
             membership = res.rows[0].membership
             if ( res.rows[0].draft !== "" && res.rows[0].draft !== null ) messageTextField.text = res.rows[0].draft
@@ -158,6 +159,7 @@ Page {
             chatScrollView.init ()
             chatActive = true
             chat_id = activeChat
+            topic = res.rows[0].topic
 
             // Is there an unread marker? Then mark as read!
             if ( res.rows[0].notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + chatScrollView.model.get(0).event.id, null )
@@ -216,6 +218,13 @@ Page {
         }
         else if ( type === "m.room.member") {
             chatScrollView.chatMembers [eventContent.state_key] = eventContent.content
+            console.log("New roommember event",JSON.stringify(eventContent))
+            if ( topic === "" ) {
+                roomnames.getById ( activeChat, function ( name ) {
+                    console.log("Set name to",name)
+                    activeChatDisplayName = name
+                })
+            }
         }
         else if ( type === "m.receipt" ) {
             chatScrollView.markRead ( eventContent.ts )

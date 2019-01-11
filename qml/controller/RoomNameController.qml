@@ -18,9 +18,8 @@ Item {
             }
             else {
                 // If it is a one on one chat, then use the displayname of the buddy
-                storage.query( "SELECT Users.displayname, Users.matrix_id FROM Users, Memberships " +
-                " WHERE Memberships.matrix_id=Users.matrix_id " +
-                " AND Memberships.chat_id=? " +
+                storage.query( "SELECT Memberships.displayname, Memberships.matrix_id, Memberships.membership FROM Memberships " +
+                " WHERE Memberships.chat_id=? " +
                 " AND (Memberships.membership='join' OR Memberships.membership='invite') " +
                 " AND Memberships.matrix_id!=? ",
                 [ chat_id, settings.matrixid ], function (rs) {
@@ -28,6 +27,7 @@ Item {
                     if ( rs.rows.length > 0 ) {
                         displayname = ""
                         for ( var i = 0; i < rs.rows.length; i++ ) {
+                            console.log(JSON.stringify(rs.rows[i]))
                             var username = rs.rows[i].displayname || usernames.transformFromId ( rs.rows[i].matrix_id )
                             if ( rs.rows[i].state_key !== settings.matrixid ) displayname += username + ", "
                         }
