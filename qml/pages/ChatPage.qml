@@ -23,7 +23,11 @@ Page {
         if ( !messageTextField.displayText.replace(/\s/g, '').length && message === undefined ) return
 
         var sticker = undefined
-        if ( message === undefined ) message = messageTextField.displayText
+        if ( message === undefined ) {
+            messageTextField.focus = false
+            message = messageTextField.displayText
+            messageTextField.focus = true
+        }
         if ( typeof message !== "string" ) sticker = message
 
         // Send the message
