@@ -132,7 +132,7 @@ ListView {
                         events.handleRoomEvents ( activeChat, [ newEvent ], "state" )
                     }
                 )
-            })
+            }, null, 0)
         }
 
 

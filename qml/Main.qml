@@ -216,6 +216,10 @@ MainView {
         PopupUtils.open( confirmDialog )
     }
 
+    // Wait for server answer dialog
+    WaitDialog { id: waitDialog }
+    property var waitDialogRequest: null
+    onWaitDialogRequestChanged: waitDialogRequest !== null ? PopupUtils.open ( waitDialog ) : function(){}
 
 
     /* =============================== CONNECTION MANAGER ===============================

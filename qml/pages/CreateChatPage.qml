@@ -183,7 +183,7 @@ Page {
                 preset: is_direct ? "trusted_private_chat" : "private_chat"
             }, function ( response ) {
                 mainStack.toChat ( response.room_id )
-            } )
+            }, null, 2 )
         }
     }
 }

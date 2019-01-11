@@ -428,7 +428,6 @@ Item {
                     if ( event.content.displayname ) queryStr += ", displayname='" + event.content.displayname + "' "
                     if ( event.content.avatar_url ) queryStr += ", avatar_url='" + event.content.avatar_url + "' "
                     queryStr += " WHERE matrix_id='" + event.state_key + "'"
-                    console.log(queryStr)
                     transaction.executeSql( queryStr )
                 }
 
@@ -446,7 +445,6 @@ Item {
                     if ( event.content.displayname ) queryStr += ", displayname='" + event.content.displayname + "' "
                     if ( event.content.avatar_url ) queryStr += ", avatar_url='" + event.content.avatar_url + "' "
                     queryStr += " WHERE matrix_id='" + event.state_key + "' AND chat_id='" + roomid + "'"
-                    console.log(queryStr)
                     transaction.executeSql( queryStr )
                 }
             }

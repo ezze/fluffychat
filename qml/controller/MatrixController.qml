@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 
 /* =============================== MATRIX CONTROLLER ===============================
 
@@ -52,7 +53,7 @@ Item {
             resetSettings ()
             if ( error_callback ) error_callback ( response )
         }
-        xmlRequest ( "POST", data, "/client/r0/login", onLogged, error_callback)
+        xmlRequest ( "POST", data, "/client/r0/login", onLogged, error_callback, 2)
     }
 
     function register ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback) {
@@ -97,7 +98,7 @@ Item {
                             onlineStatus = true
                             events.init ()
                             if ( callback ) callback ( response )
-                        }, error_callback )
+                        }, error_callback, 2 )
                         forwarded = true
                         break
                     }
@@ -121,7 +122,7 @@ Item {
             }
         }
 
-        xmlRequest ( "POST", data, "/client/r0/register", onResponse, onResponse )
+        xmlRequest ( "POST", data, "/client/r0/register", onResponse, onResponse, 2 )
     }
 
     function logout () {
@@ -150,7 +151,7 @@ Item {
             loadingScreen.visible = true
             events.waitForSync()
             mainStack.toChat( response.room_id )
-        } )
+        }, null, 2 )
     }
 
 
@@ -159,24 +160,26 @@ Item {
     }
 
 
-    function get ( action, data, callback, error_callback ) {
-        return xmlRequest ( "GET", data, action, callback, error_callback )
+    function get ( action, data, callback, error_callback, priority ) {
+        return xmlRequest ( "GET", data, action, callback, error_callback, priority )
     }
 
-    function post ( action, data, callback, error_callback ) {
-        return xmlRequest ( "POST", data, action, callback, error_callback )
+    function post ( action, data, callback, error_callback, priority ) {
+        return xmlRequest ( "POST", data, action, callback, error_callback, priority )
     }
 
-    function put ( action, file, callback, error_callback ) {
-        return xmlRequest ( "PUT", file, action, callback, error_callback )
+    function put ( action, data, callback, error_callback, priority ) {
+        return xmlRequest ( "PUT", data, action, callback, error_callback, priority )
     }
 
     // Needs the name remove, because delete is reserved
-    function remove ( action, file, callback, error_callback ) {
-        return xmlRequest ( "DELETE", file, action, callback, error_callback )
+    function remove ( action, file, callback, error_callback, priority ) {
+        return xmlRequest ( "DELETE", file, action, callback, error_callback, priority )
     }
 
-    function xmlRequest ( type, data, action, callback, error_callback ) {
+    function xmlRequest ( type, data, action, callback, error_callback, priority ) {
+
+        if ( priority === undefined ) priority = 1
 
         // Check if the same request is actual sent
         var checksum = type + JSON.stringify(data) + action
@@ -224,7 +227,8 @@ Item {
                 try {
                     var index = activeRequests.indexOf(checksum);
                     activeRequests.splice( index, 1 )
-                    if ( !longPolling ) progressBarRequests--
+                    if ( !longPolling && priority > 0 ) progressBarRequests--
+                    if ( priority > 1 ) waitDialogRequest = null
                     if ( progressBarRequests < 0 ) progressBarRequests = 0
 
                     if ( !timer.running ) throw( "CONNERROR" )
@@ -246,7 +250,7 @@ Item {
                     if ( !isSyncRequest ) console.error("There was an error: When calling ", type, requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error, JSON.stringify(error))
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
-                    if ( !error_callback && error.error === "CONNERROR" && settings.token ) {
+                    if ( !error_callback && error.error === "CONNERROR" ) {
                         onlineStatus = false
                         toast.show (i18n.tr("😕 No connection..."))
                     }
@@ -260,13 +264,14 @@ Item {
                         else toast.show ( error.error )
                     }
                     else if ( error_callback ) error_callback ( error )
-                    else if ( error.errcode !== undefined && error.error !== undefined ) toast.show ( error.errcode + ": " + error.error )
+                    else if ( error.errcode !== undefined && error.error !== undefined && priority > 0 ) toast.show ( error.error )
                 }
             }
         }
-        if ( !longPolling ) {
+        if ( !longPolling && priority > 0 ) {
             progressBarRequests++
         }
+        if ( priority > 1 ) waitDialogRequest = http
 
         // Make timeout working in qml
         timer.stop ()

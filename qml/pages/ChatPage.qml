@@ -139,7 +139,7 @@ Page {
             isTyping = typing
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( settings.matrixid ), {
                 typing: typing
-            }, null, null )
+            }, null, null, 0 )
         }
     }
 

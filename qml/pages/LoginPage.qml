@@ -39,8 +39,9 @@ Page {
                 else toast.show (i18n.tr("Username '%1' not found on %2").arg(username).arg(loginDomain))
             }, function ( response ) {
                 if ( response.errcode === "M_USER_IN_USE" ) mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
+                else if ( response.error === "CONNERROR" ) toast.show (i18n.tr("😕 No connection..."))
                 else toast.show ( response.error )
-            })
+            }, 2)
         }
 
         // Step 3: Try to get the username via the phone number and login
@@ -70,7 +71,7 @@ Page {
                     desiredPhoneNumber = phoneInput
                     register ( username )
                 }
-            })
+            }, null, 2)
         }
         signInButton.enabled = loginTextField.displayText !== "" && loginTextField.displayText !== " "
     }
@@ -81,8 +82,9 @@ Page {
             else toast.show (i18n.tr("Username is already taken"))
         }, function ( response ) {
             if ( response.errcode === "M_USER_IN_USE" ) toast.show (i18n.tr("Username is already taken"))
+            else if ( response.error === "CONNERROR" ) toast.show (i18n.tr("😕 No connection..."))
             else toast.show ( response.error )
-        })
+        }, 2)
     }
 
 

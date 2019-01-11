@@ -171,7 +171,7 @@ BottomEdge {
                         var _mainStack = mainStack
                         matrix.post( "/client/r0/createRoom", data, function (res) {
                             if ( res.room_id ) _mainStack.toChat ( res.room_id )
-                        } )
+                        }, null, 2 )
                     }
 
                     ListItemLayout {
