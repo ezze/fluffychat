@@ -153,8 +153,10 @@ Page {
             chatScrollView.unread = res.rows[0].unread
             storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
             "matrix_id='" + settings.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
-                chatScrollView.canRedact = rs.rows[0].power_level >= res.rows[0].power_redact
-                canSendMessages = rs.rows[0].power_level >= res.rows[0].power_events_default
+                var power_level = 0
+                if ( rs.rows.length > 0 ) power_level = rs.rows[0].power_level
+                chatScrollView.canRedact = power_level >= res.rows[0].power_redact
+                canSendMessages = power_level >= res.rows[0].power_events_default
             })
             chatScrollView.init ()
             chatActive = true

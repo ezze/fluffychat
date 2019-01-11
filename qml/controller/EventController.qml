@@ -476,10 +476,17 @@ Item {
                 // Set the users power levels:
                 if ( event.content.users ) {
                     for ( var user in event.content.users ) {
-                        transaction.executeSql( "UPDATE Memberships SET power_level=? WHERE matrix_id=? AND chat_id=?",
+                        var updateResult = transaction.executeSql( "UPDATE Memberships SET power_level=? WHERE matrix_id=? AND chat_id=?",
                         [ event.content.users[user],
                         user,
                         roomid ])
+                        if ( updateResult.rowsAffected === 0 ) {
+                            transaction.executeSql( "INSERT OR IGNORE INTO Memberships VALUES(?, ?, '', '', ?, ?)",
+                            [ roomid,
+                            user,
+                            "leave",
+                            event.content.users[user] ])
+                        }
                     }
                 }
             }

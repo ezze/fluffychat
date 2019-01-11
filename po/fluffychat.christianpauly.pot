@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 12:22+0000\n"
+"POT-Creation-Date: 2019-01-11 12:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -789,42 +789,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:242 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:244 ../qml/components/ArchivedChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:249 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:251 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:78
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:255
+#: ../qml/pages/ChatPage.qml:257
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:278
+#: ../qml/pages/ChatPage.qml:280
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:301
+#: ../qml/pages/ChatPage.qml:303
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:406
+#: ../qml/pages/ChatPage.qml:408
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:406
+#: ../qml/pages/ChatPage.qml:408
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:420
+#: ../qml/pages/ChatPage.qml:422
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:451
+#: ../qml/pages/ChatPage.qml:453
 msgid "Type something ..."
 msgstr ""
 
@@ -1230,11 +1230,11 @@ msgstr ""
 msgid "No preview messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:114
+#: ../qml/components/ChatListItem.qml:113
 msgid "Notification settings"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:128
+#: ../qml/components/ChatListItem.qml:127
 msgid "Leave this chat"
 msgstr ""
 
