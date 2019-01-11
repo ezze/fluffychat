@@ -15,21 +15,21 @@ ListView {
     property var count: model.count
     property var unread: ""
     property var canRedact: false
-    property var chatMembers: []
 
     function init () {
         // Request all participants displaynames and avatars
+        activeChatMembers = []
         storage.transaction ( "SELECT membership.matrix_id, membership.displayname, membership.avatar_url, membership.membership " +
         " FROM Memberships membership " +
         " WHERE membership.chat_id='" + activeChat + "'"
         , function (memberResults) {
             // Make sure that the event for the users matrix id exists
-            chatMembers[settings.matrixid] = {
+            activeChatMembers[settings.matrixid] = {
                 displayname: usernames.transformFromId(settings.matrixid),
                 avatar_url: ""
             }
             for ( var i = 0; i < memberResults.rows.length; i++ ) {
-                chatMembers[ memberResults.rows[i].matrix_id ] = memberResults.rows[i]
+                activeChatMembers[ memberResults.rows[i].matrix_id ] = memberResults.rows[i]
             }
 
             update ()
@@ -115,8 +115,8 @@ ListView {
 
         // Is the sender of this event in the local database? If not, then request
         // the displayname and avatar url of this sender.
-        if ( chatMembers[event.sender] === undefined) {
-            chatMembers[event.sender] = {
+        if ( activeChatMembers[event.sender] === undefined) {
+            activeChatMembers[event.sender] = {
                 "displayname": usernames.transformFromId ( event.sender ),
                 "avatar_url": ""
             }

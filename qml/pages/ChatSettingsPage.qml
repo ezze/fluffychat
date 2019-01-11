@@ -19,13 +19,13 @@ Page {
     property var activeUserMembership
 
     // User permission
-    property var power
-    property var canChangeName
-    property var canKick
-    property var canBan
-    property var canInvite
-    property var canChangePermissions
-    property var canChangeAvatar
+    property var power: 0
+    property var canChangeName: false
+    property var canKick: false
+    property var canBan: false
+    property var canInvite: true
+    property var canChangePermissions: false
+    property var canChangeAvatar: false
 
     property var memberCount: 0
 
@@ -64,22 +64,18 @@ Page {
         // Request the full memberlist, from the database AND from the server (lazy loading)
         model.clear()
         memberCount = 0
-        storage.transaction ( "SELECT Memberships.matrix_id, Memberships.displayname, Memberships.avatar_url, Memberships.membership, Memberships.power_level " +
-        " FROM Memberships WHERE Memberships.chat_id='" + activeChat + "' " +
-        " ORDER BY Memberships.membership", function (response) {
-            for ( var i = 0; i < response.rows.length; i++ ) {
-                var member = response.rows[ i ]
-                if ( member.membership === "join" ) memberCount++
-                model.append({
-                    name: member.displayname || usernames.transformFromId( member.matrix_id ),
-                    matrixid: member.matrix_id,
-                    membership: member.membership,
-                    avatar_url: member.avatar_url,
-                    userPower: member.power_level
-                })
-            }
-            memberList.positionViewAtBeginning ()
-        })
+        for ( var mxid in activeChatMembers ) {
+            var member = activeChatMembers[ mxid ]
+            if ( member.membership === "join" ) memberCount++
+            model.append({
+                name: member.displayname || usernames.transformFromId( mxid ),
+                matrixid: mxid,
+                membership: member.membership,
+                avatar_url: member.avatar_url,
+                userPower: member.power_level
+            })
+        }
+        memberList.positionViewAtBeginning ()
 
         if ( settings.lazy_load_members ) {
             matrix.get ( "/client/r0/rooms/%1/members".arg(activeChat), {}, function ( response ) {
@@ -95,6 +91,7 @@ Page {
                         avatar_url: member.content.avatar_url,
                         userPower: 0
                     })
+                    activeChatMembers [member.state_key] = member.content
                 }
                 memberList.positionViewAtBeginning ()
             })

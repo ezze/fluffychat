@@ -16,7 +16,7 @@ ListItem {
 
     highlightColor: settings.darkmode ? settings.mainColor : settings.brighterMainColor
 
-    onClicked: {
+    function triggered () {
         if ( room.membership !== "leave" ) {
             activeChatTypingUsers = room.typing || []
             mainStack.toChat ( room.id )
@@ -25,6 +25,8 @@ ListItem {
         searchField.text = ""
         searching = false
     }
+
+    onClicked: triggered ()
 
     ListItemLayout {
         id: layout
@@ -51,10 +53,7 @@ ListItem {
             mxc: room.avatar_url !== "" && room.avatar_url !== null && room.avatar_url !== undefined ? room.avatar_url : roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
                 avatar.mxc = avatar_url
             } )
-            onClickFunction: function () {
-                activeChat = room.id
-                mainStack.push (Qt.resolvedUrl("../pages/ChatSettingsPage.qml"))
-            }
+            onClickFunction: function () { triggered () }
         }
     }
 

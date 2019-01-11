@@ -56,6 +56,7 @@ MainView {
     property var chatActive: false
     property var activeChatDisplayName: null
     property var activeChatTypingUsers: []
+    property var activeChatMembers: []
     property var activeUser: null
     property var progressBarRequests: 0
     property var waitingForSync: false

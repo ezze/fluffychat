@@ -23,6 +23,7 @@ Page {
         function( res )  {
             for( var i = 0; i < res.rows.length; i++ ) {
                 var user = res.rows[i]
+                if ( activeChatMembers[user.matrix_id] !== undefined ) continue
                 model.append({
                     matrix_id: user.matrix_id,
                     name: user.displayname || usernames.transformFromId(user.matrix_id),

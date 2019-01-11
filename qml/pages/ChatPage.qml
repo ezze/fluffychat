@@ -13,7 +13,6 @@ Page {
     property var isTyping: false
     property var pageName: "chat"
     property var canSendMessages: true
-    property var chatMembers: chatScrollView.chatMembers
     property var replyEvent: null
     property var chat_id
     property var topic: ""
@@ -106,8 +105,8 @@ Page {
                 id: messageID,
                 sender: settings.matrixid,
                 content_body: sender.formatText ( data.body ),
-                displayname: chatMembers[settings.matrixid].displayname,
-                avatar_url: chatMembers[settings.matrixid].avatar_url,
+                displayname: activeChatMembers[settings.matrixid].displayname,
+                avatar_url: activeChatMembers[settings.matrixid].avatar_url,
                 status: msg_status.SENDING,
                 origin_server_ts: now,
                 content: data
@@ -219,7 +218,7 @@ Page {
             activeChatTypingUsers = eventContent
         }
         else if ( type === "m.room.member") {
-            chatScrollView.chatMembers [eventContent.state_key] = eventContent.content
+            activeChatMembers [eventContent.state_key] = eventContent.content
             console.log("New roommember event",JSON.stringify(eventContent))
             if ( topic === "" ) {
                 roomnames.getById ( activeChat, function ( name ) {
@@ -300,7 +299,7 @@ Page {
             anchors.left: parent.left
         }
         Label {
-            text: replyEvent !== null ? i18n.tr("Reply to <b>%1</b>: \"%2\"").arg(chatMembers[replyEvent.sender].displayname).arg(replyEvent.content.body.split("\n").join(" ")) : ""
+            text: replyEvent !== null ? i18n.tr("Reply to <b>%1</b>: \"%2\"").arg(activeChatMembers[replyEvent.sender].displayname).arg(replyEvent.content.body.split("\n").join(" ")) : ""
             anchors.left: parent.left
             anchors.right: closeReplyIcon.left
             anchors.verticalCenter: parent.verticalCenter
