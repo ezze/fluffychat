@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 12:59+0000\n"
+"POT-Creation-Date: 2019-01-12 10:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -245,7 +245,7 @@ msgid "Push notifications are disabled..."
 msgstr ""
 
 #: ../qml/controller/MatrixController.qml:255 ../qml/pages/LoginPage.qml:42
-#: ../qml/pages/LoginPage.qml:85
+#: ../qml/pages/LoginPage.qml:83
 msgid "😕 No connection..."
 msgstr ""
 
@@ -265,7 +265,7 @@ msgstr ""
 msgid "Join the community"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:52 ../qml/pages/LoginPage.qml:118
+#: ../qml/pages/InfoPage.qml:52 ../qml/pages/LoginPage.qml:116
 #: ../qml/pages/PrivacyPolicyPage.qml:10
 msgid "Privacy Policy"
 msgstr ""
@@ -342,7 +342,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:133 ../qml/pages/LoginPage.qml:259
+#: ../qml/pages/PasswordCreationPage.qml:133 ../qml/pages/LoginPage.qml:271
 msgid "Sign up"
 msgstr ""
 
@@ -389,59 +389,55 @@ msgstr ""
 msgid "Username '%1' not found on %2"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:68
-msgid "No user found with this phone number"
-msgstr ""
-
-#: ../qml/pages/LoginPage.qml:82 ../qml/pages/LoginPage.qml:84
+#: ../qml/pages/LoginPage.qml:80 ../qml/pages/LoginPage.qml:82
 msgid "Username is already taken"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:92
+#: ../qml/pages/LoginPage.qml:90
 msgid "Homeserver %1"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:100
+#: ../qml/pages/LoginPage.qml:98
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:108
+#: ../qml/pages/LoginPage.qml:106
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:113 ../qml/pages/SettingsPage.qml:335
+#: ../qml/pages/LoginPage.qml:111 ../qml/pages/SettingsPage.qml:335
 msgid "About FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:123
+#: ../qml/pages/LoginPage.qml:121
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:133 ../qml/pages/SettingsPage.qml:48
+#: ../qml/pages/LoginPage.qml:131 ../qml/pages/SettingsPage.qml:48
 msgid "FAQ"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:144
+#: ../qml/pages/LoginPage.qml:142
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:166
+#: ../qml/pages/LoginPage.qml:164
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:214
+#: ../qml/pages/LoginPage.qml:213
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:223
+#: ../qml/pages/LoginPage.qml:222
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:253
+#: ../qml/pages/LoginPage.qml:265
 msgid "Create a new account"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:259 ../qml/pages/PasswordInputPage.qml:86
+#: ../qml/pages/LoginPage.qml:271 ../qml/pages/PasswordInputPage.qml:86
 msgid "Sign in"
 msgstr ""
 
@@ -1218,23 +1214,23 @@ msgstr ""
 msgid "Synchronizing… Please wait."
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:38
+#: ../qml/components/ChatListItem.qml:40
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:41
+#: ../qml/components/ChatListItem.qml:43
 msgid "You: "
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:42
+#: ../qml/components/ChatListItem.qml:44
 msgid "No preview messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:110
+#: ../qml/components/ChatListItem.qml:112
 msgid "Notification settings"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:124
+#: ../qml/components/ChatListItem.qml:126
 msgid "Leave this chat"
 msgstr ""
 

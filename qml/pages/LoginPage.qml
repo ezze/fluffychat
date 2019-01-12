@@ -64,9 +64,7 @@ Page {
                     settings.server = splittedMxid[1]
                     mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
                 }
-                // Step 3.3.1: There is no registered matrix id and user is not new, so abbort!
-                else if ( !newHereCheckBox.checked ) toast.show (i18n.tr("No user found with this phone number"))
-                // Step 3.3.2: There is no registered matrix id. Try to register one...
+                // Step 3.3.1: There is no registered matrix id. Try to register one...
                 else {
                     desiredPhoneNumber = phoneInput
                     register ( username )
@@ -187,6 +185,7 @@ Page {
         id: scrollView
         width: root.width
         height: parent.height - header.height
+        flickableItem.contentY: flickableItem.contentHeight - height
         anchors.top: header.bottom
         contentItem: Column {
             width: root.width
@@ -232,19 +231,32 @@ Page {
             }
 
             Rectangle {
+                id: spacerRect
                 width: parent.width
                 color: theme.palette.normal.background
-                height: Math.max(scrollView.height - newHere.height - banner.height - 2 * loginTextField.height - 2 * signInButton.height - units.gu(9),0)
+                height: Math.max(scrollView.height - banner.height - 2 * loginTextField.height - (newHere.visible * (newHere.height + units.gu(3))) - signInButton.height - units.gu(10), 0)
             }
 
             Row {
                 id: newHere
+                visible: phoneTextField.displayText === "" && loginTextField.displayText !== ""
+                opacity: 0
                 width: loginTextField.width
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: units.gu(1)
+                states: State {
+                    name: "visible"; when: newHere.visible
+                    PropertyChanges {
+                        target: newHere
+                        opacity: 1
+                    }
+                }
+                transitions: Transition {
+                    NumberAnimation { property: "opacity"; duration: 300 }
+                }
                 CheckBox {
                     id: newHereCheckBox
-                    checked: true
+                    checked: false
                     width: units.gu(2)
                     height: width
                 }
@@ -256,12 +268,18 @@ Page {
 
             Button {
                 id: signInButton
-                text: newHereCheckBox.checked ? i18n.tr("Sign up") : i18n.tr("Sign in")
+                text: newHereCheckBox.checked && newHereCheckBox.visible ? i18n.tr("Sign up") : i18n.tr("Sign in")
                 width: loginTextField.width
                 color: UbuntuColors.green
                 onClicked: login()
-                enabled: loginTextField.displayText !== "" && loginTextField.displayText !== " "
+                enabled: loginTextField.displayText !== ""
                 anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            Rectangle {
+                width: parent.width
+                color: theme.palette.normal.background
+                height: 0.00001
             }
 
         }
