@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-12 10:14+0000\n"
+"POT-Creation-Date: 2019-01-13 13:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -441,24 +441,20 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:19
-msgid "Nameless chat"
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:204 ../qml/components/StyledPageHeader.qml:7
+#: ../qml/pages/ChatListPage.qml:155 ../qml/components/StyledPageHeader.qml:7
 #: fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:204 ../qml/components/ChatEvent.qml:57
+#: ../qml/pages/ChatListPage.qml:155 ../qml/components/ChatEvent.qml:57
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:291
-msgid "Search for chats or #aliases..."
+#: ../qml/pages/ChatListPage.qml:215
+msgid "Search for your chats..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:314
+#: ../qml/pages/ChatListPage.qml:237
 msgid "Click on '+' to start a chat"
 msgstr ""
 
@@ -568,27 +564,35 @@ msgstr ""
 msgid "Default user permissions:"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:15
-msgid "New chat"
+#: ../qml/pages/CreateChatPage.qml:13
+msgid "Add chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:15
+#: ../qml/pages/CreateChatPage.qml:13
 msgid "New chat: %1 selected"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:21
+#: ../qml/pages/CreateChatPage.qml:19
 msgid "New contact"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:91 ../qml/pages/InvitePage.qml:57
+#: ../qml/pages/CreateChatPage.qml:82 ../qml/pages/DiscoverPage.qml:43
+msgid "Join public chat"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:114
+msgid "Create a new chat"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:144 ../qml/pages/InvitePage.qml:57
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:137
+#: ../qml/pages/CreateChatPage.qml:199
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:164
+#: ../qml/pages/CreateChatPage.qml:226
 msgid "Create chat"
 msgstr ""
 
@@ -842,6 +846,14 @@ msgstr ""
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:111
 msgid "Don't notify"
+msgstr ""
+
+#: ../qml/pages/DiscoverPage.qml:89
+msgid "Search for chats or #aliases..."
+msgstr ""
+
+#: ../qml/pages/DiscoverPage.qml:111
+msgid "No chats found"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:109

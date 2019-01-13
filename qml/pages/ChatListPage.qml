@@ -8,55 +8,6 @@ Page {
     anchors.fill: parent
     id: chatListPage
 
-    property var searching: false
-
-    // Add public rooms from a server side search to the tempModel.
-    function addPublicRoomsToTempModel ( res ) {
-        for( var i = 0; i < res.chunk.length; i++ ) {
-            var chat = res.chunk[i]
-            tempModel.append ( { "room": {
-                id: chat.room_id,
-                topic: chat.name || i18n.tr("Nameless chat"),
-                membership: "leave",
-                avatar_url: chat.avatar_url || "",
-                origin_server_ts: new Date().getTime(),
-                typing: [],
-                notification_count: 0,
-                highlight_count: 0
-            } } )
-        }
-        enabled = true
-    }
-
-    onSearchingChanged: {
-        // There are two models for the listView: The normal model and the tempModel.
-        // When the page is in 'searching'-mode, the tempModel will be created by
-        // copy the normal model and adding public rooms.
-        if ( searching ) {
-
-            // Copy to tempModel
-            for( var i = 0; i < model.count; i++ ) tempModel.append ( model.get(i) )
-
-            // Set the limit
-            var limit = 400
-
-            // Search for public rooms on the homeserver
-            matrix.get ( "/client/r0/publicRooms", { "limit": limit }, addPublicRoomsToTempModel )
-
-            // Also search on matrix.org if not already
-            if ( settings.server !== "matrix.org" ) {
-                matrix.get ( "/client/r0/publicRooms", { "limit": limit, "server": "matrix.org" }, addPublicRoomsToTempModel )
-            }
-
-            chatListView.model = tempModel
-        }
-        // Restore the normal model and clear the tempModel
-        else {
-            chatListView.model = model
-            tempModel.clear ()
-        }
-    }
-
 
     // To disable the background image on this page
     Rectangle {
@@ -217,13 +168,12 @@ header: StyledPageHeader {
         actions: [
         Action {
             iconName: "search"
-            onTriggered: searching = searchField.focus = true
+            onTriggered: searchField.focus = true
         },
         Action {
             iconName: "account"
             visible: shareObject === null
             onTriggered: {
-                searching = false
                 searchField.text = ""
                 mainStack.toStart ()
                 mainStack.push(Qt.resolvedUrl("./SettingsPage.qml"))
@@ -261,38 +211,11 @@ TextField {
         rightMargin: units.gu(2)
         leftMargin: units.gu(2)
     }
-    onDisplayTextChanged: {
-        if ( displayText !== "" && !searching ) searching = true
-        else if ( displayText === "" ) searching = false
-        if ( tempElement ) {
-            tempModel.remove ( tempModel.count - 1 )
-            tempElement  = false
-        }
-
-        if ( displayText.slice( 0,1 ) === "#" ) {
-            searchMatrixId = displayText
-            if ( searchMatrixId.indexOf(":") === -1 ) searchMatrixId += ":%1".arg(settings.server)
-
-
-            tempModel.append ( { "room": {
-                id: searchMatrixId,
-                topic: searchMatrixId,
-                membership: "leave",
-                avatar_url: "",
-                origin_server_ts: new Date().getTime(),
-                typing: [],
-                notification_count: 0,
-                highlight_count: 0
-            } } )
-            tempElement = true
-        }
-    }
     inputMethodHints: Qt.ImhNoPredictiveText
-    placeholderText: i18n.tr("Search for chats or #aliases...")
+    placeholderText: i18n.tr("Search for your chats...")
 }
 
 ListModel { id: model }
-ListModel { id: tempModel }
 
 ListView {
     id: chatListView
@@ -315,7 +238,7 @@ Label {
     textSize: Label.Large
     color: UbuntuColors.graphite
     anchors.centerIn: parent
-    visible: model.count === 0 && !searching
+    visible: model.count === 0
 }
 
 }

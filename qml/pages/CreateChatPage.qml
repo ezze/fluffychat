@@ -5,14 +5,12 @@ import "../components"
 
 Page {
     anchors.fill: parent
-
-    property var enabled: true
     property var inviteList: []
     property var selectedCount: 0
 
     header: FcPageHeader {
         id: header
-        title: selectedCount===0 ? i18n.tr('New chat') : i18n.tr('New chat: %1 selected').arg(selectedCount)
+        title: selectedCount===0 ? i18n.tr('Add chat') : i18n.tr('New chat: %1 selected').arg(selectedCount)
 
         trailingActionBar {
             actions: [
@@ -69,65 +67,129 @@ Page {
         })
     }
 
-    TextField {
-        id: searchField
-        objectName: "searchField"
-        property var searchMatrixId: false
-        property var upperCaseText: displayText.toUpperCase()
-        property var tempElement: null
-        z: 5
-        anchors {
-            top: header.bottom
-            topMargin: units.gu(1)
-            bottomMargin: units.gu(1)
-            left: parent.left
-            right: parent.right
-            rightMargin: units.gu(2)
-            leftMargin: units.gu(2)
-        }
-        readOnly: !enabled
-        focus: true
-        inputMethodHints: Qt.ImhNoPredictiveText
-        placeholderText: i18n.tr("Search for example @username:server.abc")
-        onDisplayTextChanged: {
+    Column {
+        id: contentColumn
+        z: 1
+        width: parent.width
+        anchors.top: header.bottom
 
-            if ( displayText.slice( 0,1 ) === "@" && displayText.length > 1 ) {
-                var input = displayText
-                if ( input.indexOf(":") === -1 ) {
-                    input += ":" + settings.server
+        ListItem {
+            height: layout.height
+            onClicked: mainStack.push(Qt.resolvedUrl("../pages/DiscoverPage.qml"))
+
+            ListItemLayout {
+                id: layout
+                title.text: i18n.tr("Join public chat")
+                title.color: settings.darkmode ? "white" : "black"
+                Icon {
+                    source: "../../assets/hashtag.svg"
+                    width: units.gu(3)
+                    height: width
+                    SlotsLayout.position: SlotsLayout.Leading
                 }
-                if ( tempElement !== null ) {
-                    model.remove ( tempElement)
-                    tempElement = null
+                Icon {
+                    name: "toolkit_chevron-ltr_4gu"
+                    width: units.gu(3)
+                    height: units.gu(3)
+                    SlotsLayout.position: SlotsLayout.Trailing
                 }
-                if ( input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
-                model.append ( {
-                    matrix_id: input,
-                    medium: "matrix",
-                    name: input,
-                    address: input,
-                    avatar_url: "",
-                    last_active_ago: 0,
-                    presence: "offline",
-                    temp: true
-                })
-                tempElement = model.count - 1
             }
         }
+
+        Rectangle {
+            width: parent.width
+            height: units.gu(2)
+            color: theme.palette.normal.background
+        }
+
+        Rectangle {
+            width: parent.width
+            height: units.gu(2)
+            color: theme.palette.normal.background
+            Label {
+                id: userInfo
+                height: units.gu(2)
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(2)
+                text: i18n.tr("Create a new chat")
+                font.bold: true
+            }
+        }
+
+        Rectangle {
+            width: parent.width
+            height: units.gu(2)
+            color: theme.palette.normal.background
+        }
+
+        Rectangle {
+            width: parent.width
+            height: searchField.height
+            color: theme.palette.normal.background
+            TextField {
+                id: searchField
+                objectName: "searchField"
+                property var searchMatrixId: false
+                property var upperCaseText: displayText.toUpperCase()
+                property var tempElement: null
+                z: 5
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    rightMargin: units.gu(2)
+                    leftMargin: units.gu(2)
+                }
+                focus: true
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search for example @username:server.abc")
+                onDisplayTextChanged: {
+
+                    if ( displayText.slice( 0,1 ) === "@" && displayText.length > 1 ) {
+                        var input = displayText
+                        if ( input.indexOf(":") === -1 ) {
+                            input += ":" + settings.server
+                        }
+                        if ( tempElement !== null ) {
+                            model.remove ( tempElement)
+                            tempElement = null
+                        }
+                        if ( input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
+                        model.append ( {
+                            matrix_id: input,
+                            medium: "matrix",
+                            name: input,
+                            address: input,
+                            avatar_url: "",
+                            last_active_ago: 0,
+                            presence: "offline",
+                            temp: true
+                        })
+                        tempElement = model.count - 1
+                    }
+                }
+            }
+        }
+
+        Rectangle {
+            width: parent.width
+            height: units.gu(2)
+            color: theme.palette.normal.background
+        }
+
+        Rectangle {
+            width: parent.width
+            height: 1
+            color: UbuntuColors.ash
+        }
     }
 
-    ActivityIndicator {
-        visible: !enabled
-        running: visible
-        anchors.centerIn: parent
-    }
+
 
     ListView {
-        opacity: enabled ? 1 : 0.5
         id: chatListView
         width: parent.width
-        height: parent.height - 2*header.height - searchField.height
-        anchors.top: searchField.bottom
+        height: parent.height - 2*header.height - contentColumn.height
+        anchors.top: contentColumn.bottom
         delegate: ContactListItem {}
         model: ListModel { id: model }
         Button {
