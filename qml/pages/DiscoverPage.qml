@@ -40,7 +40,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr("Join public chat")
+        title: i18n.tr("Public chats on %1").arg(settings.server) + (settings.server !== "matrix.org" ? " " + i18n.tr("and matrix.org") : "")
         flickable: chatListView
     }
 
