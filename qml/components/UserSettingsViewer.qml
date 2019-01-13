@@ -170,6 +170,7 @@ BottomEdge {
                         }
                         var _mainStack = mainStack
                         matrix.post( "/client/r0/createRoom", data, function (res) {
+                            toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
                             if ( res.room_id ) _mainStack.toChat ( res.room_id )
                         }, null, 2 )
                     }

@@ -244,6 +244,7 @@ Page {
                 is_direct: is_direct,
                 preset: is_direct ? "trusted_private_chat" : "private_chat"
             }, function ( response ) {
+                toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
                 mainStack.toChat ( response.room_id )
             }, null, 2 )
         }

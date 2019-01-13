@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 13:26+0000\n"
+"POT-Creation-Date: 2019-01-13 13:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -594,6 +594,12 @@ msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:226
 msgid "Create chat"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:247
+#: ../qml/components/UserSettingsViewer.qml:173
+msgid ""
+"Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
@@ -1345,7 +1351,7 @@ msgstr ""
 msgid "You are that!"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:179
+#: ../qml/components/UserSettingsViewer.qml:180
 msgid "Start new chat"
 msgstr ""
 
