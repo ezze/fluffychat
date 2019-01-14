@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-14 16:48+0000\n"
+"POT-Creation-Date: 2019-01-14 16:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1279,10 +1279,6 @@ msgstr ""
 #: ../qml/components/ContactListItem.qml:36
 #: ../qml/components/UserSettingsViewer.qml:110
 msgid "Last active: %1"
-msgstr ""
-
-#: ../qml/components/ChatScrollView.qml:76
-msgid "Get more messages from the server ..."
 msgstr ""
 
 #: ../qml/components/TargetListItem.qml:24

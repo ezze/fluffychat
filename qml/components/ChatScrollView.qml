@@ -73,7 +73,6 @@ ListView {
 
     function requestHistory () {
         if ( initialized !== model.count || requesting || (model.count > 0 && model.get( model.count -1 ).event.type === "m.room.create") ) return
-        toast.show ( i18n.tr( "Get more messages from the server ...") )
         requesting = true
         var storageController = storage
         storage.transaction ( "SELECT prev_batch FROM Chats WHERE id='" + activeChat + "'", function (rs) {
