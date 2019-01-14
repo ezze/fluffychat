@@ -175,16 +175,16 @@ header: StyledPageHeader {
             visible: shareObject === null
             onTriggered: {
                 searchField.text = ""
-                mainStack.toStart ()
-                mainStack.push(Qt.resolvedUrl("./SettingsPage.qml"))
+                mainStack.toStart ("./pages/SettingsPage.qml")
             }
         },
         Action {
+            id: addAction
+            text: i18n.tr ( "Add chat" )
             iconName: "add"
             visible: shareObject === null
             onTriggered: {
-                    mainStack.toStart ()
-                    mainStack.push(Qt.resolvedUrl("./CreateChatPage.qml"))
+                mainStack.toStart ("./pages/CreateChatPage.qml")
             }
         }
         ]
@@ -231,14 +231,12 @@ ListView {
     displaced: Transition {
         SmoothedAnimation { property: "y"; duration: 300 }
     }
-}
-
-Label {
-    text: i18n.tr("Click on '+' to start a chat")
-    textSize: Label.Large
-    color: UbuntuColors.graphite
-    anchors.centerIn: parent
-    visible: model.count === 0
+    footer: SettingsListFooter {
+        name: addAction.text
+        icon: addAction.iconName
+        visible: addAction.visible
+        onClicked: mainStack.toStart ("./pages/CreateChatPage.qml")
+    }
 }
 
 }

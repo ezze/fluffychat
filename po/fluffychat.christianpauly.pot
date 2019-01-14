@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 13:30+0000\n"
+"POT-Creation-Date: 2019-01-14 15:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:212 ../qml/components/ChatEvent.qml:86
+#: ../qml/Main.qml:215 ../qml/components/ChatEvent.qml:86
 msgid "Are you sure?"
 msgstr ""
 
@@ -450,12 +450,12 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:215
-msgid "Search for your chats..."
+#: ../qml/pages/ChatListPage.qml:183 ../qml/pages/CreateChatPage.qml:13
+msgid "Add chat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:237
-msgid "Click on '+' to start a chat"
+#: ../qml/pages/ChatListPage.qml:215
+msgid "Search for your chats..."
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:137
@@ -565,38 +565,34 @@ msgid "Default user permissions:"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:13
-msgid "Add chat"
-msgstr ""
-
-#: ../qml/pages/CreateChatPage.qml:13
 msgid "New chat: %1 selected"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:19
-msgid "New contact"
+#: ../qml/pages/CreateChatPage.qml:20
+msgid "Add from addressbook"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:82
+#: ../qml/pages/CreateChatPage.qml:83
 msgid "Join public chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:114
+#: ../qml/pages/CreateChatPage.qml:115
 msgid "Create a new chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:144 ../qml/pages/InvitePage.qml:57
+#: ../qml/pages/CreateChatPage.qml:145 ../qml/pages/InvitePage.qml:57
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:199
+#: ../qml/pages/CreateChatPage.qml:200
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:226
+#: ../qml/pages/CreateChatPage.qml:237
 msgid "Create chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:247
+#: ../qml/pages/CreateChatPage.qml:258
 #: ../qml/components/UserSettingsViewer.qml:173
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
@@ -1240,23 +1236,23 @@ msgstr ""
 msgid "Synchronizing… Please wait."
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:40
+#: ../qml/components/ChatListItem.qml:39
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:43
+#: ../qml/components/ChatListItem.qml:42
 msgid "You: "
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:44
+#: ../qml/components/ChatListItem.qml:43
 msgid "No preview messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:112
+#: ../qml/components/ChatListItem.qml:111
 msgid "Notification settings"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:126
+#: ../qml/components/ChatListItem.qml:125
 msgid "Leave this chat"
 msgstr ""
 

@@ -339,7 +339,7 @@ Page {
         height: width
         anchors.bottom: replyEvent === null ? chatInput.top : replyEventView.top
         anchors.right: parent.right
-        anchors.margins: units.gu(2)
+        anchors.margins: opacity !== 0 ? units.gu(2) : -width
         border.width: 1
         border.color: UbuntuColors.slate
         radius: width / 6

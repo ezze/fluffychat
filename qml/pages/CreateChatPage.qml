@@ -15,8 +15,9 @@ Page {
         trailingActionBar {
             actions: [
             Action {
+                id: newContactAction
                 iconName: "contact-new"
-                text: i18n.tr("New contact")
+                text: i18n.tr("Add from addressbook")
                 onTriggered: contactImport.requestContact()
             }
             ]
@@ -201,6 +202,16 @@ Page {
             height: units.gu(5)
             visible: model.count === 0
             onClicked: contactImport.requestContact()
+        }
+
+        footer: SettingsListFooter {
+            icon: newContactAction.iconName
+            name: newContactAction.text
+            iconWidth: units.gu(3)
+            onClicked: {
+                contactImport.requestContact()
+                selectMode = false
+            }
         }
     }
 
