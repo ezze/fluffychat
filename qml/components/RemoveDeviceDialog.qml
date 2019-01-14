@@ -51,6 +51,7 @@ Component {
                     var device_id = currentDevice.device_id
                     var update = getDevices
                     var matrixObj = matrix
+                    var matrixid = settings.matrixid
                     var password = passwordInput.text
                     matrix.post ( "/client/unstable/delete_devices", { "devices": [device_id] }, update, function (res) {
                         console.log( "erste Antwort", JSON.stringify(res) )
@@ -59,17 +60,17 @@ Component {
                                 "auth": {
                                     "type": "m.login.password",
                                     "session": res.session,
-                                    "password": password,
-                                    "user": matrixObj.matrixid
+                                    "user": matrixid,
+                                    "password": password
                                 },
                                 "devices": [device_id]
                             }, function (res) {
                                 console.log( "fertig",JSON.stringify(res) )
                                 update()
-                            })
+                            }, null, 2)
                         }
                         else update()
-                    })
+                    }, null, 2)
                     PopupUtils.close(dialogue)
                 }
             }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-14 17:02+0000\n"
+"POT-Creation-Date: 2019-01-14 17:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -607,21 +607,21 @@ msgstr ""
 msgid "Edit displayname"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:96 ../qml/pages/ChatSettingsPage.qml:182
+#: ../qml/pages/SettingsPage.qml:96 ../qml/pages/ChatSettingsPage.qml:184
 #: ../qml/components/ChatEvent.qml:239
 msgid "Show image"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:100 ../qml/pages/ChatSettingsPage.qml:186
+#: ../qml/pages/SettingsPage.qml:100 ../qml/pages/ChatSettingsPage.qml:188
 msgid "Delete Avatar"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:122 ../qml/pages/ChatSettingsPage.qml:207
+#: ../qml/pages/SettingsPage.qml:122 ../qml/pages/ChatSettingsPage.qml:209
 #: ../qml/components/StickerInput.qml:138
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:126 ../qml/pages/ChatSettingsPage.qml:211
+#: ../qml/pages/SettingsPage.qml:126 ../qml/pages/ChatSettingsPage.qml:213
 #: ../qml/components/StickerInput.qml:142
 msgid "OK"
 msgstr ""
@@ -645,7 +645,7 @@ msgstr ""
 #: ../qml/pages/SettingsPage.qml:203
 #: ../qml/pages/NotificationSettingsPage.qml:64
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
-#: ../qml/pages/ChatSettingsPage.qml:254
+#: ../qml/pages/ChatSettingsPage.qml:256
 msgid "Notifications"
 msgstr ""
 
@@ -866,64 +866,64 @@ msgstr ""
 msgid "No chats found"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:116
+#: ../qml/pages/ChatSettingsPage.qml:118
 msgid "Member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:117
+#: ../qml/pages/ChatSettingsPage.qml:119
 msgid "Was invited"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:118
+#: ../qml/pages/ChatSettingsPage.qml:120
 msgid "Has left the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:119
+#: ../qml/pages/ChatSettingsPage.qml:121
 msgid "Has knocked"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:120
+#: ../qml/pages/ChatSettingsPage.qml:122
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:121
+#: ../qml/pages/ChatSettingsPage.qml:123
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:148
+#: ../qml/pages/ChatSettingsPage.qml:150
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:243
+#: ../qml/pages/ChatSettingsPage.qml:245
 msgid "Chat Settings:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:260
+#: ../qml/pages/ChatSettingsPage.qml:262
 msgid "Security & Privacy"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:266
+#: ../qml/pages/ChatSettingsPage.qml:268
 msgid "Chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:288
+#: ../qml/pages/ChatSettingsPage.qml:290
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:288
+#: ../qml/pages/ChatSettingsPage.qml:290
 msgid "Press button to reload users..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:312
+#: ../qml/pages/ChatSettingsPage.qml:314
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:332
+#: ../qml/pages/ChatSettingsPage.qml:334
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:341
+#: ../qml/pages/ChatSettingsPage.qml:343
 msgid "Reload"
 msgstr ""
 
@@ -1282,6 +1282,7 @@ msgid "Last active: %1"
 msgstr ""
 
 #: ../qml/components/TargetListItem.qml:24
+#: ../qml/components/DeviceListItem.qml:25
 msgid "This device"
 msgstr ""
 
@@ -1371,7 +1372,7 @@ msgstr ""
 msgid "Enter a description for the chat"
 msgstr ""
 
-#: ../qml/components/DeviceListItem.qml:25
+#: ../qml/components/DeviceListItem.qml:26
 msgid "Last seen: "
 msgstr ""
 

@@ -40,10 +40,6 @@ Item {
             settings.server = newServer.toLowerCase()
             settings.deviceName = newDeviceName
             settings.dbversion = storage.version
-            settings.sendTypingNotification =
-                settings.hideLessImportantEvents =
-                settings.showMemberChangeEvents =
-                settings.autoloadGifs = true
             onlineStatus = true
             events.init ()
             if ( callback ) callback ( response )
