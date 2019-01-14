@@ -219,6 +219,12 @@ Page {
         }
         else if ( type === "m.room.member") {
             activeChatMembers [eventContent.state_key] = eventContent.content
+            if ( activeChatMembers [eventContent.state_key].displayname === undefined || activeChatMembers [eventContent.state_key].displayname === null || activeChatMembers [eventContent.state_key].displayname === "" ) {
+                activeChatMembers [eventContent.state_key].displayname = usernames.transformFromId ( eventContent.state_key )
+            }
+            if ( activeChatMembers [eventContent.state_key].avatar_url === undefined || activeChatMembers [eventContent.state_key].avatar_url === null ) {
+                activeChatMembers [eventContent.state_key].avatar_url = ""
+            }
             console.log("New roommember event",JSON.stringify(eventContent))
             if ( topic === "" ) {
                 roomnames.getById ( activeChat, function ( name ) {

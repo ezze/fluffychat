@@ -29,7 +29,11 @@ ListView {
                 avatar_url: ""
             }
             for ( var i = 0; i < memberResults.rows.length; i++ ) {
-                activeChatMembers[ memberResults.rows[i].matrix_id ] = memberResults.rows[i]
+                var mxid = memberResults.rows[i].matrix_id
+                activeChatMembers[ mxid ] = memberResults.rows[i]
+                if ( activeChatMembers[ mxid ].displayname === null || activeChatMembers[ mxid ].displayname === "" ) {
+                    activeChatMembers[ mxid ].displayname = usernames.transformFromId ( mxid )
+                }
             }
 
             update ()
@@ -112,6 +116,8 @@ ListView {
             event.type !== "m.room.member" &&
             event.type !== "m.room.create")
         ) return
+
+        if ( event.sender === "@freenode_undermink:matrix.org" ) console.log("HIER!!!", JSON.stringify(activeChatMembers[event.sender]))
 
         // Is the sender of this event in the local database? If not, then request
         // the displayname and avatar url of this sender.

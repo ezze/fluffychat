@@ -418,18 +418,12 @@ Item {
             // or has changed his nickname
             else if ( event.type === "m.room.member" ) {
 
-                var userInsertResult = transaction.executeSql( "INSERT OR IGNORE INTO Users VALUES(?, ?, ?, 'offline', 0, 0)",
-                [ event.state_key,
-                event.content.displayname || "",
-                event.content.avatar_url || "" ])
 
-                if ( userInsertResult.rowsAffected === 0 && (event.content.displayname || event.content.avatar_url) ) {
-                    var queryStr = "UPDATE Users SET matrix_id='" + event.state_key + "'"
-                    if ( event.content.displayname ) queryStr += ", displayname='" + event.content.displayname + "' "
-                    if ( event.content.avatar_url ) queryStr += ", avatar_url='" + event.content.avatar_url + "' "
-                    queryStr += " WHERE matrix_id='" + event.state_key + "'"
-                    transaction.executeSql( queryStr )
-                }
+                // Update user database
+                if ( event.content.membership !== "leave" && event.content.membership !== "ban" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, 'offline', 0, 0)",
+                [ event.state_key,
+                event.content.displayname || usernames.transformFromId(event.state_key),
+                event.content.avatar_url || "" ])
 
                 var memberInsertResult = transaction.executeSql( "INSERT OR IGNORE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, ?, ?, " +
                 "COALESCE(" +
@@ -442,8 +436,8 @@ Item {
 
                 if ( memberInsertResult.rowsAffected === 0 ) {
                     var queryStr = "UPDATE Memberships SET membership='" + event.content.membership + "'"
-                    if ( event.content.displayname ) queryStr += ", displayname='" + event.content.displayname + "' "
-                    if ( event.content.avatar_url ) queryStr += ", avatar_url='" + event.content.avatar_url + "' "
+                    if ( event.content.displayname !== undefined ) queryStr += ", displayname='" + (event.content.displayname || "") + "' "
+                    if ( event.content.avatar_url !== undefined ) queryStr += ", avatar_url='" + (event.content.avatar_url || "") + "' "
                     queryStr += " WHERE matrix_id='" + event.state_key + "' AND chat_id='" + roomid + "'"
                     transaction.executeSql( queryStr )
                 }

@@ -29,7 +29,7 @@ Item {
                 else if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "invite" ) {
                     body = i18n.tr("%1 has accepted the invitation.").arg(displayname)
                 }
-                else if ( usernames.transformFromId(event.state_key) === displayname ) {
+                else if ( usernames.transformFromId(event.state_key).toUpperCase() === displayname.toUpperCase() ) {
                     body = i18n.tr("%1 is now participating.").arg(displayname)
                 }
                 else body = i18n.tr("%1 is now participating as <b>%2</b>.").arg(sendername).arg(displayname)

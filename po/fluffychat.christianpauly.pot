@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-14 15:29+0000\n"
+"POT-Creation-Date: 2019-01-14 16:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -791,42 +791,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:243 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:249 ../qml/components/ArchivedChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:250 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:256 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:78
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:256
+#: ../qml/pages/ChatPage.qml:262
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:279
+#: ../qml/pages/ChatPage.qml:285
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:302
+#: ../qml/pages/ChatPage.qml:308
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:407
+#: ../qml/pages/ChatPage.qml:413
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:407
+#: ../qml/pages/ChatPage.qml:413
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:421
+#: ../qml/pages/ChatPage.qml:427
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:452
+#: ../qml/pages/ChatPage.qml:458
 msgid "Type something ..."
 msgstr ""
 
@@ -1281,7 +1281,7 @@ msgstr ""
 msgid "Last active: %1"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:72
+#: ../qml/components/ChatScrollView.qml:76
 msgid "Get more messages from the server ..."
 msgstr ""
 
