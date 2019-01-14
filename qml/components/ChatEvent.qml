@@ -136,6 +136,8 @@ ListItem {
             anchors.bottomMargin: !imageVisible*units.gu(1)
             anchors.leftMargin: units.gu(1)
             anchors.rightMargin: units.gu(1)
+            border.color: "#888888"
+            border.width: isStateEvent
 
             opacity: isStateEvent ? 0.75 : 1
             z: 2

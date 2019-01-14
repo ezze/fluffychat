@@ -108,15 +108,19 @@ ListView {
         // Display this event at all? In the chat settings the user can choose
         // which events should be displayed. Less important events are all events,
         // that or not member events from other users and the room create events.
-        if ( (!settings.showMemberChangeEvents && event.type === "m.room.member") ||
-        (settings.hideLessImportantEvents &&
-            event.type !== "m.room.message" &&
-            event.type !== "m.sticker" &&
-            event.type !== "m.room.member" &&
-            event.type !== "m.room.create")
-        ) return
-
-        if ( event.sender === "@freenode_undermink:matrix.org" ) console.log("HIER!!!", JSON.stringify(activeChatMembers[event.sender]))
+        if ( settings.hideLessImportantEvents && model.count > 0 && event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker" ) {
+            var lastEvent = model.get(0).event
+            if ( lastEvent.origin_server_ts < event.origin_server_ts ) {
+                if ( lastEvent.type === "m.room.create" && event.sender === lastEvent.sender ) return
+                if ( lastEvent.type === "m.room.multipleMember" && event.type === "m.room.member" ) return
+                if ( lastEvent.type === "m.room.member" && event.type === "m.room.member" ) {
+                    lastEvent.type = "m.room.multipleMember"
+                    model.remove( 0 )
+                    model.insert( 0, { event: lastEvent } )
+                    return
+                }
+            }
+        }
 
         // Is the sender of this event in the local database? If not, then request
         // the displayname and avatar url of this sender.
