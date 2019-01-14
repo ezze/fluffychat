@@ -19,7 +19,7 @@ ListView {
     function init () {
         // Request all participants displaynames and avatars
         activeChatMembers = []
-        storage.transaction ( "SELECT membership.matrix_id, membership.displayname, membership.avatar_url, membership.membership " +
+        storage.transaction ( "SELECT membership.matrix_id, membership.displayname, membership.avatar_url, membership.membership, membership.power_level " +
         " FROM Memberships membership " +
         " WHERE membership.chat_id='" + activeChat + "'"
         , function (memberResults) {

@@ -72,26 +72,35 @@ Page {
                 matrixid: mxid,
                 membership: member.membership,
                 avatar_url: member.avatar_url,
-                userPower: member.power_level
+                userPower: member.power_level || 0
             })
         }
         memberList.positionViewAtBeginning ()
 
         if ( settings.lazy_load_members ) {
             matrix.get ( "/client/r0/rooms/%1/members".arg(activeChat), {}, function ( response ) {
-                model.clear()
-                memberCount = 0
                 for ( var i = 0; i < response.chunk.length; i++ ) {
                     var member = response.chunk[ i ]
+
+                    if ( activeChatMembers[member.state_key] ) continue
                     if ( member.content.membership === "join" ) memberCount++
+
+                    activeChatMembers [member.state_key] = member.content
+                    if ( activeChatMembers [member.state_key].displayname === undefined || activeChatMembers [member.state_key].displayname === null || activeChatMembers [member.state_key].displayname === "" ) {
+                        activeChatMembers [member.state_key].displayname = usernames.transformFromId ( member.state_key )
+                    }
+                    if ( activeChatMembers [member.state_key].avatar_url === undefined || activeChatMembers [member.state_key].avatar_url === null ) {
+                        activeChatMembers [member.state_key].avatar_url = ""
+                    }
+
                     model.append({
-                        name: member.content.displayname !== null ? member.content.displayname : usernames.transformFromId( member.state_key ),
+                        name: activeChatMembers [member.state_key].displayname,
                         matrixid: member.state_key,
                         membership: member.content.membership,
-                        avatar_url: member.content.avatar_url,
+                        avatar_url: activeChatMembers [member.state_key].avatar_url,
                         userPower: 0
                     })
-                    activeChatMembers [member.state_key] = member.content
+
                 }
                 memberList.positionViewAtBeginning ()
             })
