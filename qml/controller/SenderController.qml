@@ -75,7 +75,7 @@ Item {
         // Detect common https urls and make them clickable
         tempText = tempText.replace(urlRegex, function(url) {
             if ( url.slice(0,1) === " " ) {
-                url = url.slice(1, url.length-1)
+                url = url.slice(1, url.length)
                 return ' <a href="%1">%2</a>'.arg(url).arg(url)
             }
             return '<a href="%1">%2</a>'.arg(url).arg(url)
