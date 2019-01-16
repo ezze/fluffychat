@@ -173,9 +173,8 @@ Page {
                 // Check if the last event is in the database
                 var found = false
                 for ( var j = 0; j < chatScrollView.count; j++ ) {
-                    if ( lastEvent.id === room.fully_read ) {
+                    if ( chatScrollView.get(j).event.id === room.fully_read ) {
                         chatScrollView.currentIndex = j
-                        console.log("FOUND:::::::::::::::::::::::::::::", lastEvent.id)
                         matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": lastEvent.id }, null, null, 0 )
                         found = true
                         break
@@ -245,7 +244,6 @@ Page {
             }
             if ( topic === "" ) {
                 roomnames.getById ( activeChat, function ( name ) {
-                    console.log("Set name to",name)
                     activeChatDisplayName = name
                 })
             }
