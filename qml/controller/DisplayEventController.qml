@@ -16,7 +16,7 @@ Item {
         var displayname = event.content.displayname || usernames.transformFromId(event.state_key)
         var unsigned = event.content.unsigned || false
 
-        if ( event.type === "m.room.member" ) {
+        if ( event.type === "m.room.member" || event.type === "m.room.multipleMember" ) {
             if ( event.content.membership === "join" ) {
                 if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "join" ) {
                     if ( unsigned.prev_content.avatar_url !== event.content.avatar_url ) {
@@ -52,9 +52,9 @@ Item {
             else if ( event.content.membership === "ban" ) {
                 body = i18n.tr("%1 banned %2 from the chat").arg(sendername).arg(displayname)
             }
-        }
-        else if ( event.type === "m.room.multipleMember" ) {
-            body = i18n.tr("Multiple member changes")
+            if ( event.type === "m.room.multipleMember" ) {
+                body += " " + i18n.tr("and more member changes")
+            }
         }
         else if ( event.type === "m.room.create" ) {
             body = i18n.tr("%1 created the chat").arg(sendername)

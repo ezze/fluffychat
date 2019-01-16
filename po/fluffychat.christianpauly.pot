@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-16 11:45+0000\n"
+"POT-Creation-Date: 2019-01-16 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,8 +81,8 @@ msgstr ""
 msgid "%1 banned %2 from the chat"
 msgstr ""
 
-#: ../qml/controller/DisplayEventController.qml:57
-msgid "Multiple member changes"
+#: ../qml/controller/DisplayEventController.qml:56
+msgid "and more member changes"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:60
