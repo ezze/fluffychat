@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-16 15:29+0000\n"
+"POT-Creation-Date: 2019-01-16 15:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -318,35 +318,35 @@ msgstr ""
 msgid "Please set a password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:60
+#: ../qml/pages/PasswordCreationPage.qml:55
 msgid "Username already taken"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:61
+#: ../qml/pages/PasswordCreationPage.qml:56
 msgid "The desired user ID is not a valid user name"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:62
+#: ../qml/pages/PasswordCreationPage.qml:57
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:63
+#: ../qml/pages/PasswordCreationPage.qml:58
 msgid "Registration on %1 failed..."
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:90
+#: ../qml/pages/PasswordCreationPage.qml:85
 msgid ""
 "To reset your password, you will need to provide an e-mail address later"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:109
+#: ../qml/pages/PasswordCreationPage.qml:104
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:133 ../qml/pages/LoginPage.qml:271
+#: ../qml/pages/PasswordCreationPage.qml:128 ../qml/pages/LoginPage.qml:271
 msgid "Sign up"
 msgstr ""
 

@@ -49,12 +49,7 @@ Page {
                     id_server: settings.id_server
                 }, success_callback, success_callback)
             }
-            else {
-                mainStack.pop()
-                mainStack.pop()
-                if ( tabletMode ) mainStack.push(Qt.resolvedUrl("./BlankPage.qml"))
-                else mainStack.push(Qt.resolvedUrl("./ChatListPage.qml"))
-            }
+            else root.init ()
 
         }, function (error) {
             if ( error.errcode === "M_USER_IN_USE" ) toast.show (i18n.tr("Username already taken"))
