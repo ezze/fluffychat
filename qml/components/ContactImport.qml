@@ -68,7 +68,7 @@ Item {
                     if ( response.threepids.length === 1 ) {
                         usernames.showUserSettings ( response.threepids[0][2] )
                     }
-                } )
+                }, null, 2 )
             }
         };
         xhr.send();

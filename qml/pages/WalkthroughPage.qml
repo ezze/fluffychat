@@ -13,7 +13,7 @@ Walkthrough {
         walkthrough.visible = false
         settings.walkthroughFinished = true
         settings.updateInfosFinished = version
-        matrix.init ()
+        init ()
     }
 
     model: [

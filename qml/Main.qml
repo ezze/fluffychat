@@ -43,7 +43,7 @@ MainView {
     readonly property var longPollingTimeout: 10000
     readonly property var typingTimeout: 30000
     readonly property var borderColor: settings.darkmode ? UbuntuColors.jet : UbuntuColors.silk
-    readonly property var version: "9.1"
+    readonly property var version: "10rc1"
     readonly property var downloadPath: "/home/phablet/.local/share/ubuntu-download-manager/fluffychat.christianpauly/Downloads/"
     readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "HISTORY": 4, "ERROR": -1 }
 
@@ -56,6 +56,7 @@ MainView {
     property var chatActive: false
     property var activeChatDisplayName: null
     property var activeChatTypingUsers: []
+    property var activeChatMembers: []
     property var activeUser: null
     property var progressBarRequests: 0
     property var waitingForSync: false
@@ -70,6 +71,7 @@ MainView {
     property var consentContent: ""
     property var shareObject: null
     property var mainFontColor: settings.darkmode ? "#FFFFFF" : "#000000"
+    property var mainBorderColor: settings.darkmode ? "#333333" : "#CCCCCC"
     property var bottomEdgeCommited: false
 
 
@@ -78,11 +80,32 @@ MainView {
     The main page stack is the current layout of the app.
     */
 
+    // Check if there are username, password and domain saved from a previous
+    // session and autoconnect with them. If not, then just go to the login Page.
+    function init () {
+        mainStack.clear ()
+        sideStack.clear ()
+        if ( settings.token && settings.updateInfosFinished === version ) {
+            if ( tabletMode ) {
+                mainStack.push( Qt.resolvedUrl("./pages/BlankPage.qml") )
+                sideStack.push(Qt.resolvedUrl("./pages/ChatListPage.qml"))
+            }
+            else mainStack.push(Qt.resolvedUrl("./pages/ChatListPage.qml"))
+            matrix.onlineStatus = true
+            events.init ()
+        }
+        else if ( settings.walkthroughFinished && settings.updateInfosFinished === version ){
+            mainStack.push(Qt.resolvedUrl("./pages/LoginPage.qml"))
+        }
+        else {
+            mainStack.push(Qt.resolvedUrl("./pages/WalkthroughPage.qml"))
+        }
+    }
+
+
     onTabletModeChanged: {
         if ( prevMode !== tabletMode ) {
-            mainStack.clear ()
-            if ( tabletMode ) mainStack.push( Qt.resolvedUrl("./pages/BlankPage.qml") )
-            else if ( settings.token ) mainStack.push( Qt.resolvedUrl("./pages/ChatListPage.qml") )
+            init ()
             prevMode = tabletMode
         }
     }
@@ -112,7 +135,6 @@ MainView {
         width: tabletMode ? units.gu(45) : parent.width
         height: parent.height
         z: 5
-        Component.onCompleted: push( Qt.resolvedUrl("./pages/ChatListPage.qml") )
     }
 
     Rectangle {
@@ -131,7 +153,10 @@ MainView {
         anchors.right: parent.right
         anchors.top: parent.top
         width: tabletMode ? parent.width - units.gu(45) : parent.width
-        function toStart () { while (depth > 1) pop() }
+        function toStart ( page ) {
+            while (depth > 1) pop()
+            if ( page ) mainStack.push (Qt.resolvedUrl( page ))
+        }
         function toChat( chatID ) {
             if ( activeChat === chatID ) return
             mainStack.toStart ()
@@ -196,6 +221,10 @@ MainView {
         PopupUtils.open( confirmDialog )
     }
 
+    // Wait for server answer dialog
+    WaitDialog { id: waitDialog }
+    property var waitDialogRequest: null
+    onWaitDialogRequestChanged: waitDialogRequest !== null ? PopupUtils.open ( waitDialog ) : function(){}
 
 
     /* =============================== CONNECTION MANAGER ===============================
@@ -214,6 +243,6 @@ MainView {
     */
     Component.onCompleted: {
         storage.init ()
-        matrix.init ()
+        init ()
     }
 }

@@ -19,13 +19,13 @@ Page {
     property var activeUserMembership
 
     // User permission
-    property var power
-    property var canChangeName
-    property var canKick
-    property var canBan
-    property var canInvite
-    property var canChangePermissions
-    property var canChangeAvatar
+    property var power: 0
+    property var canChangeName: false
+    property var canKick: false
+    property var canBan: false
+    property var canInvite: true
+    property var canChangePermissions: false
+    property var canChangeAvatar: false
 
     property var memberCount: 0
 
@@ -64,38 +64,43 @@ Page {
         // Request the full memberlist, from the database AND from the server (lazy loading)
         model.clear()
         memberCount = 0
-        storage.transaction ( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Memberships.membership, Memberships.power_level " +
-        " FROM Users, Memberships WHERE Memberships.chat_id='" + activeChat + "' " +
-        " AND Users.matrix_id=Memberships.matrix_id " +
-        " ORDER BY Memberships.membership", function (response) {
-            for ( var i = 0; i < response.rows.length; i++ ) {
-                var member = response.rows[ i ]
-                if ( member.membership === "join" ) memberCount++
-                model.append({
-                    name: member.displayname || usernames.transformFromId( member.matrix_id ),
-                    matrixid: member.matrix_id,
-                    membership: member.membership,
-                    avatar_url: member.avatar_url,
-                    userPower: member.power_level
-                })
-            }
-            memberList.positionViewAtBeginning ()
-        })
+        for ( var mxid in activeChatMembers ) {
+            var member = activeChatMembers[ mxid ]
+            if ( member.membership === "join" ) memberCount++
+            model.append({
+                name: member.displayname || usernames.transformFromId( mxid ),
+                matrixid: mxid,
+                membership: member.membership,
+                avatar_url: member.avatar_url,
+                userPower: member.power_level || 0
+            })
+        }
+        memberList.positionViewAtBeginning ()
 
         if ( settings.lazy_load_members ) {
             matrix.get ( "/client/r0/rooms/%1/members".arg(activeChat), {}, function ( response ) {
-                model.clear()
-                memberCount = 0
                 for ( var i = 0; i < response.chunk.length; i++ ) {
                     var member = response.chunk[ i ]
+
+                    if ( activeChatMembers[member.state_key] ) continue
                     if ( member.content.membership === "join" ) memberCount++
+
+                    activeChatMembers [member.state_key] = member.content
+                    if ( activeChatMembers [member.state_key].displayname === undefined || activeChatMembers [member.state_key].displayname === null || activeChatMembers [member.state_key].displayname === "" ) {
+                        activeChatMembers [member.state_key].displayname = usernames.transformFromId ( member.state_key )
+                    }
+                    if ( activeChatMembers [member.state_key].avatar_url === undefined || activeChatMembers [member.state_key].avatar_url === null ) {
+                        activeChatMembers [member.state_key].avatar_url = ""
+                    }
+
                     model.append({
-                        name: member.content.displayname !== null ? member.content.displayname : usernames.transformFromId( member.state_key ),
+                        name: activeChatMembers [member.state_key].displayname,
                         matrixid: member.state_key,
                         membership: member.content.membership,
-                        avatar_url: member.content.avatar_url,
+                        avatar_url: activeChatMembers [member.state_key].avatar_url,
                         userPower: 0
                     })
+
                 }
                 memberList.positionViewAtBeginning ()
             })

@@ -190,7 +190,7 @@ Item {
 
             // Insert the chat into the database if not exists
             var insertResult = transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
-            "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
+            "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
 
             // Update the notification counts and the limited timeline boolean
             var updateResult = transaction.executeSql ( "UPDATE Chats SET " +
@@ -225,6 +225,7 @@ Item {
                 handleRoomEvents ( id, room.timeline.events, "timeline", room )
             }
             if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
+            if ( room.account_data ) handleRoomEvents ( id, room.account_data.events, "account_data", room )
         }
     }
 
@@ -249,16 +250,22 @@ Item {
             if ( events[i].type === "m.receipt" ) {
                 for ( var e in events[i].content ) {
                     for ( var user in events[i].content[e]["m.read"]) {
-                        if ( user === settings.matrixid ) continue
                         var timestamp = events[i].content[e]["m.read"][user].ts
 
                         // Call the newEvent signal for updating the GUI
                         newEvent ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
 
-                        // Mark all previous received messages as seen
-                        transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
-                        " AND chat_id='" + id + "' AND status=2")
 
+                        if ( user === settings.matrixid ) {
+                            transaction.executeSql( "UPDATE Chats SET unread=? WHERE id=?",
+                            [ timestamp || new Date().getTime(),
+                            id ])
+                        }
+                        else {
+                            // Mark all previous received messages as seen
+                            transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
+                            " AND chat_id='" + id + "' AND status=2")
+                        }
                     }
                 }
             }
@@ -290,11 +297,18 @@ Item {
                 // Format the text for the app
                 if( event.content.body ) event.content_body = sender.formatText ( event.content.body )
                 else event.content_body = null
-                transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+
+                // Make unsigned part of the content
+                if ( event.content.unsigned === undefined && event.unsigned !== undefined ) {
+                    event.content.unsigned = event.unsigned
+                }
+
+                transaction.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [ event.event_id,
                 roomid,
                 event.origin_server_ts,
                 event.sender,
+                event.state_key || event.sender,
                 event.content_body,
                 event.content.msgtype || null,
                 event.type,
@@ -389,7 +403,7 @@ Item {
 
             // This event means, that the avatar of a room has been changed, so
             // it has to be changed in the database
-            else if ( event.type === "m.room.avatar" ) {
+            if ( event.type === "m.room.avatar" ) {
                 transaction.executeSql( "UPDATE Chats SET avatar_url=? WHERE id=?",
                 [ event.content.url,
                 roomid ])
@@ -407,22 +421,44 @@ Item {
             }
 
 
+            // This event means, that the aliases of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.fully_read" ) {
+                transaction.executeSql( "UPDATE Chats SET fully_read=? WHERE id=?",
+                [ event.content.event_id,
+                roomid ])
+            }
+
+
             // This event means, that someone joined the room, has left the room
             // or has changed his nickname
             else if ( event.type === "m.room.member" ) {
 
+
+                // Update user database
                 if ( event.content.membership !== "leave" && event.content.membership !== "ban" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, 'offline', 0, 0)",
                 [ event.state_key,
                 event.content.displayname || usernames.transformFromId(event.state_key),
                 event.content.avatar_url || "" ])
 
-                transaction.executeSql( "INSERT OR REPLACE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, " +
+                var memberInsertResult = transaction.executeSql( "INSERT OR IGNORE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, ?, ?, " +
                 "COALESCE(" +
                 "(SELECT power_level FROM Memberships WHERE chat_id='" + roomid + "' AND matrix_id='" + event.state_key + "'), " +
                 "(SELECT power_user_default FROM Chats WHERE id='" + roomid + "')" +
                 "))",
-                [ event.content.membership ])
+                [ event.content.displayname || "",
+                event.content.avatar_url || "",
+                event.content.membership ])
+
+                if ( memberInsertResult.rowsAffected === 0 ) {
+                    var queryStr = "UPDATE Memberships SET membership='" + event.content.membership + "'"
+                    if ( event.content.displayname !== undefined ) queryStr += ", displayname='" + (event.content.displayname || "") + "' "
+                    if ( event.content.avatar_url !== undefined ) queryStr += ", avatar_url='" + (event.content.avatar_url || "") + "' "
+                    queryStr += " WHERE matrix_id='" + event.state_key + "' AND chat_id='" + roomid + "'"
+                    transaction.executeSql( queryStr )
+                }
             }
+
 
             // This event changes the permissions of the users and the power levels
             else if ( event.type === "m.room.power_levels" ) {
@@ -450,10 +486,17 @@ Item {
                 // Set the users power levels:
                 if ( event.content.users ) {
                     for ( var user in event.content.users ) {
-                        transaction.executeSql( "UPDATE Memberships SET power_level=? WHERE matrix_id=? AND chat_id=?",
+                        var updateResult = transaction.executeSql( "UPDATE Memberships SET power_level=? WHERE matrix_id=? AND chat_id=?",
                         [ event.content.users[user],
                         user,
                         roomid ])
+                        if ( updateResult.rowsAffected === 0 ) {
+                            transaction.executeSql( "INSERT OR IGNORE INTO Memberships VALUES(?, ?, '', '', ?, ?)",
+                            [ roomid,
+                            user,
+                            "join",
+                            event.content.users[user] ])
+                        }
                     }
                 }
             }

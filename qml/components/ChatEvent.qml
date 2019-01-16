@@ -14,8 +14,8 @@ ListItem {
     property var sent: event.sender.toLowerCase() === settings.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
-    property var senderDisplayname: chatMembers[event.sender].displayname!==undefined ? chatMembers[event.sender].displayname : usernames.transformFromId(event.sender)
-    property var bgcolor: (isStateEvent ? (settings.chatBackground === undefined ? "#00000000" : theme.palette.normal.background) :
+    property var senderDisplayname: activeChatMembers[event.sender].displayname!==undefined ? activeChatMembers[event.sender].displayname : usernames.transformFromId(event.sender)
+    property var bgcolor: (isStateEvent ? (settings.darkmode ? "black" : "white") :
     (!sent ? settings.darkmode ? "#191A15" : UbuntuColors.porcelain :
     (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
 
@@ -108,7 +108,7 @@ ListItem {
 
         Avatar {
             id: avatar
-            mxc: opacity ? chatMembers[event.sender].avatar_url : ""
+            mxc: opacity ? activeChatMembers[event.sender].avatar_url : ""
             name: senderDisplayname
             anchors.left: isLeftSideEvent ? parent.left : undefined
             anchors.right: !isLeftSideEvent ? parent.right : undefined
@@ -116,7 +116,7 @@ ListItem {
             anchors.bottomMargin: units.gu(1)
             anchors.leftMargin: units.gu(1)
             anchors.rightMargin: units.gu(1)
-            opacity: (event.sameSender && !isStateEvent) ? 0 : 1
+            opacity: (event.sameSender || isStateEvent) ? 0 : 1
             width: isStateEvent ? units.gu(3) : units.gu(5)
             onClickFunction: function () {
                 if ( !opacity ) return
@@ -130,12 +130,15 @@ ListItem {
 
         Rectangle {
             id: messageBubble
-            anchors.left: isLeftSideEvent ? avatar.right : undefined
-            anchors.right: !isLeftSideEvent ? avatar.left : undefined
+            anchors.left: isLeftSideEvent && !isStateEvent ? avatar.right : undefined
+            anchors.right: !isLeftSideEvent && !isStateEvent ? avatar.left : undefined
             anchors.bottom: parent.bottom
             anchors.bottomMargin: !imageVisible*units.gu(1)
             anchors.leftMargin: units.gu(1)
             anchors.rightMargin: units.gu(1)
+            anchors.horizontalCenter: isStateEvent ? parent.horizontalCenter : undefined
+            border.color: mainBorderColor
+            border.width: isStateEvent
 
             opacity: isStateEvent ? 0.75 : 1
             z: 2

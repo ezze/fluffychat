@@ -49,7 +49,7 @@ Page {
 
             // Case 3: The notifications are enabled
             status = 3
-        } )
+        }, null, 2 )
     }
 
     header: FcPageHeader {

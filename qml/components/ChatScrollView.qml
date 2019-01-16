@@ -13,24 +13,26 @@ ListView {
     property var requesting: false
     property var initialized: -1
     property var count: model.count
-    property var unread: ""
     property var canRedact: false
-    property var chatMembers: []
 
     function init () {
         // Request all participants displaynames and avatars
-        storage.transaction ( "SELECT user.matrix_id, user.displayname, user.avatar_url, membership.membership " +
-        " FROM Memberships membership, Users user " +
-        " WHERE membership.chat_id='" + activeChat +
-        "' AND membership.matrix_id=user.matrix_id "
+        activeChatMembers = []
+        storage.transaction ( "SELECT membership.matrix_id, membership.displayname, membership.avatar_url, membership.membership, membership.power_level " +
+        " FROM Memberships membership " +
+        " WHERE membership.chat_id='" + activeChat + "'"
         , function (memberResults) {
             // Make sure that the event for the users matrix id exists
-            chatMembers[settings.matrixid] = {
+            activeChatMembers[settings.matrixid] = {
                 displayname: usernames.transformFromId(settings.matrixid),
                 avatar_url: ""
             }
             for ( var i = 0; i < memberResults.rows.length; i++ ) {
-                chatMembers[ memberResults.rows[i].matrix_id ] = memberResults.rows[i]
+                var mxid = memberResults.rows[i].matrix_id
+                activeChatMembers[ mxid ] = memberResults.rows[i]
+                if ( activeChatMembers[ mxid ].displayname === null || activeChatMembers[ mxid ].displayname === "" ) {
+                    activeChatMembers[ mxid ].displayname = usernames.transformFromId ( mxid )
+                }
             }
 
             update ()
@@ -38,7 +40,7 @@ ListView {
     }
 
     function update ( sync ) {
-        storage.transaction ( "SELECT id, type, content_json, content_body, origin_server_ts, sender, status " +
+        storage.transaction ( "SELECT id, type, content_json, content_body, origin_server_ts, sender, state_key, status " +
         " FROM Events " +
         " WHERE chat_id='" + activeChat +
         "' ORDER BY origin_server_ts DESC"
@@ -54,23 +56,12 @@ ListView {
                 addEventToList ( event, false )
                 if ( event.matrix_id === null ) requestRoomMember ( event.sender )
             }
-
-            // Scroll to last read event
-            if ( unread !== "" ) {
-                for ( var j = 0; j < count; j++ ) {
-                    if ( model.get ( j ).event.id === unread ) {
-                        currentIndex = j
-                        break
-                    }
-                }
-            }
         })
     }
 
 
-    function requestHistory () {
+    function requestHistory ( event_id ) {
         if ( initialized !== model.count || requesting || (model.count > 0 && model.get( model.count -1 ).event.type === "m.room.create") ) return
-        toast.show ( i18n.tr( "Get more messages from the server ...") )
         requesting = true
         var storageController = storage
         storage.transaction ( "SELECT prev_batch FROM Chats WHERE id='" + activeChat + "'", function (rs) {
@@ -82,7 +73,11 @@ ListView {
             }
             matrix.get( "/client/r0/rooms/" + activeChat + "/messages", data, function ( result ) {
                 if ( result.chunk.length > 0 ) {
-                    for ( var i = 0; i < result.chunk.length; i++ ) addEventToList ( result.chunk[i], true )
+                    var eventFound = false
+                    for ( var i = 0; i < result.chunk.length; i++ ) {
+                        if ( event_id && !eventFound && event_id === result.chunk[i].event_id ) eventFound = i
+                        addEventToList ( result.chunk[i], true )
+                    }
                     storageController.db.transaction(
                         function(tx) {
                             events.transaction = tx
@@ -94,7 +89,15 @@ ListView {
                     })
                 }
                 else requesting = false
-            }, function () { requesting = false } )
+                if ( event_id ) {
+                    if ( eventFound !== false ) {
+                        currentIndex = count - 1 - historyCount + eventFound
+                        matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": model.get(0).event.id }, null, null, 0 )
+                        currentIndex = count - 1 - historyCount + eventFound
+                    }
+                    else requestHistory ( event_id )
+                }
+            }, function () { requesting = false }, event_id ? 2 : 1 )
         } )
     }
 
@@ -106,18 +109,23 @@ ListView {
         // Display this event at all? In the chat settings the user can choose
         // which events should be displayed. Less important events are all events,
         // that or not member events from other users and the room create events.
-        if ( (!settings.showMemberChangeEvents && event.type === "m.room.member") ||
-        (settings.hideLessImportantEvents &&
-            event.type !== "m.room.message" &&
-            event.type !== "m.sticker" &&
-            event.type !== "m.room.member" &&
-            event.type !== "m.room.create")
-        ) return
+        if ( settings.hideLessImportantEvents && model.count > 0 && event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker" ) {
+            var lastEvent = model.get(0).event
+            if ( lastEvent.origin_server_ts < event.origin_server_ts ) {
+                if ( lastEvent.type === "m.room.create" && event.sender === lastEvent.sender ) return
+                if ( (lastEvent.type === "m.room.member" || lastEvent.type === "m.room.multipleMember") && event.type === "m.room.member" ) {
+                    event.type = "m.room.multipleMember"
+                    model.remove( 0 )
+                    model.insert( 0, { "event": event } )
+                    return
+                }
+            }
+        }
 
         // Is the sender of this event in the local database? If not, then request
         // the displayname and avatar url of this sender.
-        if ( chatMembers[event.sender] === undefined) {
-            chatMembers[event.sender] = {
+        if ( activeChatMembers[event.sender] === undefined) {
+            activeChatMembers[event.sender] = {
                 "displayname": usernames.transformFromId ( event.sender ),
                 "avatar_url": ""
             }
@@ -133,7 +141,7 @@ ListView {
                         events.handleRoomEvents ( activeChat, [ newEvent ], "state" )
                     }
                 )
-            })
+            }, null, 0)
         }
 
 

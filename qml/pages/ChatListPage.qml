@@ -8,35 +8,6 @@ Page {
     anchors.fill: parent
     id: chatListPage
 
-    property var searching: false
-
-    onSearchingChanged: {
-        if ( searching ) {
-            for( var i = 0; i < model.count; i++ ) tempModel.append ( model.get(i) )
-            matrix.get ( "/client/r0/publicRooms", { limit: 1000 }, function ( res ) {
-                for( var i = 0; i < res.chunk.length; i++ ) {
-                    var chat = res.chunk[i]
-                    tempModel.append ( { "room": {
-                        id: chat.room_id,
-                        topic: chat.name || i18n.tr("Nameless chat"),
-                        membership: "leave",
-                        avatar_url: chat.avatar_url || "",
-                        origin_server_ts: new Date().getTime(),
-                        typing: [],
-                        notification_count: 0,
-                        highlight_count: 0
-                    } } )
-                }
-                enabled = true
-            } )
-            chatListView.model = tempModel
-        }
-        else {
-            chatListView.model = model
-            tempModel.clear ()
-        }
-    }
-
 
     // To disable the background image on this page
     Rectangle {
@@ -50,8 +21,8 @@ Page {
     Component.onCompleted: {
 
         // On the top are the rooms, which the user is invited to
-        storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, " +
-        " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.content_json, events.type " +
+        storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, rooms.unread, " +
+        " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.state_key, events.content_json, events.type " +
         " FROM Chats rooms LEFT JOIN Events events " +
         " ON rooms.id=events.chat_id " +
         " WHERE rooms.membership!='leave' " +
@@ -124,7 +95,7 @@ Page {
 
     function newEvent ( type, chat_id, eventType, lastEvent ) {
         // Is the event necessary for the chat list? If not, then return
-        if ( !(eventType === "timeline" || type === "m.typing" || type === "m.room.name" || type === "m.room.avatar") ) return
+        if ( !(eventType === "timeline" || type === "m.typing" || type === "m.room.name" || type === "m.room.avatar" || type === "m.receipt") ) return
 
         // Search the room in the model
         var j = 0
@@ -134,7 +105,7 @@ Page {
         if ( j === model.count ) return
         var tempRoom = model.get(j).room
 
-    if ( eventType === "timeline"/* && (type === "m.room.message" || type === "m.sticker")*/ ) {
+    if ( eventType === "timeline" ) {
         // Update the last message preview
         var body = lastEvent.content.body || ""
         if ( type !== "m.room.message" ) {
@@ -159,7 +130,11 @@ Page {
         // Update the room avatar
         tempRoom.avatar_url = lastEvent.content.url
     }
-    else if ( type === "m.room.member" && ((tempRoom.topic === "" || tempRoom.topic === null) || (tempRoom.avatar_url === "" || tempRoom.avatar_url === null)) ) {
+    else if ( type === "m.receipt" && lastEvent.user === settings.matrixid ) {
+        // Update the room avatar
+        tempRoom.unread = lastEvent.ts
+    }
+    else if ( type === "m.room.member" && (tempRoom.topic === "" || tempRoom.topic === null || tempRoom.avatar_url === "" || tempRoom.avatar_url === null) ) {
         // Update the room name or room avatar calculation
         model.remove ( j )
         model.insert ( j, { "room": tempRoom })
@@ -197,24 +172,23 @@ header: StyledPageHeader {
         actions: [
         Action {
             iconName: "search"
-            onTriggered: searching = searchField.focus = true
+            onTriggered: searchField.focus = true
         },
         Action {
             iconName: "account"
             visible: shareObject === null
             onTriggered: {
-                searching = false
                 searchField.text = ""
-                mainStack.toStart ()
-                mainStack.push(Qt.resolvedUrl("./SettingsPage.qml"))
+                mainStack.toStart ("./pages/SettingsPage.qml")
             }
         },
         Action {
+            id: addAction
+            text: i18n.tr ( "Add chat" )
             iconName: "add"
             visible: shareObject === null
             onTriggered: {
-                    mainStack.toStart ()
-                    mainStack.push(Qt.resolvedUrl("./CreateChatPage.qml"))
+                mainStack.toStart ("./pages/CreateChatPage.qml")
             }
         }
         ]
@@ -241,38 +215,11 @@ TextField {
         rightMargin: units.gu(2)
         leftMargin: units.gu(2)
     }
-    onDisplayTextChanged: {
-        if ( displayText !== "" && !searching ) searching = true
-        else if ( displayText === "" ) searching = false
-        if ( tempElement ) {
-            tempModel.remove ( tempModel.count - 1 )
-            tempElement  = false
-        }
-
-        if ( displayText.slice( 0,1 ) === "#" ) {
-            searchMatrixId = displayText
-            if ( searchMatrixId.indexOf(":") === -1 ) searchMatrixId += ":%1".arg(settings.server)
-
-
-            tempModel.append ( { "room": {
-                id: searchMatrixId,
-                topic: searchMatrixId,
-                membership: "leave",
-                avatar_url: "",
-                origin_server_ts: new Date().getTime(),
-                typing: [],
-                notification_count: 0,
-                highlight_count: 0
-            } } )
-            tempElement = true
-        }
-    }
     inputMethodHints: Qt.ImhNoPredictiveText
-    placeholderText: i18n.tr("Search for chats or public rooms...")
+    placeholderText: i18n.tr("Search for your chats...")
 }
 
 ListModel { id: model }
-ListModel { id: tempModel }
 
 ListView {
     id: chatListView
@@ -288,14 +235,12 @@ ListView {
     displaced: Transition {
         SmoothedAnimation { property: "y"; duration: 300 }
     }
-}
-
-Label {
-    text: i18n.tr("Click on '+' to start a chat")
-    textSize: Label.Large
-    color: UbuntuColors.graphite
-    anchors.centerIn: parent
-    visible: model.count === 0 && !searching
+    footer: SettingsListFooter {
+        name: addAction.text
+        icon: addAction.iconName
+        visible: addAction.visible
+        onClicked: mainStack.toStart ("./pages/CreateChatPage.qml")
+    }
 }
 
 }

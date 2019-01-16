@@ -16,7 +16,7 @@ Page {
                 var newDeviceListItem = Qt.createComponent("../components/DeviceListItem.qml")
                 newDeviceListItem.createObject(deviceList, { device: response.devices[i] } )
             }
-        })
+        }, null, 2)
     }
 
 

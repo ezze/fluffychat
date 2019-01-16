@@ -227,13 +227,6 @@ Page {
             }
 
             SettingsListSwitch {
-                name: i18n.tr("Show member change events")
-                icon: "contact-group"
-                onSwitching: function () { settings.showMemberChangeEvents = isChecked }
-                isChecked: settings.showMemberChangeEvents
-            }
-
-            SettingsListSwitch {
                 name: i18n.tr("Hide less important events")
                 icon: "info"
                 onSwitching: function () { settings.hideLessImportantEvents = isChecked }

@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.3"
+    property var version: "0.3.5"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -31,7 +31,7 @@ Item {
         }
         catch (e) {
             if ( e.code && e.code === 2 ) {
-                console.log("Database locked!")
+                console.warn(e,transaction)
                 lockedScreen.visible = true
             }
             else console.warn(e,transaction)
@@ -50,10 +50,10 @@ Item {
         }
         catch (e) {
             if ( e.code && e.code === 2 ) {
-                console.log("Database locked!")
+                console.warn(e,transaction)
                 lockedScreen.visible = true
             }
-            else console.warn(e,transaction)
+            else console.warn(e,query)
         }
     }
 
@@ -97,7 +97,8 @@ Item {
         'prev_batch TEXT, ' +
         'avatar_url TEXT, ' +
         'draft TEXT, ' +
-        'unread TEXT, ' +        // The event id of the last seen event
+        'unread INTEGER, ' +        // Timestamp of when the user has last read the chat
+        'fully_read TEXT, ' +       // ID of the fully read marker event
         'description TEXT, ' +
         'canonical_alias TEXT, ' +  // The address in the form: #roomname:homeserver.org
 
@@ -131,6 +132,7 @@ Item {
         'chat_id TEXT, ' +
         'origin_server_ts INTEGER, ' +
         'sender TEXT, ' +
+        'state_key TEXT, ' +
         'content_body TEXT, ' +
         'content_msgtype STRING, ' +
         'type TEXT, ' +
@@ -152,6 +154,8 @@ Item {
         transaction('CREATE TABLE Memberships(' +
         'chat_id TEXT, ' +      // The chat id of this membership
         'matrix_id TEXT, ' +    // The matrix id of this user
+        'displayname TEXT, ' +
+        'avatar_url TEXT, ' +
         'membership TEXT, ' +   // The status of the membership. Must be one of [join, invite, ban, leave]
         'power_level INTEGER, ' +   // The power level of this user. Must be in [0,..,100]
         'UNIQUE(chat_id, matrix_id))')

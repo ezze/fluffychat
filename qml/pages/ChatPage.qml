@@ -13,9 +13,9 @@ Page {
     property var isTyping: false
     property var pageName: "chat"
     property var canSendMessages: true
-    property var chatMembers: chatScrollView.chatMembers
     property var replyEvent: null
     property var chat_id
+    property var topic: ""
 
     width: mainStack.width
 
@@ -23,7 +23,11 @@ Page {
         if ( !messageTextField.displayText.replace(/\s/g, '').length && message === undefined ) return
 
         var sticker = undefined
-        if ( message === undefined ) message = messageTextField.displayText
+        if ( message === undefined ) {
+            messageTextField.focus = false
+            message = messageTextField.displayText
+            messageTextField.focus = true
+        }
         if ( typeof message !== "string" ) sticker = message
 
         // Send the message
@@ -84,10 +88,11 @@ Page {
         var type = sticker === undefined ? "m.room.message" : "m.sticker"
 
         // Save the message in the database
-        storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         [ messageID,
         activeChat,
         now,
+        settings.matrixid,
         settings.matrixid,
         message,
         null,
@@ -100,8 +105,8 @@ Page {
                 id: messageID,
                 sender: settings.matrixid,
                 content_body: sender.formatText ( data.body ),
-                displayname: chatMembers[settings.matrixid].displayname,
-                avatar_url: chatMembers[settings.matrixid].avatar_url,
+                displayname: activeChatMembers[settings.matrixid].displayname,
+                avatar_url: activeChatMembers[settings.matrixid].avatar_url,
                 status: msg_status.SENDING,
                 origin_server_ts: now,
                 content: data
@@ -134,28 +139,49 @@ Page {
             isTyping = typing
             matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( settings.matrixid ), {
                 typing: typing
-            }, null, null )
+            }, null, null, 0 )
         }
     }
 
 
     Component.onCompleted: {
-        storage.transaction ( "SELECT draft, membership, unread, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT draft, topic, membership, unread, fully_read, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
             if ( res.rows.length === 0 ) return
-            membership = res.rows[0].membership
-            if ( res.rows[0].draft !== "" && res.rows[0].draft !== null ) messageTextField.text = res.rows[0].draft
-            chatScrollView.unread = res.rows[0].unread
+            var room = res.rows[0]
+            membership = room.membership
+            if ( room.draft !== "" && room.draft !== null ) messageTextField.text = room.draft
             storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
             "matrix_id='" + settings.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
-                chatScrollView.canRedact = rs.rows[0].power_level >= res.rows[0].power_redact
-                canSendMessages = rs.rows[0].power_level >= res.rows[0].power_events_default
+                var power_level = 0
+                if ( rs.rows.length > 0 ) power_level = rs.rows[0].power_level
+                chatScrollView.canRedact = power_level >= room.power_redact
+                canSendMessages = power_level >= room.power_events_default
             })
             chatScrollView.init ()
             chatActive = true
             chat_id = activeChat
+            topic = room.topic
 
             // Is there an unread marker? Then mark as read!
-            if ( res.rows[0].notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + chatScrollView.model.get(0).event.id, null )
+            var lastEvent = chatScrollView.model.get(0).event
+            if ( room.unread < lastEvent.origin_server_ts && lastEvent.sender !== settings.matrixid ) {
+                matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
+            }
+
+            // Scroll top to the last seen message?
+            if ( room.fully_read !== lastEvent.id ) {
+                // Check if the last event is in the database
+                var found = false
+                for ( var j = 0; j < chatScrollView.count; j++ ) {
+                    if ( chatScrollView.get(j).event.id === room.fully_read ) {
+                        chatScrollView.currentIndex = j
+                        matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": lastEvent.id }, null, null, 0 )
+                        found = true
+                        break
+                    }
+                }
+                if ( !found ) chatScrollView.requestHistory ( room.fully_read )
+            }
         })
 
 
@@ -180,9 +206,8 @@ Page {
     Component.onDestruction: {
         if ( chat_id !== activeChat ) return
         var lastEventId = chatScrollView.count > 0 ? chatScrollView.lastEventId : ""
-        storage.query ( "UPDATE Chats SET draft=?, unread=? WHERE id=?", [
+        storage.query ( "UPDATE Chats SET draft=? WHERE id=?", [
         messageTextField.displayText,
-        lastEventId,
         activeChat
         ])
         sendTypingNotification ( false )
@@ -210,9 +235,20 @@ Page {
             activeChatTypingUsers = eventContent
         }
         else if ( type === "m.room.member") {
-            chatScrollView.chatMembers [eventContent.state_key] = eventContent.content
+            activeChatMembers [eventContent.state_key] = eventContent.content
+            if ( activeChatMembers [eventContent.state_key].displayname === undefined || activeChatMembers [eventContent.state_key].displayname === null || activeChatMembers [eventContent.state_key].displayname === "" ) {
+                activeChatMembers [eventContent.state_key].displayname = usernames.transformFromId ( eventContent.state_key )
+            }
+            if ( activeChatMembers [eventContent.state_key].avatar_url === undefined || activeChatMembers [eventContent.state_key].avatar_url === null ) {
+                activeChatMembers [eventContent.state_key].avatar_url = ""
+            }
+            if ( topic === "" ) {
+                roomnames.getById ( activeChat, function ( name ) {
+                    activeChatDisplayName = name
+                })
+            }
         }
-        else if ( type === "m.receipt" ) {
+        else if ( type === "m.receipt" && eventContent.user !== settings.matrixid ) {
             chatScrollView.markRead ( eventContent.ts )
         }
         if ( eventType === "timeline" ) {
@@ -284,7 +320,7 @@ Page {
             anchors.left: parent.left
         }
         Label {
-            text: replyEvent !== null ? i18n.tr("Reply to <b>%1</b>: \"%2\"").arg(chatMembers[replyEvent.sender].displayname).arg(replyEvent.content.body.split("\n").join(" ")) : ""
+            text: replyEvent !== null ? i18n.tr("Reply to <b>%1</b>: \"%2\"").arg(activeChatMembers[replyEvent.sender].displayname).arg(replyEvent.content.body.split("\n").join(" ")) : ""
             anchors.left: parent.left
             anchors.right: closeReplyIcon.left
             anchors.verticalCenter: parent.verticalCenter
@@ -324,7 +360,7 @@ Page {
         height: width
         anchors.bottom: replyEvent === null ? chatInput.top : replyEventView.top
         anchors.right: parent.right
-        anchors.margins: units.gu(2)
+        anchors.margins: opacity !== 0 ? units.gu(2) : -width
         border.width: 1
         border.color: UbuntuColors.slate
         radius: width / 6

@@ -8,23 +8,25 @@ ListItem {
     id: chatListItem
 
     property var previousMessage: ""
+    property var isUnread: (room.unread < room.origin_server_ts && room.sender !== settings.matrixid) || room.membership === "invite"
 
-    visible: { searching ? layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 : true }
+    visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
 
     color: settings.darkmode ? "#202020" : "white"
 
     highlightColor: settings.darkmode ? settings.mainColor : settings.brighterMainColor
 
-    onClicked: {
+    function triggered () {
         if ( room.membership !== "leave" ) {
             activeChatTypingUsers = room.typing || []
             mainStack.toChat ( room.id )
         }
         else matrix.joinChat ( room.id )
         searchField.text = ""
-        searching = false
     }
+
+    onClicked: triggered ()
 
     ListItemLayout {
         id: layout
@@ -33,7 +35,7 @@ ListItem {
             layout.title.text = displayname
         })
         title.font.bold: true
-        title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
+        title.color: mainFontColor
         subtitle.text: {
             room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
             (room.membership === "leave" ? "" :
@@ -41,20 +43,18 @@ ListItem {
             (room.content_body ? ( room.sender === settings.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
             i18n.tr("No preview messages"))))
         }
-        subtitle.color: "#888888"
+        subtitle.color: isUnread ? settings.mainColor : "#888888"
         subtitle.linkColor: subtitle.color
+        subtitle.font.weight: isUnread ? Font.Bold : Font.Light
 
         Avatar {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
             name: layout.title.text
-            mxc: room.avatar_url !== "" && room.avatar_url !== null ? room.avatar_url : roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
+            mxc: room.avatar_url !== "" && room.avatar_url !== null && room.avatar_url !== undefined ? room.avatar_url : roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
                 avatar.mxc = avatar_url
             } )
-            onClickFunction: function () {
-                activeChat = room.id
-                mainStack.push (Qt.resolvedUrl("../pages/ChatSettingsPage.qml"))
-            }
+            onClickFunction: function () { triggered () }
         }
     }
 
@@ -88,7 +88,7 @@ ListItem {
             textSize: Label.Small
             color: UbuntuColors.porcelain
         }
-        visible: unreadLabel.text != "0"
+        visible: unreadLabel.text !== "0"
     }
 
 

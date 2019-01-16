@@ -44,7 +44,7 @@ BottomEdge {
             if ( matrix_id === settings.matrixid ) return
             storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url " +
             " FROM Chats rooms, Memberships memberships " +
-            " WHERE rooms.membership!='leave' " +
+            " WHERE (memberships.membership='join' OR memberships.membership='invite') " +
             " AND memberships.matrix_id='" + matrix_id + "' " +
             " AND memberships.chat_id=rooms.id " +
             " ORDER BY rooms.topic "
@@ -169,9 +169,11 @@ BottomEdge {
                             "preset": "private_chat"
                         }
                         var _mainStack = mainStack
+                        var _toast = toast
                         matrix.post( "/client/r0/createRoom", data, function (res) {
                             if ( res.room_id ) _mainStack.toChat ( res.room_id )
-                        } )
+                            _toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
+                        }, null, 2 )
                     }
 
                     ListItemLayout {

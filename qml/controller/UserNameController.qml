@@ -78,6 +78,7 @@ Item {
     }
 
     function stringToDarkColor ( str ) {
+        if ( str === null ) return Qt.hsla( 0, 0.8, 0.35, 1 )
         if ( str.indexOf("@") !== -1 ) str = usernames.getById ( str )
         var number = 0
         for( var i=0; i<str.length; i++ ) number += str.charCodeAt(i)

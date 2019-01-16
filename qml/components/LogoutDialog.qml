@@ -39,7 +39,10 @@ Component {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Log out")
                 color: UbuntuColors.red
-                onClicked: matrix.logout ()
+                onClicked: {
+                    PopupUtils.close(dialogue)
+                    matrix.logout ()
+                }
             }
         }
     }

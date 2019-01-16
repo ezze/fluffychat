@@ -60,10 +60,10 @@ Item {
 
     function formatText ( tempText ) {
         // HTML characters
-        /*tempText = tempText.split("&").join("&amp;")
-        .split("<").join("&lt;")
-        .split(">").join("&gt;")
+        /*split("&").join("&amp;")
         .split('"').join("&quot;")*/
+        tempText = tempText.split("<").join("&lt;")
+        .split(">").join("&gt;")
 
         // Format markdown links
         tempText = tempText.replace(markdownLinkRegex, function(str) {
@@ -74,8 +74,9 @@ Item {
 
         // Detect common https urls and make them clickable
         tempText = tempText.replace(urlRegex, function(url) {
-            if ( url.indexOf(" ") !== -1 ) {
-                url = url.replace(" ","")
+            if ( url.slice(0,1) === " " ) {
+                url = url.slice(1, url.length)
+                return ' <a href="%1">%2</a>'.arg(url).arg(url)
             }
             return '<a href="%1">%2</a>'.arg(url).arg(url)
         })
@@ -92,7 +93,6 @@ Item {
         tempText = tempText.replace(usernameRegex, replaceMatrixUri)
         tempText = tempText.replace(roomIdRegex, replaceMatrixUri)
         tempText = tempText.replace(communityIdRegex, replaceMatrixUri)
-
         tempText = formatReply ( tempText )
 
         // Set the newline tags correct
@@ -105,9 +105,9 @@ Item {
         if ( tempText.slice(0,9) === "&gt; &lt;" ) {
             var lines = tempText.split("\n")
             var user = lines[0].split("&lt;")[1].split("&gt;")[0]
-            lines[0] = lines[0].replace( user, "<a href='fluffychat://%1'>%2</a>".arg(user).arg(user))
+            lines[0] = lines[0].replace( user, "<a href='fluffychat://%1'><font color='#888888'>%2:</font></a><br>".arg(user).arg(user))
             lines[0] = lines[0].replace("&gt; ", "")
-            lines[0] = lines[0].replace("&gt;",":")
+            lines[0] = lines[0].replace("&gt;","<font color='#888888'>")
             lines[0] = lines[0].replace("&lt;","")
             lines[0] += "</font>"
             for ( var i = 1; i < lines.length; i++ ) {
@@ -115,9 +115,11 @@ Item {
                     lines[i] = lines[i].replace("&gt;", "<font color='#888888'>")
                     lines[i] += "</font>"
                 }
-                else break
+                else {
+                    break
+                }
             }
-            tempText = lines.join(" </font><br><br>")
+            tempText = lines.join("<br>")
         }
         return tempText
     }
