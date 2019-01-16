@@ -145,27 +145,41 @@ Page {
 
 
     Component.onCompleted: {
-        storage.transaction ( "SELECT draft, topic, membership, unread, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        storage.transaction ( "SELECT draft, topic, membership, unread, fully_read, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
             if ( res.rows.length === 0 ) return
-            membership = res.rows[0].membership
-            if ( res.rows[0].draft !== "" && res.rows[0].draft !== null ) messageTextField.text = res.rows[0].draft
-            chatScrollView.unread = res.rows[0].unread
+            var room = res.rows[0]
+            membership = room.membership
+            if ( room.draft !== "" && room.draft !== null ) messageTextField.text = room.draft
             storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
             "matrix_id='" + settings.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
                 var power_level = 0
                 if ( rs.rows.length > 0 ) power_level = rs.rows[0].power_level
-                chatScrollView.canRedact = power_level >= res.rows[0].power_redact
-                canSendMessages = power_level >= res.rows[0].power_events_default
+                chatScrollView.canRedact = power_level >= room.power_redact
+                canSendMessages = power_level >= room.power_events_default
             })
             chatScrollView.init ()
             chatActive = true
             chat_id = activeChat
-            topic = res.rows[0].topic
+            topic = room.topic
 
             // Is there an unread marker? Then mark as read!
             var lastEvent = chatScrollView.model.get(0).event
-            if ( res.rows[0].unread < lastEvent.origin_server_ts && lastEvent.sender !== settings.matrixid ) {
+            if ( room.unread < lastEvent.origin_server_ts && lastEvent.sender !== settings.matrixid ) {
                 matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
+            }
+
+            // Scroll top to the last seen message?
+            if ( room.fully_read !== lastEvent.id ) {
+                // Check if the last event is in the database
+                var j = 0
+                for ( j = 0; j < chatScrollView.count; j++ ) {
+                    if ( chatScrollView.model.get ( j ).event.id === room.fully_read ) {
+                        chatScrollView.currentIndex = j
+                        matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": model.get(0).event.id }, null, null, 0 )
+                        break
+                    }
+                }
+                if ( j === chatScrollView.count ) chatScrollView.requestHistory ( room.fully_read )
             }
         })
 

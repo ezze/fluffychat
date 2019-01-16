@@ -13,7 +13,6 @@ ListView {
     property var requesting: false
     property var initialized: -1
     property var count: model.count
-    property var unread: ""
     property var canRedact: false
 
     function init () {
@@ -57,21 +56,11 @@ ListView {
                 addEventToList ( event, false )
                 if ( event.matrix_id === null ) requestRoomMember ( event.sender )
             }
-
-            // Scroll to last read event
-            if ( unread !== "" ) {
-                for ( var j = 0; j < count; j++ ) {
-                    if ( model.get ( j ).event.id === unread ) {
-                        currentIndex = j
-                        break
-                    }
-                }
-            }
         })
     }
 
 
-    function requestHistory () {
+    function requestHistory ( event_id ) {
         if ( initialized !== model.count || requesting || (model.count > 0 && model.get( model.count -1 ).event.type === "m.room.create") ) return
         requesting = true
         var storageController = storage
@@ -84,7 +73,11 @@ ListView {
             }
             matrix.get( "/client/r0/rooms/" + activeChat + "/messages", data, function ( result ) {
                 if ( result.chunk.length > 0 ) {
-                    for ( var i = 0; i < result.chunk.length; i++ ) addEventToList ( result.chunk[i], true )
+                    var eventFound = false
+                    for ( var i = 0; i < result.chunk.length; i++ ) {
+                        if ( event_id && !eventFound && event_id === result.chunk[i].event_id ) eventFound = i
+                        addEventToList ( result.chunk[i], true )
+                    }
                     storageController.db.transaction(
                         function(tx) {
                             events.transaction = tx
@@ -96,7 +89,14 @@ ListView {
                     })
                 }
                 else requesting = false
-            }, function () { requesting = false } )
+                if ( event_id ) {
+                    if ( eventFound !== false ) {
+                        currentIndex = count - 1 - historyCount + eventFound
+                        matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": model.get(0).event.id }, null, null, 0 )
+                    }
+                    else requestHistory ( event_id )
+                }
+            }, function () { requesting = false }, event_id ? 2 : 1 )
         } )
     }
 

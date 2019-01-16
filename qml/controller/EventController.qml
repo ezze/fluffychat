@@ -190,7 +190,7 @@ Item {
 
             // Insert the chat into the database if not exists
             var insertResult = transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
-            "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
+            "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
 
             // Update the notification counts and the limited timeline boolean
             var updateResult = transaction.executeSql ( "UPDATE Chats SET " +
@@ -418,6 +418,15 @@ Item {
                     transaction.executeSql( "INSERT INTO Addresses VALUES(?,?)",
                     [ roomid, event.content.aliases[alias] ] )
                 }
+            }
+
+
+            // This event means, that the aliases of a room has been changed, so
+            // it has to be changed in the database
+            if ( event.type === "m.fully_read" ) {
+                transaction.executeSql( "UPDATE Chats SET fully_read=? WHERE id=?",
+                [ event.content.event_id,
+                roomid ])
             }
 
 
