@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-16 15:16+0000\n"
+"POT-Creation-Date: 2019-01-16 15:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -445,20 +445,20 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:159 ../qml/components/StyledPageHeader.qml:7
+#: ../qml/pages/ChatListPage.qml:161 ../qml/components/StyledPageHeader.qml:7
 #: fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:159 ../qml/components/ChatEvent.qml:57
+#: ../qml/pages/ChatListPage.qml:161 ../qml/components/ChatEvent.qml:57
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:187 ../qml/pages/CreateChatPage.qml:13
+#: ../qml/pages/ChatListPage.qml:189 ../qml/pages/CreateChatPage.qml:13
 msgid "Add chat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:219
+#: ../qml/pages/ChatListPage.qml:221
 msgid "Search for your chats..."
 msgstr ""
 
