@@ -71,6 +71,7 @@ MainView {
     property var consentContent: ""
     property var shareObject: null
     property var mainFontColor: settings.darkmode ? "#FFFFFF" : "#000000"
+    property var mainBorderColor: settings.darkmode ? "#333333" : "#CCCCCC"
     property var bottomEdgeCommited: false
 
 
