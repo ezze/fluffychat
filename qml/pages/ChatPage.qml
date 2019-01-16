@@ -166,6 +166,7 @@ Page {
             var lastEvent = chatScrollView.model.get(0).event
             if ( res.rows[0].unread < lastEvent.origin_server_ts ) {
                 console.log("============================================================SEND RECEEEIIIIPT")
+                console.log(res.rows[0].unread, lastEvent.origin_server_ts)
                 matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
             }
         })
@@ -236,7 +237,7 @@ Page {
                 })
             }
         }
-        else if ( type === "m.receipt" ) {
+        else if ( type === "m.receipt" && eventContent.user !== settings.matrixid ) {
             chatScrollView.markRead ( eventContent.ts )
         }
         if ( eventType === "timeline" ) {
