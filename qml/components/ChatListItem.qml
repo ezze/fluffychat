@@ -45,7 +45,7 @@ ListItem {
         }
         subtitle.color: isUnread ? settings.mainColor : "#888888"
         subtitle.linkColor: subtitle.color
-        subtitle.font.bold: isUnread
+        subtitle.font.bold: isUnread ? true : undefined
 
         Avatar {
             id: avatar

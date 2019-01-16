@@ -113,11 +113,10 @@ ListView {
             var lastEvent = model.get(0).event
             if ( lastEvent.origin_server_ts < event.origin_server_ts ) {
                 if ( lastEvent.type === "m.room.create" && event.sender === lastEvent.sender ) return
-                if ( lastEvent.type === "m.room.multipleMember" && event.type === "m.room.member" ) return
-                if ( lastEvent.type === "m.room.member" && event.type === "m.room.member" ) {
-                    lastEvent.type = "m.room.multipleMember"
+                if ( (lastEvent.type === "m.room.member" || lastEvent.type === "m.room.multipleMember") && event.type === "m.room.member" ) {
+                    event.type = "m.room.multipleMember"
                     model.remove( 0 )
-                    model.insert( 0, { event: lastEvent } )
+                    model.insert( 0, { "event": event } )
                     return
                 }
             }
