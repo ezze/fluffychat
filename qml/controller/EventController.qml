@@ -250,7 +250,6 @@ Item {
             if ( events[i].type === "m.receipt" ) {
                 for ( var e in events[i].content ) {
                     for ( var user in events[i].content[e]["m.read"]) {
-                        console.log("NEW READ:",JSON.stringify(events[i].content[e]["m.read"][user]))
                         var timestamp = events[i].content[e]["m.read"][user].ts
 
                         // Call the newEvent signal for updating the GUI

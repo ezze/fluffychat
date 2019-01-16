@@ -164,9 +164,7 @@ Page {
 
             // Is there an unread marker? Then mark as read!
             var lastEvent = chatScrollView.model.get(0).event
-            if ( res.rows[0].unread < lastEvent.origin_server_ts ) {
-                console.log("============================================================SEND RECEEEIIIIPT")
-                console.log(res.rows[0].unread, lastEvent.origin_server_ts)
+            if ( res.rows[0].unread < lastEvent.origin_server_ts && lastEvent.sender !== settings.matrixid ) {
                 matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
             }
         })
@@ -193,9 +191,8 @@ Page {
     Component.onDestruction: {
         if ( chat_id !== activeChat ) return
         var lastEventId = chatScrollView.count > 0 ? chatScrollView.lastEventId : ""
-        storage.query ( "UPDATE Chats SET draft=?, unread=? WHERE id=?", [
+        storage.query ( "UPDATE Chats SET draft=? WHERE id=?", [
         messageTextField.displayText,
-        lastEventId,
         activeChat
         ])
         sendTypingNotification ( false )
