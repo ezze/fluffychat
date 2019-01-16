@@ -21,7 +21,7 @@ Page {
     Component.onCompleted: {
 
         // On the top are the rooms, which the user is invited to
-        storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, " +
+        storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, rooms.unread, " +
         " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.state_key, events.content_json, events.type " +
         " FROM Chats rooms LEFT JOIN Events events " +
         " ON rooms.id=events.chat_id " +
@@ -95,7 +95,7 @@ Page {
 
     function newEvent ( type, chat_id, eventType, lastEvent ) {
         // Is the event necessary for the chat list? If not, then return
-        if ( !(eventType === "timeline" || type === "m.typing" || type === "m.room.name" || type === "m.room.avatar") ) return
+        if ( !(eventType === "timeline" || type === "m.typing" || type === "m.room.name" || type === "m.room.avatar" || type === "m.receipt") ) return
 
         // Search the room in the model
         var j = 0
@@ -105,7 +105,7 @@ Page {
         if ( j === model.count ) return
         var tempRoom = model.get(j).room
 
-    if ( eventType === "timeline"/* && (type === "m.room.message" || type === "m.sticker")*/ ) {
+    if ( eventType === "timeline" ) {
         // Update the last message preview
         var body = lastEvent.content.body || ""
         if ( type !== "m.room.message" ) {
@@ -129,6 +129,10 @@ Page {
     else if ( type === "m.room.avatar" ) {
         // Update the room avatar
         tempRoom.avatar_url = lastEvent.content.url
+    }
+    else if ( type === "m.receipt" && lastEvent.user === settings.matrixid ) {
+        // Update the room avatar
+        tempRoom.unread = lastEvent.ts
     }
     else if ( type === "m.room.member" && (tempRoom.topic === "" || tempRoom.topic === null || tempRoom.avatar_url === "" || tempRoom.avatar_url === null) ) {
         // Update the room name or room avatar calculation

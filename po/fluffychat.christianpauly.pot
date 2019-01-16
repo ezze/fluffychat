@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-16 11:47+0000\n"
+"POT-Creation-Date: 2019-01-16 13:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -445,20 +445,20 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:155 ../qml/components/StyledPageHeader.qml:7
+#: ../qml/pages/ChatListPage.qml:159 ../qml/components/StyledPageHeader.qml:7
 #: fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:155 ../qml/components/ChatEvent.qml:57
+#: ../qml/pages/ChatListPage.qml:159 ../qml/components/ChatEvent.qml:57
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:183 ../qml/pages/CreateChatPage.qml:13
+#: ../qml/pages/ChatListPage.qml:187 ../qml/pages/CreateChatPage.qml:13
 msgid "Add chat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:215
+#: ../qml/pages/ChatListPage.qml:219
 msgid "Search for your chats..."
 msgstr ""
 
@@ -791,42 +791,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:249 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:252 ../qml/components/ArchivedChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:256 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:259 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:78
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:262
+#: ../qml/pages/ChatPage.qml:265
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:285
+#: ../qml/pages/ChatPage.qml:288
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:308
+#: ../qml/pages/ChatPage.qml:311
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:413
+#: ../qml/pages/ChatPage.qml:416
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:413
+#: ../qml/pages/ChatPage.qml:416
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:427
+#: ../qml/pages/ChatPage.qml:430
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:458
+#: ../qml/pages/ChatPage.qml:461
 msgid "Type something ..."
 msgstr ""
 
@@ -1236,23 +1236,23 @@ msgstr ""
 msgid "Synchronizing… Please wait."
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:39
+#: ../qml/components/ChatListItem.qml:40
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:42
+#: ../qml/components/ChatListItem.qml:43
 msgid "You: "
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:43
+#: ../qml/components/ChatListItem.qml:44
 msgid "No preview messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:111
+#: ../qml/components/ChatListItem.qml:113
 msgid "Notification settings"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:125
+#: ../qml/components/ChatListItem.qml:127
 msgid "Leave this chat"
 msgstr ""
 

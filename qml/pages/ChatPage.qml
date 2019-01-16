@@ -163,7 +163,11 @@ Page {
             topic = res.rows[0].topic
 
             // Is there an unread marker? Then mark as read!
-            if ( res.rows[0].notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + chatScrollView.model.get(0).event.id, null )
+            var lastEvent = chatScrollView.model.get(0).event
+            if ( res.rows[0].unread < lastEvent.origin_server_ts ) {
+                console.log("============================================================SEND RECEEEIIIIPT")
+                matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
+            }
         })
 
 
@@ -225,7 +229,6 @@ Page {
             if ( activeChatMembers [eventContent.state_key].avatar_url === undefined || activeChatMembers [eventContent.state_key].avatar_url === null ) {
                 activeChatMembers [eventContent.state_key].avatar_url = ""
             }
-            console.log("New roommember event",JSON.stringify(eventContent))
             if ( topic === "" ) {
                 roomnames.getById ( activeChat, function ( name ) {
                     console.log("Set name to",name)

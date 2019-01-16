@@ -15,7 +15,7 @@ are changes to the database model, the version-property MUST be increaded!
 Item {
     id: storage
 
-    property var version: "0.3.5"
+    property var version: "0.3.5a"
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
 
@@ -97,7 +97,7 @@ Item {
         'prev_batch TEXT, ' +
         'avatar_url TEXT, ' +
         'draft TEXT, ' +
-        'unread TEXT, ' +        // The event id of the last seen event
+        'unread INTEGER, ' +        // Timestamp of when the user has last read the chat
         'description TEXT, ' +
         'canonical_alias TEXT, ' +  // The address in the form: #roomname:homeserver.org
 

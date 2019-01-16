@@ -8,6 +8,7 @@ ListItem {
     id: chatListItem
 
     property var previousMessage: ""
+    property var isUnread: (room.unread < room.origin_server_ts && room.sender !== settings.matrixid) || room.membership === "invite"
 
     visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
@@ -34,7 +35,7 @@ ListItem {
             layout.title.text = displayname
         })
         title.font.bold: true
-        title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
+        title.color: mainFontColor
         subtitle.text: {
             room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
             (room.membership === "leave" ? "" :
@@ -42,8 +43,9 @@ ListItem {
             (room.content_body ? ( room.sender === settings.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
             i18n.tr("No preview messages"))))
         }
-        subtitle.color: "#888888"
+        subtitle.color: isUnread ? settings.mainColor : "#888888"
         subtitle.linkColor: subtitle.color
+        subtitle.font.bold: isUnread
 
         Avatar {
             id: avatar
@@ -86,7 +88,7 @@ ListItem {
             textSize: Label.Small
             color: UbuntuColors.porcelain
         }
-        visible: unreadLabel.text != "0"
+        visible: unreadLabel.text !== "0"
     }
 
 

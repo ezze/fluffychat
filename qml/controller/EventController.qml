@@ -190,7 +190,7 @@ Item {
 
             // Insert the chat into the database if not exists
             var insertResult = transaction.executeSql ("INSERT OR IGNORE INTO Chats " +
-            "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
+            "VALUES('" + id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
 
             // Update the notification counts and the limited timeline boolean
             var updateResult = transaction.executeSql ( "UPDATE Chats SET " +
@@ -225,6 +225,7 @@ Item {
                 handleRoomEvents ( id, room.timeline.events, "timeline", room )
             }
             if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
+            if ( room.account_data ) handleRoomEvents ( id, room.account_data.events, "account_data", room )
         }
     }
 
@@ -249,16 +250,22 @@ Item {
             if ( events[i].type === "m.receipt" ) {
                 for ( var e in events[i].content ) {
                     for ( var user in events[i].content[e]["m.read"]) {
-                        if ( user === settings.matrixid ) continue
                         var timestamp = events[i].content[e]["m.read"][user].ts
 
                         // Call the newEvent signal for updating the GUI
                         newEvent ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
 
-                        // Mark all previous received messages as seen
-                        transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
-                        " AND chat_id='" + id + "' AND status=2")
 
+                        if ( user === settings.matrixid ) {
+                            transaction.executeSql( "UPDATE Chats SET unread=? WHERE id=?",
+                            [ timestamp,
+                            id ])
+                        }
+                        else {
+                            // Mark all previous received messages as seen
+                            transaction.executeSql ( "UPDATE Events SET status=3 WHERE origin_server_ts<=" + timestamp +
+                            " AND chat_id='" + id + "' AND status=2")
+                        }
                     }
                 }
             }
@@ -396,7 +403,7 @@ Item {
 
             // This event means, that the avatar of a room has been changed, so
             // it has to be changed in the database
-            else if ( event.type === "m.room.avatar" ) {
+            if ( event.type === "m.room.avatar" ) {
                 transaction.executeSql( "UPDATE Chats SET avatar_url=? WHERE id=?",
                 [ event.content.url,
                 roomid ])
