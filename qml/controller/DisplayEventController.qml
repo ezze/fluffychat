@@ -41,7 +41,7 @@ Item {
                 if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "ban" ) {
                     body = i18n.tr("%1 pardoned %2").arg(sendername).arg(displayname)
                 }
-                else if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "invite" ) {
+                else if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "invite" && event.sender === event.state_key ) {
                     body = i18n.tr("%1 declined the invitation").arg(displayname)
                 }
                 else if ( event.sender === event.state_key ) {
