@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-16 11:19+0000\n"
+"POT-Creation-Date: 2019-01-16 11:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -963,27 +963,31 @@ msgstr ""
 msgid "%1 is banned from the chat."
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:64
+#: ../qml/components/MemberListItem.qml:44 ../qml/components/ChatEvent.qml:31
+msgid "Swipe to the left or the right for actions. 😉"
+msgstr ""
+
+#: ../qml/components/MemberListItem.qml:67
 msgid "Make this user a normal member?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:76
+#: ../qml/components/MemberListItem.qml:79
 msgid "Make this user a moderator?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:88
+#: ../qml/components/MemberListItem.qml:91
 msgid "Make this user an admin?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:106
+#: ../qml/components/MemberListItem.qml:109
 msgid "Ban from this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:114
+#: ../qml/components/MemberListItem.qml:117
 msgid "Cancel banishment?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:122
+#: ../qml/components/MemberListItem.qml:125
 msgid "Kick from this chat?"
 msgstr ""
 
@@ -1130,10 +1134,6 @@ msgstr ""
 #: ../qml/components/PhoneListItem.qml:31
 #: ../qml/components/EmailListItem.qml:31
 msgid "Remove this email address?"
-msgstr ""
-
-#: ../qml/components/ChatEvent.qml:31
-msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
 #: ../qml/components/ChatEvent.qml:37
