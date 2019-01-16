@@ -93,6 +93,7 @@ ListView {
                     if ( eventFound !== false ) {
                         currentIndex = count - 1 - historyCount + eventFound
                         matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": model.get(0).event.id }, null, null, 0 )
+                        currentIndex = count - 1 - historyCount + eventFound
                     }
                     else requestHistory ( event_id )
                 }

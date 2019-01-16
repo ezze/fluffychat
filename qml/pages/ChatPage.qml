@@ -171,15 +171,17 @@ Page {
             // Scroll top to the last seen message?
             if ( room.fully_read !== lastEvent.id ) {
                 // Check if the last event is in the database
-                var j = 0
-                for ( j = 0; j < chatScrollView.count; j++ ) {
-                    if ( chatScrollView.model.get ( j ).event.id === room.fully_read ) {
+                var found = false
+                for ( var j = 0; j < chatScrollView.count; j++ ) {
+                    if ( lastEvent.id === room.fully_read ) {
                         chatScrollView.currentIndex = j
-                        matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": model.get(0).event.id }, null, null, 0 )
+                        console.log("FOUND:::::::::::::::::::::::::::::", lastEvent.id)
+                        matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": lastEvent.id }, null, null, 0 )
+                        found = true
                         break
                     }
                 }
-                if ( j === chatScrollView.count ) chatScrollView.requestHistory ( room.fully_read )
+                if ( !found ) chatScrollView.requestHistory ( room.fully_read )
             }
         })
 
