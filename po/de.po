@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-18 14:40+0000\n"
+"POT-Creation-Date: 2019-01-18 14:48+0000\n"
 "PO-Revision-Date: 2019-01-18 14:41+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
@@ -401,8 +401,10 @@ msgid "What's new in version %1?"
 msgstr "Was gibt's neues in Version %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:167
-msgid "Some bugs have been fixed and registration is now working again."
-msgstr "Einige Bugs wurden behoben und die Registrierung funktioniert wieder."
+msgid ""
+"New public chat discover page. Better UX when starting a new chat. A lot of "
+"bug fixes and stability improvements"
+msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:205
 msgid "Community funded"
@@ -1450,6 +1452,10 @@ msgid ""
 msgstr ""
 "Bitte die App neu starten oder ggbf. das Gerät neu starten, um das Update "
 "abzuschließen!"
+
+#~ msgid "Some bugs have been fixed and registration is now working again."
+#~ msgstr ""
+#~ "Einige Bugs wurden behoben und die Registrierung funktioniert wieder."
 
 #~ msgid "Someone"
 #~ msgstr "Jemand"
