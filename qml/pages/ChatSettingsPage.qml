@@ -329,13 +329,12 @@ Page {
                 model: ListModel { id: model }
                 z: -1
 
-                header: SettingsListLink {
+                header: SettingsListFooter {
                     visible: canInvite
                     name: i18n.tr("Invite friends")
                     icon: "contact-new"
-                    page: "InvitePage"
                     iconWidth: units.gu(4)
-                    onClicked: model.clear()
+                    onClicked: mainStack.push (Qt.resolvedUrl("./InvitePage.qml"))
                 }
 
                 Button {
