@@ -88,6 +88,7 @@ Item {
                             settings.token = response.access_token
                             settings.deviceID = response.device_id
                             settings.username = (response.user_id.substr(1)).split(":")[0]
+                            settings.matrixid = response.user_id
                             settings.server = newServer.toLowerCase()
                             settings.deviceName = newDeviceName
                             settings.dbversion = storage.version
