@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-05 16:43+0000\n"
-"PO-Revision-Date: 2018-12-26 17:09+0000\n"
+"PO-Revision-Date: 2019-01-06 20:06+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -282,7 +282,7 @@ msgstr "Bli en kroneruller"
 
 #: ../qml/pages/InfoPage.qml:39
 msgid "Support on Liberapay"
-msgstr ""
+msgstr "Støtt på Liberapay"
 
 #: ../qml/pages/InfoPage.qml:46
 msgid "Join the community"
@@ -384,6 +384,8 @@ msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or an unique username to find friends."
 msgstr ""
+"Sludre med dine venner og ta del i gemenskapen. Du kan bruke ditt "
+"telefonnummer eller et unikt brukernavn for å finne venner."
 
 #: ../qml/pages/WalkthroughPage.qml:102
 #, fuzzy
@@ -396,10 +398,13 @@ msgid ""
 "uMatriks. You can also join IRC channels, participate in XMPP chats and "
 "bridge Telegram groups."
 msgstr ""
+"FluffyChat er kompatibelt med andre meldingsklienter som Riot, Fractal eller "
+"uMatriks. Du kan også ta del i IRC-kanaler, delta i XMPP-sludringer og "
+"knytte broer til Telegram-grupper."
 
 #: ../qml/pages/WalkthroughPage.qml:153
 msgid "What's new in version %1?"
-msgstr ""
+msgstr "Hva er nytt i versjon %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:167
 msgid ""
@@ -454,7 +459,7 @@ msgstr "Nattmodus"
 
 #: ../qml/pages/LoginPage.qml:131 ../qml/pages/SettingsPage.qml:48
 msgid "FAQ"
-msgstr ""
+msgstr "O-S-S"
 
 #: ../qml/pages/LoginPage.qml:142
 msgid "Choose your homeserver"
@@ -1190,7 +1195,7 @@ msgstr "Fjern enheten"
 
 #: ../qml/components/ChatEvent.qml:26
 msgid "Swipe to the left or the right for actions. 😉"
-msgstr ""
+msgstr "Dra til venstre eller høyre for handlinger. 😉"
 
 #: ../qml/components/ChatEvent.qml:32
 #, fuzzy
@@ -1436,7 +1441,7 @@ msgstr "Start ny sludring"
 
 #: ../qml/components/Walkthrough.qml:120
 msgid "Skip"
-msgstr ""
+msgstr "Hopp over"
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11
 msgid "Change your display name"
