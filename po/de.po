@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-18 13:59+0000\n"
-"PO-Revision-Date: 2019-01-04 14:44+0000\n"
+"PO-Revision-Date: 2019-01-18 14:11+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -40,14 +40,12 @@ msgid "Unknown Event: "
 msgstr "Unbekanntes Ereignis "
 
 #: ../qml/controller/DisplayEventController.qml:23
-#, fuzzy
 msgid "%1 has a new avatar"
-msgstr "%1 hat das Chatbild geändert"
+msgstr "%1 hat ein neues Profilbild"
 
 #: ../qml/controller/DisplayEventController.qml:26
-#, fuzzy
 msgid "%1 changed the displayname to %2"
-msgstr "%1 hat den Chat Namen geändert zu <b>%2</b>"
+msgstr "%1 änderte den Anzeigenamen in %2"
 
 #: ../qml/controller/DisplayEventController.qml:30
 #, fuzzy
