@@ -20,7 +20,7 @@ Item {
             if ( event.content.membership === "join" ) {
                 if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "join" ) {
                     if ( unsigned.prev_content.avatar_url !== event.content.avatar_url ) {
-                        body = i18n.tr("%1 changed the avatar").arg(displayname)
+                        body = i18n.tr("%1 has a new avatar").arg(displayname)
                     }
                     else if ( unsigned.prev_content.displayname !== event.content.displayname ) {
                         body = i18n.tr("%1 changed the displayname to %2").arg(usernames.transformFromId(event.state_key)).arg(displayname)
@@ -96,7 +96,7 @@ Item {
             }
         }
         else if ( event.type === "m.room.canonical_alias" ) {
-            body = i18n.tr("%1 changed the canonical chat alias to: «%2»").arg(sendername).arg(event.content.alias)
+            body = i18n.tr("%1 changed the main chat alias to: «%2»").arg(sendername).arg(event.content.alias)
         }
         else if ( event.type === "m.room.power_levels" ) {
             body = i18n.tr("%1 changed the chat permissions").arg(sendername)
