@@ -1,3 +1,8 @@
+### 10:
+* New public chat discover page
+* Better UX when starting a new chat
+* A lot of bug fixes and stability improvements
+
 ### 9.1:
 * Little bug fixes
 * Registration is now fixed

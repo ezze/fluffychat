@@ -164,7 +164,7 @@ Walkthrough {
                 fontSize: "large"
                 height: contentHeight
                 horizontalAlignment: Text.AlignHLeft
-                text: i18n.tr("Some bugs have been fixed and registration is now working again.")
+                text: i18n.tr("New public chat discover page. Better UX when starting a new chat. A lot of bug fixes and stability improvements")
                 width: units.gu(36)
                 wrapMode: Text.WordWrap
             }
