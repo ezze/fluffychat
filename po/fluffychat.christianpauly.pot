@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-18 13:13+0000\n"
+"POT-Creation-Date: 2019-01-18 13:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -248,7 +248,11 @@ msgstr ""
 msgid "Push notifications are disabled..."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:251 ../qml/pages/LoginPage.qml:42
+#: ../qml/controller/MatrixController.qml:145
+msgid "Do you want to join %1?"
+msgstr ""
+
+#: ../qml/controller/MatrixController.qml:254 ../qml/pages/LoginPage.qml:42
 #: ../qml/pages/LoginPage.qml:83
 msgid "😕 No connection..."
 msgstr ""
@@ -576,27 +580,27 @@ msgstr ""
 msgid "Add from addressbook"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:83
+#: ../qml/pages/CreateChatPage.qml:84
 msgid "Join public chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:115
+#: ../qml/pages/CreateChatPage.qml:116
 msgid "Create a new chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:145 ../qml/pages/InvitePage.qml:57
+#: ../qml/pages/CreateChatPage.qml:146 ../qml/pages/InvitePage.qml:57
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:200
+#: ../qml/pages/CreateChatPage.qml:201
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:237
+#: ../qml/pages/CreateChatPage.qml:238
 msgid "Create chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:258
+#: ../qml/pages/CreateChatPage.qml:259
 #: ../qml/components/UserSettingsViewer.qml:175
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."

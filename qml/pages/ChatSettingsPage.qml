@@ -256,19 +256,19 @@ Page {
                         name: i18n.tr("Notifications")
                         icon: "notification"
                         page: "NotificationChatSettingsPage"
-                        onClicked: model.clear()
+                        //onClicked: model.clear()
                     }
                     SettingsListLink {
                         name: i18n.tr("Security & Privacy")
                         icon: "system-lock-screen"
                         page: "ChatPrivacySettingsPage"
-                        onClicked: model.clear()
+                        //onClicked: model.clear()
                     }
                     SettingsListLink {
                         name: i18n.tr("Chat addresses")
                         icon: "stock_link"
                         page: "ChatAliasSettingsPage"
-                        onClicked: model.clear()
+                        //onClicked: model.clear()
                     }
                 }
             }

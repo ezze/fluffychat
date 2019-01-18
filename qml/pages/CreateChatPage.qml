@@ -41,6 +41,7 @@ Page {
                 if ( model.get(i).matrix_id === eventContent.sender ) {
                     model.set(i).matrix_id = eventContent.presence
                     if ( eventContent.last_active_ago ) model.set(i).last_active_ago = eventContent.last_active_ago
+                    break
                 }
             }
         }

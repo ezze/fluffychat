@@ -142,12 +142,15 @@ Item {
 
 
     function joinChat (chat_id) {
-        loadingScreen.visible = true
-        matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
+        showConfirmDialog ( i18n.tr("Do you want to join %1?").arg(chat_id), function () {
             loadingScreen.visible = true
-            events.waitForSync()
-            mainStack.toChat( response.room_id )
-        }, null, 2 )
+            matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
+                loadingScreen.visible = true
+                events.waitForSync()
+                mainStack.toChat( response.room_id )
+            }, null, 2 )
+        } )
+
     }
 
 
