@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-18 13:59+0000\n"
-"PO-Revision-Date: 2019-01-18 14:11+0000\n"
+"PO-Revision-Date: 2019-01-18 14:18+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -48,9 +48,8 @@ msgid "%1 changed the displayname to %2"
 msgstr "%1 änderte den Anzeigenamen in %2"
 
 #: ../qml/controller/DisplayEventController.qml:30
-#, fuzzy
 msgid "%1 accepted the invitation"
-msgstr "Einladung annehmen"
+msgstr "%1 hat die Einladung akzeptiert"
 
 #: ../qml/controller/DisplayEventController.qml:33
 msgid "%1 is now participating"
@@ -66,14 +65,12 @@ msgid "%1 invited %2"
 msgstr "%1 hat %2 eingeladen"
 
 #: ../qml/controller/DisplayEventController.qml:42
-#, fuzzy
 msgid "%1 pardoned %2"
-msgstr "%1 hat %2 eingeladen"
+msgstr "%1 hat %2 begnadigt"
 
 #: ../qml/controller/DisplayEventController.qml:45
-#, fuzzy
 msgid "%1 declined the invitation"
-msgstr "Einladung annehmen"
+msgstr "%1 hat die Einladung abgelehnt"
 
 #: ../qml/controller/DisplayEventController.qml:48
 #, fuzzy
@@ -81,34 +78,28 @@ msgid "%1 left the chat"
 msgstr "%1 hat den Chat verlassen"
 
 #: ../qml/controller/DisplayEventController.qml:50
-#, fuzzy
 msgid "%1 kicked %2"
-msgstr "%1 hat %2 eingeladen"
+msgstr "%1 hat %2 hinausgeworfen"
 
 #: ../qml/controller/DisplayEventController.qml:53
-#, fuzzy
 msgid "%1 banned %2 from the chat"
-msgstr "%1 wurde aus dem Chat gebannt."
+msgstr "%1 hat %2 aus dem Chat gebannt"
 
 #: ../qml/controller/DisplayEventController.qml:56
-#, fuzzy
 msgid "and more member changes"
-msgstr "Chat-Mitglieder ändern sich"
+msgstr "und weitere Mitgliederänderungen"
 
 #: ../qml/controller/DisplayEventController.qml:60
-#, fuzzy
 msgid "%1 created the chat"
-msgstr "%1 hat den Chat verlassen"
+msgstr "%1 hat den Chat erstellt"
 
 #: ../qml/controller/DisplayEventController.qml:63
-#, fuzzy
 msgid "%1 changed the chat name to: «%2»"
-msgstr "%1 hat den Chat Namen geändert zu <b>%2</b>"
+msgstr "%1 hat den Chat Namen geändert zu: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:66
-#, fuzzy
 msgid "%1 changed the chat topic to: «%2»"
-msgstr "%1 hat das Chat Thema geändert zu: <b>%2</b>"
+msgstr "%1 hat das Chat Thema geändert zu: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:69
 #, fuzzy
@@ -141,29 +132,24 @@ msgid "%1 sent a sticker"
 msgstr "%1 hat einen Sticker gesendet"
 
 #: ../qml/controller/DisplayEventController.qml:84
-#, fuzzy
 msgid "%1 set the chat history visible to: «%2»"
-msgstr "%1 hat die Sichtbarkeit des Chatverlaufs gesetzt auf: %2"
+msgstr "%1 hat die Sichtbarkeit des Chatverlaufs gesetzt auf: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:87
-#, fuzzy
 msgid "%1 set the join rules to: «%2»"
-msgstr "%1 hat die Zugangsregeln gesetzt auf: %2"
+msgstr "%1 hat die Zugangsregeln gesetzt auf: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:90
-#, fuzzy
 msgid "%1 set the guest access to: «%2»"
-msgstr "%1 hat den Gastzugang gesetzt auf: %2"
+msgstr "%1 hat den Gastzugang gesetzt auf: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:93
-#, fuzzy
 msgid "%1 changed the chat aliases"
-msgstr "%1 hat das Chatbild geändert"
+msgstr "%1 hat die Chat-Adressen geändert"
 
 #: ../qml/controller/DisplayEventController.qml:99
-#, fuzzy
 msgid "%1 changed the main chat alias to: «%2»"
-msgstr "%1 hat den Chat Namen geändert zu <b>%2</b>"
+msgstr "%1 hat die Hauptadresse geändert zu: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:102
 #, fuzzy
