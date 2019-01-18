@@ -66,6 +66,7 @@ Page {
                 }
                 // Step 3.3.1: There is no registered matrix id. Try to register one...
                 else {
+                    console.log("Step 3.3.1: There is no registered matrix id. Try to register one...")
                     desiredPhoneNumber = phoneInput
                     register ( username )
                 }

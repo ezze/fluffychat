@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-10 17:11+0000\n"
+"POT-Creation-Date: 2019-01-18 13:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgid "Unknown Event: "
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:23
-msgid "%1 changed the avatar"
+msgid "%1 has a new avatar"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:26
@@ -137,7 +137,7 @@ msgid "%1 changed the chat aliases"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:99
-msgid "%1 changed the canonical chat alias to: «%2»"
+msgid "%1 changed the main chat alias to: «%2»"
 msgstr ""
 
 #: ../qml/controller/DisplayEventController.qml:102
@@ -248,8 +248,12 @@ msgstr ""
 msgid "Push notifications are disabled..."
 msgstr ""
 
-#: ../qml/controller/MatrixController.qml:251 ../qml/pages/LoginPage.qml:42
-#: ../qml/pages/LoginPage.qml:83
+#: ../qml/controller/MatrixController.qml:146
+msgid "Do you want to join %1?"
+msgstr ""
+
+#: ../qml/controller/MatrixController.qml:255 ../qml/pages/LoginPage.qml:42
+#: ../qml/pages/LoginPage.qml:84
 msgid "😕 No connection..."
 msgstr ""
 
@@ -269,7 +273,7 @@ msgstr ""
 msgid "Join the community"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:52 ../qml/pages/LoginPage.qml:116
+#: ../qml/pages/InfoPage.qml:52 ../qml/pages/LoginPage.qml:117
 #: ../qml/pages/PrivacyPolicyPage.qml:10
 msgid "Privacy Policy"
 msgstr ""
@@ -346,7 +350,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:128 ../qml/pages/LoginPage.qml:271
+#: ../qml/pages/PasswordCreationPage.qml:128 ../qml/pages/LoginPage.qml:272
 msgid "Sign up"
 msgstr ""
 
@@ -376,7 +380,7 @@ msgid "What's new in version %1?"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:167
-msgid "Some bugs have been fixed and registation is now working again."
+msgid "Some bugs have been fixed and registration is now working again."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:205
@@ -393,55 +397,55 @@ msgstr ""
 msgid "Username '%1' not found on %2"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:80 ../qml/pages/LoginPage.qml:82
+#: ../qml/pages/LoginPage.qml:81 ../qml/pages/LoginPage.qml:83
 msgid "Username is already taken"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:90
+#: ../qml/pages/LoginPage.qml:91
 msgid "Homeserver %1"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:98
+#: ../qml/pages/LoginPage.qml:99
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:106
+#: ../qml/pages/LoginPage.qml:107
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:111 ../qml/pages/SettingsPage.qml:328
+#: ../qml/pages/LoginPage.qml:112 ../qml/pages/SettingsPage.qml:328
 msgid "About FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:121
+#: ../qml/pages/LoginPage.qml:122
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:131 ../qml/pages/SettingsPage.qml:48
+#: ../qml/pages/LoginPage.qml:132 ../qml/pages/SettingsPage.qml:48
 msgid "FAQ"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:142
+#: ../qml/pages/LoginPage.qml:143
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:164
+#: ../qml/pages/LoginPage.qml:165
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:213
+#: ../qml/pages/LoginPage.qml:214
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:222
+#: ../qml/pages/LoginPage.qml:223
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:265
+#: ../qml/pages/LoginPage.qml:266
 msgid "Create a new account"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:271 ../qml/pages/PasswordInputPage.qml:86
+#: ../qml/pages/LoginPage.qml:272 ../qml/pages/PasswordInputPage.qml:86
 msgid "Sign in"
 msgstr ""
 
@@ -475,7 +479,7 @@ msgid "Users can be invited"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:184
-msgid "Chat is public accessable"
+msgid "Chat is public accessible"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:196
@@ -491,11 +495,11 @@ msgid "History is visible from invitation"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:238
-msgid "Complete History is visible for members"
+msgid "Members can access full chat history"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:249
-msgid "Complete History is world readable"
+msgid "Anyone can access full chat history"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:268
@@ -576,27 +580,27 @@ msgstr ""
 msgid "Add from addressbook"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:83
+#: ../qml/pages/CreateChatPage.qml:84
 msgid "Join public chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:115
+#: ../qml/pages/CreateChatPage.qml:116
 msgid "Create a new chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:145 ../qml/pages/InvitePage.qml:57
+#: ../qml/pages/CreateChatPage.qml:146 ../qml/pages/InvitePage.qml:57
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:200
+#: ../qml/pages/CreateChatPage.qml:201
 msgid "Import from contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:237
+#: ../qml/pages/CreateChatPage.qml:238
 msgid "Create chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:258
+#: ../qml/pages/CreateChatPage.qml:259
 #: ../qml/components/UserSettingsViewer.qml:175
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
@@ -923,7 +927,7 @@ msgstr ""
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:343
+#: ../qml/pages/ChatSettingsPage.qml:342
 msgid "Reload"
 msgstr ""
 

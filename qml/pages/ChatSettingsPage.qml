@@ -256,19 +256,19 @@ Page {
                         name: i18n.tr("Notifications")
                         icon: "notification"
                         page: "NotificationChatSettingsPage"
-                        onClicked: model.clear()
+                        //onClicked: model.clear()
                     }
                     SettingsListLink {
                         name: i18n.tr("Security & Privacy")
                         icon: "system-lock-screen"
                         page: "ChatPrivacySettingsPage"
-                        onClicked: model.clear()
+                        //onClicked: model.clear()
                     }
                     SettingsListLink {
                         name: i18n.tr("Chat addresses")
                         icon: "stock_link"
                         page: "ChatAliasSettingsPage"
-                        onClicked: model.clear()
+                        //onClicked: model.clear()
                     }
                 }
             }
@@ -329,13 +329,12 @@ Page {
                 model: ListModel { id: model }
                 z: -1
 
-                header: SettingsListLink {
+                header: SettingsListFooter {
                     visible: canInvite
                     name: i18n.tr("Invite friends")
                     icon: "contact-new"
-                    page: "InvitePage"
                     iconWidth: units.gu(4)
-                    onClicked: model.clear()
+                    onClicked: mainStack.push (Qt.resolvedUrl("./InvitePage.qml"))
                 }
 
                 Button {

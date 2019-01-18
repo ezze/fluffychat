@@ -181,7 +181,7 @@ Page {
 
             SettingsListSwitch {
                 id: chatIsPublic
-                name: i18n.tr("Chat is public accessable")
+                name: i18n.tr("Chat is public accessible")
                 icon: "lock-broken"
                 isEnabled: progressBarRequests === 0 && canChangeAccessRules
                 onSwitching: function () {
@@ -235,7 +235,7 @@ Page {
             }
             SettingsListSwitch {
                 id: sharedHistoryAccess
-                name: i18n.tr("Complete History is visible for members")
+                name: i18n.tr("Members can access full chat history")
                 icon: "stock_ebook"
                 isEnabled: progressBarRequests === 0 && canChangeHistoryRules
                 onSwitching: function () {
@@ -246,7 +246,7 @@ Page {
             }
             SettingsListSwitch {
                 id: worldHistoryAccess
-                name: i18n.tr("Complete History is world readable")
+                name: i18n.tr("Anyone can access full chat history")
                 icon: "stock_website"
                 isEnabled: progressBarRequests === 0 && canChangeHistoryRules
                 onSwitching: function () {

@@ -42,17 +42,11 @@ Component {
                 onClicked: {
                     var success_callback = function () {
                         PopupUtils.close(dialogue)
-                        phoneSettingsPage.sync ()
+                        root.init ()
                     }
-                    var _page = phoneSettingsPage || passwordCreationPage
+                    var _page = passwordCreationPage
                     var _matrix = matrix
-                    var toStart = function () {
-                        PopupUtils.close(dialogue)
-                        mainStack.pop()
-                        mainStack.pop()
-                        if ( tabletMode ) mainStack.push(Qt.resolvedUrl("../pages/BlankPage.qml"))
-                        else mainStack.push(Qt.resolvedUrl("../pages/ChatListPage.qml"))
-                    }
+
                     matrix.post ( "/identity/api/v1/validate/msisdn/submitToken", {
                         client_secret: client_secret,
                         sid: sid,
@@ -67,11 +61,11 @@ Component {
                         _matrix.post ("/client/r0/account/3pid", {
                             bind: true,
                             threePidCreds: threePidCreds
-                        } )
-                        toStart ()
+                        }, null, null, 2 )
+                        success_callback ()
                     }, function ( error ) {
                         dialogue.title = error.error
-                    } )
+                    }, 2 )
                 }
             }
         }

@@ -112,7 +112,7 @@ Page {
         textSize: Label.Large
         color: UbuntuColors.graphite
         anchors.centerIn: parent
-        visible: model.count === 0 && !searching
+        visible: model.count === 0
     }
 
 }
