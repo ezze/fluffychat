@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-18 14:40+0000\n"
-"PO-Revision-Date: 2019-01-06 20:06+0000\n"
+"POT-Creation-Date: 2019-01-18 14:48+0000\n"
+"PO-Revision-Date: 2019-01-18 15:26+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -448,18 +448,24 @@ msgid "What's new in version %1?"
 msgstr "Hva er nytt i versjon %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:167
-msgid "Some bugs have been fixed and registration is now working again."
+msgid ""
+"New public chat discover page. Better UX when starting a new chat. A lot of "
+"bug fixes and stability improvements"
 msgstr ""
+"Ny offentlig sludringsoppdagelsesside. Bedre grensesnitt ved oppstart av ny "
+"sludring. Mange feilrettinger og stabilitetsforbedringer."
 
 #: ../qml/pages/WalkthroughPage.qml:205
 msgid "Community funded"
-msgstr ""
+msgstr "Dugnadsfinansiering"
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers are all "
 "funded by the community."
 msgstr ""
+"FluffyChat er åpent, veldedig og søtt. Utviklingen og tjenerne kronerulles "
+"av gemenskapen."
 
 #: ../qml/pages/LoginPage.qml:39
 msgid "Username '%1' not found on %2"
@@ -697,7 +703,7 @@ msgstr "Forlat slurdring"
 #: ../qml/components/UserSettingsViewer.qml:175
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
-msgstr ""
+msgstr "Merk deg at FluffyChat ikke støtter transportkryptering enda."
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:82
@@ -902,6 +908,27 @@ msgid ""
 "the notification to UBports push service at https://push.ubports.com and "
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
+"<br><b>Matrix-klient</b><br><br>* FluffyChat er en klient for Matrix-"
+"protokollen, og er kompatibel med alle Matrix-tjenere og -identitetstjenere. "
+"All kommunikasjon som skjer med FluffyChat, bruker en Matrix-tjener, og en "
+"Matrix-identitetstjener.<br>* Forvalgt tjener i FluffyChat er https://"
+"ubports.chat og forvalgt identitetstjener er https://vector.im.<br>* "
+"FluffyChat driver ingen egen tjener eller fjerntjeneste.<br>* All "
+"kommunikasjon av viktig innhold mellom FluffyChat og noen annen tjener skjer "
+"på sikker måte, med transportkryptering som beskyttelse. Ende-til-ende -"
+"kryptering vil følge.<br>* FluffyChat er ikke ansvarlig for databehandling "
+"utført av noen Matrix-tjener, eller -identitetstjener.<br>* FluffyChat "
+"tilbyr valget om å bruke telefonnummer for å finne kontakter. Dette kreves "
+"ikke i normalt modus, og er kun tiltenkt i beleilighetsøyemed. Ingen "
+"kontaktdetaljer lastes opp uten brukerinteraksjon. Brukeren kan valge å "
+"laste opp alle eller noen kontakter til identitetstjeneren.<br><br><b>Push-"
+"merknader</b><br><br>* Matrix-tjeneren valgt av brukeren vil automatisk "
+"sende push-merknader til UBports sin push-tjeneste. Disse merknadene "
+"krypteres av HTTPS-protokollen mellom enheten og Matrix-tjeneren, og videre "
+"til den offisielle UBports-Matrixportneren på https://push.ubports.com:5003/"
+"_matrix/push/r0/notify Denne tjeneren videresender merkanden til UBports sin "
+"push-tjeneste på https://push.ubports.com og sender så dette som en push-"
+"merknad til brukerens enhet(er).<br>"
 
 #: ../qml/pages/ChatPage.qml:264 ../qml/components/ArchivedChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:25
@@ -970,7 +997,7 @@ msgstr "Offentlige sludreadresser"
 
 #: ../qml/pages/DiscoverPage.qml:43
 msgid "and matrix.org"
-msgstr ""
+msgstr "og matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:89
 #, fuzzy
