@@ -8,18 +8,20 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-18 14:48+0000\n"
-"PO-Revision-Date: 2018-12-21 15:52+0100\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2019-01-21 10:51+0000\n"
+"Last-Translator: libermax <libremax@protonmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
+"translations/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ../qml/Main.qml:216 ../qml/components/ChatEvent.qml:86
 msgid "Are you sure?"
-msgstr "Êtes-vous sûr(e)"
+msgstr "Êtes-vous sûr(e) ?"
 
 #: ../qml/controller/SettingsController.qml:79
 msgid "USA"
@@ -30,28 +32,24 @@ msgid "1"
 msgstr "1"
 
 #: ../qml/controller/DisplayEventController.qml:13
-#, fuzzy
 msgid "Unknown event"
-msgstr "Événement inconnu : "
+msgstr "Événement inconnu"
 
 #: ../qml/controller/DisplayEventController.qml:14
 msgid "Unknown Event: "
 msgstr "Événement inconnu : "
 
 #: ../qml/controller/DisplayEventController.qml:23
-#, fuzzy
 msgid "%1 has a new avatar"
-msgstr "%1 a changé l'avatar de la discussion"
+msgstr "%1 a un nouvel avatar"
 
 #: ../qml/controller/DisplayEventController.qml:26
-#, fuzzy
 msgid "%1 changed the displayname to %2"
-msgstr "%1 a modifié le nom de la discussion en : <b>%2</b>"
+msgstr "%1 a modifié le nom d'utilisateur en  <b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:30
-#, fuzzy
 msgid "%1 accepted the invitation"
-msgstr "Accepter l'invitation"
+msgstr "%1 a accepté l'invitation"
 
 #: ../qml/controller/DisplayEventController.qml:33
 msgid "%1 is now participating"
@@ -62,62 +60,50 @@ msgid "%1 is now participating as <b>%2</b>"
 msgstr "%1 participe désormais en tant que <b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:38
-#, fuzzy
 msgid "%1 invited %2"
 msgstr "%1 a invité %2"
 
 #: ../qml/controller/DisplayEventController.qml:42
-#, fuzzy
 msgid "%1 pardoned %2"
-msgstr "%1 a invité %2"
+msgstr "%1 a gracié %2"
 
 #: ../qml/controller/DisplayEventController.qml:45
-#, fuzzy
 msgid "%1 declined the invitation"
-msgstr "Accepter l'invitation"
+msgstr "%1 a décliné l'invitation"
 
 #: ../qml/controller/DisplayEventController.qml:48
-#, fuzzy
 msgid "%1 left the chat"
 msgstr "%1 a quitté la discussion"
 
 #: ../qml/controller/DisplayEventController.qml:50
-#, fuzzy
 msgid "%1 kicked %2"
-msgstr "%1 a invité %2"
+msgstr "%1 a exclu %2"
 
 #: ../qml/controller/DisplayEventController.qml:53
-#, fuzzy
 msgid "%1 banned %2 from the chat"
-msgstr "A été banni(e) de la discussion"
+msgstr "%1 a banni %2 de la discussion"
 
 #: ../qml/controller/DisplayEventController.qml:56
-#, fuzzy
 msgid "and more member changes"
-msgstr "Modification des membres de la discussion"
+msgstr "et plus de changements de membres"
 
 #: ../qml/controller/DisplayEventController.qml:60
-#, fuzzy
 msgid "%1 created the chat"
-msgstr "%1 a quitté la discussion"
+msgstr "%1 a créé la discussion"
 
 #: ../qml/controller/DisplayEventController.qml:63
-#, fuzzy
 msgid "%1 changed the chat name to: «%2»"
-msgstr "%1 a modifié le nom de la discussion en : <b>%2</b>"
+msgstr "%1 a modifié le nom de la discussion en : «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:66
-#, fuzzy
 msgid "%1 changed the chat topic to: «%2»"
-msgstr "%1 a changé le sujet de la discussion en : <b>%2</b>"
+msgstr "%1 a changé le sujet de la discussion en : «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:69
-#, fuzzy
 msgid "%1 changed the chat avatar"
 msgstr "%1 a changé l'avatar de la discussion"
 
 #: ../qml/controller/DisplayEventController.qml:72
-#, fuzzy
 msgid "%1 redacted a message"
 msgstr "%1 a rédigé un message"
 
@@ -127,46 +113,41 @@ msgid ""
 "support end to end encryption. You will not be able to send or read messages "
 "in this chat!"
 msgstr ""
+"%1 a initialisé le chiffrement de bout en bout. Sachez que FluffyChat ne "
+"prend pas encore en charge le chiffrement de bout en bout. Vous ne pourrez "
+"pas envoyer ou lire de messages dans cette discussion !"
 
 #: ../qml/controller/DisplayEventController.qml:78
-#, fuzzy
 msgid "Encrypted message"
-msgstr "Supprimer le message"
+msgstr "Message crypté"
 
 #: ../qml/controller/DisplayEventController.qml:81
-#, fuzzy
 msgid "%1 sent a sticker"
 msgstr "%1 a envoyé un autocollant"
 
 #: ../qml/controller/DisplayEventController.qml:84
-#, fuzzy
 msgid "%1 set the chat history visible to: «%2»"
-msgstr "%1 a rendu l'historique de la discussion visible à : %2"
+msgstr "%1 a rendu l'historique de la discussion visible à : «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:87
-#, fuzzy
 msgid "%1 set the join rules to: «%2»"
-msgstr "%1 a donné les règles d'adhésion à : %2"
+msgstr "%1 a donné les règles d'adhésion à : «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:90
-#, fuzzy
 msgid "%1 set the guest access to: «%2»"
-msgstr "%1 a donné l'accès en tant qu'invité(e) à : %2"
+msgstr "%1 a donné l'accès en tant qu'invité(e) à : «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:93
-#, fuzzy
 msgid "%1 changed the chat aliases"
-msgstr "%1 a changé l'avatar de la discussion"
+msgstr "%1 a changé l'alias de la discussion"
 
 #: ../qml/controller/DisplayEventController.qml:99
-#, fuzzy
 msgid "%1 changed the main chat alias to: «%2»"
-msgstr "%1 a modifié le nom de la discussion en : <b>%2</b>"
+msgstr "%1 a modifié l'alias principal de la discussion en : «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:102
-#, fuzzy
 msgid "%1 changed the chat permissions"
-msgstr "Qui peut modifier les permissions des participant(e)s ?"
+msgstr "%1 a changé les droits d'accès de le la discussion"
 
 #: ../qml/controller/DisplayEventController.qml:112
 msgid "Only invited users"
@@ -218,7 +199,7 @@ msgid ""
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
 "fluffychat/issues/new"
 msgstr ""
-"😰 Une erreur critique s'est produite! Désolé, la connexion au serveur s'est "
+"😰 Une erreur critique s'est produite ! Désolé, la connexion au serveur s'est "
 "terminée ! Veuillez signaler ce problème sur : https://github.com/"
 "ChristianPauly/fluffychat/issues/new"
 
@@ -278,9 +259,8 @@ msgid "Push notifications are disabled..."
 msgstr "Les notifications sont désactivées..."
 
 #: ../qml/controller/MatrixController.qml:146
-#, fuzzy
 msgid "Do you want to join this chat?"
-msgstr "Êtes-vous sûr(e) de vouloir quitter la discussion ?"
+msgstr "Voulez-vous vous joindre à cette discussion ?"
 
 #: ../qml/controller/MatrixController.qml:255 ../qml/pages/LoginPage.qml:42
 #: ../qml/pages/LoginPage.qml:84
@@ -293,15 +273,15 @@ msgstr "Informations à propos de FluffyChat %1 sur %2"
 
 #: ../qml/pages/InfoPage.qml:32 ../qml/pages/WalkthroughPage.qml:233
 msgid "Become a patron"
-msgstr ""
+msgstr "Devenir un mécène"
 
 #: ../qml/pages/InfoPage.qml:39
 msgid "Support on Liberapay"
-msgstr ""
+msgstr "Nous supporter avec Liberapay"
 
 #: ../qml/pages/InfoPage.qml:46
 msgid "Join the community"
-msgstr ""
+msgstr "Rejoindre la communauté"
 
 #: ../qml/pages/InfoPage.qml:52 ../qml/pages/LoginPage.qml:117
 #: ../qml/pages/PrivacyPolicyPage.qml:10
@@ -338,15 +318,15 @@ msgstr "Il n'y a pas de discussions archivées"
 
 #: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:270
 msgid "Connected email addresses"
-msgstr "Adresses électroniques connectées"
+msgstr "Adresses de courriel connectées"
 
 #: ../qml/pages/EmailSettingsPage.qml:51
 msgid "Add email address"
-msgstr "Ajouter une adresse électronique"
+msgstr "Ajouter une adresse de courriel"
 
 #: ../qml/pages/EmailSettingsPage.qml:62
 msgid "No email addresses connected"
-msgstr "Aucun adresse électronique connectée"
+msgstr "Aucun adresse de courriel connectée"
 
 #: ../qml/pages/PasswordCreationPage.qml:27
 msgid "Please set a password"
@@ -365,7 +345,7 @@ msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
-"L'identifiant attendu est dans le nom d'espace eclusif revendiqué par un "
+"L'identifiant choisi est dans l'espace de nommage exclusif revendiqué par un "
 "service d'application"
 
 #: ../qml/pages/PasswordCreationPage.qml:58
@@ -376,6 +356,8 @@ msgstr "L'enregistrement à %1 a échoué..."
 msgid ""
 "To reset your password, you will need to provide an e-mail address later"
 msgstr ""
+"Pour réinitialiser votre mot de passe, vous devrez plus tard fournir une "
+"adresse de courriel"
 
 #: ../qml/pages/PasswordCreationPage.qml:104
 #, javascript-format
@@ -387,20 +369,21 @@ msgid "Sign up"
 msgstr "S'inscrire"
 
 #: ../qml/pages/WalkthroughPage.qml:51
-#, fuzzy
 msgid "Welcome to FluffyChat"
-msgstr "À propos de FluffyChat"
+msgstr "Bienvenue sur FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:65
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or an unique username to find friends."
 msgstr ""
+"Discutez avec vos amis et rejoignez la communauté. Vous pouvez utiliser "
+"votre numéro de téléphone ou un nom d'utilisateur unique pour trouver des "
+"amis."
 
 #: ../qml/pages/WalkthroughPage.qml:102
-#, fuzzy
 msgid "Join the Matrix"
-msgstr "Rejoindre la discussion"
+msgstr "Rejoindre Matrix"
 
 #: ../qml/pages/WalkthroughPage.qml:116
 msgid ""
@@ -408,26 +391,35 @@ msgid ""
 "uMatriks. You can also join IRC channels, participate in XMPP chats and "
 "bridge Telegram groups."
 msgstr ""
+"FluffyChat est compatible avec d'autres clients de messagerie instantanée "
+"comme Riot, Fractal ou uMatriks. Vous pouvez également rejoindre les canaux "
+"IRC, participer à des discussions XMPP et établir des ponts vers des groupes "
+"de Telegram."
 
 #: ../qml/pages/WalkthroughPage.qml:153
 msgid "What's new in version %1?"
-msgstr ""
+msgstr "Quoi de neuf dans la version %1 ?"
 
 #: ../qml/pages/WalkthroughPage.qml:167
 msgid ""
 "New public chat discover page. Better UX when starting a new chat. A lot of "
 "bug fixes and stability improvements"
 msgstr ""
+"Nouvelle page de découverte des discussions publiques. Une meilleure "
+"expérience utilisateur lors du démarrage d'un nouvelle discussion. Beaucoup "
+"de corrections de bogues et d'améliorations de stabilité"
 
 #: ../qml/pages/WalkthroughPage.qml:205
 msgid "Community funded"
-msgstr ""
+msgstr "Financé par la communauté"
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers are all "
 "funded by the community."
 msgstr ""
+"FluffyChat est ouvert, à but non lucratif et élégant. Le développement et "
+"les serveurs sont entièrement financés par la communauté."
 
 #: ../qml/pages/LoginPage.qml:39
 msgid "Username '%1' not found on %2"
@@ -438,9 +430,8 @@ msgid "Username is already taken"
 msgstr "Cet identifiant est déjà pris"
 
 #: ../qml/pages/LoginPage.qml:91
-#, fuzzy
 msgid "Homeserver %1"
-msgstr "Changer de serveur d'accueil"
+msgstr "Serveur d'accueil %1"
 
 #: ../qml/pages/LoginPage.qml:99
 msgid "Change homeserver"
@@ -460,7 +451,7 @@ msgstr "Activer le mode sombre"
 
 #: ../qml/pages/LoginPage.qml:132 ../qml/pages/SettingsPage.qml:48
 msgid "FAQ"
-msgstr ""
+msgstr "Questions fréquemment posées"
 
 #: ../qml/pages/LoginPage.qml:143
 msgid "Choose your homeserver"
@@ -496,12 +487,10 @@ msgid "Share"
 msgstr "Partager"
 
 #: ../qml/pages/ChatListPage.qml:187 ../qml/pages/CreateChatPage.qml:13
-#, fuzzy
 msgid "Add chat"
-msgstr "Ajouter une adresse de discussion"
+msgstr "Ajouter une discussion"
 
 #: ../qml/pages/ChatListPage.qml:219
-#, fuzzy
 msgid "Search for your chats..."
 msgstr "Chercher des noms de discussions..."
 
@@ -510,39 +499,36 @@ msgid "Chat security & privacy settings"
 msgstr "Paramètres de sécurité et de confidentialité de la discussion"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:160
-#, fuzzy
 msgid "Access permissions"
-msgstr "Permissions de la discussion"
+msgstr "Droits d'accès de la discussion"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:172
 msgid "Users can be invited"
-msgstr ""
+msgstr "Les utilisateurs peuvent être invités"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:184
 msgid "Chat is public accessible"
-msgstr ""
+msgstr "La discussion est en accès publique"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:196
 msgid "Guest users are allowed"
-msgstr ""
+msgstr "Les utilisateurs invités sont autorisés"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:215
 msgid "History visibility"
-msgstr ""
+msgstr "Visibilité de l'historique"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:227
 msgid "History is visible from invitation"
-msgstr ""
+msgstr "L'histoire est visible depuis l'invitation"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:238
-#, fuzzy
 msgid "Members can access full chat history"
-msgstr "Qui peut voir l'historique de la discussion ?"
+msgstr "Les membres peuvent accéder à l'historique complet de la discussion"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:249
-#, fuzzy
 msgid "Anyone can access full chat history"
-msgstr "Qui peut voir l'historique de la discussion ?"
+msgstr "Tout le monde peut voir l'historique complet de la discussion"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:268
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:87
@@ -615,24 +601,20 @@ msgid "Default user permissions:"
 msgstr "Permissions des participant(e)s par défaut :"
 
 #: ../qml/pages/CreateChatPage.qml:13
-#, fuzzy
 msgid "New chat: %1 selected"
-msgstr "Nouveau groupe : %1 sélectionné"
+msgstr "Nouvelle discussion : %1 sélectionné"
 
 #: ../qml/pages/CreateChatPage.qml:20
-#, fuzzy
 msgid "Add from addressbook"
-msgstr "Ajouter une adresse électronique"
+msgstr "Ajouter depuis le carnet d'adresse"
 
 #: ../qml/pages/CreateChatPage.qml:84
-#, fuzzy
 msgid "Join public chat"
-msgstr "Chargement des discussions publiques..."
+msgstr "Rejoindre une discussion publique"
 
 #: ../qml/pages/CreateChatPage.qml:116
-#, fuzzy
 msgid "Create a new chat"
-msgstr "Créer un nouveau compte"
+msgstr "Créer une nouvelle discussion"
 
 #: ../qml/pages/CreateChatPage.qml:146 ../qml/pages/InvitePage.qml:57
 msgid "Search for example @username:server.abc"
@@ -643,15 +625,16 @@ msgid "Import from contacts"
 msgstr "Importer à partir des contacts"
 
 #: ../qml/pages/CreateChatPage.qml:238
-#, fuzzy
 msgid "Create chat"
-msgstr "Quitter la discussion"
+msgstr "Créer une discussion"
 
 #: ../qml/pages/CreateChatPage.qml:259
 #: ../qml/components/UserSettingsViewer.qml:175
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
+"Veuillez noter que FluffyChat supporte seulement le cryptage au niveau de la "
+"couche transport."
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:82
@@ -814,12 +797,10 @@ msgid "Targets"
 msgstr "Cibles"
 
 #: ../qml/pages/InvitePage.qml:17
-#, fuzzy
 msgid "Invite users"
-msgstr "Seulement les invité(e)s"
+msgstr "Inviter les utilisateurs"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:28
-#, fuzzy
 msgid ""
 "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
 "is compatible with all Matrix servers and Matrix identity servers. All "
@@ -846,12 +827,12 @@ msgstr ""
 "Le <br><b>client Matrix</b><br><br>* FluffyChat est un client qui utilise le "
 "protocole Matrix et est compatible avec tous les serveurs Matrix et les "
 "serveurs d'identités Matrix. Toutes les communications tenues en utilisant "
-"FluffyChat utilisent un serveur Matrix et un serveur d'identités Matrix."
-"<br>* Le serveur par défaut de FluffyChat est https://ubports.chat et le "
-"serveur d'identités par défaut est https://vector.im.<br>* FluffyChat "
-"n'opère pas de serveur ou de service à distance.<br>* Toute communication de "
-"contenu substansif entre FluffyChat et un serveur est sécurisée en utilisant "
-"un chiffrement lors du transport pour la protéger. Le chiffrement de bout-en-"
+"FluffyChat utilisent un serveur Matrix et un serveur d'identités Matrix.<br>*"
+" Le serveur par défaut de FluffyChat est https://ubports.chat et le serveur "
+"d'identités par défaut est https://vector.im.<br>* FluffyChat n'opère pas de "
+"serveur ou de service à distance.<br>* Toute communication de contenu "
+"substantiel entre FluffyChat et un serveur est sécurisée en utilisant un "
+"chiffrement lors du transport pour la protéger. Le chiffrement de bout-en-"
 "bout viendra prochainement.<br>* FluffyChat n'est pas responsable du "
 "traitement des données effectué par un serveur Matrix ou un serveur "
 "d'identités Matrix.<br>* FluffyChat offre la possibilité d'utiliser des "
@@ -859,14 +840,14 @@ msgstr ""
 "pour une utilisation normale mais l'implémentation se révèle pratique. Aucun "
 "détail des contacts n'est téléversé sans une interaction d'un utilisateur ou "
 "d'une utilisatrice ! Ils peuvent choisir de téléverser tous ou certains ou "
-"pas de contacts au serveur d'identités !<br><br><b>Notifications</"
-"b><br><br>* Le serveur Matrix sélectionné par l'utilisateur ou "
-"l'utilisatrice enverra automatiquement des notifications au service de "
-"notifications d'UBports. Ces notifications sont chiffrées avec le protocole "
-"HTTPS entre l'appareil, le serveur Matrix et la passerelle Matrix officielle "
-"d'UBports sur https://push.ubports.com:5003/_matrix/push/r0/notify Ce "
-"serveur transfère la notification au serveur de notifications d'UBports sur "
-"https://push.ubports.com puis envoi le tout sous forme de notifications aux "
+"pas de contacts au serveur d'identités !<br><br><b>Notifications</b><br><br>*"
+" Le serveur Matrix sélectionné par l'utilisateur ou l'utilisatrice enverra "
+"automatiquement des notifications au service de notifications d'UBports. Ces "
+"notifications sont chiffrées avec le protocole HTTPS entre l'appareil, le "
+"serveur Matrix et la passerelle Matrix officielle d'UBports sur "
+"https://push.ubports.com:5003/_matrix/push/r0/notify Ce serveur transfère la "
+"notification au serveur de notifications d'UBports sur https://"
+"push.ubports.com puis envoi le tout sous forme de notifications aux "
 "appareils des utilisateurs et utilisatrices.<br>"
 
 #: ../qml/pages/ChatPage.qml:264 ../qml/components/ArchivedChatListItem.qml:30
@@ -902,7 +883,7 @@ msgstr "Rejoindre"
 
 #: ../qml/pages/ChatPage.qml:442
 msgid "You do not have posting permissions here"
-msgstr ""
+msgstr "Vous n'avez pas l'autorisation de poster ici"
 
 #: ../qml/pages/ChatPage.qml:473
 msgid "Type something ..."
@@ -929,23 +910,20 @@ msgid "Don't notify"
 msgstr "Ne pas avertir"
 
 #: ../qml/pages/DiscoverPage.qml:43
-#, fuzzy
 msgid "Public chats on %1"
-msgstr "Adresses des discussions publiques"
+msgstr "Les discussions publiques sur %1"
 
 #: ../qml/pages/DiscoverPage.qml:43
 msgid "and matrix.org"
-msgstr ""
+msgstr "et matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:89
-#, fuzzy
 msgid "Search for chats or #aliases..."
-msgstr "Chercher des discussions publiques..."
+msgstr "Chercher des discussions ou des #alias..."
 
 #: ../qml/pages/DiscoverPage.qml:111
-#, fuzzy
 msgid "No chats found"
-msgstr "%1 contact a été trouvé"
+msgstr "Aucune discussion n'a été trouvée"
 
 #: ../qml/pages/ChatSettingsPage.qml:118
 msgid "Member"
@@ -1033,22 +1011,22 @@ msgid "Added as sticker"
 msgstr "Ajoutée aux autocollants"
 
 #: ../qml/components/InviteListItem.qml:24
-#, fuzzy
 msgid "%1 has been invited"
-msgstr "%1 a invité %2"
+msgstr "%1 a été invité"
 
 #: ../qml/components/InviteListItem.qml:26
 msgid "An error occured. Maybe the username %1 is wrong?"
 msgstr ""
+"Une erreur s'est produite. Peut-être que le nom d'utilisateur est erroné ?"
 
 #: ../qml/components/InviteListItem.qml:27
-#, fuzzy
 msgid "%1 is banned from the chat."
-msgstr "A été banni(e) de la discussion"
+msgstr "%1 a été banni(e) de la discussion."
 
 #: ../qml/components/MemberListItem.qml:44 ../qml/components/ChatEvent.qml:31
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
+"Faire glisser vers la gauche ou vers la droite pour accéder aux actions. 😉"
 
 #: ../qml/components/MemberListItem.qml:67
 msgid "Make this user a normal member?"
@@ -1158,14 +1136,12 @@ msgid "Download"
 msgstr "Télécharger"
 
 #: ../qml/components/WaitDialog.qml:11
-#, fuzzy
 msgid "Loading... Please wait!"
-msgstr "Synchronisation… Veuillez patienter"
+msgstr "Chargement en cours… Veuillez patienter !"
 
 #: ../qml/components/WaitDialog.qml:35
-#, fuzzy
 msgid "Cancel process"
-msgstr "Annuler"
+msgstr "Annuler le processus"
 
 #: ../qml/components/LeaveChatDialog.qml:11
 msgid "Leave chat"
@@ -1223,9 +1199,8 @@ msgid "Remove this email address?"
 msgstr "Supprimer cette adresse électronique ?"
 
 #: ../qml/components/ChatEvent.qml:37
-#, fuzzy
 msgid "Try to send again"
-msgstr "Essayer de renvoyer"
+msgstr "Essayer d'envoyer à nouveau"
 
 #: ../qml/components/ChatEvent.qml:48
 msgid "Reply"
@@ -1337,14 +1312,12 @@ msgid "No preview messages"
 msgstr "Aucun aperçu de messages"
 
 #: ../qml/components/ChatListItem.qml:113
-#, fuzzy
 msgid "Notification settings"
-msgstr "Cibles des notifications"
+msgstr "Paramètres des notifications"
 
 #: ../qml/components/ChatListItem.qml:127
-#, fuzzy
 msgid "Leave this chat"
-msgstr "Quitter la discussion"
+msgstr "Quitter cette discussion"
 
 #: ../qml/components/JoinGroupDialog.qml:11
 msgid "Join group"
@@ -1368,9 +1341,8 @@ msgstr "Réinitialiser"
 
 #: ../qml/components/ContactListItem.qml:36
 #: ../qml/components/UserSettingsViewer.qml:110
-#, fuzzy
 msgid "Last active: %1"
-msgstr "Dernière vue : "
+msgstr "Dernier actif ou dernière active : %1"
 
 #: ../qml/components/TargetListItem.qml:24
 #: ../qml/components/DeviceListItem.qml:25
@@ -1386,9 +1358,8 @@ msgid "Full username:"
 msgstr "Identifiant complet :"
 
 #: ../qml/components/UsernameListItem.qml:31
-#, fuzzy
 msgid "Username has been copied to the clipboard"
-msgstr "Le texte a été copié dans le presse-papier"
+msgstr "Le nom d'utilisateur a été copié dans le presse-papier"
 
 #: ../qml/components/NewContactDialog.qml:11
 msgid "New single chat"
@@ -1415,9 +1386,8 @@ msgstr ""
 "Ceci peut prendre quelques minutes…"
 
 #: ../qml/components/AddressesListItem.qml:13
-#, fuzzy
 msgid "Copied to clipboard"
-msgstr "Le texte a été copié dans le presse-papier"
+msgstr "A été copié dans le presse-papier"
 
 #: ../qml/components/AddressesListItem.qml:18
 msgid "Canonical alias"
@@ -1425,11 +1395,11 @@ msgstr "Alias canonique"
 
 #: ../qml/components/UserSettingsViewer.qml:109
 msgid "Status: %1"
-msgstr ""
+msgstr "Statut : %1"
 
 #: ../qml/components/UserSettingsViewer.qml:109
 msgid "and currently active"
-msgstr ""
+msgstr "et actuellement actif ou active"
 
 #: ../qml/components/UserSettingsViewer.qml:137
 msgid "Chats with this user:"
@@ -1445,7 +1415,7 @@ msgstr "Commencer une nouvelle discussion"
 
 #: ../qml/components/Walkthrough.qml:120
 msgid "Skip"
-msgstr ""
+msgstr "Passer"
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11
 msgid "Change your display name"
@@ -1457,7 +1427,7 @@ msgstr "Saisissez votre surnom"
 
 #: ../qml/components/CommunityViewer.qml:107
 msgid "No description found"
-msgstr ""
+msgstr "Aucune description trouvée"
 
 #: ../qml/components/ChangeChatnameDialog.qml:20
 msgid "Enter a name for the chat"
