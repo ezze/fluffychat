@@ -184,6 +184,7 @@ MainView {
     PushController { id: pushclient }
     MediaController { id: media }
     SettingsController { id: settings }
+    UserMetricsController { id: userMetrics }
     Toast { id: toast }
     ImageViewer { id: imageViewer }
     VideoPlayer { id: videoPlayer }

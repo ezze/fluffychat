@@ -3,6 +3,7 @@
         "networking",
         "audio",
         "video",
+        "usermetrics",
         "connectivity",
         "content_exchange",
         "content_exchange_source",

@@ -23,6 +23,7 @@ Item {
 
         var msgtype = data.msgtype === "m.sticker" ? data.msgtype : "m.room.message"
         matrix.put( "/client/r0/rooms/" + chat_id + "/send/" + msgtype + "/" + messageID, data, function ( response ) {
+            userMetrics.sentFluffys++
 
             newMessageID = response.event_id
             storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
