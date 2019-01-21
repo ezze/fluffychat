@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-18 14:48+0000\n"
-"PO-Revision-Date: 2019-01-05 16:47+0000\n"
+"PO-Revision-Date: 2019-01-19 16:20+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -40,19 +40,16 @@ msgid "Unknown Event: "
 msgstr "Evento desconocido: "
 
 #: ../qml/controller/DisplayEventController.qml:23
-#, fuzzy
 msgid "%1 has a new avatar"
-msgstr "%1 ha cambiado el avatar del chat"
+msgstr "%1 tiene un nuevo avatar"
 
 #: ../qml/controller/DisplayEventController.qml:26
-#, fuzzy
 msgid "%1 changed the displayname to %2"
-msgstr "%1 ha cambiado el nombre del chat a: <b>%2</b>"
+msgstr "%1 ha cambiado el nombre mostrado en pantalla a %2"
 
 #: ../qml/controller/DisplayEventController.qml:30
-#, fuzzy
 msgid "%1 accepted the invitation"
-msgstr "Aceptar la invitación"
+msgstr "%1 ha aceptado la invitación"
 
 #: ../qml/controller/DisplayEventController.qml:33
 msgid "%1 is now participating"
@@ -63,67 +60,54 @@ msgid "%1 is now participating as <b>%2</b>"
 msgstr "%1 está participando ahora como <b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:38
-#, fuzzy
 msgid "%1 invited %2"
 msgstr "%1 ha invitado a %2"
 
 #: ../qml/controller/DisplayEventController.qml:42
-#, fuzzy
 msgid "%1 pardoned %2"
-msgstr "%1 ha invitado a %2"
+msgstr "%1 ha indultado a %2"
 
 #: ../qml/controller/DisplayEventController.qml:45
-#, fuzzy
 msgid "%1 declined the invitation"
-msgstr "Aceptar la invitación"
+msgstr "%1 ha rechazado la invitación"
 
 #: ../qml/controller/DisplayEventController.qml:48
-#, fuzzy
 msgid "%1 left the chat"
-msgstr "%1 ha salido del chat"
+msgstr "%1 dejó el chat"
 
 #: ../qml/controller/DisplayEventController.qml:50
-#, fuzzy
 msgid "%1 kicked %2"
-msgstr "%1 ha invitado a %2"
+msgstr "%1 expulsó a %2"
 
 #: ../qml/controller/DisplayEventController.qml:53
-#, fuzzy
 msgid "%1 banned %2 from the chat"
-msgstr "%1 está vetado en el chat."
+msgstr "%1 vetó a %2 en el chat"
 
 #: ../qml/controller/DisplayEventController.qml:56
-#, fuzzy
 msgid "and more member changes"
-msgstr "Cambiar miembros del chat"
+msgstr "y más cambios de miembros"
 
 #: ../qml/controller/DisplayEventController.qml:60
-#, fuzzy
 msgid "%1 created the chat"
-msgstr "%1 ha salido del chat"
+msgstr "%1 ha creado el chat"
 
 #: ../qml/controller/DisplayEventController.qml:63
-#, fuzzy
 msgid "%1 changed the chat name to: «%2»"
-msgstr "%1 ha cambiado el nombre del chat a: <b>%2</b>"
+msgstr "%1 ha cambiado el nombre del chat a: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:66
-#, fuzzy
 msgid "%1 changed the chat topic to: «%2»"
-msgstr "%1 ha cambiado el tema del chat a: <b>%2</b>"
+msgstr "%1 ha cambiado el tema del chat a: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:69
-#, fuzzy
 msgid "%1 changed the chat avatar"
 msgstr "%1 ha cambiado el avatar del chat"
 
 #: ../qml/controller/DisplayEventController.qml:72
-#, fuzzy
 msgid "%1 redacted a message"
-msgstr "%1 ha redactado un mensaje"
+msgstr "%1 ha eliminado un mensaje"
 
 #: ../qml/controller/DisplayEventController.qml:75
-#, fuzzy
 msgid ""
 "%1 initialized end to end encryption. Be aware that FluffyChat does not yet "
 "support end to end encryption. You will not be able to send or read messages "
@@ -137,39 +121,32 @@ msgid "Encrypted message"
 msgstr "Mensaje cifrado"
 
 #: ../qml/controller/DisplayEventController.qml:81
-#, fuzzy
 msgid "%1 sent a sticker"
 msgstr "%1 ha enviado una pegatina"
 
 #: ../qml/controller/DisplayEventController.qml:84
-#, fuzzy
 msgid "%1 set the chat history visible to: «%2»"
-msgstr "%1 ha hecho visible el historial del chat para: %2"
+msgstr "%1 ha hecho visible el historial del chat para: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:87
-#, fuzzy
 msgid "%1 set the join rules to: «%2»"
-msgstr "%1 ha establecido como regla de unión: %2"
+msgstr "%1 ha establecido como regla de unión: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:90
-#, fuzzy
 msgid "%1 set the guest access to: «%2»"
-msgstr "%1 ha establecido el acceso de invitados como: %2"
+msgstr "%1 ha establecido el acceso de invitados a: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:93
-#, fuzzy
 msgid "%1 changed the chat aliases"
-msgstr "%1 ha cambiado el avatar del chat"
+msgstr "%1 ha cambiado el alias del chat"
 
 #: ../qml/controller/DisplayEventController.qml:99
-#, fuzzy
 msgid "%1 changed the main chat alias to: «%2»"
-msgstr "%1 ha cambiado el nombre del chat a: <b>%2</b>"
+msgstr "%1 ha cambiado el alias principal del chat a: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:102
-#, fuzzy
 msgid "%1 changed the chat permissions"
-msgstr "¿Quién puede cambiar los permisos de usuario?"
+msgstr "%1 ha cambiado los permisos del chat"
 
 #: ../qml/controller/DisplayEventController.qml:112
 msgid "Only invited users"
@@ -279,9 +256,8 @@ msgid "Push notifications are disabled..."
 msgstr "Las notificaciones están desactivadas..."
 
 #: ../qml/controller/MatrixController.qml:146
-#, fuzzy
 msgid "Do you want to join this chat?"
-msgstr "¿Seguro que quiere salir del chat?"
+msgstr "¿Quiere unirse a este chat?"
 
 #: ../qml/controller/MatrixController.qml:255 ../qml/pages/LoginPage.qml:42
 #: ../qml/pages/LoginPage.qml:84
@@ -424,6 +400,9 @@ msgid ""
 "New public chat discover page. Better UX when starting a new chat. A lot of "
 "bug fixes and stability improvements"
 msgstr ""
+"Nueva página de descubrimiento de chats públicos. Mejor experiencia de "
+"usuario al comenzar un nuevo chat. Un montón de fallos arreglados y de "
+"mejoras en la estabilidad"
 
 #: ../qml/pages/WalkthroughPage.qml:205
 msgid "Community funded"
@@ -503,14 +482,12 @@ msgid "Share"
 msgstr "Compartir"
 
 #: ../qml/pages/ChatListPage.qml:187 ../qml/pages/CreateChatPage.qml:13
-#, fuzzy
 msgid "Add chat"
-msgstr "Añadir dirección del chat"
+msgstr "Añadir chat"
 
 #: ../qml/pages/ChatListPage.qml:219
-#, fuzzy
 msgid "Search for your chats..."
-msgstr "Buscar chats públicos..."
+msgstr "Busque sus chats..."
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:137
 msgid "Chat security & privacy settings"
@@ -525,7 +502,6 @@ msgid "Users can be invited"
 msgstr "Los usuarios pueden ser invitados"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:184
-#, fuzzy
 msgid "Chat is public accessible"
 msgstr "Chat de acceso público"
 
@@ -542,14 +518,12 @@ msgid "History is visible from invitation"
 msgstr "El historial es visible desde la invitación"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:238
-#, fuzzy
 msgid "Members can access full chat history"
-msgstr "¿Quién puede ver el historial del chat?"
+msgstr "Los miembros pueden acceder al historial completo del chat"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:249
-#, fuzzy
 msgid "Anyone can access full chat history"
-msgstr "¿Quién puede ver el historial del chat?"
+msgstr "Todo el mundo puede acceder al historial completo del chat"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:268
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:87
@@ -626,19 +600,16 @@ msgid "New chat: %1 selected"
 msgstr "Nuevo chat: %1 seleccionado"
 
 #: ../qml/pages/CreateChatPage.qml:20
-#, fuzzy
 msgid "Add from addressbook"
-msgstr "Añadir dirección de correo electrónico"
+msgstr "Añadir desde la agenda de direcciones"
 
 #: ../qml/pages/CreateChatPage.qml:84
-#, fuzzy
 msgid "Join public chat"
-msgstr "Cargando chats públicos..."
+msgstr "Unirse al chat público"
 
 #: ../qml/pages/CreateChatPage.qml:116
-#, fuzzy
 msgid "Create a new chat"
-msgstr "Crear una cuenta nueva"
+msgstr "Crear un nuevo chat"
 
 #: ../qml/pages/CreateChatPage.qml:146 ../qml/pages/InvitePage.qml:57
 msgid "Search for example @username:server.abc"
@@ -657,6 +628,7 @@ msgstr "Crear chat"
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
+"Tenga en cuenta que FluffyChat solo soporta cifrado de transporte por ahora."
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:82
@@ -930,23 +902,20 @@ msgid "Don't notify"
 msgstr "No notificar"
 
 #: ../qml/pages/DiscoverPage.qml:43
-#, fuzzy
 msgid "Public chats on %1"
-msgstr "Direcciones de chat públicos"
+msgstr "Chats públicos en %1"
 
 #: ../qml/pages/DiscoverPage.qml:43
 msgid "and matrix.org"
-msgstr ""
+msgstr "y matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:89
-#, fuzzy
 msgid "Search for chats or #aliases..."
-msgstr "Buscar chats o salas públicas ..."
+msgstr "Buscar por chats o #alias..."
 
 #: ../qml/pages/DiscoverPage.qml:111
-#, fuzzy
 msgid "No chats found"
-msgstr "No se ha encontrado ninguna descripción"
+msgstr "No se han encontrado chats"
 
 #: ../qml/pages/ChatSettingsPage.qml:118
 msgid "Member"
@@ -1156,14 +1125,12 @@ msgid "Download"
 msgstr "Descargar"
 
 #: ../qml/components/WaitDialog.qml:11
-#, fuzzy
 msgid "Loading... Please wait!"
-msgstr "Sincronizando… Espere por favor."
+msgstr "Cargando... ¡Espere por favor!"
 
 #: ../qml/components/WaitDialog.qml:35
-#, fuzzy
 msgid "Cancel process"
-msgstr "Cancelar"
+msgstr "Cancelar el proceso"
 
 #: ../qml/components/LeaveChatDialog.qml:11
 msgid "Leave chat"

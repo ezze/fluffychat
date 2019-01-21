@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-18 14:48+0000\n"
-"PO-Revision-Date: 2019-01-05 16:47+0000\n"
+"PO-Revision-Date: 2019-01-19 16:20+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -40,19 +40,16 @@ msgid "Unknown Event: "
 msgstr "Neznámá událost: "
 
 #: ../qml/controller/DisplayEventController.qml:23
-#, fuzzy
 msgid "%1 has a new avatar"
-msgstr "%1 změnil avatar chatovací místnosti"
+msgstr "%1 má nového avatara"
 
 #: ../qml/controller/DisplayEventController.qml:26
-#, fuzzy
 msgid "%1 changed the displayname to %2"
-msgstr "%1 změnil název chatovací místnosti na: <b>%2</b>"
+msgstr "%1 změnil zobrazované jméno na: <b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:30
-#, fuzzy
 msgid "%1 accepted the invitation"
-msgstr "Přijmout pozvání"
+msgstr "%1 přijal/a pozvání"
 
 #: ../qml/controller/DisplayEventController.qml:33
 msgid "%1 is now participating"
@@ -63,67 +60,54 @@ msgid "%1 is now participating as <b>%2</b>"
 msgstr "%1 je právě přítomen jako<b>%2</b>"
 
 #: ../qml/controller/DisplayEventController.qml:38
-#, fuzzy
 msgid "%1 invited %2"
 msgstr "%1 pozval/a %2"
 
 #: ../qml/controller/DisplayEventController.qml:42
-#, fuzzy
 msgid "%1 pardoned %2"
-msgstr "%1 pozval/a %2"
+msgstr "%1 odpuštěno %2"
 
 #: ../qml/controller/DisplayEventController.qml:45
-#, fuzzy
 msgid "%1 declined the invitation"
-msgstr "Přijmout pozvání"
+msgstr "%1 odmítl/a pozvání"
 
 #: ../qml/controller/DisplayEventController.qml:48
-#, fuzzy
 msgid "%1 left the chat"
-msgstr "%1 opustil konverzaci"
+msgstr "%1 opustil/a konverzaci"
 
 #: ../qml/controller/DisplayEventController.qml:50
-#, fuzzy
 msgid "%1 kicked %2"
-msgstr "%1 pozval/a %2"
+msgstr "%1 vyhoštěn/a %2"
 
 #: ../qml/controller/DisplayEventController.qml:53
-#, fuzzy
 msgid "%1 banned %2 from the chat"
-msgstr "%1 byl z chatu vyloučen."
+msgstr "%1 byl %2 vyloučen chatu"
 
 #: ../qml/controller/DisplayEventController.qml:56
-#, fuzzy
 msgid "and more member changes"
-msgstr "Změnit účastníky chatu"
+msgstr "a více změn členů účastníků"
 
 #: ../qml/controller/DisplayEventController.qml:60
-#, fuzzy
 msgid "%1 created the chat"
-msgstr "%1 opustil konverzaci"
+msgstr "%1 vytvořil chat"
 
 #: ../qml/controller/DisplayEventController.qml:63
-#, fuzzy
 msgid "%1 changed the chat name to: «%2»"
-msgstr "%1 změnil název chatovací místnosti na: <b>%2</b>"
+msgstr "%1 změnil název chatovací místnosti na: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:66
-#, fuzzy
 msgid "%1 changed the chat topic to: «%2»"
-msgstr "%1 změnil téma chatu na: <b>%2</b>"
+msgstr "%1 změnil téma chatu na: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:69
-#, fuzzy
 msgid "%1 changed the chat avatar"
 msgstr "%1 změnil avatar chatovací místnosti"
 
 #: ../qml/controller/DisplayEventController.qml:72
-#, fuzzy
 msgid "%1 redacted a message"
 msgstr "%1 napsal zprávu"
 
 #: ../qml/controller/DisplayEventController.qml:75
-#, fuzzy
 msgid ""
 "%1 initialized end to end encryption. Be aware that FluffyChat does not yet "
 "support end to end encryption. You will not be able to send or read messages "
@@ -137,39 +121,32 @@ msgid "Encrypted message"
 msgstr "Šifrovaná zpráva"
 
 #: ../qml/controller/DisplayEventController.qml:81
-#, fuzzy
 msgid "%1 sent a sticker"
 msgstr "%1 odeslal nálepku"
 
 #: ../qml/controller/DisplayEventController.qml:84
-#, fuzzy
 msgid "%1 set the chat history visible to: «%2»"
-msgstr "%1 zpřístupnil historii chatu pro: %2"
+msgstr "%1 zpřístupnil historii chatu pro: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:87
-#, fuzzy
 msgid "%1 set the join rules to: «%2»"
-msgstr "%1 nastavil pravidla pro zapojení se: %2"
+msgstr "%1 nastavil pravidla pro zapojení se: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:90
-#, fuzzy
 msgid "%1 set the guest access to: «%2»"
-msgstr "%1 nastavil vstup pro hosty jako: %2"
+msgstr "%1 nastavil vstup pro hosty jako: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:93
-#, fuzzy
 msgid "%1 changed the chat aliases"
-msgstr "%1 změnil avatar chatovací místnosti"
+msgstr "%1 změnil alias chatovací místnosti"
 
 #: ../qml/controller/DisplayEventController.qml:99
-#, fuzzy
 msgid "%1 changed the main chat alias to: «%2»"
-msgstr "%1 změnil název chatovací místnosti na: <b>%2</b>"
+msgstr "%1 změnil hlavní alias chatovací místnosti na: «%2»"
 
 #: ../qml/controller/DisplayEventController.qml:102
-#, fuzzy
 msgid "%1 changed the chat permissions"
-msgstr "Kdo má oprávnění změnit oprávnění uživatelů?"
+msgstr "%1 změnil chatovací oprávněni"
 
 #: ../qml/controller/DisplayEventController.qml:112
 msgid "Only invited users"
@@ -280,9 +257,8 @@ msgid "Push notifications are disabled..."
 msgstr "Příjem oznámení je deaktivován..."
 
 #: ../qml/controller/MatrixController.qml:146
-#, fuzzy
 msgid "Do you want to join this chat?"
-msgstr "Opravdu chcete chat opustit?"
+msgstr "Chcete se připojit k tomuto chatu?"
 
 #: ../qml/controller/MatrixController.qml:255 ../qml/pages/LoginPage.qml:42
 #: ../qml/pages/LoginPage.qml:84
@@ -422,6 +398,8 @@ msgid ""
 "New public chat discover page. Better UX when starting a new chat. A lot of "
 "bug fixes and stability improvements"
 msgstr ""
+"Nová stránka vyhledávání veřejných chatů. Vylepšené uživatelské prostředí "
+"při spuštění nového chatu. Mnoho oprav chyb a vylepšená stabilita aplikace"
 
 #: ../qml/pages/WalkthroughPage.qml:205
 msgid "Community funded"
@@ -501,14 +479,12 @@ msgid "Share"
 msgstr "Sdílet"
 
 #: ../qml/pages/ChatListPage.qml:187 ../qml/pages/CreateChatPage.qml:13
-#, fuzzy
 msgid "Add chat"
-msgstr "Přidat adresu chatu"
+msgstr "Přidat chat"
 
 #: ../qml/pages/ChatListPage.qml:219
-#, fuzzy
 msgid "Search for your chats..."
-msgstr "Vyhledat názvy chatů..."
+msgstr "Vyhledat vaše chaty..."
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:137
 msgid "Chat security & privacy settings"
@@ -523,7 +499,6 @@ msgid "Users can be invited"
 msgstr "Uživatelé mohou být pozváni"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:184
-#, fuzzy
 msgid "Chat is public accessible"
 msgstr "Chat s přístupem veřejnosti"
 
@@ -540,14 +515,12 @@ msgid "History is visible from invitation"
 msgstr "Historie je přístupná od okamžiku pozvání"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:238
-#, fuzzy
 msgid "Members can access full chat history"
-msgstr "Kdo může vidět historii chatu?"
+msgstr "Členové chatu mohou vidět historii chatu"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:249
-#, fuzzy
 msgid "Anyone can access full chat history"
-msgstr "Kdo může vidět historii chatu?"
+msgstr "Všichni mohou vidět historii chatu"
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:268
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:87
@@ -624,19 +597,16 @@ msgid "New chat: %1 selected"
 msgstr "Nový chat: %1 zvolen"
 
 #: ../qml/pages/CreateChatPage.qml:20
-#, fuzzy
 msgid "Add from addressbook"
-msgstr "Vložit e-mailovou adresu"
+msgstr "Vybrat z adresáře kontaktů"
 
 #: ../qml/pages/CreateChatPage.qml:84
-#, fuzzy
 msgid "Join public chat"
-msgstr "Stahuji veřejné chaty..."
+msgstr "Připojit se k veřejnému chatu"
 
 #: ../qml/pages/CreateChatPage.qml:116
-#, fuzzy
 msgid "Create a new chat"
-msgstr "Vytnořit nový účet"
+msgstr "Vytnořit nový chat"
 
 #: ../qml/pages/CreateChatPage.qml:146 ../qml/pages/InvitePage.qml:57
 msgid "Search for example @username:server.abc"
@@ -655,6 +625,7 @@ msgstr "Vytvořit chat"
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
+"Upozorňujeme, že FluffyChat dosud podporuje pouze šifrovaný přenos zpráv."
 
 #: ../qml/pages/SettingsPage.qml:34 ../qml/pages/SettingsPage.qml:41
 #: ../qml/pages/SettingsPage.qml:82
@@ -924,23 +895,20 @@ msgid "Don't notify"
 msgstr "Neoznamovat"
 
 #: ../qml/pages/DiscoverPage.qml:43
-#, fuzzy
 msgid "Public chats on %1"
-msgstr "Veřejné chatovací adresy"
+msgstr "Veřejné chaty na %1"
 
 #: ../qml/pages/DiscoverPage.qml:43
 msgid "and matrix.org"
-msgstr ""
+msgstr "a matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:89
-#, fuzzy
 msgid "Search for chats or #aliases..."
-msgstr "Vyhledat chaty anebo veřejné místnosti..."
+msgstr "Vyhledat chaty anebo #aliasy..."
 
 #: ../qml/pages/DiscoverPage.qml:111
-#, fuzzy
 msgid "No chats found"
-msgstr "Nenalezen žádný popis"
+msgstr "Nenalezen žádný chat"
 
 #: ../qml/pages/ChatSettingsPage.qml:118
 msgid "Member"
@@ -1150,14 +1118,12 @@ msgid "Download"
 msgstr "Stáhnout"
 
 #: ../qml/components/WaitDialog.qml:11
-#, fuzzy
 msgid "Loading... Please wait!"
-msgstr "Synchronizuji… Prosím vyčkejte."
+msgstr "Načítám… Prosím vyčkejte!"
 
 #: ../qml/components/WaitDialog.qml:35
-#, fuzzy
 msgid "Cancel process"
-msgstr "Zrušit"
+msgstr "Ukončit proces"
 
 #: ../qml/components/LeaveChatDialog.qml:11
 msgid "Leave chat"
