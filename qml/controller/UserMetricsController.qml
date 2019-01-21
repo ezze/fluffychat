@@ -8,18 +8,18 @@ import Qt.labs.settings 1.0
 
 Item {
 
-    property alias sentFluffys: userMetricsSettings.sentFluffys
-    onSentFluffysChanged: metrics.update(0)
+    property alias sentMessages: userMetricsSettings.sentMessages
+    onSentMessagesChanged: metrics.update(0)
 
     Settings {
         id: userMetricsSettings
-        property var sentFluffys: 0
+        property var sentMessages: 0
     }
 
     Metric {
         id: metrics
         name: Qt.application.name
-        format: i18n.tag("Hey %1! 🤗 You have sent %2 fluffies from your Ubuntu Touch device yet. ❤").arg( usernames.transformFromId(settings.matrixid) ).arg(sentFluffys)
+        format: i18n.tag("Hey %1! 🤗 You have sent %2 FluffyChat messages from your Ubuntu Touch device so far. ❤").arg( usernames.transformFromId(settings.matrixid) ).arg(sentMessages)
         domain: "christianpauly.fluffychat"
     }
 }
