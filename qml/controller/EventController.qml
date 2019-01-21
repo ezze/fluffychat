@@ -494,7 +494,7 @@ Item {
                             transaction.executeSql( "INSERT OR IGNORE INTO Memberships VALUES(?, ?, '', '', ?, ?)",
                             [ roomid,
                             user,
-                            "join",
+                            "unknown",
                             event.content.users[user] ])
                         }
                     }

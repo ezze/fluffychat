@@ -79,10 +79,16 @@ Page {
 
         if ( settings.lazy_load_members ) {
             matrix.get ( "/client/r0/rooms/%1/members".arg(activeChat), {}, function ( response ) {
+                model.clear()
+                memberCount = 0
                 for ( var i = 0; i < response.chunk.length; i++ ) {
                     var member = response.chunk[ i ]
 
-                    if ( activeChatMembers[member.state_key] ) continue
+                    var userPower = 0
+                    if ( activeChatMembers[member.state_key] ) {
+                        userPower = activeChatMembers[member.state_key].power_level
+                    }
+
                     if ( member.content.membership === "join" ) memberCount++
 
                     activeChatMembers [member.state_key] = member.content
@@ -92,13 +98,14 @@ Page {
                     if ( activeChatMembers [member.state_key].avatar_url === undefined || activeChatMembers [member.state_key].avatar_url === null ) {
                         activeChatMembers [member.state_key].avatar_url = ""
                     }
+                    activeChatMembers[member.state_key].power_level = userPower
 
                     model.append({
                         name: activeChatMembers [member.state_key].displayname,
                         matrixid: member.state_key,
                         membership: member.content.membership,
                         avatar_url: activeChatMembers [member.state_key].avatar_url,
-                        userPower: 0
+                        userPower: activeChatMembers[member.state_key].power_level
                     })
 
                 }
