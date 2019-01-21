@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-18 14:48+0000\n"
+"POT-Creation-Date: 2019-01-21 10:49+0000\n"
 "PO-Revision-Date: 2019-01-21 10:51+0000\n"
 "Last-Translator: libermax <libremax@protonmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
@@ -645,21 +645,21 @@ msgstr "Paramètres pour %1"
 msgid "Edit displayname"
 msgstr "Modifier le nom affiché"
 
-#: ../qml/pages/SettingsPage.qml:96 ../qml/pages/ChatSettingsPage.qml:184
+#: ../qml/pages/SettingsPage.qml:96 ../qml/pages/ChatSettingsPage.qml:191
 #: ../qml/components/ChatEvent.qml:242
 msgid "Show image"
 msgstr "Afficher l'image"
 
-#: ../qml/pages/SettingsPage.qml:100 ../qml/pages/ChatSettingsPage.qml:188
+#: ../qml/pages/SettingsPage.qml:100 ../qml/pages/ChatSettingsPage.qml:195
 msgid "Delete Avatar"
 msgstr "Supprimer l'avatar"
 
-#: ../qml/pages/SettingsPage.qml:122 ../qml/pages/ChatSettingsPage.qml:209
+#: ../qml/pages/SettingsPage.qml:122 ../qml/pages/ChatSettingsPage.qml:216
 #: ../qml/components/StickerInput.qml:138
 msgid "Error"
 msgstr "Erreur"
 
-#: ../qml/pages/SettingsPage.qml:126 ../qml/pages/ChatSettingsPage.qml:213
+#: ../qml/pages/SettingsPage.qml:126 ../qml/pages/ChatSettingsPage.qml:220
 #: ../qml/components/StickerInput.qml:142
 msgid "OK"
 msgstr "Valider"
@@ -683,7 +683,7 @@ msgstr "Mode sombre"
 #: ../qml/pages/SettingsPage.qml:203
 #: ../qml/pages/NotificationSettingsPage.qml:64
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
-#: ../qml/pages/ChatSettingsPage.qml:256
+#: ../qml/pages/ChatSettingsPage.qml:263
 msgid "Notifications"
 msgstr "Notifications"
 
@@ -827,27 +827,27 @@ msgstr ""
 "Le <br><b>client Matrix</b><br><br>* FluffyChat est un client qui utilise le "
 "protocole Matrix et est compatible avec tous les serveurs Matrix et les "
 "serveurs d'identités Matrix. Toutes les communications tenues en utilisant "
-"FluffyChat utilisent un serveur Matrix et un serveur d'identités Matrix.<br>*"
-" Le serveur par défaut de FluffyChat est https://ubports.chat et le serveur "
-"d'identités par défaut est https://vector.im.<br>* FluffyChat n'opère pas de "
-"serveur ou de service à distance.<br>* Toute communication de contenu "
-"substantiel entre FluffyChat et un serveur est sécurisée en utilisant un "
-"chiffrement lors du transport pour la protéger. Le chiffrement de bout-en-"
-"bout viendra prochainement.<br>* FluffyChat n'est pas responsable du "
-"traitement des données effectué par un serveur Matrix ou un serveur "
+"FluffyChat utilisent un serveur Matrix et un serveur d'identités Matrix."
+"<br>* Le serveur par défaut de FluffyChat est https://ubports.chat et le "
+"serveur d'identités par défaut est https://vector.im.<br>* FluffyChat "
+"n'opère pas de serveur ou de service à distance.<br>* Toute communication de "
+"contenu substantiel entre FluffyChat et un serveur est sécurisée en "
+"utilisant un chiffrement lors du transport pour la protéger. Le chiffrement "
+"de bout-en-bout viendra prochainement.<br>* FluffyChat n'est pas responsable "
+"du traitement des données effectué par un serveur Matrix ou un serveur "
 "d'identités Matrix.<br>* FluffyChat offre la possibilité d'utiliser des "
 "numéros de téléphone pour trouver des contacts. Ce n'est pas une obligation "
 "pour une utilisation normale mais l'implémentation se révèle pratique. Aucun "
 "détail des contacts n'est téléversé sans une interaction d'un utilisateur ou "
 "d'une utilisatrice ! Ils peuvent choisir de téléverser tous ou certains ou "
-"pas de contacts au serveur d'identités !<br><br><b>Notifications</b><br><br>*"
-" Le serveur Matrix sélectionné par l'utilisateur ou l'utilisatrice enverra "
-"automatiquement des notifications au service de notifications d'UBports. Ces "
-"notifications sont chiffrées avec le protocole HTTPS entre l'appareil, le "
-"serveur Matrix et la passerelle Matrix officielle d'UBports sur "
-"https://push.ubports.com:5003/_matrix/push/r0/notify Ce serveur transfère la "
-"notification au serveur de notifications d'UBports sur https://"
-"push.ubports.com puis envoi le tout sous forme de notifications aux "
+"pas de contacts au serveur d'identités !<br><br><b>Notifications</"
+"b><br><br>* Le serveur Matrix sélectionné par l'utilisateur ou "
+"l'utilisatrice enverra automatiquement des notifications au service de "
+"notifications d'UBports. Ces notifications sont chiffrées avec le protocole "
+"HTTPS entre l'appareil, le serveur Matrix et la passerelle Matrix officielle "
+"d'UBports sur https://push.ubports.com:5003/_matrix/push/r0/notify Ce "
+"serveur transfère la notification au serveur de notifications d'UBports sur "
+"https://push.ubports.com puis envoi le tout sous forme de notifications aux "
 "appareils des utilisateurs et utilisatrices.<br>"
 
 #: ../qml/pages/ChatPage.qml:264 ../qml/components/ArchivedChatListItem.qml:30
@@ -925,64 +925,64 @@ msgstr "Chercher des discussions ou des #alias..."
 msgid "No chats found"
 msgstr "Aucune discussion n'a été trouvée"
 
-#: ../qml/pages/ChatSettingsPage.qml:118
+#: ../qml/pages/ChatSettingsPage.qml:125
 msgid "Member"
 msgstr "Membre"
 
-#: ../qml/pages/ChatSettingsPage.qml:119
+#: ../qml/pages/ChatSettingsPage.qml:126
 msgid "Was invited"
 msgstr "A été invité(e)"
 
-#: ../qml/pages/ChatSettingsPage.qml:120
+#: ../qml/pages/ChatSettingsPage.qml:127
 msgid "Has left the chat"
 msgstr "A quitté la discussion"
 
-#: ../qml/pages/ChatSettingsPage.qml:121
+#: ../qml/pages/ChatSettingsPage.qml:128
 msgid "Has knocked"
 msgstr "A frappé"
 
-#: ../qml/pages/ChatSettingsPage.qml:122
+#: ../qml/pages/ChatSettingsPage.qml:129
 msgid "Was banned from the chat"
 msgstr "A été banni(e) de la discussion"
 
-#: ../qml/pages/ChatSettingsPage.qml:123
+#: ../qml/pages/ChatSettingsPage.qml:130
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: ../qml/pages/ChatSettingsPage.qml:150
+#: ../qml/pages/ChatSettingsPage.qml:157
 #: ../qml/components/ChangeChatnameDialog.qml:11
 msgid "Edit chat name"
 msgstr "Modifier le nom de la discussion"
 
-#: ../qml/pages/ChatSettingsPage.qml:245
+#: ../qml/pages/ChatSettingsPage.qml:252
 msgid "Chat Settings:"
 msgstr "Paramètres de la discussion :"
 
-#: ../qml/pages/ChatSettingsPage.qml:262
+#: ../qml/pages/ChatSettingsPage.qml:269
 msgid "Security & Privacy"
 msgstr "Sécurité & Vie privée"
 
-#: ../qml/pages/ChatSettingsPage.qml:268
+#: ../qml/pages/ChatSettingsPage.qml:275
 msgid "Chat addresses"
 msgstr "Adresses de discussion"
 
-#: ../qml/pages/ChatSettingsPage.qml:290
+#: ../qml/pages/ChatSettingsPage.qml:297
 msgid "Users in this chat (%1):"
 msgstr "Participant(e)s à la discussion (%1) :"
 
-#: ../qml/pages/ChatSettingsPage.qml:290
+#: ../qml/pages/ChatSettingsPage.qml:297
 msgid "Press button to reload users..."
 msgstr "Appuyez sur le bouton pour actualiser les participant(e)s"
 
-#: ../qml/pages/ChatSettingsPage.qml:314
+#: ../qml/pages/ChatSettingsPage.qml:321
 msgid "Search..."
 msgstr "Recherche..."
 
-#: ../qml/pages/ChatSettingsPage.qml:334
+#: ../qml/pages/ChatSettingsPage.qml:341
 msgid "Invite friends"
 msgstr "Inviter des ami(e)s"
 
-#: ../qml/pages/ChatSettingsPage.qml:342
+#: ../qml/pages/ChatSettingsPage.qml:349
 msgid "Reload"
 msgstr "Actualiser"
 
