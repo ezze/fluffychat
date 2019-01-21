@@ -1,6 +1,8 @@
 ### 10:
 * New public chat discover page
 * Better UX when starting a new chat
+* Chats with unread messages are marked (event when notifications off)
+* Scroll top to the last read message by default
 * A lot of bug fixes and stability improvements
 
 ### 9.1:
