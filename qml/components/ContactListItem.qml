@@ -18,6 +18,7 @@ ListItem {
     property var isSelected: selected
     property var matrixid: matrix_id
     property var tempElement: temp
+    property var presenceStr: last_active_ago !== 0 ? i18n.tr("Last active: %1").arg( stamp.getChatTime ( last_active_ago ) ) : presence
 
     selectMode: true
     onSelectedChanged: {
@@ -31,9 +32,9 @@ ListItem {
 
     ListItemLayout {
         id: layout
-        title.text: name + (medium !== "matrix" ? " (%1)".arg(address) : "")
+        title.text: name + " (%1)".arg(address)
         title.color: mainFontColor
-        summary.text: last_active_ago !== 0 ? i18n.tr("Last active: %1").arg( stamp.getChatTime ( last_active_ago ) ) : presence
+        subtitle.text: presenceStr
 
         Avatar {
             name: layout.title.text
