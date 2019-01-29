@@ -157,7 +157,7 @@ Page {
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(2)
-                    text: i18n.tr("Access permissions")
+                    text: i18n.tr("Access")
                     font.bold: true
                 }
             }
@@ -201,6 +201,12 @@ Page {
                     if ( isChecked ) matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.guest_access/", { "guest_access": "can_join" } )
                     else matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.guest_access/", { "guest_access": "forbidden" } )
                 }
+            }
+
+            SettingsListLink {
+                name: i18n.tr("Public chat addresses")
+                icon: "stock_link"
+                page: "ChatAliasSettingsPage"
             }
 
             Rectangle {

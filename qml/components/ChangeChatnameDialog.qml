@@ -18,7 +18,6 @@ Component {
         TextField {
             id: chatnameTextField
             placeholderText: i18n.tr("Enter a name for the chat")
-            focus: true
             Component.onCompleted: {
                 storage.transaction ( "SELECT topic FROM Chats WHERE id='%1'".arg(activeChat), function ( res ) {
                     if ( res.rows.length > 0 ) {
@@ -31,7 +30,6 @@ Component {
         TextField {
             id: descriptionTextField
             placeholderText: i18n.tr("Enter a description for the chat")
-            focus: true
             text: description
         }
 

@@ -153,7 +153,7 @@ Page {
             actions: [
             Action {
                 visible: canChangeName
-                iconName: "compose"
+                iconName: "edit"
                 text: i18n.tr("Edit chat name")
                 onTriggered: PopupUtils.open(changeChatnameDialog)
             }
@@ -170,7 +170,7 @@ Page {
         contentItem: Column {
             width: mainStackWidth
 
-            Avatar {  // Useravatar
+            Avatar {
                 id: avatarImage
                 name: activeChatDisplayName
                 width: parent.width
@@ -202,7 +202,7 @@ Page {
                 id: pickerComponent
                 PickerDialog {}
             }
-            WebView {
+            /*WebView {
                 id: uploader
                 url: "../components/ChangeChatAvatar.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
                 width: units.gu(6)
@@ -222,7 +222,7 @@ Page {
                     }
                     Component.onCompleted: show()
                 }
-            }
+            }*/
             Rectangle {
                 width: parent.width
                 height: units.gu(2)
@@ -266,15 +266,9 @@ Page {
                         //onClicked: model.clear()
                     }
                     SettingsListLink {
-                        name: i18n.tr("Security & Privacy")
-                        icon: "system-lock-screen"
+                        name: i18n.tr("Advanced settings")
+                        icon: "filters"
                         page: "ChatPrivacySettingsPage"
-                        //onClicked: model.clear()
-                    }
-                    SettingsListLink {
-                        name: i18n.tr("Chat addresses")
-                        icon: "stock_link"
-                        page: "ChatAliasSettingsPage"
                         //onClicked: model.clear()
                     }
                 }

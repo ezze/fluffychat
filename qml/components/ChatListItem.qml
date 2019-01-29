@@ -109,11 +109,11 @@ ListItem {
     trailingActions: ListItemActions {
         actions: [
         Action {
-            iconName: "notification"
-            text: i18n.tr("Notification settings")
+            iconName: "info"
+            text: i18n.tr("Chat settings")
             onTriggered: {
                 activeChat = room.id
-                mainStack.push (Qt.resolvedUrl("../pages/NotificationChatSettingsPage.qml"))
+                mainStack.push (Qt.resolvedUrl("../pages/ChatSettingsPage.qml"))
             }
         }
         ]
