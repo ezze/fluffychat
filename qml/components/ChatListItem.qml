@@ -9,6 +9,7 @@ ListItem {
 
     property var previousMessage: ""
     property var isUnread: (room.unread < room.origin_server_ts && room.sender !== settings.matrixid) || room.membership === "invite"
+    property var newNotifictaions: room.notification_count > 0
 
     visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
@@ -43,9 +44,8 @@ ListItem {
             (room.content_body ? ( room.sender === settings.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
             i18n.tr("No preview messages"))))
         }
-        subtitle.color: isUnread ? settings.mainColor : "#888888"
+        subtitle.color: mainFontColor
         subtitle.linkColor: subtitle.color
-        subtitle.font.weight: isUnread ? Font.Bold : Font.Light
 
         Avatar {
             id: avatar
@@ -79,16 +79,16 @@ ListItem {
         anchors.margins: units.gu(2)
         width: unreadLabel.width + units.gu(1)
         height: units.gu(2)
-        color: settings.mainColor
+        color: newNotifictaions ? settings.mainColor : mainBorderColor
         radius: units.gu(0.5)
         Label {
             id: unreadLabel
             anchors.centerIn: parent
-            text: room.notification_count || "0"
+            text: room.notification_count || "+1"
             textSize: Label.Small
-            color: UbuntuColors.porcelain
+            color: newNotifictaions ? UbuntuColors.porcelain : mainFontColor
         }
-        visible: unreadLabel.text !== "0"
+        visible: newNotifictaions || isUnread
     }
 
 
