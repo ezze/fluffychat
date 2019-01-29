@@ -160,7 +160,44 @@ header: StyledPageHeader {
     flickable: chatListView
 
     leadingActionBar {
+        numberOfSlots: 1
         actions: [
+        Action {
+            id: addAction
+            text: i18n.tr ("New chat")
+            iconName: "message-new"
+            visible: shareObject === null
+            onTriggered: {
+                mainStack.toStart ("./pages/CreateChatPage.qml")
+            }
+        },
+        Action {
+            iconName: "stock_website"
+            text: i18n.tr("Public chats")
+            visible: shareObject === null
+            onTriggered: {
+                searchField.text = ""
+                mainStack.toStart("./pages/DiscoverPage.qml")
+            }
+        },
+        Action {
+            iconName: "account"
+            text: i18n.tr("Account settings")
+            visible: shareObject === null
+            onTriggered: {
+                searchField.text = ""
+                mainStack.toStart ("./pages/SettingsPage.qml")
+            }
+        },
+        Action {
+            iconName: "info"
+            text: i18n.tr("About")
+            visible: shareObject === null
+            onTriggered: {
+                searchField.text = ""
+                mainStack.toStart ("./pages/InfoPage.qml")
+            }
+        },
         Action {
             iconName: "close"
             visible: shareObject !== null
@@ -173,23 +210,6 @@ header: StyledPageHeader {
         Action {
             iconName: "search"
             onTriggered: searchField.focus = true
-        },
-        Action {
-            iconName: "account"
-            visible: shareObject === null
-            onTriggered: {
-                searchField.text = ""
-                mainStack.toStart ("./pages/SettingsPage.qml")
-            }
-        },
-        Action {
-            id: addAction
-            text: i18n.tr ( "Add chat" )
-            iconName: "add"
-            visible: shareObject === null
-            onTriggered: {
-                mainStack.toStart ("./pages/CreateChatPage.qml")
-            }
         }
         ]
     }

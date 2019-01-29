@@ -10,7 +10,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: selectedCount===0 ? i18n.tr('Add chat') : i18n.tr('New chat: %1 selected').arg(selectedCount)
+        title: i18n.tr('New chat: %1 selected').arg(selectedCount)
 
         trailingActionBar {
             actions: [
@@ -74,49 +74,6 @@ Page {
         z: 1
         width: parent.width
         anchors.top: header.bottom
-
-        ListItem {
-            height: layout.height
-            onClicked: mainStack.push(Qt.resolvedUrl("../pages/DiscoverPage.qml"))
-
-            ListItemLayout {
-                id: layout
-                title.text: i18n.tr("Join public chat")
-                title.color: settings.darkmode ? "white" : "black"
-                Icon {
-                    source: "../../assets/hashtag.svg"
-                    width: units.gu(3)
-                    height: width
-                    SlotsLayout.position: SlotsLayout.Leading
-                }
-                Icon {
-                    name: "toolkit_chevron-ltr_4gu"
-                    width: units.gu(3)
-                    height: units.gu(3)
-                    SlotsLayout.position: SlotsLayout.Trailing
-                }
-            }
-        }
-
-        Rectangle {
-            width: parent.width
-            height: units.gu(2)
-            color: theme.palette.normal.background
-        }
-
-        Rectangle {
-            width: parent.width
-            height: units.gu(2)
-            color: theme.palette.normal.background
-            Label {
-                id: userInfo
-                height: units.gu(2)
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(2)
-                text: i18n.tr("Create a new chat")
-                font.bold: true
-            }
-        }
 
         Rectangle {
             width: parent.width
