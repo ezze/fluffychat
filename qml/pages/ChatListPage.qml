@@ -190,8 +190,16 @@ header: StyledPageHeader {
             }
         },
         Action {
+            iconName: "help"
+            text: i18n.tr("Help and FAQ")
+            visible: shareObject === null
+            onTriggered: {
+                Qt.openUrlExternally("https://christianpauly.github.io/fluffychat/faq.html")
+            }
+        },
+        Action {
             iconName: "info"
-            text: i18n.tr("About")
+            text: i18n.tr("About FluffyChat")
             visible: shareObject === null
             onTriggered: {
                 searchField.text = ""

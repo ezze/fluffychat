@@ -44,11 +44,6 @@ Page {
         trailingActionBar {
             actions: [
             Action {
-                iconName: "help"
-                text: i18n.tr("FAQ")
-                onTriggered: Qt.openUrlExternally("https://christianpauly.github.io/fluffychat/faq.html")
-            },
-            Action {
                 iconName: "compose"
                 text: i18n.tr("Edit displayname")
                 onTriggered: PopupUtils.open(displaynameDialog)
