@@ -4,17 +4,20 @@ import Ubuntu.Components 1.3
 import QtGraphicalEffects 1.0
 
 
-Rectangle {
+UbuntuShape {
     id: avatarRect
     // rounded corners for img
     width: units.gu(6)
     height: width
-    color: avatar.status === Image.Ready ? UbuntuColors.porcelain : usernames.stringToColor ( name )
-    radius: width / 6
+    relativeRadius: 0.75
+    aspect: UbuntuShape.Flat
+    backgroundMode: UbuntuShape.VerticalGradient
+    backgroundColor: avatar.status === Image.Ready ? UbuntuColors.porcelain : usernames.stringToDarkColor ( name )
+    secondaryBackgroundColor: avatar.status === Image.Ready ? UbuntuColors.porcelain : usernames.stringToColor ( name )
     z:1
-    clip: true
+    //clip: true
 
-    property alias source: avatar.source
+    //property alias source: avatar.source
     property var mxc: ""
     property var onClickFunction: function () { if ( mxc !== "" && mxc !== undefined && mxc !== null ) imageViewer.show ( mxc ) }
     property var name: ""
@@ -27,7 +30,7 @@ Rectangle {
 
 
 
-    Image {
+    source: Image {
         id: avatar
         source:  mxc !== null && mxc !== "" && mxc !== undefined ? media.getThumbnailLinkFromMxc ( mxc, width, height ) : ""
         anchors.fill: parent
@@ -57,7 +60,7 @@ Rectangle {
     Rectangle {
         id: mask
         anchors.fill: parent
-        radius: parent.radius
+        radius: units.gu(4)
         visible: false
     }
 

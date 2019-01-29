@@ -7,10 +7,12 @@ Page {
     anchors.fill: parent
     property var inviteList: []
     property var selectedCount: 0
+    property var createGroup: false
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr('New chat: %1 selected').arg(selectedCount)
+        title: createGroup ? i18n.tr('New chat: %1 selected').arg(selectedCount) : i18n.tr('Contacts')
+        flickable: chatListView
 
         trailingActionBar {
             actions: [
@@ -22,12 +24,61 @@ Page {
             }
             ]
         }
-    }
 
-    Rectangle {
-        anchors.fill: parent
-        color: settings.darkmode ? "#202020" : "white"
-        z: -2
+        extension: Rectangle {
+            width: parent.width
+            height: searchField.height + units.gu(1)
+            color: theme.palette.normal.background
+            anchors.bottom: parent.bottom
+
+            TextField {
+                id: searchField
+                objectName: "searchField"
+                property var searchMatrixId: false
+                property var upperCaseText: displayText.toUpperCase()
+                property var tempElement: null
+                primaryItem: Icon {
+                    height: parent.height - units.gu(1)
+                    width: height
+                    name: "find"
+                }
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    rightMargin: units.gu(2)
+                    leftMargin: units.gu(2)
+                    top: parent.top
+                }
+                focus: true
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search for example @username:server.abc")
+                onDisplayTextChanged: {
+
+                    if ( displayText.slice( 0,1 ) === "@" && displayText.length > 1 ) {
+                        var input = displayText
+                        if ( input.indexOf(":") === -1 ) {
+                            input += ":" + settings.server
+                        }
+                        if ( tempElement !== null ) {
+                            model.remove ( tempElement)
+                            tempElement = null
+                        }
+                        if ( input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
+                        model.append ( {
+                            matrix_id: input,
+                            medium: "matrix",
+                            name: input,
+                            address: input,
+                            avatar_url: "",
+                            last_active_ago: 0,
+                            presence: "offline",
+                            temp: true
+                        })
+                        tempElement = model.count - 1
+                    }
+                }
+            }
+        }
     }
 
     Connections {
@@ -69,103 +120,19 @@ Page {
         })
     }
 
-    Column {
-        id: contentColumn
-        z: 1
-        width: parent.width
-        anchors.top: header.bottom
-
-        Rectangle {
-            width: parent.width
-            height: units.gu(2)
-            color: theme.palette.normal.background
-        }
-
-        Rectangle {
-            width: parent.width
-            height: searchField.height
-            color: theme.palette.normal.background
-            TextField {
-                id: searchField
-                objectName: "searchField"
-                property var searchMatrixId: false
-                property var upperCaseText: displayText.toUpperCase()
-                property var tempElement: null
-                z: 5
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    rightMargin: units.gu(2)
-                    leftMargin: units.gu(2)
-                }
-                focus: true
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search for example @username:server.abc")
-                onDisplayTextChanged: {
-
-                    if ( displayText.slice( 0,1 ) === "@" && displayText.length > 1 ) {
-                        var input = displayText
-                        if ( input.indexOf(":") === -1 ) {
-                            input += ":" + settings.server
-                        }
-                        if ( tempElement !== null ) {
-                            model.remove ( tempElement)
-                            tempElement = null
-                        }
-                        if ( input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
-                        model.append ( {
-                            matrix_id: input,
-                            medium: "matrix",
-                            name: input,
-                            address: input,
-                            avatar_url: "",
-                            last_active_ago: 0,
-                            presence: "offline",
-                            temp: true
-                        })
-                        tempElement = model.count - 1
-                    }
-                }
-            }
-        }
-
-        Rectangle {
-            width: parent.width
-            height: units.gu(2)
-            color: theme.palette.normal.background
-        }
-
-        Rectangle {
-            width: parent.width
-            height: 1
-            color: UbuntuColors.ash
-        }
-    }
-
-
-
     ListView {
         id: chatListView
         width: parent.width
-        height: parent.height - 2*header.height - contentColumn.height
-        anchors.top: contentColumn.bottom
+        height: parent.height - createGroup*(button.height - units.gu(2))
+        anchors.top: parent.top
         delegate: ContactListItem {}
         model: ListModel { id: model }
-        Button {
-            anchors.centerIn: chatListView
-            iconName: "contact-new"
-            color: UbuntuColors.porcelain
-            text: i18n.tr("Import from contacts")
-            width: parent.width - units.gu(10)
-            height: units.gu(5)
-            visible: model.count === 0
-            onClicked: contactImport.requestContact()
-        }
 
-        footer: SettingsListFooter {
+        header: SettingsListFooter {
+            visible: !createGroup
             icon: newContactAction.iconName
             name: newContactAction.text
-            iconWidth: units.gu(3)
+            iconWidth: units.gu(4)
             onClicked: {
                 contactImport.requestContact()
                 selectMode = false
@@ -182,16 +149,19 @@ Page {
         z: 2
         width: parent.width
         anchors.bottom: parent.bottom
-        height: header.height * 3
+        height: button.height * 2 + units.gu(2)
         gradient: Gradient {
             GradientStop { position: 0.0; color: "#00FFFFFF" }
+            GradientStop { position: 0.5; color: settings.darkmode ? "#FF000000" : "#FFFFFFFF" }
             GradientStop { position: 1.0; color: settings.darkmode ? "#FF000000" : "#FFFFFFFF" }
         }
+        visible: createGroup
     }
 
     Button {
         z: 3
         id: button
+        visible: createGroup
         text: i18n.tr("Create chat")
         width: parent.width - units.gu(4)
         color: UbuntuColors.green

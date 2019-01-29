@@ -105,161 +105,277 @@ Page {
         if ( j === model.count ) return
         var tempRoom = model.get(j).room
 
-    if ( eventType === "timeline" ) {
-        // Update the last message preview
-        var body = lastEvent.content.body || ""
-        if ( type !== "m.room.message" ) {
-            body = displayEvents.getDisplay ( lastEvent )
+        if ( eventType === "timeline" ) {
+            // Update the last message preview
+            var body = lastEvent.content.body || ""
+            if ( type !== "m.room.message" ) {
+                body = displayEvents.getDisplay ( lastEvent )
+            }
+            tempRoom.eventsid = lastEvent.event_id
+            tempRoom.origin_server_ts = lastEvent.origin_server_ts
+            tempRoom.content_body = body
+            tempRoom.sender = lastEvent.sender
+            tempRoom.content_json = JSON.stringify( lastEvent.content )
+            tempRoom.type = lastEvent.type
         }
-        tempRoom.eventsid = lastEvent.event_id
-        tempRoom.origin_server_ts = lastEvent.origin_server_ts
-        tempRoom.content_body = body
-        tempRoom.sender = lastEvent.sender
-        tempRoom.content_json = JSON.stringify( lastEvent.content )
-        tempRoom.type = lastEvent.type
-    }
-    if ( type === "m.typing" ) {
-        // Update the typing list
-        tempRoom.typing = lastEvent
-    }
-    else if ( type === "m.room.name" ) {
-        // Update the room name
-        tempRoom.topic = lastEvent.content.name
-    }
-    else if ( type === "m.room.avatar" ) {
-        // Update the room avatar
-        tempRoom.avatar_url = lastEvent.content.url
-    }
-    else if ( type === "m.receipt" && lastEvent.user === settings.matrixid ) {
-        // Update the room avatar
-        tempRoom.unread = lastEvent.ts
-    }
-    else if ( type === "m.room.member" && (tempRoom.topic === "" || tempRoom.topic === null || tempRoom.avatar_url === "" || tempRoom.avatar_url === null) ) {
-        // Update the room name or room avatar calculation
-        model.remove ( j )
-        model.insert ( j, { "room": tempRoom })
-    }
-    model.set ( j, { "room": tempRoom })
+        if ( type === "m.typing" ) {
+            // Update the typing list
+            tempRoom.typing = lastEvent
+        }
+        else if ( type === "m.room.name" ) {
+            // Update the room name
+            tempRoom.topic = lastEvent.content.name
+        }
+        else if ( type === "m.room.avatar" ) {
+            // Update the room avatar
+            tempRoom.avatar_url = lastEvent.content.url
+        }
+        else if ( type === "m.receipt" && lastEvent.user === settings.matrixid ) {
+            // Update the room avatar
+            tempRoom.unread = lastEvent.ts
+        }
+        else if ( type === "m.room.member" && (tempRoom.topic === "" || tempRoom.topic === null || tempRoom.avatar_url === "" || tempRoom.avatar_url === null) ) {
+            // Update the room name or room avatar calculation
+            model.remove ( j )
+            model.insert ( j, { "room": tempRoom })
+        }
+        model.set ( j, { "room": tempRoom })
 
-    // Now reorder this item
-    var here = j
-    while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) j--
-    if ( here !== j ) model.move( here, j, 1 )
-}
+        // Now reorder this item
+        var here = j
+        while ( j > 0 && tempRoom.origin_server_ts > model.get(j-1).room.origin_server_ts ) j--
+        if ( here !== j ) model.move( here, j, 1 )
+    }
 
 
-Connections {
-    target: events
-    onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
-    onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
-}
+    Connections {
+        target: events
+        onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
+        onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
+    }
 
-header: StyledPageHeader {
-    id: header
-    title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
-    flickable: chatListView
+    header: StyledPageHeader {
+        id: header
+        title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
+        flickable: chatListView
 
-    leadingActionBar {
-        numberOfSlots: 1
-        actions: [
-        Action {
-            id: addAction
-            text: i18n.tr ("New chat")
-            iconName: "message-new"
-            visible: shareObject === null
-            onTriggered: {
+        leadingActionBar {
+            numberOfSlots: 1
+            actions: [
+            Action {
+                iconName: "close"
+                visible: shareObject !== null
+                onTriggered: shareObject = null
+            }]
+        }
+
+        trailingActionBar {
+            actions: [
+            Action {
+                iconName: "filters"
+                text: i18n.tr("Settings")
+                visible: shareObject === null
+                onTriggered: {
+                    searchField.text = ""
+                    mainStack.toStart ("./pages/SettingsPage.qml")
+                }
+            }
+            ]
+        }
+
+        extension: Rectangle {
+            width: parent.width
+            height: searchField.height + units.gu(1)
+            color: theme.palette.normal.background
+            anchors.bottom: parent.bottom
+
+            TextField {
+                id: searchField
+                objectName: "searchField"
+                z: 5
+                property var searchMatrixId: false
+                property var upperCaseText: displayText.toUpperCase()
+                property var tempElement: null
+                primaryItem: Icon {
+                    height: parent.height - units.gu(1)
+                    width: height
+                    name: "find"
+                }
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    right: parent.right
+                    rightMargin: units.gu(2)
+                    leftMargin: units.gu(2)
+                }
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search for your chats...")
+            }
+        }
+    }
+
+
+    LeaveChatDialog { id: leaveChatDialog }
+
+
+
+
+    ListModel { id: model }
+
+    ListView {
+        id: chatListView
+        width: parent.width
+        height: parent.height
+        anchors.top: parent.top
+        delegate: ChatListItem {}
+        model: model
+        move: Transition {
+            SmoothedAnimation { property: "y"; duration: 300 }
+        }
+        displaced: Transition {
+            SmoothedAnimation { property: "y"; duration: 300 }
+        }
+    }
+
+    property var newChatMode: false
+
+    Rectangle {
+        id: newChatRect
+        anchors.fill: parent
+        color: settings.darkmode ? "#DD000000" : "#DDFFFFFF"
+        opacity: 0
+        visible: opacity !== 0
+        z: 10
+
+        transitions: Transition {
+            NumberAnimation { property: "opacity"; duration: 350}
+        }
+        states: State {
+            name: "visible"; when: newChatMode
+            PropertyChanges {
+                target: newChatRect
+                opacity: 1
+            }
+        }
+
+        MouseArea {
+            onClicked: newChatMode = false
+            anchors.fill: parent
+            enabled: parent.visible
+        }
+
+        FlyingButton {
+            id: createChatButton
+            iconName: "contact"
+            transitions: Transition {
+                to: "visible"
+                SpringAnimation {
+                    spring: 1.5
+                    damping: 0.2
+                    properties: "anchors.rightMargin, opacity"
+                }
+            }
+            states: State {
+                name: "visible"; when: newChatRect.opacity !== 0
+                PropertyChanges {
+                    target: createChatButton
+                    anchors.rightMargin: createChatButton.height / 2
+                }
+            }
+            mouseArea.onClicked: {
+                newChatMode = false
                 mainStack.toStart ("./pages/CreateChatPage.qml")
             }
-        },
-        Action {
-            iconName: "contact-group"
-            text: i18n.tr("Public groups")
-            visible: shareObject === null
-            onTriggered: {
-                searchField.text = ""
-                mainStack.toStart("./pages/DiscoverPage.qml")
-            }
-        },
-        Action {
-            iconName: "settings"
-            text: i18n.tr("Settings")
-            visible: shareObject === null
-            onTriggered: {
-                searchField.text = ""
-                mainStack.toStart ("./pages/SettingsPage.qml")
-            }
-        },
-        Action {
-            iconName: "help"
-            text: i18n.tr("Help and FAQ")
-            visible: shareObject === null
-            onTriggered: {
-                Qt.openUrlExternally("https://christianpauly.github.io/fluffychat/faq.html")
-            }
-        },
-        Action {
-            iconName: "close"
-            visible: shareObject !== null
-            onTriggered: shareObject = null
-        }]
-    }
-
-    trailingActionBar {
-        actions: [
-        Action {
-            iconName: "search"
-            onTriggered: searchField.focus = true
+            anchors.bottom: createGroupButton.top
+            anchors.rightMargin: -width
         }
-        ]
+
+        Label {
+            text: i18n.tr("New private chat")
+            anchors.right: createChatButton.left
+            anchors.verticalCenter: createChatButton.verticalCenter
+            anchors.margins: units.gu(2)
+            textSize: Label.Large
+            color: mainFontColor
+        }
+
+        FlyingButton {
+            id: createGroupButton
+            iconName: "contact-group"
+            transitions: Transition {
+                to: "visible"
+                SpringAnimation {
+                    spring: 2
+                    damping: 0.2
+                    properties: "anchors.rightMargin, opacity"
+                }
+            }
+            states: State {
+                name: "visible"; when: newChatRect.opacity !== 0
+                PropertyChanges {
+                    target: createGroupButton
+                    anchors.rightMargin: createGroupButton.height / 2
+                }
+            }
+            mouseArea.onClicked: {
+                newChatMode = false
+                mainStack.toStart ("./pages/CreateChatPage.qml")
+                mainStack.currentItem.createGroup = true
+            }
+            anchors.bottom: joinChatButton.top
+            anchors.rightMargin: -width
+        }
+
+        Label {
+            text: i18n.tr("New group")
+            anchors.right: createGroupButton.left
+            anchors.verticalCenter: createGroupButton.verticalCenter
+            anchors.margins: units.gu(2)
+            textSize: Label.Large
+            color: mainFontColor
+        }
+
+        FlyingButton {
+            id: joinChatButton
+            iconName: "find"
+            transitions: Transition {
+                to: "visible"
+                SpringAnimation {
+                    spring: 2.5
+                    damping: 0.2
+                    properties: "anchors.rightMargin, opacity"
+                }
+            }
+            states: State {
+                name: "visible"; when: newChatRect.opacity !== 0
+                PropertyChanges {
+                    target: joinChatButton
+                    anchors.rightMargin: createChatButton.height / 2
+                }
+            }
+            mouseArea.onClicked: {
+                newChatMode = false
+                mainStack.toStart ("./pages/DiscoverPage.qml")
+            }
+            anchors.bottomMargin: 2*height
+            anchors.rightMargin: -width
+        }
+
+        Label {
+            text: i18n.tr("Public groups")
+            anchors.right: joinChatButton.left
+            anchors.verticalCenter: joinChatButton.verticalCenter
+            anchors.margins: units.gu(2)
+            textSize: Label.Large
+            color: mainFontColor
+        }
     }
-}
 
-
-LeaveChatDialog { id: leaveChatDialog }
-
-
-TextField {
-    id: searchField
-    objectName: "searchField"
-    z: 5
-    property var searchMatrixId: false
-    property var upperCaseText: displayText.toUpperCase()
-    property var tempElement: null
-    anchors {
-        top: header.bottom
-        topMargin: units.gu(1)
-        bottomMargin: units.gu(1)
-        left: parent.left
-        right: parent.right
-        rightMargin: units.gu(2)
-        leftMargin: units.gu(2)
+    FlyingButton {
+        id: messageButton
+        iconName: newChatMode ? "close" : "add"
+        mouseArea.onClicked: newChatMode = !newChatMode
+        z: 12
     }
-    inputMethodHints: Qt.ImhNoPredictiveText
-    placeholderText: i18n.tr("Search for your chats...")
-}
-
-ListModel { id: model }
-
-ListView {
-    id: chatListView
-    width: parent.width
-    height: parent.height - header.height
-    anchors.top: parent.top
-    anchors.topMargin: searchField.height + units.gu(2)
-    delegate: ChatListItem {}
-    model: model
-    move: Transition {
-        SmoothedAnimation { property: "y"; duration: 300 }
-    }
-    displaced: Transition {
-        SmoothedAnimation { property: "y"; duration: 300 }
-    }
-    footer: SettingsListFooter {
-        name: addAction.text
-        icon: addAction.iconName
-        visible: addAction.visible
-        onClicked: mainStack.toStart ("./pages/CreateChatPage.qml")
-    }
-}
 
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-29 12:52+0000\n"
+"POT-Creation-Date: 2019-01-29 19:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -460,24 +460,24 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:167
-msgid "New chat"
-msgstr ""
-
 #: ../qml/pages/ChatListPage.qml:176
-msgid "Public groups"
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:185
 msgid "Settings"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:194
-msgid "Help and FAQ"
+#: ../qml/pages/ChatListPage.qml:212
+msgid "Search for your chats..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:238
-msgid "Search for your chats..."
+#: ../qml/pages/ChatListPage.qml:294
+msgid "New private chat"
+msgstr ""
+
+#: ../qml/pages/ChatListPage.qml:330 ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr ""
+
+#: ../qml/pages/ChatListPage.qml:365
+msgid "Public groups"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:137
@@ -591,27 +591,27 @@ msgstr ""
 msgid "Default user permissions:"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:13
+#: ../qml/pages/CreateChatPage.qml:14
 msgid "New chat: %1 selected"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:20
+#: ../qml/pages/CreateChatPage.qml:14
+msgid "Contacts"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:22
 msgid "Add from addressbook"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:103 ../qml/pages/InvitePage.qml:57
+#: ../qml/pages/CreateChatPage.qml:54 ../qml/pages/InvitePage.qml:57
 msgid "Search for example @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:158
-msgid "Import from contacts"
-msgstr ""
-
-#: ../qml/pages/CreateChatPage.qml:195
+#: ../qml/pages/CreateChatPage.qml:165
 msgid "Create chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:216
+#: ../qml/pages/CreateChatPage.qml:186
 #: ../qml/components/UserSettingsViewer.qml:175
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
@@ -635,13 +635,11 @@ msgstr ""
 msgid "Delete Avatar"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:117 ../qml/pages/ChatSettingsPage.qml:216
-#: ../qml/components/StickerInput.qml:138
+#: ../qml/pages/SettingsPage.qml:117 ../qml/components/StickerInput.qml:138
 msgid "Error"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:121 ../qml/pages/ChatSettingsPage.qml:220
-#: ../qml/components/StickerInput.qml:142
+#: ../qml/pages/SettingsPage.qml:121 ../qml/components/StickerInput.qml:142
 msgid "OK"
 msgstr ""
 
@@ -829,19 +827,19 @@ msgstr ""
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:428
+#: ../qml/pages/ChatPage.qml:409
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:428
+#: ../qml/pages/ChatPage.qml:409
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:442
+#: ../qml/pages/ChatPage.qml:423
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:473
+#: ../qml/pages/ChatPage.qml:454
 msgid "Type something ..."
 msgstr ""
 
@@ -1029,7 +1027,7 @@ msgstr ""
 #: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
-#: ../qml/components/ChangeChatnameDialog.qml:43
+#: ../qml/components/ChangeChatnameDialog.qml:41
 #: ../qml/components/AddEmailDialog.qml:27
 msgid "Cancel"
 msgstr ""
@@ -1098,10 +1096,6 @@ msgstr ""
 
 #: ../qml/components/LeaveChatDialog.qml:32
 msgid "Leave"
-msgstr ""
-
-#: ../qml/components/NewGroupDialog.qml:11
-msgid "New group"
 msgstr ""
 
 #: ../qml/components/NewGroupDialog.qml:19
@@ -1213,7 +1207,7 @@ msgstr ""
 
 #: ../qml/components/AddAliasDialog.qml:32
 #: ../qml/components/ChangeDisplaynameDialog.qml:39
-#: ../qml/components/ChangeChatnameDialog.qml:48
+#: ../qml/components/ChangeChatnameDialog.qml:46
 msgid "Save"
 msgstr ""
 
@@ -1375,7 +1369,7 @@ msgstr ""
 msgid "Enter a name for the chat"
 msgstr ""
 
-#: ../qml/components/ChangeChatnameDialog.qml:33
+#: ../qml/components/ChangeChatnameDialog.qml:32
 msgid "Enter a description for the chat"
 msgstr ""
 

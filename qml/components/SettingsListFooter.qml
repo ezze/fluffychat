@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 
 ListItem {
+    id: listItem
     property var name: ""
     property var icon: "settings"
     property var rightIcon: ""
@@ -20,7 +21,7 @@ ListItem {
         Rectangle {
             SlotsLayout.position: SlotsLayout.Leading
             width: iconWidth
-            height: width
+            height: listItem.visible ? width : 0
             color: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
             border.width: 1
             border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
@@ -37,8 +38,8 @@ ListItem {
 
         Icon {
             name: "toolkit_chevron-ltr_4gu"
-            width: units.gu(3)
-            height: units.gu(3)
+            width: iconWidth / 2
+            height: width
             SlotsLayout.position: SlotsLayout.Trailing
         }
 

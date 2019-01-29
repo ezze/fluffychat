@@ -354,46 +354,27 @@ Page {
 
 
 
-    Rectangle {
+    FlyingButton {
         id: scrollDownButton
-        width: units.gu(7)
-        height: width
-        anchors.bottom: replyEvent === null ? chatInput.top : replyEventView.top
-        anchors.right: parent.right
-        anchors.margins: opacity !== 0 ? units.gu(2) : -width
-        border.width: 1
-        border.color: UbuntuColors.slate
-        radius: width / 6
-        opacity: 0
-        color: UbuntuColors.jet
-        z: 14
-        MouseArea {
-            onClicked: chatScrollView.positionViewAtBeginning ()
-            anchors.fill: parent
-            visible: parent.opacity > 0
-        }
-        Icon {
-            name: "toolkit_chevron-down_4gu"
-            width: units.gu(2.5)
-            height: width
-            anchors.centerIn: parent
-            z: 14
-            color: "white"
+        mouseArea.onClicked: chatScrollView.positionViewAtBeginning ()
+        iconName: "toolkit_chevron-down_4gu"
+        anchors.bottomMargin: (width/2) + chatInput.height
+        anchors.rightMargin: -(scrollDownButton.width * 2)
+        z: 2
+        transitions: Transition {
+            SpringAnimation {
+                spring: 2
+                damping: 0.2
+                properties: "anchors.rightMargin"
+            }
         }
         states: State {
-            name: "visible"; when: !chatScrollView.atYEnd
+            name: "visible"
+            when: !chatScrollView.atYEnd
             PropertyChanges {
                 target: scrollDownButton
-                opacity: 0.75
+                anchors.rightMargin: scrollDownButton.width / 2
             }
-            PropertyChanges {
-                target: stickerInput
-                visible: false
-            }
-        }
-
-        transitions: Transition {
-            NumberAnimation { property: "opacity"; duration: 300 }
         }
     }
 

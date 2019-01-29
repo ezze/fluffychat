@@ -65,7 +65,7 @@ Page {
                 name: settings.matrixid
                 width: parent.width
                 height: width * 10/16
-                radius: 0
+                relativeRadius: 0
                 anchors.horizontalCenter: parent.horizontalCenter
                 mxc: ""
                 Component.onCompleted: {
