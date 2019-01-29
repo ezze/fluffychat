@@ -494,6 +494,14 @@ msgstr "Neuer Chat"
 msgid "Public chats"
 msgstr "Öffentliche Chats"
 
+#: ../qml/pages/ChatListPage.qml:176
+msgid "Public groups"
+msgstr "Öffentliche Gruppen"
+
+#: ../qml/pages/ChatListPage.qml:185
+msgid "Settings"
+msgstr "Einstellungen"
+
 #: ../qml/pages/ChatListPage.qml:185
 msgid "Account settings"
 msgstr "Kontoeinstellungen"

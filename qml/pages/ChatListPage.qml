@@ -172,8 +172,8 @@ header: StyledPageHeader {
             }
         },
         Action {
-            iconName: "stock_website"
-            text: i18n.tr("Public chats")
+            iconName: "contact-group"
+            text: i18n.tr("Public groups")
             visible: shareObject === null
             onTriggered: {
                 searchField.text = ""
@@ -181,8 +181,8 @@ header: StyledPageHeader {
             }
         },
         Action {
-            iconName: "account"
-            text: i18n.tr("Account settings")
+            iconName: "settings"
+            text: i18n.tr("Settings")
             visible: shareObject === null
             onTriggered: {
                 searchField.text = ""
@@ -195,15 +195,6 @@ header: StyledPageHeader {
             visible: shareObject === null
             onTriggered: {
                 Qt.openUrlExternally("https://christianpauly.github.io/fluffychat/faq.html")
-            }
-        },
-        Action {
-            iconName: "info"
-            text: i18n.tr("About FluffyChat")
-            visible: shareObject === null
-            onTriggered: {
-                searchField.text = ""
-                mainStack.toStart ("./pages/InfoPage.qml")
             }
         },
         Action {

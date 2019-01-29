@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-29 11:52+0000\n"
+"POT-Creation-Date: 2019-01-29 12:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -415,8 +415,7 @@ msgstr ""
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:112 ../qml/pages/ChatListPage.qml:202
-#: ../qml/pages/SettingsPage.qml:323
+#: ../qml/pages/LoginPage.qml:112 ../qml/pages/SettingsPage.qml:323
 msgid "About FluffyChat"
 msgstr ""
 
@@ -466,18 +465,18 @@ msgid "New chat"
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:176
-msgid "Public chats"
+msgid "Public groups"
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:185
-msgid "Account settings"
+msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:194
 msgid "Help and FAQ"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:247
+#: ../qml/pages/ChatListPage.qml:238
 msgid "Search for your chats..."
 msgstr ""
 
@@ -1287,7 +1286,7 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: ../qml/components/ContactListItem.qml:36
+#: ../qml/components/ContactListItem.qml:21
 #: ../qml/components/UserSettingsViewer.qml:110
 msgid "Last active: %1"
 msgstr ""
