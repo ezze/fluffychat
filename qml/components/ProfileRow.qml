@@ -37,21 +37,6 @@ Row {
         width: parent.height - units.gu(3)
         anchors.verticalCenter: parent.verticalCenter
         Label {
-            text: i18n.tr("Displayname:")
-            width: parent.width
-            wrapMode: Text.Wrap
-            font.bold: true
-        }
-        Label {
-            width: parent.width
-            wrapMode: Text.Wrap
-            text: displayname
-        }
-        Label {
-            text: " "
-            width: parent.width
-        }
-        Label {
             text: i18n.tr("Username:")
             width: parent.width
             wrapMode: Text.Wrap
@@ -61,6 +46,21 @@ Row {
             text: matrixid
             width: parent.width
             wrapMode: Text.Wrap
+        }
+        Label {
+            text: " "
+            width: parent.width
+        }
+        Label {
+            text: i18n.tr("Displayname:")
+            width: parent.width
+            wrapMode: Text.Wrap
+            font.bold: true
+        }
+        Label {
+            width: parent.width
+            wrapMode: Text.Wrap
+            text: displayname
         }
         Label {
             text: " "

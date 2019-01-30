@@ -42,61 +42,72 @@ Page {
         id: header
         title: i18n.tr("Groups on %1").arg(settings.server) + (settings.server !== "matrix.org" ? " " + i18n.tr("and matrix.org") : "")
         flickable: chatListView
+
+        extension: Rectangle {
+            width: parent.width
+            height: searchField.height + units.gu(1)
+            color: theme.palette.normal.background
+            anchors.bottom: parent.bottom
+            TextField {
+                id: searchField
+                objectName: "searchField"
+                z: 5
+                property var searchMatrixId: false
+                property var upperCaseText: displayText.toUpperCase()
+                property var tempElement: null
+                primaryItem: Icon {
+                    height: parent.height - units.gu(2)
+                    name: "find"
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(0.25)
+                }
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    right: parent.right
+                    rightMargin: units.gu(2)
+                    leftMargin: units.gu(2)
+                }
+                onDisplayTextChanged: {
+                    if ( tempElement ) {
+                        model.remove ( model.count - 1 )
+                        tempElement  = false
+                    }
+
+                    if ( displayText.slice( 0,1 ) === "#" ) {
+                        searchMatrixId = displayText
+                        if ( searchMatrixId.indexOf(":") === -1 ) searchMatrixId += ":%1".arg(settings.server)
+
+
+                        model.append ( { "room": {
+                            id: searchMatrixId,
+                            topic: searchMatrixId,
+                            membership: "leave",
+                            avatar_url: "",
+                            origin_server_ts: new Date().getTime(),
+                            typing: [],
+                            notification_count: 0,
+                            highlight_count: 0
+                        } } )
+                        tempElement = true
+                    }
+                }
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search for chats or #aliases...")
+            }
+        }
     }
 
 
-    TextField {
-        id: searchField
-        objectName: "searchField"
-        z: 5
-        property var searchMatrixId: false
-        property var upperCaseText: displayText.toUpperCase()
-        property var tempElement: null
-        anchors {
-            top: header.bottom
-            topMargin: units.gu(1)
-            bottomMargin: units.gu(1)
-            left: parent.left
-            right: parent.right
-            rightMargin: units.gu(2)
-            leftMargin: units.gu(2)
-        }
-        onDisplayTextChanged: {
-            if ( tempElement ) {
-                model.remove ( model.count - 1 )
-                tempElement  = false
-            }
 
-            if ( displayText.slice( 0,1 ) === "#" ) {
-                searchMatrixId = displayText
-                if ( searchMatrixId.indexOf(":") === -1 ) searchMatrixId += ":%1".arg(settings.server)
-
-
-                model.append ( { "room": {
-                    id: searchMatrixId,
-                    topic: searchMatrixId,
-                    membership: "leave",
-                    avatar_url: "",
-                    origin_server_ts: new Date().getTime(),
-                    typing: [],
-                    notification_count: 0,
-                    highlight_count: 0
-                } } )
-                tempElement = true
-            }
-        }
-        inputMethodHints: Qt.ImhNoPredictiveText
-        placeholderText: i18n.tr("Search for chats or #aliases...")
-    }
 
     ListModel { id: model }
 
     ListView {
         id: chatListView
         width: parent.width
-        height: parent.height - header.height
+        height: parent.height
         anchors.top: parent.top
-        anchors.topMargin: searchField.height + units.gu(2)
         delegate: PublicChatListItem {}
         model: model
         move: Transition {

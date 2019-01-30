@@ -51,16 +51,6 @@ Page {
                 iconName: "share"
                 text: i18n.tr("Share invite link")
                 onTriggered: shareController.shareLink("https://matrix.to/#/%1".arg(settings.matrixid))
-            },
-            Action {
-                iconName: "camera-app-symbolic"
-                text: i18n.tr("Change profile picture")
-                onTriggered: PopupUtils.open(changeAvatarDialog)
-            },
-            Action {
-                iconName: "edit"
-                text: i18n.tr("Edit displayname")
-                onTriggered: PopupUtils.open(displaynameDialog)
             }
             ]
         }
@@ -80,19 +70,86 @@ Page {
                 color: "#00000000"
             }
 
-            ProfileRow {
+            Row {
                 id: profileRow
-                matrixid: settings.matrixid
-                displayname: displayname
+                width: parent.width
+                height: parent.width / 2
+                spacing: units.gu(2)
 
                 Component.onCompleted: {
                     storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + settings.matrixid + "'", function (rs) {
                         if ( rs.rows.length > 0 ) {
                             displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
-                            profileRow.avatar_url = rs.rows[0].avatar_url
+                            avatarImage.mxc = rs.rows[0].avatar_url
                         }
                     })
                 }
+
+                Rectangle {
+                    height: parent.height
+                    width: 1
+                    color: "#00000000"
+                }
+
+                Avatar {  // Useravatar
+                    id: avatarImage
+                    name: settings.matrixid
+                    height: parent.height - units.gu(3)
+                    width: height
+                    mxc: avatar_url
+                    onClickFunction: function () {
+                        imageViewer.show ( mxc )
+                    }
+                    Button {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: parent.bottom
+                        width: parent.width / 2
+                        opacity: 0.75
+                        color: "#000000"
+                        iconName: "camera-app-symbolic"
+                        onClicked: PopupUtils.open(changeAvatarDialog)
+                    }
+                }
+
+                Column {
+                    width: parent.height - units.gu(3)
+                    anchors.verticalCenter: parent.verticalCenter
+                    Label {
+                        text: i18n.tr("Username:")
+                        width: parent.width
+                        wrapMode: Text.Wrap
+                        font.bold: true
+                    }
+                    Label {
+                        text: settings.matrixid
+                        width: parent.width
+                        wrapMode: Text.Wrap
+                    }
+                    Label {
+                        text: " "
+                        width: parent.width
+                    }
+                    Label {
+                        text: i18n.tr("Displayname:")
+                        width: parent.width
+                        wrapMode: Text.Wrap
+                        font.bold: true
+                    }
+                    Label {
+                        width: parent.width
+                        wrapMode: Text.Wrap
+                        text: displayname
+                    }
+                    Label {
+                        text: " "
+                        width: parent.width
+                    }
+                    Button {
+                        text: i18n.tr("Edit")
+                        onClicked: PopupUtils.open(displaynameDialog)
+                    }
+                }
+
             }
 
             Rectangle {

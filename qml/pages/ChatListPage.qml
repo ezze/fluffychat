@@ -322,7 +322,7 @@ Page {
 
         FlyingButton {
             id: createChatButton
-            iconName: "contact"
+            iconName: "address-book-app-symbolic"
             transitions: Transition {
                 to: "visible"
                 SpringAnimation {
@@ -349,7 +349,7 @@ Page {
         }
 
         Label {
-            text: i18n.tr("New private chat")
+            text: i18n.tr("Contacts")
             anchors.right: createChatButton.left
             anchors.verticalCenter: createChatButton.verticalCenter
             anchors.margins: units.gu(2)

@@ -163,7 +163,7 @@ Page {
                 onTriggered: shareController.shareLink("https://matrix.to/#/%1".arg(activeChat))
             },
             Action {
-                visible: canChangeAvatar
+                visible: canChangeAvatar && !hasAvatar
                 iconName: "camera-app-symbolic"
                 text: i18n.tr("Edit chat picture")
                 onTriggered: PopupUtils.open(changeChatAvatarDialog)
@@ -217,6 +217,16 @@ Page {
                     mxc: ""
                     onClickFunction: function () {
                         imageViewer.show ( mxc )
+                    }
+                    visible: canChangeAvatar
+                    Button {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: parent.bottom
+                        width: parent.width / 2
+                        opacity: 0.75
+                        color: "#000000"
+                        iconName: "camera-app-symbolic"
+                        onClicked: PopupUtils.open(changeChatAvatarDialog)
                     }
                     Component.onCompleted: roomnames.getAvatarUrl ( activeChat, function ( avatar_url ) { mxc = avatar_url } )
                 }
