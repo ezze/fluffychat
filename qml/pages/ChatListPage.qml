@@ -343,7 +343,7 @@ Page {
                 mainStack.toStart ("./pages/CreateChatPage.qml")
             }
             anchors.top: parent.top
-            anchors.topMargin: addChatButton.height*2
+            anchors.topMargin: addChatButton.height + units.gu(3)
             anchors.bottom: undefined
             anchors.rightMargin: -width
         }
@@ -389,6 +389,7 @@ Page {
                 showConfirmDialog ( i18n.tr("Do you want to create a new group now?"), createNewGroup )
             }
             anchors.top: createChatButton.bottom
+            anchors.topMargin: units.gu(2)
             anchors.bottom: undefined
             anchors.rightMargin: -width
         }
@@ -425,6 +426,7 @@ Page {
                 mainStack.toStart ("./pages/DiscoverPage.qml")
             }
             anchors.top: createGroupButton.bottom
+            anchors.topMargin: units.gu(2)
             anchors.bottom: undefined
             anchors.rightMargin: -width
         }

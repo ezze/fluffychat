@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-30 17:39+0000\n"
+"POT-Creation-Date: 2019-01-30 18:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -501,11 +501,11 @@ msgstr ""
 msgid "Do you want to create a new group now?"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:397 ../qml/components/NewGroupDialog.qml:11
+#: ../qml/pages/ChatListPage.qml:398 ../qml/components/NewGroupDialog.qml:11
 msgid "New group"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:433
+#: ../qml/pages/ChatListPage.qml:435
 msgid "Public groups"
 msgstr ""
 
