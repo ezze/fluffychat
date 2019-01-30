@@ -5,7 +5,7 @@ import Ubuntu.Components 1.3
 BottomEdge {
 
     id: communityViewer
-    height: parent.height - parent.header.height
+    height: parent.height
 
     onCollapseCompleted: communityViewer.destroy ()
     Component.onCompleted: commit()

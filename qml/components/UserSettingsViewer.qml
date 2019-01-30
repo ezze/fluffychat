@@ -5,7 +5,7 @@ import Ubuntu.Components 1.3
 BottomEdge {
 
     id: userSettingsViewer
-    height: parent.height - parent.header.height
+    height: parent.height
 
     onCollapseCompleted: userSettingsViewer.destroy ()
     Component.onCompleted: commit()
