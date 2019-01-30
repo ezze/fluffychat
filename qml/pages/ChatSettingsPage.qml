@@ -139,6 +139,12 @@ Page {
 
     Component.onCompleted: init ()
 
+    Component.onDestruction: {
+        if ( mainStack.depth === 2 ) return
+        chatActive = false
+        activeChat = null
+    }
+
     ChangeChatnameDialog { id: changeChatnameDialog }
 
     ChangeChatAvatarDialog { id: changeChatAvatarDialog }
