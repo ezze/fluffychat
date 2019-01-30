@@ -8,7 +8,7 @@ Page {
     anchors.fill: parent
     id: archivedChatListPage
 
-    property var searching: false
+    property var searching: true
 
 
     // This is the most importent function of this page! It updates all rooms, based
@@ -43,35 +43,36 @@ Page {
         id: header
         title: i18n.tr("Archived chats")
 
-        trailingActionBar {
-            actions: [
-            Action {
-                iconName: searching ? "close" : "search"
-                onTriggered: {
-                    searching = searchField.focus = !searching
-                    if ( !searching ) searchField.text = ""
+        flickable: chatListView
+
+        extension: Rectangle {
+            width: parent.width
+            height: searchField.height + units.gu(1)
+            color: theme.palette.normal.background
+            anchors.bottom: parent.bottom
+            TextField {
+                id: searchField
+                objectName: "searchField"
+                primaryItem: Icon {
+                    height: parent.height - units.gu(2)
+                    name: "find"
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(0.25)
                 }
-            }]
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    right: parent.right
+                    rightMargin: units.gu(2)
+                    leftMargin: units.gu(2)
+                }
+                inputMethodHints: Qt.ImhNoPredictiveText
+                placeholderText: i18n.tr("Search chat names...")
+            }
         }
     }
 
-    TextField {
-        id: searchField
-        objectName: "searchField"
-        visible: searching
-        anchors {
-            top: header.bottom
-            topMargin: units.gu(1)
-            bottomMargin: units.gu(1)
-            left: parent.left
-            right: parent.right
-            rightMargin: units.gu(2)
-            leftMargin: units.gu(2)
-        }
-        inputMethodHints: Qt.ImhNoPredictiveText
-        placeholderText: i18n.tr("Search chat names...")
-        z: 5
-    }
+
 
 
     Label {
@@ -85,9 +86,8 @@ Page {
     ListView {
         id: chatListView
         width: parent.width
-        height: parent.height - header.height
-        anchors.top: header.bottom
-        anchors.topMargin: searching * (searchField.height + units.gu(2))
+        height: parent.height
+        anchors.top: parent.top
         delegate: ArchivedChatListItem {}
         model: ListModel { id: model }
     }

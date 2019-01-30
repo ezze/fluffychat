@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-30 12:08+0000\n"
+"POT-Creation-Date: 2019-01-30 12:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -298,11 +298,11 @@ msgstr ""
 msgid "Archived chats"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:72
+#: ../qml/pages/ArchivedChatsPage.qml:81
 msgid "Search chat names..."
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:80
+#: ../qml/pages/ArchivedChatsPage.qml:92
 msgid "There are no archived chats"
 msgstr ""
 
@@ -628,7 +628,7 @@ msgstr ""
 msgid "Import from addressbook"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:51 ../qml/pages/InvitePage.qml:57
+#: ../qml/pages/CreateChatPage.qml:52 ../qml/pages/InvitePage.qml:46
 msgid "Search for example @username:server.abc"
 msgstr ""
 
@@ -809,7 +809,7 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:264 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:264 ../qml/components/ArchivedChatListItem.qml:29
 #: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""

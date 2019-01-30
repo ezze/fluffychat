@@ -12,11 +12,10 @@ ListItem {
 
     property var timeorder: 0
 
-    visible: { searching ? layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 : true }
+    visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
 
     onClicked: {
-        searching = false
         searchField.text = ""
         mainStack.toStart ()
         activeChat = room.id
