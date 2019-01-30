@@ -335,7 +335,7 @@ Page {
                 name: "visible"; when: newChatRect.opacity !== 0
                 PropertyChanges {
                     target: createChatButton
-                    anchors.rightMargin: createChatButton.height / 2
+                    anchors.rightMargin: units.gu(2)
                 }
             }
             mouseArea.onClicked: {
@@ -372,7 +372,7 @@ Page {
                 name: "visible"; when: newChatRect.opacity !== 0
                 PropertyChanges {
                     target: createGroupButton
-                    anchors.rightMargin: createGroupButton.height / 2
+                    anchors.rightMargin: units.gu(2)
                 }
             }
             mouseArea.onClicked: {
@@ -414,7 +414,7 @@ Page {
                 name: "visible"; when: newChatRect.opacity !== 0
                 PropertyChanges {
                     target: joinChatButton
-                    anchors.rightMargin: createChatButton.height / 2
+                    anchors.rightMargin: units.gu(2)
                 }
             }
             mouseArea.onClicked: {

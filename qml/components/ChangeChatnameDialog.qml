@@ -8,7 +8,7 @@ Component {
 
     Dialog {
         id: dialogue
-        title: i18n.tr("Edit chat name")
+        title: i18n.tr("Edit name and description")
         property var chatName
         Rectangle {
             height: units.gu(0.2)
@@ -27,10 +27,11 @@ Component {
             }
         }
 
-        TextField {
+        TextArea {
             id: descriptionTextField
             placeholderText: i18n.tr("Enter a description for the chat")
             text: description
+            height: chatnameTextField.height *3
         }
 
         Row {

@@ -8,6 +8,9 @@ import "../components"
 Page {
     anchors.fill: parent
 
+    property var displayname
+    property var hasAvatar: false
+
     Connections {
         target: events
         onNewEvent: updateAvatar ( type, chat_id, eventType, eventContent )
@@ -31,6 +34,7 @@ Page {
                     var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
                     avatarImage.name = displayname
                     avatarImage.mxc = rs.rows[0].avatar_url
+                    hasAvatar = (rs.rows[0].avatar_url !== "" && rs.rows[0].avatar_url !== null)
                     header.title = i18n.tr('Settings for %1').arg( displayname )
                 }
             })
@@ -38,13 +42,23 @@ Page {
     }
 
     header: FcPageHeader {
-        title: i18n.tr('Settings for %1').arg(settings.matrixid)
+        title: i18n.tr('Settings')
         flickable: scrollView.flickableItem
 
         trailingActionBar {
             actions: [
             Action {
-                iconName: "compose"
+                iconName: "share"
+                text: i18n.tr("Share invite link")
+                onTriggered: shareController.shareLink("https://matrix.to/#/%1".arg(settings.matrixid))
+            },
+            Action {
+                iconName: "camera-app-symbolic"
+                text: i18n.tr("Change profile picture")
+                onTriggered: PopupUtils.open(changeAvatarDialog)
+            },
+            Action {
+                iconName: "edit"
                 text: i18n.tr("Edit displayname")
                 onTriggered: PopupUtils.open(displaynameDialog)
             }
@@ -60,68 +74,24 @@ Page {
         contentItem: Column {
             width: mainStackWidth
 
-            Avatar {  // Useravatar
-                id: avatarImage
-                name: settings.matrixid
+            Rectangle {
                 width: parent.width
-                height: width * 10/16
-                relativeRadius: 0
-                anchors.horizontalCenter: parent.horizontalCenter
-                mxc: ""
+                height: units.gu(2)
+                color: "#00000000"
+            }
+
+            ProfileRow {
+                id: profileRow
+                matrixid: settings.matrixid
+                displayname: displayname
+
                 Component.onCompleted: {
                     storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + settings.matrixid + "'", function (rs) {
                         if ( rs.rows.length > 0 ) {
-                            var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
-                            avatarImage.name = displayname
-                            avatarImage.mxc = rs.rows[0].avatar_url
-                            header.title = i18n.tr('Settings for %1').arg( displayname )
+                            displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
+                            profileRow.avatar_url = rs.rows[0].avatar_url
                         }
                     })
-                }
-                onClickFunction: function () {
-                    var hasAvatar = avatarImage.mxc !== "" && avatarImage.mxc !== null
-                    if ( hasAvatar ) contextualAvatarActions.show()
-                    else if ( hasAvatar ) imageViewer.show ( mxc )
-                }
-                ActionSelectionPopover {
-                    id: contextualAvatarActions
-                    z: 10
-                    actions: ActionList {
-                        Action {
-                            text: i18n.tr("Show image")
-                            onTriggered: imageViewer.show ( avatarImage.mxc )
-                        }
-                        Action {
-                            text: i18n.tr("Delete Avatar")
-                            onTriggered: matrix.put ( "/client/r0/profile/" + settings.matrixid + "/avatar_url", { avatar_url: "" }, function () {
-                                avatarImage.mxc = ""
-                            })
-                        }
-                    }
-                }
-            }
-            Component {
-                id: pickerComponent
-                PickerDialog {}
-            }
-            WebView {
-                id: uploader
-                url: "../components/ChangeUserAvatar.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&matrixID=" + encodeURIComponent(settings.matrixid)
-                width: units.gu(6)
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                preferences.allowFileAccessFromFileUrls: true
-                preferences.allowUniversalAccessFromFileUrls: true
-                filePicker: pickerComponent
-                alertDialog: Dialog {
-                    title: i18n.tr("Error")
-                    text: model.message
-                    parent: QuickUtils.rootItem(this)
-                    Button {
-                        text: i18n.tr("OK")
-                        onClicked: model.accept()
-                    }
-                    Component.onCompleted: show()
                 }
             }
 
@@ -131,9 +101,7 @@ Page {
                 color: UbuntuColors.ash
             }
 
-            UsernameListItem {
-                matrix_id: settings.matrixid
-            }
+
 
             SettingsListItem {
                 name: i18n.tr("Change main color")
@@ -328,6 +296,7 @@ Page {
     }
 
     ChangeDisplaynameDialog { id: displaynameDialog }
+    ChangeAvatarDialog { id: changeAvatarDialog }
     ChangePasswordDialog { id: passwordDialog }
     ColorDialog { id: colorDialog }
     DisableAccountDialog { id: accountDialog }

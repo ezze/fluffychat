@@ -24,6 +24,13 @@ BottomEdge {
                 Action {
                     iconName: "mail-forward"
                     onTriggered: shareController.shareTextIntern ( matrix_id )
+                },
+                Action {
+                    iconName: "edit-copy"
+                    onTriggered: {
+                        shareController.toClipboard ( matrix_id )
+                        toast.show( i18n.tr("Username has been copied to the clipboard") )
+                    }
                 }
                 ]
             }
@@ -34,11 +41,11 @@ BottomEdge {
             userHeader.title = matrix_id
 
             storage.transaction ( "SELECT displayname, avatar_url, presence, last_active_ago, currently_active FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
-                if ( res.rows.length === 1 ) avatar.mxc = res.rows[0].avatar_url
-                userHeader.title = res.rows[0].displayname
-                presenceListItem.presence = res.rows[0].presence
-                presenceListItem.last_active_ago = res.rows[0].last_active_ago
-                presenceListItem.currently_active = res.rows[0].currently_active
+                if ( res.rows.length === 1 ) profileRow.avatar_url = res.rows[0].avatar_url
+                userHeader.title = profileRow.displayname = res.rows[0].displayname
+                profileRow.presence = res.rows[0].presence
+                profileRow.last_active_ago = res.rows[0].last_active_ago
+                profileRow.currently_active = res.rows[0].currently_active
             })
 
             if ( matrix_id === settings.matrixid ) return
@@ -71,53 +78,15 @@ BottomEdge {
             contentItem: Column {
                 width: userSettingsViewer.width
 
-                Avatar {  // Useravatar
-                    id: avatar
-                    width: parent.width
-                    height: width * 10/16
-                    name: activeUser
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    mxc: ""
-                    relativeRadius: 0
-                    onClickFunction: function () {
-                        if ( mxc !== "" ) {
-                            userSettingsViewer.collapse ()
-                            imageViewer.show ( mxc )
-                        }
-                    }
-                }
-
                 Rectangle {
                     width: parent.width
-                    height: 1
-                    color: UbuntuColors.ash
+                    height: units.gu(2)
+                    color: "#00000000"
                 }
 
-                UsernameListItem {
-                    matrix_id: activeUser
-                }
-
-                ListItem {
-                    id: presenceListItem
-                    property var presence: "offline"
-                    property var last_active_ago: 0
-                    property var currently_active: false
-                    height: statusListItemLayout.height
-                    color: Qt.rgba(0,0,0,0)
-                    ListItemLayout {
-                        id: statusListItemLayout
-                        title.text: i18n.tr("Status: %1").arg(presenceListItem.presence) + " " + (presenceListItem.presence==="online" && presenceListItem.currently_active ? i18n.tr("and currently active") : "")
-                        subtitle.text: presenceListItem.last_active_ago !== 0 ? i18n.tr("Last active: %1").arg( stamp.getChatTime ( presenceListItem.last_active_ago ) ) : ""
-
-                        Icon {
-                            name: presenceListItem.presence === "online" ? "sync-idle" :
-                            (presenceListItem.presence === "unavailable" ? "sync-paused" : "sync-offline")
-                            SlotsLayout.position: SlotsLayout.Leading
-                            width: units.gu(3)
-                            color: presenceListItem.presence === "offline" ? UbuntuColors.slate : settings.mainColor
-                            height: width
-                        }
-                    }
+                ProfileRow {
+                    id: profileRow
+                    matrixid: activeUser
                 }
 
                 Rectangle {

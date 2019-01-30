@@ -2,7 +2,6 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
-import Ubuntu.Web 0.2
 import "../components"
 
 Page {
@@ -14,6 +13,7 @@ Page {
     property var blocked: false
     property var newContactMatrixID
     property var description: ""
+    property var hasAvatar: false
 
     property var activeUserPower
     property var activeUserMembership
@@ -48,7 +48,7 @@ Page {
             description = res.rows[0].description
             storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + settings.matrixid + "'", function (membershipResult) {
                 membership = membershipResult.rows[0].membership
-                avatarImage.mxc = res.rows[0].avatar_url
+                hasAvatar = (res.rows[0].avatar_url !== "" && res.rows[0].avatar_url !== null)
                 power = membershipResult.rows[0].power_level
                 canChangeName = power >= res.rows[0].power_event_name
                 canKick = power >= res.rows[0].power_kick
@@ -56,7 +56,6 @@ Page {
                 canInvite = power >= res.rows[0].power_invite
                 canChangeAvatar = power >= res.rows[0].power_event_avatar
                 canChangePermissions = power >= res.rows[0].power_event_power_levels
-                console.log("AVATARURL:", res.rows[0].avatar_url)
                 console.log("POWER:", power, "canChangeAvatar:", res.rows[0].power_event_avatar, JSON.stringify(res.rows[0]))
             })
         })
@@ -142,6 +141,8 @@ Page {
 
     ChangeChatnameDialog { id: changeChatnameDialog }
 
+    ChangeChatAvatarDialog { id: changeChatAvatarDialog }
+
     LeaveChatDialog { id: leaveChatDialog }
 
     header: FcPageHeader {
@@ -149,8 +150,18 @@ Page {
         title: activeChatDisplayName
 
         trailingActionBar {
-            numberOfSlots: 1
             actions: [
+            Action {
+                iconName: "share"
+                text: i18n.tr("Edit chat picture")
+                onTriggered: shareController.shareLink("https://matrix.to/#/%1".arg(activeChat))
+            },
+            Action {
+                visible: canChangeAvatar
+                iconName: "camera-app-symbolic"
+                text: i18n.tr("Edit chat picture")
+                onTriggered: PopupUtils.open(changeChatAvatarDialog)
+            },
             Action {
                 visible: canChangeName
                 iconName: "edit"
@@ -170,88 +181,66 @@ Page {
         contentItem: Column {
             width: mainStackWidth
 
-            Avatar {
-                id: avatarImage
-                name: activeChatDisplayName
-                width: parent.width
-                height: width * 10/16
-                relativeRadius: 0
-                anchors.horizontalCenter: parent.horizontalCenter
-                mxc: ""
-                visible: mxc !== "" && mxc !== null
-                onClickFunction: function () {
-                    if ( canChangeAvatar ) contextualAvatarActions.show()
-                    else imageViewer.show ( mxc )
-                }
-                ActionSelectionPopover {
-                    id: contextualAvatarActions
-                    z: 10
-                    actions: ActionList {
-                        Action {
-                            text: i18n.tr("Show image")
-                            onTriggered: imageViewer.show ( avatarImage.mxc )
-                        }
-                        Action {
-                            text: i18n.tr("Delete Avatar")
-                            onTriggered: matrix.put ( "/client/r0/rooms/" + activeChat + "/state/m.room.avatar", { url: "" })
-                        }
-                    }
-                }
-            }
-            Component {
-                id: pickerComponent
-                PickerDialog {}
-            }
-            /*WebView {
-                id: uploader
-                url: "../components/ChangeChatAvatar.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
-                width: units.gu(6)
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                preferences.allowFileAccessFromFileUrls: true
-                preferences.allowUniversalAccessFromFileUrls: true
-                filePicker: pickerComponent
-                visible: canChangeAvatar
-                alertDialog: Dialog {
-                    title: i18n.tr("Error")
-                    text: model.message
-                    parent: QuickUtils.rootItem(this)
-                    Button {
-                        text: i18n.tr("OK")
-                        onClicked: model.accept()
-                    }
-                    Component.onCompleted: show()
-                }
-            }*/
             Rectangle {
                 width: parent.width
                 height: units.gu(2)
-                color: theme.palette.normal.background
+                color: "#00000000"
+                visible: profileRow.visible
             }
-            Label {
-                visible: description !== ""
-                width: parent.width - units.gu(4)
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(2)
-                wrapMode: Text.Wrap
-                text: description
-                linkColor: settings.brightMainColor
-                textFormat: Text.StyledText
-                onLinkActivated: uriController.openUrlExternally ( link )
-            }
-            Rectangle {
+
+            Row {
+                id: profileRow
                 width: parent.width
-                height: units.gu(2)
-                color: theme.palette.normal.background
-                visible: description !== ""
+                height: parent.width / 2
+                spacing: units.gu(2)
+                visible: hasAvatar || description !== ""
+
+                property var avatar_url: ""
+
+                Rectangle {
+                    height: parent.height
+                    width: 1
+                    color: "#00000000"
+                }
+
+                Avatar {
+                    id: avatarImage
+                    name: activeChatDisplayName
+                    height: parent.height - units.gu(3)
+                    width: height
+                    mxc: ""
+                    onClickFunction: function () {
+                        imageViewer.show ( mxc )
+                    }
+                    Component.onCompleted: roomnames.getAvatarUrl ( activeChat, function ( avatar_url ) { mxc = avatar_url } )
+                }
+
+                Column {
+                    id: descColumn
+                    width: parent.height - units.gu(3)
+                    anchors.verticalCenter: parent.verticalCenter
+                    Label {
+                        text: i18n.tr("Description:")
+                        width: parent.width
+                        wrapMode: Text.Wrap
+                        font.bold: true
+                    }
+                    Label {
+                        width: parent.width
+                        wrapMode: Text.Wrap
+                        text: description
+                        linkColor: settings.brightMainColor
+                        textFormat: Text.StyledText
+                        onLinkActivated: uriController.openUrlExternally ( link )
+                    }
+                    Label {
+                        text: " "
+                        width: parent.width
+                    }
+                }
+
             }
-            Label {
-                height: units.gu(2)
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(2)
-                text: i18n.tr("Chat Settings:")
-                font.bold: true
-            }
+
             Rectangle {
                 width: parent.width
                 height: settingsColumn.height
@@ -259,17 +248,21 @@ Page {
                 Column {
                     id: settingsColumn
                     width: parent.width
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: UbuntuColors.ash
+                        visible: profileRow.visible
+                    }
                     SettingsListLink {
                         name: i18n.tr("Notifications")
                         icon: "notification"
                         page: "NotificationChatSettingsPage"
-                        //onClicked: model.clear()
                     }
                     SettingsListLink {
                         name: i18n.tr("Advanced settings")
                         icon: "filters"
                         page: "ChatPrivacySettingsPage"
-                        //onClicked: model.clear()
                     }
                 }
             }

@@ -16,7 +16,7 @@ Page {
             Action {
                 id: newContactAction
                 iconName: "contact-new"
-                text: i18n.tr("Add from addressbook")
+                text: i18n.tr("Import from addressbook")
                 onTriggered: contactImport.requestContact()
             }
             ]
