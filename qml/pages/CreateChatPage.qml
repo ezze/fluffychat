@@ -35,9 +35,10 @@ Page {
                 property var upperCaseText: displayText.toUpperCase()
                 property var tempElement: null
                 primaryItem: Icon {
-                    height: parent.height - units.gu(1)
-                    width: height
+                    height: parent.height - units.gu(2)
                     name: "find"
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(0.25)
                 }
                 anchors {
                     left: parent.left

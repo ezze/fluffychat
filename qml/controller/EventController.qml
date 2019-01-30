@@ -1,6 +1,6 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
-import Ubuntu.Connectivity 1.0
+//import Ubuntu.Connectivity 1.0
 
 
 /* =============================== EVENT CONTROLLER ===============================
@@ -16,14 +16,14 @@ Item {
 
     property var statusMap: ["Offline", "Connecting", "Online"]
 
-    property var online: Connectivity ? Connectivity.online : true
+    property var online: true//Connectivity ? Connectivity.online : true
 
-    Connections {
+    /*Connections {
         // full status can be retrieved from the base C++ class
         // status property
         target: Connectivity
         onOnlineChanged: if ( online ) restartSync ()
-    }
+    }*/
 
     /* The newEvent signal is the most importent signal in this concept. Every time
     * the app receives a new synchronization, this event is called for every signal

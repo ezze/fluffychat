@@ -376,14 +376,17 @@ Page {
                 }
             }
             mouseArea.onClicked: {
-                newChatMode = false
-                matrix.post( "/client/r0/createRoom", {
-                    preset: "private_chat"
-                }, function ( response ) {
-                    toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
-                    mainStack.toChat ( response.room_id )
-                    mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
-                }, null, 2 )
+                var createNewGroup = function () {
+                    newChatMode = false
+                    matrix.post( "/client/r0/createRoom", {
+                        preset: "private_chat"
+                    }, function ( response ) {
+                        toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
+                        mainStack.toChat ( response.room_id )
+                        mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
+                    }, null, 2 )
+                }
+                showConfirmDialog ( i18n.tr("Do you want to create a new group now?"), createNewGroup )
             }
             anchors.top: createChatButton.bottom
             anchors.bottom: undefined

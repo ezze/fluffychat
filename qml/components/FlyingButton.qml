@@ -28,8 +28,8 @@ Rectangle {
         z: 14
         MouseArea {
             id: mouseArea
-            onPressed: shadow.radius = 60.0
-            onReleased: shadow.radius = 30.0
+            onPressed: parent.aspect = UbuntuShape.Inset
+            onReleased: parent.aspect = UbuntuShape.Flat
             anchors.fill: parent
             enabled: parent.visible
         }

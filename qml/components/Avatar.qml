@@ -22,8 +22,8 @@ UbuntuShape {
     MouseArea {
         anchors.fill: parent
         onClicked: onClickFunction !== null ? onClickFunction () : undefined
-        onPressed: parent.opacity = 0.5
-        onReleased: parent.opacity = 1
+        onPressed: parent.aspect = UbuntuShape.Inset
+        onReleased: parent.aspect = UbuntuShape.Flat
     }
 
     source: Image {
