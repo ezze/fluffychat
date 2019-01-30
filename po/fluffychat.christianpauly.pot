@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-30 18:17+0000\n"
+"POT-Creation-Date: 2019-01-30 22:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -460,53 +460,18 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:187
-msgid "Add chat"
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:206 ../qml/pages/SettingsPage.qml:44
-msgid "Settings"
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:244
+#: ../qml/pages/ChatListPage.qml:214
 msgid "Search for your chats..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:272
+#: ../qml/pages/ChatListPage.qml:242
 msgid ""
 "Press the button at the top right to start a new chat or discover public "
 "groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:297
-#: ../qml/components/ChangeAvatarDialog.qml:66
-#: ../qml/components/TargetInfoDialog.qml:48
-#: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangePowerLevelDialog.qml:64
-#: ../qml/components/ChangeChatAvatarDialog.qml:65
-msgid "Close"
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:352 ../qml/pages/CreateChatPage.qml:11
-msgid "Contacts"
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:384
-#: ../qml/components/UserSettingsViewer.qml:144
-msgid ""
-"Please notice that FluffyChat does only support transport encryption yet."
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:389
-msgid "Do you want to create a new group now?"
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:398 ../qml/components/NewGroupDialog.qml:11
-msgid "New group"
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:435
-msgid "Public groups"
+#: ../qml/pages/ChatListPage.qml:287
+msgid "New chat"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:137
@@ -620,6 +585,10 @@ msgstr ""
 msgid "Default user permissions:"
 msgstr ""
 
+#: ../qml/pages/CreateChatPage.qml:11
+msgid "New Chat"
+msgstr ""
+
 #: ../qml/pages/CreateChatPage.qml:19
 msgid "Import from addressbook"
 msgstr ""
@@ -628,8 +597,30 @@ msgstr ""
 msgid "Search for example @username:server.abc"
 msgstr ""
 
+#: ../qml/pages/CreateChatPage.qml:135 ../qml/components/NewGroupDialog.qml:11
+msgid "New group"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:143
+#: ../qml/components/UserSettingsViewer.qml:144
+msgid ""
+"Please notice that FluffyChat does only support transport encryption yet."
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:148
+msgid "Do you want to create a new group now?"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:154
+msgid "Public groups"
+msgstr ""
+
 #: ../qml/pages/SettingsPage.qml:37
 msgid "Settings for %1"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:44
+msgid "Settings"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:51
@@ -1072,6 +1063,14 @@ msgstr ""
 #: ../qml/components/ChangeAvatarDialog.qml:53
 #: ../qml/components/ChangeChatAvatarDialog.qml:54
 msgid "Remove picture"
+msgstr ""
+
+#: ../qml/components/ChangeAvatarDialog.qml:66
+#: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/ColorDialog.qml:38
+#: ../qml/components/ChangePowerLevelDialog.qml:64
+#: ../qml/components/ChangeChatAvatarDialog.qml:65
+msgid "Close"
 msgstr ""
 
 #: ../qml/components/ConsentViewer.qml:23

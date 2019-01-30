@@ -169,49 +169,19 @@ Page {
             }]
         }
 
-        contents: Rectangle {
-            anchors.fill: parent
-            color: theme.palette.normal.background
-            Label {
-                id: headerTitle
-                anchors.top: parent.top
-                anchors.margins: units.gu(1.5)
-                text: header.title
-                textSize: Label.Large
-                color: settings.mainColor
-            }
-            Button {
-                id: addChatButton
+        trailingActionBar {
+            numberOfSlots: 3
+            actions: [
+            Action {
+                iconName: "filters"
                 visible: shareObject === null
-                color: settings.mainColor
-                text: i18n.tr("Add chat")
-                anchors.top: parent.top
-                anchors.right: parent.right
-                anchors.leftMargin: units.gu(2)
-                anchors.topMargin: units.gu(1)
-                onClicked: newChatMode = !newChatMode
-            }
-
-            ActionBar {
-                anchors.top: parent.top
-                anchors.right: addChatButton.left
-                anchors.rightMargin: units.gu(1)
-                height: header.height / 2
-                StyleHints {
-                    iconColor: settings.mainColor
-                }
-                actions: [
-                Action {
-                    iconName: "filters"
-                    text: i18n.tr("Settings")
-                    visible: shareObject === null
-                    onTriggered: {
-                        searchField.text = ""
-                        mainStack.toStart ("./pages/SettingsPage.qml")
-                    }
-                }
-                ]
-            }
+                onTriggered: mainStack.toStart ("./pages/SettingsPage.qml")
+            },
+            Action {
+                iconName: "compose"
+                visible: shareObject === null
+                onTriggered: bottomEdge.commit()
+            }]
         }
 
         extension: Rectangle {
@@ -281,163 +251,44 @@ Page {
         }
     }
 
-    property var newChatMode: false
+    // ============================== BOTTOM EDGE ==============================
+    BottomEdge {
+        id: bottomEdge
+        height: parent.height
+        preloadContent: false
+        contentComponent: Rectangle {
+            width: chatListPage.width
+            height: chatListPage.height
+            color: theme.palette.normal.background
+            CreateChatPage { }
+        }
+    }
 
     Rectangle {
-        id: newChatRect
-        anchors.fill: parent
-        color: settings.darkmode ? "#DD000000" : "#DDFFFFFF"
-        opacity: 0
-        visible: opacity !== 0
-        z: 10
-
-        Button {
-            id: closeNewChatButton
-            color: settings.mainColor
-            text: i18n.tr("Close")
-            anchors.top: parent.top
-            anchors.right: parent.right
-            anchors.rightMargin: units.gu(2)
-            anchors.topMargin: units.gu(1)
-            onClicked: newChatMode = !newChatMode
-            width: addChatButton.width
-        }
-
-        transitions: Transition {
-            NumberAnimation { property: "opacity"; duration: 350}
-        }
-        states: State {
-            name: "visible"; when: newChatMode
-            PropertyChanges {
-                target: newChatRect
-                opacity: 1
-            }
-        }
+        color: settings.mainColor
+        //color: theme.palette.normal.background
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottomMargin: -(height / 2)
+        border.width: 1
+        border.color: mainBorderColor
+        radius: units.gu(1)
+        height: newChatLabel.height*2 + units.gu(1)
+        width: Math.min( newChatLabel.width*2, parent.width )
+        visible: !tabletMode
 
         MouseArea {
-            onClicked: newChatMode = false
             anchors.fill: parent
-            enabled: parent.visible
+            onClicked: bottomEdge.commit()
         }
 
-        FlyingButton {
-            id: createChatButton
-            iconName: "address-book-app-symbolic"
-            transitions: Transition {
-                to: "visible"
-                SpringAnimation {
-                    spring: 2.5
-                    damping: 0.2
-                    properties: "anchors.rightMargin, opacity"
-                }
-            }
-            states: State {
-                name: "visible"; when: newChatRect.opacity !== 0
-                PropertyChanges {
-                    target: createChatButton
-                    anchors.rightMargin: units.gu(2)
-                }
-            }
-            mouseArea.onClicked: {
-                newChatMode = false
-                mainStack.toStart ("./pages/CreateChatPage.qml")
-            }
+        Label {
+            id: newChatLabel
+            text: i18n.tr("New chat")
             anchors.top: parent.top
-            anchors.topMargin: addChatButton.height + units.gu(3)
-            anchors.bottom: undefined
-            anchors.rightMargin: -width
-        }
-
-        Label {
-            text: i18n.tr("Contacts")
-            anchors.right: createChatButton.left
-            anchors.verticalCenter: createChatButton.verticalCenter
-            anchors.margins: units.gu(2)
-            textSize: Label.Large
-            color: mainFontColor
-        }
-
-        FlyingButton {
-            id: createGroupButton
-            iconName: "contact-group"
-            transitions: Transition {
-                to: "visible"
-                SpringAnimation {
-                    spring: 2
-                    damping: 0.2
-                    properties: "anchors.rightMargin, opacity"
-                }
-            }
-            states: State {
-                name: "visible"; when: newChatRect.opacity !== 0
-                PropertyChanges {
-                    target: createGroupButton
-                    anchors.rightMargin: units.gu(2)
-                }
-            }
-            mouseArea.onClicked: {
-                var createNewGroup = function () {
-                    newChatMode = false
-                    matrix.post( "/client/r0/createRoom", {
-                        preset: "private_chat"
-                    }, function ( response ) {
-                        toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
-                        mainStack.toChat ( response.room_id )
-                        mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
-                    }, null, 2 )
-                }
-                showConfirmDialog ( i18n.tr("Do you want to create a new group now?"), createNewGroup )
-            }
-            anchors.top: createChatButton.bottom
-            anchors.topMargin: units.gu(2)
-            anchors.bottom: undefined
-            anchors.rightMargin: -width
-        }
-
-        Label {
-            text: i18n.tr("New group")
-            anchors.right: createGroupButton.left
-            anchors.verticalCenter: createGroupButton.verticalCenter
-            anchors.margins: units.gu(2)
-            textSize: Label.Large
-            color: mainFontColor
-        }
-
-        FlyingButton {
-            id: joinChatButton
-            iconName: "find"
-            transitions: Transition {
-                to: "visible"
-                SpringAnimation {
-                    spring: 1.5
-                    damping: 0.2
-                    properties: "anchors.rightMargin, opacity"
-                }
-            }
-            states: State {
-                name: "visible"; when: newChatRect.opacity !== 0
-                PropertyChanges {
-                    target: joinChatButton
-                    anchors.rightMargin: units.gu(2)
-                }
-            }
-            mouseArea.onClicked: {
-                newChatMode = false
-                mainStack.toStart ("./pages/DiscoverPage.qml")
-            }
-            anchors.top: createGroupButton.bottom
-            anchors.topMargin: units.gu(2)
-            anchors.bottom: undefined
-            anchors.rightMargin: -width
-        }
-
-        Label {
-            text: i18n.tr("Public groups")
-            anchors.right: joinChatButton.left
-            anchors.verticalCenter: joinChatButton.verticalCenter
-            anchors.margins: units.gu(2)
-            textSize: Label.Large
-            color: mainFontColor
+            anchors.topMargin: units.gu(0.5)
+            anchors.horizontalCenter: parent.horizontalCenter
+            color: "#FFFFFF"
         }
     }
 

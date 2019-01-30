@@ -6,9 +6,9 @@ import "../components"
 Page {
     anchors.fill: parent
 
-    header: FcPageHeader {
+    header: StyledPageHeader {
         id: header
-        title: i18n.tr('Contacts')
+        title: i18n.tr('New Chat')
         flickable: chatListView
 
         trailingActionBar {
@@ -126,13 +126,37 @@ Page {
         delegate: ContactListItem {}
         model: ListModel { id: model }
 
-        header: SettingsListFooter {
-            icon: newContactAction.iconName
-            name: newContactAction.text
-            iconWidth: units.gu(4)
-            onClicked: {
-                contactImport.requestContact()
-                selectMode = false
+        header: Rectangle {
+            width: chatListView.width
+            height: settingsListFooter.height * 2
+            SettingsListFooter {
+                id: settingsListFooter
+                icon: "contact-group"
+                name: i18n.tr("New group")
+                iconWidth: units.gu(4)
+                onClicked: {
+                    var createNewGroup = function () {
+                        newChatMode = false
+                        matrix.post( "/client/r0/createRoom", {
+                            preset: "private_chat"
+                        }, function ( response ) {
+                            toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
+                            mainStack.toChat ( response.room_id )
+                            mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
+                        }, null, 2 )
+                    }
+                    showConfirmDialog ( i18n.tr("Do you want to create a new group now?"), createNewGroup )
+                }
+                anchors.top: parent.top
+            }
+            SettingsListFooter {
+                icon: "find"
+                name: i18n.tr("Public groups")
+                iconWidth: units.gu(4)
+                onClicked: {
+                    mainStack.toStart ("./pages/DiscoverPage.qml")
+                }
+                anchors.bottom: parent.bottom
             }
         }
     }
