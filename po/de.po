@@ -1468,8 +1468,9 @@ msgstr ""
 "Bitte die App neu starten oder ggbf. das Gerät neu starten, um das Update "
 "abzuschließen!"
 
-#~ msgid "Add chat"
-#~ msgstr "Chat hinzufügen"
+#: ../qml/pages/ChatListPage.qml:187
+msgid "Add chat"
+msgstr "Chat hinzufügen"
 
 #~ msgid "Join public chat"
 #~ msgstr "Öffentlichen Chat beitreten"

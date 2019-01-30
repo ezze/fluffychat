@@ -10,8 +10,8 @@ UbuntuShape {
     relativeRadius: 0.75
     aspect: UbuntuShape.Flat
     backgroundMode: UbuntuShape.VerticalGradient
-    backgroundColor: avatar.status === Image.Ready ? UbuntuColors.porcelain : usernames.stringToDarkColor ( name )
-    secondaryBackgroundColor: avatar.status === Image.Ready ? UbuntuColors.porcelain : usernames.stringToColor ( name )
+    backgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : usernames.stringToDarkColor ( name )
+    secondaryBackgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : usernames.stringToColor ( name )
     z:1
 
     property var mxc: ""
