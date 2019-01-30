@@ -45,7 +45,7 @@ Page {
         // Get the member status of the user himself
         storage.transaction ( "SELECT description, avatar_url, membership, power_event_name, power_kick, power_ban, power_invite, power_event_power_levels, power_event_avatar FROM Chats WHERE id='" + activeChat + "'", function (res) {
 
-            description = res.rows[0].description !== "" ? res.rows[0].description : i18n.tr("No chat description found...")
+            description = res.rows[0].description
             hasAvatar = (res.rows[0].avatar_url !== "" && res.rows[0].avatar_url !== null)
 
             storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + settings.matrixid + "'", function (membershipResult) {
@@ -164,7 +164,7 @@ Page {
                 onTriggered: shareController.shareLink("https://matrix.to/#/%1".arg(activeChat))
             },
             Action {
-                visible: canChangeAvatar && !hasAvatar
+                visible: canChangeAvatar && !profileRow.visible
                 iconName: "camera-app-symbolic"
                 text: i18n.tr("Edit chat picture")
                 onTriggered: PopupUtils.open(changeChatAvatarDialog)
@@ -245,7 +245,7 @@ Page {
                     Label {
                         width: parent.width
                         wrapMode: Text.Wrap
-                        text: description
+                        text: description !== "" ? description : i18n.tr("No chat description found...")
                         linkColor: settings.brightMainColor
                         textFormat: Text.StyledText
                         onLinkActivated: uriController.openUrlExternally ( link )
