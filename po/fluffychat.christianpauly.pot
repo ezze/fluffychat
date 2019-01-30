@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-30 17:13+0000\n"
+"POT-Creation-Date: 2019-01-30 17:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -667,7 +667,7 @@ msgstr ""
 #: ../qml/pages/SettingsPage.qml:223
 #: ../qml/pages/NotificationSettingsPage.qml:64
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
-#: ../qml/pages/ChatSettingsPage.qml:273
+#: ../qml/pages/ChatSettingsPage.qml:275
 msgid "Notifications"
 msgstr ""
 
@@ -884,64 +884,68 @@ msgstr ""
 msgid "No chats found"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:124
-msgid "Member"
+#: ../qml/pages/ChatSettingsPage.qml:48
+msgid "No chat description found..."
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:125
-msgid "Was invited"
+msgid "Member"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:126
-msgid "Has left the chat"
+msgid "Was invited"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:127
-msgid "Has knocked"
+msgid "Has left the chat"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:128
-msgid "Was banned from the chat"
+msgid "Has knocked"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:129
+msgid "Was banned from the chat"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:130
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:162 ../qml/pages/ChatSettingsPage.qml:168
+#: ../qml/pages/ChatSettingsPage.qml:163 ../qml/pages/ChatSettingsPage.qml:169
 #: ../qml/components/ChangeChatAvatarDialog.qml:12
 msgid "Edit chat picture"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:174
+#: ../qml/pages/ChatSettingsPage.qml:175
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:238
+#: ../qml/pages/ChatSettingsPage.qml:240
 msgid "Description:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:278
+#: ../qml/pages/ChatSettingsPage.qml:280
 msgid "Advanced settings"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:299
+#: ../qml/pages/ChatSettingsPage.qml:301
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:299
+#: ../qml/pages/ChatSettingsPage.qml:301
 msgid "Press button to reload users..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:323
+#: ../qml/pages/ChatSettingsPage.qml:325
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:343
+#: ../qml/pages/ChatSettingsPage.qml:345
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:351
+#: ../qml/pages/ChatSettingsPage.qml:353
 msgid "Reload"
 msgstr ""
 

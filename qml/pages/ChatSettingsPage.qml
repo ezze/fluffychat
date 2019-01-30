@@ -45,10 +45,11 @@ Page {
         // Get the member status of the user himself
         storage.transaction ( "SELECT description, avatar_url, membership, power_event_name, power_kick, power_ban, power_invite, power_event_power_levels, power_event_avatar FROM Chats WHERE id='" + activeChat + "'", function (res) {
 
-            description = res.rows[0].description
+            description = res.rows[0].description !== "" ? res.rows[0].description : i18n.tr("No chat description found...")
+            hasAvatar = (res.rows[0].avatar_url !== "" && res.rows[0].avatar_url !== null)
+
             storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + settings.matrixid + "'", function (membershipResult) {
                 membership = membershipResult.rows[0].membership
-                hasAvatar = (res.rows[0].avatar_url !== "" && res.rows[0].avatar_url !== null)
                 power = membershipResult.rows[0].power_level
                 canChangeName = power >= res.rows[0].power_event_name
                 canKick = power >= res.rows[0].power_kick
@@ -218,11 +219,11 @@ Page {
                     onClickFunction: function () {
                         imageViewer.show ( mxc )
                     }
-                    visible: canChangeAvatar
                     Button {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.bottom: parent.bottom
                         width: parent.width / 2
+                        visible: canChangeAvatar
                         opacity: 0.75
                         color: "#000000"
                         iconName: "camera-app-symbolic"
