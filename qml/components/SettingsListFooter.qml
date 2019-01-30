@@ -18,20 +18,19 @@ ListItem {
         title.text: name
         title.color: mainFontColor
 
-        Rectangle {
+        UbuntuShape {
             SlotsLayout.position: SlotsLayout.Leading
             width: iconWidth
             height: listItem.visible ? width : 0
-            color: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
-            border.width: 1
-            border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
-            radius: width / 6
+            aspect: UbuntuShape.Flat
+            backgroundColor: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
+            relativeRadius: 0.75
             Icon {
                 width: iconWidth / 2
                 height: width
                 anchors.centerIn: parent
                 name: icon
-                color: iconColor
+                color: mainFontColor
             }
         }
 

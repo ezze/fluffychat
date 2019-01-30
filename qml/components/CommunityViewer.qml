@@ -72,7 +72,7 @@ BottomEdge {
                         name: activeCommunity
                         anchors.horizontalCenter: parent.horizontalCenter
                         mxc: ""
-                        radius: 0
+                        relativeRadius: 0
                         onClickFunction: function () {
                             if ( mxc !== "" ) {
                                 communityViewer.collapse ()

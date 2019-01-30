@@ -8,19 +8,16 @@ ListItem {
 
     height: visible * layout.height
     visible: {
-        selected||tempElement ? true :
-        (searchField.searchMatrixId ? matrixid.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
-        : layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1)
+        searchField.searchMatrixId ? matrixid.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
+        : layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
     }
 
     color: settings.darkmode ? "#202020" : "white"
 
-    property var isSelected: selected
     property var matrixid: matrix_id
     property var tempElement: temp
     property var presenceStr: last_active_ago !== 0 ? i18n.tr("Last active: %1").arg( stamp.getChatTime ( last_active_ago ) ) : presence
 
-    selectMode: createGroup
     onSelectedChanged: {
         if ( selected ) inviteList[inviteList.length] = matrixid
         else inviteList.splice( inviteList.indexOf(matrixid), 1 )

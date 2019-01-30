@@ -169,18 +169,49 @@ Page {
             }]
         }
 
-        trailingActionBar {
-            actions: [
-            Action {
-                iconName: "filters"
-                text: i18n.tr("Settings")
-                visible: shareObject === null
-                onTriggered: {
-                    searchField.text = ""
-                    mainStack.toStart ("./pages/SettingsPage.qml")
-                }
+        contents: Rectangle {
+            anchors.fill: parent
+            color: theme.palette.normal.background
+            Label {
+                id: headerTitle
+                anchors.top: parent.top
+                anchors.margins: units.gu(1.5)
+                text: header.title
+                textSize: Label.Large
+                color: settings.mainColor
             }
-            ]
+            Button {
+                id: addChatButton
+                visible: shareObject === null
+                color: settings.mainColor
+                text: i18n.tr("Add chat")
+                anchors.top: parent.top
+                anchors.right: parent.right
+                anchors.leftMargin: units.gu(2)
+                anchors.topMargin: units.gu(1)
+                onClicked: newChatMode = !newChatMode
+            }
+
+            ActionBar {
+                anchors.top: parent.top
+                anchors.right: addChatButton.left
+                anchors.rightMargin: units.gu(1)
+                height: header.height / 2
+                StyleHints {
+                    iconColor: settings.mainColor
+                }
+                actions: [
+                Action {
+                    iconName: "filters"
+                    text: i18n.tr("Settings")
+                    visible: shareObject === null
+                    onTriggered: {
+                        searchField.text = ""
+                        mainStack.toStart ("./pages/SettingsPage.qml")
+                    }
+                }
+                ]
+            }
         }
 
         extension: Rectangle {
@@ -197,9 +228,10 @@ Page {
                 property var upperCaseText: displayText.toUpperCase()
                 property var tempElement: null
                 primaryItem: Icon {
-                    height: parent.height - units.gu(1)
-                    width: height
+                    height: parent.height - units.gu(2)
                     name: "find"
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(0.25)
                 }
                 anchors {
                     top: parent.top
@@ -235,6 +267,18 @@ Page {
         displaced: Transition {
             SmoothedAnimation { property: "y"; duration: 300 }
         }
+
+        Label {
+            text: i18n.tr("Press the button at the top right to start a new chat or discover public groups.")
+            textSize: Label.Large
+            color: UbuntuColors.graphite
+            anchors.centerIn: parent
+            width: parent.width - units.gu(4)
+            horizontalAlignment: Text.AlignHCenter
+            elide: Text.ElideMiddle
+            wrapMode: Text.Wrap
+            visible: model.count === 0
+        }
     }
 
     property var newChatMode: false
@@ -246,6 +290,18 @@ Page {
         opacity: 0
         visible: opacity !== 0
         z: 10
+
+        Button {
+            id: closeNewChatButton
+            color: settings.mainColor
+            text: i18n.tr("Close")
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(2)
+            anchors.topMargin: units.gu(1)
+            onClicked: newChatMode = !newChatMode
+            width: addChatButton.width
+        }
 
         transitions: Transition {
             NumberAnimation { property: "opacity"; duration: 350}
@@ -270,7 +326,7 @@ Page {
             transitions: Transition {
                 to: "visible"
                 SpringAnimation {
-                    spring: 1.5
+                    spring: 2.5
                     damping: 0.2
                     properties: "anchors.rightMargin, opacity"
                 }
@@ -286,7 +342,9 @@ Page {
                 newChatMode = false
                 mainStack.toStart ("./pages/CreateChatPage.qml")
             }
-            anchors.bottom: createGroupButton.top
+            anchors.top: parent.top
+            anchors.topMargin: addChatButton.height*2
+            anchors.bottom: undefined
             anchors.rightMargin: -width
         }
 
@@ -319,10 +377,16 @@ Page {
             }
             mouseArea.onClicked: {
                 newChatMode = false
-                mainStack.toStart ("./pages/CreateChatPage.qml")
-                mainStack.currentItem.createGroup = true
+                matrix.post( "/client/r0/createRoom", {
+                    preset: "private_chat"
+                }, function ( response ) {
+                    toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
+                    mainStack.toChat ( response.room_id )
+                    mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
+                }, null, 2 )
             }
-            anchors.bottom: joinChatButton.top
+            anchors.top: createChatButton.bottom
+            anchors.bottom: undefined
             anchors.rightMargin: -width
         }
 
@@ -341,7 +405,7 @@ Page {
             transitions: Transition {
                 to: "visible"
                 SpringAnimation {
-                    spring: 2.5
+                    spring: 1.5
                     damping: 0.2
                     properties: "anchors.rightMargin, opacity"
                 }
@@ -357,7 +421,8 @@ Page {
                 newChatMode = false
                 mainStack.toStart ("./pages/DiscoverPage.qml")
             }
-            anchors.bottomMargin: 2*height
+            anchors.top: createGroupButton.bottom
+            anchors.bottom: undefined
             anchors.rightMargin: -width
         }
 
@@ -369,13 +434,6 @@ Page {
             textSize: Label.Large
             color: mainFontColor
         }
-    }
-
-    FlyingButton {
-        id: messageButton
-        iconName: newChatMode ? "close" : "add"
-        mouseArea.onClicked: newChatMode = !newChatMode
-        z: 12
     }
 
 }

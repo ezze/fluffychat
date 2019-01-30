@@ -175,7 +175,7 @@ Page {
                 name: activeChatDisplayName
                 width: parent.width
                 height: width * 10/16
-                radius: 0
+                relativeRadius: 0
                 anchors.horizontalCenter: parent.horizontalCenter
                 mxc: ""
                 visible: mxc !== "" && mxc !== null

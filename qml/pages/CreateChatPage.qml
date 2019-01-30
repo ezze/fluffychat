@@ -5,13 +5,10 @@ import "../components"
 
 Page {
     anchors.fill: parent
-    property var inviteList: []
-    property var selectedCount: 0
-    property var createGroup: false
 
     header: FcPageHeader {
         id: header
-        title: createGroup ? i18n.tr('New chat: %1 selected').arg(selectedCount) : i18n.tr('Contacts')
+        title: i18n.tr('Contacts')
         flickable: chatListView
 
         trailingActionBar {
@@ -123,13 +120,12 @@ Page {
     ListView {
         id: chatListView
         width: parent.width
-        height: parent.height - createGroup*(button.height - units.gu(2))
+        height: parent.height
         anchors.top: parent.top
         delegate: ContactListItem {}
         model: ListModel { id: model }
 
         header: SettingsListFooter {
-            visible: !createGroup
             icon: newContactAction.iconName
             name: newContactAction.text
             iconWidth: units.gu(4)
@@ -145,47 +141,4 @@ Page {
         newContactsFound: function () { update() }
     }
 
-    Rectangle {
-        z: 2
-        width: parent.width
-        anchors.bottom: parent.bottom
-        height: button.height * 2 + units.gu(2)
-        gradient: Gradient {
-            GradientStop { position: 0.0; color: "#00FFFFFF" }
-            GradientStop { position: 0.5; color: settings.darkmode ? "#FF000000" : "#FFFFFFFF" }
-            GradientStop { position: 1.0; color: settings.darkmode ? "#FF000000" : "#FFFFFFFF" }
-        }
-        visible: createGroup
-    }
-
-    Button {
-        z: 3
-        id: button
-        visible: createGroup
-        text: i18n.tr("Create chat")
-        width: parent.width - units.gu(4)
-        color: UbuntuColors.green
-        anchors {
-            bottom: parent.bottom
-            topMargin: units.gu(1)
-            bottomMargin: units.gu(1)
-            left: parent.left
-            right: parent.right
-            rightMargin: units.gu(2)
-            leftMargin: units.gu(2)
-        }
-
-        onClicked: {
-            loadingScreen.visible = true
-            var is_direct = inviteList.length === 1
-            matrix.post( "/client/r0/createRoom", {
-                invite: inviteList,
-                is_direct: is_direct,
-                preset: is_direct ? "trusted_private_chat" : "private_chat"
-            }, function ( response ) {
-                toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
-                mainStack.toChat ( response.room_id )
-            }, null, 2 )
-        }
-    }
 }

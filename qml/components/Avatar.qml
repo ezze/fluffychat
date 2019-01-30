@@ -3,10 +3,8 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import QtGraphicalEffects 1.0
 
-
 UbuntuShape {
     id: avatarRect
-    // rounded corners for img
     width: units.gu(6)
     height: width
     relativeRadius: 0.75
@@ -15,9 +13,7 @@ UbuntuShape {
     backgroundColor: avatar.status === Image.Ready ? UbuntuColors.porcelain : usernames.stringToDarkColor ( name )
     secondaryBackgroundColor: avatar.status === Image.Ready ? UbuntuColors.porcelain : usernames.stringToColor ( name )
     z:1
-    //clip: true
 
-    //property alias source: avatar.source
     property var mxc: ""
     property var onClickFunction: function () { if ( mxc !== "" && mxc !== undefined && mxc !== null ) imageViewer.show ( mxc ) }
     property var name: ""
@@ -26,9 +22,9 @@ UbuntuShape {
     MouseArea {
         anchors.fill: parent
         onClicked: onClickFunction !== null ? onClickFunction () : undefined
+        onPressed: parent.opacity = 0.5
+        onReleased: parent.opacity = 1
     }
-
-
 
     source: Image {
         id: avatar
@@ -46,7 +42,6 @@ UbuntuShape {
         visible: status == Image.Ready
     }
 
-
     Label {
         anchors.centerIn: parent
         text: name.charAt(0) === "@" ? name.slice( 1, 3 ) : name.slice( 0, 2 )
@@ -55,7 +50,6 @@ UbuntuShape {
         z: 10
         visible: mxc === "" || avatar.status != Image.Ready
     }
-
 
     Rectangle {
         id: mask
