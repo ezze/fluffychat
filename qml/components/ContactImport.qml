@@ -20,12 +20,11 @@ import Ubuntu.Components.Popups 1.3 as Popups
 import Ubuntu.Content 1.3 as ContentHub
 
 Item {
-    id: root
+    id: contactImportRoot
 
     property var importDialog: null
     property var contentType: ContentHub.ContentType.Contacts
-
-    property var newContactsFound: function () {}
+    signal importCompleted()
 
     function mediaReceived ( url ) {
         // Request the VCF file
@@ -52,7 +51,10 @@ Item {
 
                 // Request the identity server for matrix ids connected to this addresses
                 matrix.post ( "/identity/api/v1/bulk_lookup", { threepids: threepids }, function ( response ) {
+                    var counter = 0
                     for ( var j = 0; j < response.threepids.length; j++ ) {
+                        if ( response.threepids[j][0] === settings.matrixid ) continue
+                        counter++
                         storage.transaction( "INSERT OR REPLACE INTO Contacts VALUES( '" +
                         response.threepids[j][0] + "', '" +
                         response.threepids[j][1] + "', '" +
@@ -61,12 +63,12 @@ Item {
                         response.threepids[j][2] + "', '', '', 'offline', 0, 0 )")
                     }
 
-                    newContactsFound () // TODO: Why is this not working?
-                    mainStack.toStart()
-                    mainStack.push(Qt.resolvedUrl("../pages/CreateChatPage.qml"))
-                    toast.show ( i18n.tr('%1 contacts were found').arg(response.threepids.length) )
+                    contactImportRoot.importCompleted ()
                     if ( response.threepids.length === 1 ) {
                         usernames.showUserSettings ( response.threepids[0][2] )
+                    }
+                    else {
+                        toast.show ( i18n.tr('%1 contacts were found').arg(counter) )
                     }
                 }, null, 2 )
             }
@@ -75,8 +77,8 @@ Item {
     }
 
     function requestContact() {
-        if (!root.importDialog) {
-            root.importDialog = PopupUtils.open(contentHubDialog, root)
+        if (!contactImportRoot.importDialog) {
+            contactImportRoot.importDialog = PopupUtils.open(contentHubDialog, root)
         } else {
             console.warn("Import dialog already running")
         }
@@ -99,7 +101,7 @@ Item {
 
                     anchors.fill: parent
 
-                    contentType: root.contentType
+                    contentType: contactImportRoot.contentType
                     handler: ContentHub.ContentHandler.Source
                     showTitle: true
 
@@ -110,7 +112,7 @@ Item {
                     }
 
                     onCancelPressed: {
-                        PopupUtils.close(root.importDialog)
+                        PopupUtils.close(contactImportRoot.importDialog)
                     }
                 }
             }
@@ -125,7 +127,7 @@ Item {
                     if (dialogue.activeTransfer.state === ContentHub.ContentTransfer.Charged) {
                         dialogue.hide()
                         if (dialogue.activeTransfer.items.length > 0) {
-                            root.mediaReceived(dialogue.activeTransfer.items[0].url)
+                            contactImportRoot.mediaReceived(dialogue.activeTransfer.items[0].url)
                         }
                     }
 
@@ -149,12 +151,12 @@ Item {
                 running: false
                 onTriggered: {
                     if(Qt.application.active) {
-                        PopupUtils.close(root.importDialog)
+                        PopupUtils.close(contactImportRoot.importDialog)
                     }
                 }
             }
 
-            Component.onDestruction: root.importDialog = null
+            Component.onDestruction: contactImportRoot.importDialog = null
         }
     }
 }

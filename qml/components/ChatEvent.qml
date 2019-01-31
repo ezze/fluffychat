@@ -67,6 +67,24 @@ ListItem {
                     shareController.toClipboard ( event.content.body )
                     toast.show( i18n.tr("Text has been copied to the clipboard") )
                 }
+            },
+            Action {
+                text: i18n.tr("Add to sticker collection")
+                iconName: "add"
+                visible: event.type === "m.sticker" || event.content.type === "m.image"
+                onTriggered: {
+                    showConfirmDialog ( i18n.tr("Add to sticker collection?"), function () {
+                        storage.query( "INSERT OR IGNORE INTO Media VALUES(?,?,?,?)", [
+                        "image/gif",
+                        event.content.url,
+                        event.content.url,
+                        event.content.url
+                        ], function ( result ) {
+                            if ( result.rowsAffected == 0 ) toast.show (i18n.tr("Already added as sticker"))
+                            else toast.show (i18n.tr("Added as sticker"))
+                        })
+                    } )
+                }
             }
             ]
         }

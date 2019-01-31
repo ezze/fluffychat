@@ -4,6 +4,7 @@ import Ubuntu.Components 1.3
 import "../components"
 
 Page {
+    id: createChatPage
     anchors.fill: parent
 
     header: StyledPageHeader {
@@ -85,6 +86,8 @@ Page {
     Component.onCompleted: update ()
 
     function update () {
+        console.log("UPDATE!!!!!!!!!!!!!!!!!!!!1")
+        model.clear()
         storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Users.presence, Users.last_active_ago, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
         " ON Contacts.matrix_id=Users.matrix_id WHERE Users.matrix_id!='" + settings.matrixid + "' ORDER BY Contacts.medium DESC, LOWER(Users.displayname || replace(Users.matrix_id,'@','')) LIMIT 1000",
         function( res )  {
@@ -122,7 +125,6 @@ Page {
                 iconWidth: units.gu(4)
                 onClicked: {
                     var createNewGroup = function () {
-                        newChatMode = false
                         matrix.post( "/client/r0/createRoom", {
                             preset: "private_chat"
                         }, function ( response ) {
@@ -149,7 +151,7 @@ Page {
 
     ContactImport {
         id: contactImport
-        newContactsFound: function () { update() }
+        onImportCompleted: createChatPage.update ()
     }
 
 }
