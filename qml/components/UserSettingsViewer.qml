@@ -144,7 +144,7 @@ BottomEdge {
                         var data = {
                             "invite": [ matrix_id ],
                             "is_direct": true,
-                            "preset": "private_chat"
+                            "preset": "trusted_private_chat"
                         }
                         var _mainStack = mainStack
                         var _toast = toast

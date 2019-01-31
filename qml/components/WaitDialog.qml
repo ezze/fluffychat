@@ -17,6 +17,7 @@ Component {
         Rectangle {
             height: units.gu(4)
             width: parent.width
+            color: "#00000000"
             ActivityIndicator {
                 running: true
                 width: parent.height
