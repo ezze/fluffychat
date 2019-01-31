@@ -37,7 +37,7 @@ ListItem {
         }
         Icon {
             SlotsLayout.position: SlotsLayout.Trailing
-            name: "compose"
+            name: "filters"
             visible: settingsOn
             width: units.gu(2)
             height: width
@@ -65,39 +65,12 @@ ListItem {
         actions: [
         // Make member button
         Action {
-            iconName: "contact"
-            onTriggered: showConfirmDialog( i18n.tr("Make this user a normal member?"), function () {
-                var data = {
-                    users: {}
-                }
-                data.users[matrixid] = 0
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
-            })
-            visible: settingsOn && canChangePermissions && userPower != 0 && membership !== "ban"
-        },
-        // Make moderator button
-        Action {
-            iconName: "non-starred"
-            onTriggered: showConfirmDialog( i18n.tr("Make this user a moderator?"), function () {
-                var data = {
-                    users: {}
-                }
-                data.users[matrixid] = 50
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
-            })
-            visible: settingsOn && canChangePermissions && userPower != 50 && membership !== "ban"
-        },
-        // Make owner button
-        Action {
-            iconName: "starred"
-            onTriggered: showConfirmDialog( i18n.tr("Make this user an admin?"), function () {
-                var data = {
-                    users: {}
-                }
-                data.users[matrixid] = 100
-                matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
-            })
-            visible: settingsOn && canChangePermissions && userPower != 100 && membership !== "ban"
+            iconName: "edit"
+            onTriggered: {
+                selectedUserId = matrixid
+                contextualActions.show ()
+            }
+            visible: settingsOn && canChangePermissions && membership !== "ban"
         }
         ]
     }

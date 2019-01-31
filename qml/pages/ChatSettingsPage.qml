@@ -359,4 +359,40 @@ Page {
         }
     }
 
+    function changePowerLevel ( level ) {
+        var data = {
+            users: {}
+        }
+        data.users[selectedUserId] = level
+        matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
+    }
+
+    property var selectedUserId
+
+    ActionSelectionPopover {
+        id: contextualActions
+        z: 10
+        actions: ActionList {
+            Action {
+                text: i18n.tr("Members")
+                onTriggered: changePowerLevel ( 0 )
+            }
+            Action {
+                text: i18n.tr("Moderators")
+                onTriggered: changePowerLevel ( 50 )
+                visible: power >= 50
+            }
+            Action {
+                text: i18n.tr("Admins")
+                onTriggered: changePowerLevel ( 99 )
+                visible: power >= 99
+            }
+            Action {
+                text: i18n.tr("Owner")
+                onTriggered: changePowerLevel ( 100 )
+                visible: power >= 100
+            }
+        }
+    }
+
 }
