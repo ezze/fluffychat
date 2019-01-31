@@ -75,7 +75,7 @@ Page {
         if ( type === "m.presence" ) {
             for ( var i = 0; i < model.count; i++ ) {
                 if ( model.get(i).matrix_id === eventContent.sender ) {
-                    model.set(i).matrix_id = eventContent.presence
+                    model.set(i).presence = eventContent.presence
                     if ( eventContent.last_active_ago ) model.set(i).last_active_ago = eventContent.last_active_ago
                     break
                 }
