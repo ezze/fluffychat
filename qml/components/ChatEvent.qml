@@ -258,7 +258,7 @@ ListItem {
 
                     Button {
                         id: showImageButton
-                        text: isGif ? i18n.tr("Load gif") : i18n.tr("Show image")
+                        text: image.isGif ? i18n.tr("Load gif") : i18n.tr("Show image")
                         onClicked: image.showGif = true
                         visible: image.showButton
                         height: visible ? units.gu(4) : 0
