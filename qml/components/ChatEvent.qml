@@ -54,12 +54,6 @@ ListItem {
                 }
             },
             Action {
-                text: i18n.tr("Share")
-                iconName: "share"
-                visible: !isStateEvent && event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
-                onTriggered: shareController.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( stamp.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
-            },
-            Action {
                 text: i18n.tr("Copy text")
                 iconName: "edit-copy"
                 visible: !isStateEvent && event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
@@ -84,6 +78,17 @@ ListItem {
                             else toast.show (i18n.tr("Added as sticker"))
                         })
                     } )
+                }
+            },
+            Action {
+                text: i18n.tr("Forward")
+                iconName: "toolkit_chevron-ltr_4gu"
+                visible: !isStateEvent //&& event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
+                onTriggered: {
+                    if ( !isMediaEvent ) {
+                        shareController.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( stamp.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
+                    }
+                    else shareController.shareFileIntern( event.content )
                 }
             }
             ]

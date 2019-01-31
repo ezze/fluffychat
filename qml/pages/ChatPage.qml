@@ -188,19 +188,26 @@ Page {
         // Is there something to share? Then now share it!
         if ( shareObject !== null ) {
             var message = ""
-            for ( var i = 0; i < shareObject.items.length; i++ ) {
-                if (String(shareObject.items[i].text).length > 0 && String(shareObject.items[i].url).length == 0) {
-                    message += String(shareObject.items[i].text)
+            if ( shareObject.items ) {
+                for ( var i = 0; i < shareObject.items.length; i++ ) {
+                    if (String(shareObject.items[i].text).length > 0 && String(shareObject.items[i].url).length == 0) {
+                        message += String(shareObject.items[i].text)
+                    }
+                    else if (String(shareObject.items[i].url).length > 0 ) {
+                        message += String(shareObject.items[i].url)
+                    }
+                    if ( i+1 < shareObject.items.length ) message += "\n"
                 }
-                else if (String(shareObject.items[i].url).length > 0 ) {
-                    message += String(shareObject.items[i].url)
-                }
-                if ( i+1 < shareObject.items.length ) message += "\n"
+                if ( message !== "") messageTextField.text = message
             }
-            if ( message !== "") messageTextField.text = message
+            else if ( shareObject.matrixEvent ) {
+                var now = new Date().getTime()
+                var messageID = "" + now
+                matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, shareObject.matrixEvent, null, null, 2 )
+            }
+
             shareObject = null
         }
-
     }
 
     Component.onDestruction: {
@@ -262,9 +269,6 @@ Page {
     header: FcPageHeader {
         id: header
         title: (activeChatDisplayName || i18n.tr("Unknown chat"))
-        //subtitle: (activeChatTypingUsers.length > 0 ? usernames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
-
-        property var someoneIsTyping: activeChatTypingUsers.length > 0
 
         contents: Column {
             width: parent.width
@@ -282,7 +286,7 @@ Page {
 
             Label {
                 id: typingLabel
-                visible: someoneIsTyping
+                visible: activeChatTypingUsers.length > 0
                 height: visible ? units.gu(2) : 0
                 text: (activeChatTypingUsers.length > 0 ? usernames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
                 color: mainFontColor

@@ -283,6 +283,7 @@ Item {
         timer.start();
 
         // Send the request now
+        //console.log("[SEND]", requestUrl, JSON.stringify(postData))
         http.send( JSON.stringify( postData ) )
 
         return http

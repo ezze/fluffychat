@@ -95,6 +95,13 @@ Item {
         }
     }
 
+    function shareFileIntern ( event ) {
+        mainStack.toStart()
+        shareObject = {
+            matrixEvent: event
+        }
+    }
+
     function shareLinkIntern ( url ) {
         uri = url
         mainStack.toStart()

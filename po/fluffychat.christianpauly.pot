@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 16:19+0000\n"
+"POT-Creation-Date: 2019-01-31 16:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:218 ../qml/components/ChatEvent.qml:104
+#: ../qml/Main.qml:218 ../qml/components/ChatEvent.qml:109
 msgid "Are you sure?"
 msgstr ""
 
@@ -466,7 +466,7 @@ msgstr ""
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:159 ../qml/components/ChatEvent.qml:57
+#: ../qml/pages/ChatListPage.qml:159
 msgid "Share"
 msgstr ""
 
@@ -806,42 +806,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:264 ../qml/components/ArchivedChatListItem.qml:29
+#: ../qml/pages/ChatPage.qml:271 ../qml/components/ArchivedChatListItem.qml:29
 #: ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:297 ../qml/components/RemoveDeviceDialog.qml:47
-#: ../qml/components/ChatEvent.qml:96
+#: ../qml/pages/ChatPage.qml:301 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/components/ChatEvent.qml:101
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:303
+#: ../qml/pages/ChatPage.qml:307
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:326
+#: ../qml/pages/ChatPage.qml:330
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:349
+#: ../qml/pages/ChatPage.qml:353
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:419
+#: ../qml/pages/ChatPage.qml:423
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:419
+#: ../qml/pages/ChatPage.qml:423
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:433
+#: ../qml/pages/ChatPage.qml:437
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:464
+#: ../qml/pages/ChatPage.qml:468
 msgid "Type something ..."
 msgstr ""
 
@@ -1186,39 +1186,43 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:63
+#: ../qml/components/ChatEvent.qml:57
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:68
+#: ../qml/components/ChatEvent.qml:62
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:72
+#: ../qml/components/ChatEvent.qml:66
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:76
+#: ../qml/components/ChatEvent.qml:70
 msgid "Add to sticker collection?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:83
+#: ../qml/components/ChatEvent.qml:77
 msgid "Already added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:84
+#: ../qml/components/ChatEvent.qml:78
 msgid "Added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:261
+#: ../qml/components/ChatEvent.qml:84
+msgid "Forward"
+msgstr ""
+
+#: ../qml/components/ChatEvent.qml:266
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:261
+#: ../qml/components/ChatEvent.qml:266
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:363
+#: ../qml/components/ChatEvent.qml:368
 msgid "Download: "
 msgstr ""
 
