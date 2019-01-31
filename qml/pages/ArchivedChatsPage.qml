@@ -45,30 +45,19 @@ Page {
 
         flickable: chatListView
 
-        extension: Rectangle {
-            width: parent.width
-            height: searchField.height + units.gu(1)
-            color: theme.palette.normal.background
-            anchors.bottom: parent.bottom
-            TextField {
-                id: searchField
-                objectName: "searchField"
-                primaryItem: Icon {
-                    height: parent.height - units.gu(2)
-                    name: "find"
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(0.25)
-                }
-                anchors {
-                    top: parent.top
-                    left: parent.left
-                    right: parent.right
-                    rightMargin: units.gu(2)
-                    leftMargin: units.gu(2)
-                }
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search chat names...")
+        contents: TextField {
+            id: searchField
+            objectName: "searchField"
+            primaryItem: Icon {
+                height: parent.height - units.gu(2)
+                name: "find"
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(0.25)
             }
+            width: parent.width - units.gu(2)
+            anchors.centerIn: parent
+            inputMethodHints: Qt.ImhNoPredictiveText
+            placeholderText: i18n.tr("Search archived chats...")
         }
     }
 

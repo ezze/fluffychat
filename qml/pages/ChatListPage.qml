@@ -286,7 +286,7 @@ Page {
             id: newChatLabel
             text: i18n.tr("New chat")
             anchors.top: parent.top
-            anchors.topMargin: units.gu(0.5)
+            anchors.topMargin: units.gu(0.25)
             anchors.horizontalCenter: parent.horizontalCenter
             color: "#FFFFFF"
         }

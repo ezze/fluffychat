@@ -22,58 +22,45 @@ Page {
             ]
         }
 
-        extension: Rectangle {
-            width: parent.width
-            height: searchField.height + units.gu(1)
-            color: theme.palette.normal.background
-            anchors.bottom: parent.bottom
+        contents: TextField {
+            id: searchField
+            objectName: "searchField"
+            property var searchMatrixId: false
+            property var upperCaseText: displayText.toUpperCase()
+            property var tempElement: null
+            primaryItem: Icon {
+                height: parent.height - units.gu(2)
+                name: "find"
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(0.25)
+            }
+            width: parent.width - units.gu(2)
+            anchors.centerIn: parent
+            inputMethodHints: Qt.ImhNoPredictiveText
+            placeholderText: i18n.tr("Search e.g. @username:server.abc")
+            onDisplayTextChanged: {
 
-            TextField {
-                id: searchField
-                objectName: "searchField"
-                property var searchMatrixId: false
-                property var upperCaseText: displayText.toUpperCase()
-                property var tempElement: null
-                primaryItem: Icon {
-                    height: parent.height - units.gu(2)
-                    name: "find"
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(0.25)
-                }
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    rightMargin: units.gu(2)
-                    leftMargin: units.gu(2)
-                    top: parent.top
-                }
-                focus: true
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search for example @username:server.abc")
-                onDisplayTextChanged: {
-
-                    if ( displayText.slice( 0,1 ) === "@" && displayText.length > 1 ) {
-                        var input = displayText
-                        if ( input.indexOf(":") === -1 ) {
-                            input += ":" + settings.server
-                        }
-                        if ( tempElement !== null ) {
-                            model.remove ( tempElement)
-                            tempElement = null
-                        }
-                        if ( input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
-                        model.append ( {
-                            matrix_id: input,
-                            medium: "matrix",
-                            name: input,
-                            address: input,
-                            avatar_url: "",
-                            last_active_ago: 0,
-                            presence: "offline",
-                            temp: true
-                        })
-                        tempElement = model.count - 1
+                if ( displayText.slice( 0,1 ) === "@" && displayText.length > 1 ) {
+                    var input = displayText
+                    if ( input.indexOf(":") === -1 ) {
+                        input += ":" + settings.server
                     }
+                    if ( tempElement !== null ) {
+                        model.remove ( tempElement)
+                        tempElement = null
+                    }
+                    if ( input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
+                    model.append ( {
+                        matrix_id: input,
+                        medium: "matrix",
+                        name: input,
+                        address: input,
+                        avatar_url: "",
+                        last_active_ago: 0,
+                        presence: "offline",
+                        temp: true
+                    })
+                    tempElement = model.count - 1
                 }
             }
         }

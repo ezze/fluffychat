@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-30 22:29+0000\n"
+"POT-Creation-Date: 2019-01-31 10:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -298,11 +298,11 @@ msgstr ""
 msgid "Archived chats"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:70
-msgid "Search chat names..."
+#: ../qml/pages/ArchivedChatsPage.qml:60
+msgid "Search archived chats..."
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:81
+#: ../qml/pages/ArchivedChatsPage.qml:70
 msgid "There are no archived chats"
 msgstr ""
 
@@ -593,25 +593,25 @@ msgstr ""
 msgid "Import from addressbook"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:52 ../qml/pages/InvitePage.qml:46
-msgid "Search for example @username:server.abc"
+#: ../qml/pages/CreateChatPage.qml:40 ../qml/pages/InvitePage.qml:36
+msgid "Search e.g. @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:135 ../qml/components/NewGroupDialog.qml:11
+#: ../qml/pages/CreateChatPage.qml:122 ../qml/components/NewGroupDialog.qml:11
 msgid "New group"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:143
+#: ../qml/pages/CreateChatPage.qml:130
 #: ../qml/components/UserSettingsViewer.qml:144
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:148
+#: ../qml/pages/CreateChatPage.qml:135
 msgid "Do you want to create a new group now?"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:154
+#: ../qml/pages/CreateChatPage.qml:141
 msgid "Public groups"
 msgstr ""
 
@@ -867,11 +867,11 @@ msgstr ""
 msgid "and matrix.org"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:96
+#: ../qml/pages/DiscoverPage.qml:86
 msgid "Search for chats or #aliases..."
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:122
+#: ../qml/pages/DiscoverPage.qml:111
 msgid "No chats found"
 msgstr ""
 
@@ -960,16 +960,20 @@ msgstr ""
 msgid "Added as sticker"
 msgstr ""
 
-#: ../qml/components/InviteListItem.qml:24
+#: ../qml/components/InviteListItem.qml:25
 msgid "%1 has been invited"
 msgstr ""
 
-#: ../qml/components/InviteListItem.qml:26
+#: ../qml/components/InviteListItem.qml:27
 msgid "An error occured. Maybe the username %1 is wrong?"
 msgstr ""
 
-#: ../qml/components/InviteListItem.qml:27
+#: ../qml/components/InviteListItem.qml:28
 msgid "%1 is banned from the chat."
+msgstr ""
+
+#: ../qml/components/InviteListItem.qml:32
+msgid "Invite %1 to this chat?"
 msgstr ""
 
 #: ../qml/components/MemberListItem.qml:44 ../qml/components/ChatEvent.qml:31
