@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 10:10+0000\n"
+"POT-Creation-Date: 2019-01-31 10:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -464,13 +464,13 @@ msgstr ""
 msgid "Search for your chats..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:239
+#: ../qml/pages/ChatListPage.qml:238
 msgid ""
 "Press the button at the top right to start a new chat or discover public "
 "groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:284
+#: ../qml/pages/ChatListPage.qml:283
 msgid "New chat"
 msgstr ""
 
@@ -589,29 +589,29 @@ msgstr ""
 msgid "New Chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:19
+#: ../qml/pages/CreateChatPage.qml:18
 msgid "Import from addressbook"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:40 ../qml/pages/InvitePage.qml:36
+#: ../qml/pages/CreateChatPage.qml:39 ../qml/pages/InvitePage.qml:36
 msgid "Search e.g. @username:server.abc"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:122 ../qml/components/NewGroupDialog.qml:11
+#: ../qml/pages/CreateChatPage.qml:121 ../qml/components/NewGroupDialog.qml:11
 msgid "New group"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:130
-#: ../qml/components/UserSettingsViewer.qml:144
+#: ../qml/pages/CreateChatPage.qml:129
+#: ../qml/components/UserSettingsViewer.qml:153
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:135
+#: ../qml/pages/CreateChatPage.qml:134
 msgid "Do you want to create a new group now?"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:141
+#: ../qml/pages/CreateChatPage.qml:140
 msgid "Public groups"
 msgstr ""
 
@@ -976,31 +976,31 @@ msgstr ""
 msgid "Invite %1 to this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:44 ../qml/components/ChatEvent.qml:31
+#: ../qml/components/MemberListItem.qml:45 ../qml/components/ChatEvent.qml:31
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:67
+#: ../qml/components/MemberListItem.qml:68
 msgid "Make this user a normal member?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:79
+#: ../qml/components/MemberListItem.qml:80
 msgid "Make this user a moderator?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:91
+#: ../qml/components/MemberListItem.qml:92
 msgid "Make this user an admin?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:109
+#: ../qml/components/MemberListItem.qml:110
 msgid "Ban from this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:117
+#: ../qml/components/MemberListItem.qml:118
 msgid "Cancel banishment?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:125
+#: ../qml/components/MemberListItem.qml:126
 msgid "Kick from this chat?"
 msgstr ""
 
@@ -1330,7 +1330,7 @@ msgid "Full username:"
 msgstr ""
 
 #: ../qml/components/UsernameListItem.qml:31
-#: ../qml/components/UserSettingsViewer.qml:32
+#: ../qml/components/UserSettingsViewer.qml:38
 msgid "Username has been copied to the clipboard"
 msgstr ""
 
@@ -1364,15 +1364,15 @@ msgstr ""
 msgid "Canonical alias"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:106
+#: ../qml/components/UserSettingsViewer.qml:115
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:106
+#: ../qml/components/UserSettingsViewer.qml:115
 msgid "You are that!"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:150
+#: ../qml/components/UserSettingsViewer.qml:159
 msgid "Start new chat"
 msgstr ""
 

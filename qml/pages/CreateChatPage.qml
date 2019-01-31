@@ -9,7 +9,6 @@ Page {
     header: StyledPageHeader {
         id: header
         title: i18n.tr('New Chat')
-        flickable: chatListView
 
         trailingActionBar {
             actions: [
@@ -108,8 +107,8 @@ Page {
     ListView {
         id: chatListView
         width: parent.width
-        height: parent.height
-        anchors.top: parent.top
+        height: parent.height - header.height
+        anchors.top: header.bottom
         delegate: ContactListItem {}
         model: ListModel { id: model }
 

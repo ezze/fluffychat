@@ -10,6 +10,7 @@ ListItem {
     property var iconColor: settings.mainColor
     property var iconWidth: units.gu(6)
     height: layout.height
+    color: settings.darkmode ? "#202020" : "white"
 
     selectMode: false
 

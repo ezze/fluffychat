@@ -32,6 +32,7 @@ ListItem {
         title.text: name + " (%1)".arg(address)
         title.color: mainFontColor
         subtitle.text: presenceStr
+        subtitle.color: mainFontColor
 
         Avatar {
             name: layout.title.text

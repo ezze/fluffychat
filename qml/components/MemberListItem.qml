@@ -12,6 +12,7 @@ ListItem {
     height: visible ? layout.height : 0
     property var settingsOn: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === settings.matrixid)
     property var status: usernames.powerlevelToStatus(userPower)
+    color: settings.darkmode ? "#202020" : "white"
 
     onClicked: usernames.showUserSettings ( matrixid )
 
@@ -20,6 +21,7 @@ ListItem {
         title.text: name
         title.color: mainFontColor
         subtitle.text: membership !== "join" ? getDisplayMemberStatus ( membership ) : ""
+        subtitle.color: mainFontColor
 
         Avatar {
             id: avatar

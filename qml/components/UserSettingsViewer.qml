@@ -11,13 +11,19 @@ BottomEdge {
     Component.onCompleted: commit()
 
     contentComponent: Page {
+        id: userSettingsPage
         property var matrix_id: ""
         property var displayname: ""
         height: userSettingsViewer.height
+        Rectangle {
+            id: background
+            anchors.fill: parent
+            color: theme.palette.normal.background
+        }
 
         StyledPageHeader {
             id: userHeader
-            title: ""
+            title: displayname
 
             trailingActionBar {
                 actions: [
@@ -38,11 +44,13 @@ BottomEdge {
 
         Component.onCompleted:  {
             matrix_id = activeUser
-            userHeader.title = matrix_id
+            displayname = usernames.transformFromId ( matrix_id )
 
             storage.transaction ( "SELECT displayname, avatar_url, presence, last_active_ago, currently_active FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
                 if ( res.rows.length === 1 ) profileRow.avatar_url = res.rows[0].avatar_url
-                userHeader.title = profileRow.displayname = res.rows[0].displayname
+                if ( res.rows[0].displayname !== "" && res.rows[0].displayname !== null ) {
+                    displayname = res.rows[0].displayname
+                }
                 profileRow.presence = res.rows[0].presence
                 profileRow.last_active_ago = res.rows[0].last_active_ago
                 profileRow.currently_active = res.rows[0].currently_active
@@ -87,6 +95,7 @@ BottomEdge {
                 ProfileRow {
                     id: profileRow
                     matrixid: activeUser
+                    displayname: userSettingsPage.displayname
                 }
 
                 Rectangle {
