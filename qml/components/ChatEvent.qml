@@ -47,7 +47,7 @@ ListItem {
             Action {
                 text: i18n.tr("Reply")
                 iconName: "mail-reply"
-                visible: event.status >= msg_status.SENT && canSendMessages
+                visible: !isStateEvent && event.status >= msg_status.SENT && canSendMessages
                 onTriggered: {
                     chatPage.replyEvent = event
                     messageTextField.focus = true
@@ -56,13 +56,13 @@ ListItem {
             Action {
                 text: i18n.tr("Share")
                 iconName: "share"
-                visible: event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
+                visible: !isStateEvent && event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
                 onTriggered: shareController.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( stamp.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
             },
             Action {
                 text: i18n.tr("Copy text")
                 iconName: "edit-copy"
-                visible: event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
+                visible: !isStateEvent && event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
                 onTriggered: {
                     shareController.toClipboard ( event.content.body )
                     toast.show( i18n.tr("Text has been copied to the clipboard") )
