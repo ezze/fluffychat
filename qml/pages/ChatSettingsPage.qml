@@ -374,21 +374,21 @@ Page {
         z: 10
         actions: ActionList {
             Action {
-                text: i18n.tr("Members")
+                text: i18n.tr("Appoint to a member")
                 onTriggered: changePowerLevel ( 0 )
             }
             Action {
-                text: i18n.tr("Moderators")
+                text: i18n.tr("Appoint to a Moderator")
                 onTriggered: changePowerLevel ( 50 )
                 visible: power >= 50
             }
             Action {
-                text: i18n.tr("Admins")
+                text: i18n.tr("Appoint to an Admin")
                 onTriggered: changePowerLevel ( 99 )
                 visible: power >= 99
             }
             Action {
-                text: i18n.tr("Owner")
+                text: i18n.tr("Appoint to Owner")
                 onTriggered: changePowerLevel ( 100 )
                 visible: power >= 100
             }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 16:03+0000\n"
+"POT-Creation-Date: 2019-01-31 16:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:79
+#: ../qml/controller/SettingsController.qml:76
 msgid "USA"
 msgstr ""
 
-#: ../qml/controller/SettingsController.qml:80
+#: ../qml/controller/SettingsController.qml:77
 msgid "1"
 msgstr ""
 
@@ -217,7 +217,6 @@ msgstr ""
 
 #: ../qml/controller/UserNameController.qml:46
 #: ../qml/pages/ChatPrivacySettingsPage.qml:459
-#: ../qml/pages/ChatSettingsPage.qml:377
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:270
 #: ../qml/components/ChangePowerLevelDialog.qml:47
 msgid "Members"
@@ -225,7 +224,6 @@ msgstr ""
 
 #: ../qml/controller/UserNameController.qml:47
 #: ../qml/pages/ChatPrivacySettingsPage.qml:463
-#: ../qml/pages/ChatSettingsPage.qml:381
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:274
 #: ../qml/components/ChangePowerLevelDialog.qml:33
 msgid "Moderators"
@@ -233,7 +231,6 @@ msgstr ""
 
 #: ../qml/controller/UserNameController.qml:48
 #: ../qml/pages/ChatPrivacySettingsPage.qml:467
-#: ../qml/pages/ChatSettingsPage.qml:386
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:278
 #: ../qml/components/ChangePowerLevelDialog.qml:19
 msgid "Admins"
@@ -599,7 +596,6 @@ msgid "Default user permissions:"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:471
-#: ../qml/pages/ChatSettingsPage.qml:391
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:282
 msgid "Owner"
 msgstr ""
@@ -950,6 +946,22 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
+#: ../qml/pages/ChatSettingsPage.qml:377
+msgid "Appoint to a member"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:381
+msgid "Appoint to a Moderator"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:386
+msgid "Appoint to an Admin"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:391
+msgid "Appoint to Owner"
+msgstr ""
+
 #: ../qml/pages/NotificationTargetSettingsPage.qml:51
 msgid "Notification settings"
 msgstr ""
@@ -1198,15 +1210,15 @@ msgstr ""
 msgid "Added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:260
+#: ../qml/components/ChatEvent.qml:261
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:260
+#: ../qml/components/ChatEvent.qml:261
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:362
+#: ../qml/components/ChatEvent.qml:363
 msgid "Download: "
 msgstr ""
 
