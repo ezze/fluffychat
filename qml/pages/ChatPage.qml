@@ -261,7 +261,33 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: (activeChatDisplayName || i18n.tr("Unknown chat")) + (activeChatTypingUsers.length > 0 ? "\n" + usernames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
+        title: (activeChatDisplayName || i18n.tr("Unknown chat"))
+        //subtitle: (activeChatTypingUsers.length > 0 ? usernames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
+
+        property var someoneIsTyping: activeChatTypingUsers.length > 0
+
+        contents: Column {
+            width: parent.width
+            anchors.centerIn: parent
+
+            Label {
+                id: titleLabel
+                text: header.title
+                color: mainFontColor
+                textSize: Label.Large
+                Transition {
+                    NumberAnimation { properties: "anchors.topMargin"; duration: 1000 }
+                }
+            }
+
+            Label {
+                id: typingLabel
+                visible: someoneIsTyping
+                height: visible ? units.gu(2) : 0
+                text: (activeChatTypingUsers.length > 0 ? usernames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
+                color: mainFontColor
+            }
+        }
 
         trailingActionBar {
             numberOfSlots: 1

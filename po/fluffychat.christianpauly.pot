@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 12:51+0000\n"
+"POT-Creation-Date: 2019-01-31 14:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -204,15 +204,15 @@ msgid "You are not allowed to chat here."
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:36
-msgid "⌨️ is typing…"
+msgid "✏ is typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:37
-msgid "⌨️ %1 is typing…"
+msgid "✏ %1 is typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:40
-msgid "⌨️ %1 and %2 more are typing…"
+msgid "✏ %1 and %2 more are typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:46
@@ -815,37 +815,37 @@ msgstr ""
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:271 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:298 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:96
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:277
+#: ../qml/pages/ChatPage.qml:304
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:300
+#: ../qml/pages/ChatPage.qml:327
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:323
+#: ../qml/pages/ChatPage.qml:350
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:393
+#: ../qml/pages/ChatPage.qml:420
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:393
+#: ../qml/pages/ChatPage.qml:420
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:407
+#: ../qml/pages/ChatPage.qml:434
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:438
+#: ../qml/pages/ChatPage.qml:465
 msgid "Type something ..."
 msgstr ""
 
