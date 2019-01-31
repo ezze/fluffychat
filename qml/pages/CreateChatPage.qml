@@ -68,7 +68,7 @@ Page {
 
     Connections {
         target: events
-        onNewEvent: updatePresence ( type, chat_id, eventType, eventContent )
+        //onNewEvent: updatePresence ( type, chat_id, eventType, eventContent )
     }
 
     function updatePresence ( type, chat_id, eventType, eventContent ) {
