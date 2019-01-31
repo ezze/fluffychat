@@ -55,13 +55,10 @@ Settings {
     property var chatBackground
 
     // Chat settings: Send typing notification?
-    property var sendTypingNotification: false
+    property var sendTypingNotification: true
 
     // Chat settings: Hide less important events?
-    property var hideLessImportantEvents: false
-
-    // Chat settings: Show member change events?
-    property var showMemberChangeEvents: false
+    property var hideLessImportantEvents: true
 
     // Chat settings: Autoload gifs?
     property var autoloadGifs: false

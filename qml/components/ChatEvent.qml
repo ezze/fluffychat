@@ -203,7 +203,8 @@ ListItem {
                     height: visible * (!showButton ? units.gu(30) : showImageButton.height)
                     visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
                     property var hasThumbnail: event.content.info && event.content.info.thumbnail_url
-                    property var showGif: visible && settings.autoloadGifs && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
+                    property var isGif: visible && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
+                    property var showGif: isGif && settings.autoloadGifs
                     property var showThumbnail: visible && !showGif && (hasThumbnail || settings.autoloadGifs)
                     property var showButton: visible && !showGif && !showThumbnail
 
@@ -257,8 +258,8 @@ ListItem {
 
                     Button {
                         id: showImageButton
-                        text: i18n.tr("Show image")
-                        onClicked: imageViewer.show ( event.content.url )
+                        text: isGif ? i18n.tr("Load gif") : i18n.tr("Show image")
+                        onClicked: image.showGif = true
                         visible: image.showButton
                         height: visible ? units.gu(4) : 0
                         width: visible ? units.gu(26) : 0
