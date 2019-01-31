@@ -289,7 +289,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "events_default"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -301,7 +301,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "state_default"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -313,7 +313,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "redact"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -325,7 +325,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "invite"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -337,7 +337,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "ban"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -349,7 +349,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "kick"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -361,7 +361,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "m.room.name"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -373,7 +373,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "m.room.avatar"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -385,7 +385,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "m.room.history_visibility"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -397,7 +397,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "m.room.aliases"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -409,7 +409,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "m.room.canonical_alias"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -421,7 +421,7 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "m.room.power_levels"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
@@ -433,11 +433,44 @@ Page {
                     if ( canChangeAccessRules ) {
                         activePowerLevel = "users_default"
                         powerLevelDescription = name
-                        PopupUtils.open(changePowerLevelDialog)
+                        contextualActions.show()
                     }
                 }
             }
 
+        }
+    }
+
+    function changePowerLevel ( level ) {
+        var data = {}
+        if ( activePowerLevel.indexOf("m.room") !== -1 ) {
+            data["events"] = {}
+            data["events"][activePowerLevel] = level
+        }
+        else data[activePowerLevel] = level
+        matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data, 2 )
+    }
+
+    ActionSelectionPopover {
+        id: contextualActions
+        z: 10
+        actions: ActionList {
+            Action {
+                text: i18n.tr("Members")
+                onTriggered: changePowerLevel ( 0 )
+            }
+            Action {
+                text: i18n.tr("Moderators")
+                onTriggered: changePowerLevel ( 50 )
+            }
+            Action {
+                text: i18n.tr("Admins")
+                onTriggered: changePowerLevel ( 99 )
+            }
+            Action {
+                text: i18n.tr("Owner")
+                onTriggered: changePowerLevel ( 100 )
+            }
         }
     }
 }

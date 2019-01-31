@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 12:03+0000\n"
+"POT-Creation-Date: 2019-01-31 12:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -216,21 +216,31 @@ msgid "⌨️ %1 and %2 more are typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:46
+#: ../qml/pages/ChatPrivacySettingsPage.qml:459
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:270
 #: ../qml/components/ChangePowerLevelDialog.qml:47
 msgid "Members"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:47
+#: ../qml/pages/ChatPrivacySettingsPage.qml:463
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:274
 #: ../qml/components/ChangePowerLevelDialog.qml:33
 msgid "Moderators"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:48
+#: ../qml/pages/ChatPrivacySettingsPage.qml:467
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:278
 #: ../qml/components/ChangePowerLevelDialog.qml:19
 msgid "Admins"
 msgstr ""
 
-#: ../qml/controller/UserNameController.qml:68
+#: ../qml/controller/UserNameController.qml:49
+msgid "Owners"
+msgstr ""
+
+#: ../qml/controller/UserNameController.qml:69
 msgid "%1 is not a valid username"
 msgstr ""
 
@@ -521,68 +531,73 @@ msgid "Chat permissions"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:286
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:105
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:100
 msgid "Who can send messages?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:298
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:117
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:112
 msgid "Who can configure this chat?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:310
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:129
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:124
 msgid "Who can remove messages?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:322
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:141
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:136
 msgid "Who can invite users?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:334
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:153
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:148
 msgid "Who can ban users?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:346
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:165
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:160
 msgid "Who can kick users?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:358
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:177
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:172
 msgid "Who can change the chat name?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:370
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:189
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:184
 msgid "Who can change the chat avatar?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:382
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:201
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:196
 msgid "Who can change the chat history visibility?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:394
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:213
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:208
 msgid "Who can change the chat addresses?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:406
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:225
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:220
 msgid "Who can change the canonical chat alias?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:418
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:237
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:232
 msgid "Who can change the user permissions?"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:430
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:249
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:244
 msgid "Default user permissions:"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:471
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:282
+msgid "Owner"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:12
