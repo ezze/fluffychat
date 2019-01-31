@@ -21,9 +21,9 @@ ListItem {
     ListItemLayout {
         id: layout
         width: parent.width
-        title.text: (target.device_display_name || device.device_id) + (thisDevice ? (" (" + i18n.tr("This device") + ")") : "")
-        subtitle.text: target.app_display_name
+        title.text: (thisDevice ? (" (" + i18n.tr("This device") + ") ") : "") + target.app_display_name
         title.font.bold: thisDevice
+        subtitle.text: (target.device_display_name || device.device_id)
 
         Icon {
             width: units.gu(4)

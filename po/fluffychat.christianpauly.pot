@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 11:17+0000\n"
+"POT-Creation-Date: 2019-01-31 12:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -656,7 +656,6 @@ msgid "Dark mode"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:222
-#: ../qml/pages/NotificationSettingsPage.qml:64
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
 #: ../qml/pages/ChatSettingsPage.qml:275
 msgid "Notifications"
@@ -731,44 +730,36 @@ msgstr ""
 msgid "Password..."
 msgstr ""
 
-#: ../qml/pages/NotificationSettingsPage.qml:80
-msgid "Enable notifications"
+#: ../qml/pages/NotificationSettingsPage.qml:58
+msgid "Receive notifications for..."
 msgstr ""
 
-#: ../qml/pages/NotificationSettingsPage.qml:90
+#: ../qml/pages/NotificationSettingsPage.qml:74
 msgid "Common messages"
 msgstr ""
 
-#: ../qml/pages/NotificationSettingsPage.qml:100
+#: ../qml/pages/NotificationSettingsPage.qml:84
 msgid "Messages from single chats"
 msgstr ""
 
-#: ../qml/pages/NotificationSettingsPage.qml:110
-msgid "Contains my display name"
+#: ../qml/pages/NotificationSettingsPage.qml:94
+msgid "Mention my display name"
 msgstr ""
 
-#: ../qml/pages/NotificationSettingsPage.qml:120
-msgid "Contains my user name"
+#: ../qml/pages/NotificationSettingsPage.qml:104
+msgid "Mention my user name"
 msgstr ""
 
-#: ../qml/pages/NotificationSettingsPage.qml:130
+#: ../qml/pages/NotificationSettingsPage.qml:114
 msgid "Invitations for me"
 msgstr ""
 
-#: ../qml/pages/NotificationSettingsPage.qml:140
-msgid "Chat members change"
+#: ../qml/pages/NotificationSettingsPage.qml:124
+msgid "Chat member changes"
 msgstr ""
 
-#: ../qml/pages/NotificationSettingsPage.qml:150
-msgid "Incoming VOIP calls"
-msgstr ""
-
-#: ../qml/pages/NotificationSettingsPage.qml:160
+#: ../qml/pages/NotificationSettingsPage.qml:134
 msgid "Messages from bots"
-msgstr ""
-
-#: ../qml/pages/NotificationSettingsPage.qml:170
-msgid "Targets"
 msgstr ""
 
 #: ../qml/pages/InvitePage.qml:17
@@ -940,8 +931,20 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/NotificationTargetSettingsPage.qml:24
-msgid "Notification targets"
+#: ../qml/pages/NotificationTargetSettingsPage.qml:51
+msgid "Notification settings"
+msgstr ""
+
+#: ../qml/pages/NotificationTargetSettingsPage.qml:65
+msgid "Enable notifications"
+msgstr ""
+
+#: ../qml/pages/NotificationTargetSettingsPage.qml:76
+msgid "Advanced notification settings"
+msgstr ""
+
+#: ../qml/pages/NotificationTargetSettingsPage.qml:94
+msgid "Devices that receive push notifications:"
 msgstr ""
 
 #: ../qml/pages/ChatAliasSettingsPage.qml:70
@@ -1101,7 +1104,7 @@ msgstr ""
 msgid "Loading... Please wait!"
 msgstr ""
 
-#: ../qml/components/WaitDialog.qml:35
+#: ../qml/components/WaitDialog.qml:36
 msgid "Cancel process"
 msgstr ""
 

@@ -221,7 +221,7 @@ Page {
             SettingsListLink {
                 name: i18n.tr("Notifications")
                 icon: "notification"
-                page: "NotificationSettingsPage"
+                page: "NotificationTargetSettingsPage"
             }
 
             Rectangle {
