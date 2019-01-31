@@ -7,13 +7,16 @@ Rectangle {
     id: flyingButtonItem
     property var iconName: ""
     property alias mouseArea: mouseArea
+    property var visibleState: false
 
     width: flyingButton.width
     height: flyingButton.height
     anchors.bottom: parent.bottom
     anchors.right: parent.right
     anchors.margins: width / 2
+    anchors.rightMargin: -(scrollDownButton.width * 2)
     color: "#00000000"
+    opacity: 0.75
 
     UbuntuShape {
         id: flyingButton
@@ -43,15 +46,20 @@ Rectangle {
         }
     }
 
-    DropShadow {
-        id: shadow
-        anchors.fill: flyingButton
-        radius: 30.0
-        samples: 17
-        color: mainBorderColor
-        source: flyingButton
-        transitions: Transition {
-            NumberAnimation { property: "radius"; duration: 300 }
+    z: 2
+    transitions: Transition {
+        SpringAnimation {
+            spring: 2
+            damping: 0.2
+            properties: "anchors.rightMargin"
+        }
+    }
+    states: State {
+        name: "visible"
+        when: visibleState
+        PropertyChanges {
+            target: scrollDownButton
+            anchors.rightMargin: scrollDownButton.width / 2
         }
     }
 

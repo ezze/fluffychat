@@ -216,11 +216,7 @@ Page {
         }
     }
 
-
     LeaveChatDialog { id: leaveChatDialog }
-
-
-
 
     ListModel { id: model }
 

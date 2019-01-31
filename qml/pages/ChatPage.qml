@@ -359,23 +359,7 @@ Page {
         mouseArea.onClicked: chatScrollView.positionViewAtBeginning ()
         iconName: "toolkit_chevron-down_4gu"
         anchors.bottomMargin: (width/2) + chatInput.height
-        anchors.rightMargin: -(scrollDownButton.width * 2)
-        z: 2
-        transitions: Transition {
-            SpringAnimation {
-                spring: 2
-                damping: 0.2
-                properties: "anchors.rightMargin"
-            }
-        }
-        states: State {
-            name: "visible"
-            when: !chatScrollView.atYEnd
-            PropertyChanges {
-                target: scrollDownButton
-                anchors.rightMargin: scrollDownButton.width / 2
-            }
-        }
+        visibleState: !chatScrollView.atYEnd
     }
 
     ChatScrollView {

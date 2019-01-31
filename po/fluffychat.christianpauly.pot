@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 10:03+0000\n"
+"POT-Creation-Date: 2019-01-31 10:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -464,13 +464,13 @@ msgstr ""
 msgid "Search for your chats..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:242
+#: ../qml/pages/ChatListPage.qml:239
 msgid ""
 "Press the button at the top right to start a new chat or discover public "
 "groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:287
+#: ../qml/pages/ChatListPage.qml:284
 msgid "New chat"
 msgstr ""
 
@@ -823,19 +823,19 @@ msgstr ""
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:409
+#: ../qml/pages/ChatPage.qml:393
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:409
+#: ../qml/pages/ChatPage.qml:393
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:423
+#: ../qml/pages/ChatPage.qml:407
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:454
+#: ../qml/pages/ChatPage.qml:438
 msgid "Type something ..."
 msgstr ""
 
