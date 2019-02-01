@@ -9,7 +9,7 @@ Page {
 
     header: StyledPageHeader {
         id: header
-        title: i18n.tr('New Chat')
+        title: i18n.tr('Add Chat')
 
         trailingActionBar {
             actions: [
@@ -83,7 +83,11 @@ Page {
         }
     }
 
-    Component.onCompleted: update ()
+    Connections {
+        target: bottomEdge
+        onCommitCompleted: update ()
+        onCollapseCompleted: model.clear()
+    }
 
     function update () {
         model.clear()

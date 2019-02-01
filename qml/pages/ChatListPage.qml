@@ -248,6 +248,7 @@ Page {
     }
 
     // ============================== BOTTOM EDGE ==============================
+
     BottomEdge {
         id: bottomEdge
         height: parent.height
@@ -256,36 +257,21 @@ Page {
             width: chatListPage.width
             height: chatListPage.height
             color: theme.palette.normal.background
-            CreateChatPage { }
+            CreateChatPage {
+                id: createChatPage
+            }
         }
+
+        hint {
+            status: BottomEdgeHint.Locked
+            text: bottomEdge.hint.status == BottomEdgeHint.Locked ? i18n.tr("Add chat") : ""
+            iconName: "message-new"
+            onStatusChanged: {
+                if (status == BottomEdgeHint.Inactive) {
+                    bottomEdge.hint.status = BottomEdgeHint.Locked;
+                }
+            }
+        }
+
     }
-
-    Rectangle {
-        color: settings.mainColor
-        //color: theme.palette.normal.background
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottomMargin: -(height / 2)
-        border.width: 1
-        border.color: mainBorderColor
-        radius: units.gu(1)
-        height: newChatLabel.height*2 + units.gu(1)
-        width: Math.min( newChatLabel.width*2, parent.width )
-        visible: !tabletMode
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: bottomEdge.commit()
-        }
-
-        Label {
-            id: newChatLabel
-            text: i18n.tr("New chat")
-            anchors.top: parent.top
-            anchors.topMargin: units.gu(0.25)
-            anchors.horizontalCenter: parent.horizontalCenter
-            color: "#FFFFFF"
-        }
-    }
-
 }
