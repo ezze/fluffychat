@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-01 12:26+0000\n"
+"POT-Creation-Date: 2019-02-01 12:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -865,19 +865,23 @@ msgstr ""
 msgid "Don't notify"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:43
+#: ../qml/pages/DiscoverPage.qml:55
 msgid "Groups on %1"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:43
+#: ../qml/pages/DiscoverPage.qml:55
 msgid "and matrix.org"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:86
+#: ../qml/pages/DiscoverPage.qml:98
 msgid "Search for chats or #aliases..."
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:111
+#: ../qml/pages/DiscoverPage.qml:124
+msgid "Loading..."
+msgstr ""
+
+#: ../qml/pages/DiscoverPage.qml:124
 msgid "No chats found"
 msgstr ""
 

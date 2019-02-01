@@ -8,11 +8,19 @@ Page {
     anchors.fill: parent
     id: discoverPage
 
+    property var loading: true
+
     // Add public rooms from a server side search to the model.
     function addPublicRoomsToModel ( res ) {
         for( var i = 0; i < res.chunk.length; i++ ) {
             model.append ( { "room": res.chunk[i] } )
         }
+    }
+
+
+    function handleError ( error ) {
+        loading = false
+        label.text = error.error
     }
 
     Component.onCompleted: {
@@ -25,9 +33,13 @@ Page {
             addPublicRoomsToModel ( res )
             // Also search on matrix.org if not already
             if ( settings.server !== "matrix.org" ) {
-                matrix.get ( "/client/r0/publicRooms", { "limit": limit, "server": "matrix.org" }, addPublicRoomsToModel, null, 2 )
+                matrix.get ( "/client/r0/publicRooms", { "limit": limit, "server": "matrix.org" }, function ( res ) {
+                    addPublicRoomsToModel ( res )
+                    loading = false
+                }, handleError, 1 )
             }
-        }, null, 2 )
+            else loading = false
+        }, handleError, 1 )
 
     }
 
@@ -108,11 +120,12 @@ Page {
     }
 
     Label {
-        text: i18n.tr("No chats found")
+        id: label
+        text: loading ? i18n.tr("Loading...") : i18n.tr("No chats found")
         textSize: Label.Large
         color: UbuntuColors.graphite
         anchors.centerIn: parent
-        visible: model.count === 0
+        visible: loading || model.count === 0
     }
 
 }
