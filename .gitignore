@@ -1,3 +1,9 @@
+# Qt
+*.user
+
+# Clickable
 build
 .clickable
+
+# Snapcraft
 *.snap
