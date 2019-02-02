@@ -55,6 +55,9 @@ parts:
       - qml-module-ubuntu-components
       - qml-module-qtmultimedia
       - qml-module-ubuntu-connectivity
+      - qtdeclarative5-ubuntu-content1
+      - qtdeclarative5-usermetrics0.1
+      - qtdeclarative5-ubuntu-download-manager0.1
     after: [ubports-repo]
   ubports-repo:
     plugin: nil
