@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-04 11:50+0000\n"
+"POT-Creation-Date: 2019-02-04 12:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -485,7 +485,8 @@ msgid "Add chat"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:124
-msgid "Chat security & privacy settings"
+#: ../qml/pages/ChatSettingsPage.qml:280
+msgid "Advanced settings"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:138
@@ -924,10 +925,6 @@ msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:248
 msgid "No chat description found..."
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:280
-msgid "Advanced settings"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:301

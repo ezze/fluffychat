@@ -99,6 +99,8 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
     // If there is no unread message, then this is the signal to just clear persistent
     // notifications with this id and reset the unread counter
     if ( unread == 0 ) {
+        QStringList tags = mPushClient.getNotifications();
+        mPushClient.clearPersistent(tags);
         //The notification object to be passed to Postal
         QJsonObject notification{
             {"tag", id},
