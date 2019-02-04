@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-01 12:31+0000\n"
+"POT-Creation-Date: 2019-02-04 11:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -216,21 +216,21 @@ msgid "✏ %1 and %2 more are typing…"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:46
-#: ../qml/pages/ChatPrivacySettingsPage.qml:459
+#: ../qml/pages/ChatPrivacySettingsPage.qml:400
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:270
 #: ../qml/components/ChangePowerLevelDialog.qml:47
 msgid "Members"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:47
-#: ../qml/pages/ChatPrivacySettingsPage.qml:463
+#: ../qml/pages/ChatPrivacySettingsPage.qml:404
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:274
 #: ../qml/components/ChangePowerLevelDialog.qml:33
 msgid "Moderators"
 msgstr ""
 
 #: ../qml/controller/UserNameController.qml:48
-#: ../qml/pages/ChatPrivacySettingsPage.qml:467
+#: ../qml/pages/ChatPrivacySettingsPage.qml:408
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:278
 #: ../qml/components/ChangePowerLevelDialog.qml:19
 msgid "Admins"
@@ -304,7 +304,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:263
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:253
 msgid "Archived chats"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:289
+#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:269
 msgid "Connected email addresses"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgstr ""
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:112 ../qml/pages/SettingsPage.qml:347
+#: ../qml/pages/LoginPage.qml:112 ../qml/pages/SettingsPage.qml:307
 msgid "About FluffyChat"
 msgstr ""
 
@@ -484,118 +484,118 @@ msgstr ""
 msgid "Add chat"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:137
+#: ../qml/pages/ChatPrivacySettingsPage.qml:124
 msgid "Chat security & privacy settings"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:160
+#: ../qml/pages/ChatPrivacySettingsPage.qml:138
 msgid "Access"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:172
+#: ../qml/pages/ChatPrivacySettingsPage.qml:143
 msgid "Users can be invited"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:184
+#: ../qml/pages/ChatPrivacySettingsPage.qml:155
 msgid "Chat is public accessible"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:196
+#: ../qml/pages/ChatPrivacySettingsPage.qml:167
 msgid "Guest users are allowed"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:207
+#: ../qml/pages/ChatPrivacySettingsPage.qml:178
 #: ../qml/pages/ChatAliasSettingsPage.qml:63
 msgid "Public chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:221
+#: ../qml/pages/ChatPrivacySettingsPage.qml:184
 msgid "History visibility"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:233
+#: ../qml/pages/ChatPrivacySettingsPage.qml:189
 msgid "History is visible from invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:244
+#: ../qml/pages/ChatPrivacySettingsPage.qml:200
 msgid "Members can access full chat history"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:255
+#: ../qml/pages/ChatPrivacySettingsPage.qml:211
 msgid "Anyone can access full chat history"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:274
+#: ../qml/pages/ChatPrivacySettingsPage.qml:222
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:87
 msgid "Chat permissions"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:286
+#: ../qml/pages/ChatPrivacySettingsPage.qml:227
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:100
 msgid "Who can send messages?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:298
+#: ../qml/pages/ChatPrivacySettingsPage.qml:239
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:112
 msgid "Who can configure this chat?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:310
+#: ../qml/pages/ChatPrivacySettingsPage.qml:251
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:124
 msgid "Who can remove messages?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:322
+#: ../qml/pages/ChatPrivacySettingsPage.qml:263
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:136
 msgid "Who can invite users?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:334
+#: ../qml/pages/ChatPrivacySettingsPage.qml:275
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:148
 msgid "Who can ban users?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:346
+#: ../qml/pages/ChatPrivacySettingsPage.qml:287
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:160
 msgid "Who can kick users?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:358
+#: ../qml/pages/ChatPrivacySettingsPage.qml:299
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:172
 msgid "Who can change the chat name?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:370
+#: ../qml/pages/ChatPrivacySettingsPage.qml:311
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:184
 msgid "Who can change the chat avatar?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:382
+#: ../qml/pages/ChatPrivacySettingsPage.qml:323
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:196
 msgid "Who can change the chat history visibility?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:394
+#: ../qml/pages/ChatPrivacySettingsPage.qml:335
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:208
 msgid "Who can change the chat addresses?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:406
+#: ../qml/pages/ChatPrivacySettingsPage.qml:347
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:220
 msgid "Who can change the canonical chat alias?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:418
+#: ../qml/pages/ChatPrivacySettingsPage.qml:359
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:232
 msgid "Who can change the user permissions?"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:430
+#: ../qml/pages/ChatPrivacySettingsPage.qml:371
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:244
 msgid "Default user permissions:"
 msgstr ""
 
-#: ../qml/pages/ChatPrivacySettingsPage.qml:471
+#: ../qml/pages/ChatPrivacySettingsPage.qml:412
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:282
 msgid "Owner"
 msgstr ""
@@ -617,7 +617,7 @@ msgid "New group"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:134
-#: ../qml/components/UserSettingsViewer.qml:153
+#: ../qml/components/UserSettingsViewer.qml:133
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
@@ -676,52 +676,52 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:237
+#: ../qml/pages/SettingsPage.qml:228
 msgid "Chat settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:242
+#: ../qml/pages/SettingsPage.qml:232
 msgid "Display 'I am typing' when typing"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:249
+#: ../qml/pages/SettingsPage.qml:239
 msgid "Hide less important events"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:256
+#: ../qml/pages/SettingsPage.qml:246
 msgid "Autoload animated images"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:278
+#: ../qml/pages/SettingsPage.qml:259
 msgid "Account settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:283 ../qml/pages/PhoneSettingsPage.qml:47
+#: ../qml/pages/SettingsPage.qml:263 ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:295 ../qml/pages/DevicesSettingsPage.qml:24
+#: ../qml/pages/SettingsPage.qml:275 ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:301
+#: ../qml/pages/SettingsPage.qml:281
 msgid "Change password"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:316
+#: ../qml/pages/SettingsPage.qml:287
 msgid "Check out:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:321
+#: ../qml/pages/SettingsPage.qml:291
 msgid "Disable account"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:327 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:297 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:342
+#: ../qml/pages/SettingsPage.qml:303
 msgid "More:"
 msgstr ""
 
@@ -1402,15 +1402,15 @@ msgstr ""
 msgid "Canonical alias"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:115
+#: ../qml/components/UserSettingsViewer.qml:108
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:115
+#: ../qml/components/UserSettingsViewer.qml:108
 msgid "You are that!"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:159
+#: ../qml/components/UserSettingsViewer.qml:139
 msgid "Start new chat"
 msgstr ""
 

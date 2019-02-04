@@ -101,31 +101,11 @@ BottomEdge {
                 Rectangle {
                     width: parent.width
                     height: units.gu(2)
-                    color: Qt.rgba(0,0,0,0)
-                }
-                Rectangle {
-                    width: parent.width
-                    height: units.gu(2)
-                    color: Qt.rgba(0,0,0,0)
-                    Label {
-                        id: userInfo
-                        height: units.gu(2)
-                        anchors.left: parent.left
-                        anchors.leftMargin: units.gu(2)
-                        text: matrix_id !== settings.matrixid ? i18n.tr("Chats with this user:") : i18n.tr("You are that!")
-                        font.bold: true
-                    }
-                }
-                Rectangle {
-                    width: parent.width
-                    height: units.gu(2)
-                    color: Qt.rgba(0,0,0,0)
+                    color: "transparent"
                 }
 
-                Rectangle {
-                    width: parent.width
-                    height: 1
-                    color: UbuntuColors.ash
+                ListSeperator {
+                    text: matrix_id !== settings.matrixid ? i18n.tr("Chats with this user:") : i18n.tr("You are that!")
                 }
 
                 Column {

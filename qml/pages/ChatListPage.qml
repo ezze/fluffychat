@@ -265,7 +265,7 @@ Page {
         hint {
             status: BottomEdgeHint.Locked
             text: bottomEdge.hint.status == BottomEdgeHint.Locked ? i18n.tr("Add chat") : ""
-            iconName: "message-new"
+            iconName: "compose"
             onStatusChanged: {
                 if (status == BottomEdgeHint.Inactive) {
                     bottomEdge.hint.status = BottomEdgeHint.Locked;

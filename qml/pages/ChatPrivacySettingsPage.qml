@@ -15,19 +15,6 @@ Page {
     property var powerLevelDescription: ""
     property var activePowerLevel: ""
 
-    /*  TODO: Implement this system:
-    * # Access permissions
-    * - User's can be invited (Switch)
-    * - Chat is public accessable (Switch)
-    * - Guest users are allowed (Switch)
-    * # History visibility
-    * - Invited users can see the history (Switch)
-    * - History is public accessable (Switch)
-    * # Chat permissions
-    * - Chat permission A (Dialogue with slider)
-
-    */
-
     Component.onCompleted: {
         init ()
         initPermissions ()
@@ -134,7 +121,7 @@ Page {
     }
 
     header: FcPageHeader {
-        title:  i18n.tr('Chat security & privacy settings')
+        title:  i18n.tr('Advanced settings')
     }
 
     ChangePowerLevelDialog { id: changePowerLevelDialog }
@@ -147,24 +134,8 @@ Page {
         contentItem: Column {
             width: mainStackWidth
 
-
-            Rectangle {
-                width: parent.width
-                height: units.gu(6)
-                color: theme.palette.normal.background
-                Label {
-                    height: units.gu(2)
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(2)
-                    text: i18n.tr("Access")
-                    font.bold: true
-                }
-            }
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: UbuntuColors.ash
+            ListSeperator {
+                text: i18n.tr("Access")
             }
 
             SettingsListSwitch {
@@ -209,23 +180,8 @@ Page {
                 page: "ChatAliasSettingsPage"
             }
 
-            Rectangle {
-                width: parent.width
-                height: units.gu(6)
-                color: theme.palette.normal.background
-                Label {
-                    height: units.gu(2)
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(2)
-                    text: i18n.tr("History visibility")
-                    font.bold: true
-                }
-            }
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: UbuntuColors.ash
+            ListSeperator {
+                text: i18n.tr("History visibility")
             }
 
             SettingsListSwitch {
@@ -262,23 +218,8 @@ Page {
                 }
             }
 
-            Rectangle {
-                width: parent.width
-                height: units.gu(6)
-                color: theme.palette.normal.background
-                Label {
-                    height: units.gu(2)
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(2)
-                    text: i18n.tr("Chat permissions")
-                    font.bold: true
-                }
-            }
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: UbuntuColors.ash
+            ListSeperator {
+                text: i18n.tr("Chat permissions")
             }
 
             SettingsListItem {

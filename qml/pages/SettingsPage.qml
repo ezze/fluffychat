@@ -224,18 +224,8 @@ Page {
                 page: "NotificationTargetSettingsPage"
             }
 
-            Rectangle {
-                width: parent.width
-                height: units.gu(2)
-                color: theme.palette.normal.background
-            }
-
-            Label {
-                height: units.gu(2)
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(2)
+            ListSeperator {
                 text: i18n.tr("Chat settings:")
-                font.bold: true
             }
 
             SettingsListSwitch {
@@ -265,18 +255,8 @@ Page {
                 page: "ArchivedChatsPage"
             }
 
-            Rectangle {
-                width: parent.width
-                height: units.gu(2)
-                color: theme.palette.normal.background
-            }
-
-            Label {
-                height: units.gu(2)
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(2)
+            ListSeperator {
                 text: i18n.tr("Account settings:")
-                font.bold: true
             }
 
             SettingsListLink {
@@ -303,18 +283,8 @@ Page {
                 onClicked: PopupUtils.open(passwordDialog)
             }
 
-            Rectangle {
-                width: parent.width
-                height: units.gu(2)
-                color: theme.palette.normal.background
-            }
-
-            Label {
-                height: units.gu(2)
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(2)
+            ListSeperator {
                 text: i18n.tr("Check out:")
-                font.bold: true
             }
 
             SettingsListItem {
@@ -329,18 +299,8 @@ Page {
                 onClicked: PopupUtils.open(logoutDialog)
             }
 
-            Rectangle {
-                width: parent.width
-                height: units.gu(2)
-                color: theme.palette.normal.background
-            }
-
-            Label {
-                height: units.gu(2)
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(2)
+            ListSeperator {
                 text: i18n.tr("More:")
-                font.bold: true
             }
 
             SettingsListLink {
