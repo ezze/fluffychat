@@ -5,6 +5,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
+import "../scripts/MessageFormats.js" as MessageFormats
 
 Page {
 
@@ -82,7 +83,7 @@ Page {
                 replyEvent = null
             }
 
-            data = sender.handleCommands ( data )
+            data = MessageFormats.handleCommands ( data )
 
         }
 
@@ -105,7 +106,7 @@ Page {
                 type: type,
                 id: messageID,
                 sender: settings.matrixid,
-                content_body: sender.formatText ( data.body ),
+                content_body: MessageFormats.formatText ( data.body ),
                 displayname: activeChatMembers[settings.matrixid].displayname,
                 avatar_url: activeChatMembers[settings.matrixid].avatar_url,
                 status: msg_status.SENDING,
@@ -114,7 +115,7 @@ Page {
             }
             chatScrollView.addEventToList ( fakeEvent )
 
-            sender.sendMessage ( messageID, data, activeChat, function ( response ) {
+            matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
                 chatScrollView.messageSent ( messageID, response )
             }, function ( error ) {
                 if ( error === "DELETE" ) chatScrollView.removeEvent ( messageID )

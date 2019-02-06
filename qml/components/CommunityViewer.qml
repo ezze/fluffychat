@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import "../scripts/MessageFormats.js" as MessageFormats
 
 BottomEdge {
 
@@ -35,7 +36,7 @@ BottomEdge {
                 matrix.get ( "/client/r0/groups/%1/profile".arg(activeCommunity), null, function (res) {
                     communityHeader.title = res.name
                     avatar.mxc = res.avatar_url
-                    communityInfo.text = sender.formatText(res.short_description)
+                    communityInfo.text = MessageFormats.formatText(res.short_description)
                 } )
                 matrix.get ( "/client/r0/groups/%1/rooms".arg(activeCommunity), null, function (res) {
                     var rooms = res.chunk

@@ -155,6 +155,52 @@ Item {
     }
 
 
+    function sendMessage ( messageID, data, chat_id, success_callback, error_callback ) {
+        var newMessageID = ""
+        var callback = function () { if ( newMessageID !== "" ) success_callback ( newMessageID ) }
+        if ( !events.online ) {
+            storage.transaction ( "UPDATE Events SET status=-1 WHERE id='" + messageID + "'" )
+            return error_callback ( "ERROR" )
+        }
+
+        var msgtype = data.msgtype === "m.sticker" ? data.msgtype : "m.room.message"
+        matrix.put( "/client/r0/rooms/" + chat_id + "/send/" + msgtype + "/" + messageID, data, function ( response ) {
+            userMetrics.sentMessages++
+
+            newMessageID = response.event_id
+            storage.transaction ( "SELECT * FROM Events WHERE id='" + response.event_id + "'", function ( res ) {
+                if ( res.rows.length > 0 ) {
+                    storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )
+                }
+                else {
+                    storage.transaction ( "UPDATE Events SET id='" + response.event_id + "', status=1 WHERE id='" + messageID + "'", callback )
+                }
+
+            })
+        }, function ( error ) {
+
+            // If the user has no permissions or there is an internal server error,
+            // the message gets deleted
+            if ( error.errcode === "M_FORBIDDEN" ) {
+                toast.show ( i18n.tr("You are not allowed to chat here.") )
+                storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )
+                if ( error_callback ) error_callback ("DELETE")
+            }
+            else if ( error.errcode === "M_UNKNOWN" ) {
+                toast.show ( error.error )
+                storage.transaction ( "DELETE FROM Events WHERE id='" + messageID + "'", callback )
+                if ( error_callback ) error_callback ("DELETE")
+            }
+            // Else: Try again in a few seconds
+            else {
+                storage.transaction ( "UPDATE Events SET status=-1 WHERE id='" + messageID + "'" )
+                if ( error_callback ) error_callback ("ERROR")
+            }
+
+        } )
+    }
+
+
     function resetSettings () {
         settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.requestedArchive = settings.since = settings.matrixVersions = settings.matrixid = settings.lazy_load_members = undefined
     }

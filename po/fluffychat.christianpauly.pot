@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-06 11:12+0000\n"
+"POT-Creation-Date: 2019-02-06 11:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:216 ../qml/components/ChatEvent.qml:111
+#: ../qml/Main.qml:215 ../qml/components/ChatEvent.qml:112
 msgid "Are you sure?"
 msgstr ""
 
@@ -164,7 +164,7 @@ msgid "Username '%1' not found on %2"
 msgstr ""
 
 #: ../qml/pages/LoginPage.qml:43 ../qml/pages/LoginPage.qml:85
-#: ../qml/models/MatrixController.qml:255
+#: ../qml/models/MatrixController.qml:301
 msgid "😕 No connection..."
 msgstr ""
 
@@ -583,42 +583,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:272 ../qml/components/ArchivedChatListItem.qml:30
+#: ../qml/pages/ChatPage.qml:273 ../qml/components/ArchivedChatListItem.qml:30
 #: ../qml/components/SimpleChatListItem.qml:26
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:302 ../qml/components/RemoveDeviceDialog.qml:47
-#: ../qml/components/ChatEvent.qml:103
+#: ../qml/pages/ChatPage.qml:303 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/components/ChatEvent.qml:104
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:308
+#: ../qml/pages/ChatPage.qml:309
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:331
+#: ../qml/pages/ChatPage.qml:332
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:354
+#: ../qml/pages/ChatPage.qml:355
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:424
+#: ../qml/pages/ChatPage.qml:425
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:424
+#: ../qml/pages/ChatPage.qml:425
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:438
+#: ../qml/pages/ChatPage.qml:439
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:469
+#: ../qml/pages/ChatPage.qml:470
 msgid "Type something ..."
 msgstr ""
 
@@ -767,11 +767,11 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/EventController.qml:107
+#: ../qml/models/EventController.qml:108
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/EventController.qml:165
+#: ../qml/models/EventController.qml:166
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -780,10 +780,6 @@ msgstr ""
 
 #: ../qml/models/ShareController.qml:54
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
-msgstr ""
-
-#: ../qml/models/SenderController.qml:43
-msgid "You are not allowed to chat here."
 msgstr ""
 
 #: ../qml/models/PushController.qml:38
@@ -796,6 +792,10 @@ msgstr ""
 
 #: ../qml/models/MatrixController.qml:146
 msgid "Do you want to join this chat?"
+msgstr ""
+
+#: ../qml/models/MatrixController.qml:185
+msgid "You are not allowed to chat here."
 msgstr ""
 
 #: ../qml/components/InviteListItem.qml:26
@@ -814,7 +814,7 @@ msgstr ""
 msgid "Invite %1 to this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:47 ../qml/components/ChatEvent.qml:33
+#: ../qml/components/MemberListItem.qml:47 ../qml/components/ChatEvent.qml:34
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
@@ -994,51 +994,51 @@ msgstr ""
 msgid "Remove this email address?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:39
+#: ../qml/components/ChatEvent.qml:40
 msgid "Try to send again"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:50
+#: ../qml/components/ChatEvent.qml:51
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:59
+#: ../qml/components/ChatEvent.qml:60
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:64
+#: ../qml/components/ChatEvent.qml:65
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:68
+#: ../qml/components/ChatEvent.qml:69
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:72
+#: ../qml/components/ChatEvent.qml:73
 msgid "Add to sticker collection?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:79
+#: ../qml/components/ChatEvent.qml:80
 msgid "Already added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:80
+#: ../qml/components/ChatEvent.qml:81
 msgid "Added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:86
+#: ../qml/components/ChatEvent.qml:87
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:268
+#: ../qml/components/ChatEvent.qml:269
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:268
+#: ../qml/components/ChatEvent.qml:269
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:370
+#: ../qml/components/ChatEvent.qml:371
 msgid "Download: "
 msgstr ""
 
@@ -1238,7 +1238,7 @@ msgstr ""
 msgid "Enter your new nickname"
 msgstr ""
 
-#: ../qml/components/CommunityViewer.qml:107
+#: ../qml/components/CommunityViewer.qml:108
 msgid "No description found"
 msgstr ""
 

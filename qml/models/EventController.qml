@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
 import "../scripts/MatrixNames.js" as MatrixNames
+import "../scripts/MessageFormats.js" as MessageFormats
 //import Ubuntu.Connectivity 1.0
 
 
@@ -296,7 +297,7 @@ Item {
                 var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
 
                 // Format the text for the app
-                if( event.content.body ) event.content_body = sender.formatText ( event.content.body )
+                if( event.content.body ) event.content_body = MessageFormats.formatText ( event.content.body )
                 else event.content_body = null
 
                 // Make unsigned part of the content
@@ -353,7 +354,7 @@ Item {
             // it has to be changed in the database
             if ( event.type === "m.room.topic" ) {
                 transaction.executeSql( "UPDATE Chats SET description=? WHERE id=?",
-                [ sender.formatText(event.content.topic) || "",
+                [ MessageFormats.formatText(event.content.topic) || "",
                 roomid ])
             }
 
