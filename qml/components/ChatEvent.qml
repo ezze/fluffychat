@@ -4,6 +4,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import QtGraphicalEffects 1.0
 import "../components"
+import "../scripts/EventDescription.js" as EventDescription
 
 ListItem {
     id: message
@@ -388,8 +389,8 @@ Label {
     id: messageLabel
     opacity: isMediaEvent ? 0 : 1
     height: opacity ? undefined : 0
-    text: isStateEvent ? displayEvents.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :
-    (event.type === "m.room.encrypted" ? displayEvents.getDisplay ( event ) :
+    text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :
+    (event.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
     event.content_body || event.content.body)
     color: (!sent || isStateEvent) ? (settings.darkmode ? "white" : "black") :
     (event.status < msg_status.SEEN ? settings.mainColor : "white")

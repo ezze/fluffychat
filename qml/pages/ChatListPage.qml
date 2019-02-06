@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/EventDescription.js" as EventDescription
 
 Page {
     anchors.fill: parent
@@ -39,7 +40,7 @@ Page {
                 var body = room.content_body || ""
                 room.content = JSON.parse(room.content_json)
                 if ( room.type !== "m.room.message" ) {
-                    room.content_body = displayEvents.getDisplay ( room )
+                    room.content_body = EventDescription.getDisplay ( room )
                 }
                 // We request the room name, before we continue
                 model.append ( { "room": room } )
@@ -109,7 +110,7 @@ Page {
             // Update the last message preview
             var body = lastEvent.content.body || ""
             if ( type !== "m.room.message" ) {
-                body = displayEvents.getDisplay ( lastEvent )
+                body = EventDescription.getDisplay ( lastEvent )
             }
             tempRoom.eventsid = lastEvent.event_id
             tempRoom.origin_server_ts = lastEvent.origin_server_ts

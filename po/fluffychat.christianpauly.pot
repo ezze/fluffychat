@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-06 10:30+0000\n"
+"POT-Creation-Date: 2019-02-06 10:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,254 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:218 ../qml/components/ChatEvent.qml:109
+#: ../qml/Main.qml:217 ../qml/components/ChatEvent.qml:110
 msgid "Are you sure?"
-msgstr ""
-
-#: ../qml/controller/SettingsController.qml:76
-msgid "USA"
-msgstr ""
-
-#: ../qml/controller/SettingsController.qml:77
-msgid "1"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:13
-msgid "Unknown event"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:14
-msgid "Unknown Event: "
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:23
-msgid "%1 has a new avatar"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:26
-msgid "%1 changed the displayname to %2"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:30
-msgid "%1 accepted the invitation"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:33
-msgid "%1 is now participating"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:35
-msgid "%1 is now participating as <b>%2</b>"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:38
-msgid "%1 invited %2"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:42
-msgid "%1 pardoned %2"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:45
-msgid "%1 declined the invitation"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:48
-msgid "%1 left the chat"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:50
-msgid "%1 kicked %2"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:53
-msgid "%1 banned %2 from the chat"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:56
-msgid "and more member changes"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:60
-msgid "%1 created the chat"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:63
-msgid "%1 changed the chat name to: «%2»"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:66
-msgid "%1 changed the chat topic to: «%2»"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:69
-msgid "%1 changed the chat avatar"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:72
-msgid "%1 redacted a message"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:75
-msgid ""
-"%1 initialized end to end encryption. Be aware that FluffyChat does not yet "
-"support end to end encryption. You will not be able to send or read messages "
-"in this chat!"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:78
-msgid "Encrypted message"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:81
-msgid "%1 sent a sticker"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:84
-msgid "%1 set the chat history visible to: «%2»"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:87
-msgid "%1 set the join rules to: «%2»"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:90
-msgid "%1 set the guest access to: «%2»"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:93
-msgid "%1 changed the chat aliases"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:99
-msgid "%1 changed the main chat alias to: «%2»"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:102
-msgid "%1 changed the chat permissions"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:112
-msgid "Only invited users"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:115
-msgid "Public"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:118
-msgid "Private"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:121
-msgid "Knock"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:124
-msgid "All chatters"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:127
-msgid "All joined chat participants"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:130
-msgid "All invited chat participants"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:133
-msgid "Everyone"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:136
-msgid "Can join"
-msgstr ""
-
-#: ../qml/controller/DisplayEventController.qml:139
-msgid "Forbidden"
-msgstr ""
-
-#: ../qml/controller/EventController.qml:106
-msgid "You are offline 😕"
-msgstr ""
-
-#: ../qml/controller/EventController.qml:164
-msgid ""
-"😰 A critical error has occurred! Sorry, the connection to the server has "
-"ended! Please report this bug on: https://github.com/ChristianPauly/"
-"fluffychat/issues/new"
-msgstr ""
-
-#: ../qml/controller/ShareController.qml:54
-msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
-msgstr ""
-
-#: ../qml/controller/SenderController.qml:43
-msgid "You are not allowed to chat here."
-msgstr ""
-
-#: ../qml/controller/UserNameController.qml:36
-msgid "✏ is typing…"
-msgstr ""
-
-#: ../qml/controller/UserNameController.qml:37
-msgid "✏ %1 is typing…"
-msgstr ""
-
-#: ../qml/controller/UserNameController.qml:40
-msgid "✏ %1 and %2 more are typing…"
-msgstr ""
-
-#: ../qml/controller/UserNameController.qml:46
-#: ../qml/pages/ChatPrivacySettingsPage.qml:400
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:270
-#: ../qml/components/ChangePowerLevelDialog.qml:47
-msgid "Members"
-msgstr ""
-
-#: ../qml/controller/UserNameController.qml:47
-#: ../qml/pages/ChatPrivacySettingsPage.qml:404
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:274
-#: ../qml/components/ChangePowerLevelDialog.qml:33
-msgid "Moderators"
-msgstr ""
-
-#: ../qml/controller/UserNameController.qml:48
-#: ../qml/pages/ChatPrivacySettingsPage.qml:408
-#: ../qml/pages/ChatPermissionsSettingsPage.qml:278
-#: ../qml/components/ChangePowerLevelDialog.qml:19
-msgid "Admins"
-msgstr ""
-
-#: ../qml/controller/UserNameController.qml:49
-msgid "Owners"
-msgstr ""
-
-#: ../qml/controller/UserNameController.qml:69
-msgid "%1 is not a valid username"
-msgstr ""
-
-#: ../qml/controller/RoomNameController.qml:13
-#: ../qml/controller/RoomNameController.qml:26
-#: ../qml/controller/RoomNameController.qml:33
-msgid "Empty chat"
-msgstr ""
-
-#: ../qml/controller/PushController.qml:38
-msgid "Please log in to Ubuntu One to receive push notifications."
-msgstr ""
-
-#: ../qml/controller/PushController.qml:72
-msgid "Push notifications are disabled..."
-msgstr ""
-
-#: ../qml/controller/MatrixController.qml:146
-msgid "Do you want to join this chat?"
-msgstr ""
-
-#: ../qml/controller/MatrixController.qml:255 ../qml/pages/LoginPage.qml:42
-#: ../qml/pages/LoginPage.qml:84
-msgid "😕 No connection..."
 msgstr ""
 
 #: ../qml/pages/InfoPage.qml:10
@@ -409,6 +163,11 @@ msgstr ""
 msgid "Username '%1' not found on %2"
 msgstr ""
 
+#: ../qml/pages/LoginPage.qml:42 ../qml/pages/LoginPage.qml:84
+#: ../qml/models/MatrixController.qml:255
+msgid "😕 No connection..."
+msgstr ""
+
 #: ../qml/pages/LoginPage.qml:81 ../qml/pages/LoginPage.qml:83
 msgid "Username is already taken"
 msgstr ""
@@ -461,26 +220,26 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:159 ../qml/components/StyledPageHeader.qml:7
+#: ../qml/pages/ChatListPage.qml:160 ../qml/components/StyledPageHeader.qml:7
 #: fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:159
+#: ../qml/pages/ChatListPage.qml:160
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:214
+#: ../qml/pages/ChatListPage.qml:215
 msgid "Search for your chats..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:238
+#: ../qml/pages/ChatListPage.qml:239
 msgid ""
 "Press the button at the top right to start a new chat or discover public "
 "groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:267
+#: ../qml/pages/ChatListPage.qml:268
 msgid "Add chat"
 msgstr ""
 
@@ -594,6 +353,27 @@ msgstr ""
 #: ../qml/pages/ChatPrivacySettingsPage.qml:371
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:244
 msgid "Default user permissions:"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:400
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:270
+#: ../qml/models/UserNameController.qml:46
+#: ../qml/components/ChangePowerLevelDialog.qml:47
+msgid "Members"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:404
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:274
+#: ../qml/models/UserNameController.qml:47
+#: ../qml/components/ChangePowerLevelDialog.qml:33
+msgid "Moderators"
+msgstr ""
+
+#: ../qml/pages/ChatPrivacySettingsPage.qml:408
+#: ../qml/pages/ChatPermissionsSettingsPage.qml:278
+#: ../qml/models/UserNameController.qml:48
+#: ../qml/components/ChangePowerLevelDialog.qml:19
+msgid "Admins"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:412
@@ -809,7 +589,7 @@ msgid "Unknown chat"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:301 ../qml/components/RemoveDeviceDialog.qml:47
-#: ../qml/components/ChatEvent.qml:101
+#: ../qml/components/ChatEvent.qml:102
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
@@ -979,6 +759,71 @@ msgstr ""
 msgid "Add chat address"
 msgstr ""
 
+#: ../qml/models/SettingsController.qml:76
+msgid "USA"
+msgstr ""
+
+#: ../qml/models/SettingsController.qml:77
+msgid "1"
+msgstr ""
+
+#: ../qml/models/EventController.qml:106
+msgid "You are offline 😕"
+msgstr ""
+
+#: ../qml/models/EventController.qml:164
+msgid ""
+"😰 A critical error has occurred! Sorry, the connection to the server has "
+"ended! Please report this bug on: https://github.com/ChristianPauly/"
+"fluffychat/issues/new"
+msgstr ""
+
+#: ../qml/models/ShareController.qml:54
+msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
+msgstr ""
+
+#: ../qml/models/SenderController.qml:43
+msgid "You are not allowed to chat here."
+msgstr ""
+
+#: ../qml/models/UserNameController.qml:36
+msgid "✏ is typing…"
+msgstr ""
+
+#: ../qml/models/UserNameController.qml:37
+msgid "✏ %1 is typing…"
+msgstr ""
+
+#: ../qml/models/UserNameController.qml:40
+msgid "✏ %1 and %2 more are typing…"
+msgstr ""
+
+#: ../qml/models/UserNameController.qml:49
+msgid "Owners"
+msgstr ""
+
+#: ../qml/models/UserNameController.qml:69
+msgid "%1 is not a valid username"
+msgstr ""
+
+#: ../qml/models/RoomNameController.qml:13
+#: ../qml/models/RoomNameController.qml:26
+#: ../qml/models/RoomNameController.qml:33
+msgid "Empty chat"
+msgstr ""
+
+#: ../qml/models/PushController.qml:38
+msgid "Please log in to Ubuntu One to receive push notifications."
+msgstr ""
+
+#: ../qml/models/PushController.qml:72
+msgid "Push notifications are disabled..."
+msgstr ""
+
+#: ../qml/models/MatrixController.qml:146
+msgid "Do you want to join this chat?"
+msgstr ""
+
 #: ../qml/components/InviteListItem.qml:25
 msgid "%1 has been invited"
 msgstr ""
@@ -995,7 +840,7 @@ msgstr ""
 msgid "Invite %1 to this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:46 ../qml/components/ChatEvent.qml:31
+#: ../qml/components/MemberListItem.qml:46 ../qml/components/ChatEvent.qml:32
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
@@ -1175,51 +1020,51 @@ msgstr ""
 msgid "Remove this email address?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:37
+#: ../qml/components/ChatEvent.qml:38
 msgid "Try to send again"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:48
+#: ../qml/components/ChatEvent.qml:49
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:57
+#: ../qml/components/ChatEvent.qml:58
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:62
+#: ../qml/components/ChatEvent.qml:63
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:66
+#: ../qml/components/ChatEvent.qml:67
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:70
+#: ../qml/components/ChatEvent.qml:71
 msgid "Add to sticker collection?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:77
+#: ../qml/components/ChatEvent.qml:78
 msgid "Already added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:78
+#: ../qml/components/ChatEvent.qml:79
 msgid "Added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:84
+#: ../qml/components/ChatEvent.qml:85
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:266
+#: ../qml/components/ChatEvent.qml:267
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:266
+#: ../qml/components/ChatEvent.qml:267
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:368
+#: ../qml/components/ChatEvent.qml:369
 msgid "Download: "
 msgstr ""
 
@@ -1471,4 +1316,159 @@ msgstr ""
 
 #: ../qml/components/ProfileRow.qml:78
 msgid "Last seen: %1"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:6
+msgid "Unknown event"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:7
+msgid "Unknown Event: "
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:16
+msgid "%1 has a new avatar"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:19
+msgid "%1 changed the displayname to %2"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:23
+msgid "%1 accepted the invitation"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:26
+msgid "%1 is now participating"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:28
+msgid "%1 is now participating as <b>%2</b>"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:31
+msgid "%1 invited %2"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:35
+msgid "%1 pardoned %2"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:38
+msgid "%1 declined the invitation"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:41
+msgid "%1 left the chat"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:43
+msgid "%1 kicked %2"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:46
+msgid "%1 banned %2 from the chat"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:49
+msgid "and more member changes"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:53
+msgid "%1 created the chat"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:56
+msgid "%1 changed the chat name to: «%2»"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:59
+msgid "%1 changed the chat topic to: «%2»"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:62
+msgid "%1 changed the chat avatar"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:65
+msgid "%1 redacted a message"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:68
+msgid ""
+"%1 initialized end to end encryption. Be aware that FluffyChat does not yet "
+"support end to end encryption. You will not be able to send or read messages "
+"in this chat!"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:71
+msgid "Encrypted message"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:74
+msgid "%1 sent a sticker"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:77
+msgid "%1 set the chat history visible to: «%2»"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:80
+msgid "%1 set the join rules to: «%2»"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:83
+msgid "%1 set the guest access to: «%2»"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:86
+msgid "%1 changed the chat aliases"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:92
+msgid "%1 changed the main chat alias to: «%2»"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:95
+msgid "%1 changed the chat permissions"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:105
+msgid "Only invited users"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:108
+msgid "Public"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:111
+msgid "Private"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:114
+msgid "Knock"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:117
+msgid "All chatters"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:120
+msgid "All joined chat participants"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:123
+msgid "All invited chat participants"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:126
+msgid "Everyone"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:129
+msgid "Can join"
+msgstr ""
+
+#: ../qml/scripts/EventDescription.js:132
+msgid "Forbidden"
 msgstr ""

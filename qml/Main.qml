@@ -4,7 +4,7 @@ import QtQuick.Controls 2.2
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import QtMultimedia 5.4
-import "controller"
+import "models"
 import "components"
 
 /* =============================== MAIN.qml ===============================
@@ -180,7 +180,6 @@ MainView {
     EventController { id: events }
     RoomNameController { id: roomnames }
     UserNameController { id: usernames }
-    DisplayEventController { id: displayEvents }
     PushController { id: pushclient }
     MediaController { id: media }
     SettingsController { id: settings }
