@@ -81,8 +81,8 @@ ListView {
                     }
                     storageController.db.transaction(
                         function(tx) {
-                            events.transaction = tx
-                            events.handleRoomEvents ( activeChat, result.chunk, "history" )
+                            matrix.transaction = tx
+                            matrix.handleRoomEvents ( activeChat, result.chunk, "history" )
                             requesting = false
                         }
                     )
@@ -138,8 +138,8 @@ ListView {
                 }
                 storage.db.transaction(
                     function(tx) {
-                        events.transaction = tx
-                        events.handleRoomEvents ( activeChat, [ newEvent ], "state" )
+                        matrix.transaction = tx
+                        matrix.handleRoomEvents ( activeChat, [ newEvent ], "state" )
                     }
                 )
             }, null, 0)

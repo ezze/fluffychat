@@ -46,7 +46,7 @@ Component {
                 color: UbuntuColors.green
                 onClicked: {
 
-                    events.waitForSync ()
+                    matrix.waitForSync ()
                     var data = {
                         "invite": [ contactTextField.displayText ],
                         "is_direct": true,

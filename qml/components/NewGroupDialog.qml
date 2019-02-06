@@ -34,7 +34,7 @@ Component {
                 color: UbuntuColors.green
                 onClicked: {
 
-                    events.waitForSync ()
+                    matrix.waitForSync ()
                     var roomname = groupTextField.displayText
                     var data = {
                         "room_alias_name": groupTextField.displayText,

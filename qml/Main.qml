@@ -94,7 +94,7 @@ MainView {
             }
             else mainStack.push(Qt.resolvedUrl("./pages/ChatListPage.qml"))
             matrix.onlineStatus = true
-            events.init ()
+            matrix.init ()
         }
         else if ( settings.walkthroughFinished && settings.updateInfosFinished === version ){
             mainStack.push(Qt.resolvedUrl("./pages/LoginPage.qml"))
@@ -175,7 +175,7 @@ MainView {
     id, defined here.
     */
     StorageController { id: storage }
-    MatrixController { id: matrix }
+    MatrixModel { id: matrix }
     EventController { id: events }
     PushController { id: pushclient }
     SettingsController { id: settings }

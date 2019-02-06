@@ -145,7 +145,7 @@ Page {
                 icon: "contact-new"
                 isEnabled: progressBarRequests === 0 && canChangeAccessRules
                 onSwitching: function () {
-                    events.waitForSync ()
+                    matrix.waitForSync ()
                     if ( isChecked ) matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "invite" } )
                     else matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "private" } )
                 }
@@ -157,7 +157,7 @@ Page {
                 icon: "lock-broken"
                 isEnabled: progressBarRequests === 0 && canChangeAccessRules
                 onSwitching: function () {
-                    events.waitForSync ()
+                    matrix.waitForSync ()
                     if ( isChecked ) matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "public" } )
                     else matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.join_rules/", { "join_rule": "invite" } )
                 }
@@ -169,7 +169,7 @@ Page {
                 icon: "private-browsing"
                 isEnabled: progressBarRequests === 0 && canChangeAccessRules
                 onSwitching: function () {
-                    events.waitForSync ()
+                    matrix.waitForSync ()
                     if ( isChecked ) matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.guest_access/", { "guest_access": "can_join" } )
                     else matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.guest_access/", { "guest_access": "forbidden" } )
                 }
@@ -191,7 +191,7 @@ Page {
                 icon: "user-admin"
                 isEnabled: progressBarRequests === 0 && canChangeHistoryRules
                 onSwitching: function () {
-                    events.waitForSync ()
+                    matrix.waitForSync ()
                     if ( isChecked ) matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.history_visibility/", { "history_visibility": "invited" } )
                     else matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.history_visibility/", { "history_visibility": "joined" } )
                 }
@@ -202,7 +202,7 @@ Page {
                 icon: "stock_ebook"
                 isEnabled: progressBarRequests === 0 && canChangeHistoryRules
                 onSwitching: function () {
-                    events.waitForSync ()
+                    matrix.waitForSync ()
                     if ( isChecked ) matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.history_visibility/", { "history_visibility": "shared" } )
                     else matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.history_visibility/", { "history_visibility": "invited" } )
                 }
@@ -213,7 +213,7 @@ Page {
                 icon: "stock_website"
                 isEnabled: progressBarRequests === 0 && canChangeHistoryRules
                 onSwitching: function () {
-                    events.waitForSync ()
+                    matrix.waitForSync ()
                     if ( isChecked ) matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.history_visibility/", { "history_visibility": "world_readable" } )
                     else matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.history_visibility/", { "history_visibility": "shared" } )
                 }

@@ -428,7 +428,7 @@ Page {
             onClicked: {
                 loadingScreen.visible = true
                 matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, function () {
-                    events.waitForSync ()
+                    matrix.waitForSync ()
                     membership = "join"
                 })
             }
