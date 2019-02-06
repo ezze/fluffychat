@@ -168,9 +168,9 @@ MainView {
     }
 
 
-    /* =============================== CONTROLLER ===============================
+    /* =============================== MODELS ===============================
 
-    All controller should be defined here. They are accessable everywhere by the
+    All models should be defined here. They are accessable everywhere by the
     id, defined here.
     */
     StorageController { id: storage }
