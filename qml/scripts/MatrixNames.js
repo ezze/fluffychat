@@ -154,3 +154,40 @@ function getChatTime ( stamp ) {
 
     return date.toLocaleString(locale, Locale.ShortFormat)
 }
+
+
+function getThumbnailFromMxc ( mxc, width, height ) {
+    if ( mxc === undefined || mxc === null ) return ""
+
+    var mxcID = mxc.replace("mxc://","")
+    //Qt.resolvedUrl()
+
+    if ( !isDownloading ) {
+        isDownloading = true
+        //downloader.download ( getThumbnailLinkFromMxc ( mxc, width, height ) )
+    }
+
+
+    return getThumbnailLinkFromMxc ( mxc, width, height )
+}
+
+
+function getThumbnailLinkFromMxc ( mxc, width, height ) {
+    width = Math.round(width)
+    height = Math.round(height)
+    if ( mxc === undefined || mxc === "" ) return ""
+    if ( events.online ) {
+        return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width + "&height=" + height + "&method=scale"
+    }
+    else {
+        return downloadPath + mxc.split("/")[3]
+    }
+
+}
+
+
+function getLinkFromMxc ( mxc ) {
+    if ( mxc === undefined ) return ""
+    var mxcID = mxc.replace("mxc://","")
+    return "https://" + settings.server + "/_matrix/media/r0/download/" + mxcID + "/"
+}

@@ -223,8 +223,8 @@ ListItem {
 
                     Image {
                         id: thumbnail
-                        source: visible ? (image.hasThumbnail ? media.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) :
-                        media.getLinkFromMxc ( event.content.url )) : ""
+                        source: visible ? (image.hasThumbnail ? MatrixNames.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) :
+                        MatrixNames.getLinkFromMxc ( event.content.url )) : ""
                         property var onlyOneError: true
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
@@ -240,7 +240,7 @@ ListItem {
 
                     AnimatedImage {
                         id: gif
-                        source: image.showGif ? media.getLinkFromMxc ( event.content.url ) : ""
+                        source: image.showGif ? MatrixNames.getLinkFromMxc ( event.content.url ) : ""
                         height: parent.height
                         width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
@@ -296,8 +296,8 @@ ListItem {
                         color: "white"
                         iconName: playing ? "media-playback-pause" : "media-playback-start"
                         onClicked: {
-                            if ( audio.source !== media.getLinkFromMxc ( event.content.url ) ) {
-                                audio.source = media.getLinkFromMxc ( event.content.url )
+                            if ( audio.source !== MatrixNames.getLinkFromMxc ( event.content.url ) ) {
+                                audio.source = MatrixNames.getLinkFromMxc ( event.content.url )
                             }
                             if ( playing ) audio.pause ()
                             else audio.play ()
@@ -310,7 +310,7 @@ ListItem {
                         anchors.verticalCenter: parent.verticalCenter
                         color: "white"
                         iconName: "media-playback-stop"
-                        opacity: audio.source === media.getLinkFromMxc ( event.content.url ) && audio.position === 0 ? 0.75 : 1
+                        opacity: audio.source === MatrixNames.getLinkFromMxc ( event.content.url ) && audio.position === 0 ? 0.75 : 1
                         onClicked: {
                             audio.stop ()
                             playButton.playing = false
@@ -324,7 +324,7 @@ ListItem {
                         iconName: "document-save-as"
                         onClicked: {
                             downloadDialog.filename = event.content_body
-                            downloadDialog.downloadUrl = media.getLinkFromMxc ( event.content.url )
+                            downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
                             downloadDialog.shareFunc = shareController.shareAudio
                             downloadDialog.current = PopupUtils.open(downloadDialog)
                         }
@@ -372,7 +372,7 @@ Button {
     onClicked: {
         downloadDialog.filename = event.content_body
         downloadDialog.shareFunc = shareController.shareAll
-        downloadDialog.downloadUrl = media.getLinkFromMxc ( event.content.url )
+        downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
         downloadDialog.current = PopupUtils.open(downloadDialog)
     }
     visible: event.content.msgtype === "m.file" || event.content.msgtype === "m.video"

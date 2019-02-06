@@ -4,6 +4,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import Ubuntu.Web 0.2
 import "../components"
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Rectangle {
     id: stickerInput
@@ -106,8 +107,8 @@ Rectangle {
                 property var mediaElement: mediaElem
                 source: {
                     ( (settings.autoloadGifs && mediaElem.mimetype === "image/gif") || mediaElem.thumbnail_url === "") ?
-                    media.getLinkFromMxc ( mediaElem.url ) :
-                    media.getThumbnailLinkFromMxc ( mediaElem.thumbnail_url, Math.round (height), Math.round (height) )
+                    MatrixNames.getLinkFromMxc ( mediaElem.url ) :
+                    MatrixNames.getThumbnailLinkFromMxc ( mediaElem.thumbnail_url, Math.round (height), Math.round (height) )
                 }
                 fillMode: Image.PreserveAspectFit
             }

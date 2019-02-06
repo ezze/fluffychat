@@ -178,7 +178,6 @@ MainView {
     MatrixController { id: matrix }
     EventController { id: events }
     PushController { id: pushclient }
-    MediaController { id: media }
     SettingsController { id: settings }
     UserMetricsController { id: userMetrics }
     Toast { id: toast }

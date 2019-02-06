@@ -29,7 +29,7 @@ UbuntuShape {
 
     source: Image {
         id: avatar
-        source:  mxc !== null && mxc !== "" && mxc !== undefined ? media.getThumbnailLinkFromMxc ( mxc, width, height ) : ""
+        source:  mxc !== null && mxc !== "" && mxc !== undefined ? MatrixNames.getThumbnailLinkFromMxc ( mxc, width, height ) : ""
         anchors.fill: parent
         cache: true
         sourceSize.width: width

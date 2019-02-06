@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-06 11:26+0000\n"
+"POT-Creation-Date: 2019-02-06 11:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:214 ../qml/components/ChatEvent.qml:112
+#: ../qml/Main.qml:213 ../qml/components/ChatEvent.qml:112
 msgid "Are you sure?"
 msgstr ""
 
@@ -879,13 +879,13 @@ msgid "Edit profile picture"
 msgstr ""
 
 #: ../qml/components/ChangeAvatarDialog.qml:38
-#: ../qml/components/StickerInput.qml:138
+#: ../qml/components/StickerInput.qml:139
 #: ../qml/components/ChangeChatAvatarDialog.qml:39
 msgid "Error"
 msgstr ""
 
 #: ../qml/components/ChangeAvatarDialog.qml:42
-#: ../qml/components/StickerInput.qml:142
+#: ../qml/components/StickerInput.qml:143
 #: ../qml/components/ChangeChatAvatarDialog.qml:43
 msgid "OK"
 msgstr ""
@@ -1171,7 +1171,7 @@ msgstr ""
 msgid "This device"
 msgstr ""
 
-#: ../qml/components/StickerInput.qml:56
+#: ../qml/components/StickerInput.qml:57
 msgid "Delete sticker"
 msgstr ""
 

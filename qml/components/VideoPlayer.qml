@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import QtMultimedia 5.4
 import Ubuntu.Components.Popups 1.3
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Rectangle {
 
@@ -41,7 +42,7 @@ Rectangle {
                 iconName: "document-save-as"
                 onTriggered: {
                     downloadDialog.filename = mxc
-                    downloadDialog.downloadUrl = media.getLinkFromMxc ( mxc )
+                    downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( mxc )
                     downloadDialog.shareFunc = shareController.shareVideo
                     downloadDialog.current = PopupUtils.open(downloadDialog)
                 }
@@ -53,7 +54,7 @@ Rectangle {
 
     function show ( new_mxc ) {
         mxc = new_mxc
-        video.source = media.getLinkFromMxc ( mxc )
+        video.source = MatrixNames.getLinkFromMxc ( mxc )
         visible = true
         video.play ()
     }
