@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import "../components"
+import "../scripts/UserNames.js" as UserNames
 
 Page {
     anchors.fill: parent
@@ -45,7 +46,7 @@ Page {
             SettingsListItem {
                 name: i18n.tr("Join the community")
                 icon: "contact-group"
-                onClicked: usernames.showCommunity("+ubports_community:matrix.org")
+                onClicked: UserNames.showCommunity("+ubports_community:matrix.org")
             }
 
             SettingsListLink {

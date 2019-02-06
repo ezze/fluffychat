@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
+import "../scripts/UserNames.js" as UserNames
 
 /*============================= ROOMNAME CONTROLLER ============================
 The roomname controller is just a little helper to get the room display name
@@ -27,7 +28,7 @@ Item {
                     if ( rs.rows.length > 0 ) {
                         displayname = ""
                         for ( var i = 0; i < rs.rows.length; i++ ) {
-                            var username = rs.rows[i].displayname || usernames.transformFromId ( rs.rows[i].matrix_id )
+                            var username = rs.rows[i].displayname || UserNames.transformFromId ( rs.rows[i].matrix_id )
                             if ( rs.rows[i].state_key !== settings.matrixid ) displayname += username + ", "
                         }
                         if ( displayname === "" || displayname === null ) displayname = i18n.tr('Empty chat')

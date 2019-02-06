@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/UserNames.js" as UserNames
 
 ListItem {
     id: chatListItem
@@ -40,7 +41,7 @@ ListItem {
         subtitle.text: {
             room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
             (room.membership === "leave" ? "" :
-            (room.topic !== "" && room.typing && room.typing.length > 0 ? usernames.getTypingDisplayString ( room.typing, room.topic ) :
+            (room.topic !== "" && room.typing && room.typing.length > 0 ? UserNames.getTypingDisplayString ( room.typing, room.topic ) :
             (room.content_body ? ( room.sender === settings.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
             i18n.tr("No preview messages"))))
         }

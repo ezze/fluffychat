@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import QtGraphicalEffects 1.0
+import "../scripts/UserNames.js" as UserNames
 
 UbuntuShape {
     id: avatarRect
@@ -10,8 +11,8 @@ UbuntuShape {
     relativeRadius: 0.75
     aspect: UbuntuShape.Flat
     backgroundMode: UbuntuShape.VerticalGradient
-    backgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : usernames.stringToDarkColor ( name )
-    secondaryBackgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : usernames.stringToColor ( name )
+    backgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : UserNames.stringToDarkColor ( name )
+    secondaryBackgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : UserNames.stringToColor ( name )
     z:1
 
     property var mxc: ""

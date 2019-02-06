@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/UserNames.js" as UserNames
 
 ListView {
 
@@ -24,14 +25,14 @@ ListView {
         , function (memberResults) {
             // Make sure that the event for the users matrix id exists
             activeChatMembers[settings.matrixid] = {
-                displayname: usernames.transformFromId(settings.matrixid),
+                displayname: UserNames.transformFromId(settings.matrixid),
                 avatar_url: ""
             }
             for ( var i = 0; i < memberResults.rows.length; i++ ) {
                 var mxid = memberResults.rows[i].matrix_id
                 activeChatMembers[ mxid ] = memberResults.rows[i]
                 if ( activeChatMembers[ mxid ].displayname === null || activeChatMembers[ mxid ].displayname === "" ) {
-                    activeChatMembers[ mxid ].displayname = usernames.transformFromId ( mxid )
+                    activeChatMembers[ mxid ].displayname = UserNames.transformFromId ( mxid )
                 }
             }
 
@@ -126,7 +127,7 @@ ListView {
         // the displayname and avatar url of this sender.
         if ( activeChatMembers[event.sender] === undefined) {
             activeChatMembers[event.sender] = {
-                "displayname": usernames.transformFromId ( event.sender ),
+                "displayname": UserNames.transformFromId ( event.sender ),
                 "avatar_url": ""
             }
             matrix.get ( "/client/r0/rooms/%1/state/m.room.member/%2".arg(activeChat).arg(event.sender), {}, function ( response ) {

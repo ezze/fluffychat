@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import "../scripts/UserNames.js" as UserNames
 
 ListItem {
     height: visible * layout.height
@@ -32,7 +33,7 @@ ListItem {
             width: units.gu(4)
             height: width
             SlotsLayout.position: SlotsLayout.Leading
-            onClickFunction: function () { usernames.showUserSettings ( matrix_id ) }
+            onClickFunction: function () { UserNames.showUserSettings ( matrix_id ) }
         }
     }
 }

@@ -179,7 +179,6 @@ MainView {
     StampController { id: stamp }
     EventController { id: events }
     RoomNameController { id: roomnames }
-    UserNameController { id: usernames }
     PushController { id: pushclient }
     MediaController { id: media }
     SettingsController { id: settings }

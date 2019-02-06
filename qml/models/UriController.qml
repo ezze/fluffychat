@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
+import "../scripts/UserNames.js" as UserNames
 
 Item {
 
@@ -16,7 +17,7 @@ Item {
         uri = uri.replace("https://matrix.to/#/","fluffychat://")
         if ( uri.slice(0,14) === "fluffychat://@" ) {
             uri = uri.replace("fluffychat://","")
-            usernames.handleUserUri( uri )
+            UserNames.handleUserUri( uri )
         }
         else if ( uri.slice(0,14) === "fluffychat://#" ) {
             uri = uri.replace("fluffychat://","")
@@ -28,7 +29,7 @@ Item {
         }
         else if ( uri.slice(0,14) === "fluffychat://+" ) {
             uri = uri.replace("fluffychat://","")
-            usernames.showCommunity(uri)
+            UserNames.showCommunity(uri)
         }
         else console.error("Unkown uri...", uri)
     }
