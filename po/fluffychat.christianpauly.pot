@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-04 12:34+0000\n"
+"POT-Creation-Date: 2019-02-06 10:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -304,7 +304,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:253
+#: ../qml/pages/ArchivedChatsPage.qml:44 ../qml/pages/SettingsPage.qml:243
 msgid "Archived chats"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:269
+#: ../qml/pages/EmailSettingsPage.qml:44 ../qml/pages/SettingsPage.qml:259
 msgid "Connected email addresses"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgstr ""
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:112 ../qml/pages/SettingsPage.qml:307
+#: ../qml/pages/LoginPage.qml:112 ../qml/pages/SettingsPage.qml:297
 msgid "About FluffyChat"
 msgstr ""
 
@@ -485,7 +485,7 @@ msgid "Add chat"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:124
-#: ../qml/pages/ChatSettingsPage.qml:280
+#: ../qml/pages/ChatSettingsPage.qml:275
 msgid "Advanced settings"
 msgstr ""
 
@@ -639,90 +639,86 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:51
-msgid "Share invite link"
-msgstr ""
-
-#: ../qml/pages/SettingsPage.qml:117 ../qml/components/ProfileRow.qml:40
+#: ../qml/pages/SettingsPage.qml:107 ../qml/components/ProfileRow.qml:40
 msgid "Username:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:132 ../qml/components/ProfileRow.qml:55
+#: ../qml/pages/SettingsPage.qml:122 ../qml/components/ProfileRow.qml:55
 msgid "Displayname:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:147
+#: ../qml/pages/SettingsPage.qml:137
 msgid "Edit"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:163
+#: ../qml/pages/SettingsPage.qml:153
 msgid "Change main color"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:176
+#: ../qml/pages/SettingsPage.qml:166
 msgid "Change background"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:199
+#: ../qml/pages/SettingsPage.qml:189
 msgid "Background removed"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:215
+#: ../qml/pages/SettingsPage.qml:205
 msgid "Dark mode"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:222
+#: ../qml/pages/SettingsPage.qml:212
 #: ../qml/pages/NotificationChatSettingsPage.qml:56
-#: ../qml/pages/ChatSettingsPage.qml:275
+#: ../qml/pages/ChatSettingsPage.qml:270
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:228
+#: ../qml/pages/SettingsPage.qml:218
 msgid "Chat settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:232
+#: ../qml/pages/SettingsPage.qml:222
 msgid "Display 'I am typing' when typing"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:239
+#: ../qml/pages/SettingsPage.qml:229
 msgid "Hide less important events"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:246
+#: ../qml/pages/SettingsPage.qml:236
 msgid "Autoload animated images"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:259
+#: ../qml/pages/SettingsPage.qml:249
 msgid "Account settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:263 ../qml/pages/PhoneSettingsPage.qml:47
+#: ../qml/pages/SettingsPage.qml:253 ../qml/pages/PhoneSettingsPage.qml:47
 msgid "Connected phone numbers"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:275 ../qml/pages/DevicesSettingsPage.qml:24
+#: ../qml/pages/SettingsPage.qml:265 ../qml/pages/DevicesSettingsPage.qml:24
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:281
+#: ../qml/pages/SettingsPage.qml:271
 msgid "Change password"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:287
+#: ../qml/pages/SettingsPage.qml:277
 msgid "Check out:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:291
+#: ../qml/pages/SettingsPage.qml:281
 msgid "Disable account"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:297 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:287 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:303
+#: ../qml/pages/SettingsPage.qml:293
 msgid "More:"
 msgstr ""
 
@@ -910,56 +906,56 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:163 ../qml/pages/ChatSettingsPage.qml:169
+#: ../qml/pages/ChatSettingsPage.qml:164
 #: ../qml/components/ChangeChatAvatarDialog.qml:12
 msgid "Edit chat picture"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:175
+#: ../qml/pages/ChatSettingsPage.qml:170
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:240
+#: ../qml/pages/ChatSettingsPage.qml:235
 msgid "Description:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:248
+#: ../qml/pages/ChatSettingsPage.qml:243
 msgid "No chat description found..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:301
+#: ../qml/pages/ChatSettingsPage.qml:296
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:301
+#: ../qml/pages/ChatSettingsPage.qml:296
 msgid "Press button to reload users..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:325
+#: ../qml/pages/ChatSettingsPage.qml:320
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:345
+#: ../qml/pages/ChatSettingsPage.qml:340
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:353
+#: ../qml/pages/ChatSettingsPage.qml:348
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:377
+#: ../qml/pages/ChatSettingsPage.qml:372
 msgid "Appoint to a member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:381
+#: ../qml/pages/ChatSettingsPage.qml:376
 msgid "Appoint to a Moderator"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:386
+#: ../qml/pages/ChatSettingsPage.qml:381
 msgid "Appoint to an Admin"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:391
+#: ../qml/pages/ChatSettingsPage.qml:386
 msgid "Appoint to Owner"
 msgstr ""
 

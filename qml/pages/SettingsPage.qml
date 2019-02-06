@@ -43,16 +43,6 @@ Page {
     header: FcPageHeader {
         title: i18n.tr('Settings')
         flickable: scrollView.flickableItem
-
-        trailingActionBar {
-            actions: [
-            Action {
-                iconName: "share"
-                text: i18n.tr("Share invite link")
-                onTriggered: shareController.shareLink("https://matrix.to/#/%1".arg(settings.matrixid))
-            }
-            ]
-        }
     }
 
     ScrollView {

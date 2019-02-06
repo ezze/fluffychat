@@ -159,11 +159,6 @@ Page {
         trailingActionBar {
             actions: [
             Action {
-                iconName: "share"
-                text: i18n.tr("Edit chat picture")
-                onTriggered: shareController.shareLink("https://matrix.to/#/%1".arg(activeChat))
-            },
-            Action {
                 visible: canChangeAvatar && !profileRow.visible
                 iconName: "camera-app-symbolic"
                 text: i18n.tr("Edit chat picture")
