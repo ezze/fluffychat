@@ -176,7 +176,6 @@ MainView {
     */
     StorageController { id: storage }
     MatrixController { id: matrix }
-    StampController { id: stamp }
     EventController { id: events }
     PushController { id: pushclient }
     MediaController { id: media }

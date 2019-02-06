@@ -89,7 +89,7 @@ ListItem {
                 visible: !isStateEvent //&& event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
                 onTriggered: {
                     if ( !isMediaEvent ) {
-                        shareController.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( stamp.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
+                        shareController.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( MatrixNames.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
                     }
                     else shareController.shareFileIntern( event.content )
                 }
@@ -391,7 +391,7 @@ Label {
     id: messageLabel
     opacity: isMediaEvent ? 0 : 1
     height: opacity ? undefined : 0
-    text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + stamp.getChatTime ( event.origin_server_ts ) :
+    text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( event.origin_server_ts ) :
     (event.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
     event.content_body || event.content.body)
     color: (!sent || isStateEvent) ? (settings.darkmode ? "white" : "black") :
@@ -448,7 +448,7 @@ Rectangle {
                 ((event.sender !== settings.matrixid) && senderDisplayname !== activeChatDisplayName ?
                 ("<font color='" + MatrixNames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
                 : "")
-                + stamp.getChatTime ( event.origin_server_ts )
+                + MatrixNames.getChatTime ( event.origin_server_ts )
             }
             color: messageLabel.color
             textSize: Label.XxSmall

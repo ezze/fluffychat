@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Row {
     width: parent.width
@@ -75,7 +76,7 @@ Row {
             color: presence === "online" ? UbuntuColors.green : "#888888"
         }
         Label {
-            text: currently_active ? i18n.tr("Currently active") : (last_active_ago !== 0 ? i18n.tr("Last seen: %1").arg( stamp.getChatTime ( presenceListItem.last_active_ago ) ) : " ")
+            text: currently_active ? i18n.tr("Currently active") : (last_active_ago !== 0 ? i18n.tr("Last seen: %1").arg( MatrixNames.getChatTime ( presenceListItem.last_active_ago ) ) : " ")
             width: parent.width
             wrapMode: Text.Wrap
             visible: matrixid !== settings.matrixid

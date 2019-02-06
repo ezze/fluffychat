@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-06 11:21+0000\n"
+"POT-Creation-Date: 2019-02-06 11:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:215 ../qml/components/ChatEvent.qml:112
+#: ../qml/Main.qml:214 ../qml/components/ChatEvent.qml:112
 msgid "Are you sure?"
 msgstr ""
 
@@ -419,11 +419,11 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:107 ../qml/components/ProfileRow.qml:40
+#: ../qml/pages/SettingsPage.qml:107 ../qml/components/ProfileRow.qml:41
 msgid "Username:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:122 ../qml/components/ProfileRow.qml:55
+#: ../qml/pages/SettingsPage.qml:122 ../qml/components/ProfileRow.qml:56
 msgid "Displayname:"
 msgstr ""
 
@@ -1167,7 +1167,7 @@ msgid "Last active: %1"
 msgstr ""
 
 #: ../qml/components/TargetListItem.qml:24
-#: ../qml/components/DeviceListItem.qml:25
+#: ../qml/components/DeviceListItem.qml:26
 msgid "This device"
 msgstr ""
 
@@ -1254,7 +1254,7 @@ msgstr ""
 msgid "Enter a description for the chat"
 msgstr ""
 
-#: ../qml/components/DeviceListItem.qml:26
+#: ../qml/components/DeviceListItem.qml:27
 msgid "Last seen: "
 msgstr ""
 
@@ -1276,19 +1276,19 @@ msgid ""
 "update!"
 msgstr ""
 
-#: ../qml/components/ProfileRow.qml:70
+#: ../qml/components/ProfileRow.qml:71
 msgid "Online:"
 msgstr ""
 
-#: ../qml/components/ProfileRow.qml:70
+#: ../qml/components/ProfileRow.qml:71
 msgid "Offline"
 msgstr ""
 
-#: ../qml/components/ProfileRow.qml:78
+#: ../qml/components/ProfileRow.qml:79
 msgid "Currently active"
 msgstr ""
 
-#: ../qml/components/ProfileRow.qml:78
+#: ../qml/components/ProfileRow.qml:79
 msgid "Last seen: %1"
 msgstr ""
 

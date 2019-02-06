@@ -65,7 +65,7 @@ ListItem {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.margins: units.gu(2)
-        text: stamp.getChatTime ( room.origin_server_ts )
+        text: MatrixNames.getChatTime ( room.origin_server_ts )
         color: mainFontColor
         textSize: Label.XSmall
         visible: text != ""
