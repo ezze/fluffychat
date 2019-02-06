@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-06 10:30+0000\n"
+"POT-Creation-Date: 2019-02-06 16:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -461,26 +461,26 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:159 ../qml/components/StyledPageHeader.qml:7
+#: ../qml/pages/ChatListPage.qml:161 ../qml/components/StyledPageHeader.qml:7
 #: fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:159
+#: ../qml/pages/ChatListPage.qml:161
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:214
+#: ../qml/pages/ChatListPage.qml:224
 msgid "Search for your chats..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:238
+#: ../qml/pages/ChatListPage.qml:246
 msgid ""
 "Press the button at the top right to start a new chat or discover public "
 "groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:267
+#: ../qml/pages/ChatListPage.qml:275
 msgid "Add chat"
 msgstr ""
 
@@ -1303,23 +1303,23 @@ msgstr ""
 msgid "Synchronizing… Please wait."
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:41
+#: ../qml/components/ChatListItem.qml:42
 msgid "You have been invited to this chat"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:44
+#: ../qml/components/ChatListItem.qml:45
 msgid "You: "
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:45
+#: ../qml/components/ChatListItem.qml:46
 msgid "No preview messages"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:113
+#: ../qml/components/ChatListItem.qml:114
 msgid "Chat settings"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:127
+#: ../qml/components/ChatListItem.qml:128
 msgid "Leave this chat"
 msgstr ""
 

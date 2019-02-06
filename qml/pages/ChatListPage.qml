@@ -154,14 +154,21 @@ Page {
         onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
     }
 
+    property bool searching: false
+
     header: StyledPageHeader {
         id: header
         title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
         flickable: chatListView
 
         leadingActionBar {
-            numberOfSlots: 1
+            numberOfSlots: 2
             actions: [
+            Action {
+                iconName: "back"
+                visible: searching
+                onTriggered: searching = false
+            },
             Action {
                 iconName: "close"
                 visible: shareObject !== null
@@ -170,50 +177,51 @@ Page {
         }
 
         trailingActionBar {
-            numberOfSlots: 3
             actions: [
             Action {
                 iconName: "filters"
-                visible: shareObject === null
+                visible: shareObject === null && !searching
                 onTriggered: mainStack.toStart ("./pages/SettingsPage.qml")
             },
             Action {
-                iconName: "compose"
-                visible: shareObject === null
-                onTriggered: bottomEdge.commit()
+                iconName: "find"
+                visible: !searching
+                onTriggered: searchField.focus = searching = true
             }]
         }
 
-        extension: Rectangle {
-            width: parent.width
-            height: searchField.height + units.gu(1)
-            color: theme.palette.normal.background
-            anchors.bottom: parent.bottom
-
-            TextField {
-                id: searchField
-                objectName: "searchField"
-                z: 5
-                property var searchMatrixId: false
-                property var upperCaseText: displayText.toUpperCase()
-                property var tempElement: null
-                primaryItem: Icon {
-                    height: parent.height - units.gu(2)
-                    name: "find"
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(0.25)
-                }
-                anchors {
-                    top: parent.top
-                    left: parent.left
-                    right: parent.right
-                    rightMargin: units.gu(2)
-                    leftMargin: units.gu(2)
-                }
-                inputMethodHints: Qt.ImhNoPredictiveText
-                placeholderText: i18n.tr("Search for your chats...")
+        states: [
+        State {
+            name: "searching"
+            when: searching
+            PropertyChanges {
+                target: header
+                contents: searchField
             }
         }
+        ]
+    }
+
+    TextField {
+        id: searchField
+        objectName: "searchField"
+        property var searchMatrixId: false
+        property var upperCaseText: displayText.toUpperCase()
+        property var tempElement: null
+        visible: searching
+        primaryItem: Icon {
+            height: parent.height - units.gu(2)
+            name: "find"
+            anchors.left: parent.left
+            anchors.leftMargin: units.gu(0.25)
+        }
+        anchors {
+            right: parent.right
+            verticalCenter: parent.verticalCenter
+        }
+        width: parent.width
+        inputMethodHints: Qt.ImhNoPredictiveText
+        placeholderText: i18n.tr("Search for your chats...")
     }
 
     LeaveChatDialog { id: leaveChatDialog }
