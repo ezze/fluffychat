@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-06 11:05+0000\n"
+"POT-Creation-Date: 2019-02-06 11:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -358,21 +358,21 @@ msgstr ""
 #: ../qml/pages/ChatPrivacySettingsPage.qml:401
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:271
 #: ../qml/components/ChangePowerLevelDialog.qml:47
-#: ../qml/scripts/UserNames.js:39
+#: ../qml/scripts/MatrixNames.js:39
 msgid "Members"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:405
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:275
 #: ../qml/components/ChangePowerLevelDialog.qml:33
-#: ../qml/scripts/UserNames.js:40
+#: ../qml/scripts/MatrixNames.js:40
 msgid "Moderators"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:409
 #: ../qml/pages/ChatPermissionsSettingsPage.qml:279
 #: ../qml/components/ChangePowerLevelDialog.qml:19
-#: ../qml/scripts/UserNames.js:41
+#: ../qml/scripts/MatrixNames.js:41
 msgid "Admins"
 msgstr ""
 
@@ -784,12 +784,6 @@ msgstr ""
 
 #: ../qml/models/SenderController.qml:43
 msgid "You are not allowed to chat here."
-msgstr ""
-
-#: ../qml/models/RoomNameController.qml:14
-#: ../qml/models/RoomNameController.qml:27
-#: ../qml/models/RoomNameController.qml:34
-msgid "Empty chat"
 msgstr ""
 
 #: ../qml/models/PushController.qml:38
@@ -1298,24 +1292,29 @@ msgstr ""
 msgid "Last seen: %1"
 msgstr ""
 
-#: ../qml/scripts/UserNames.js:29
+#: ../qml/scripts/MatrixNames.js:29
 msgid "✏ is typing…"
 msgstr ""
 
-#: ../qml/scripts/UserNames.js:30
+#: ../qml/scripts/MatrixNames.js:30
 msgid "✏ %1 is typing…"
 msgstr ""
 
-#: ../qml/scripts/UserNames.js:33
+#: ../qml/scripts/MatrixNames.js:33
 msgid "✏ %1 and %2 more are typing…"
 msgstr ""
 
-#: ../qml/scripts/UserNames.js:42
+#: ../qml/scripts/MatrixNames.js:42
 msgid "Owners"
 msgstr ""
 
-#: ../qml/scripts/UserNames.js:62
+#: ../qml/scripts/MatrixNames.js:62
 msgid "%1 is not a valid username"
+msgstr ""
+
+#: ../qml/scripts/MatrixNames.js:86 ../qml/scripts/MatrixNames.js:99
+#: ../qml/scripts/MatrixNames.js:106
+msgid "Empty chat"
 msgstr ""
 
 #: ../qml/scripts/EventDescription.js:7

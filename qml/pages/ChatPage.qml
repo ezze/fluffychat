@@ -4,7 +4,7 @@ import Ubuntu.Content 1.3
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Page {
 
@@ -245,13 +245,13 @@ Page {
         else if ( type === "m.room.member") {
             activeChatMembers [eventContent.state_key] = eventContent.content
             if ( activeChatMembers [eventContent.state_key].displayname === undefined || activeChatMembers [eventContent.state_key].displayname === null || activeChatMembers [eventContent.state_key].displayname === "" ) {
-                activeChatMembers [eventContent.state_key].displayname = UserNames.transformFromId ( eventContent.state_key )
+                activeChatMembers [eventContent.state_key].displayname = MatrixNames.transformFromId ( eventContent.state_key )
             }
             if ( activeChatMembers [eventContent.state_key].avatar_url === undefined || activeChatMembers [eventContent.state_key].avatar_url === null ) {
                 activeChatMembers [eventContent.state_key].avatar_url = ""
             }
             if ( topic === "" ) {
-                roomnames.getById ( activeChat, function ( name ) {
+                MatrixNames.getChatAvatarById ( activeChat, function ( name ) {
                     activeChatDisplayName = name
                 })
             }
@@ -289,7 +289,7 @@ Page {
                 id: typingLabel
                 visible: activeChatTypingUsers.length > 0
                 height: visible ? units.gu(2) : 0
-                text: (activeChatTypingUsers.length > 0 ? UserNames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
+                text: (activeChatTypingUsers.length > 0 ? MatrixNames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
                 color: mainFontColor
             }
         }

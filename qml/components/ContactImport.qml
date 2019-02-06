@@ -18,7 +18,7 @@ import QtQuick 2.2
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3 as Popups
 import Ubuntu.Content 1.3 as ContentHub
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Item {
     id: contactImportRoot
@@ -66,7 +66,7 @@ Item {
 
                     contactImportRoot.importCompleted ()
                     if ( response.threepids.length === 1 ) {
-                        UserNames.showUserSettings ( response.threepids[0][2] )
+                        MatrixNames.showUserSettings ( response.threepids[0][2] )
                     }
                     else {
                         toast.show ( i18n.tr('%1 contacts were found').arg(counter) )

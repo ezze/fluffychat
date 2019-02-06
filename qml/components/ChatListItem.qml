@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 ListItem {
     id: chatListItem
@@ -33,7 +33,7 @@ ListItem {
     ListItemLayout {
         id: layout
         width: parent.width - notificationBubble.width - highlightBubble.width
-        title.text: room.topic !== "" && room.topic !== null ? room.topic : roomnames.getById ( room.id, function (displayname) {
+        title.text: room.topic !== "" && room.topic !== null ? room.topic : MatrixNames.getChatAvatarById ( room.id, function (displayname) {
             layout.title.text = displayname
         })
         title.font.bold: true
@@ -41,7 +41,7 @@ ListItem {
         subtitle.text: {
             room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
             (room.membership === "leave" ? "" :
-            (room.topic !== "" && room.typing && room.typing.length > 0 ? UserNames.getTypingDisplayString ( room.typing, room.topic ) :
+            (room.topic !== "" && room.typing && room.typing.length > 0 ? MatrixNames.getTypingDisplayString ( room.typing, room.topic ) :
             (room.content_body ? ( room.sender === settings.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
             i18n.tr("No preview messages"))))
         }
@@ -52,7 +52,7 @@ ListItem {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
             name: layout.title.text
-            mxc: room.avatar_url !== "" && room.avatar_url !== null && room.avatar_url !== undefined ? room.avatar_url : roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
+            mxc: room.avatar_url !== "" && room.avatar_url !== null && room.avatar_url !== undefined ? room.avatar_url : MatrixNames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
                 avatar.mxc = avatar_url
             } )
             onClickFunction: function () { triggered () }

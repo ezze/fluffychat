@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Page {
     anchors.fill: parent
@@ -69,7 +69,7 @@ Page {
             var member = activeChatMembers[ mxid ]
             if ( member.membership === "join" ) memberCount++
             model.append({
-                name: member.displayname || UserNames.transformFromId( mxid ),
+                name: member.displayname || MatrixNames.transformFromId( mxid ),
                 matrixid: mxid,
                 membership: member.membership,
                 avatar_url: member.avatar_url,
@@ -94,7 +94,7 @@ Page {
 
                     activeChatMembers [member.state_key] = member.content
                     if ( activeChatMembers [member.state_key].displayname === undefined || activeChatMembers [member.state_key].displayname === null || activeChatMembers [member.state_key].displayname === "" ) {
-                        activeChatMembers [member.state_key].displayname = UserNames.transformFromId ( member.state_key )
+                        activeChatMembers [member.state_key].displayname = MatrixNames.transformFromId ( member.state_key )
                     }
                     if ( activeChatMembers [member.state_key].avatar_url === undefined || activeChatMembers [member.state_key].avatar_url === null ) {
                         activeChatMembers [member.state_key].avatar_url = ""
@@ -225,7 +225,7 @@ Page {
                         iconName: "camera-app-symbolic"
                         onClicked: PopupUtils.open(changeChatAvatarDialog)
                     }
-                    Component.onCompleted: roomnames.getAvatarUrl ( activeChat, function ( avatar_url ) { mxc = avatar_url } )
+                    Component.onCompleted: MatrixNames.getChatAvatarUrl ( activeChat, function ( avatar_url ) { mxc = avatar_url } )
                 }
 
                 Column {

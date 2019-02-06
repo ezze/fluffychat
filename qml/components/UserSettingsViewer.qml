@@ -1,7 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 BottomEdge {
 
@@ -45,7 +45,7 @@ BottomEdge {
 
         Component.onCompleted:  {
             matrix_id = activeUser
-            displayname = UserNames.transformFromId ( matrix_id )
+            displayname = MatrixNames.transformFromId ( matrix_id )
 
             storage.transaction ( "SELECT displayname, avatar_url, presence, last_active_ago, currently_active FROM Users WHERE matrix_id='" + matrix_id + "'", function ( res ) {
                 if ( res.rows.length === 1 ) profileRow.avatar_url = res.rows[0].avatar_url

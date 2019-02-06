@@ -4,7 +4,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/EventDescription.js" as EventDescription
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Page {
     anchors.fill: parent

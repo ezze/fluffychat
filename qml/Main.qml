@@ -6,6 +6,7 @@ import Ubuntu.Components.Popups 1.3
 import QtMultimedia 5.4
 import "models"
 import "components"
+import "scripts/MatrixNames.js" as MatrixNames
 
 /* =============================== MAIN.qml ===============================
 This file is the start point of the app. It contains all important config variables,
@@ -178,7 +179,6 @@ MainView {
     SenderController { id: sender }
     StampController { id: stamp }
     EventController { id: events }
-    RoomNameController { id: roomnames }
     PushController { id: pushclient }
     MediaController { id: media }
     SettingsController { id: settings }
@@ -233,7 +233,7 @@ MainView {
     */
 
     onActiveChatChanged: {
-        roomnames.getById ( activeChat, function (name) {
+        MatrixNames.getChatAvatarById ( activeChat, function (name) {
             activeChatDisplayName = name
         } )
     }

@@ -4,7 +4,7 @@ import Ubuntu.Components 1.3
 import QtGraphicalEffects 1.0
 import Ubuntu.Components.Popups 1.3
 import "../components"
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 ListItem {
     id: chatListItem
@@ -41,17 +41,17 @@ ListItem {
         Component.onCompleted: {
             // Get the room name
             if ( room.topic !== "" ) layout.title.text = room.topic
-            else roomnames.getById ( room.id, function (displayname) {
+            else MatrixNames.getChatAvatarById ( room.id, function (displayname) {
                 layout.title.text = displayname
                 avatar.name = displayname
                 // Is there a typing notification?
                 if ( room.typing && room.typing.length > 0 ) {
-                    layout.subtitle.text = UserNames.getTypingDisplayString ( room.typing, displayname )
+                    layout.subtitle.text = MatrixNames.getTypingDisplayString ( room.typing, displayname )
                 }
             })
 
             // Get the room avatar if single chat
-            if ( avatar.mxc === "") roomnames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
+            if ( avatar.mxc === "") MatrixNames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
                 avatar.mxc = avatar_url
             } )
         }

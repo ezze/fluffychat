@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import "../components"
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Page {
     id: createChatPage
@@ -99,7 +99,7 @@ Page {
                 var user = res.rows[i]
                 model.append({
                     matrix_id: user.matrix_id,
-                    name: user.displayname || UserNames.transformFromId(user.matrix_id),
+                    name: user.displayname || MatrixNames.transformFromId(user.matrix_id),
                     avatar_url: user.avatar_url,
                     medium: user.medium || "matrix",
                     address: user.address || user.matrix_id,

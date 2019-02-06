@@ -1,6 +1,6 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 //import Ubuntu.Connectivity 1.0
 
 
@@ -57,7 +57,7 @@ Item {
 
         loadingScreen.visible = true
         storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" +
-        settings.matrixid + "', '" + UserNames.transformFromId(settings.matrixid) + "', '', 'offline', 0, 0 )" )
+        settings.matrixid + "', '" + MatrixNames.transformFromId(settings.matrixid) + "', '', 'offline', 0, 0 )" )
 
         // Discover which features the server does support
         matrix.get ( "/client/versions", {}, function ( matrixVersions ) {
@@ -342,7 +342,7 @@ Item {
                 // If the affected room is the currently used room, then the
                 // name has to be updated in the GUI:
                 if ( activeChat === roomid ) {
-                    roomnames.getById ( roomid, function ( displayname ) {
+                    MatrixNames.getChatAvatarById ( roomid, function ( displayname ) {
                         activeChatDisplayName = displayname
                     })
                 }
@@ -439,7 +439,7 @@ Item {
                 // Update user database
                 if ( event.content.membership !== "leave" && event.content.membership !== "ban" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, 'offline', 0, 0)",
                 [ event.state_key,
-                event.content.displayname || UserNames.transformFromId(event.state_key),
+                event.content.displayname || MatrixNames.transformFromId(event.state_key),
                 event.content.avatar_url || "" ])
 
                 var memberInsertResult = transaction.executeSql( "INSERT OR IGNORE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, ?, ?, " +

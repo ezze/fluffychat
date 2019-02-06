@@ -5,7 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import QtGraphicalEffects 1.0
 import "../components"
 import "../scripts/EventDescription.js" as EventDescription
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 ListItem {
     id: message
@@ -16,7 +16,7 @@ ListItem {
     property var sent: event.sender.toLowerCase() === settings.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
-    property var senderDisplayname: activeChatMembers[event.sender].displayname!==undefined ? activeChatMembers[event.sender].displayname : UserNames.transformFromId(event.sender)
+    property var senderDisplayname: activeChatMembers[event.sender].displayname!==undefined ? activeChatMembers[event.sender].displayname : MatrixNames.transformFromId(event.sender)
     property var bgcolor: (isStateEvent ? (settings.darkmode ? "black" : "white") :
     (!sent ? settings.darkmode ? "#191A15" : UbuntuColors.porcelain :
     (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
@@ -146,7 +146,7 @@ ListItem {
             onClickFunction: function () {
                 if ( !opacity ) return
                 activeUser = event.sender
-                UserNames.showUserSettings ( event.sender )
+                MatrixNames.showUserSettings ( event.sender )
             }
         }
 
@@ -445,7 +445,7 @@ Rectangle {
             text: {
                 // Show the senders displayname only if its not the user him-/herself.
                 ((event.sender !== settings.matrixid) && senderDisplayname !== activeChatDisplayName ?
-                ("<font color='" + UserNames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
+                ("<font color='" + MatrixNames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
                 : "")
                 + stamp.getChatTime ( event.origin_server_ts )
             }

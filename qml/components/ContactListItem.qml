@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 ListItem {
 
@@ -26,7 +26,7 @@ ListItem {
         selectedCount = inviteList.length
     }
 
-    onClicked: UserNames.showUserSettings ( matrixid )
+    onClicked: MatrixNames.showUserSettings ( matrixid )
 
     ListItemLayout {
         id: layout
@@ -42,7 +42,7 @@ ListItem {
             height: width
             mxc: avatar_url || ""
             onClickFunction: function () {
-                UserNames.showUserSettings ( matrixid )
+                MatrixNames.showUserSettings ( matrixid )
             }
         }
 

@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
-import "../scripts/UserNames.js" as UserNames
+import "../scripts/MatrixNames.js" as MatrixNames
 
 ListItem {
     visible: {
@@ -12,10 +12,10 @@ ListItem {
     }
     height: visible ? layout.height : 0
     property var settingsOn: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === settings.matrixid)
-    property var status: UserNames.powerlevelToStatus(userPower)
+    property var status: MatrixNames.powerlevelToStatus(userPower)
     color: settings.darkmode ? "#202020" : "white"
 
-    onClicked: UserNames.showUserSettings ( matrixid )
+    onClicked: MatrixNames.showUserSettings ( matrixid )
 
     ListItemLayout {
         id: layout
@@ -33,7 +33,7 @@ ListItem {
             mxc: avatar_url || ""
             opacity: membership === "join" ? 1 : 0.5
             onClickFunction: function () {
-                UserNames.showUserSettings ( matrixid )
+                MatrixNames.showUserSettings ( matrixid )
             }
         }
         Icon {

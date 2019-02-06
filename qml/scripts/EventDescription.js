@@ -1,13 +1,13 @@
 // File: EventDescription.js
 // Description: Get the display string from an state event
-Qt.include("UserNames.js")
+Qt.include("MatrixNames.js")
 
 function getDisplay ( event ) {
     if ( !("content" in event) ) event.content = JSON.parse (event.content_json)
     if ( event.content === null ) return i18n.tr("Unknown event")
     var body = i18n.tr("Unknown Event: ") + event.type
-    var sendername = UserNames.transformFromId(event.sender)
-    var displayname = event.content.displayname || UserNames.transformFromId(event.state_key)
+    var sendername = MatrixNames.transformFromId(event.sender)
+    var displayname = event.content.displayname || MatrixNames.transformFromId(event.state_key)
     var unsigned = event.content.unsigned || false
 
     if ( event.type === "m.room.member" || event.type === "m.room.multipleMember" ) {
@@ -17,13 +17,13 @@ function getDisplay ( event ) {
                     body = i18n.tr("%1 has a new avatar").arg(displayname)
                 }
                 else if ( unsigned.prev_content.displayname !== event.content.displayname ) {
-                    body = i18n.tr("%1 changed the displayname to %2").arg(UserNames.transformFromId(event.state_key)).arg(displayname)
+                    body = i18n.tr("%1 changed the displayname to %2").arg(MatrixNames.transformFromId(event.state_key)).arg(displayname)
                 }
             }
             else if ( unsigned && unsigned.prev_content && unsigned.prev_content.membership === "invite" ) {
                 body = i18n.tr("%1 accepted the invitation").arg(displayname)
             }
-            else if ( UserNames.transformFromId(event.state_key).toUpperCase() === displayname.toUpperCase() ) {
+            else if ( MatrixNames.transformFromId(event.state_key).toUpperCase() === displayname.toUpperCase() ) {
                 body = i18n.tr("%1 is now participating").arg(displayname)
             }
             else body = i18n.tr("%1 is now participating as <b>%2</b>").arg(sendername).arg(displayname)
