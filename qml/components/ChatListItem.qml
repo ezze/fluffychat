@@ -26,6 +26,7 @@ ListItem {
         }
         else matrix.joinChat ( room.id )
         searchField.text = ""
+        searching = false
     }
 
     onClicked: triggered ()

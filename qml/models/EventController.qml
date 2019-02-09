@@ -1,7 +1,5 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
-import "../scripts/MatrixNames.js" as MatrixNames
-import "../scripts/MessageFormats.js" as MessageFormats
 import Ubuntu.Connectivity 1.0
 
 
@@ -16,8 +14,16 @@ and the Connections{ } to Connectivity down there
 */
 Item {
 
+    property var statusMap: ["Offline", "Connecting", "Online"]
+
     property var online: Connectivity ? Connectivity.online : true
-    onOnlineChanged: if ( online ) restartSync ()
+
+    Connections {
+        // full status can be retrieved from the base C++ class
+        // status property
+        target: Connectivity
+        onOnlineChanged: if ( online ) restartSync ()
+    }
 
     /* The newEvent signal is the most importent signal in this concept. Every time
     * the app receives a new synchronization, this event is called for every signal
@@ -50,7 +56,7 @@ Item {
 
         loadingScreen.visible = true
         storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" +
-        settings.matrixid + "', '" + MatrixNames.transformFromId(settings.matrixid) + "', '', 'offline', 0, 0 )" )
+        settings.matrixid + "', '" + usernames.transformFromId(settings.matrixid) + "', '', 'offline', 0, 0 )" )
 
         // Discover which features the server does support
         matrix.get ( "/client/versions", {}, function ( matrixVersions ) {
@@ -289,7 +295,7 @@ Item {
                 var status = type === "timeline" ? msg_status.RECEIVED : msg_status.HISTORY
 
                 // Format the text for the app
-                if( event.content.body ) event.content_body = MessageFormats.formatText ( event.content.body )
+                if( event.content.body ) event.content_body = sender.formatText ( event.content.body )
                 else event.content_body = null
 
                 // Make unsigned part of the content
@@ -335,7 +341,7 @@ Item {
                 // If the affected room is the currently used room, then the
                 // name has to be updated in the GUI:
                 if ( activeChat === roomid ) {
-                    MatrixNames.getChatAvatarById ( roomid, function ( displayname ) {
+                    roomnames.getById ( roomid, function ( displayname ) {
                         activeChatDisplayName = displayname
                     })
                 }
@@ -346,7 +352,7 @@ Item {
             // it has to be changed in the database
             if ( event.type === "m.room.topic" ) {
                 transaction.executeSql( "UPDATE Chats SET description=? WHERE id=?",
-                [ MessageFormats.formatText(event.content.topic) || "",
+                [ sender.formatText(event.content.topic) || "",
                 roomid ])
             }
 
@@ -432,7 +438,7 @@ Item {
                 // Update user database
                 if ( event.content.membership !== "leave" && event.content.membership !== "ban" ) transaction.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, 'offline', 0, 0)",
                 [ event.state_key,
-                event.content.displayname || MatrixNames.transformFromId(event.state_key),
+                event.content.displayname || usernames.transformFromId(event.state_key),
                 event.content.avatar_url || "" ])
 
                 var memberInsertResult = transaction.executeSql( "INSERT OR IGNORE INTO Memberships VALUES('" + roomid + "', '" + event.state_key + "', ?, ?, ?, " +

@@ -98,7 +98,7 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
 
     // If there is no unread message, then this is the signal to just clear persistent
     // notifications with this id and reset the unread counter
-    if ( unread == 0 ) {
+    if ( unread == 0 || !(push.contains("event_id") && !push["event_id"].toString().isEmpty()) ) {
         QStringList tags = mPushClient.getNotifications();
         mPushClient.clearPersistent(tags);
         //The notification object to be passed to Postal
@@ -129,13 +129,13 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
 
     // The summary will be the room name or the sender
     QString summary = QString(N_("Unknown"));
-    if (push.contains("room_name") ) {
+    if (push.contains("room_name") && !push["room_name"].toString().isEmpty() ) {
         summary = push["room_name"].toString();
     }
-    else if(push.contains("sender_display_name") ) {
+    else if(push.contains("sender_display_name") && !push["sender_display_name"].toString().isEmpty() ) {
         summary = push["sender_display_name"].toString();
     }
-    else if(push.contains("sender") ) {
+    else if(push.contains("sender") && !push["sender"].toString().isEmpty() ) {
         summary = push["sender"].toString();
     }
 
