@@ -43,7 +43,7 @@ Rectangle {
                 onTriggered: {
                     downloadDialog.filename = mxc
                     downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( mxc )
-                    downloadDialog.shareFunc = shareController.sharePicture
+                    downloadDialog.shareFunc = contentHub.sharePicture
                     downloadDialog.current = PopupUtils.open(downloadDialog)
                 }
             }

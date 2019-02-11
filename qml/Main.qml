@@ -77,63 +77,6 @@ MainView {
     property var bottomEdgeCommited: false
 
 
-    
-    /* =============================== MODELS ===============================
-
-    All models should be defined here. They are accessable everywhere by the
-    id, defined here.
-    */
-    StorageController { id: storage }
-    MatrixModel { id: matrix }
-    PushController { id: pushclient }
-    SettingsController { id: settings }
-    UserMetricsController { id: userMetrics }
-    Toast { id: toast }
-    ImageViewer { id: imageViewer }
-    VideoPlayer { id: videoPlayer }
-    UriController { id: uriController }
-    ShareController { id: shareController }
-    LoadingScreen { id: loadingScreen }
-    LockedScreen { id: lockedScreen }
-    LoadingModal { id: loadingModal }
-    Audio { id: audio }
-    ConfirmDialog { id: confirmDialog }
-    DownloadDialog {
-        id: downloadDialog
-        property var current: null
-        property var filename: null
-        property var downloadUrl: null
-        property var shareFunc: shareController.shareAll
-    }
-    Image {
-        id: backgroundImage
-        opacity: chatActive
-        visible: settings.chatBackground !== undefined
-        anchors.fill: mainStack
-        source: settings.chatBackground || ""
-        cache: true
-        fillMode: Image.PreserveAspectCrop
-        z: -1
-        onStatusChanged: if (status == Image.Error) settings.chatBackground = undefined
-    }
-
-    // Simple universal confirmation dialog
-    property var confirmDialogText: i18n.tr("Are you sure?")
-    property var confirmDialogFunction: function () {}
-    function showConfirmDialog ( text, action ) {
-        confirmDialogText = text
-        confirmDialogFunction = action
-        PopupUtils.open( confirmDialog )
-    }
-
-    // Wait for server answer dialog
-    WaitDialog { id: waitDialog }
-    property var waitDialogRequest: null
-    onWaitDialogRequestChanged: waitDialogRequest !== null ? PopupUtils.open ( waitDialog ) : function(){}
-
-
-
-
     /* =============================== LAYOUT ===============================
 
     The main page stack is the current layout of the app.
@@ -224,6 +167,60 @@ MainView {
         }
         height: parent.height
     }
+
+
+
+    /* =============================== MODELS ===============================
+
+    All models should be defined here. They are accessable everywhere by the
+    id, defined here.
+    */
+    StorageController { id: storage }
+    MatrixModel { id: matrix }
+    PushController { id: pushclient }
+    SettingsController { id: settings }
+    UserMetricsController { id: userMetrics }
+    Toast { id: toast }
+    ImageViewer { id: imageViewer }
+    VideoPlayer { id: videoPlayer }
+    ContentHubModel { id: shareController }
+    LoadingScreen { id: loadingScreen }
+    LockedScreen { id: lockedScreen }
+    LoadingModal { id: loadingModal }
+    Audio { id: audio }
+    ConfirmDialog { id: confirmDialog }
+    DownloadDialog {
+        id: downloadDialog
+        property var current: null
+        property var filename: null
+        property var downloadUrl: null
+        property var shareFunc: contentHub.shareAll
+    }
+    Image {
+        id: backgroundImage
+        opacity: chatActive
+        visible: settings.chatBackground !== undefined
+        anchors.fill: mainStack
+        source: settings.chatBackground || ""
+        cache: true
+        fillMode: Image.PreserveAspectCrop
+        z: -1
+        onStatusChanged: if (status == Image.Error) settings.chatBackground = undefined
+    }
+
+    // Simple universal confirmation dialog
+    property var confirmDialogText: i18n.tr("Are you sure?")
+    property var confirmDialogFunction: function () {}
+    function showConfirmDialog ( text, action ) {
+        confirmDialogText = text
+        confirmDialogFunction = action
+        PopupUtils.open( confirmDialog )
+    }
+
+    // Wait for server answer dialog
+    WaitDialog { id: waitDialog }
+    property var waitDialogRequest: null
+    onWaitDialogRequestChanged: waitDialogRequest !== null ? PopupUtils.open ( waitDialog ) : function(){}
 
 
     /* =============================== CONNECTION MANAGER ===============================

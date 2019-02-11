@@ -9,7 +9,7 @@ ListItem {
     color: settings.darkmode ? "#202020" : "white"
 
     onClicked: {
-        shareController.toClipboard ( name )
+        contentHub.toClipboard ( name )
         toast.show ( i18n.tr('Copied to clipboard') )
     }
 

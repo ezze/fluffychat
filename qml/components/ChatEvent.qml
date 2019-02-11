@@ -61,7 +61,7 @@ ListItem {
                 iconName: "edit-copy"
                 visible: !isStateEvent && event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
                 onTriggered: {
-                    shareController.toClipboard ( event.content.body )
+                    contentHub.toClipboard ( event.content.body )
                     toast.show( i18n.tr("Text has been copied to the clipboard") )
                 }
             },
@@ -89,9 +89,9 @@ ListItem {
                 visible: !isStateEvent //&& event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
                 onTriggered: {
                     if ( !isMediaEvent ) {
-                        shareController.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( MatrixNames.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
+                        contentHub.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( MatrixNames.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
                     }
-                    else shareController.shareFileIntern( event.content )
+                    else contentHub.shareFileIntern( event.content )
                 }
             }
             ]
@@ -325,7 +325,7 @@ ListItem {
                         onClicked: {
                             downloadDialog.filename = event.content_body
                             downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
-                            downloadDialog.shareFunc = shareController.shareAudio
+                            downloadDialog.shareFunc = contentHub.shareAudio
                             downloadDialog.current = PopupUtils.open(downloadDialog)
                         }
                         width: units.gu(4)
@@ -371,7 +371,7 @@ Button {
     text: i18n.tr("Download: ") + event.content.body
     onClicked: {
         downloadDialog.filename = event.content_body
-        downloadDialog.shareFunc = shareController.shareAll
+        downloadDialog.shareFunc = contentHub.shareAll
         downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
         downloadDialog.current = PopupUtils.open(downloadDialog)
     }

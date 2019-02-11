@@ -30,12 +30,12 @@ BottomEdge {
                 actions: [
                 Action {
                     iconName: "mail-forward"
-                    onTriggered: shareController.shareTextIntern ( matrix_id )
+                    onTriggered: contentHub.shareTextIntern ( matrix_id )
                 },
                 Action {
                     iconName: "edit-copy"
                     onTriggered: {
-                        shareController.toClipboard ( matrix_id )
+                        contentHub.toClipboard ( matrix_id )
                         toast.show( i18n.tr("Username has been copied to the clipboard") )
                     }
                 }

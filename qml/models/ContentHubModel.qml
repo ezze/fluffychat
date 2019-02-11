@@ -3,10 +3,11 @@ import Ubuntu.Components 1.3
 import Ubuntu.Content 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Item {
 
-    id: shareController
+    id: contentHub
     property url uri: ""
 
     signal done ()
@@ -19,8 +20,13 @@ Item {
     Component {
         id: shareDialog
         ContentShareDialog {
-            Component.onDestruction: shareController.done()
+            Component.onDestruction: contentHub.done()
         }
+    }
+
+    Connections {
+        target: UriHandler
+        onOpened: openUri ( uris )
     }
 
     MimeData {
@@ -34,6 +40,38 @@ Item {
     }
 
     ContactImport { id: contactImport }
+
+    function openUri ( uris ) {
+        // no url
+        if (uris.length === 0 ) return
+
+        var uri = uris[0]
+        uri = uri.replace("https://matrix.to/#/","fluffychat://")
+        if ( uri.slice(0,14) === "fluffychat://@" ) {
+            uri = uri.replace("fluffychat://","")
+            MatrixNames.handleUserUri( uri )
+        }
+        else if ( uri.slice(0,14) === "fluffychat://#" ) {
+            uri = uri.replace("fluffychat://","")
+            matrix.joinChat ( uri )
+        }
+        else if ( uri.slice(0,14) === "fluffychat://!" ) {
+            uri = uri.replace("fluffychat://","")
+            mainStack.toChat ( uri )
+        }
+        else if ( uri.slice(0,14) === "fluffychat://+" ) {
+            uri = uri.replace("fluffychat://","")
+            MatrixNames.showCommunity(uri)
+        }
+        else console.error("Unkown uri...", uri)
+    }
+
+    function openUrlExternally ( link ) {
+        if ( link.indexOf("fluffychat://") !== -1 ) uriController.openUri ( [link] )
+        else if ( link.indexOf("https://matrix.to/#/") !== -1 ) uriController.openUri ( [link] )
+        else if ( link.indexOf("http") !== -1 ) Qt.openUrlExternally ( link )
+        else Qt.openUrlExternally ( "http://" + link )
+    }
 
     function toClipboard ( text ) {
         mimeData.text = text
@@ -56,8 +94,8 @@ Item {
 
     function share(url, text, contentType) {
         uri = url
-        var sharePopup = PopupUtils.open(shareDialog, shareController, {"contentType" : contentType})
-        sharePopup.items.push(contentItemComponent.createObject(shareController, {"url" : uri, "text": text}))
+        var sharePopup = PopupUtils.open(shareDialog, contentHub, {"contentType" : contentType})
+        sharePopup.items.push(contentItemComponent.createObject(contentHub, {"url" : uri, "text": text}))
     }
 
     function shareLink( url ) {
@@ -91,7 +129,7 @@ Item {
     function shareTextIntern ( text ) {
         mainStack.toStart()
         shareObject = {
-            items: [ contentItemComponent.createObject(shareController, {"url" : "", "text": text}) ]
+            items: [ contentItemComponent.createObject(contentHub, {"url" : "", "text": text}) ]
         }
     }
 
@@ -106,7 +144,7 @@ Item {
         uri = url
         mainStack.toStart()
         shareObject = {
-            items: [ contentItemComponent.createObject(shareController, {"url" : uri, "text": url}) ]
+            items: [ contentItemComponent.createObject(contentHub, {"url" : uri, "text": url}) ]
         }
     }
 
