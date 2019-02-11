@@ -175,15 +175,16 @@ MainView {
     All models should be defined here. They are accessable everywhere by the
     id, defined here.
     */
-    StorageController { id: storage }
+    StorageModel { id: storage }
     MatrixModel { id: matrix }
-    PushController { id: pushclient }
-    SettingsController { id: settings }
-    UserMetricsController { id: userMetrics }
+    PushModel { id: pushclient }
+    SettingsModel { id: settings }
+    UserMetricsModel { id: userMetrics }
+    ContentHubModel { id: shareController }
+
     Toast { id: toast }
     ImageViewer { id: imageViewer }
     VideoPlayer { id: videoPlayer }
-    ContentHubModel { id: shareController }
     LoadingScreen { id: loadingScreen }
     LockedScreen { id: lockedScreen }
     LoadingModal { id: loadingModal }

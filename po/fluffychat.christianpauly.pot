@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 12:43+0000\n"
+"POT-Creation-Date: 2019-02-11 12:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:212 ../qml/components/ChatEvent.qml:112
+#: ../qml/Main.qml:213 ../qml/components/ChatEvent.qml:112
 msgid "Are you sure?"
 msgstr ""
 
@@ -759,11 +759,19 @@ msgstr ""
 msgid "Add chat address"
 msgstr ""
 
-#: ../qml/models/SettingsController.qml:76
+#: ../qml/models/PushModel.qml:38
+msgid "Please log in to Ubuntu One to receive push notifications."
+msgstr ""
+
+#: ../qml/models/PushModel.qml:72
+msgid "Push notifications are disabled..."
+msgstr ""
+
+#: ../qml/models/SettingsModel.qml:76
 msgid "USA"
 msgstr ""
 
-#: ../qml/models/SettingsController.qml:77
+#: ../qml/models/SettingsModel.qml:77
 msgid "1"
 msgstr ""
 
@@ -788,14 +796,6 @@ msgstr ""
 
 #: ../qml/models/ContentHubModel.qml:92
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
-msgstr ""
-
-#: ../qml/models/PushController.qml:38
-msgid "Please log in to Ubuntu One to receive push notifications."
-msgstr ""
-
-#: ../qml/models/PushController.qml:72
-msgid "Push notifications are disabled..."
 msgstr ""
 
 #: ../qml/components/InviteListItem.qml:26
