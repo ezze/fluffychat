@@ -18,6 +18,8 @@ ListItem {
     property var bgcolor: (isStateEvent ? (settings.darkmode ? "black" : "white") :
     (!sent ? settings.darkmode ? "#191A15" : UbuntuColors.porcelain :
     (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
+    property var lastEvent: index > 0 ? chatScrollView.model.get(index-1).event : null
+    property var sameSender: lastEvent !== null ? lastEvent.sender === event.sender : false
 
     divider.visible: false
     highlightColor: "#00000000"
@@ -139,7 +141,7 @@ ListItem {
             anchors.bottomMargin: units.gu(1)
             anchors.leftMargin: units.gu(1)
             anchors.rightMargin: units.gu(1)
-            opacity: (event.sameSender || isStateEvent) ? 0 : 1
+            opacity: (sameSender || isStateEvent) ? 0 : 1
             width: isStateEvent ? units.gu(3) : units.gu(5)
             onClickFunction: function () {
                 if ( !opacity ) return
@@ -179,7 +181,7 @@ ListItem {
                 width: units.gu(2)
                 height: width
                 color: messageBubble.color
-                visible: !isStateEvent && !event.sameSender
+                visible: !isStateEvent && !sameSender
                 anchors.left: !sent ? parent.left : undefined
                 anchors.right: sent ? parent.right : undefined
                 anchors.bottom: parent.bottom
