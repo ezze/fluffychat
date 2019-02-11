@@ -227,7 +227,7 @@ Page {
     }
 
     Connections {
-        target: events
+        target: matrix
         onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
         onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
     }

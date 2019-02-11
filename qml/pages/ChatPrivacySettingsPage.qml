@@ -22,7 +22,7 @@ Page {
     }
 
     Connections {
-        target: events
+        target: matrix
         onNewEvent: update ( type, chat_id, eventType, eventContent )
     }
 

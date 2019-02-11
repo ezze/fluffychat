@@ -35,7 +35,7 @@ Page {
 
 
     Connections {
-        target: events
+        target: matrix
         onNewChatUpdate: update ()
     }
 

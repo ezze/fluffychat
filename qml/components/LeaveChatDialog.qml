@@ -32,7 +32,7 @@ Component {
                 text: i18n.tr("Leave")
                 color: UbuntuColors.red
                 onClicked: {
-                    var events_local = events
+                    var events_local = matrix
                     var mainStack_local = mainStack
                     PopupUtils.close(dialogue)
                     if ( mainStack.depth > 1 && membership === "leave" ) {

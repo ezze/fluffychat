@@ -68,7 +68,7 @@ Page {
     }
 
     Connections {
-        target: events
+        target: matrix
         //onNewEvent: updatePresence ( type, chat_id, eventType, eventContent )
     }
 

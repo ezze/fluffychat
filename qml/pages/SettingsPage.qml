@@ -11,7 +11,7 @@ Page {
     property var hasAvatar: false
 
     Connections {
-        target: events
+        target: matrix
         onNewEvent: updateAvatar ( type, chat_id, eventType, eventContent )
     }
 
