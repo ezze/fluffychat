@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-06 16:47+0000\n"
+"POT-Creation-Date: 2019-02-15 07:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:218 ../qml/components/ChatEvent.qml:109
+#: ../qml/Main.qml:218 ../qml/components/ChatEvent.qml:111
 msgid "Are you sure?"
 msgstr ""
 
@@ -601,33 +601,34 @@ msgstr ""
 msgid "Owner"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:12
+#: ../qml/pages/CreateChatPage.qml:13
 msgid "Add Chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:19
+#: ../qml/pages/CreateChatPage.qml:20 ../qml/components/AddContactDialog.qml:72
 msgid "Import from addressbook"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:40 ../qml/pages/InvitePage.qml:36
-msgid "Search e.g. @username:server.abc"
+#: ../qml/pages/CreateChatPage.qml:40
+msgid "Filter contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:127 ../qml/components/NewGroupDialog.qml:11
+#: ../qml/pages/CreateChatPage.qml:102 ../qml/components/NewGroupDialog.qml:11
 msgid "New group"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:134
+#: ../qml/pages/CreateChatPage.qml:109
 #: ../qml/components/UserSettingsViewer.qml:133
+#: ../qml/components/AddContactDialog.qml:34
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:139
+#: ../qml/pages/CreateChatPage.qml:114
 msgid "Do you want to create a new group now?"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:145
+#: ../qml/pages/CreateChatPage.qml:120
 msgid "Public groups"
 msgstr ""
 
@@ -778,6 +779,10 @@ msgstr ""
 msgid "Invite users"
 msgstr ""
 
+#: ../qml/pages/InvitePage.qml:36
+msgid "Search e.g. @username:server.abc"
+msgstr ""
+
 #: ../qml/pages/PrivacyPolicyPage.qml:28
 msgid ""
 "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
@@ -809,7 +814,7 @@ msgid "Unknown chat"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:301 ../qml/components/RemoveDeviceDialog.qml:47
-#: ../qml/components/ChatEvent.qml:101
+#: ../qml/components/ChatEvent.qml:103
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
@@ -995,7 +1000,7 @@ msgstr ""
 msgid "Invite %1 to this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:46 ../qml/components/ChatEvent.qml:31
+#: ../qml/components/MemberListItem.qml:46 ../qml/components/ChatEvent.qml:33
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
@@ -1041,6 +1046,7 @@ msgstr ""
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
+#: ../qml/components/AddContactDialog.qml:80
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
 #: ../qml/components/ChangeChatnameDialog.qml:42
 #: ../qml/components/AddEmailDialog.qml:27
@@ -1175,51 +1181,51 @@ msgstr ""
 msgid "Remove this email address?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:37
+#: ../qml/components/ChatEvent.qml:39
 msgid "Try to send again"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:48
+#: ../qml/components/ChatEvent.qml:50
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:57
+#: ../qml/components/ChatEvent.qml:59
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:62
+#: ../qml/components/ChatEvent.qml:64
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:66
+#: ../qml/components/ChatEvent.qml:68
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:70
+#: ../qml/components/ChatEvent.qml:72
 msgid "Add to sticker collection?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:77
+#: ../qml/components/ChatEvent.qml:79
 msgid "Already added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:78
+#: ../qml/components/ChatEvent.qml:80
 msgid "Added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:84
+#: ../qml/components/ChatEvent.qml:86
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:266
+#: ../qml/components/ChatEvent.qml:268
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:266
+#: ../qml/components/ChatEvent.qml:268
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:368
+#: ../qml/components/ChatEvent.qml:370
 msgid "Download: "
 msgstr ""
 
@@ -1421,6 +1427,26 @@ msgstr ""
 
 #: ../qml/components/CommunityViewer.qml:107
 msgid "No description found"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:11
+msgid "Add new contact"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:19
+msgid "Enter the full @username"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:22
+msgid "Start private chat"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:40
+msgid "Your username is: %1"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:58
+msgid "Or"
 msgstr ""
 
 #: ../qml/components/ChangeChatnameDialog.qml:11
