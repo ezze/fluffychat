@@ -30,7 +30,7 @@ ListItem {
                 else toast.show ( error.error )
             } )
         }
-        showConfirmDialog ( i18n.tr("Invite %1 to this chat?"), inviteAction)
+        showConfirmDialog ( i18n.tr("Invite %1 to this chat?").arg(displayname), inviteAction)
     }
 
     ListItemLayout {

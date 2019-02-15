@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
@@ -18,7 +19,7 @@ Page {
                 id: newContactAction
                 iconName: "contact-new"
                 text: i18n.tr("Import from addressbook")
-                onTriggered: contactImport.requestContact()
+                onTriggered: PopupUtils.open(addContactDialog)
             }
             ]
         }
@@ -28,7 +29,6 @@ Page {
             objectName: "searchField"
             property var searchMatrixId: false
             property var upperCaseText: displayText.toUpperCase()
-            property var tempElement: null
             primaryItem: Icon {
                 height: parent.height - units.gu(2)
                 name: "find"
@@ -38,32 +38,7 @@ Page {
             width: parent.width - units.gu(2)
             anchors.centerIn: parent
             inputMethodHints: Qt.ImhNoPredictiveText
-            placeholderText: i18n.tr("Search e.g. @username:server.abc")
-            onDisplayTextChanged: {
-
-                if ( displayText.slice( 0,1 ) === "@" && displayText.length > 1 ) {
-                    var input = displayText
-                    if ( input.indexOf(":") === -1 ) {
-                        input += ":" + settings.server
-                    }
-                    if ( tempElement !== null ) {
-                        model.remove ( tempElement)
-                        tempElement = null
-                    }
-                    if ( input.split(":").length > 2 || input.split("@").length > 2 || displayText.length < 2 ) return
-                    model.append ( {
-                        matrix_id: input,
-                        medium: "matrix",
-                        name: input,
-                        address: input,
-                        avatar_url: "",
-                        last_active_ago: 0,
-                        presence: "offline",
-                        temp: true
-                    })
-                    tempElement = model.count - 1
-                }
-            }
+            placeholderText: i18n.tr("Filter contacts")
         }
     }
 
@@ -157,5 +132,7 @@ Page {
         id: contactImport
         onImportCompleted: createChatPage.update ()
     }
+
+    AddContactDialog { id: addContactDialog }
 
 }
