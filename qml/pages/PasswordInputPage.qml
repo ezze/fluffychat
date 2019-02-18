@@ -5,6 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Page {
+    id: passwordInputPage
     anchors.fill: parent
 
     function login () {
@@ -40,18 +41,18 @@ Page {
 
     ScrollView {
         id: scrollView
-        width: root.width
+        width: passwordInputPage.width
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: root.width
+            width: passwordInputPage.width
             spacing: units.gu(2)
 
             Icon {
                 id: banner
                 name: "user-admin"
                 color: settings.mainColor
-                width: root.width * 2/5
+                width: passwordInputPage.width * 2/5
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter
             }

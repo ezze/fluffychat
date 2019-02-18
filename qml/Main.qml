@@ -9,7 +9,7 @@ import "scripts/MatrixNames.js" as MatrixNames
 
 /* =============================== MAIN.qml ===============================
 This file is the start point of the app. It contains all important config variables,
-instances of all controller, the layout (mainstack) and the start point.
+instances of all controller, the layout (mainLayout) and the start point.
 */
 
 MainView {

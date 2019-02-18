@@ -63,19 +63,19 @@ Page {
 
     ScrollView {
         id: scrollView
-        width: root.width
+        width: passwordCreationPage.width
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
             id: column
-            width: root.width
+            width: passwordCreationPage.width
             spacing: units.gu(2)
 
             Icon {
                 id: banner
                 name: "lock"
                 color: settings.mainColor
-                width: root.width * 2/5
+                width: passwordCreationPage.width * 2/5
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter
             }

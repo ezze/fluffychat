@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-18 17:27+0000\n"
+"POT-Creation-Date: 2019-02-18 17:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Join the community"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:54 ../qml/pages/LoginPage.qml:118
+#: ../qml/pages/InfoPage.qml:54 ../qml/pages/LoginPage.qml:119
 #: ../qml/pages/PrivacyPolicyPage.qml:11
 msgid "Privacy Policy"
 msgstr ""
@@ -114,7 +114,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:128 ../qml/pages/LoginPage.qml:273
+#: ../qml/pages/PasswordCreationPage.qml:128 ../qml/pages/LoginPage.qml:274
 msgid "Sign up"
 msgstr ""
 
@@ -159,64 +159,64 @@ msgid ""
 "funded by the community."
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:40
+#: ../qml/pages/LoginPage.qml:41
 msgid "Username '%1' not found on %2"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:43 ../qml/pages/LoginPage.qml:85
+#: ../qml/pages/LoginPage.qml:44 ../qml/pages/LoginPage.qml:86
 #: ../qml/models/MatrixModel.qml:323
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:82 ../qml/pages/LoginPage.qml:84
+#: ../qml/pages/LoginPage.qml:83 ../qml/pages/LoginPage.qml:85
 msgid "Username is already taken"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:92
+#: ../qml/pages/LoginPage.qml:93
 msgid "Homeserver %1"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:100
+#: ../qml/pages/LoginPage.qml:101
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:108
+#: ../qml/pages/LoginPage.qml:109
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:113 ../qml/pages/SettingsPage.qml:303
+#: ../qml/pages/LoginPage.qml:114 ../qml/pages/SettingsPage.qml:303
 msgid "About FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:123
+#: ../qml/pages/LoginPage.qml:124
 msgid "Toggle dark mode"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:133
+#: ../qml/pages/LoginPage.qml:134
 msgid "FAQ"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:144
+#: ../qml/pages/LoginPage.qml:145
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:166
+#: ../qml/pages/LoginPage.qml:167
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:215
+#: ../qml/pages/LoginPage.qml:216
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:224
+#: ../qml/pages/LoginPage.qml:225
 msgid "Username"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:267
+#: ../qml/pages/LoginPage.qml:268
 msgid "Create a new account"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:273 ../qml/pages/PasswordInputPage.qml:86
+#: ../qml/pages/LoginPage.qml:274 ../qml/pages/PasswordInputPage.qml:87
 msgid "Sign in"
 msgstr ""
 
@@ -385,7 +385,7 @@ msgstr ""
 msgid "Add Chat"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:21 ../qml/components/AddContactDialog.qml:72
+#: ../qml/pages/CreateChatPage.qml:21 ../qml/components/AddContactDialog.qml:71
 msgid "Import from addressbook"
 msgstr ""
 
@@ -398,8 +398,8 @@ msgid "New group"
 msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:110
-#: ../qml/components/UserSettingsViewer.qml:134
-#: ../qml/components/AddContactDialog.qml:34
+#: ../qml/components/UserSettingsViewer.qml:133
+#: ../qml/components/AddContactDialog.qml:33
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
@@ -503,23 +503,23 @@ msgstr ""
 msgid "More:"
 msgstr ""
 
-#: ../qml/pages/PasswordInputPage.qml:26
+#: ../qml/pages/PasswordInputPage.qml:27
 msgid "Invalid username or password"
 msgstr ""
 
-#: ../qml/pages/PasswordInputPage.qml:29
+#: ../qml/pages/PasswordInputPage.qml:30
 msgid "No connection to "
 msgstr ""
 
-#: ../qml/pages/PasswordInputPage.qml:38
+#: ../qml/pages/PasswordInputPage.qml:39
 msgid "Enter your password"
 msgstr ""
 
-#: ../qml/pages/PasswordInputPage.qml:61
+#: ../qml/pages/PasswordInputPage.qml:62
 msgid "Please enter your password for: <b>%1</b>"
 msgstr ""
 
-#: ../qml/pages/PasswordInputPage.qml:70
+#: ../qml/pages/PasswordInputPage.qml:71
 msgid "Password..."
 msgstr ""
 
@@ -865,7 +865,7 @@ msgstr ""
 #: ../qml/components/JoinGroupDialog.qml:27
 #: ../qml/components/NewContactDialog.qml:39
 #: ../qml/components/ChangeDisplaynameDialog.qml:34
-#: ../qml/components/AddContactDialog.qml:80
+#: ../qml/components/AddContactDialog.qml:79
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
 #: ../qml/components/ChangeChatnameDialog.qml:42
 #: ../qml/components/AddEmailDialog.qml:27
@@ -1228,7 +1228,7 @@ msgstr ""
 msgid "You are that!"
 msgstr ""
 
-#: ../qml/components/UserSettingsViewer.qml:140
+#: ../qml/components/UserSettingsViewer.qml:139
 msgid "Start new chat"
 msgstr ""
 
@@ -1260,11 +1260,11 @@ msgstr ""
 msgid "Start private chat"
 msgstr ""
 
-#: ../qml/components/AddContactDialog.qml:40
+#: ../qml/components/AddContactDialog.qml:39
 msgid "Your username is: %1"
 msgstr ""
 
-#: ../qml/components/AddContactDialog.qml:58
+#: ../qml/components/AddContactDialog.qml:57
 msgid "Or"
 msgstr ""
 

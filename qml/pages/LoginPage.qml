@@ -6,6 +6,7 @@ import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
 Page {
+    id: loginPage
     anchors.fill: parent
 
     property var loginDomain: ""
@@ -181,23 +182,23 @@ Page {
         }
     }
 
-    property var elemWidth: Math.min( root.width - units.gu(4), units.gu(50))
+    property var elemWidth: Math.min( loginPage.width - units.gu(4), units.gu(50))
 
     ScrollView {
         id: scrollView
-        width: root.width
+        width: loginPage.width
         height: parent.height - header.height
         flickableItem.contentY: flickableItem.contentHeight - height
         anchors.top: header.bottom
         contentItem: Column {
-            width: root.width
+            width: loginPage.width
             spacing: units.gu(2)
 
             Icon {
                 id: banner
                 source: "../../assets/fluffychat-banner.png"
                 color: settings.mainColor
-                width: root.width
+                width: loginPage.width
                 height: width * 2/5
             }
             Row {
@@ -207,7 +208,7 @@ Page {
                     text: settings.countryCode + " +%1".arg(settings.countryTel)
                     onClicked: {
                         var item = Qt.createComponent("../components/CountryPicker.qml")
-                        item.createObject(mainStack.currentItem, { })
+                        item.createObject( root, { })
                     }
                 }
                 TextField {

@@ -327,7 +327,7 @@ Item {
                         if ( "consent_uri" in error ) {
                             consentUrl = error.consent_uri
                             var item = Qt.createComponent("../components/ConsentViewer.qml")
-                            item.createObject(mainStack.currentItem, { })
+                            item.createObject( root, { })
                         }
                         else toast.show ( error.error )
                     }

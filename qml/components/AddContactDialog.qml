@@ -27,7 +27,6 @@ Component {
                     "is_direct": true,
                     "preset": "trusted_private_chat"
                 }
-                var _mainStack = mainStack
                 var _toast = toast
                 matrix.post( "/client/r0/createRoom", data, function (res) {
                     if ( res.room_id ) _mainLayout.toChat ( res.room_id )
