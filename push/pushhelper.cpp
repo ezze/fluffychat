@@ -100,7 +100,9 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
     // notifications with this id and reset the unread counter
     if ( unread == 0 || !(push.contains("event_id") && !push["event_id"].toString().isEmpty()) ) {
         QStringList tags = mPushClient.getNotifications();
-        mPushClient.clearPersistent(tags);
+        if ( unread == 0 ) {
+            mPushClient.clearPersistent(tags);
+        }
         //The notification object to be passed to Postal
         QJsonObject notification{
             {"tag", id},
