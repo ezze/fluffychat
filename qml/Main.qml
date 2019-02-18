@@ -65,7 +65,6 @@ MainView {
     property var pushtoken: pushclient.token
     property var tabletMode: settings.token !== undefined && width > units.gu(90)
     property var prevMode: false
-    property var mainStackWidth: mainStack.width
     property var desiredPhoneNumber: null
     property var desiredUsername: null
     property var consentUrl: ""
@@ -84,15 +83,7 @@ MainView {
     // Check if there are username, password and domain saved from a previous
     // session and autoconnect with them. If not, then just go to the login Page.
 
-
-    onTabletModeChanged: {
-        if ( prevMode !== tabletMode ) {
-            mainStack.init ()
-            prevMode = tabletMode
-        }
-    }
-
-    DefaultLayout { id: mainStack }
+    MainLayout { id: mainLayout }
 
 
 
@@ -127,7 +118,7 @@ MainView {
         id: backgroundImage
         opacity: chatActive
         visible: settings.chatBackground !== undefined
-        anchors.fill: mainStack
+        anchors.fill: mainLayout
         source: settings.chatBackground || ""
         cache: true
         fillMode: Image.PreserveAspectCrop
@@ -166,6 +157,5 @@ MainView {
     */
     Component.onCompleted: {
         storage.init ()
-        mainStack.init ()
     }
 }

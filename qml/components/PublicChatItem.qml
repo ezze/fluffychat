@@ -16,7 +16,7 @@ ListItem {
     onClicked: {
         storage.transaction ( "SELECT * FROM Chats WHERE id='" + matrixid + "'", function (rs) {
             if ( rs.rows.length > 0 ) {
-                mainStack.toChat( matrixid )
+                mainLayout.toChat( matrixid )
             }
             else matrix.joinChat ( matrixid )
         })

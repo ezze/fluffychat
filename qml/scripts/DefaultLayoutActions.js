@@ -1,22 +1,32 @@
 // File: DefaultLayoutActions.js
-// Description: Actions for DefaultLayout.qml
+// Description: Actions for DefaultmainLayout.qml
 
 
-
-function getPath ( page ) {
-    return "../pages/%1Page.qml".arg( page )
-}
-
-
-function toStart ( page ) {
-    while (depth > 1) pop()
-    if ( page ) mainStack.push (Qt.resolvedUrl( page ))
-}
-
-
-function toChat( chatID ) {
+function toChat( chatID, toInvitePage ) {
     if ( activeChat === chatID ) return
-    mainStack.toStart ()
     activeChat = chatID
-    mainStack.push (Qt.resolvedUrl("./pages/ChatPage.qml"))
+    var newChatPage = Qt.resolvedUrl("../pages/ChatPage.qml")
+    mainLayout.addPageToNextColumn ( mainLayout.primaryPage, newChatPage )
+    if ( toInvitePage ) {
+        mainLayout.addPageToNextColumn ( newChatPage, Qt.resolvedUrl("../pages/InvitePage.qml") )
+    }
+}
+
+
+function getPrimaryPage () {
+    if ( settings.token && settings.updateInfosFinished === version ) {
+        return "../pages/ChatListPage.qml"
+    }
+    else if ( settings.walkthroughFinished && settings.updateInfosFinished === version ){
+        return "../pages/LoginPage.qml"
+    }
+    else {
+        return "../pages/WalkthroughPage.qml"
+    }
+}
+
+
+function init () {
+    mainLayout.primaryPageSource = Qt.resolvedUrl(getPrimaryPage ())
+    mainLayout.removePages( mainLayout.primaryPage )
 }

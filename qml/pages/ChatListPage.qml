@@ -183,7 +183,7 @@ Page {
             Action {
                 iconName: "filters"
                 visible: shareObject === null && !searching
-                onTriggered: mainStack.toStart ("./pages/SettingsPage.qml")
+                onTriggered: mainLayout.addPageToNextColumn ( layout.primaryPage, Qt.resolvedUrl("./SettingsPage.qml") )
             },
             Action {
                 iconName: "find"

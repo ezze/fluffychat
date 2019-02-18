@@ -5,6 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Page {
+    id: notificationTargetPage
     anchors.fill: parent
 
     property var currentTarget
@@ -76,6 +77,7 @@ Page {
                 name: i18n.tr("Advanced notification settings")
                 icon: "filters"
                 page: "NotificationSettingsPage"
+                sourcePage: notificationTargetPage
             }
 
             Rectangle {

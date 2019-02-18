@@ -30,7 +30,7 @@ Component {
                 var _mainStack = mainStack
                 var _toast = toast
                 matrix.post( "/client/r0/createRoom", data, function (res) {
-                    if ( res.room_id ) _mainStack.toChat ( res.room_id )
+                    if ( res.room_id ) _mainLayout.toChat ( res.room_id )
                     _toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
                 }, null, 2 )
                 PopupUtils.close(dialogue)

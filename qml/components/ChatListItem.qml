@@ -22,7 +22,7 @@ ListItem {
     function triggered () {
         if ( room.membership !== "leave" ) {
             activeChatTypingUsers = room.typing || []
-            mainStack.toChat ( room.id )
+            mainLayout.toChat ( room.id )
         }
         else matrix.joinChat ( room.id )
         searchField.text = ""
@@ -115,7 +115,7 @@ ListItem {
             text: i18n.tr("Chat settings")
             onTriggered: {
                 activeChat = room.id
-                mainStack.push (Qt.resolvedUrl("../pages/ChatSettingsPage.qml"))
+                mainLayout.addPageToNextColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/ChatSettingsPage.qml") )
             }
         }
         ]

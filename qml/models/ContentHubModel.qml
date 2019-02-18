@@ -57,7 +57,7 @@ Item {
         }
         else if ( uri.slice(0,14) === "fluffychat://!" ) {
             uri = uri.replace("fluffychat://","")
-            mainStack.toChat ( uri )
+            mainLayout.toChat ( uri )
         }
         else if ( uri.slice(0,14) === "fluffychat://+" ) {
             uri = uri.replace("fluffychat://","")
@@ -81,7 +81,7 @@ Item {
     function startImport ( transfer ) {
         console.log("NEW TRANSFER:",JSON.stringify(transfer))
         if ( transfer.contentType === ContentType.Links || transfer.contentType === ContentType.Text ) {
-            mainStack.toStart()
+            mainLayout.removePages( layout.primaryPage )
             shareObject = transfer
         }
         else if ( transfer.contentType === ContentType.Contacts ) {
@@ -127,14 +127,14 @@ Item {
     }
 
     function shareTextIntern ( text ) {
-        mainStack.toStart()
+        mainLayout.removePages( layout.primaryPage )
         shareObject = {
             items: [ contentItemComponent.createObject(contentHub, {"url" : "", "text": text}) ]
         }
     }
 
     function shareFileIntern ( event ) {
-        mainStack.toStart()
+        mainLayout.removePages( layout.primaryPage )
         shareObject = {
             matrixEvent: event
         }
@@ -142,7 +142,7 @@ Item {
 
     function shareLinkIntern ( url ) {
         uri = url
-        mainStack.toStart()
+        mainLayout.removePages( layout.primaryPage )
         shareObject = {
             items: [ contentItemComponent.createObject(contentHub, {"url" : uri, "text": url}) ]
         }

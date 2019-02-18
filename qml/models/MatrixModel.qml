@@ -38,6 +38,8 @@ Item {
     property var initialized: false
     property var abortSync: false
 
+    Component.onCompleted: if ( settings.token ) matrix.init ()
+
 
     // Login and set username, token and server! Needs to be done, before anything else
     function login ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback) {
@@ -158,8 +160,7 @@ Item {
         storage.drop ()
         onlineStatus = false
         resetSettings ()
-        mainStack.clear ()
-        mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
+        mainLayout.init ()
     }
 
 
@@ -169,7 +170,7 @@ Item {
             matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
                 loadingScreen.visible = true
                 matrix.waitForSync()
-                mainStack.toChat( response.room_id )
+                mainLayout.toChat( response.room_id )
             }, null, 2 )
         } )
 
@@ -414,8 +415,7 @@ Item {
             if ( !abortSync && settings.token !== undefined ) {
                 matrix.onlineStatus = false
                 if ( error.errcode === "M_INVALID" ) {
-                    mainStack.clear ()
-                    mainStack.push(Qt.resolvedUrl("../pages/LoginPage.qml"))
+                    mainLayout.init ()
                 }
                 else {
                     if ( online ) restartSync ()

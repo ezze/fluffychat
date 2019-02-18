@@ -6,6 +6,7 @@ import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
 Page {
+    id: chatPrivacySettingsPage
     anchors.fill: parent
 
     property var ownPower
@@ -133,7 +134,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: mainStackWidth
+            width: chatPrivacySettingsPage.width
 
             ListSeperator {
                 text: i18n.tr("Access")
@@ -179,6 +180,7 @@ Page {
                 name: i18n.tr("Public chat addresses")
                 icon: "stock_link"
                 page: "ChatAliasSettingsPage"
+                sourcePage: chatPrivacySettingsPage
             }
 
             ListSeperator {

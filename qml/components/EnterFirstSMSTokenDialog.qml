@@ -28,10 +28,7 @@ Component {
                 text: i18n.tr("Cancel")
                 onClicked: {
                     PopupUtils.close(dialogue)
-                    mainStack.pop()
-                    mainStack.pop()
-                    if ( tabletMode ) mainStack.push(Qt.resolvedUrl("../pages/BlankPage.qml"))
-                    else mainStack.push(Qt.resolvedUrl("../pages/ChatListPage.qml"))
+                    layout.init ()
                 }
             }
             Button {

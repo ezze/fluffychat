@@ -33,18 +33,18 @@ Component {
                 color: UbuntuColors.red
                 onClicked: {
                     var events_local = matrix
-                    var mainStack_local = mainStack
+                    var layout_local = layout
                     PopupUtils.close(dialogue)
-                    if ( mainStack.depth > 1 && membership === "leave" ) {
+                    if ( membership === "leave" ) {
                         storage.transaction ( "DELETE FROM Memberships WHERE chat_id='" + activeChat + "'" )
                         storage.transaction ( "DELETE FROM Events WHERE chat_id='" + activeChat + "'" )
                         storage.transaction ( "DELETE FROM Chats WHERE id='" + activeChat + "'", update )
                         matrix.post("/client/r0/rooms/" + activeChat + "/forget", null)
-                        mainStack.toStart()
+                        mainLayout.removePages( layout.primaryPage )
                     }
                     else matrix.post("/client/r0/rooms/" + activeChat + "/leave", null, function () {
                         events_local.waitForSync ()
-                        mainStack_local.toStart()
+                        layout_local.removePages( layout.primaryPage )
                     })
                 }
             }

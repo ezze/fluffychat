@@ -108,8 +108,7 @@ Page {
                             preset: "private_chat"
                         }, function ( response ) {
                             toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
-                            mainStack.toChat ( response.room_id )
-                            mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
+                            mainLayout.toChat ( response.room_id, true )
                         }, null, 2 )
                     }
                     showConfirmDialog ( i18n.tr("Do you want to create a new group now?"), createNewGroup )
@@ -121,7 +120,7 @@ Page {
                 name: i18n.tr("Public groups")
                 iconWidth: units.gu(4)
                 onClicked: {
-                    mainStack.toStart ("./pages/DiscoverPage.qml")
+                    mainLayout.addPageToNextColumn ( layout.primaryPage, Qt.resolvedUrl("./DiscoverPage.qml") )
                 }
                 anchors.bottom: parent.bottom
             }

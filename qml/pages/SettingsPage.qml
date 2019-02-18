@@ -5,6 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Page {
+    id: settingsPage
     anchors.fill: parent
 
     property var displayname
@@ -51,7 +52,7 @@ Page {
         height: parent.height
         anchors.top: parent.top
         contentItem: Column {
-            width: mainStackWidth
+            width: settingsPage.width
 
             Rectangle {
                 width: parent.width
@@ -212,6 +213,7 @@ Page {
                 name: i18n.tr("Notifications")
                 icon: "notification"
                 page: "NotificationTargetSettingsPage"
+                sourcePage: settingsPage
             }
 
             ListSeperator {
@@ -243,6 +245,7 @@ Page {
                 name: i18n.tr("Archived chats")
                 icon: "inbox-all"
                 page: "ArchivedChatsPage"
+                sourcePage: settingsPage
             }
 
             ListSeperator {
@@ -253,18 +256,21 @@ Page {
                 name: i18n.tr("Connected phone numbers")
                 icon: "phone-symbolic"
                 page: "PhoneSettingsPage"
+                sourcePage: settingsPage
             }
 
             SettingsListLink {
                 name: i18n.tr("Connected email addresses")
                 icon: "email"
                 page: "EmailSettingsPage"
+                sourcePage: settingsPage
             }
 
             SettingsListLink {
                 name: i18n.tr("Devices")
                 icon: "phone-smartphone-symbolic"
                 page: "DevicesSettingsPage"
+                sourcePage: settingsPage
             }
 
             SettingsListItem {
@@ -297,6 +303,7 @@ Page {
                 name: i18n.tr("About FluffyChat")
                 icon: "info"
                 page: "InfoPage"
+                sourcePage: settingsPage
             }
         }
     }

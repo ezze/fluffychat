@@ -36,10 +36,10 @@ Page {
         // Step 2.1: If there is no phone number and the user is not new, then check if user exists:
         else if  ( phoneTextField.displayText === "" ) {
             matrix.get( "/client/r0/register/available", {"username": username.toLowerCase() }, function ( response ) {
-                if ( !response.available ) mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
+                if ( !response.available ) mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("./PasswordInputPage.qml") )
                 else toast.show (i18n.tr("Username '%1' not found on %2").arg(username).arg(loginDomain))
             }, function ( response ) {
-                if ( response.errcode === "M_USER_IN_USE" ) mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
+                if ( response.errcode === "M_USER_IN_USE" ) mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("./PasswordInputPage.qml") )
                 else if ( response.error === "CONNERROR" ) toast.show (i18n.tr("😕 No connection..."))
                 else toast.show ( response.error )
             }, 2)
@@ -63,7 +63,7 @@ Page {
                     var splittedMxid = response.mxid.substr(1).split ( ":" )
                     settings.username = splittedMxid[0]
                     settings.server = splittedMxid[1]
-                    mainStack.push(Qt.resolvedUrl("./PasswordInputPage.qml"))
+                    mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("./PasswordInputPage.qml") )
                 }
                 // Step 3.3.1: There is no registered matrix id. Try to register one...
                 else {
@@ -78,7 +78,7 @@ Page {
 
     function register ( username ) {
         matrix.get( "/client/r0/register/available", {"username": username.toLowerCase() }, function ( response ) {
-            if ( response.available ) mainStack.push(Qt.resolvedUrl("./PasswordCreationPage.qml"))
+            if ( response.available ) mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("./PasswordCreationPage.qml") )
             else toast.show (i18n.tr("Username is already taken"))
         }, function ( response ) {
             if ( response.errcode === "M_USER_IN_USE" ) toast.show (i18n.tr("Username is already taken"))
@@ -111,12 +111,12 @@ Page {
             Action {
                 iconName: "info"
                 text: i18n.tr("About FluffyChat")
-                onTriggered: mainStack.push(Qt.resolvedUrl("./InfoPage.qml"))
+                onTriggered: mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("./InfoPage.qml") )
             },
             Action {
                 iconName: "private-browsing"
                 text: i18n.tr("Privacy Policy")
-                onTriggered: mainStack.push(Qt.resolvedUrl("./PrivacyPolicyPage.qml"))
+                onTriggered: mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("./PrivacyPolicyPage.qml") )
             },
             Action {
                 iconName: "display-brightness-max"

@@ -18,10 +18,9 @@ ListItem {
 
     onClicked: {
         searchField.text = ""
-        mainStack.toStart ()
         activeChat = room.id
         activeChatTypingUsers = room.typing || []
-        mainStack.push (Qt.resolvedUrl("../pages/ChatPage.qml"))
+        mainLayout.toChat (room.id)
         if ( room.notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + room.eventsid, null )
     }
 

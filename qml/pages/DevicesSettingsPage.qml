@@ -5,6 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Page {
+    id: devicesSettingsPage
     anchors.fill: parent
 
     property var currentDevice
@@ -31,7 +32,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: mainStackWidth
+            width: devicesSettingsPage.width
             id: deviceList
 
             Component.onCompleted: getDevices ()

@@ -27,7 +27,7 @@ ListItem {
     divider.visible: false
     highlightColor: "#00000000"
 
-    width: mainStackWidth
+    width: parent.width
     height: (isMediaEvent ? messageBubble.height + units.gu(1) :  // Media event height is calculated by the message bubble height
         messageLabel.height + units.gu(2.75 + !isStateEvent*1.5))   // Text content is calculated by the label height for better performenace
 
@@ -229,7 +229,7 @@ ListItem {
                         MatrixNames.getLinkFromMxc ( event.content.url )) : ""
                         property var onlyOneError: true
                         height: parent.height
-                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
+                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
                         layer.enabled: true
                         layer.effect: OpacityMask {
@@ -244,7 +244,7 @@ ListItem {
                         id: gif
                         source: image.showGif ? MatrixNames.getLinkFromMxc ( event.content.url ) : ""
                         height: parent.height
-                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), mainStackWidth - units.gu(3) - avatar.width)
+                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
                         fillMode: Image.PreserveAspectCrop
                         visible: image.showGif
                         opacity: status === Image.Ready

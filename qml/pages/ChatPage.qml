@@ -19,7 +19,7 @@ Page {
     property var chat_id
     property var topic: ""
 
-    width: mainStack.width
+    anchors.fill: parent
 
     function send ( message ) {
         if ( !messageTextField.displayText.replace(/\s/g, '').length && message === undefined ) return
@@ -308,7 +308,7 @@ Page {
                 iconName: "info"
                 text: i18n.tr("Chat info")
                 visible: membership === "join"
-                onTriggered: mainStack.push(Qt.resolvedUrl("./ChatSettingsPage.qml"))
+                onTriggered: mainLayout.addPageToNextColumn ( chatPage, Qt.resolvedUrl("./ChatSettingsPage.qml") )
             }
             ]
         }
@@ -465,7 +465,7 @@ Page {
                 left: showStickerInput.visible ? showStickerInput.right : parent.left
             }
             property var hasText: false
-            autoSize: height <= mainStackWidth / 2 - header.height - units.gu(2)
+            autoSize: height <= chatPage.width / 2 - header.height - units.gu(2)
             maximumLineCount: 0
             placeholderText: i18n.tr("Type something ...")
             Keys.onReturnPressed: sendButton.trigger ()

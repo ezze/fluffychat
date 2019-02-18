@@ -5,6 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 
 Page {
+    id: notificationSettingsPage
     anchors.fill: parent
 
     function changeRule ( rule_id, enabled, type ) {
@@ -65,7 +66,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: mainStackWidth
+            width: notificationSettingsPage.width
             id: notificationSettingsList
             property var enabled: false
             opacity: enabled ? 1 : 0.5

@@ -5,6 +5,7 @@ import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
 Page {
+    id: infoPage
     anchors.fill: parent
 
     header: FcPageHeader {
@@ -18,7 +19,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: mainStackWidth
+            width: infoPage.width
 
             Image {
                 id: coffeeImage
@@ -53,6 +54,7 @@ Page {
                 name: i18n.tr("Privacy Policy")
                 icon: "private-browsing"
                 page: "PrivacyPolicyPage"
+                sourcePage: infoPage
             }
 
             SettingsListItem {

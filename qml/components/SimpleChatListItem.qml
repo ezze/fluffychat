@@ -17,7 +17,7 @@ ListItem {
     height: layout.height
 
     onClicked: {
-        mainStack.toChat ( room.id )
+        mainLayout.toChat ( room.id )
     }
 
     ListItemLayout {

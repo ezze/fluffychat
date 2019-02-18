@@ -4,6 +4,7 @@ import Ubuntu.Components 1.3
 import "../components"
 
 Page {
+    id: notificationChatSettingsPage
     anchors.fill: parent
 
     property var status: 0
@@ -64,7 +65,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: mainStackWidth
+            width: notificationChatSettingsPage.width
             SettingsListItem {
                 name: i18n.tr("Notify")
                 Icon {

@@ -6,6 +6,7 @@ import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
 Page {
+    id: chatSettingsPage
     anchors.fill: parent
 
     property var membership: "unknown"
@@ -131,18 +132,11 @@ Page {
         else return i18n.tr("Unknown")
     }
 
-    function startChat_callback ( response ) {
-        activeChat = response.room_id
-        if ( mainStack.depth === 1 ) bottomEdge.collapse()
-        else mainStack.pop ()
-        mainStack.push (Qt.resolvedUrl("./ChatPage.qml"))
-    }
-
 
     Component.onCompleted: init ()
 
     Component.onDestruction: {
-        if ( mainStack.depth === 2 ) return
+        if ( true ) return // TODO: Detect if user goes back to chat list page
         chatActive = false
         activeChat = null
     }
@@ -182,7 +176,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: mainStackWidth
+            width: chatSettingsPage.width
 
             Rectangle {
                 width: parent.width
@@ -271,11 +265,13 @@ Page {
                         name: i18n.tr("Notifications")
                         icon: "notification"
                         page: "NotificationChatSettingsPage"
+                        sourcePage: chatSettingsPage
                     }
                     SettingsListLink {
                         name: i18n.tr("Advanced settings")
                         icon: "filters"
                         page: "ChatPrivacySettingsPage"
+                        sourcePage: chatSettingsPage
                     }
                 }
             }
@@ -341,7 +337,7 @@ Page {
                     name: i18n.tr("Invite friends")
                     icon: "contact-new"
                     iconWidth: units.gu(4)
-                    onClicked: mainStack.push (Qt.resolvedUrl("./InvitePage.qml"))
+                    onClicked: mainLayout.addPageToCurrentColumn ( chatSettingsPage, Qt.resolvedUrl("./InvitePage.qml") )
                 }
 
                 Button {

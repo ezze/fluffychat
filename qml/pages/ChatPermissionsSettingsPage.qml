@@ -6,6 +6,7 @@ import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
 Page {
+    id: chatPermissionSettingsPage
     anchors.fill: parent
 
     property var ownPower
@@ -94,7 +95,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: mainStackWidth
+            width: chatPermissionSettingsPage.width
 
             SettingsListItem {
                 id: power_events_default

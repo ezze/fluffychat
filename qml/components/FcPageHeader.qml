@@ -5,14 +5,4 @@ import "../components/"
 
 StyledPageHeader {
     id: header
-
-    leadingActionBar {
-        actions: [
-        Action {
-            visible: mainStack.depth > 1
-            iconName: "go-previous"
-            onTriggered: mainStack.pop()
-        }
-        ]
-    }
 }
