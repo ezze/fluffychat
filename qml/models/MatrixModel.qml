@@ -64,7 +64,7 @@ Item {
             settings.deviceName = newDeviceName
             settings.dbversion = storage.version
             onlineStatus = true
-            init ()
+            matrix.init ()
             if ( callback ) callback ( response )
         }
 

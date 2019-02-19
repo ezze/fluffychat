@@ -10,7 +10,7 @@ ListItem {
     property var sourcePage: mainLayout.primaryPage
     property var iconWidth: units.gu(3)
     height: layout.height
-    onClicked: mainLayout.addPageToCurrentColumn ( sourcePage, Qt.resolvedUrl("../pages/%1.qml".arg(page)) )
+    onClicked: mainLayout.addPageToNextColumn ( sourcePage, Qt.resolvedUrl("../pages/%1.qml".arg(page)) )
 
     ListItemLayout {
         id: layout

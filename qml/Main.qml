@@ -46,6 +46,7 @@ MainView {
     readonly property var version: Qt.application.version
     readonly property var downloadPath: "/home/phablet/.local/share/ubuntu-download-manager/fluffychat.christianpauly/Downloads/"
     readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "HISTORY": 4, "ERROR": -1 }
+    readonly property var defaultPageColumnWidth: units.gu(50)
 
     /* =============================== GLOBAL VARIABLES ===============================
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-18 17:34+0000\n"
+"POT-Creation-Date: 2019-02-19 16:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:130 ../qml/components/ChatEvent.qml:114
+#: ../qml/Main.qml:131 ../qml/components/ChatEvent.qml:114
 msgid "Are you sure?"
 msgstr ""
 
@@ -588,42 +588,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:273 ../qml/components/ArchivedChatListItem.qml:29
+#: ../qml/pages/ChatPage.qml:277 ../qml/components/ArchivedChatListItem.qml:29
 #: ../qml/components/SimpleChatListItem.qml:26
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:303 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:307 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:106
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:309
+#: ../qml/pages/ChatPage.qml:313
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:332
+#: ../qml/pages/ChatPage.qml:336
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:355
+#: ../qml/pages/ChatPage.qml:359
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:425
+#: ../qml/pages/ChatPage.qml:429
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:425
+#: ../qml/pages/ChatPage.qml:429
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:439
+#: ../qml/pages/ChatPage.qml:443
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:470
+#: ../qml/pages/ChatPage.qml:474
 msgid "Type something ..."
 msgstr ""
 

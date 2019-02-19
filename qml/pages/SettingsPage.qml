@@ -52,7 +52,7 @@ Page {
         height: parent.height
         anchors.top: parent.top
         contentItem: Column {
-            width: settingsPage.width
+            width: scrollView.width
 
             Rectangle {
                 width: parent.width
@@ -63,7 +63,7 @@ Page {
             Row {
                 id: profileRow
                 width: parent.width
-                height: parent.width / 2
+                height: Math.min( parent.width / 2, defaultPageColumnWidth/2 )
                 spacing: units.gu(2)
 
                 Component.onCompleted: {
@@ -102,7 +102,7 @@ Page {
                 }
 
                 Column {
-                    width: parent.height - units.gu(3)
+                    width: parent.width - avatarImage.width - parent.spacing
                     anchors.verticalCenter: parent.verticalCenter
                     Label {
                         text: i18n.tr("Username:")
