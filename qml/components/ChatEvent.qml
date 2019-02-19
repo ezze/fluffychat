@@ -28,340 +28,341 @@ ListItem {
     highlightColor: "#00000000"
 
     width: parent.width
-    height: (isMediaEvent ? messageBubble.height + units.gu(1) :  // Media event height is calculated by the message bubble height
-        messageLabel.height + units.gu(2.75 + !isStateEvent*1.5))   // Text content is calculated by the label height for better performenace
+    height: messageBubble.height + units.gu(1)
+    //height: (isMediaEvent ? messageBubble.height + units.gu(1) :  // Media event height is calculated by the message bubble height
+    //messageLabel.height + units.gu(2.75 + !isStateEvent*1.5))   // Text content is calculated by the label height for better performenace
 
-        color: "transparent"
+    color: "transparent"
 
-        onPressAndHold: toast.show ( i18n.tr("Swipe to the left or the right for actions. 😉"))
+    onPressAndHold: toast.show ( i18n.tr("Swipe to the left or the right for actions. 😉"))
 
-        // Notification-settings Button
-        trailingActions: ListItemActions {
-            actions: [
-            Action {
-                text: i18n.tr("Try to send again")
-                iconName: "send"
-                visible: event.status === msg_status.ERROR
-                onTriggered: {
-                    var body = event.content_body
+    // Notification-settings Button
+    trailingActions: ListItemActions {
+        actions: [
+        Action {
+            text: i18n.tr("Try to send again")
+            iconName: "send"
+            visible: event.status === msg_status.ERROR
+            onTriggered: {
+                var body = event.content_body
+                storage.transaction ( "DELETE FROM Events WHERE id='" + event.id + "'")
+                removeEvent ( event.id )
+                chatPage.send ( body )
+            }
+        },
+        Action {
+            text: i18n.tr("Reply")
+            iconName: "mail-reply"
+            visible: !isStateEvent && event.status >= msg_status.SENT && canSendMessages
+            onTriggered: {
+                chatPage.replyEvent = event
+                messageTextField.focus = true
+            }
+        },
+        Action {
+            text: i18n.tr("Copy text")
+            iconName: "edit-copy"
+            visible: !isStateEvent && event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
+            onTriggered: {
+                contentHub.toClipboard ( event.content.body )
+                toast.show( i18n.tr("Text has been copied to the clipboard") )
+            }
+        },
+        Action {
+            text: i18n.tr("Add to sticker collection")
+            iconName: "add"
+            visible: event.type === "m.sticker" || event.content.type === "m.image"
+            onTriggered: {
+                showConfirmDialog ( i18n.tr("Add to sticker collection?"), function () {
+                    storage.query( "INSERT OR IGNORE INTO Media VALUES(?,?,?,?)", [
+                    "image/gif",
+                    event.content.url,
+                    event.content.url,
+                    event.content.url
+                    ], function ( result ) {
+                        if ( result.rowsAffected == 0 ) toast.show (i18n.tr("Already added as sticker"))
+                        else toast.show (i18n.tr("Added as sticker"))
+                    })
+                } )
+            }
+        },
+        Action {
+            text: i18n.tr("Forward")
+            iconName: "toolkit_chevron-ltr_4gu"
+            visible: !isStateEvent //&& event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
+            onTriggered: {
+                if ( !isMediaEvent ) {
+                    contentHub.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( MatrixNames.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
+                }
+                else contentHub.shareFileIntern( event.content )
+            }
+        }
+        ]
+    }
+
+    // Delete Button
+    leadingActions: ListItemActions {
+        actions: [
+        Action {
+            text: i18n.tr("Remove")
+            iconName: "edit-delete"
+            enabled: ((canRedact || sent) && event.status >= msg_status.SENT || event.status === msg_status.ERROR)
+            onTriggered: {
+                if ( event.status === msg_status.ERROR ) {
                     storage.transaction ( "DELETE FROM Events WHERE id='" + event.id + "'")
                     removeEvent ( event.id )
-                    chatPage.send ( body )
                 }
-            },
-            Action {
-                text: i18n.tr("Reply")
-                iconName: "mail-reply"
-                visible: !isStateEvent && event.status >= msg_status.SENT && canSendMessages
-                onTriggered: {
-                    chatPage.replyEvent = event
-                    messageTextField.focus = true
-                }
-            },
-            Action {
-                text: i18n.tr("Copy text")
-                iconName: "edit-copy"
-                visible: !isStateEvent && event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
-                onTriggered: {
-                    contentHub.toClipboard ( event.content.body )
-                    toast.show( i18n.tr("Text has been copied to the clipboard") )
-                }
-            },
-            Action {
-                text: i18n.tr("Add to sticker collection")
-                iconName: "add"
-                visible: event.type === "m.sticker" || event.content.type === "m.image"
-                onTriggered: {
-                    showConfirmDialog ( i18n.tr("Add to sticker collection?"), function () {
-                        storage.query( "INSERT OR IGNORE INTO Media VALUES(?,?,?,?)", [
-                        "image/gif",
-                        event.content.url,
-                        event.content.url,
-                        event.content.url
-                        ], function ( result ) {
-                            if ( result.rowsAffected == 0 ) toast.show (i18n.tr("Already added as sticker"))
-                            else toast.show (i18n.tr("Added as sticker"))
-                        })
-                    } )
-                }
-            },
-            Action {
-                text: i18n.tr("Forward")
-                iconName: "toolkit_chevron-ltr_4gu"
-                visible: !isStateEvent //&& event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
-                onTriggered: {
-                    if ( !isMediaEvent ) {
-                        contentHub.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( MatrixNames.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
-                    }
-                    else contentHub.shareFileIntern( event.content )
-                }
-            }
-            ]
-        }
-
-        // Delete Button
-        leadingActions: ListItemActions {
-            actions: [
-            Action {
-                text: i18n.tr("Remove")
-                iconName: "edit-delete"
-                enabled: ((canRedact || sent) && event.status >= msg_status.SENT || event.status === msg_status.ERROR)
-                onTriggered: {
-                    if ( event.status === msg_status.ERROR ) {
-                        storage.transaction ( "DELETE FROM Events WHERE id='" + event.id + "'")
-                        removeEvent ( event.id )
-                    }
-                    else showConfirmDialog ( i18n.tr("Are you sure?"), function () {
-                        matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
-                        .arg(activeChat)
-                        .arg(event.id)
-                        .arg(new Date().getTime()) )
-                    })
-                }
-            }
-            ]
-        }
-
-
-        // When the width of the "window" changes (rotation for example) then the maxWidth
-        // of the message label must be calculated new. There is currently no "maxwidth"
-        // property in qml.
-        onWidthChanged: {
-            messageLabel.width = undefined
-            var maxWidth = width - avatar.width - units.gu(5)
-            if ( messageLabel.width > maxWidth ) messageLabel.width = maxWidth
-            else messageLabel.width = undefined
-        }
-
-
-        Avatar {
-            id: avatar
-            mxc: opacity ? activeChatMembers[event.sender].avatar_url : ""
-            name: senderDisplayname
-            anchors.left: isLeftSideEvent ? parent.left : undefined
-            anchors.right: !isLeftSideEvent ? parent.right : undefined
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: units.gu(1)
-            anchors.leftMargin: units.gu(1)
-            anchors.rightMargin: units.gu(1)
-            opacity: (sameSender || isStateEvent) ? 0 : 1
-            width: isStateEvent ? units.gu(3) : units.gu(5)
-            onClickFunction: function () {
-                if ( !opacity ) return
-                activeUser = event.sender
-                MatrixNames.showUserSettings ( event.sender )
+                else showConfirmDialog ( i18n.tr("Are you sure?"), function () {
+                    matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
+                    .arg(activeChat)
+                    .arg(event.id)
+                    .arg(new Date().getTime()) )
+                })
             }
         }
+        ]
+    }
 
 
+    // When the width of the "window" changes (rotation for example) then the maxWidth
+    // of the message label must be calculated new. There is currently no "maxwidth"
+    // property in qml.
+    onWidthChanged: {
+        messageLabel.width = undefined
+        var maxWidth = width - avatar.width - units.gu(5)
+        if ( messageLabel.width > maxWidth ) messageLabel.width = maxWidth
+        else messageLabel.width = undefined
+    }
 
 
-        Rectangle {
-            id: messageBubble
-            anchors.left: isLeftSideEvent && !isStateEvent ? avatar.right : undefined
-            anchors.right: !isLeftSideEvent && !isStateEvent ? avatar.left : undefined
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: !imageVisible*units.gu(1)
-            anchors.leftMargin: units.gu(1)
-            anchors.rightMargin: units.gu(1)
-            anchors.horizontalCenter: isStateEvent ? parent.horizontalCenter : undefined
-            border.color: mainBorderColor
-            border.width: isStateEvent
-
-            opacity: isStateEvent ? 0.75 : 1
-            z: 2
-            color: imageVisible ? "#00000000" : bgcolor
-
-            Behavior on color {
-                ColorAnimation { from: settings.brighterMainColor; duration: 300 }
-            }
-
-            radius: units.gu(2)
-            height: contentColumn.height + ( imageVisible ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
-            width: contentColumn.width + ( imageVisible ? -1 : units.gu(2) )
-
-            Rectangle {
-                width: units.gu(2)
-                height: width
-                color: messageBubble.color
-                visible: !isStateEvent && !sameSender
-                anchors.left: !sent ? parent.left : undefined
-                anchors.right: sent ? parent.right : undefined
-                anchors.bottom: parent.bottom
-            }
-
-            Rectangle {
-                id: mask
-                anchors.fill: parent
-                radius: parent.radius
-                visible: false
-            }
-
-            Column {
-                id: contentColumn
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: isStateEvent ? units.gu(0.75) : units.gu(1)
-
-
-                /* ====================IMAGE OR STICKER====================
-                * If the message is an image or a sticker, then show this, following:
-                * http://yuml.me/diagram/plain/activity/(start)-><a>[Gif-Image && autload active]->(Show full MXC), <a>[else]-><b>[Thumbnail exists]->(Show thumbnail), <b>[Thumbnail is null]->(Show "Show Image"-Button)               */
-                Rectangle {
-                    id: image
-                    color: "#00000000"
-                    width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : (showGif && gif.status === Image.Ready ? gif.width : height*(9/16)))
-                    height: visible * (!showButton ? units.gu(30) : showImageButton.height)
-                    visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
-                    property var hasThumbnail: event.content.info && event.content.info.thumbnail_url
-                    property var isGif: visible && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
-                    property var showGif: isGif && settings.autoloadGifs
-                    property var showThumbnail: visible && !showGif && (hasThumbnail || settings.autoloadGifs)
-                    property var showButton: visible && !showGif && !showThumbnail
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: imageViewer.show ( event.content.url )
-                    }
-
-                    Image {
-                        id: thumbnail
-                        source: visible ? (image.hasThumbnail ? MatrixNames.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) :
-                        MatrixNames.getLinkFromMxc ( event.content.url )) : ""
-                        property var onlyOneError: true
-                        height: parent.height
-                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
-                        fillMode: Image.PreserveAspectCrop
-                        layer.enabled: true
-                        layer.effect: OpacityMask {
-                            maskSource: mask
-                        }
-                        visible: image.showThumbnail
-                        opacity: status === Image.Ready
-                        cache: true
-                    }
-
-                    AnimatedImage {
-                        id: gif
-                        source: image.showGif ? MatrixNames.getLinkFromMxc ( event.content.url ) : ""
-                        height: parent.height
-                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
-                        fillMode: Image.PreserveAspectCrop
-                        visible: image.showGif
-                        opacity: status === Image.Ready
-                    }
-
-                    ActivityIndicator {
-                        visible: thumbnail.status === Image.Loading || (image.showGif && !gif.opacity && !image.showButton)
-                        anchors.centerIn: parent
-                        width: units.gu(2)
-                        height: width
-                        running: visible
-                    }
-
-                    Icon {
-                        visible: !image.showButton && (thumbnail.status === Image.Error || gif.status === Image.Error)
-                        anchors.centerIn: parent
-                        width: units.gu(6)
-                        height: width
-                        name: "sync-error"
-                    }
-
-                    Button {
-                        id: showImageButton
-                        text: image.isGif ? i18n.tr("Load gif") : i18n.tr("Show image")
-                        onClicked: image.showGif = true
-                        visible: image.showButton
-                        height: visible ? units.gu(4) : 0
-                        width: visible ? units.gu(26) : 0
-                        anchors.left: parent.left
-                        anchors.leftMargin: units.gu(1)
-                        color: settings.brightMainColor
-                    }
-                }
-
-
-                /*  ====================AUDIO MESSAGE====================
-                */
-                Row {
-                    id: audioPlayer
-                    visible: event.content.msgtype === "m.audio"
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(1)
-                    spacing: units.gu(1)
-                    width: visible ? undefined : 0
-                    height: visible * units.gu(6)
-
-                    Button {
-                        id: playButton
-                        anchors.verticalCenter: parent.verticalCenter
-                        property var playing: false
-                        color: "white"
-                        iconName: playing ? "media-playback-pause" : "media-playback-start"
-                        onClicked: {
-                            if ( audio.source !== MatrixNames.getLinkFromMxc ( event.content.url ) ) {
-                                audio.source = MatrixNames.getLinkFromMxc ( event.content.url )
-                            }
-                            if ( playing ) audio.pause ()
-                            else audio.play ()
-                            playing = !playing
-                        }
-                        width: units.gu(4)
-                    }
-                    Button {
-                        id: stopButton
-                        anchors.verticalCenter: parent.verticalCenter
-                        color: "white"
-                        iconName: "media-playback-stop"
-                        opacity: audio.source === MatrixNames.getLinkFromMxc ( event.content.url ) && audio.position === 0 ? 0.75 : 1
-                        onClicked: {
-                            audio.stop ()
-                            playButton.playing = false
-                        }
-                        width: units.gu(4)
-                    }
-                    Button {
-                        id: downloadAudioButton
-                        anchors.verticalCenter: parent.verticalCenter
-                        color: "white"
-                        iconName: "document-save-as"
-                        onClicked: {
-                            downloadDialog.filename = event.content_body
-                            downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
-                            downloadDialog.shareFunc = contentHub.shareAudio
-                            downloadDialog.current = PopupUtils.open(downloadDialog)
-                        }
-                        width: units.gu(4)
-                    }
-                }
-
-
-                /*  ====================VIDEO MESSAGE====================
-                */
-                /*MouseArea {
-                width: videoLink.width
-                height: videoLink.height
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(1)
-                onClicked: videoPlayer.show ( event.content.url)
-                Rectangle {
-                id: videoLink
-                visible: event.content.msgtype === "m.video"
-                gradient: Gradient {
-                GradientStop { position: 0.0; color: "#000000" }
-                GradientStop { position: 0.5; color: "#303030"}
-                GradientStop { position: 1.0; color: "#101010" }
-            }
-            width: visible * units.gu(32)
-            height: visible * units.gu(18)
-            radius: units.gu(0.5)
-            Icon {
-            name: "media-preview-start"
-            color: UbuntuColors.silk
-            anchors.centerIn: parent
-            width: units.gu(4)
-            height: width
+    Avatar {
+        id: avatar
+        mxc: opacity ? activeChatMembers[event.sender].avatar_url : ""
+        name: senderDisplayname
+        anchors.left: isLeftSideEvent ? parent.left : undefined
+        anchors.right: !isLeftSideEvent ? parent.right : undefined
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: units.gu(1)
+        anchors.leftMargin: units.gu(1)
+        anchors.rightMargin: units.gu(1)
+        opacity: (sameSender || isStateEvent) ? 0 : 1
+        width: isStateEvent ? units.gu(3) : units.gu(5)
+        onClickFunction: function () {
+            if ( !opacity ) return
+            activeUser = event.sender
+            MatrixNames.showUserSettings ( event.sender )
         }
     }
+
+
+
+
+    Rectangle {
+        id: messageBubble
+        anchors.left: isLeftSideEvent && !isStateEvent ? avatar.right : undefined
+        anchors.right: !isLeftSideEvent && !isStateEvent ? avatar.left : undefined
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: !imageVisible*units.gu(1)
+        anchors.leftMargin: units.gu(1)
+        anchors.rightMargin: units.gu(1)
+        anchors.horizontalCenter: isStateEvent ? parent.horizontalCenter : undefined
+        border.color: mainBorderColor
+        border.width: isStateEvent
+
+        opacity: isStateEvent ? 0.75 : 1
+        z: 2
+        color: imageVisible ? "#00000000" : bgcolor
+
+        Behavior on color {
+            ColorAnimation { from: settings.brighterMainColor; duration: 300 }
+        }
+
+        radius: units.gu(2)
+        height: contentColumn.height + ( imageVisible ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
+        width: contentColumn.width + ( imageVisible ? -1 : units.gu(2) )
+
+        Rectangle {
+            width: units.gu(2)
+            height: width
+            color: messageBubble.color
+            visible: !isStateEvent && !sameSender
+            anchors.left: !sent ? parent.left : undefined
+            anchors.right: sent ? parent.right : undefined
+            anchors.bottom: parent.bottom
+        }
+
+        Rectangle {
+            id: mask
+            anchors.fill: parent
+            radius: parent.radius
+            visible: false
+        }
+
+        Column {
+            id: contentColumn
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: isStateEvent ? units.gu(0.75) : units.gu(1)
+
+
+            /* ====================IMAGE OR STICKER====================
+            * If the message is an image or a sticker, then show this, following:
+            * http://yuml.me/diagram/plain/activity/(start)-><a>[Gif-Image && autload active]->(Show full MXC), <a>[else]-><b>[Thumbnail exists]->(Show thumbnail), <b>[Thumbnail is null]->(Show "Show Image"-Button)               */
+            Rectangle {
+                id: image
+                color: "#00000000"
+                width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : (showGif && gif.status === Image.Ready ? gif.width : height*(9/16)))
+                height: (!showButton ? units.gu(30) : showImageButton.height)
+                visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
+                property var hasThumbnail: event.content.info && event.content.info.thumbnail_url
+                property var isGif: visible && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
+                property var showGif: isGif && settings.autoloadGifs
+                property var showThumbnail: visible && !showGif && (hasThumbnail || settings.autoloadGifs)
+                property var showButton: visible && !showGif && !showThumbnail
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: imageViewer.show ( event.content.url )
+                }
+
+                Image {
+                    id: thumbnail
+                    source: visible ? (image.hasThumbnail ? MatrixNames.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) :
+                    MatrixNames.getLinkFromMxc ( event.content.url )) : ""
+                    property var onlyOneError: true
+                    height: parent.height
+                    width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
+                    fillMode: Image.PreserveAspectCrop
+                    layer.enabled: true
+                    layer.effect: OpacityMask {
+                        maskSource: mask
+                    }
+                    visible: image.showThumbnail
+                    opacity: status === Image.Ready
+                    cache: true
+                }
+
+                AnimatedImage {
+                    id: gif
+                    source: image.showGif ? MatrixNames.getLinkFromMxc ( event.content.url ) : ""
+                    height: parent.height
+                    width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
+                    fillMode: Image.PreserveAspectCrop
+                    visible: image.showGif
+                    opacity: status === Image.Ready
+                }
+
+                ActivityIndicator {
+                    visible: thumbnail.status === Image.Loading || (image.showGif && !gif.opacity && !image.showButton)
+                    anchors.centerIn: parent
+                    width: units.gu(2)
+                    height: width
+                    running: visible
+                }
+
+                Icon {
+                    visible: !image.showButton && (thumbnail.status === Image.Error || gif.status === Image.Error)
+                    anchors.centerIn: parent
+                    width: units.gu(6)
+                    height: width
+                    name: "sync-error"
+                }
+
+                Button {
+                    id: showImageButton
+                    text: image.isGif ? i18n.tr("Load gif") : i18n.tr("Show image")
+                    onClicked: image.showGif = true
+                    visible: image.showButton
+                    height: visible ? units.gu(4) : 0
+                    width: visible ? units.gu(26) : 0
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(1)
+                    color: settings.brightMainColor
+                }
+            }
+
+
+            /*  ====================AUDIO MESSAGE====================
+            */
+            Row {
+                id: audioPlayer
+                visible: event.content.msgtype === "m.audio"
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(1)
+                spacing: units.gu(1)
+                width: visible ? undefined : 0
+                height: visible * units.gu(6)
+
+                Button {
+                    id: playButton
+                    anchors.verticalCenter: parent.verticalCenter
+                    property var playing: false
+                    color: "white"
+                    iconName: playing ? "media-playback-pause" : "media-playback-start"
+                    onClicked: {
+                        if ( audio.source !== MatrixNames.getLinkFromMxc ( event.content.url ) ) {
+                            audio.source = MatrixNames.getLinkFromMxc ( event.content.url )
+                        }
+                        if ( playing ) audio.pause ()
+                        else audio.play ()
+                        playing = !playing
+                    }
+                    width: units.gu(4)
+                }
+                Button {
+                    id: stopButton
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: "white"
+                    iconName: "media-playback-stop"
+                    opacity: audio.source === MatrixNames.getLinkFromMxc ( event.content.url ) && audio.position === 0 ? 0.75 : 1
+                    onClicked: {
+                        audio.stop ()
+                        playButton.playing = false
+                    }
+                    width: units.gu(4)
+                }
+                Button {
+                    id: downloadAudioButton
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: "white"
+                    iconName: "document-save-as"
+                    onClicked: {
+                        downloadDialog.filename = event.content_body
+                        downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
+                        downloadDialog.shareFunc = contentHub.shareAudio
+                        downloadDialog.current = PopupUtils.open(downloadDialog)
+                    }
+                    width: units.gu(4)
+                }
+            }
+
+
+            /*  ====================VIDEO MESSAGE====================
+            */
+            /*MouseArea {
+            width: videoLink.width
+            height: videoLink.height
+            anchors.left: parent.left
+            anchors.leftMargin: units.gu(1)
+            onClicked: videoPlayer.show ( event.content.url)
+            Rectangle {
+            id: videoLink
+            visible: event.content.msgtype === "m.video"
+            gradient: Gradient {
+            GradientStop { position: 0.0; color: "#000000" }
+            GradientStop { position: 0.5; color: "#303030"}
+            GradientStop { position: 1.0; color: "#101010" }
+        }
+        width: visible * units.gu(32)
+        height: visible * units.gu(18)
+        radius: units.gu(0.5)
+        Icon {
+        name: "media-preview-start"
+        color: UbuntuColors.silk
+        anchors.centerIn: parent
+        width: units.gu(4)
+        height: width
+    }
+}
 }*/
 
 
