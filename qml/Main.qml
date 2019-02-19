@@ -108,6 +108,7 @@ MainView {
     LoadingModal { id: loadingModal }
     Audio { id: audio }
     ConfirmDialog { id: confirmDialog }
+    UserSettingsDialog { id: userSettingsDialog }
     DownloadDialog {
         id: downloadDialog
         property var current: null

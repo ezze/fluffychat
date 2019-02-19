@@ -44,8 +44,7 @@ function powerlevelToStatus ( power_level ) {
 
 function showUserSettings ( matrix_id ) {
     activeUser = matrix_id
-    var item = Qt.createComponent("../components/UserSettingsViewer.qml")
-    item.createObject( root, { })
+    PopupUtils.open( userSettingsDialog )
 }
 
 function showCommunity ( matrix_id ) {
