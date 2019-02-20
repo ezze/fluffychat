@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-19 16:49+0000\n"
+"POT-Creation-Date: 2019-02-20 14:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:131 ../qml/components/ChatEvent.qml:114
+#: ../qml/Main.qml:132 ../qml/components/ChatEvent.qml:115
 msgid "Are you sure?"
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Info about FluffyChat %1 on %2"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:34 ../qml/pages/WalkthroughPage.qml:233
+#: ../qml/pages/InfoPage.qml:34 ../qml/pages/WalkthroughPage.qml:246
 msgid "Become a patron"
 msgstr ""
 
@@ -118,42 +118,42 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:51
+#: ../qml/pages/WalkthroughPage.qml:64
 msgid "Welcome to FluffyChat"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:65
+#: ../qml/pages/WalkthroughPage.qml:78
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or an unique username to find friends."
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:102
+#: ../qml/pages/WalkthroughPage.qml:115
 msgid "Join the Matrix"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:116
+#: ../qml/pages/WalkthroughPage.qml:129
 msgid ""
 "FluffyChat is compatible with other messengers like Riot, Fractal or "
 "uMatriks. You can also join IRC channels, participate in XMPP chats and "
 "bridge Telegram groups."
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:153
+#: ../qml/pages/WalkthroughPage.qml:166
 msgid "What's new in version %1?"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:167
+#: ../qml/pages/WalkthroughPage.qml:180
 msgid ""
 "New public chat discover page. Better UX when starting a new chat. A lot of "
 "bug fixes and stability improvements"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:205
+#: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:218
+#: ../qml/pages/WalkthroughPage.qml:231
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers are all "
 "funded by the community."
@@ -164,7 +164,7 @@ msgid "Username '%1' not found on %2"
 msgstr ""
 
 #: ../qml/pages/LoginPage.qml:44 ../qml/pages/LoginPage.qml:86
-#: ../qml/models/MatrixModel.qml:323
+#: ../qml/models/MatrixModel.qml:326
 msgid "😕 No connection..."
 msgstr ""
 
@@ -399,6 +399,7 @@ msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:110
 #: ../qml/components/UserSettingsViewer.qml:133
+#: ../qml/components/UserSettingsDialog.qml:137
 #: ../qml/components/AddContactDialog.qml:33
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
@@ -594,7 +595,7 @@ msgid "Unknown chat"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:307 ../qml/components/RemoveDeviceDialog.qml:47
-#: ../qml/components/ChatEvent.qml:106
+#: ../qml/components/ChatEvent.qml:107
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
@@ -667,27 +668,27 @@ msgstr ""
 msgid "No chats found"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:127
+#: ../qml/pages/ChatSettingsPage.qml:126
 msgid "Member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:128
+#: ../qml/pages/ChatSettingsPage.qml:127
 msgid "Was invited"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:129
+#: ../qml/pages/ChatSettingsPage.qml:128
 msgid "Has left the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:130
+#: ../qml/pages/ChatSettingsPage.qml:129
 msgid "Has knocked"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:131
+#: ../qml/pages/ChatSettingsPage.qml:130
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:132
+#: ../qml/pages/ChatSettingsPage.qml:131
 msgid "Unknown"
 msgstr ""
 
@@ -780,19 +781,19 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:168
+#: ../qml/models/MatrixModel.qml:171
 msgid "Do you want to join this chat?"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:207
+#: ../qml/models/MatrixModel.qml:210
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:422
+#: ../qml/models/MatrixModel.qml:425
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:480
+#: ../qml/models/MatrixModel.qml:483
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -819,7 +820,7 @@ msgstr ""
 msgid "Invite %1 to this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:47 ../qml/components/ChatEvent.qml:36
+#: ../qml/components/MemberListItem.qml:47 ../qml/components/ChatEvent.qml:37
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
@@ -905,6 +906,7 @@ msgstr ""
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/ColorDialog.qml:38
 #: ../qml/components/ChangePowerLevelDialog.qml:64
+#: ../qml/components/UserSettingsDialog.qml:82
 #: ../qml/components/ChangeChatAvatarDialog.qml:65
 msgid "Close"
 msgstr ""
@@ -1000,51 +1002,51 @@ msgstr ""
 msgid "Remove this email address?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:42
+#: ../qml/components/ChatEvent.qml:43
 msgid "Try to send again"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:53
+#: ../qml/components/ChatEvent.qml:54
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:62
+#: ../qml/components/ChatEvent.qml:63
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:67
+#: ../qml/components/ChatEvent.qml:68
 msgid "Text has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:71
+#: ../qml/components/ChatEvent.qml:72
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:75
+#: ../qml/components/ChatEvent.qml:76
 msgid "Add to sticker collection?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:82
+#: ../qml/components/ChatEvent.qml:83
 msgid "Already added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:83
+#: ../qml/components/ChatEvent.qml:84
 msgid "Added as sticker"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:89
+#: ../qml/components/ChatEvent.qml:90
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:271
+#: ../qml/components/ChatEvent.qml:272
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:271
+#: ../qml/components/ChatEvent.qml:272
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:373
+#: ../qml/components/ChatEvent.qml:374
 msgid "Download: "
 msgstr ""
 
@@ -1182,11 +1184,13 @@ msgid "Delete sticker"
 msgstr ""
 
 #: ../qml/components/UsernameListItem.qml:12
+#: ../qml/components/UserSettingsDialog.qml:50
 msgid "Full username:"
 msgstr ""
 
 #: ../qml/components/UsernameListItem.qml:31
 #: ../qml/components/UserSettingsViewer.qml:39
+#: ../qml/components/UserSettingsDialog.qml:74
 msgid "Username has been copied to the clipboard"
 msgstr ""
 
@@ -1221,19 +1225,28 @@ msgid "Canonical alias"
 msgstr ""
 
 #: ../qml/components/UserSettingsViewer.qml:109
+#: ../qml/components/UserSettingsDialog.qml:102
 msgid "Chats with this user:"
 msgstr ""
 
 #: ../qml/components/UserSettingsViewer.qml:109
+#: ../qml/components/UserSettingsDialog.qml:102
 msgid "You are that!"
 msgstr ""
 
 #: ../qml/components/UserSettingsViewer.qml:139
+#: ../qml/components/UserSettingsDialog.qml:143
 msgid "Start new chat"
 msgstr ""
 
-#: ../qml/components/Walkthrough.qml:120
-msgid "Skip"
+#: ../qml/components/UserSettingsDialog.qml:23
+#: ../qml/components/ProfileRow.qml:79
+msgid "Currently active"
+msgstr ""
+
+#: ../qml/components/UserSettingsDialog.qml:24
+#: ../qml/components/ProfileRow.qml:79
+msgid "Last seen: %1"
 msgstr ""
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11
@@ -1310,14 +1323,6 @@ msgstr ""
 msgid "Offline"
 msgstr ""
 
-#: ../qml/components/ProfileRow.qml:79
-msgid "Currently active"
-msgstr ""
-
-#: ../qml/components/ProfileRow.qml:79
-msgid "Last seen: %1"
-msgstr ""
-
 #: ../qml/scripts/MatrixNames.js:29
 msgid "✏ is typing…"
 msgstr ""
@@ -1334,12 +1339,12 @@ msgstr ""
 msgid "Owners"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:62
+#: ../qml/scripts/MatrixNames.js:61
 msgid "%1 is not a valid username"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:86 ../qml/scripts/MatrixNames.js:99
-#: ../qml/scripts/MatrixNames.js:106
+#: ../qml/scripts/MatrixNames.js:85 ../qml/scripts/MatrixNames.js:98
+#: ../qml/scripts/MatrixNames.js:105
 msgid "Empty chat"
 msgstr ""
 

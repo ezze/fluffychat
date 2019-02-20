@@ -17,6 +17,9 @@ Item {
     // The online status (bool)
     property var onlineStatus: false
 
+    // Is the user logged or does he still need to login or register?
+    property bool isLogged: settings.token !== null
+
     // The list of the current active requests, to prevent multiple same requests
     property var activeRequests: []
 

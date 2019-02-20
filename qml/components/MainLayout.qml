@@ -30,7 +30,7 @@ AdaptivePageLayout {
         }
     },
     PageColumnsLayout {
-        when: width >= 2*defaultPageColumnWidth
+        when: width >= 2*defaultPageColumnWidth && matrix.isLogged
         // column #0
         PageColumn {
             minimumWidth: 0.5*defaultPageColumnWidth
