@@ -88,6 +88,7 @@ Page {
         }, 2)
     }
 
+    Component.onCompleted: if ( settings.darkmode ) settings.darkmode = false
 
     header: FcPageHeader {
         title: i18n.tr('Homeserver %1').arg( (loginDomain || defaultDomain) )
@@ -118,11 +119,6 @@ Page {
                 iconName: "private-browsing"
                 text: i18n.tr("Privacy Policy")
                 onTriggered: mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("./PrivacyPolicyPage.qml") )
-            },
-            Action {
-                iconName: "display-brightness-max"
-                text: i18n.tr("Toggle dark mode")
-                onTriggered: settings.darkmode = !settings.darkmode
             }
             ]
         }
@@ -198,9 +194,11 @@ Page {
                 id: banner
                 source: "../../assets/fluffychat-banner.png"
                 color: settings.mainColor
-                width: loginPage.width
-                height: width * 2/5
+                width: height * 5/2
+                height: Math.max( (loginPage.height - header.height)/2 - 4 * loginTextField.height - units.gu(4), (elemWidth+units.gu(4))*2/5 )
+                anchors.horizontalCenter: parent.horizontalCenter
             }
+
             Row {
                 anchors.horizontalCenter: parent.horizontalCenter
                 Button {
@@ -222,7 +220,7 @@ Page {
             TextField {
                 anchors.horizontalCenter: parent.horizontalCenter
                 id: loginTextField
-                placeholderText: i18n.tr("Username")
+                placeholderText: i18n.tr("Username or Matrix ID")
                 Keys.onReturnPressed: login()
                 width: elemWidth
                 onDisplayTextChanged: {
@@ -237,7 +235,7 @@ Page {
                 id: spacerRect
                 width: parent.width
                 color: theme.palette.normal.background
-                height: Math.max(scrollView.height - banner.height - 2 * loginTextField.height - (newHere.visible * (newHere.height + units.gu(3))) - signInButton.height - units.gu(10), 0)
+                height: Math.max(scrollView.height - banner.height - 2 * loginTextField.height - (newHere.visible * (newHere.height + units.gu(2))) - signInButton.height - units.gu(10), 0)
             }
 
             Row {

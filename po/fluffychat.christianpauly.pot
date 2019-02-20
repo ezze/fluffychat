@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 14:44+0000\n"
+"POT-Creation-Date: 2019-02-20 15:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Join the community"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:54 ../qml/pages/LoginPage.qml:119
+#: ../qml/pages/InfoPage.qml:54 ../qml/pages/LoginPage.qml:120
 #: ../qml/pages/PrivacyPolicyPage.qml:11
 msgid "Privacy Policy"
 msgstr ""
@@ -104,17 +104,18 @@ msgstr ""
 msgid "Registration on %1 failed..."
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:85
+#: ../qml/pages/PasswordCreationPage.qml:89
 msgid ""
-"To reset your password, you will need to provide an e-mail address later"
+"Please set a strong password. To reset your password, you will need to "
+"provide an e-mail address later"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:104
+#: ../qml/pages/PasswordCreationPage.qml:105
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:128 ../qml/pages/LoginPage.qml:274
+#: ../qml/pages/PasswordCreationPage.qml:129 ../qml/pages/LoginPage.qml:272
 msgid "Sign up"
 msgstr ""
 
@@ -172,51 +173,47 @@ msgstr ""
 msgid "Username is already taken"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:93
+#: ../qml/pages/LoginPage.qml:94
 msgid "Homeserver %1"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:101
+#: ../qml/pages/LoginPage.qml:102
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:109
+#: ../qml/pages/LoginPage.qml:110
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:114 ../qml/pages/SettingsPage.qml:303
+#: ../qml/pages/LoginPage.qml:115 ../qml/pages/SettingsPage.qml:303
 msgid "About FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:124
-msgid "Toggle dark mode"
-msgstr ""
-
-#: ../qml/pages/LoginPage.qml:134
+#: ../qml/pages/LoginPage.qml:130
 msgid "FAQ"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:145
+#: ../qml/pages/LoginPage.qml:141
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:167
+#: ../qml/pages/LoginPage.qml:163
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:216
+#: ../qml/pages/LoginPage.qml:214
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:225
-msgid "Username"
+#: ../qml/pages/LoginPage.qml:223
+msgid "Username or Matrix ID"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:268
+#: ../qml/pages/LoginPage.qml:266
 msgid "Create a new account"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:274 ../qml/pages/PasswordInputPage.qml:87
+#: ../qml/pages/LoginPage.qml:272 ../qml/pages/PasswordInputPage.qml:92
 msgid "Sign in"
 msgstr ""
 
@@ -516,11 +513,11 @@ msgstr ""
 msgid "Enter your password"
 msgstr ""
 
-#: ../qml/pages/PasswordInputPage.qml:62
+#: ../qml/pages/PasswordInputPage.qml:67
 msgid "Please enter your password for: <b>%1</b>"
 msgstr ""
 
-#: ../qml/pages/PasswordInputPage.qml:71
+#: ../qml/pages/PasswordInputPage.qml:76
 msgid "Password..."
 msgstr ""
 

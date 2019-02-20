@@ -48,14 +48,19 @@ Page {
             width: passwordInputPage.width
             spacing: units.gu(2)
 
-            Icon {
-                id: banner
-                name: "user-admin"
-                color: settings.mainColor
-                width: passwordInputPage.width * 2/5
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
+            Rectangle {
+                id: bannerRect
+                width: parent.width
+                height: (passwordInputPage.height - header.height)/2 - (3 * passwordInput.height) - units.gu(4)
+                Icon {
+                    id: banner
+                    name: "user-admin"
+                    anchors.centerIn: parent
+                    width: units.gu(6)
+                    height: width
+                }
             }
+
 
             Label {
                 id: loginStatus
@@ -79,7 +84,7 @@ Page {
             Rectangle {
                 width: parent.width
                 color: theme.palette.normal.background
-                height: Math.max(scrollView.height - banner.height - loginStatus.height - passwordInput.height - signInButton.height - units.gu(9),0)
+                height: Math.max(scrollView.height - bannerRect.height - loginStatus.height - passwordInput.height - signInButton.height - units.gu(9),0)
             }
 
             Button {
