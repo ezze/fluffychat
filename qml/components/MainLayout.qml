@@ -9,9 +9,11 @@ AdaptivePageLayout {
     id: mainLayout
     anchors.fill: parent
 
+    property bool allowThreeColumns: false
+
     layouts: [
     PageColumnsLayout {
-        when: width >= 3*defaultPageColumnWidth && chatActive
+        when: width >= 3*defaultPageColumnWidth && matrix.isLogged && allowThreeColumns
         // column #0
         PageColumn {
             minimumWidth: 0.5*defaultPageColumnWidth

@@ -147,44 +147,44 @@ Page {
 
 
     Component.onCompleted: {
-        storage.transaction ( "SELECT draft, topic, membership, unread, fully_read, notification_count, power_events_default, power_redact FROM Chats WHERE id='" + activeChat + "'", function (res) {
-            if ( res.rows.length === 0 ) return
-            var room = res.rows[0]
-            membership = room.membership
-            if ( room.draft !== "" && room.draft !== null ) messageTextField.text = room.draft
-            storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
-            "matrix_id='" + settings.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
-                var power_level = 0
-                if ( rs.rows.length > 0 ) power_level = rs.rows[0].power_level
-                chatScrollView.canRedact = power_level >= room.power_redact
-                canSendMessages = power_level >= room.power_events_default
-            })
-            chatScrollView.init ()
-            chatActive = true
-            chat_id = activeChat
-            topic = room.topic
 
-            // Is there an unread marker? Then mark as read!
-            var lastEvent = chatScrollView.model.get(0).event
-            if ( room.unread < lastEvent.origin_server_ts && lastEvent.sender !== settings.matrixid ) {
-                matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
-            }
-
-            // Scroll top to the last seen message?
-            if ( room.fully_read !== lastEvent.id ) {
-                // Check if the last event is in the database
-                var found = false
-                for ( var j = 0; j < chatScrollView.count; j++ ) {
-                    if ( chatScrollView.get(j).event.id === room.fully_read ) {
-                        chatScrollView.currentIndex = j
-                        matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": lastEvent.id }, null, null, 0 )
-                        found = true
-                        break
-                    }
-                }
-                if ( !found ) chatScrollView.requestHistory ( room.fully_read )
-            }
+        var res = storage.query ( "SELECT draft, topic, membership, unread, fully_read, notification_count, power_events_default, power_redact FROM Chats WHERE id=?", [ activeChat ])
+        if ( res.rows.length === 0 ) return
+        var room = res.rows[0]
+        membership = room.membership
+        if ( room.draft !== "" && room.draft !== null ) messageTextField.text = room.draft
+        storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
+        "matrix_id='" + settings.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
+            var power_level = 0
+            if ( rs.rows.length > 0 ) power_level = rs.rows[0].power_level
+            chatScrollView.canRedact = power_level >= room.power_redact
+            canSendMessages = power_level >= room.power_events_default
         })
+        chatScrollView.init ()
+        chatActive = true
+        chat_id = activeChat
+        topic = room.topic
+
+        // Is there an unread marker? Then mark as read!
+        var lastEvent = chatScrollView.model.get(0).event
+        if ( room.unread < lastEvent.origin_server_ts && lastEvent.sender !== settings.matrixid ) {
+            matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
+        }
+
+        // Scroll top to the last seen message?
+        if ( room.fully_read !== lastEvent.id ) {
+            // Check if the last event is in the database
+            var found = false
+            for ( var j = 0; j < chatScrollView.count; j++ ) {
+                if ( chatScrollView.get(j).event.id === room.fully_read ) {
+                    chatScrollView.currentIndex = j
+                    matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": lastEvent.id }, null, null, 0 )
+                    found = true
+                    break
+                }
+            }
+            if ( !found ) chatScrollView.requestHistory ( room.fully_read )
+        }
 
 
         // Is there something to share? Then now share it!
@@ -305,9 +305,10 @@ Page {
                 onTriggered: PopupUtils.open ( leaveChatDialog )
             },
             Action {
+                id: showSettingsPage
                 iconName: "info"
                 text: i18n.tr("Chat info")
-                visible: membership === "join"
+                visible: membership === "join" && mainLayout.columns < 2
                 onTriggered: mainLayout.addPageToNextColumn ( chatPage, Qt.resolvedUrl("./ChatSettingsPage.qml") )
             }
             ]
@@ -317,12 +318,13 @@ Page {
     LeaveChatDialog { id: leaveChatDialog }
 
     Icon {
+        property var resolution: ( 1052 / 744 )
         visible: settings.chatBackground === undefined
         source: "../../assets/chat.svg"
         color: settings.mainColor
         anchors.centerIn: parent
-        width: parent.width
-        height: width * ( 1052 / 744 )
+        width: Math.min ( parent.width, parent.height / resolution  )
+        height: width * resolution
         opacity: 0.1
         z: 0
     }

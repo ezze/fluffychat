@@ -5,16 +5,17 @@
 function toChat( chatID, toInvitePage ) {
     if ( activeChat === chatID ) return
     activeChat = chatID
-    var newChatPage = Qt.resolvedUrl("../pages/ChatPage.qml")
-    mainLayout.addPageToNextColumn ( mainLayout.primaryPage, newChatPage )
     if ( toInvitePage ) {
-        mainLayout.addPageToNextColumn ( newChatPage, Qt.resolvedUrl("../pages/InvitePage.qml") )
+        mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/InvitePage.qml"))
+    }
+    else {
+        mainLayout.addPageToNextColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/ChatPage.qml"))
     }
 }
 
 
 function getPrimaryPage () {
-    if ( settings.token && settings.updateInfosFinished === version ) {
+    if ( matrix.isLogged && settings.updateInfosFinished === version ) {
         return "../pages/ChatListPage.qml"
     }
     else if ( settings.walkthroughFinished && settings.updateInfosFinished === version ){

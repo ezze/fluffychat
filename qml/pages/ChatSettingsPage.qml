@@ -22,12 +22,12 @@ Page {
 
     // User permission
     property var power: 0
-    property var canChangeName: false
-    property var canKick: false
-    property var canBan: false
-    property var canInvite: true
-    property var canChangePermissions: false
-    property var canChangeAvatar: false
+    property bool canChangeName: false
+    property bool canKick: false
+    property bool canBan: false
+    property bool canInvite: true
+    property bool canChangePermissions: false
+    property bool canChangeAvatar: false
 
     property var memberCount: 0
 
@@ -43,6 +43,7 @@ Page {
     }
 
     function init () {
+        mainLayout.allowThreeColumns = true
 
         // Get the member status of the user himself
         storage.transaction ( "SELECT description, avatar_url, membership, power_event_name, power_kick, power_ban, power_invite, power_event_power_levels, power_event_avatar FROM Chats WHERE id='" + activeChat + "'", function (res) {
@@ -59,7 +60,6 @@ Page {
                 canInvite = power >= res.rows[0].power_invite
                 canChangeAvatar = power >= res.rows[0].power_event_avatar
                 canChangePermissions = power >= res.rows[0].power_event_power_levels
-                console.log("POWER:", power, "canChangeAvatar:", res.rows[0].power_event_avatar, JSON.stringify(res.rows[0]))
             })
         })
 
@@ -136,6 +136,7 @@ Page {
     Component.onCompleted: init ()
 
     Component.onDestruction: {
+        mainLayout.allowThreeColumns = false
         if ( true ) return // TODO: Detect if user goes back to chat list page
         chatActive = false
         activeChat = null
@@ -154,13 +155,14 @@ Page {
         trailingActionBar {
             actions: [
             Action {
-                visible: canChangeAvatar && !profileRow.visible
+                // TODO: Why is the app crashing if visible is set?
+                //visible: canChangeAvatar && !profileRow.visible
                 iconName: "camera-app-symbolic"
                 text: i18n.tr("Edit chat picture")
                 onTriggered: PopupUtils.open(changeChatAvatarDialog)
             },
             Action {
-                visible: canChangeName
+                //visible: canChangeName
                 iconName: "edit"
                 text: i18n.tr("Edit chat name")
                 onTriggered: PopupUtils.open(changeChatnameDialog)

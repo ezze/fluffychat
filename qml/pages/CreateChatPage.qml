@@ -120,7 +120,8 @@ Page {
                 name: i18n.tr("Public groups")
                 iconWidth: units.gu(4)
                 onClicked: {
-                    mainLayout.addPageToNextColumn ( layout.primaryPage, Qt.resolvedUrl("./DiscoverPage.qml") )
+                    bottomEdge.collapse ()
+                    mainLayout.addPageToCurrentColumn ( layout.primaryPage, Qt.resolvedUrl("./DiscoverPage.qml") )
                 }
                 anchors.bottom: parent.bottom
             }

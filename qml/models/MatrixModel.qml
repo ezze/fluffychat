@@ -1,7 +1,7 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
-//import Ubuntu.Connectivity 1.0
+import Ubuntu.Connectivity 1.0
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
 
@@ -23,7 +23,7 @@ Item {
     // The list of the current active requests, to prevent multiple same requests
     property var activeRequests: []
 
-    property var online: true//Connectivity ? Connectivity.online : true
+    property var online: Connectivity ? Connectivity.online : true
     onOnlineChanged: if ( online ) restartSync ()
 
     /* The newEvent signal is the most importent signal in this concept. Every time

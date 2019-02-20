@@ -15,7 +15,8 @@ ListItem {
     visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
 
-    color: settings.darkmode ? "#202020" : "white"
+    color: activeChat === room.id ? highlightColor :
+    (settings.darkmode ? "#202020" : "white")
 
     highlightColor: settings.darkmode ? settings.mainColor : settings.brighterMainColor
 
@@ -113,6 +114,7 @@ ListItem {
         actions: [
         Action {
             iconName: "info"
+            visible: mainLayout.columns < 2
             text: i18n.tr("Chat settings")
             onTriggered: {
                 activeChat = room.id

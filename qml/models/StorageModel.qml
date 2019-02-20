@@ -41,12 +41,14 @@ Item {
 
     function query ( query, insert, callback ) {
         try {
+            var rs = {}
             db.transaction(
                 function(tx) {
-                    var rs = tx.executeSql( query, insert )
+                    rs = tx.executeSql( query, insert )
                     if ( callback ) callback ( rs )
                 }
             )
+            return rs
         }
         catch (e) {
             if ( e.code && e.code === 2 ) {
