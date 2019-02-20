@@ -53,6 +53,7 @@ ListItem {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
             name: layout.title.text
+            width: units.gu(7)
             mxc: room.avatar_url !== "" && room.avatar_url !== null && room.avatar_url !== undefined ? room.avatar_url : MatrixNames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
                 avatar.mxc = avatar_url
             } )
