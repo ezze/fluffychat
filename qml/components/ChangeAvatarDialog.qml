@@ -27,7 +27,7 @@ Component {
             }
             WebView {
                 id: uploader
-                url: "../components/ChangeUserAvatar.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&matrixID=" + encodeURIComponent(settings.matrixid)
+                url: "../components/ChangeUserAvatar.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(settings.server) + "&matrixID=" + encodeURIComponent(settings.matrixid)
                 width: units.gu(6)
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter

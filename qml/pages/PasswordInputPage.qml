@@ -17,7 +17,7 @@ Page {
         var success_callback = function ( response ) {
             signInButton.enabled = true
             // Go to the ChatListPage
-            root.init()
+            mainLayout.init()
         }
 
         // If error

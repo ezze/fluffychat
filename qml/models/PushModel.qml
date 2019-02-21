@@ -11,7 +11,7 @@ PushClient {
     property var deviceName: "FluffyChat %1 on Ubuntu Touch".arg(version)
 
     onTokenChanged: {
-        if ( !settings.token ) return
+        if ( !matrix.token ) return
         // Set the pusher if it is not set
         updatePusher ()
     }

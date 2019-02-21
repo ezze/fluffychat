@@ -64,7 +64,7 @@ MainView {
     property var waitingForSync: false
     property var appstatus: 4
     property var pushtoken: pushclient.token
-    property var tabletMode: settings.token !== undefined && width > units.gu(90)
+    property var tabletMode: matrix.token !== undefined && width > units.gu(90)
     property var prevMode: false
     property var desiredPhoneNumber: null
     property var desiredUsername: null
@@ -149,15 +149,9 @@ MainView {
     */
 
     onActiveChatChanged: {
+        if ( activeChat === null ) return
         MatrixNames.getChatAvatarById ( activeChat, function (name) {
             activeChatDisplayName = name
         } )
-    }
-
-    /* =============================== START POINT ===============================
-    When the app starts, then this will be triggered!
-    */
-    Component.onCompleted: {
-        storage.init ()
     }
 }

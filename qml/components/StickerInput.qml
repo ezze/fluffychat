@@ -126,7 +126,7 @@ Rectangle {
         }
         header: WebView {
             id: uploader
-            url: "../components/upload.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
+            url: "../components/upload.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
             width: stickerInput.desiredHeight
             height: width
             anchors.margins: stickerInput.desiredHeight / 2

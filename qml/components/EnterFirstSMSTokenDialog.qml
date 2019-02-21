@@ -39,7 +39,7 @@ Component {
                 onClicked: {
                     var success_callback = function () {
                         PopupUtils.close(dialogue)
-                        root.init ()
+                        mainLayout.init ()
                     }
                     var _page = passwordCreationPage
                     var _matrix = matrix

@@ -2,6 +2,7 @@ import QtQuick 2.9
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import Ubuntu.Connectivity 1.0
+import Qt.labs.settings 1.0
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
 
@@ -13,18 +14,29 @@ credentials
 */
 
 Item {
+    id: matrix
 
     // The online status (bool)
     property var onlineStatus: false
 
     // Is the user logged or does he still need to login or register?
-    property bool isLogged: settings.token !== null
+    property bool isLogged: matrix.token !== ""
+
+    // This is the access token for the matrix client. When it is undefined, then
+    // the user needs to sign in first
+    property string token: ""
+    onTokenChanged: matrix.init ()
 
     // The list of the current active requests, to prevent multiple same requests
     property var activeRequests: []
 
     property var online: Connectivity ? Connectivity.online : true
     onOnlineChanged: if ( online ) restartSync ()
+
+    // Save this properties in the settings
+    Settings {
+        property alias token: matrix.token
+    }
 
     /* The newEvent signal is the most importent signal in this concept. Every time
     * the app receives a new synchronization, this event is called for every signal
@@ -41,7 +53,7 @@ Item {
     property var initialized: false
     property var abortSync: false
 
-    Component.onCompleted: if ( settings.token ) matrix.init ()
+    Component.onCompleted: matrix.init ()
 
 
     // Login and set username, token and server! Needs to be done, before anything else
@@ -59,15 +71,11 @@ Item {
         }
 
         var onLogged = function ( response ) {
-            settings.token = response.access_token
             settings.deviceID = response.device_id
             settings.username = (response.user_id.substr(1)).split(":")[0]
             settings.matrixid = response.user_id
-            settings.server = newServer.toLowerCase()
-            settings.deviceName = newDeviceName
-            settings.dbversion = storage.version
+            matrix.token = response.access_token
             onlineStatus = true
-            matrix.init ()
             if ( callback ) callback ( response )
         }
 
@@ -111,15 +119,13 @@ Item {
                             "session": response.session
                         }
                         xmlRequest ( "POST", data, "/client/r0/register", function ( response ) {
-                            settings.token = response.access_token
+                            matrix.token = response.access_token
                             settings.deviceID = response.device_id
                             settings.username = (response.user_id.substr(1)).split(":")[0]
                             settings.matrixid = response.user_id
                             settings.server = newServer.toLowerCase()
                             settings.deviceName = newDeviceName
-                            settings.dbversion = storage.version
                             onlineStatus = true
-                            init ()
                             if ( callback ) callback ( response )
                         }, error_callback, 2 )
                         forwarded = true
@@ -133,7 +139,7 @@ Item {
 
             // The account has been registered.
             else {
-                settings.token = response.access_token
+                matrix.token = response.access_token
                 settings.deviceID = response.device_id
                 settings.username = (response.user_id.substr(1)).split(":")[0]
                 settings.server = newServer.toLowerCase()
@@ -227,7 +233,8 @@ Item {
 
 
     function resetSettings () {
-        settings.username = settings.server = settings.token = settings.pushToken = settings.deviceID = settings.deviceName = settings.requestedArchive = settings.since = settings.matrixVersions = settings.matrixid = settings.lazy_load_members = undefined
+        matrix.token = ""
+        settings.username = settings.server = settings.pushToken = settings.deviceID = settings.deviceName = settings.requestedArchive = settings.since = settings.matrixVersions = settings.matrixid = settings.lazy_load_members = undefined
     }
 
 
@@ -292,7 +299,7 @@ Item {
         http.open( type, requestUrl, true);
         http.timeout = defaultTimeout
         if ( !(server === settings.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-        if ( server === settings.server && settings.token ) http.setRequestHeader('Authorization', 'Bearer ' + settings.token);
+        if ( server === settings.server && matrix.token ) http.setRequestHeader('Authorization', 'Bearer ' + matrix.token);
         http.onreadystatechange = function() {
             if (http.readyState === XMLHttpRequest.DONE) {
                 try {
@@ -361,7 +368,8 @@ Item {
     }
 
     function init () {
-        if ( !online ) return
+        if ( !matrix.isLogged ) return
+        console.log("[Init] Init the matrix synchronization")
 
         // Start synchronizing
         initialized = true
@@ -370,7 +378,8 @@ Item {
             storage.transaction ( "UPDATE Events SET status=-1 WHERE status=0" )
             return sync ( 1 )
         }
-        console.log("😉 Request the first synchronization")
+
+        console.log("[Init] No previous synchronization found... Request the first synchronization now")
         // Set the pusher if it is not set
         pushclient.updatePusher ()
 
@@ -399,7 +408,7 @@ Item {
 
     function sync ( timeout ) {
 
-        if ( settings.token === null || settings.token === undefined || abortSync ) return
+        if ( matrix.token === null || matrix.token === undefined || abortSync ) return
 
         var data = { "since": settings.since, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(settings.lazy_load_members) }
 
@@ -409,13 +418,13 @@ Item {
 
             if ( waitingForSync ) progressBarRequests--
             waitingForSync = false
-            if ( settings.token ) {
+            if ( matrix.token ) {
                 matrix.onlineStatus = true
                 handleEvents ( response )
                 sync ()
             }
         }, function ( error ) {
-            if ( !abortSync && settings.token !== undefined ) {
+            if ( !abortSync && matrix.token !== undefined ) {
                 matrix.onlineStatus = false
                 if ( error.errcode === "M_INVALID" ) {
                     mainLayout.init ()

@@ -4,10 +4,6 @@ import Qt.labs.settings 1.0
 
 Settings {
 
-    // This is the access token for the matrix client. When it is undefined, then
-    // the user needs to sign in first
-    property var token: null
-
     // The username is the local part of the matrix id
     property var username
 

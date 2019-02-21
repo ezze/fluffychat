@@ -61,10 +61,10 @@ Item {
 
 
     // Initializing the database
-    function init () {
+    Component.onCompleted: {
         // Check the database version number
         if ( settings.dbversion !== version ) {
-            console.log ("Drop database cause old version")
+            console.log ("[Init] Create the database and drop previous one if existing")
             settings.since = settings.requestedArchive = undefined
             // Drop all databases and recreate them
             drop ()
