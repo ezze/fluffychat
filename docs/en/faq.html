@@ -1,21 +1,19 @@
 <html lang="en">
 <head>
     <script>
-        var languages = new Array();
-        
-        languages.push("template");
-        
-        languages.push("en");
-        
-        languages.push("de");
-        
-        var splittedUrl = document.documentURI.split("/");
-        var currentLanguage = splittedUrl[3];
-        if ( currentLanguage === "" ) {
-        	if ( languages.indexOf(navigator.language) !== -1 ) {
-        		window.location.href = "/" + navigator.language + "/" + splittedUrl[3];
-        	}
-        }
+    var languages = new Array();
+    
+    languages.push("template");
+    
+    languages.push("en");
+    
+    languages.push("de");
+    
+    var splittedUrl = document.documentURI.split("/");
+    var currentLanguage = splittedUrl[splittedUrl.length-2];
+    if ( languages.indexOf(splittedUrl[splittedUrl.length-2]) === -1 && languages.indexOf(navigator.language) !== -1 ) {
+        window.location.href += navigator.language;
+    }
     </script>
     <!-- Basic Page Needs
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
