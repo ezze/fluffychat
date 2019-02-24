@@ -9,6 +9,13 @@
         
         languages.push("de");
         
+        var splittedUrl = document.documentURI.split("/");
+        var currentLanguage = splittedUrl[3];
+        if ( currentLanguage === "" ) {
+        	if ( languages.indexOf(navigator.language) !== -1 ) {
+        		window.location.href = "/" + navigator.language + "/" + splittedUrl[3];
+        	}
+        }
     </script>
     <!-- Basic Page Needs
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -62,7 +69,7 @@
         </div>
         <div class="right_side">
             <nav id="header_main_nav">
-                <a href="/de/faq.html" >FAQ</a>
+                <a href="faq.html" >FAQ</a>
                 <a href="https://matrix.to/#/%23fluffychat:matrix.org"  target="new" >Gemeinschaft</a>
                 <a href="https://github.com/ChristianPauly/fluffychat"  target="new" >Github</a>
                 <a href="https://www.patreon.com/krillechritzelius/posts"  target="new" >Blog</a>
