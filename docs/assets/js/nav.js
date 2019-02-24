@@ -27,3 +27,11 @@ window.onload = function(e){
 });
 
 }
+
+var splittedUrl = document.documentURI.split("/");
+var currentLanguage = splittedUrl[3];
+if ( currentLanguage === "" ) {
+	if ( languages.indexOf(navigator.language) !== -1 ) {
+		window.location.href = "/" + navigator.language + "/" + splittedUrl[3];
+	}
+}
