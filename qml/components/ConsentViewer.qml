@@ -18,7 +18,7 @@ BottomEdge {
     contentComponent: Page {
         height: consentViewer.height
 
-        FcPageHeader {
+        PageHeader {
             id: userHeader
             title: i18n.tr("Consent not given")
         }

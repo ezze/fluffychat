@@ -90,7 +90,7 @@ Page {
 
     Component.onCompleted: if ( mainLayout.darkmode ) mainLayout.darkmode = false
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Homeserver %1').arg( (loginDomain || defaultDomain) )
 
         leadingActionBar {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 13:17+0000\n"
+"POT-Creation-Date: 2019-02-25 13:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:132 ../qml/components/ChatEvent.qml:115
+#: ../qml/Main.qml:134 ../qml/components/ChatEvent.qml:115
 msgid "Are you sure?"
 msgstr ""
 
@@ -217,8 +217,7 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:163 ../qml/components/StyledPageHeader.qml:7
-#: fluffychat.desktop.in.h:1
+#: ../qml/pages/ChatListPage.qml:163 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 

@@ -8,7 +8,7 @@ Page {
     id: infoPage
     anchors.fill: parent
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Info about FluffyChat %1 on %2').arg(version).arg(Qt.platform.os)
     }
 

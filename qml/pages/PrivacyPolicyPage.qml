@@ -7,7 +7,7 @@ Page {
     id: privacyPolicyPage
     anchors.fill: parent
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Privacy Policy')
     }
 

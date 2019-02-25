@@ -268,7 +268,7 @@ Page {
 
     ChangeChatnameDialog { id: changeChatnameDialog }
 
-    header: FcPageHeader {
+    header: PageHeader {
         id: header
         title: (activeChatDisplayName || i18n.tr("Unknown chat"))
 

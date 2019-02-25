@@ -7,7 +7,7 @@ Page {
     anchors.fill: parent
     id: page
 
-    header: StyledPageHeader {
+    header: PageHeader {
         title: ""
         StyleHints {
             dividerColor: "#00000000"

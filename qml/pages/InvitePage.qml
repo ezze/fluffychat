@@ -13,7 +13,7 @@ Page {
         color: theme.palette.normal.background
     }
 
-    header: FcPageHeader {
+    header: PageHeader {
         id: header
         title: i18n.tr('Invite users')
         flickable: chatListView

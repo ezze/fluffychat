@@ -158,7 +158,7 @@ Page {
 
     property bool searching: false
 
-    header: StyledPageHeader {
+    header: PageHeader {
         id: header
         title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
         flickable: chatListView

@@ -53,7 +53,7 @@ Page {
         }, null, 1 )
     }
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Notifications')
     }
 

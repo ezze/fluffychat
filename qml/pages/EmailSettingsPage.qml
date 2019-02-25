@@ -39,7 +39,7 @@ Page {
         })
     }
 
-    header: FcPageHeader {
+    header: PageHeader {
         id: header
         title:  i18n.tr('Connected email addresses')
 

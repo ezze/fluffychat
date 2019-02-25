@@ -9,6 +9,8 @@ Item {
 
     property alias pushtoken: innerPushClient.token
 
+    signal error ( var error )
+
     PushClient {
         id: innerPushClient
 
@@ -34,7 +36,7 @@ Item {
                     pushDeviceName = defaultDeviceName
                 }, function ( error ) {
                     console.warn( "ERROR:", JSON.stringify(error))
-                    toast.show ( error.error )
+                    error ( error.error )
                 } )
             }
         }
@@ -43,7 +45,7 @@ Item {
             console.warn("❌[Error] Push Notifications Error: ",reason)
             if ( reason === "bad auth" ) {
                 errorReport = i18n.tr("Please log in to Ubuntu One to receive push notifications.")
-                toast.show ( errorReport )
+                error ( errorReport )
             }
             else errorReport = reason
         }

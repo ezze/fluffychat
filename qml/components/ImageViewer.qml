@@ -22,7 +22,7 @@ Rectangle {
         onClicked: function () {}
     }
 
-    StyledPageHeader {
+    PageHeader {
         id: header
         z: 20
         title: ""

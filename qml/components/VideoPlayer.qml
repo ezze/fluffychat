@@ -18,7 +18,7 @@ Rectangle {
         onClicked: imageViewer.visible = false
     }
 
-    StyledPageHeader {
+    PageHeader {
         id: header
         z: 20
         title: ""

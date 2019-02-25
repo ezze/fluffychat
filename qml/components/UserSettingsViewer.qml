@@ -22,7 +22,7 @@ BottomEdge {
             color: theme.palette.normal.background
         }
 
-        StyledPageHeader {
+        PageHeader {
             id: userHeader
             title: displayname
 

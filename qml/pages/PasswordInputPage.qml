@@ -33,7 +33,7 @@ Page {
         matrix.login ( matrix.username, passwordInput.text, matrix.server, "UbuntuPhone", success_callback, error_callback )
     }
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Enter your password')
     }
 

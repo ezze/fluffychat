@@ -50,7 +50,7 @@ Page {
         color: theme.palette.normal.background
     }
 
-    header: FcPageHeader {
+    header: PageHeader {
         id: header
         title: i18n.tr("Groups on %1").arg(matrix.server) + (matrix.server !== "matrix.org" ? " " + i18n.tr("and matrix.org") : "")
         flickable: chatListView

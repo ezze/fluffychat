@@ -23,7 +23,7 @@ Page {
     EnterFirstSMSTokenDialog { id: enterSMSToken }
 
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr("Please set a password")
     }
 

@@ -41,7 +41,7 @@ Page {
         }
     }
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Settings')
         flickable: scrollView.flickableItem
     }

@@ -48,7 +48,7 @@ Page {
     }
 
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Notification settings')
     }
 

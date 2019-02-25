@@ -87,7 +87,6 @@ MainView {
 
 
     /* =============================== MODELS ===============================
-
     All models should be defined here. They are accessable everywhere by the
     id, defined here.
     */
@@ -96,7 +95,10 @@ MainView {
         id: matrix
         onError: toast.show ( error )
     }
-    PushModel { id: pushClient }
+    PushModel {
+        id: pushClient
+        onError: toast.show ( error )
+    }
     SettingsModel { id: settings }
     UserMetricsModel { id: userMetrics }
     ContentHubModel { id: shareController }

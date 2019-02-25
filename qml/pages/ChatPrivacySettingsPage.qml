@@ -122,7 +122,7 @@ Page {
         else return "starred"
     }
 
-    header: FcPageHeader {
+    header: PageHeader {
         title:  i18n.tr('Advanced settings')
     }
 

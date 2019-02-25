@@ -39,7 +39,7 @@ Page {
         onNewChatUpdate: update ()
     }
 
-    header: FcPageHeader {
+    header: PageHeader {
         id: header
         title: i18n.tr("Archived chats")
 

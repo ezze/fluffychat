@@ -15,7 +15,7 @@ BottomEdge {
         id: page
         height: countryPicker.height
 
-        header: StyledPageHeader {
+        header: PageHeader {
             id: header
             title: i18n.tr("Choose a country")
         }

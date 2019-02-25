@@ -9,7 +9,7 @@ Page {
     id: createChatPage
     anchors.fill: parent
 
-    header: StyledPageHeader {
+    header: PageHeader {
         id: header
         title: i18n.tr('Add Chat')
 

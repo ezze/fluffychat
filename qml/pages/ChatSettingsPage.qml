@@ -148,7 +148,7 @@ Page {
 
     LeaveChatDialog { id: leaveChatDialog }
 
-    header: FcPageHeader {
+    header: PageHeader {
         id: header
         title: activeChatDisplayName
 
