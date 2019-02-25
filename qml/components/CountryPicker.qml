@@ -11,7 +11,7 @@ BottomEdge {
     onCollapseCompleted: countryPicker.destroy ()
     Component.onCompleted: commit()
 
-    contentComponent: Page {
+    contentComponent: StyledPage {
         id: page
         height: countryPicker.height
 

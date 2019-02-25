@@ -11,7 +11,7 @@ BottomEdge {
     onCollapseCompleted: userSettingsViewer.destroy ()
     Component.onCompleted: commit()
 
-    contentComponent: Page {
+    contentComponent: StyledPage {
         id: userSettingsPage
         property var matrix_id: ""
         property var displayname: ""

@@ -4,7 +4,7 @@ import "../components"
 
 // Initial Walkthrough tutorial
 
-Page {
+StyledPage {
     id: walkthroughPage
     anchors.fill: parent
 

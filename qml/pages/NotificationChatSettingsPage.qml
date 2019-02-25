@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import "../components"
 
-Page {
+StyledPage {
     id: notificationChatSettingsPage
     anchors.fill: parent
 

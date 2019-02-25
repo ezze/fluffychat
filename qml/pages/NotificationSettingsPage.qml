@@ -4,7 +4,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
 
-Page {
+StyledPage {
     id: notificationSettingsPage
     anchors.fill: parent
 

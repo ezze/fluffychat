@@ -15,7 +15,7 @@ BottomEdge {
     }
     Component.onCompleted: commit()
 
-    contentComponent: Page {
+    contentComponent: StyledPage {
         height: consentViewer.height
 
         PageHeader {

@@ -11,7 +11,7 @@ BottomEdge {
     onCollapseCompleted: communityViewer.destroy ()
     Component.onCompleted: commit()
 
-    contentComponent: Page {
+    contentComponent: StyledPage {
             height: communityViewer.height
 
             PageHeader {

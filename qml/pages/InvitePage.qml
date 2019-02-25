@@ -4,7 +4,7 @@ import Ubuntu.Components 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
-Page {
+StyledPage {
     anchors.fill: parent
 
     // To disable the background image on this page
