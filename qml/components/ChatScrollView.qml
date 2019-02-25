@@ -146,7 +146,6 @@ ListView {
 
 
         if ( !("content_body" in event) ) event.content_body = event.content.body
-        event.sameSender = false
         if ( history ) event.status = msg_status.HISTORY
 
 
@@ -156,7 +155,6 @@ ListView {
             for ( var i = 0; i < model.count; i++ ) {
                 var tempEvent = model.get(i).event
                 if ( tempEvent.id === event.unsigned.transaction_id || tempEvent.id === event.id) {
-                    if ( i > 0 ) event.sameSender = tempEvent.sameSender
                     model.set( i, { "event": event } )
                     return
                 }
@@ -170,25 +168,9 @@ ListView {
             while ( j < model.count && event.origin_server_ts < model.get(j).event.origin_server_ts ) j++
         }
 
-        // If the previous message has the same sender and is a normal message
-        // then it is not necessary to show the user avatar again
-        if ( j < model.count ) {
-            var tempEvent = model.get(j).event
-            if ( tempEvent.sender === event.sender && (event.type === "m.room.message" || event.type === "m.sticker") ) {
-                tempEvent.sameSender = true
-                model.set ( j, { "event": tempEvent })
-            }
-        }
-        if ( j > 0 ) {
-            var tempEvent = model.get(j-1).event
-            event.sameSender = tempEvent.sender === event.sender && (tempEvent.type === "m.room.message" || tempEvent.type === "m.sticker")
-        }
-        else event.sameSender = false
-
 
         // Check that there is no duplication:
         if ( model.count > j && event.id === model.get(j).event.id ) {
-            if ( j > 0 ) event.sameSender = model.get(j).event.sameSender
             model.set( j, { "event": event } )
             return
         }
@@ -201,14 +183,12 @@ ListView {
 
 
     function messageSent ( oldID, newID ) {
-        // TODO: SameSender always true
         for ( var i = 0; i < model.count; i++ ) {
             if ( model.get(i).event.id === oldID ) {
                 var tempEvent = model.get(i).event
                 tempEvent.id = newID
                 tempEvent.status = msg_status.SENT
                 tempEvent.origin_server_ts = new Date().getTime()
-                tempEvent.sameSender = false
                 model.set( i, { "event": tempEvent } )
 
                 // Move the event to the correct position if necessary
@@ -216,18 +196,6 @@ ListView {
                 while ( j > 0 && tempEvent.origin_server_ts > model.get(j).event.origin_server_ts ) j--
                 if ( i !== j ) {
                     model.move( i, j, 1 )
-                    if ( i > 0 ) {
-                        var tempEvent = model.get(i).event
-                        var nextEvent = model.get(i-1).event
-                        tempEvent.sameSender = tempEvent.sender === nextEvent.sender && (nextEvent.type === "m.room.message" || nextEvent.type === "m.sticker")
-                        model.set ( i, { "event": tempEvent })
-                    }
-                    if ( j > 0 ) {
-                        var tempEvent = model.get(j).event
-                        var nextEvent = model.get(j-1).event
-                        tempEvent.sameSender = tempEvent.sender === nextEvent.sender && (nextEvent.type === "m.room.message" || nextEvent.type === "m.sticker")
-                        model.set ( j, { "event": tempEvent })
-                    }
                 }
                 break
             }
@@ -265,17 +233,6 @@ ListView {
         for ( var i = 0; i < model.count; i++ ) {
             if ( model.get(i).event.id === event_id ) {
                 model.remove ( i )
-                if ( i < model.count && i > 0 ) {
-                    var tempEvent = model.get(i).event
-                    var nextEvent = model.get(i-1).event
-                    tempEvent.sameSender = tempEvent.sender === nextEvent.sender && (nextEvent.type === "m.room.message" || nextEvent.type === "m.sticker")
-                    model.set ( i, { "event": tempEvent })
-                }
-                else if ( i === 0 ) {
-                    var tempEvent = model.get(i).event
-                    tempEvent.sameSender = true
-                    model.set ( i, { "event": tempEvent })
-                }
                 break
             }
         }
