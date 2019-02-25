@@ -96,7 +96,7 @@ MainView {
         id: matrix
         onError: toast.show ( error )
     }
-    PushModel { id: pushclient }
+    PushModel { id: pushClient }
     SettingsModel { id: settings }
     UserMetricsModel { id: userMetrics }
     ContentHubModel { id: shareController }

@@ -207,7 +207,6 @@ Item {
                 matrix.username = (response.user_id.substr(1)).split(":")[0]
                 matrix.server = newServer.toLowerCase()
                 matrix.deviceName = newDeviceName
-                matrix.dbversion = storage.version
                 init ()
                 if ( callback ) callback ( response )
             }
@@ -223,14 +222,11 @@ Item {
             syncRequest.abort ()
             abortSync = false
         }
-        var callback = function () {
-            post ( "/client/r0/logout", {}, reset, reset )
-        }
+        post ( "/client/r0/logout", {}, reset, reset, 2 )
     }
 
 
     function reset () {
-        storage.drop ()
         resetSettings ()
         mainLayout.init ()
     }
@@ -298,7 +294,7 @@ Item {
 
     function resetSettings () {
         matrix.token = ""
-        matrix.username = matrix.server = matrix.pushToken = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = undefined
+        matrix.username = matrix.server = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = ""
     }
 
 
@@ -436,190 +432,189 @@ Item {
     function init () {
         // Compatible with old versions
         /*if ( settings.token && settings.token !== "" ) {
-            matrix.token = settings.token
-            if ( settings.server ) matrix.server = settings.server
-            if ( settings.username ) matrix.username = settings.username
-            if ( settings.matrixid ) matrix.matrixid = settings.matrixid
-            if ( settings.id_server ) matrix.id_server = settings.id_server
-            if ( settings.deviceID ) matrix.deviceID = settings.deviceID
-            if ( settings.deviceName ) matrix.deviceName = settings.deviceName
-            if ( settings.countryCode ) matrix.countryCode = settings.countryCode
-            if ( settings.countryTel ) matrix.countryTel = settings.countryTel
-            settings.token = ""
-        }*/
+        matrix.token = settings.token
+        if ( settings.server ) matrix.server = settings.server
+        if ( settings.username ) matrix.username = settings.username
+        if ( settings.matrixid ) matrix.matrixid = settings.matrixid
+        if ( settings.id_server ) matrix.id_server = settings.id_server
+        if ( settings.deviceID ) matrix.deviceID = settings.deviceID
+        if ( settings.deviceName ) matrix.deviceName = settings.deviceName
+        if ( settings.countryCode ) matrix.countryCode = settings.countryCode
+        if ( settings.countryTel ) matrix.countryTel = settings.countryTel
+        settings.token = ""
+    }*/
 
-        if ( matrix.token === "" ) return
+    if ( matrix.token === "" ) return
 
-        // Start synchronizing
-        initialized = true
-        if ( matrix.prevBatch !== "" ) {
-            console.log("👷[Init] Init the matrix synchronization")
-            waitForSync ()
-            storage.markSendingEventsAsError ()
-            return sync ( 1 )
-        }
-
-        console.log("👷[Init] Request the first matrix synchronizaton")
-        matrix.blockUI = true
-
-        var onFristSyncResponse = function ( response ) {
-            if ( waitingForSync ) waitingForAnswer--
-            handleEvents ( response )
-
-            if ( !abortSync ) sync ()
-        }
-
-        var onVersionsResponse = function ( matrixVersions ) {
-            matrix.matrixVersions = matrixVersions.versions
-            if ( "unstable_features" in matrixVersions && "m.lazy_load_members" in matrixVersions["unstable_features"] ) {
-                matrix.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
-            }
-            // Start the first synchronization
-            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.SYNC )
-        }
-
-        // Discover which features the server does support
-        matrix.get ( "/client/versions", {}, onVersionsResponse, init)
-
+    // Start synchronizing
+    initialized = true
+    if ( matrix.prevBatch !== "" ) {
+        console.log("👷[Init] Init the matrix synchronization")
+        waitForSync ()
+        return sync ( 1 )
     }
 
+    console.log("👷[Init] Request the first matrix synchronizaton")
+    matrix.blockUI = true
 
-    function sync ( timeout ) {
-        if ( matrix.token === null || matrix.token === undefined || abortSync ) return
+    var onFristSyncResponse = function ( response ) {
+        if ( waitingForSync ) waitingForAnswer--
+        handleEvents ( response )
 
-        var data = { "since": matrix.prevBatch, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members) }
-
-        if ( !timeout ) data.timeout = longPollingTimeout
-
-        syncRequest = matrix.get ("/client/r0/sync", data, function ( response ) {
-
-            if ( waitingForSync ) waitingForAnswer--
-            waitingForSync = false
-            if ( matrix.token ) {
-                handleEvents ( response )
-                sync ()
-            }
-        }, function ( error ) {
-            if ( !abortSync && matrix.token !== undefined ) {
-                if ( error.errcode === "M_INVALID" ) {
-                    mainLayout.init ()
-                }
-                else {
-                    if ( online ) restartSync ()
-                    else console.error ( i18n.tr("You are offline 😕") )
-                }
-            }
-        }, _PRIORITY.SYNC );
+        if ( !abortSync ) sync ()
     }
 
-
-    function restartSync () {
-        if ( !initialized ) return init()
-        if ( syncRequest === null ) return
-        if ( syncRequest ) {
-            abortSync = true
-            syncRequest.abort ()
-            abortSync = false
+    var onVersionsResponse = function ( matrixVersions ) {
+        matrix.matrixVersions = matrixVersions.versions
+        if ( "unstable_features" in matrixVersions && "m.lazy_load_members" in matrixVersions["unstable_features"] ) {
+            matrix.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
         }
-        sync ( true )
+        // Start the first synchronization
+        matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.SYNC )
     }
 
+    // Discover which features the server does support
+    matrix.get ( "/client/versions", {}, onVersionsResponse, init)
 
-    function waitForSync () {
-        if ( waitingForSync ) return
-        waitingForSync = true
-        waitingForAnswer++
-    }
+}
 
 
-    function stopWaitForSync () {
-        if ( !waitingForSync ) return
+function sync ( timeout ) {
+    if ( matrix.token === null || matrix.token === undefined || abortSync ) return
+
+    var data = { "since": matrix.prevBatch, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members) }
+
+    if ( !timeout ) data.timeout = longPollingTimeout
+
+    syncRequest = matrix.get ("/client/r0/sync", data, function ( response ) {
+
+        if ( waitingForSync ) waitingForAnswer--
         waitingForSync = false
-        waitingForAnswer--
-    }
-
-
-    // This function starts handling the events, saving new data in the storage,
-    // deleting data, updating data and call signals
-    function handleEvents ( response ) {
-
-        //console.log( "[Sync details]", JSON.stringify( response ) )
-        var changed = false
-        var timecount = new Date().getTime()
-        try {
-            handleRooms ( response.rooms.join, "join" )
-            handleRooms ( response.rooms.leave, "leave" )
-            handleRooms ( response.rooms.invite, "invite" )
-            handlePresences ( response.presence)
-            matrix.prevBatch = response.next_batch
-            blockUI = false
-            //console.log("[Sync performance] ", new Date().getTime() - timecount )
+        if ( matrix.token ) {
+            handleEvents ( response )
+            sync ()
         }
-        catch ( e ) {
-            toast.show ( i18n.tr("😰 A critical error has occurred! Sorry, the connection to the server has ended! Please report this bug on: https://github.com/ChristianPauly/fluffychat/issues/new. Error details: %1").arg(e) )
-            console.log ( "❌[Critical error]",e )
-            abortSync = true
-            syncRequest.abort ()
-            return
+    }, function ( error ) {
+        if ( !abortSync && matrix.token !== undefined ) {
+            if ( error.errcode === "M_INVALID" ) {
+                mainLayout.init ()
+            }
+            else {
+                if ( online ) restartSync ()
+                else console.error ( i18n.tr("You are offline 😕") )
+            }
         }
+    }, _PRIORITY.SYNC );
+}
+
+
+function restartSync () {
+    if ( !initialized ) return init()
+    if ( syncRequest === null ) return
+    if ( syncRequest ) {
+        abortSync = true
+        syncRequest.abort ()
+        abortSync = false
     }
-    // Handling the synchronization events starts with the rooms, which means
-    // that the informations should be saved in the database
-    function handleRooms ( rooms, membership ) {
-        for ( var id in rooms ) {
-            var room = rooms[id]
+    sync ( true )
+}
 
-            var highlight_count = (room.unread_notifications && room.unread_notifications.highlight_count || 0)
-            var notification_count = (room.unread_notifications && room.unread_notifications.notification_count || 0)
-            var limitedTimeline = (room.timeline ? (room.timeline.limited ? 1 : 0) : 0)
 
-            newChatUpdate ( id, membership, notification_count, highlight_count, limitedTimeline, room.timeline.prev_batch )
+function waitForSync () {
+    if ( waitingForSync ) return
+    waitingForSync = true
+    waitingForAnswer++
+}
 
-            // Handle now all room events and save them in the database
-            if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
-            if ( room.invite_state ) handleRoomEvents ( id, room.invite_state.events, "invite_state", room )
-            if ( room.timeline ) handleRoomEvents ( id, room.timeline.events, "timeline", room )
-            if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
-            if ( room.account_data ) handleRoomEvents ( id, room.account_data.events, "account_data", room )
-        }
+
+function stopWaitForSync () {
+    if ( !waitingForSync ) return
+    waitingForSync = false
+    waitingForAnswer--
+}
+
+
+// This function starts handling the events, saving new data in the storage,
+// deleting data, updating data and call signals
+function handleEvents ( response ) {
+
+    //console.log( "[Sync details]", JSON.stringify( response ) )
+    var changed = false
+    var timecount = new Date().getTime()
+    try {
+        handleRooms ( response.rooms.join, "join" )
+        handleRooms ( response.rooms.leave, "leave" )
+        handleRooms ( response.rooms.invite, "invite" )
+        handlePresences ( response.presence)
+        matrix.prevBatch = response.next_batch
+        blockUI = false
+        //console.log("[Sync performance] ", new Date().getTime() - timecount )
     }
-    // Handle the presences
-    function handlePresences ( presences ) {
-        for ( var i = 0; i < presences.events.length; i++ ) {
-            var pEvent = presences.events[i]
-            newEvent ( pEvent.type, pEvent.sender, "presence", pEvent )
-        }
+    catch ( e ) {
+        toast.show ( i18n.tr("😰 A critical error has occurred! Sorry, the connection to the server has ended! Please report this bug on: https://github.com/ChristianPauly/fluffychat/issues/new. Error details: %1").arg(e) )
+        console.log ( "❌[Critical error]",e )
+        abortSync = true
+        syncRequest.abort ()
+        return
     }
-    // Handle ephemerals (message receipts)
-    function handleEphemeral ( id, events ) {
-        for ( var i = 0; i < events.length; i++ ) {
-            if ( events[i].type === "m.receipt" ) {
-                for ( var e in events[i].content ) {
-                    for ( var user in events[i].content[e]["m.read"]) {
-                        var timestamp = events[i].content[e]["m.read"][user].ts
+}
+// Handling the synchronization events starts with the rooms, which means
+// that the informations should be saved in the database
+function handleRooms ( rooms, membership ) {
+    for ( var id in rooms ) {
+        var room = rooms[id]
 
-                        // Call the newEvent signal for updating the GUI
-                        newEvent ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
-                    }
+        var highlight_count = (room.unread_notifications && room.unread_notifications.highlight_count || 0)
+        var notification_count = (room.unread_notifications && room.unread_notifications.notification_count || 0)
+        var limitedTimeline = (room.timeline ? (room.timeline.limited ? 1 : 0) : 0)
+
+        newChatUpdate ( id, membership, notification_count, highlight_count, limitedTimeline, room.timeline.prev_batch )
+
+        // Handle now all room events and save them in the database
+        if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
+        if ( room.invite_state ) handleRoomEvents ( id, room.invite_state.events, "invite_state", room )
+        if ( room.timeline ) handleRoomEvents ( id, room.timeline.events, "timeline", room )
+        if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
+        if ( room.account_data ) handleRoomEvents ( id, room.account_data.events, "account_data", room )
+    }
+}
+// Handle the presences
+function handlePresences ( presences ) {
+    for ( var i = 0; i < presences.events.length; i++ ) {
+        var pEvent = presences.events[i]
+        newEvent ( pEvent.type, pEvent.sender, "presence", pEvent )
+    }
+}
+// Handle ephemerals (message receipts)
+function handleEphemeral ( id, events ) {
+    for ( var i = 0; i < events.length; i++ ) {
+        if ( events[i].type === "m.receipt" ) {
+            for ( var e in events[i].content ) {
+                for ( var user in events[i].content[e]["m.read"]) {
+                    var timestamp = events[i].content[e]["m.read"][user].ts
+
+                    // Call the newEvent signal for updating the GUI
+                    newEvent ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
                 }
             }
-            if ( events[ i ].type === "m.typing" ) {
-                var user_ids = events[ i ].content.user_ids
-                // If the user is typing, remove his id from the list of typing users
-                var ownTyping = user_ids.indexOf( matrix.matrixid )
-                if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
-                // Call the signal
-                newEvent ( events[ i ].type, id, "ephemeral", user_ids )
-            }
+        }
+        if ( events[ i ].type === "m.typing" ) {
+            var user_ids = events[ i ].content.user_ids
+            // If the user is typing, remove his id from the list of typing users
+            var ownTyping = user_ids.indexOf( matrix.matrixid )
+            if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
+            // Call the signal
+            newEvent ( events[ i ].type, id, "ephemeral", user_ids )
         }
     }
-    // Handle room events
-    function handleRoomEvents ( roomid, events, type ) {
-        // We go through the events array
-        for ( var i = 0; i < events.length; i++ ) {
-            newEvent ( events[i].type, roomid, type, events[i] )
-        }
+}
+// Handle room events
+function handleRoomEvents ( roomid, events, type ) {
+    // We go through the events array
+    for ( var i = 0; i < events.length; i++ ) {
+        newEvent ( events[i].type, roomid, type, events[i] )
     }
+}
 
 
 }

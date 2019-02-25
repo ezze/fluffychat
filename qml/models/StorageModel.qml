@@ -185,6 +185,32 @@ Item {
         'name TEXT, ' +
         'thumbnail_url TEXT, ' +
         'UNIQUE(url))')
+
+        if ( matrix.isLogged ) {
+            storage.markSendingEventsAsError ()
+        }
+    }
+
+    Connections {
+        target: matrix
+        onIsLoggedChanged: {
+            if ( matrix.isLogged ) {
+                storage.markSendingEventsAsError ()
+            }
+            else storage.clear ()
+        }
+    }
+
+
+    function clear () {
+        transaction('DELETE FROM Chats')
+        transaction('DELETE FROM Events')
+        transaction('DELETE FROM Users')
+        transaction('DELETE FROM Memberships')
+        transaction('DELETE FROM Contacts')
+        transaction('DELETE FROM Addresses')
+        transaction('DELETE FROM ThirdPIDs')
+        transaction('DELETE FROM Media')
     }
 
 

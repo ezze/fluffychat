@@ -5,6 +5,8 @@ import Qt.labs.settings 1.0
 
 Item {
 
+    id: pushClient
+
     property alias pushtoken: innerPushClient.token
 
     PushClient {
@@ -111,7 +113,10 @@ Item {
 
     Connections {
         target: matrix
-        onIsLoggedChanged: if ( matrix.isLogged ) innerPushClient.updatePusher ()
+        onIsLoggedChanged: {
+            if ( matrix.isLogged ) innerPushClient.updatePusher ()
+            else innerPushClient.pushToken = innerPushClient.pushUrl = innerPushClient.pushDeviceName = ""
+        }
     }
 
 }
