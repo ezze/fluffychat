@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 14:58+0000\n"
+"POT-Creation-Date: 2019-02-25 16:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -575,37 +575,37 @@ msgstr ""
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:291 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:292 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:107
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:298
+#: ../qml/pages/ChatPage.qml:299
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:322
+#: ../qml/pages/ChatPage.qml:323
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:345
+#: ../qml/pages/ChatPage.qml:346
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:415
+#: ../qml/pages/ChatPage.qml:416
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:415
+#: ../qml/pages/ChatPage.qml:416
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:429
+#: ../qml/pages/ChatPage.qml:430
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:460
+#: ../qml/pages/ChatPage.qml:461
 msgid "Type something ..."
 msgstr ""
 
@@ -770,16 +770,16 @@ msgstr ""
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:391 ../qml/scripts/LoginPageActions.js:32
+#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:32
 #: ../qml/scripts/LoginPageActions.js:74
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:498
+#: ../qml/models/MatrixModel.qml:497
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:547
+#: ../qml/models/MatrixModel.qml:546
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

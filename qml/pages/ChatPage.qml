@@ -261,8 +261,9 @@ StyledPage {
         title: (activeChatDisplayName || i18n.tr("Unknown chat"))
 
         contents: Column {
-            width: parent.width
-            anchors.centerIn: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
 
             Label {
                 id: titleLabel

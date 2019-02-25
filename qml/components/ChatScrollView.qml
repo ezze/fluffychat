@@ -17,46 +17,38 @@ ListView {
     property var canRedact: false
 
     function init () {
+
         // Request all participants displaynames and avatars
         activeChatMembers = []
-        storage.transaction ( "SELECT membership.matrix_id, membership.displayname, membership.avatar_url, membership.membership, membership.power_level " +
+        var memberResults = storage.query ( "SELECT membership.matrix_id, membership.displayname, membership.avatar_url, membership.membership, membership.power_level " +
         " FROM Memberships membership " +
-        " WHERE membership.chat_id='" + activeChat + "'"
-        , function (memberResults) {
-            // Make sure that the event for the users matrix id exists
-            activeChatMembers[matrix.matrixid] = {
-                displayname: MatrixNames.transformFromId(matrix.matrixid),
-                avatar_url: ""
+        " WHERE membership.chat_id='" + activeChat + "'")
+        // Make sure that the event for the users matrix id exists
+        activeChatMembers[matrix.matrixid] = {
+            displayname: MatrixNames.transformFromId(matrix.matrixid),
+            avatar_url: ""
+        }
+        for ( var i = 0; i < memberResults.rows.length; i++ ) {
+            var mxid = memberResults.rows[i].matrix_id
+            activeChatMembers[ mxid ] = memberResults.rows[i]
+            if ( activeChatMembers[ mxid ].displayname === null || activeChatMembers[ mxid ].displayname === "" ) {
+                activeChatMembers[ mxid ].displayname = MatrixNames.transformFromId ( mxid )
             }
-            for ( var i = 0; i < memberResults.rows.length; i++ ) {
-                var mxid = memberResults.rows[i].matrix_id
-                activeChatMembers[ mxid ] = memberResults.rows[i]
-                if ( activeChatMembers[ mxid ].displayname === null || activeChatMembers[ mxid ].displayname === "" ) {
-                    activeChatMembers[ mxid ].displayname = MatrixNames.transformFromId ( mxid )
-                }
-            }
+        }
 
-            update ()
-        })
-    }
-
-    function update ( sync ) {
-        storage.transaction ( "SELECT id, type, content_json, content_body, origin_server_ts, sender, state_key, status " +
+        var res = storage.query ( "SELECT id, type, content_json, content_body, origin_server_ts, sender, state_key, status " +
         " FROM Events " +
         " WHERE chat_id='" + activeChat +
-        "' ORDER BY origin_server_ts DESC"
-        , function (res) {
-            // We now write the rooms in the column
+        "' ORDER BY origin_server_ts DESC" )
+        // We now write the rooms in the column
 
-            model.clear ()
-            initialized = res.rows.length
-            for ( var i = res.rows.length-1; i >= 0; i-- ) {
-                var event = res.rows.item(i)
-                event.content = JSON.parse( event.content_json )
-                addEventToList ( event, false )
-                if ( event.matrix_id === null ) requestRoomMember ( event.sender )
-            }
-        })
+        initialized = res.rows.length
+        for ( var i = res.rows.length-1; i >= 0; i-- ) {
+            var event = res.rows.item(i)
+            event.content = JSON.parse( event.content_json )
+            addEventToList ( event, false )
+            if ( event.matrix_id === null ) requestRoomMember ( event.sender )
+        }
     }
 
 
@@ -104,6 +96,7 @@ ListView {
 
     // This function writes the event in the chat. The event MUST have the format
     // of a database entry, described in the storage controller
+
     function addEventToList ( event, history ) {
 
         // Display this event at all? In the chat settings the user can choose
