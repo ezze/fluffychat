@@ -12,7 +12,7 @@
     var splittedUrl = document.documentURI.split("/");
     var currentLanguage = splittedUrl[splittedUrl.length-2];
     if ( languages.indexOf(splittedUrl[splittedUrl.length-2]) === -1 && languages.indexOf(navigator.language) !== -1 ) {
-        //window.location.href += navigator.language;
+        window.location.href += navigator.language;
     }
     </script>
     <!-- Basic Page Needs
@@ -87,11 +87,11 @@
 
 <ul>
   <li><a href="#kontoeinstellungen">Kontoeinstellungen</a></li>
-  <li><a href="#starte-eine-Unterhaltung">Starte eine Unterhaltung</a></li>
+  <li><a href="#starte-eine-unterhaltung">Starte eine Unterhaltung</a></li>
   <li><a href="#chateinstellungen">Chateinstellungen</a></li>
-  <li><a href="#mit-anderen-Chat-Systemen-verknüpfen">Mit anderen Chat-Systemen verknüpfen</a></li>
+  <li><a href="#mit-anderen-chat-systemen-verbinden">Mit anderen Chat-Systemen verbinden</a></li>
   <li><a href="#fehlerbehandlung">Fehlerbehandlung</a></li>
-  <li><a href="#about-fluffychat">About FluffyChat</a></li>
+  <li><a href="#wer-steckt-dahinter">Wer steckt dahinter</a></li>
 </ul>
 
 <h2 id="kontoeinstellungen">Kontoeinstellungen</h2>
@@ -239,7 +239,7 @@ Matrix users can link third-party IDs (3PIDs) to their user ID. Linking 3PIDs cr
   <li>Add an animated sticker by clicking on the sticker and add it to your local sticker collection by clicking on the “+” on the rop right.</li>
 </ol>
 
-<h2 id="mit-anderen-chat-systemen-verknüpfen">Mit anderen Chat-Systemen verknüpfen</h2>
+<h2 id="mit-anderen-chat-systemen-verbinden">Mit anderen Chat-Systemen verbinden</h2>
 
 <h4 id="what-is-matrix">What is Matrix?</h4>
 
@@ -279,7 +279,7 @@ Have you tried to turn airplaine mode on and off again? Sometimes notifications 
 
 <p>The same problem… I recommend you to use a letsencrypt certificate.</p>
 
-<h2 id="about-fluffychat">About FluffyChat</h2>
+<h2 id="wer-steckt-dahinter">Wer steckt dahinter</h2>
 
 <h4 id="how-is-fluffychat-founded">How is FluffyChat founded?</h4>
 
