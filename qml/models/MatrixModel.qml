@@ -49,6 +49,9 @@ Item {
         property alias token: matrix.token
     }
 
+    // This should be shown in the GUI for example as a toast
+    signal error ( var error )
+
     /* The newEvent signal is the most importent signal in this concept. Every time
     * the app receives a new synchronization, this event is called for every signal
     * to update the GUI. For example, for a new message, it is called:
@@ -340,7 +343,7 @@ Item {
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                     if ( !error_callback && error.error === "CONNERROR" ) {
-                        toast.show (i18n.tr("😕 No connection..."))
+                        error (i18n.tr("😕 No connection..."))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
                         blockUI = false
@@ -349,10 +352,10 @@ Item {
                             var item = Qt.createComponent("../components/ConsentViewer.qml")
                             item.createObject( root, { })
                         }
-                        else toast.show ( error.error )
+                        else error ( error.error )
                     }
                     else if ( error_callback ) error_callback ( error )
-                    else if ( error.errcode !== undefined && error.error !== undefined && priority > _PRIORITY.LOW ) toast.show ( error.error )
+                    else if ( error.errcode !== undefined && error.error !== undefined && priority > _PRIORITY.LOW ) error ( error.error )
                 }
             }
         }
@@ -385,7 +388,7 @@ Item {
         if ( settings.since ) {
             console.log("👷[Init] Init the matrix synchronization")
             waitForSync ()
-            storage.transaction ( "UPDATE Events SET status=-1 WHERE status=0" )
+            storage.markSendingEventsAsError ()
             return sync ( 1 )
         }
 
@@ -394,8 +397,6 @@ Item {
         pushclient.updatePusher ()
 
         blockUI = true
-        storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" +
-        settings.matrixid + "', '" + capitalizeFirstLetter ( (settings.matrixid.substr(1)).split(":")[0] ) + "', '', 'offline', 0, 0 )" )
 
         var onFristSyncResponse = function ( response ) {
             if ( waitingForSync ) waitingForAnswer--

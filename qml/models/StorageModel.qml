@@ -420,4 +420,9 @@ Item {
     }
 
 
+    function markSendingEventsAsError () {
+        storage.query ( "UPDATE Events SET status=-1 WHERE status=0" )
+    }
+
+
 }

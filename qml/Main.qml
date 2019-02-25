@@ -94,7 +94,10 @@ MainView {
     id, defined here.
     */
     StorageModel { id: storage }
-    MatrixModel { id: matrix }
+    MatrixModel {
+        id: matrix
+        onError: toast.show ( error )
+    }
     PushModel { id: pushclient }
     SettingsModel { id: settings }
     UserMetricsModel { id: userMetrics }
