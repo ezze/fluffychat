@@ -100,19 +100,6 @@ AdaptivePageLayout {
         onBlockUIRequestChanged: matrix.blockUIRequest !== null ? PopupUtils.open ( waitDialog ) : function(){}
     }
 
-    // If there is a very big request, this screen should block the UI:
-    LoadingScreen {
-        id: loadingScreen
-        visible: matrix.blockUI
-    }
-    Connections {
-        target: matrix
-        onBlockUIChanged: {
-            console.log(matrix.blockUI)
-            loadingScreen.visible = matrix.blockUI
-        }
-    }
-
     primaryPageSource: Qt.resolvedUrl( DefaultLayoutActions.getPrimaryPage () )
 
     signal init ()

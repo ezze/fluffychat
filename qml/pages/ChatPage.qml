@@ -147,7 +147,6 @@ StyledPage {
 
 
     Component.onCompleted: {
-
         var res = storage.query ( "SELECT draft, topic, membership, unread, fully_read, notification_count, power_events_default, power_redact FROM Chats WHERE id=?", [ activeChat ])
         if ( res.rows.length === 0 ) return
         var room = res.rows[0]

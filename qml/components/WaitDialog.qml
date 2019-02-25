@@ -35,9 +35,9 @@ Component {
             width: parent.width
             text: i18n.tr("Cancel process")
             onClicked: {
-                if ( waitDialogRequest !== null ) {
-                    waitDialogRequest.abort()
-                    waitDialogRequest = null
+                if ( matrix.blockUIRequest !== null ) {
+                    matrix.blockUIRequest.abort()
+                    matrix.blockUIRequest = null
                 }
                 else PopupUtils.close(dialogue)
             }

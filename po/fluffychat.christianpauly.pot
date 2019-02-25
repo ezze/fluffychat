@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 13:41+0000\n"
+"POT-Creation-Date: 2019-02-25 13:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,7 +165,7 @@ msgid "Username '%1' not found on %2"
 msgstr ""
 
 #: ../qml/pages/LoginPage.qml:44 ../qml/pages/LoginPage.qml:86
-#: ../qml/models/MatrixModel.qml:395
+#: ../qml/models/MatrixModel.qml:392
 msgid "😕 No connection..."
 msgstr ""
 
@@ -583,42 +583,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:273 ../qml/components/ArchivedChatListItem.qml:29
+#: ../qml/pages/ChatPage.qml:272 ../qml/components/ArchivedChatListItem.qml:29
 #: ../qml/components/SimpleChatListItem.qml:26
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:303 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:302 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:107
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:310
+#: ../qml/pages/ChatPage.qml:309
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:334
+#: ../qml/pages/ChatPage.qml:333
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:357
+#: ../qml/pages/ChatPage.qml:356
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:427
+#: ../qml/pages/ChatPage.qml:426
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:427
+#: ../qml/pages/ChatPage.qml:426
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:441
+#: ../qml/pages/ChatPage.qml:440
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:472
+#: ../qml/pages/ChatPage.qml:471
 msgid "Type something ..."
 msgstr ""
 
@@ -767,27 +767,27 @@ msgstr ""
 msgid "Push notifications are disabled..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:70
+#: ../qml/models/MatrixModel.qml:67
 msgid "USA"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:71
+#: ../qml/models/MatrixModel.qml:68
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:237
+#: ../qml/models/MatrixModel.qml:234
 msgid "Do you want to join this chat?"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:276
+#: ../qml/models/MatrixModel.qml:271
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:504
+#: ../qml/models/MatrixModel.qml:499
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:548
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1202,12 +1202,6 @@ msgstr ""
 
 #: ../qml/components/NewContactDialog.qml:31
 msgid "@yourfriend:"
-msgstr ""
-
-#: ../qml/components/LoadingScreen.qml:28
-msgid ""
-"Loading chats\n"
-"This can take a few minutes…"
 msgstr ""
 
 #: ../qml/components/AddressesListItem.qml:13

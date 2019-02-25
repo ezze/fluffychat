@@ -27,9 +27,6 @@ Item {
     // If there is a request which should bock the UI, this property will be set.
     property var blockUIRequest: null
 
-    // Sometimes the UI needs to become blocked completely.
-    property bool blockUI: false
-
     // The homeserver of the user
     property string server: ""
 
@@ -235,9 +232,7 @@ Item {
     // TODO: Move into chat list model!
     function joinChat (chat_id) {
         showConfirmDialog ( i18n.tr("Do you want to join this chat?").arg(chat_id), function () {
-            blockUI = true
             matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
-                blockUI = true
                 matrix.waitForSync()
                 mainLayout.toChat( response.room_id )
             }, null, 2 )
@@ -368,6 +363,7 @@ Item {
                     // and update the waiting for an answer counter
                     var index = activeRequests.indexOf(checksum);
                     activeRequests.splice( index, 1 )
+
                     if ( !longPolling && priority > _PRIORITY.LOW ) waitingForAnswer--
                     if ( priority === _PRIORITY.HIGH ) blockUIRequest = null
                     if ( waitingForAnswer < 0 ) waitingForAnswer = 0
@@ -386,6 +382,7 @@ Item {
                     else if ( responseType = "image/png" ) {
                         if ( callback ) callback( http.responseText )
                     }
+
                 }
                 catch ( error ) {
                     if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("❌[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
@@ -395,7 +392,6 @@ Item {
                         error (i18n.tr("😕 No connection..."))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
-                        blockUI = false
                         if ( "consent_uri" in error ) {
                             consentUrl = error.consent_uri
                             var item = Qt.createComponent("../components/ConsentViewer.qml")
@@ -455,7 +451,6 @@ Item {
     }
 
     console.log("👷[Init] Request the first matrix synchronizaton")
-    matrix.blockUI = true
 
     var onFristSyncResponse = function ( response ) {
         if ( waitingForSync ) waitingForAnswer--
@@ -470,7 +465,7 @@ Item {
             matrix.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
         }
         // Start the first synchronization
-        matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.SYNC )
+        matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.HIGH )
     }
 
     // Discover which features the server does support
@@ -547,7 +542,6 @@ function handleEvents ( response ) {
         handleRooms ( response.rooms.invite, "invite" )
         handlePresences ( response.presence)
         matrix.prevBatch = response.next_batch
-        blockUI = false
         //console.log("[Sync performance] ", new Date().getTime() - timecount )
     }
     catch ( e ) {
