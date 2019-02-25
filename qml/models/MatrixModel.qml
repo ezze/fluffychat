@@ -54,13 +54,13 @@ Item {
     * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
     */
     signal newEvent ( var type, var chat_id, var eventType, var eventContent )
-    onNewEvent: console.log("[Event] Type: '%1', content type: '%2'".arg(type).arg(eventType) )
+    onNewEvent: console.log("💬[Event] From: '%1', Type: '%2', content type: '%3'".arg(chat_id).arg(type).arg(eventType) )
 
     /* Outside of the events there are updates for the global chat states which
     * are handled by this signal:
     */
     signal newChatUpdate ( var chat_id, var membership, var notification_count, var highlight_count, var limitedTimeline )
-    onNewChatUpdate: console.log("[Chat Update] Chat ID: '%1', Notifications: %2, Membership: '%3'".arg(chat_id).arg(notification_count).arg(membership) )
+    onNewChatUpdate: console.log("🔔[Chat Update] Chat ID: '%1', Notifications: %2, Membership: '%3'".arg(chat_id).arg(notification_count).arg(membership) )
 
     property var syncRequest: null
     property var initialized: false
@@ -270,7 +270,7 @@ Item {
 
         // Check if the same request is actual sent
         var checksum = type + JSON.stringify(data) + action
-        if ( activeRequests.indexOf(checksum) !== -1 ) return console.warn( "[Error] Multiple requests detected: %1".arg(action) )
+        if ( activeRequests.indexOf(checksum) !== -1 ) return console.warn( "❌[Error] Multiple requests detected: %1".arg(action) )
         else activeRequests.push ( checksum )
 
         var http = new XMLHttpRequest();
@@ -337,7 +337,7 @@ Item {
                     }
                 }
                 catch ( error ) {
-                    if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
+                    if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("❌[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                     if ( !error_callback && error.error === "CONNERROR" ) {
@@ -372,7 +372,7 @@ Item {
         timer.start();
 
         // Send the request now
-        if ( priority !== _PRIORITY.SYNC ) console.log("[Send]", action)
+        if ( priority !== _PRIORITY.SYNC ) console.log("💌[Send]", action)
         http.send( JSON.stringify( postData ) )
 
         return http
@@ -380,7 +380,7 @@ Item {
 
     function init () {
         if ( matrix.token === "" ) return
-        console.log("[Init] Init the matrix synchronization")
+        console.log("👷[Init] Init the matrix synchronization")
 
         // Start synchronizing
         initialized = true
@@ -390,7 +390,7 @@ Item {
             return sync ( 1 )
         }
 
-        console.log("[Init] No previous synchronization found... Request the first synchronization now")
+        console.log("👷[Init] No previous synchronization found... Request the first synchronization now")
         // Set the pusher if it is not set
         pushclient.updatePusher ()
 
