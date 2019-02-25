@@ -55,6 +55,10 @@ Item {
 
     Component.onCompleted: matrix.init ()
 
+    // Logs:
+    onNewEvent: console.log("[Event] Type: '%1', content type: '%2'".arg(type).arg(eventType) )
+    onNewChatUpdate: console.log("[Chat Update] Chat ID: '%1', Notifications: %2, Membership: '%3'".arg(chat_id).arg(notification_count).arg(membership) )
+
 
     // Login and set username, token and server! Needs to be done, before anything else
     function login ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback) {
@@ -325,7 +329,7 @@ Item {
                     }
                 }
                 catch ( error ) {
-                    if ( !isSyncRequest ) console.error("There was an error: When calling ", type, requestUrl, " With data: ", JSON.stringify(data), " Error-Report: ", error, JSON.stringify(error))
+                    if ( !isSyncRequest && !error_callback ) console.error("[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                     if ( !error_callback && error.error === "CONNERROR" ) {
@@ -361,7 +365,7 @@ Item {
         timer.start();
 
         // Send the request now
-        //console.log("[SEND]", requestUrl, JSON.stringify(postData))
+        if ( !isSyncRequest ) console.log("[Send]", type, requestUrl)
         http.send( JSON.stringify( postData ) )
 
         return http

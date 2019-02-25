@@ -245,7 +245,7 @@ Page {
         }
 
         Label {
-            text: i18n.tr("Press the button at the top right to start a new chat or discover public groups.")
+            text: i18n.tr("Swipe up from the bottom to start a new chat or discover public groups.")
             textSize: Label.Large
             color: UbuntuColors.graphite
             anchors.centerIn: parent
