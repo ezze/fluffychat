@@ -9,6 +9,8 @@
     
     languages.push("de");
     
+    languages.push("es");
+    
     var splittedUrl = document.documentURI.split("/");
     var currentLanguage = splittedUrl[splittedUrl.length-2];
     if ( languages.indexOf(splittedUrl[splittedUrl.length-2]) === -1 && languages.indexOf(navigator.language) !== -1 ) {

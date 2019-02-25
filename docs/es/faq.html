@@ -1,0 +1,317 @@
+<html lang="en">
+<head>
+    <script>
+    var languages = new Array();
+    
+    languages.push("template");
+    
+    languages.push("en");
+    
+    languages.push("de");
+    
+    languages.push("es");
+    
+    var splittedUrl = document.documentURI.split("/");
+    var currentLanguage = splittedUrl[splittedUrl.length-2];
+    if ( languages.indexOf(splittedUrl[splittedUrl.length-2]) === -1 && languages.indexOf(navigator.language) !== -1 ) {
+        window.location.href += navigator.language;
+    }
+    </script>
+    <!-- Basic Page Needs
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<meta charset="utf-8">
+<title>FluffyChat - FAQ</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Mobile Specific Metas
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- FONT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link href="https://christianpauly.github.io/fluffychat/assets/css/font.css" rel="stylesheet" type="text/css">
+
+<!-- CSS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link rel="stylesheet" href="https://christianpauly.github.io/fluffychat/assets/css/normalize.css">
+<link rel="stylesheet" href="https://christianpauly.github.io/fluffychat/assets/css/skeleton.css">
+<link rel="stylesheet" href="https://christianpauly.github.io/fluffychat/assets/css/animate.min.css">
+<link rel="stylesheet" href="https://christianpauly.github.io/fluffychat/assets/css/custom.css">
+
+<!-- JS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="https://christianpauly.github.io/fluffychat/assets/js/nav.js"></script>
+<script src="https://christianpauly.github.io/fluffychat/assets/js/jquery-3.2.1.min.js"></script>
+
+<!-- Favicon
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link rel="icon" type="image/png" href="https://christianpauly.github.io/fluffychat/assets/images/favicon.png">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>FAQ</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="FAQ" />
+<meta property="og:locale" content="es" />
+<link rel="canonical" href="http://localhost:4000/es/faq.html" />
+<meta property="og:url" content="http://localhost:4000/es/faq.html" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"FAQ","url":"http://localhost:4000/es/faq.html","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+<body>
+    <div class="container" id="headerContainer">
+    <div class="header">
+        <div class="left_side">
+            <a class="header_button" href="index.html"><img src="https://christianpauly.github.io/fluffychat/assets/images/favicon.png"></a>
+        </div>
+        <div class="right_side">
+            <nav id="header_main_nav">
+                <a href="faq.html" >Preguntas frecuentes</a>
+                <a href="https://matrix.to/#/%23fluffychat:matrix.org"  target="new" >Comunidad</a>
+                <a href="https://github.com/ChristianPauly/fluffychat"  target="new" >Github</a>
+                <a href="https://open-store.io/app/fluffychat.christianpauly"  target="new" >OpenStore</a>
+                <a class="header_button" rel="me" href="https://metalhead.club/@krille" target="new"><img src="https://christianpauly.github.io/fluffychat/assets/images/mastodon.png"></a>
+            </nav>
+            <a id="header_toggle_mobile" class="header_button"><img src="https://christianpauly.github.io/fluffychat/assets/images/menu.svg"></a>
+        </div>
+    </div>
+</div>
+
+
+    <div id="content">
+        
+
+        <div class="container">
+            <h1 id="preguntas-frecuentes">Preguntas frecuentes</h1>
+
+<ul>
+  <li><a href="#configuracion-de-la-cuenta">Configuración de la cuenta</a></li>
+  <li><a href="#comenzar-chat">Comenzar a chatear</a></li>
+  <li><a href="#configuracion-chat">Configuración del chat</a></li>
+  <li><a href="#pasarela-a-otros-sistemas-de-chat">Pasarela a otros sistemas de chat</a></li>
+  <li><a href="#gestion-errores">Gestión de errores</a></li>
+  <li><a href="#acerca-de-fluffychat">Acerca de FluffyChat</a></li>
+</ul>
+
+<h2 id="configuración-de-la-cuenta-">Configuración de la cuenta <a id="configuracion-de-la-cuenta"></a></h2>
+
+<h4 id="cómo-puedo-restablecer-mi-contraseña">¿Cómo puedo restablecer mi contraseña?</h4>
+
+<p>Debe conectar una dirección de correo electrónico a su cuenta. Se puede hacer en la configuración de la cuenta. Si no tiene conectada una dirección de correo electrónico, tiene que contactar con el soporte de su «homeserver» (servidor de datos).
+ (<a href="#Quéesunhomeserver">¿Qué es un «homeserver» (servidor de datos)?</a>)<br />
+<a href="https://www.ubports.chat/#/forgot_password">Pulse aquí para restablecer su contraseña</a>.</p>
+
+<h4 id="cómo-puedo-crear-una-nueva-cuenta">¿Cómo puedo crear una nueva cuenta?</h4>
+
+<ol>
+  <li>Si ya ha iniciado sesión en FluffyChat, vaya a configuración y pulse en «cerrar sesión» en la parte inferior.</li>
+  <li>Elija un nuevo nombre de usuario y compruebe que está seleccionado «crear una cuenta».</li>
+  <li>Si quiere crear una cuenta en un «homeserver» (servidor de datos) distinto al predeterminado (ubports.chat), vaya al menú superior de la izquierda y cambie el «homeserver» (servidor de datos). (<a href="#Quéesunhomeserver">¿Qué es un «homeserver» (servidor de datos)?</a>)</li>
+  <li>Vaya a «iniciar sesión» y elija una nueva contraseña.</li>
+</ol>
+
+<h4 id="cómo-puedo-iniciar-sesión-en-mi-cuenta-antigua">¿Cómo puedo iniciar sesión en mi cuenta antigua?</h4>
+
+<ol>
+  <li>Si ya ha iniciado sesión en FluffyChat, vaya a configuración y pulse en «cerrar sesión» en la parte inferior.</li>
+  <li>Introduzca el nombre de usuario o la identificación («ID») de Matrix de su cuenta antigua. (<a href="#QuéesunaIDdeMatrix">¿Qué es una identificación («ID») de Matrix?</a>) Si no recuerda su nombre de usuario o su identificación («ID») de Matrix pero recuerda el número de teléfono conectado con su cuenta, entonces puede introducir cualquier nombr de usuario y el número de teléfono correcto en el siguiente paso. El nombre de usuario será localizado automáticamente.</li>
+  <li>(Opcional) Introduzca el número de teléfono de su antigua cuenta.</li>
+  <li>Si su cuenta antigua no está en el «homeserver» (servidor de datos) predeterminado (ubports.chat), vaya al menú superior de la izquierda y cambie el «homeserver» (servidor de datos). (<a href="#Quéesunhomeserver">¿Qué es un «homeserver» (servidor de datos)?</a>)</li>
+  <li>Asegúrese de que «crear una cuenta» <strong>no</strong> está marcado.</li>
+  <li>Vaya a «iniciar sesión» e Introduzca su contraseña. (<a href="#Comopuedorestablecermicontraseña">¿Contraseña olvidada?</a>)</li>
+</ol>
+
+<h4 id="qué-es-una-identificación-id-de-matrix">¿Qué es una identificación («ID») de Matrix?</h4>
+
+<p>Su «ID» de Matrix es su identificador único en la red de Matrix. Es una combinación de su nombre de usuario y de su «homeserver» (servidor de datos). (<a href="#Quéesunhomeserver">¿Qué es un «homeserver» (servidor de datos)?</a>)<br />
+El formato de una identificación («ID») de Matrix es sencillo: @nombredeusuario:homeserver. Por ejemplo, si su nombre de usuario es «alicia» y su «homeserver» (servidor de datos) es «homeserver.abc», entonces su («ID») de Matrix es: @alicia:homeserver.abc</p>
+
+<h4 id="qué-es-un-homeserver-servidor-de-datos">¿Qué es un «homeserver» (servidor de datos)?</h4>
+
+<p>Matrix es una red federada de «homeservers» (servidores de datos). ¿Qué significa esto? No hay un «servidor de FluffyChat» centralizado pero existen muchos «homeservers» (servidores de datos) que puede usar. Es libre para elegir el que quiera. Al igual que ocurre con el correo electrónico, todos los servidores se comunican entre ellos. Existe un «homeserver» (servidor de datos) predeterminado en FluffyChat llamado «https://ubports.chat». También puede alojar su propio servidor. <a href="https://matrix.org/docs/guides/installing-synapse">Pulsar aquí para la guía de como comenzar</a>.</p>
+
+<h4 id="qué-es-un-servidor-de-identidad">¿Qué es un servidor de identidad?</h4>
+
+<p>Los usuarios en Matrix son identificados internamente vía un «ID» de Matrix. Sin embargo, identificadores actuales de terceras partes («3PID») como las direcciones de correo electrónico o los números de teléfono deberían usarse públicamente para identificar a los usuarios de Matrix, al menos para las invitaciones. Una «identidad» de Matrix describe tanto el «ID» del usuario como cualquier otros «IDs» de terceras partes enlazadas a sus cuentas.<br />
+Los usuarios de Matrix pueden enlazar «IDs» de terceras partes («3PIDs») a sus «ID» de usuario. Enlazando «3PIDs» se crea un mapeo desde un «3PID» a un «ID» de usuario. Este mapeo puede luego ser usado por los usuarios de Matrix para descubrir los «MXIDs» de sus contactos. Para asegurar que el mapeo desde el «3PID» a un «ID» de usuario es genuino, la intención es que haya un grupo globalmente federado de servidores de identidad («IS») de confianza para usarlo para verificar el «3PID» y continuar y replicar los mapeos. No se necesita el uso de un «IS» para que una aplicación cliente sea parte del ecosistema de Matrix. Sin embargo, sin un cliente no será capaz de buscar «IDs» de usuario usando «3PIDs».</p>
+
+<h2 id="comenzar-a-chatear-">Comenzar a chatear <a id="comenzar-chat"></a></h2>
+
+<h4 id="cómo-puedo-comenzar-un-nuevo-chat">¿Cómo puedo comenzar un nuevo chat?</h4>
+
+<ol>
+  <li>Vaya al botón “+” en la página de inicio o deslice desde abajo en el dispositivo.</li>
+  <li>Elija los contactos que quiere invitar a su nuevo chat. No es necesario invitar a alguno.</li>
+  <li>Si no encuentra un contacto, puede <a href="#Cómopuedoañadircontactosporsunúmerodeteléfono">añadirlo por el número de teléfono</a> o introducir su «ID» de Matrix en el campo de búsqueda. (¿Qué es una identificación («ID») de Matrix?](#QuéesunaIDdeMatrix))</li>
+  <li>Vaya a «crear chat»</li>
+  <li>Si desea crear un chat directo con un contacto, simplemente seleccione un contacto o toque el avatar y vaya a «Iniciar chat directo».</li>
+</ol>
+
+<h4 id="cómo-puedo-unirme-a-un-chat-público">¿Cómo puedo unirme a un chat público?</h4>
+
+<p>Un chat público tiene una o más direcciones públicas llamadas «alias». Siempre empiezan con «#» y terminan con «:homeserver.abc». Por ejemplo: <a href="fluffychat://#fluffychat:matrix.org">#fluffychat:matrix.org</a>. Solo pulse en el enlace para participar en el chat o introduzca un alias en el campo de búsqueda en la página de inicio de FluffyChat.</p>
+
+<h4 id="cómo-puedo-unirme-a-una-comunidad">¿Cómo puedo unirme a una comunidad?</h4>
+
+<p>Una comunidad pública tiene una o más direcciones públicas llamadas «alias». Siempre empiezan con «+» y terminan con «:homeserver.abc». Por ejemplo: <a href="fluffychat://+ubports_community:matrix.org">+ubports_community:matrix.org</a>. Solo pulse en el enlace para ver todos los chats asociados con una comunidad. Para más detalles, visite la <a href="https://www.ubports.chat">aplicación web de escritorio</a>.</p>
+
+<h4 id="cómo-puedo-añadir-contactos-por-su-número-de-teléfono">¿Cómo puedo añadir contactos por su número de teléfono?</h4>
+
+<ol>
+  <li>Vaya al botón «+» en la página de inicio o deslice desde abajo en el dispositivo.</li>
+  <li>Vaya a «añadir contacto» en la parte superior de la izquierda.</li>
+  <li>Elija su aplicación de agenda.</li>
+  <li>Seleccione el contacto que desee añadir o seleccione todos los contactos y confirme.</li>
+  <li>FluffyChat buscará esos contactos en el servidor de identidad. (<a href="#Quéesunservidordeidentidad">¿Qué es un servidor de identidad?</a>)</li>
+</ol>
+
+<h4 id="qué-órdenes-están-disponibles">¿Qué «/órdenes» están disponibles?</h4>
+
+<ul>
+  <li>«/me» (Enviará «msgtype: m.emote») Muestra una acción.</li>
+  <li>«/whisper» (Enviará «msgtype: m.fluffychat.whisper») El texto del mensaje será muy pequeño</li>
+  <li>«/roar» (Enviará «msgtype: m.fluffychat.roar») El texto del mensaje será muy grande, en negrita y mayúsculas</li>
+  <li>«/shrug» Coloca «¯\(ツ)/¯» al inicio del mensaje</li>
+</ul>
+
+<h2 id="configuración-del-chat-">Configuración del chat <a id="configuracion-chat"></a></h2>
+
+<h4 id="how-can-i-kick-or-ban-a-user-from-a-chat">How can I kick or ban a user from a chat?</h4>
+
+<p>You need the permission to kick or ban a user from a chat.</p>
+
+<ol>
+  <li>Go to the chat</li>
+  <li>Go to “Chat infos” in the top right menu</li>
+  <li>Find the user you want to kick or ban and swipe the user list item to the right.</li>
+  <li>Click on the kick or the ban button and confirm</li>
+</ol>
+
+<h4 id="how-can-i-change-the-user-permissions-in-a-chat">How can I change the user permissions in a chat?</h4>
+
+<p>You need the permission to change the user permissions.</p>
+
+<ol>
+  <li>Go to the chat</li>
+  <li>Go to “Chat infos” in the top right menu</li>
+  <li>Find the user you want to kick or ban and swipe the user list item to the left.</li>
+  <li>Click on the desired user permission button and confirm</li>
+</ol>
+
+<h4 id="how-can-i-change-the-chat-topic-and-description">How can I change the chat topic and description?</h4>
+
+<p>You need the permission to change the chat topic and description.</p>
+
+<ol>
+  <li>Go to the chat</li>
+  <li>Go to “Chat infos” in the top right menu</li>
+  <li>Click on the top right edit button and enter the desired chat topic and/or description</li>
+</ol>
+
+<h4 id="how-can-i-edit-the-chat-privacy-settings">How can I edit the chat privacy settings?</h4>
+
+<p>You need the permission to edit the chat privacy settings.</p>
+
+<ol>
+  <li>Go to the chat</li>
+  <li>Go to “Chat infos” in the top right menu</li>
+  <li>Go to “Privacy and security”</li>
+  <li>Toggle or untoggle the desired options and edit the user permission options</li>
+</ol>
+
+<h4 id="what-are-chat-aliases-and-how-can-i-edit-them">What are chat aliases and how can I edit them?</h4>
+
+<p>Chat aliases are public chat addresses which can be used to join a chat. You need the chat permissions to change them.</p>
+
+<ol>
+  <li>Go to the chat</li>
+  <li>Go to “Chat infos” in the top right menu</li>
+  <li>Go to “Privacy and security”</li>
+  <li>Toggle or untoggle the desired options and edit the user permission options</li>
+</ol>
+
+<h4 id="how-can-i-send-animated-stickers-with-giphy">How can I send animated stickers with Giphy?</h4>
+
+<ol>
+  <li>Start a new chat with <a href="fluffychat://@neb_giphy:​matrix.org">@neb_giphy:​matrix.org</a>.</li>
+  <li>Search for gifs by typing: ‘!giphy KEYWORD’</li>
+  <li>Add an animated sticker by clicking on the sticker and add it to your local sticker collection by clicking on the “+” on the rop right.</li>
+</ol>
+
+<h2 id="bridge-to-other-chat-systems-">Bridge to other chat systems <a id="pasarela-a-otros-sistemas-de-chat"></a></h2>
+
+<h4 id="qué-es-matrix">¿Qué es Matrix?</h4>
+
+<p>Matrix is an open standard for interoperable, decentralised, real-time communication over IP. It can be used to power Instant Messaging, VoIP/WebRTC signalling, Internet of Things communication - or anywhere you need a standard HTTP API for publishing and subscribing to data whilst tracking the conversation history.</p>
+
+<h4 id="how-can-i-enter-a-xmpp-multi-user-chat">How can I enter a XMPP multi-user chat?</h4>
+
+<p>The easiest way currently is to use the bridge on matrix.org.<br />
+Every XMPP multi-user chat has a Jabber identifier (JID) with the format: <code class="highlighter-rouge">chatname@chat.server.abc</code><br />
+The chatname is the <strong>local</strong> part and the chat.server.abc is the <strong>server</strong> part. You can enter this chat by entering the Matrix public room: <code class="highlighter-rouge">#_xmpp_server_local:matrix.org</code> (<a href="#HowcanIjoinapublicchat">How can I join a public chat?</a>)<br />
+For the given example this would be: <code class="highlighter-rouge">#_xmpp_chat.server.abc_chatname:matrix.org</code></p>
+
+<h4 id="how-can-i-enter-an-irc-node-on-freenode">How can I enter an IRC node on Freenode?</h4>
+
+<p>If you want to enter the node <code class="highlighter-rouge">#chatname</code> on freenode you can just join the public chat: <code class="highlighter-rouge">#freenode_#chatname:matrix.org</code><br />
+Replace <code class="highlighter-rouge">#chatname</code> with the node you want to join and you are in.</p>
+
+<h4 id="how-can-i-bridge-a-group-chat-with-a-telegram-group-chat">How can I bridge a group chat with a Telegram group chat?</h4>
+
+<p>Look at the tutorial on <a href="https://wayneoutthere.com/how-to-bridge-matrix-telegram/">wayneoutthere.com</a>.</p>
+
+<h2 id="gestión-de-errores-">Gestión de errores <a id="gestion-errores"></a></h2>
+
+<h4 id="why-dont-i-receive-push-notifications">Why don’t I receive push notifications?</h4>
+
+<p>Do you have an Ubuntu One account in the system settings?<br />
+When you go into fluffychat -&gt; Settings -&gt; Notifications -&gt; Targets: Is there a device “UbuntuPhone”?<br />
+Have you tried to logout and login?<br />
+Do you have the latest version of FluffyChat installed from the OpenStore?<br />
+Have you tried to turn airplaine mode on and off again? Sometimes notifications are sent with a delay from the UBports push service (will be fixed soon) If you still have the problem, then please contact me at the room: <a href="fluffychat://#fluffychat:matrix.org">#fluffychat:matrix.org</a></p>
+
+<h4 id="why-cant-i-connect-with-port-8448">Why can’t I connect with port 8448?</h4>
+
+<p>Sorry! confused On port 8448 the most homeservers use a different ssl certificate, which causes an error. Currently the xmlhttprequest in QML does not allow those certificates.</p>
+
+<h4 id="por-qué-no-puedo-conectar-con-un-certificado-auto-firmado">¿Por qué no puedo conectar con un certificado auto-firmado?</h4>
+
+<p>El mismo problema… Le recomiendo que use un certificado de Let’s Encrypt.</p>
+
+<h2 id="acerca-de-fluffychat-">Acerca de FluffyChat <a id="acerca-de-fluffychat"></a></h2>
+
+<h4 id="cómo-se-financia-fluffychat">¿Cómo se financia FluffyChat?</h4>
+
+<p>FluffyChat es financiado por la comunidad. Puede apoyar a FluffyChat en <a href="https://www.patreon.com/krillechritzelius">Patreon</a> o <a href="https://liberapay.com/KrilleChritzelius">Liberapay</a></p>
+
+
+        </div>
+    </div>
+
+    <div class="spacer"> </div>
+
+
+<div class="centered">
+    <a href="https://www.patreon.com/bePatron?u=11123241" target="new"><img class="buttonImage animated bounceIn" src="https://christianpauly.github.io/fluffychat/assets/images/become_a_patron_button@2x.png"/></a></br></br>
+    <script src="https://liberapay.com/KrilleChritzelius/widgets/button.js"></script>
+    <noscript><a href="https://liberapay.com/KrilleChritzelius/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/https://christianpauly.github.io/fluffychat/assets/widgets/donate.svg"></a></noscript>
+</div>
+
+<div class="spacer"> </div>
+
+<div id="footer">
+    <a href="https://github.com/ChristianPauly/fluffychat/blob/master/LICENSE" target="new">Licencia pública general de GNU («GPL»)</a> -
+    <a href="https://github.com/ChristianPauly/fluffychat/blob/master/CHANGELOG.md" target="new">Registro de cambios</a> -
+    <a href="https://hosted.weblate.org/projects/fluffychat/" target="new">Ayudar con la traducción</a> -
+    <a href="https://github.com/ChristianPauly" target="new">Creado por Christian Pauly</a> -
+    <a href="https://github.com/ChristianPauly/fluffychat/blob/master/PRIVACYPOLICY.md" target="new">Política de privacidad</a> -
+    <a href="https://github.com/ChristianPauly/fluffychat/graphs/contributors" target="new">Colaboradores</a> -
+    <a href="https://github.com/ChristianPauly/fluffychat#special-thanks-to" target="new">Agradecimiento especial a</a> -
+    <a href="https://ubports.com" target="new">UBports</a>
+</div>
+
+</body>
+</html>
