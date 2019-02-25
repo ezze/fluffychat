@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 13:58+0000\n"
+"POT-Creation-Date: 2019-02-25 14:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:134 ../qml/components/ChatEvent.qml:115
+#: ../qml/Main.qml:122 ../qml/components/ChatEvent.qml:115
 msgid "Are you sure?"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Join the community"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:54 ../qml/pages/LoginPage.qml:120
+#: ../qml/pages/InfoPage.qml:54 ../qml/pages/LoginPage.qml:46
 #: ../qml/pages/PrivacyPolicyPage.qml:11
 msgid "Privacy Policy"
 msgstr ""
@@ -115,7 +115,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:129 ../qml/pages/LoginPage.qml:272
+#: ../qml/pages/PasswordCreationPage.qml:129 ../qml/pages/LoginPage.qml:198
 msgid "Sign up"
 msgstr ""
 
@@ -160,60 +160,47 @@ msgid ""
 "funded by the community."
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:41
-msgid "Username '%1' not found on %2"
-msgstr ""
-
-#: ../qml/pages/LoginPage.qml:44 ../qml/pages/LoginPage.qml:86
-#: ../qml/models/MatrixModel.qml:392
-msgid "😕 No connection..."
-msgstr ""
-
-#: ../qml/pages/LoginPage.qml:83 ../qml/pages/LoginPage.qml:85
-msgid "Username is already taken"
-msgstr ""
-
-#: ../qml/pages/LoginPage.qml:94
+#: ../qml/pages/LoginPage.qml:20
 msgid "Homeserver %1"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:102
+#: ../qml/pages/LoginPage.qml:28
 msgid "Change homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:110
+#: ../qml/pages/LoginPage.qml:36
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:115 ../qml/pages/SettingsPage.qml:303
+#: ../qml/pages/LoginPage.qml:41 ../qml/pages/SettingsPage.qml:303
 msgid "About FluffyChat"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:130
+#: ../qml/pages/LoginPage.qml:56
 msgid "FAQ"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:141
+#: ../qml/pages/LoginPage.qml:67
 msgid "Choose your homeserver"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:163
+#: ../qml/pages/LoginPage.qml:89
 msgid "Choose your identity server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:214
+#: ../qml/pages/LoginPage.qml:140
 msgid "Phone number (optional)"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:223
+#: ../qml/pages/LoginPage.qml:149
 msgid "Username or Matrix ID"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:266
+#: ../qml/pages/LoginPage.qml:192
 msgid "Create a new account"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:272 ../qml/pages/PasswordInputPage.qml:90
+#: ../qml/pages/LoginPage.qml:198 ../qml/pages/PasswordInputPage.qml:90
 msgid "Sign in"
 msgstr ""
 
@@ -583,42 +570,42 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:272 ../qml/components/ArchivedChatListItem.qml:29
+#: ../qml/pages/ChatPage.qml:261 ../qml/components/ArchivedChatListItem.qml:29
 #: ../qml/components/SimpleChatListItem.qml:26
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:302 ../qml/components/RemoveDeviceDialog.qml:47
+#: ../qml/pages/ChatPage.qml:291 ../qml/components/RemoveDeviceDialog.qml:47
 #: ../qml/components/ChatEvent.qml:107
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:309
+#: ../qml/pages/ChatPage.qml:298
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:333
+#: ../qml/pages/ChatPage.qml:322
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:356
+#: ../qml/pages/ChatPage.qml:345
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:426
+#: ../qml/pages/ChatPage.qml:415
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:426
+#: ../qml/pages/ChatPage.qml:415
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:440
+#: ../qml/pages/ChatPage.qml:429
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:471
+#: ../qml/pages/ChatPage.qml:460
 msgid "Type something ..."
 msgstr ""
 
@@ -775,19 +762,24 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:234
+#: ../qml/models/MatrixModel.qml:233
 msgid "Do you want to join this chat?"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:271
+#: ../qml/models/MatrixModel.qml:270
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:499
+#: ../qml/models/MatrixModel.qml:391 ../qml/scripts/LoginPageActions.js:32
+#: ../qml/scripts/LoginPageActions.js:74
+msgid "😕 No connection..."
+msgstr ""
+
+#: ../qml/models/MatrixModel.qml:498
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:548
+#: ../qml/models/MatrixModel.qml:547
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1118,10 +1110,6 @@ msgstr ""
 
 #: ../qml/components/CountryPicker.qml:37
 msgid "Search country name..."
-msgstr ""
-
-#: ../qml/components/LoadingModal.qml:18
-msgid "Synchronizing… Please wait."
 msgstr ""
 
 #: ../qml/components/ChatListItem.qml:44
@@ -1489,4 +1477,12 @@ msgstr ""
 
 #: ../qml/scripts/EventDescription.js:133
 msgid "Forbidden"
+msgstr ""
+
+#: ../qml/scripts/LoginPageActions.js:29
+msgid "Username '%1' not found on %2"
+msgstr ""
+
+#: ../qml/scripts/LoginPageActions.js:71 ../qml/scripts/LoginPageActions.js:73
+msgid "Username is already taken"
 msgstr ""

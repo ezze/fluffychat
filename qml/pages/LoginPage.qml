@@ -4,6 +4,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
+import "../scripts/LoginPageActions.js" as LoginPageActions
 
 StyledPage {
     id: loginPage
@@ -12,81 +13,6 @@ StyledPage {
     property var loginDomain: ""
 
     property var domainChanged: false
-
-    function login () {
-        if ( loginDomain === "" ) loginDomain = defaultDomain
-        signInButton.enabled = false
-        var username = loginTextField.displayText
-        desiredUsername = username
-
-        // Step 1: Transforming the username:
-        // If it is a normal username, then use the current domain
-        // If it is a matrix-id, then get the infos from this form:
-        // @username:domain
-        if ( username.indexOf ("@") !== -1 ) {
-            var usernameSplitted = username.substr(1).split ( ":" )
-            username = usernameSplitted [0]
-            loginDomain = usernameSplitted [1]
-        }
-        matrix.username = username
-        matrix.server = loginDomain
-
-        // Step 2: If there is no phone number, and the user is new then try to register the username
-        if ( phoneTextField.displayText === "" && newHereCheckBox.checked ) register ( username )
-
-        // Step 2.1: If there is no phone number and the user is not new, then check if user exists:
-        else if  ( phoneTextField.displayText === "" ) {
-            matrix.get( "/client/r0/register/available", {"username": username.toLowerCase() }, function ( response ) {
-                if ( !response.available ) mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("./PasswordInputPage.qml") )
-                else toast.show (i18n.tr("Username '%1' not found on %2").arg(username).arg(loginDomain))
-            }, function ( response ) {
-                if ( response.errcode === "M_USER_IN_USE" ) mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("./PasswordInputPage.qml") )
-                else if ( response.error === "CONNERROR" ) toast.show (i18n.tr("😕 No connection..."))
-                else toast.show ( response.error )
-            }, 2)
-        }
-
-        // Step 3: Try to get the username via the phone number and login
-        else {
-            // Transform the phone number
-            var phoneInput = phoneTextField.displayText.replace(/\D/g,'')
-            if ( phoneInput.charAt(0) === "0" ) phoneInput = phoneInput.substr(1)
-            phoneInput = matrix.countryTel + phoneInput
-
-            // Step 3.1: Look for this phone number
-            matrix.get ("/identity/api/v1/lookup", {
-                "medium": "msisdn",
-                "address": phoneInput
-            }, function ( response ) {
-
-                // Step 3.2: There is a registered matrix id. Go to the password input...
-                if ( response.mxid ) {
-                    var splittedMxid = response.mxid.substr(1).split ( ":" )
-                    matrix.username = splittedMxid[0]
-                    matrix.server = splittedMxid[1]
-                    mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("./PasswordInputPage.qml") )
-                }
-                // Step 3.3.1: There is no registered matrix id. Try to register one...
-                else {
-                    console.log("Step 3.3.1: There is no registered matrix id. Try to register one...")
-                    desiredPhoneNumber = phoneInput
-                    register ( username )
-                }
-            }, null, 2)
-        }
-        signInButton.enabled = loginTextField.displayText !== "" && loginTextField.displayText !== " "
-    }
-
-    function register ( username ) {
-        matrix.get( "/client/r0/register/available", {"username": username.toLowerCase() }, function ( response ) {
-            if ( response.available ) mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("./PasswordCreationPage.qml") )
-            else toast.show (i18n.tr("Username is already taken"))
-        }, function ( response ) {
-            if ( response.errcode === "M_USER_IN_USE" ) toast.show (i18n.tr("Username is already taken"))
-            else if ( response.error === "CONNERROR" ) toast.show (i18n.tr("😕 No connection..."))
-            else toast.show ( response.error )
-        }, 2)
-    }
 
     Component.onCompleted: if ( mainLayout.darkmode ) mainLayout.darkmode = false
 
@@ -221,7 +147,7 @@ StyledPage {
                 anchors.horizontalCenter: parent.horizontalCenter
                 id: loginTextField
                 placeholderText: i18n.tr("Username or Matrix ID")
-                Keys.onReturnPressed: login()
+                Keys.onReturnPressed: LoginPageActions.login()
                 width: elemWidth
                 onDisplayTextChanged: {
                     if ( displayText.indexOf ("@") !== -1 && !domainChanged ) {
@@ -272,7 +198,7 @@ StyledPage {
                 text: newHereCheckBox.checked && newHereCheckBox.visible ? i18n.tr("Sign up") : i18n.tr("Sign in")
                 width: loginTextField.width
                 color: UbuntuColors.green
-                onClicked: login()
+                onClicked: LoginPageActions.login()
                 enabled: loginTextField.displayText !== ""
                 anchors.horizontalCenter: parent.horizontalCenter
             }

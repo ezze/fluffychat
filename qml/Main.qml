@@ -84,30 +84,18 @@ MainView {
 
     MainLayout { id: mainLayout }
 
-
-
-    /* =============================== MODELS ===============================
-    All models should be defined here. They are accessable everywhere by the
-    id, defined here.
-    */
-    StorageModel { id: storage }
-    MatrixModel {
-        id: matrix
-        onError: toast.show ( error )
+    ProgressBar {
+        id: requestProgressBar
+        indeterminate: true
+        width: parent.width
+        anchors.top: parent.top
+        visible: matrix.waitingForAnswer > 0
+        z: 10
     }
-    PushModel {
-        id: pushClient
-        onError: toast.show ( error )
-    }
-    SettingsModel { id: settings }
-    UserMetricsModel { id: userMetrics }
-    ContentHubModel { id: shareController }
 
     Toast { id: toast }
     ImageViewer { id: imageViewer }
-    VideoPlayer { id: videoPlayer }
     LockedScreen { id: lockedScreen }
-    LoadingModal { id: loadingModal }
     Audio { id: audio }
     ConfirmDialog { id: confirmDialog }
     UserSettingsDialog { id: userSettingsDialog }
@@ -138,6 +126,25 @@ MainView {
         confirmDialogFunction = action
         PopupUtils.open( confirmDialog )
     }
+
+
+
+    /* =============================== MODELS ===============================
+    All models should be defined here. They are accessable everywhere by the
+    id, defined here.
+    */
+    StorageModel { id: storage }
+    MatrixModel {
+        id: matrix
+        onError: toast.show ( error )
+    }
+    PushModel {
+        id: pushClient
+        onError: toast.show ( error )
+    }
+    SettingsModel { id: settings }
+    UserMetricsModel { id: userMetrics }
+    ContentHubModel { id: shareController }
 
 
     /* =============================== CONNECTION MANAGER ===============================

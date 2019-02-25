@@ -115,7 +115,6 @@ Item {
     * are handled by this signal:
     */
     signal newChatUpdate ( var chat_id, var membership, var notification_count, var highlight_count, var limitedTimeline, var prevBatch )
-    onNewChatUpdate: console.log("🔔[Chat Update] Chat ID: '%1', Notifications: %2, Membership: '%3'".arg(chat_id).arg(notification_count).arg(membership) )
 
     property var syncRequest: null
     property var initialized: false

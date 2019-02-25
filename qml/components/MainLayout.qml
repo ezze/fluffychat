@@ -82,15 +82,6 @@ AdaptivePageLayout {
     }
     ]
 
-    ProgressBar {
-        id: requestProgressBar
-        indeterminate: true
-        width: parent.width
-        anchors.top: parent.top
-        visible: matrix.waitingForAnswer > 0
-        z: 10
-    }
-
     // Wait for server answer dialog
     WaitDialog {
         id: waitDialog

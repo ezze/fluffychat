@@ -89,48 +89,37 @@ StyledPage {
 
         var type = sticker === undefined ? "m.room.message" : "m.sticker"
 
-        // Save the message in the database
-        storage.query ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        [ messageID,
-        activeChat,
-        now,
-        matrix.matrixid,
-        matrix.matrixid,
-        message,
-        null,
-        type,
-        JSON.stringify(data),
-        msg_status.SENDING ], function ( rs ) {
-            // Send the message
-            var fakeEvent = {
-                type: type,
-                id: messageID,
-                sender: matrix.matrixid,
-                content_body: MessageFormats.formatText ( data.body ),
-                displayname: activeChatMembers[matrix.matrixid].displayname,
-                avatar_url: activeChatMembers[matrix.matrixid].avatar_url,
-                status: msg_status.SENDING,
-                origin_server_ts: now,
-                content: data
-            }
-            chatScrollView.addEventToList ( fakeEvent )
+        // Send the message
+        var fakeEvent = {
+            type: type,
+            event_id: messageID,
+            id: messageID,
+            sender: matrix.matrixid,
+            content_body: MessageFormats.formatText ( data.body ),
+            displayname: activeChatMembers[matrix.matrixid].displayname,
+            avatar_url: activeChatMembers[matrix.matrixid].avatar_url,
+            status: msg_status.SENDING,
+            origin_server_ts: now,
+            content: data
+        }
 
-            matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
-                chatScrollView.messageSent ( messageID, response )
-            }, function ( error ) {
-                if ( error === "DELETE" ) chatScrollView.removeEvent ( messageID )
-                else chatScrollView.errorEvent ( messageID )
-            } )
+        matrix.newEvent( type, activeChat, "timeline", fakeEvent )
 
-            if ( sticker === undefined ) {
-                isTyping = true
-                messageTextField.text = " " // Workaround for bug on bq tablet
-                messageTextField.text = ""
-                messageTextField.height = header.height - units.gu(2)
-                sendTypingNotification ( false )
-                isTyping = false
-            }
-        })
+        matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
+            chatScrollView.messageSent ( messageID, response )
+        }, function ( error ) {
+            if ( error === "DELETE" ) chatScrollView.removeEvent ( messageID )
+            else chatScrollView.errorEvent ( messageID )
+        } )
+
+        if ( sticker === undefined ) {
+            isTyping = true
+            messageTextField.text = " " // Workaround for bug on bq tablet
+            messageTextField.text = ""
+            messageTextField.height = header.height - units.gu(2)
+            sendTypingNotification ( false )
+            isTyping = false
+        }
     }
 
 
