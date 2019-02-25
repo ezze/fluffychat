@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import "../pages"
 import "../scripts/DefaultLayoutActions.js" as DefaultLayoutActions
 
@@ -58,8 +59,17 @@ AdaptivePageLayout {
         indeterminate: true
         width: parent.width
         anchors.top: parent.top
-        visible: progressBarRequests > 0
+        visible: matrix.waitingForAnswer > 0
         z: 10
+    }
+
+    // Wait for server answer dialog
+    WaitDialog {
+        id: waitDialog
+    }
+    Connections {
+        target: matrix
+        onBlockUIRequestChanged: matrix.blockUIRequest !== null ? PopupUtils.open ( waitDialog ) : function(){}
     }
 
     primaryPageSource: Qt.resolvedUrl( DefaultLayoutActions.getPrimaryPage () )

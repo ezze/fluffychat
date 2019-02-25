@@ -27,8 +27,8 @@ Component {
         }
 
         Connections {
-            target: root
-            onWaitDialogRequestChanged: waitDialogRequest === null ? PopupUtils.close ( dialogue ) : function(){}
+            target: matrix
+            onBlockUIRequestChanged: matrix.blockUIRequest === null ? PopupUtils.close ( dialogue ) : function(){}
         }
 
         Button {

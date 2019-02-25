@@ -1,6 +1,5 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.3
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
 import "../scripts/MatrixNames.js" as MatrixNames
@@ -16,16 +15,27 @@ credentials
 Item {
     id: matrix
 
-    // The online status (bool)
-    property var onlineStatus: false
+    // The priority of a request:
+    // LOW: The request is in the background. Errors will be ignored and the
+    // waiting for an answer counter will not be increased.
+    // MEDIUM: Increase the waiting for an answer counter
+    // HIGH: Trigger the signals to block the GUI until there is an answer
+    // SYNC: Special priority for synchronization requests.
+    readonly property var _PRIORITY: { "SYNC": -1, "LOW": 0, "NORMAL": 1, "HIGH": 2 }
 
-    // Is the user logged or does he still need to login or register?
-    property bool isLogged: matrix.token !== ""
+    // The number of requests the client is waiting for an answer.
+    property int waitingForAnswer: 0
+
+    // If there is a request which should bock the UI, this property will be set.
+    property var blockUIRequest: null
 
     // This is the access token for the matrix client. When it is undefined, then
     // the user needs to sign in first
     property string token: ""
-    onTokenChanged: matrix.init ()
+    onTokenChanged: isLogged = token !== ""
+
+    property bool isLogged: token !== ""
+    onIsLoggedChanged: matrix.init ()
 
     // The list of the current active requests, to prevent multiple same requests
     property var activeRequests: []
@@ -44,20 +54,19 @@ Item {
     * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
     */
     signal newEvent ( var type, var chat_id, var eventType, var eventContent )
+    onNewEvent: console.log("[Event] Type: '%1', content type: '%2'".arg(type).arg(eventType) )
+
     /* Outside of the events there are updates for the global chat states which
     * are handled by this signal:
     */
     signal newChatUpdate ( var chat_id, var membership, var notification_count, var highlight_count, var limitedTimeline )
+    onNewChatUpdate: console.log("[Chat Update] Chat ID: '%1', Notifications: %2, Membership: '%3'".arg(chat_id).arg(notification_count).arg(membership) )
 
     property var syncRequest: null
     property var initialized: false
     property var abortSync: false
 
     Component.onCompleted: matrix.init ()
-
-    // Logs:
-    onNewEvent: console.log("[Event] Type: '%1', content type: '%2'".arg(type).arg(eventType) )
-    onNewChatUpdate: console.log("[Chat Update] Chat ID: '%1', Notifications: %2, Membership: '%3'".arg(chat_id).arg(notification_count).arg(membership) )
 
 
     // Login and set username, token and server! Needs to be done, before anything else
@@ -79,16 +88,12 @@ Item {
             settings.username = (response.user_id.substr(1)).split(":")[0]
             settings.matrixid = response.user_id
             matrix.token = response.access_token
-            onlineStatus = true
             if ( callback ) callback ( response )
         }
 
-        var onError = function ( response ) {
-            resetSettings ()
-            if ( error_callback ) error_callback ( response )
-        }
         xmlRequest ( "POST", data, "/client/r0/login", onLogged, error_callback, 2)
     }
+
 
     function register ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback) {
 
@@ -122,16 +127,14 @@ Item {
                             "type": response.flows[i].stages[0],
                             "session": response.session
                         }
-                        xmlRequest ( "POST", data, "/client/r0/register", function ( response ) {
+                        var onRegisteredCallback = function ( response ) {
                             matrix.token = response.access_token
                             settings.deviceID = response.device_id
                             settings.username = (response.user_id.substr(1)).split(":")[0]
                             settings.matrixid = response.user_id
-                            settings.server = newServer.toLowerCase()
-                            settings.deviceName = newDeviceName
-                            onlineStatus = true
                             if ( callback ) callback ( response )
-                        }, error_callback, 2 )
+                        }
+                        xmlRequest ( "POST", data, "/client/r0/register", onRegisteredCallback, error_callback, 2 )
                         forwarded = true
                         break
                     }
@@ -149,7 +152,6 @@ Item {
                 settings.server = newServer.toLowerCase()
                 settings.deviceName = newDeviceName
                 settings.dbversion = storage.version
-                onlineStatus = true
                 init ()
                 if ( callback ) callback ( response )
             }
@@ -158,25 +160,28 @@ Item {
         xmlRequest ( "POST", data, "/client/r0/register", onResponse, onResponse, 2 )
     }
 
+
     function logout () {
         if ( syncRequest ) {
             abortSync = true
             syncRequest.abort ()
             abortSync = false
         }
-        var callback = function () { post ( "/client/r0/logout", {}, reset, reset ) }
+        var callback = function () {
+            post ( "/client/r0/logout", {}, reset, reset )
+        }
         pushclient.setPusher ( false, callback, callback )
     }
 
 
     function reset () {
         storage.drop ()
-        onlineStatus = false
         resetSettings ()
         mainLayout.init ()
     }
 
 
+    // TODO: Move into chat list model!
     function joinChat (chat_id) {
         showConfirmDialog ( i18n.tr("Do you want to join this chat?").arg(chat_id), function () {
             loadingScreen.visible = true
@@ -186,10 +191,10 @@ Item {
                 mainLayout.toChat( response.room_id )
             }, null, 2 )
         } )
-
     }
 
 
+    // TODO: Move into room model!
     function sendMessage ( messageID, data, chat_id, success_callback, error_callback ) {
         var newMessageID = ""
         var callback = function () { if ( newMessageID !== "" ) success_callback ( newMessageID ) }
@@ -261,11 +266,11 @@ Item {
 
     function xmlRequest ( type, data, action, callback, error_callback, priority ) {
 
-        if ( priority === undefined ) priority = 1
+        if ( priority === undefined ) priority = _PRIORITY.MEDIUM
 
         // Check if the same request is actual sent
         var checksum = type + JSON.stringify(data) + action
-        if ( activeRequests.indexOf(checksum) !== -1 ) return console.warn( "multiple request detected!" )
+        if ( activeRequests.indexOf(checksum) !== -1 ) return console.warn( "[Error] Multiple requests detected: %1".arg(action) )
         else activeRequests.push ( checksum )
 
         var http = new XMLHttpRequest();
@@ -299,19 +304,22 @@ Item {
 
         // Build the request
         var longPolling = (data != null && data.timeout)
-        var isSyncRequest = (action === "/client/r0/sync")
-        http.open( type, requestUrl, true);
+        http.open( type, requestUrl, true)
         http.timeout = defaultTimeout
         if ( !(server === settings.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-        if ( server === settings.server && matrix.token ) http.setRequestHeader('Authorization', 'Bearer ' + matrix.token);
+        if ( server === settings.server && matrix.token ) http.setRequestHeader('Authorization', 'Bearer ' + matrix.token)
+
+        // Handle responses
         http.onreadystatechange = function() {
             if (http.readyState === XMLHttpRequest.DONE) {
                 try {
+                    // First: Remove the request from the list of active requests
+                    // and update the waiting for an answer counter
                     var index = activeRequests.indexOf(checksum);
                     activeRequests.splice( index, 1 )
-                    if ( !longPolling && priority > 0 ) progressBarRequests--
-                    if ( priority > 1 ) waitDialogRequest = null
-                    if ( progressBarRequests < 0 ) progressBarRequests = 0
+                    if ( !longPolling && priority > _PRIORITY.LOW ) waitingForAnswer--
+                    if ( priority === _PRIORITY.HIGH ) blockUIRequest = null
+                    if ( waitingForAnswer < 0 ) waitingForAnswer = 0
 
                     if ( !timer.running ) throw( "CONNERROR" )
                     timer.stop ()
@@ -329,11 +337,10 @@ Item {
                     }
                 }
                 catch ( error ) {
-                    if ( !isSyncRequest && !error_callback ) console.error("[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
+                    if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                     if ( !error_callback && error.error === "CONNERROR" ) {
-                        onlineStatus = false
                         toast.show (i18n.tr("😕 No connection..."))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
@@ -346,18 +353,18 @@ Item {
                         else toast.show ( error.error )
                     }
                     else if ( error_callback ) error_callback ( error )
-                    else if ( error.errcode !== undefined && error.error !== undefined && priority > 0 ) toast.show ( error.error )
+                    else if ( error.errcode !== undefined && error.error !== undefined && priority > _PRIORITY.LOW ) toast.show ( error.error )
                 }
             }
         }
-        if ( !longPolling && priority > 0 ) {
-            progressBarRequests++
+        if ( !longPolling && priority > _PRIORITY.LOW ) {
+            waitingForAnswer++
         }
-        if ( priority > 1 ) waitDialogRequest = http
+        if ( priority === _PRIORITY.HIGH ) blockUIRequest = http
 
         // Make timeout working in qml
         timer.stop ()
-        timer.interval = (longPolling || isSyncRequest) ? longPollingTimeout*1.5 : defaultTimeout
+        timer.interval = (longPolling || priority === _PRIORITY.SYNC) ? longPollingTimeout*1.5 : defaultTimeout
         timer.repeat = false
         timer.triggered.connect(function () {
             if (http.readyState === XMLHttpRequest.OPENED) http.abort ()
@@ -365,14 +372,14 @@ Item {
         timer.start();
 
         // Send the request now
-        if ( !isSyncRequest ) console.log("[Send]", type, requestUrl)
+        if ( priority !== _PRIORITY.SYNC ) console.log("[Send]", action)
         http.send( JSON.stringify( postData ) )
 
         return http
     }
 
     function init () {
-        if ( !matrix.isLogged ) return
+        if ( matrix.token === "" ) return
         console.log("[Init] Init the matrix synchronization")
 
         // Start synchronizing
@@ -399,13 +406,12 @@ Item {
             }
 
             matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(settings.lazy_load_members)}, function ( response ) {
-                if ( waitingForSync ) progressBarRequests--
+                if ( waitingForSync ) waitingForAnswer--
                 handleEvents ( response )
-                matrix.onlineStatus = true
 
                 if ( !abortSync ) sync ()
-            }, init, null, longPollingTimeout )
-        })
+            }, init, _PRIORITY.SYNC )
+        }, init)
 
     }
 
@@ -420,16 +426,14 @@ Item {
 
         syncRequest = matrix.get ("/client/r0/sync", data, function ( response ) {
 
-            if ( waitingForSync ) progressBarRequests--
+            if ( waitingForSync ) waitingForAnswer--
             waitingForSync = false
             if ( matrix.token ) {
-                matrix.onlineStatus = true
                 handleEvents ( response )
                 sync ()
             }
         }, function ( error ) {
             if ( !abortSync && matrix.token !== undefined ) {
-                matrix.onlineStatus = false
                 if ( error.errcode === "M_INVALID" ) {
                     mainLayout.init ()
                 }
@@ -438,7 +442,7 @@ Item {
                     else console.error ( i18n.tr("You are offline 😕") )
                 }
             }
-        } );
+        }, _PRIORITY.SYNC );
     }
 
 
@@ -457,14 +461,14 @@ Item {
     function waitForSync () {
         if ( waitingForSync ) return
         waitingForSync = true
-        progressBarRequests++
+        waitingForAnswer++
     }
 
 
     function stopWaitForSync () {
         if ( !waitingForSync ) return
         waitingForSync = false
-        progressBarRequests--
+        waitingForAnswer--
     }
 
     property var transaction
