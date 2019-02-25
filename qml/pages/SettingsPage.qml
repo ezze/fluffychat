@@ -24,14 +24,14 @@ Page {
     }
 
     function changeBackground ( mediaUrl ) {
-        settings.chatBackground = mediaUrl
+        mainLayout.chatBackground = mediaUrl
     }
 
     function updateAvatar ( type, chat_id, eventType, eventContent ) {
-        if ( type === "m.room.member" && eventContent.sender === settings.matrixid ) {
-            storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + settings.matrixid + "'", function (rs) {
+        if ( type === "m.room.member" && eventContent.sender === matrix.matrixid ) {
+            storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + matrix.matrixid + "'", function (rs) {
                 if ( rs.rows.length > 0 ) {
-                    var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
+                    var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
                     avatarImage.name = displayname
                     avatarImage.mxc = rs.rows[0].avatar_url
                     hasAvatar = (rs.rows[0].avatar_url !== "" && rs.rows[0].avatar_url !== null)
@@ -67,9 +67,9 @@ Page {
                 spacing: units.gu(2)
 
                 Component.onCompleted: {
-                    storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + settings.matrixid + "'", function (rs) {
+                    storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + matrix.matrixid + "'", function (rs) {
                         if ( rs.rows.length > 0 ) {
-                            displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
+                            displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
                             avatarImage.mxc = rs.rows[0].avatar_url
                         }
                     })
@@ -83,7 +83,7 @@ Page {
 
                 Avatar {  // Useravatar
                     id: avatarImage
-                    name: settings.matrixid
+                    name: matrix.matrixid
                     height: parent.height - units.gu(3)
                     width: height
                     mxc: avatar_url
@@ -111,7 +111,7 @@ Page {
                         font.bold: true
                     }
                     Label {
-                        text: settings.matrixid
+                        text: matrix.matrixid
                         width: parent.width
                         wrapMode: Text.Wrap
                     }
@@ -177,16 +177,16 @@ Page {
                         SlotsLayout.position: SlotsLayout.Trailing
                         width: units.gu(4)
                         height: width
-                        visible: settings.chatBackground !== undefined
-                        color: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
+                        visible: mainLayout.chatBackground !== undefined
+                        color: mainLayout.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
                         border.width: 1
-                        border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
+                        border.color: mainLayout.darkmode ? UbuntuColors.slate : UbuntuColors.silk
                         radius: width / 6
                         MouseArea {
                             anchors.fill: parent
-                            visible: settings.chatBackground !== undefined
+                            visible: mainLayout.chatBackground !== undefined
                             onClicked: {
-                                settings.chatBackground = undefined
+                                mainLayout.chatBackground = undefined
                                 toast.show ( i18n.tr("Background removed") )
                             }
                         }
@@ -196,7 +196,7 @@ Page {
                             anchors.centerIn: parent
                             name: "edit-delete"
                             color: UbuntuColors.red
-                            visible: settings.chatBackground !== undefined
+                            visible: mainLayout.chatBackground !== undefined
                         }
                     }
                 }
@@ -205,8 +205,8 @@ Page {
             SettingsListSwitch {
                 name: i18n.tr("Dark mode")
                 icon: "display-brightness-max"
-                onSwitching: function () { settings.darkmode = isChecked }
-                isChecked: settings.darkmode
+                onSwitching: function () { mainLayout.darkmode = isChecked }
+                isChecked: mainLayout.darkmode
             }
 
             SettingsListLink {
@@ -223,22 +223,22 @@ Page {
             SettingsListSwitch {
                 name: i18n.tr("Display 'I am typing' when typing")
                 icon: "edit"
-                onSwitching: function () { settings.sendTypingNotification = isChecked }
-                isChecked: settings.sendTypingNotification
+                onSwitching: function () { matrix.sendTypingNotification = isChecked }
+                isChecked: matrix.sendTypingNotification
             }
 
             SettingsListSwitch {
                 name: i18n.tr("Hide less important events")
                 icon: "info"
-                onSwitching: function () { settings.hideLessImportantEvents = isChecked }
-                isChecked: settings.hideLessImportantEvents
+                onSwitching: function () { matrix.hideLessImportantEvents = isChecked }
+                isChecked: matrix.hideLessImportantEvents
             }
 
             SettingsListSwitch {
                 name: i18n.tr("Autoload animated images")
                 icon: "stock_image"
-                onSwitching: function () { settings.autoloadGifs = isChecked }
-                isChecked: settings.autoloadGifs
+                onSwitching: function () { matrix.autoloadGifs = isChecked }
+                isChecked: matrix.autoloadGifs
             }
 
             SettingsListLink {

@@ -12,12 +12,12 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         Row {
             Button {
                 width: units.gu(8)
-                text: settings.countryCode + " +%1".arg(settings.countryTel)
+                text: matrix.countryCode + " +%1".arg(matrix.countryTel)
                 onClicked: dialogue.title = i18n.tr("Please log out to change your country")
             }
             TextField {
@@ -45,7 +45,7 @@ Component {
                 enabled: addressTextField.displayText !== ""
                 onClicked: {
                     var address = addressTextField.displayText
-                    if ( address.charAt(0) === "0" ) address = address.replace( "0", settings.countryTel )
+                    if ( address.charAt(0) === "0" ) address = address.replace( "0", matrix.countryTel )
                     PopupUtils.close(dialogue)
                     PopupUtils.open(enterSMSToken)
                     client_secret = "SECRET:" + new Date().getTime()
@@ -61,10 +61,10 @@ Component {
                     // Verify this address with this matrix id
                     matrix.post ( "/client/r0/account/3pid/msisdn/requestToken", {
                         client_secret: client_secret,
-                        country: settings.countryCode,
+                        country: matrix.countryCode,
                         phone_number: address,
                         send_attempt: 1,
-                        id_server: settings.id_server
+                        id_server: matrix.id_server
                     }, callback, callback)
                 }
             }

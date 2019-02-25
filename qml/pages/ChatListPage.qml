@@ -132,7 +132,7 @@ Page {
             // Update the room avatar
             tempRoom.avatar_url = lastEvent.content.url
         }
-        else if ( type === "m.receipt" && lastEvent.user === settings.matrixid ) {
+        else if ( type === "m.receipt" && lastEvent.user === matrix.matrixid ) {
             // Update the room avatar
             tempRoom.unread = lastEvent.ts
         }

@@ -12,7 +12,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: matrixidTextField
@@ -36,7 +36,7 @@ Component {
             }
         }
         Label {
-            text: i18n.tr("Your username is: %1").arg(settings.matrixid)
+            text: i18n.tr("Your username is: %1").arg(matrix.matrixid)
             textSize: Label.Small
         }
         Rectangle {
@@ -46,7 +46,7 @@ Component {
 
             Rectangle {
                 height: units.gu(0.2)
-                color: settings.mainColor
+                color: mainLayout.mainColor
                 anchors.left: parent.left
                 anchors.right: orLabel.left
                 anchors.rightMargin: units.gu(2)
@@ -60,7 +60,7 @@ Component {
             }
             Rectangle {
                 height: units.gu(0.2)
-                color: settings.mainColor
+                color: mainLayout.mainColor
                 anchors.right: parent.right
                 anchors.left: orLabel.right
                 anchors.leftMargin: units.gu(2)
@@ -69,7 +69,7 @@ Component {
         }
         Button {
             text: i18n.tr("Import from addressbook")
-            color: settings.mainColor
+            color: mainLayout.mainColor
             onClicked: {
                 contactImport.requestContact()
                 PopupUtils.close(dialogue)

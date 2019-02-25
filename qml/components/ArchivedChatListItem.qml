@@ -9,7 +9,7 @@ import "../scripts/MatrixNames.js" as MatrixNames
 ListItem {
     id: chatListItem
 
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
     property var timeorder: 0
 
@@ -28,7 +28,7 @@ ListItem {
         id: layout
         title.text: i18n.tr("Unknown chat")
         title.font.bold: true
-        title.color: room.membership === "invite" ? settings.mainColor : mainFontColor
+        title.color: room.membership === "invite" ? mainLayout.mainColor : mainFontColor
 
         Avatar {
             id: avatar

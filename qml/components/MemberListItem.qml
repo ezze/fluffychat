@@ -11,9 +11,9 @@ ListItem {
         layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
     }
     height: visible ? layout.height : 0
-    property var settingsOn: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === settings.matrixid)
+    property var settingsOn: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === matrix.matrixid)
     property var status: MatrixNames.powerlevelToStatus(userPower)
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
     onClicked: MatrixNames.showUserSettings ( matrixid )
 

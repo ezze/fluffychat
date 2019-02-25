@@ -18,7 +18,7 @@ Page {
 
     Icon {
         source: "../../assets/chat.svg"
-        color: settings.mainColor
+        color: mainLayout.mainColor
         anchors.centerIn: parent
         width: parent.width
         height: width * ( 1052 / 744 )

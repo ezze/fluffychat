@@ -5,7 +5,7 @@ import Ubuntu.Components 1.3
 ListItem {
     property var name: ""
     property var icon: "settings"
-    property var iconColor: settings.mainColor
+    property var iconColor: mainLayout.mainColor
     property var page
     property var sourcePage: mainLayout.primaryPage
     property var iconWidth: units.gu(3)
@@ -15,7 +15,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
-        title.color: settings.darkmode ? "white" : "black"
+        title.color: mainLayout.darkmode ? "white" : "black"
         Icon {
             name: icon
             width: iconWidth

@@ -94,13 +94,13 @@ function getChatAvatarById ( chat_id, callback ) {
             " WHERE Memberships.chat_id=? " +
             " AND (Memberships.membership='join' OR Memberships.membership='invite') " +
             " AND Memberships.matrix_id!=? ",
-            [ chat_id, settings.matrixid ], function (rs) {
+            [ chat_id, matrix.matrixid ], function (rs) {
                 var displayname = i18n.tr('Empty chat')
                 if ( rs.rows.length > 0 ) {
                     displayname = ""
                     for ( var i = 0; i < rs.rows.length; i++ ) {
                         var username = rs.rows[i].displayname || transformFromId ( rs.rows[i].matrix_id )
-                        if ( rs.rows[i].state_key !== settings.matrixid ) displayname += username + ", "
+                        if ( rs.rows[i].state_key !== matrix.matrixid ) displayname += username + ", "
                     }
                     if ( displayname === "" || displayname === null ) displayname = i18n.tr('Empty chat')
                     else displayname = displayname.substr(0, displayname.length-2)
@@ -130,7 +130,7 @@ function getAvatarFromSingleChat ( chat_id, callback ) {
     " AND Memberships.chat_id=? " +
     " AND (Memberships.membership='join' OR Memberships.membership='invite') " +
     " AND Memberships.matrix_id!=? ",
-    [ chat_id, settings.matrixid ], function (rs) {
+    [ chat_id, matrix.matrixid ], function (rs) {
         if ( rs.rows.length === 1 ) callback ( rs.rows[0].avatar_url )
         else callback ( "" )
     })
@@ -176,7 +176,7 @@ function getThumbnailLinkFromMxc ( mxc, width, height ) {
     height = Math.round(height)
     if ( mxc === undefined || mxc === "" ) return ""
     if ( matrix.online ) {
-        return "https://" + settings.server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width + "&height=" + height + "&method=scale"
+        return "https://" + matrix.server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width + "&height=" + height + "&method=scale"
     }
     else {
         return downloadPath + mxc.split("/")[3]
@@ -188,5 +188,5 @@ function getThumbnailLinkFromMxc ( mxc, width, height ) {
 function getLinkFromMxc ( mxc ) {
     if ( mxc === undefined ) return ""
     var mxcID = mxc.replace("mxc://","")
-    return "https://" + settings.server + "/_matrix/media/r0/download/" + mxcID + "/"
+    return "https://" + matrix.server + "/_matrix/media/r0/download/" + mxcID + "/"
 }

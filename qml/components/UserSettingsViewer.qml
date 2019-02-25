@@ -57,7 +57,7 @@ BottomEdge {
                 profileRow.currently_active = res.rows[0].currently_active
             })
 
-            if ( matrix_id === settings.matrixid ) return
+            if ( matrix_id === matrix.matrixid ) return
             storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url " +
             " FROM Chats rooms, Memberships memberships " +
             " WHERE (memberships.membership='join' OR memberships.membership='invite') " +
@@ -106,20 +106,20 @@ BottomEdge {
                 }
 
                 ListSeperator {
-                    text: matrix_id !== settings.matrixid ? i18n.tr("Chats with this user:") : i18n.tr("You are that!")
+                    text: matrix_id !== matrix.matrixid ? i18n.tr("Chats with this user:") : i18n.tr("You are that!")
                 }
 
                 Column {
                     id: chatListView
                     width: parent.width
-                    visible: matrix_id !== settings.matrixid
+                    visible: matrix_id !== matrix.matrixid
                 }
 
                 ListItem {
                     id: startNewChatButton
                     height: layout.height
                     color: Qt.rgba(0,0,0,0)
-                    visible: matrix_id !== settings.matrixid
+                    visible: matrix_id !== matrix.matrixid
                     onClicked: {
                         userSettingsViewer.collapse ()
                         var data = {

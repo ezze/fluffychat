@@ -43,10 +43,10 @@ Page {
                 // Verify this address with this matrix id
                 matrix.post ( "/client/r0/account/3pid/msisdn/requestToken", {
                     client_secret: client_secret,
-                    country: settings.countryCode,
+                    country: matrix.countryCode,
                     phone_number: desiredPhoneNumber,
                     send_attempt: 1,
-                    id_server: settings.id_server
+                    id_server: matrix.id_server
                 }, success_callback, success_callback)
             }
             else mainLayout.init ()

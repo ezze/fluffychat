@@ -12,7 +12,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: addressTextField
@@ -37,7 +37,7 @@ Component {
                     PopupUtils.close(dialogue)
                     var secret = "SECRET:" + new Date().getTime()
                     var confirmText = i18n.tr("Have you confirmed your email address?")
-                    var id_server = settings.id_server
+                    var id_server = matrix.id_server
                     var _matrix = matrix
                     var _showConfirmDialog = showConfirmDialog
                     var _emailSettingsPage = emailSettingsPage
@@ -60,7 +60,7 @@ Component {
                         client_secret: secret,
                         email: address,
                         send_attempt: 1,
-                        id_server: settings.id_server
+                        id_server: matrix.id_server
                     }, success_callback)
                 }
             }

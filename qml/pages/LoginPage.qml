@@ -28,8 +28,8 @@ Page {
             username = usernameSplitted [0]
             loginDomain = usernameSplitted [1]
         }
-        settings.username = username
-        settings.server = loginDomain
+        matrix.username = username
+        matrix.server = loginDomain
 
         // Step 2: If there is no phone number, and the user is new then try to register the username
         if ( phoneTextField.displayText === "" && newHereCheckBox.checked ) register ( username )
@@ -51,7 +51,7 @@ Page {
             // Transform the phone number
             var phoneInput = phoneTextField.displayText.replace(/\D/g,'')
             if ( phoneInput.charAt(0) === "0" ) phoneInput = phoneInput.substr(1)
-            phoneInput = settings.countryTel + phoneInput
+            phoneInput = matrix.countryTel + phoneInput
 
             // Step 3.1: Look for this phone number
             matrix.get ("/identity/api/v1/lookup", {
@@ -62,8 +62,8 @@ Page {
                 // Step 3.2: There is a registered matrix id. Go to the password input...
                 if ( response.mxid ) {
                     var splittedMxid = response.mxid.substr(1).split ( ":" )
-                    settings.username = splittedMxid[0]
-                    settings.server = splittedMxid[1]
+                    matrix.username = splittedMxid[0]
+                    matrix.server = splittedMxid[1]
                     mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("./PasswordInputPage.qml") )
                 }
                 // Step 3.3.1: There is no registered matrix id. Try to register one...
@@ -88,7 +88,7 @@ Page {
         }, 2)
     }
 
-    Component.onCompleted: if ( settings.darkmode ) settings.darkmode = false
+    Component.onCompleted: if ( mainLayout.darkmode ) mainLayout.darkmode = false
 
     header: FcPageHeader {
         title: i18n.tr('Homeserver %1').arg( (loginDomain || defaultDomain) )
@@ -164,14 +164,14 @@ Page {
             TextField {
                 id: identityserverInput
                 placeholderText: defaultIDServer
-                text: settings.id_server === defaultIDServer ? "" : settings.id_server
+                text: matrix.id_server === defaultIDServer ? "" : matrix.id_server
                 focus: true
             }
             Button {
                 text: "OK"
                 onClicked: {
-                    if ( identityserverInput.displayText === "" ) settings.id_server = defaultIDServer
-                    else settings.id_server = identityserverInput.displayText.toLowerCase()
+                    if ( identityserverInput.displayText === "" ) matrix.id_server = defaultIDServer
+                    else matrix.id_server = identityserverInput.displayText.toLowerCase()
                     PopupUtils.close(dialogue)
                 }
             }
@@ -193,7 +193,7 @@ Page {
             Icon {
                 id: banner
                 source: "../../assets/fluffychat-banner.png"
-                color: settings.mainColor
+                color: mainLayout.mainColor
                 width: height * 5/2
                 height: Math.max( (loginPage.height - header.height)/2 - 4 * loginTextField.height - units.gu(4), (elemWidth+units.gu(4))*2/5 )
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -203,7 +203,7 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 Button {
                     width: units.gu(8)
-                    text: settings.countryCode + " +%1".arg(settings.countryTel)
+                    text: matrix.countryCode + " +%1".arg(matrix.countryTel)
                     onClicked: {
                         var item = Qt.createComponent("../components/CountryPicker.qml")
                         item.createObject( root, { })

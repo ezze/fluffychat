@@ -36,7 +36,7 @@ Page {
         " FROM Chats, Memberships WHERE " +
         " Chats.id='" + activeChat + "' AND " +
         " Memberships.chat_id='" + activeChat + "' AND " +
-        " Memberships.matrix_id='" + settings.matrixid + "'", function ( res ) {
+        " Memberships.matrix_id='" + matrix.matrixid + "'", function ( res ) {
             canEditCanonicalAlias = res.rows[0].power_event_canonical_alias <= res.rows[0].power_level
             canEditAddresses = res.rows[0].power_event_aliases <= res.rows[0].power_level
             var canonical_alias = res.rows[0].canonical_alias

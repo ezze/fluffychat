@@ -20,7 +20,7 @@ Item {
     Metric {
         id: metrics
         name: Qt.application.name
-        format: i18n.tag("Hey %1! 🤗 You have sent %2 FluffyChat messages from your Ubuntu Touch device so far. ❤").arg( MatrixNames.transformFromId(settings.matrixid) ).arg(sentMessages)
+        format: i18n.tag("Hey %1! 🤗 You have sent %2 FluffyChat messages from your Ubuntu Touch device so far. ❤").arg( MatrixNames.transformFromId(matrix.matrixid) ).arg(sentMessages)
         domain: "christianpauly.fluffychat"
     }
 }

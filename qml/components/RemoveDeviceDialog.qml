@@ -26,7 +26,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: passwordInput
@@ -51,7 +51,7 @@ Component {
                     var device_id = currentDevice.device_id
                     var update = getDevices
                     var matrixObj = matrix
-                    var matrixid = settings.matrixid
+                    var matrixid = matrix.matrixid
                     var password = passwordInput.text
                     matrix.post ( "/client/unstable/delete_devices", { "devices": [device_id] }, update, function (res) {
                         console.log( "erste Antwort", JSON.stringify(res) )

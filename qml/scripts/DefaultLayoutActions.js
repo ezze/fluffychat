@@ -15,10 +15,10 @@ function toChat( chatID, toInvitePage ) {
 
 
 function getPrimaryPage () {
-    if ( matrix.isLogged && settings.updateInfosFinished === version ) {
+    if ( matrix.isLogged && mainLayout.updateInfosFinished === version ) {
         return "../pages/ChatListPage.qml"
     }
-    else if ( settings.walkthroughFinished && settings.updateInfosFinished === version ){
+    else if ( mainLayout.walkthroughFinished && mainLayout.updateInfosFinished === version ){
         return "../pages/LoginPage.qml"
     }
     else {

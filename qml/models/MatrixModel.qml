@@ -30,6 +30,46 @@ Item {
     // Sometimes the UI needs to become blocked completely.
     property bool blockUI: false
 
+    // The homeserver of the user
+    property string server: ""
+
+    // The username is the local part of the matrix id
+    property string username: ""
+
+    // The matrix id of the username (can be different from @username:server)
+    property string matrixid: "@%1:%2".arg(matrix.username).arg(matrix.server)
+
+    // The ID server maps the emails and phone numbers to matrix IDs
+    property string id_server: defaultIDServer
+
+    // The device ID is an unique identifier for this device
+    property string deviceID: ""
+
+    // The device name is a human readable identifier for this device
+    property string deviceName: ""
+
+    // Which version of the matrix specification does this server support?
+    property var matrixVersions: []
+
+    // Wheither the server supports lazy load members
+    property string lazy_load_members: "true"
+
+    // This points to the position in the synchronization history
+    property string prevBatch: ""
+
+    // Chat settings: Send typing notification?
+    property var sendTypingNotification: true
+
+    // Chat settings: Hide less important events?
+    property var hideLessImportantEvents: true
+
+    // Chat settings: Autoload gifs?
+    property var autoloadGifs: false
+
+    // The two country ISO name and phone code:
+    property var countryCode: i18n.tr("USA")
+    property var countryTel: i18n.tr("1")
+
     // This is the access token for the matrix client. When it is undefined, then
     // the user needs to sign in first
     property string token: ""
@@ -47,6 +87,20 @@ Item {
     // Save this properties in the settings
     Settings {
         property alias token: matrix.token
+        property alias prevBatch: matrix.prevBatch
+        property alias server: matrix.server
+        property alias username: matrix.username
+        property alias matrixid: matrix.matrixid
+        property alias id_server: matrix.id_server
+        property alias deviceID: matrix.deviceID
+        property alias deviceName: matrix.deviceName
+        property alias matrixVersions: matrix.matrixVersions
+        property alias lazy_load_members: matrix.lazy_load_members
+        property alias sendTypingNotification: matrix.sendTypingNotification
+        property alias hideLessImportantEvents: matrix.hideLessImportantEvents
+        property alias autoloadGifs: matrix.autoloadGifs
+        property alias countryCode: matrix.countryCode
+        property alias countryTel: matrix.countryTel
     }
 
     // This should be shown in the GUI for example as a toast
@@ -74,9 +128,9 @@ Item {
     // Login and set username, token and server! Needs to be done, before anything else
     function login ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback) {
 
-        settings.username = newUsername.toLowerCase()
-        settings.server = newServer.toLowerCase()
-        settings.deviceName = newDeviceName
+        matrix.username = newUsername.toLowerCase()
+        matrix.server = newServer.toLowerCase()
+        matrix.deviceName = newDeviceName
 
         var data = {
             "initial_device_display_name": newDeviceName,
@@ -86,9 +140,9 @@ Item {
         }
 
         var onLogged = function ( response ) {
-            settings.deviceID = response.device_id
-            settings.username = (response.user_id.substr(1)).split(":")[0]
-            settings.matrixid = response.user_id
+            matrix.deviceID = response.device_id
+            matrix.username = (response.user_id.substr(1)).split(":")[0]
+            matrix.matrixid = response.user_id
             matrix.token = response.access_token
             if ( callback ) callback ( response )
         }
@@ -99,9 +153,9 @@ Item {
 
     function register ( newUsername, newPassword, newServer, newDeviceName, callback, error_callback) {
 
-        settings.username = newUsername.toLowerCase()
-        settings.server = newServer.toLowerCase()
-        settings.deviceName = newDeviceName
+        matrix.username = newUsername.toLowerCase()
+        matrix.server = newServer.toLowerCase()
+        matrix.deviceName = newDeviceName
 
         var data = {
             "initial_device_display_name": newDeviceName,
@@ -131,9 +185,9 @@ Item {
                         }
                         var onRegisteredCallback = function ( response ) {
                             matrix.token = response.access_token
-                            settings.deviceID = response.device_id
-                            settings.username = (response.user_id.substr(1)).split(":")[0]
-                            settings.matrixid = response.user_id
+                            matrix.deviceID = response.device_id
+                            matrix.username = (response.user_id.substr(1)).split(":")[0]
+                            matrix.matrixid = response.user_id
                             if ( callback ) callback ( response )
                         }
                         xmlRequest ( "POST", data, "/client/r0/register", onRegisteredCallback, error_callback, 2 )
@@ -149,11 +203,11 @@ Item {
             // The account has been registered.
             else {
                 matrix.token = response.access_token
-                settings.deviceID = response.device_id
-                settings.username = (response.user_id.substr(1)).split(":")[0]
-                settings.server = newServer.toLowerCase()
-                settings.deviceName = newDeviceName
-                settings.dbversion = storage.version
+                matrix.deviceID = response.device_id
+                matrix.username = (response.user_id.substr(1)).split(":")[0]
+                matrix.server = newServer.toLowerCase()
+                matrix.deviceName = newDeviceName
+                matrix.dbversion = storage.version
                 init ()
                 if ( callback ) callback ( response )
             }
@@ -172,7 +226,6 @@ Item {
         var callback = function () {
             post ( "/client/r0/logout", {}, reset, reset )
         }
-        pushclient.setPusher ( false, callback, callback )
     }
 
 
@@ -245,7 +298,7 @@ Item {
 
     function resetSettings () {
         matrix.token = ""
-        settings.username = settings.server = settings.pushToken = settings.deviceID = settings.deviceName = settings.requestedArchive = settings.since = settings.matrixVersions = settings.matrixid = settings.lazy_load_members = undefined
+        matrix.username = matrix.server = matrix.pushToken = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = undefined
     }
 
 
@@ -295,8 +348,8 @@ Item {
 
         // Is this a request for the matrix server or the identity server?
         // This defaults to the matrix homeserver
-        var server = settings.server
-        if ( action.substring(0,10) === "/identity/" ) server = settings.id_server
+        var server = matrix.server
+        if ( action.substring(0,10) === "/identity/" ) server = matrix.id_server
 
         // Calculate the action url
         var requestUrl = action + getData
@@ -308,8 +361,8 @@ Item {
         var longPolling = (data != null && data.timeout)
         http.open( type, requestUrl, true)
         http.timeout = defaultTimeout
-        if ( !(server === settings.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-        if ( server === settings.server && matrix.token ) http.setRequestHeader('Authorization', 'Bearer ' + matrix.token)
+        if ( !(server === matrix.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+        if ( server === matrix.server && matrix.token ) http.setRequestHeader('Authorization', 'Bearer ' + matrix.token)
 
         // Handle responses
         http.onreadystatechange = function() {
@@ -381,11 +434,25 @@ Item {
     }
 
     function init () {
+        // Compatible with old versions
+        /*if ( settings.token && settings.token !== "" ) {
+            matrix.token = settings.token
+            if ( settings.server ) matrix.server = settings.server
+            if ( settings.username ) matrix.username = settings.username
+            if ( settings.matrixid ) matrix.matrixid = settings.matrixid
+            if ( settings.id_server ) matrix.id_server = settings.id_server
+            if ( settings.deviceID ) matrix.deviceID = settings.deviceID
+            if ( settings.deviceName ) matrix.deviceName = settings.deviceName
+            if ( settings.countryCode ) matrix.countryCode = settings.countryCode
+            if ( settings.countryTel ) matrix.countryTel = settings.countryTel
+            settings.token = ""
+        }*/
+
         if ( matrix.token === "" ) return
 
         // Start synchronizing
         initialized = true
-        if ( settings.since ) {
+        if ( matrix.prevBatch !== "" ) {
             console.log("👷[Init] Init the matrix synchronization")
             waitForSync ()
             storage.markSendingEventsAsError ()
@@ -393,10 +460,7 @@ Item {
         }
 
         console.log("👷[Init] Request the first matrix synchronizaton")
-        // Set the pusher if it is not set
-        pushclient.updatePusher ()
-
-        blockUI = true
+        matrix.blockUI = true
 
         var onFristSyncResponse = function ( response ) {
             if ( waitingForSync ) waitingForAnswer--
@@ -406,13 +470,12 @@ Item {
         }
 
         var onVersionsResponse = function ( matrixVersions ) {
-            console.log(matrixVersions)
-            settings.matrixVersions = matrixVersions.versions
+            matrix.matrixVersions = matrixVersions.versions
             if ( "unstable_features" in matrixVersions && "m.lazy_load_members" in matrixVersions["unstable_features"] ) {
-                settings.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
+                matrix.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
             }
             // Start the first synchronization
-            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(settings.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.SYNC )
+            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.SYNC )
         }
 
         // Discover which features the server does support
@@ -422,10 +485,9 @@ Item {
 
 
     function sync ( timeout ) {
-
         if ( matrix.token === null || matrix.token === undefined || abortSync ) return
 
-        var data = { "since": settings.since, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(settings.lazy_load_members) }
+        var data = { "since": matrix.prevBatch, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members) }
 
         if ( !timeout ) data.timeout = longPollingTimeout
 
@@ -489,7 +551,7 @@ Item {
             handleRooms ( response.rooms.leave, "leave" )
             handleRooms ( response.rooms.invite, "invite" )
             handlePresences ( response.presence)
-            settings.since = response.next_batch
+            matrix.prevBatch = response.next_batch
             blockUI = false
             //console.log("[Sync performance] ", new Date().getTime() - timecount )
         }
@@ -510,8 +572,6 @@ Item {
             var highlight_count = (room.unread_notifications && room.unread_notifications.highlight_count || 0)
             var notification_count = (room.unread_notifications && room.unread_notifications.notification_count || 0)
             var limitedTimeline = (room.timeline ? (room.timeline.limited ? 1 : 0) : 0)
-
-            if ( notification_count === 0 ) pushclient.clearPersistent ( id )
 
             newChatUpdate ( id, membership, notification_count, highlight_count, limitedTimeline, room.timeline.prev_batch )
 
@@ -546,7 +606,7 @@ Item {
             if ( events[ i ].type === "m.typing" ) {
                 var user_ids = events[ i ].content.user_ids
                 // If the user is typing, remove his id from the list of typing users
-                var ownTyping = user_ids.indexOf( settings.matrixid )
+                var ownTyping = user_ids.indexOf( matrix.matrixid )
                 if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
                 // Call the signal
                 newEvent ( events[ i ].type, id, "ephemeral", user_ids )

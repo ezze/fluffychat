@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
+import Qt.labs.settings 1.0
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
 
@@ -18,8 +19,12 @@ Item {
     id: storage
 
     property var version: "0.3.5"
+    property string lastVersion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
+    Settings {
+        property alias lastVersion: storage.lastVersion
+    }
 
     // Shortener for the sqlite transactions
     function transaction ( transaction, callback ) {
@@ -68,33 +73,20 @@ Item {
     // Initializing the database
     Component.onCompleted: {
         // Check the database version number
-        if ( settings.dbversion !== version ) {
+        if ( lastVersion !== version ) {
             console.log ("👷[Init] Create the database and drop previous one if existing")
-            settings.since = settings.requestedArchive = undefined
-            // Drop all databases and recreate them
+            matrix.prevBatch = ""
             drop ()
-            settings.dbversion = version
+            lastVersion = version
         }
         transaction ( 'PRAGMA foreign_keys = OFF')
         transaction ( 'PRAGMA locking_mode = EXCLUSIVE')
         transaction ( 'PRAGMA temp_store = MEMORY')
         transaction ( 'PRAGMA cache_size')
         transaction ( 'PRAGMA cache_size = 10000')
-    }
-
-
-    function drop () {
-        transaction('DROP TABLE IF EXISTS Chats')
-        transaction('DROP TABLE IF EXISTS Events')
-        transaction('DROP TABLE IF EXISTS Users')
-        transaction('DROP TABLE IF EXISTS Memberships')
-        transaction('DROP TABLE IF EXISTS Contacts')
-        transaction('DROP TABLE IF EXISTS Addresses')
-        transaction('DROP TABLE IF EXISTS ThirdPIDs')
-        transaction('DROP TABLE IF EXISTS Media')
 
         // TABLE SCHEMA FOR CHATS
-        transaction('CREATE TABLE Chats(' +
+        transaction('CREATE TABLE IF NOT EXISTS Chats(' +
         'id TEXT PRIMARY KEY, ' +
         'membership TEXT, ' +
         'topic TEXT, ' +
@@ -134,7 +126,7 @@ Item {
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR EVENTS
-        transaction('CREATE TABLE Events(' +
+        transaction('CREATE TABLE IF NOT EXISTS Events(' +
         'id TEXT PRIMARY KEY, ' +
         'chat_id TEXT, ' +
         'origin_server_ts INTEGER, ' +
@@ -148,7 +140,7 @@ Item {
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR USERS
-        transaction('CREATE TABLE Users(' +
+        transaction('CREATE TABLE IF NOT EXISTS Users(' +
         'matrix_id TEXT, ' +
         'displayname TEXT, ' +
         'avatar_url TEXT, ' +
@@ -158,7 +150,7 @@ Item {
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR MEMBERSHIPS
-        transaction('CREATE TABLE Memberships(' +
+        transaction('CREATE TABLE IF NOT EXISTS Memberships(' +
         'chat_id TEXT, ' +      // The chat id of this membership
         'matrix_id TEXT, ' +    // The matrix id of this user
         'displayname TEXT, ' +
@@ -168,31 +160,43 @@ Item {
         'UNIQUE(chat_id, matrix_id))')
 
         // TABLE SCHEMA FOR CONTACTS
-        transaction('CREATE TABLE Contacts(' +
+        transaction('CREATE TABLE IF NOT EXISTS Contacts(' +
         'medium TEXT, ' +       // The medium this contact is identified by
         'address TEXT, ' +      // The email or phone number of this user if exists
         'matrix_id TEXT, ' +    // The matrix id of this user
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR CHAT ADDRESSES
-        transaction('CREATE TABLE Addresses(' +
+        transaction('CREATE TABLE IF NOT EXISTS Addresses(' +
         'chat_id TEXT, ' +    // The correct chat id in the form: !hashstring:homeserver.org
         'address TEXT, ' + // The address in the form: #roomname:homeserver.org
         'UNIQUE(chat_id, address))')
 
         // TABLE SCHEMA FOR THIRD PARTY IDENTIFIES
-        transaction('CREATE TABLE ThirdPIDs(' +
+        transaction('CREATE TABLE IF NOT EXISTS ThirdPIDs(' +
         'medium TEXT, ' +    // Should be "email" or "msisdn"
         'address TEXT, ' + // The email address or phone number
         'UNIQUE(medium, address))')
 
         // TABLE SCHEMA FOR UPLOADED MEDIA
-        transaction('CREATE TABLE Media(' +
+        transaction('CREATE TABLE IF NOT EXISTS Media(' +
         'mimetype TEXT, ' +
         'url TEXT, ' +
         'name TEXT, ' +
         'thumbnail_url TEXT, ' +
         'UNIQUE(url))')
+    }
+
+
+    function drop () {
+        transaction('DROP TABLE IF EXISTS Chats')
+        transaction('DROP TABLE IF EXISTS Events')
+        transaction('DROP TABLE IF EXISTS Users')
+        transaction('DROP TABLE IF EXISTS Memberships')
+        transaction('DROP TABLE IF EXISTS Contacts')
+        transaction('DROP TABLE IF EXISTS Addresses')
+        transaction('DROP TABLE IF EXISTS ThirdPIDs')
+        transaction('DROP TABLE IF EXISTS Media')
     }
 
 
@@ -268,7 +272,7 @@ Item {
                 break
 
             case "m.receipt":
-                if ( eventContent.user === settings.matrixid ) {
+                if ( eventContent.user === matrix.matrixid ) {
                     storage.query( "UPDATE Chats SET unread=? WHERE id=?",
                     [ eventContent.ts || new Date().getTime(),
                     chat_id ])
@@ -419,10 +423,8 @@ Item {
         }
     }
 
-
     function markSendingEventsAsError () {
         storage.query ( "UPDATE Events SET status=-1 WHERE status=0" )
     }
-
 
 }

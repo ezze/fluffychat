@@ -27,7 +27,7 @@ MainView {
     width: units.gu(45)
     height: units.gu(75)
     theme: ThemeSettings {
-        name: settings.darkmode ? "Ubuntu.Components.Themes.SuruDark" : "Ubuntu.Components.Themes.Ambiance"
+        name: mainLayout.darkmode ? "Ubuntu.Components.Themes.SuruDark" : "Ubuntu.Components.Themes.Ambiance"
     }
 
     /* =============================== CONFIG VARIABLES ===============================
@@ -42,7 +42,7 @@ MainView {
     readonly property var defaultTimeout: 30000
     readonly property var longPollingTimeout: 10000
     readonly property var typingTimeout: 30000
-    readonly property var borderColor: settings.darkmode ? UbuntuColors.jet : UbuntuColors.silk
+    readonly property var borderColor: mainLayout.darkmode ? UbuntuColors.jet : UbuntuColors.silk
     readonly property var version: Qt.application.version
     readonly property var downloadPath: "/home/phablet/.local/share/ubuntu-download-manager/fluffychat.christianpauly/Downloads/"
     readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "HISTORY": 4, "ERROR": -1 }
@@ -63,16 +63,14 @@ MainView {
     property var progressBarRequests: 0
     property var waitingForSync: false
     property var appstatus: 4
-    property var pushtoken: pushclient.token
-    property var tabletMode: matrix.token !== undefined && width > units.gu(90)
     property var prevMode: false
     property var desiredPhoneNumber: null
     property var desiredUsername: null
     property var consentUrl: ""
     property var consentContent: ""
     property var shareObject: null
-    property var mainFontColor: settings.darkmode ? "#FFFFFF" : "#000000"
-    property var mainBorderColor: settings.darkmode ? "#333333" : "#CCCCCC"
+    property var mainFontColor: mainLayout.darkmode ? "#FFFFFF" : "#000000"
+    property var mainBorderColor: mainLayout.darkmode ? "#333333" : "#CCCCCC"
     property var bottomEdgeCommited: false
 
 
@@ -121,13 +119,13 @@ MainView {
     Image {
         id: backgroundImage
         opacity: chatActive
-        visible: settings.chatBackground !== undefined
+        visible: mainLayout.chatBackground !== undefined
         anchors.fill: mainLayout
-        source: settings.chatBackground || ""
+        source: mainLayout.chatBackground || ""
         cache: true
         fillMode: Image.PreserveAspectCrop
         z: -1
-        onStatusChanged: if (status == Image.Error) settings.chatBackground = undefined
+        onStatusChanged: if (status == Image.Error) mainLayout.chatBackground = undefined
     }
 
     // Simple universal confirmation dialog

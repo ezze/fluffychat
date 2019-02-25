@@ -117,7 +117,7 @@ Page {
             right: slideIndicator.left
             margins: units.gu(2)
         }
-        color: settings.darkmode ? "white" : "black"
+        color: mainLayout.darkmode ? "white" : "black"
         height: units.gu(2)
         name: "go-previous"
         width: height
@@ -139,7 +139,7 @@ Page {
             anchors {
                 fill: parent
             }
-            color: settings.darkmode ? "white" : "black"
+            color: mainLayout.darkmode ? "white" : "black"
             opacity: parent.pressed ? 0.1 : 0
 
             Behavior on opacity {
@@ -167,7 +167,7 @@ Page {
                 antialiasing: true
                 height: width
                 width: units.gu(1.5)
-                color: listView.currentIndex == index ? settings.mainColor : UbuntuColors.slate
+                color: listView.currentIndex == index ? mainLayout.mainColor : UbuntuColors.slate
                 radius: width
             }
         }
@@ -180,7 +180,7 @@ Page {
             left: slideIndicator.right
             margins: units.gu(2)
         }
-        color: settings.darkmode ? "white" : "black"
+        color: mainLayout.darkmode ? "white" : "black"
         height: units.gu(2)
         name: "go-next"
         width: height
@@ -201,7 +201,7 @@ Page {
             anchors {
                 fill: parent
             }
-            color: settings.darkmode ? "white" : "black"
+            color: mainLayout.darkmode ? "white" : "black"
             opacity: parent.pressed ? 0.1 : 0
 
             Behavior on opacity {
@@ -213,7 +213,7 @@ Page {
     }
 
     Component.onCompleted: {
-        if ( settings.walkthroughFinished ) {
+        if ( mainLayout.walkthroughFinished ) {
             nextSlide()
             nextSlide()
         }

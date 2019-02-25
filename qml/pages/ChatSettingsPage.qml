@@ -51,7 +51,7 @@ Page {
             description = res.rows[0].description
             hasAvatar = (res.rows[0].avatar_url !== "" && res.rows[0].avatar_url !== null)
 
-            storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + settings.matrixid + "'", function (membershipResult) {
+            storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function (membershipResult) {
                 membership = membershipResult.rows[0].membership
                 power = membershipResult.rows[0].power_level
                 canChangeName = power >= res.rows[0].power_event_name
@@ -79,7 +79,7 @@ Page {
         }
         memberList.positionViewAtBeginning ()
 
-        if ( settings.lazy_load_members ) {
+        if ( matrix.lazy_load_members ) {
             matrix.get ( "/client/r0/rooms/%1/members".arg(activeChat), {}, function ( response ) {
                 model.clear()
                 memberCount = 0
@@ -238,7 +238,7 @@ Page {
                         width: parent.width
                         wrapMode: Text.Wrap
                         text: description !== "" ? description : i18n.tr("No chat description found...")
-                        linkColor: settings.brightMainColor
+                        linkColor: mainLayout.brightMainColor
                         textFormat: Text.StyledText
                         onLinkActivated: uriController.openUrlExternally ( link )
                     }

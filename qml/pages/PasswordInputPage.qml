@@ -10,8 +10,6 @@ Page {
 
     function login () {
         signInButton.enabled = false
-        var _tabletMode = tabletMode
-        var _toast = toast
 
         // If the login is successfull
         var success_callback = function ( response ) {
@@ -27,12 +25,12 @@ Page {
                 toast.show ( i18n.tr("Invalid username or password") )
             }
             else {
-                toast.show ( i18n.tr("No connection to ") + settings.server )
+                toast.show ( i18n.tr("No connection to ") + matrix.server )
             }
         }
 
         // Start the request
-        matrix.login ( settings.username, passwordInput.text, settings.server, "UbuntuPhone", success_callback, error_callback )
+        matrix.login ( matrix.username, passwordInput.text, matrix.server, "UbuntuPhone", success_callback, error_callback )
     }
 
     header: FcPageHeader {
@@ -64,7 +62,7 @@ Page {
 
             Label {
                 id: loginStatus
-                text: i18n.tr("Please enter your password for: <b>%1</b>").arg(settings.username)
+                text: i18n.tr("Please enter your password for: <b>%1</b>").arg(matrix.username)
                 width: Math.min( parent.width - units.gu(4), units.gu(50))
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter

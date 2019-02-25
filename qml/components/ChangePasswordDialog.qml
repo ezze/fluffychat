@@ -12,7 +12,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: oldPass
@@ -48,7 +48,7 @@ Component {
                         "auth": {
                             "password": oldPass.text,
                             "type": "m.login.password",
-                            "user": settings.matrixid
+                            "user": matrix.matrixid
                         },
                         "new_password": newPass.text
                     }, function () {

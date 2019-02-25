@@ -14,7 +14,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
 
         Item {
@@ -27,7 +27,7 @@ Component {
             }
             WebView {
                 id: uploader
-                url: "../components/ChangeUserAvatar.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(settings.server) + "&matrixID=" + encodeURIComponent(settings.matrixid)
+                url: "../components/ChangeUserAvatar.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(matrix.server) + "&matrixID=" + encodeURIComponent(matrix.matrixid)
                 width: units.gu(6)
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -54,7 +54,7 @@ Component {
             visible: hasAvatar
             color: UbuntuColors.red
             onClicked: {
-                matrix.put ( "/client/r0/profile/" + settings.matrixid + "/avatar_url", { avatar_url: "" }, function () {
+                matrix.put ( "/client/r0/profile/" + matrix.matrixid + "/avatar_url", { avatar_url: "" }, function () {
                     profileRow.avatar_url = ""
                 }, null, 2)
                 PopupUtils.close(dialogue)

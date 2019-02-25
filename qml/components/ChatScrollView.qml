@@ -24,8 +24,8 @@ ListView {
         " WHERE membership.chat_id='" + activeChat + "'"
         , function (memberResults) {
             // Make sure that the event for the users matrix id exists
-            activeChatMembers[settings.matrixid] = {
-                displayname: MatrixNames.transformFromId(settings.matrixid),
+            activeChatMembers[matrix.matrixid] = {
+                displayname: MatrixNames.transformFromId(matrix.matrixid),
                 avatar_url: ""
             }
             for ( var i = 0; i < memberResults.rows.length; i++ ) {
@@ -47,7 +47,6 @@ ListView {
         "' ORDER BY origin_server_ts DESC"
         , function (res) {
             // We now write the rooms in the column
-            pushclient.clearPersistent ( activeChatDisplayName )
 
             model.clear ()
             initialized = res.rows.length
@@ -110,7 +109,7 @@ ListView {
         // Display this event at all? In the chat settings the user can choose
         // which events should be displayed. Less important events are all events,
         // that or not member events from other users and the room create events.
-        if ( settings.hideLessImportantEvents && model.count > 0 && event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker" ) {
+        if ( matrix.hideLessImportantEvents && model.count > 0 && event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker" ) {
             var lastEvent = model.get(0).event
             if ( lastEvent.origin_server_ts < event.origin_server_ts ) {
                 if ( lastEvent.type === "m.room.create" && event.sender === lastEvent.sender ) return
@@ -285,7 +284,7 @@ ListView {
 
     function markRead ( timestamp ) {
         for ( var i = 0; i < model.count; i++ ) {
-            if ( model.get(i).event.sender === settings.matrixid &&
+            if ( model.get(i).event.sender === matrix.matrixid &&
             model.get(i).event.origin_server_ts <= timestamp &&
             model.get(i).event.status > msg_status.SENT ) {
                 var tempEvent = model.get(i).event

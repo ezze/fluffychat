@@ -12,7 +12,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         Label {
             text: i18n.tr("What is your friends username?")
@@ -20,7 +20,7 @@ Component {
             wrapMode: Text.Wrap
         }
         Label {
-            text: i18n.tr("(Your username is: <b>%1</b>)").arg(settings.matrixid)
+            text: i18n.tr("(Your username is: <b>%1</b>)").arg(matrix.matrixid)
             width: parent.width
             wrapMode: Text.Wrap
             textSize: Label.Small
@@ -28,7 +28,7 @@ Component {
         TextField {
             id: contactTextField
             text: newContactMatrixID !== undefined ? newContactMatrixID : ""
-            placeholderText: i18n.tr("@yourfriend:" + settings.server)
+            placeholderText: i18n.tr("@yourfriend:" + matrix.server)
             focus: true
         }
         Row {

@@ -9,16 +9,16 @@ ListItem {
     id: chatListItem
 
     property var previousMessage: ""
-    property var isUnread: (room.unread < room.origin_server_ts && room.sender !== settings.matrixid) || room.membership === "invite"
+    property var isUnread: (room.unread < room.origin_server_ts && room.sender !== matrix.matrixid) || room.membership === "invite"
     property var newNotifictaions: room.notification_count > 0
 
     visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
 
     color: activeChat === room.id ? highlightColor :
-    (settings.darkmode ? "#202020" : "white")
+    (mainLayout.darkmode ? "#202020" : "white")
 
-    highlightColor: settings.darkmode ? settings.mainColor : settings.brighterMainColor
+    highlightColor: mainLayout.darkmode ? mainLayout.mainColor : mainLayout.brighterMainColor
 
     function triggered () {
         if ( room.membership !== "leave" ) {
@@ -44,7 +44,7 @@ ListItem {
             room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
             (room.membership === "leave" ? "" :
             (room.topic !== "" && room.typing && room.typing.length > 0 ? MatrixNames.getTypingDisplayString ( room.typing, room.topic ) :
-            (room.content_body ? ( room.sender === settings.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
+            (room.content_body ? ( room.sender === matrix.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
             i18n.tr("No preview messages"))))
         }
         subtitle.color: mainFontColor
@@ -83,7 +83,7 @@ ListItem {
         anchors.margins: units.gu(2)
         width: unreadLabel.width + units.gu(1)
         height: units.gu(2)
-        color: newNotifictaions ? settings.mainColor : mainBorderColor
+        color: newNotifictaions ? mainLayout.mainColor : mainBorderColor
         radius: units.gu(0.5)
         Label {
             id: unreadLabel

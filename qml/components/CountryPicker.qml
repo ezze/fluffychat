@@ -52,8 +52,8 @@ BottomEdge {
                     title.text: "<font color='grey'>(+%1)</font> ".arg(tel) + name
                 }
                 onClicked: {
-                    settings.countryCode = CountryData.name_to_iso[name]
-                    settings.countryTel = "" + tel
+                    matrix.countryCode = CountryData.name_to_iso[name]
+                    matrix.countryTel = "" + tel
                     countryPicker.collapse ()
                 }
             }

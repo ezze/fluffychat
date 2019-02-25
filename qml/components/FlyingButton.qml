@@ -26,8 +26,8 @@ Rectangle {
         height: width
         relativeRadius: 0.75
         backgroundMode: UbuntuShape.VerticalGradient
-        backgroundColor: settings.mainColor
-        secondaryBackgroundColor: settings.brightMainColor
+        backgroundColor: mainLayout.mainColor
+        secondaryBackgroundColor: mainLayout.brightMainColor
         z: 14
         MouseArea {
             id: mouseArea

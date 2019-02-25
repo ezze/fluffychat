@@ -6,7 +6,7 @@ ListItem {
     height: layout.height
     property var thisAddress: name
 
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
     onClicked: {
         contentHub.toClipboard ( name )
@@ -19,7 +19,7 @@ ListItem {
         title.color: mainFontColor
         Icon {
             name: "stock_link"
-            color: settings.mainColor
+            color: mainLayout.mainColor
             width: units.gu(4)
             height: units.gu(4)
             SlotsLayout.position: SlotsLayout.Leading

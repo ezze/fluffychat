@@ -32,7 +32,7 @@ Page {
         matrix.get ( "/client/r0/publicRooms", { "limit": limit }, function ( res ) {
             addPublicRoomsToModel ( res )
             // Also search on matrix.org if not already
-            if ( settings.server !== "matrix.org" ) {
+            if ( matrix.server !== "matrix.org" ) {
                 matrix.get ( "/client/r0/publicRooms", { "limit": limit, "server": "matrix.org" }, function ( res ) {
                     addPublicRoomsToModel ( res )
                     loading = false
@@ -52,7 +52,7 @@ Page {
 
     header: FcPageHeader {
         id: header
-        title: i18n.tr("Groups on %1").arg(settings.server) + (settings.server !== "matrix.org" ? " " + i18n.tr("and matrix.org") : "")
+        title: i18n.tr("Groups on %1").arg(matrix.server) + (matrix.server !== "matrix.org" ? " " + i18n.tr("and matrix.org") : "")
         flickable: chatListView
 
         contents: TextField {
@@ -78,7 +78,7 @@ Page {
 
                 if ( displayText.slice( 0,1 ) === "#" ) {
                     searchMatrixId = displayText
-                    if ( searchMatrixId.indexOf(":") === -1 ) searchMatrixId += ":%1".arg(settings.server)
+                    if ( searchMatrixId.indexOf(":") === -1 ) searchMatrixId += ":%1".arg(matrix.server)
 
 
                     model.append ( { "room": {

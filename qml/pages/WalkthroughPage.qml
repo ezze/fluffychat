@@ -24,8 +24,8 @@ Page {
 
         onFinished: {
             walkthrough.visible = false
-            settings.walkthroughFinished = true
-            settings.updateInfosFinished = version
+            mainLayout.walkthroughFinished = true
+            mainLayout.updateInfosFinished = version
             init ()
         }
 

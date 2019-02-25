@@ -13,7 +13,7 @@ ListItem {
         : layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
     }
 
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
     property var matrixid: matrix_id
     property var displayname: name

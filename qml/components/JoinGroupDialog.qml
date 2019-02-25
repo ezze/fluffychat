@@ -12,11 +12,11 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: groupTextField
-            placeholderText: i18n.tr("#groupname:" + settings.server)
+            placeholderText: i18n.tr("#groupname:" + matrix.server)
             focus: true
         }
         Row {

@@ -80,7 +80,7 @@ Component {
 
         Button {
             text: i18n.tr("Close")
-            color: settings.mainColor
+            color: mainLayout.mainColor
             onClicked: PopupUtils.close(dialogue)
         }
 
@@ -91,7 +91,7 @@ Component {
 
             Rectangle {
                 height: units.gu(0.2)
-                color: settings.mainColor
+                color: mainLayout.mainColor
                 anchors.left: parent.left
                 anchors.right: orLabel.left
                 anchors.rightMargin: units.gu(2)
@@ -99,13 +99,13 @@ Component {
             }
             Label {
                 id: orLabel
-                text: activeUser !== settings.matrixid ? i18n.tr("Chats with this user:") : i18n.tr("You are that!")
+                text: activeUser !== matrix.matrixid ? i18n.tr("Chats with this user:") : i18n.tr("You are that!")
                 textSize: Label.Small
                 anchors.centerIn: parent
             }
             Rectangle {
                 height: units.gu(0.2)
-                color: settings.mainColor
+                color: mainLayout.mainColor
                 anchors.right: parent.right
                 anchors.left: orLabel.right
                 anchors.leftMargin: units.gu(2)
@@ -116,14 +116,14 @@ Component {
         Column {
             id: chatListView
             width: parent.width
-            visible: activeUser !== settings.matrixid
+            visible: activeUser !== matrix.matrixid
         }
 
         ListItem {
             id: startNewChatButton
             height: layout.height
             color: Qt.rgba(0,0,0,0)
-            visible: activeUser !== settings.matrixid
+            visible: activeUser !== matrix.matrixid
             onClicked: {
                 userSettingsViewer.collapse ()
                 var data = {
@@ -164,7 +164,7 @@ Component {
                 currently_active = res.rows[0].currently_active
             })
 
-            if ( activeUser === settings.matrixid ) return
+            if ( activeUser === matrix.matrixid ) return
             storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url " +
             " FROM Chats rooms, Memberships memberships " +
             " WHERE (memberships.membership='join' OR memberships.membership='invite') " +

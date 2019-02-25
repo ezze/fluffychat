@@ -40,7 +40,7 @@ Page {
             SettingsListItem {
                 name: i18n.tr("Support on Liberapay")
                 icon: "like"
-                iconColor: settings.mainColor
+                iconColor: mainLayout.mainColor
                 onClicked: Qt.openUrlExternally("https://liberapay.com/KrilleChritzelius")
             }
 

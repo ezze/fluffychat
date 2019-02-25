@@ -14,13 +14,13 @@ ListItem {
     property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1 || event.type === "m.sticker"
     property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
     property var imageVisible: image.showGif || image.showThumbnail ? true : false
-    property var sent: event.sender.toLowerCase() === settings.matrixid.toLowerCase()
+    property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
     property var isLeftSideEvent: !sent || isStateEvent
     property var sending: sent && event.status === msg_status.SENDING
     property var senderDisplayname: activeChatMembers[event.sender].displayname!==undefined ? activeChatMembers[event.sender].displayname : MatrixNames.transformFromId(event.sender)
-    property var bgcolor: (isStateEvent ? (settings.darkmode ? "black" : "white") :
-    (!sent ? settings.darkmode ? "#191A15" : UbuntuColors.porcelain :
-    (event.status < msg_status.SEEN ? settings.brighterMainColor : settings.mainColor)))
+    property var bgcolor: (isStateEvent ? (mainLayout.darkmode ? "black" : "white") :
+    (!sent ? mainLayout.darkmode ? "#191A15" : UbuntuColors.porcelain :
+    (event.status < msg_status.SEEN ? mainLayout.brighterMainColor : mainLayout.mainColor)))
     property var lastEvent: index > 0 ? chatScrollView.model.get(index-1).event : null
     property var sameSender: lastEvent !== null ? lastEvent.sender === event.sender : false
 
@@ -174,7 +174,7 @@ ListItem {
         color: imageVisible ? "#00000000" : bgcolor
 
         Behavior on color {
-            ColorAnimation { from: settings.brighterMainColor; duration: 300 }
+            ColorAnimation { from: mainLayout.brighterMainColor; duration: 300 }
         }
 
         radius: units.gu(2)
@@ -215,8 +215,8 @@ ListItem {
                 visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
                 property var hasThumbnail: event.content.info && event.content.info.thumbnail_url
                 property var isGif: visible && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
-                property var showGif: isGif && settings.autoloadGifs
-                property var showThumbnail: visible && !showGif && (hasThumbnail || settings.autoloadGifs)
+                property var showGif: isGif && matrix.autoloadGifs
+                property var showThumbnail: visible && !showGif && (hasThumbnail || matrix.autoloadGifs)
                 property var showButton: visible && !showGif && !showThumbnail
 
                 MouseArea {
@@ -276,7 +276,7 @@ ListItem {
                     width: visible ? units.gu(26) : 0
                     anchors.left: parent.left
                     anchors.leftMargin: units.gu(1)
-                    color: settings.brightMainColor
+                    color: mainLayout.brightMainColor
                 }
             }
 
@@ -370,7 +370,7 @@ ListItem {
 */
 Button {
     id: downloadButton
-    color: settings.brightMainColor
+    color: mainLayout.brightMainColor
     text: i18n.tr("Download: ") + event.content.body
     onClicked: {
         downloadDialog.filename = event.content_body
@@ -397,11 +397,11 @@ Label {
     text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( event.origin_server_ts ) :
     (event.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
     event.content_body || event.content.body)
-    color: (!sent || isStateEvent) ? (settings.darkmode ? "white" : "black") :
-    (event.status < msg_status.SEEN ? settings.mainColor : "white")
-    linkColor: settings.brightMainColor
+    color: (!sent || isStateEvent) ? (mainLayout.darkmode ? "white" : "black") :
+    (event.status < msg_status.SEEN ? mainLayout.mainColor : "white")
+    linkColor: mainLayout.brightMainColor
     Behavior on color {
-        ColorAnimation { from: settings.mainColor; duration: 300 }
+        ColorAnimation { from: mainLayout.mainColor; duration: 300 }
     }
     wrapMode: Text.Wrap
     textFormat: Text.StyledText
@@ -448,7 +448,7 @@ Rectangle {
             id: metaLabel
             text: {
                 // Show the senders displayname only if its not the user him-/herself.
-                ((event.sender !== settings.matrixid) && senderDisplayname !== activeChatDisplayName ?
+                ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
                 ("<font color='" + MatrixNames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
                 : "")
                 + MatrixNames.getChatTime ( event.origin_server_ts )

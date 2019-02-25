@@ -41,7 +41,7 @@ Item {
                 for ( var i = 0; i < lines.length; i++ ) {
                     if ( lines[i].indexOf ("TEL;") !== -1 ) {
                         var phoneNumber = lines[i].split(":")[1].replace(/\D/g,'')
-                        if ( phoneNumber.charAt(0) === "0" ) phoneNumber = phoneNumber.replace( "0", settings.countryTel )
+                        if ( phoneNumber.charAt(0) === "0" ) phoneNumber = phoneNumber.replace( "0", matrix.countryTel )
                         threepids[threepids.length] = [ "msisdn", phoneNumber ]
                         // TODO: normalize the numbers with a leading 0 to the users country number
                     }
@@ -54,7 +54,7 @@ Item {
                 matrix.post ( "/identity/api/v1/bulk_lookup", { threepids: threepids }, function ( response ) {
                     var counter = 0
                     for ( var j = 0; j < response.threepids.length; j++ ) {
-                        if ( response.threepids[j][0] === settings.matrixid ) continue
+                        if ( response.threepids[j][0] === matrix.matrixid ) continue
                         counter++
                         storage.transaction( "INSERT OR REPLACE INTO Contacts VALUES( '" +
                         response.threepids[j][0] + "', '" +

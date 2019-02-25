@@ -94,8 +94,8 @@ Page {
         [ messageID,
         activeChat,
         now,
-        settings.matrixid,
-        settings.matrixid,
+        matrix.matrixid,
+        matrix.matrixid,
         message,
         null,
         type,
@@ -105,10 +105,10 @@ Page {
             var fakeEvent = {
                 type: type,
                 id: messageID,
-                sender: settings.matrixid,
+                sender: matrix.matrixid,
                 content_body: MessageFormats.formatText ( data.body ),
-                displayname: activeChatMembers[settings.matrixid].displayname,
-                avatar_url: activeChatMembers[settings.matrixid].avatar_url,
+                displayname: activeChatMembers[matrix.matrixid].displayname,
+                avatar_url: activeChatMembers[matrix.matrixid].avatar_url,
                 status: msg_status.SENDING,
                 origin_server_ts: now,
                 content: data
@@ -135,11 +135,11 @@ Page {
 
 
     function sendTypingNotification ( typing ) {
-        if ( !settings.sendTypingNotification ) return
+        if ( !matrix.sendTypingNotification ) return
         if ( typing !== isTyping) {
             typingTimer.stop ()
             isTyping = typing
-            matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( settings.matrixid ), {
+            matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
                 typing: typing
             }, null, null, 0 )
         }
@@ -154,7 +154,7 @@ Page {
         membership = room.membership
         if ( room.draft !== "" && room.draft !== null ) messageTextField.text = room.draft
         storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
-        "matrix_id='" + settings.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
+        "matrix_id='" + matrix.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
             var power_level = 0
             if ( rs.rows.length > 0 ) power_level = rs.rows[0].power_level
             chatScrollView.canRedact = power_level >= room.power_redact
@@ -167,7 +167,7 @@ Page {
 
         // Is there an unread marker? Then mark as read!
         var lastEvent = chatScrollView.model.get(0).event
-        if ( room.unread < lastEvent.origin_server_ts && lastEvent.sender !== settings.matrixid ) {
+        if ( room.unread < lastEvent.origin_server_ts && lastEvent.sender !== matrix.matrixid ) {
             matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
         }
 
@@ -257,7 +257,7 @@ Page {
                 })
             }
         }
-        else if ( type === "m.receipt" && eventContent.user !== settings.matrixid ) {
+        else if ( type === "m.receipt" && eventContent.user !== matrix.matrixid ) {
             chatScrollView.markRead ( eventContent.ts )
         }
         if ( eventType === "timeline" ) {
@@ -319,9 +319,9 @@ Page {
 
     Icon {
         property var resolution: ( 1052 / 744 )
-        visible: settings.chatBackground === undefined
+        visible: mainLayout.chatBackground === undefined
         source: "../../assets/chat.svg"
-        color: settings.mainColor
+        color: mainLayout.mainColor
         anchors.centerIn: parent
         width: Math.min ( parent.width, parent.height / resolution  )
         height: width * resolution
@@ -410,7 +410,7 @@ Page {
         height: messageTextField.height + units.gu(2)
         width: parent.width + 2
         border.width: 1
-        border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
+        border.color: mainLayout.darkmode ? UbuntuColors.slate : UbuntuColors.silk
         color: theme.palette.normal.background
         anchors {
             horizontalCenter: parent.horizontalCenter
@@ -499,7 +499,7 @@ Page {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: units.gu(1)
-            color: settings.darkmode ? UbuntuColors.graphite : UbuntuColors.porcelain
+            color: mainLayout.darkmode ? UbuntuColors.graphite : UbuntuColors.porcelain
             visible: membership === "join" && canSendMessages && replyEvent === null
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()

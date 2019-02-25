@@ -107,7 +107,7 @@ BottomEdge {
                             anchors.leftMargin: units.gu(2)
                             text: i18n.tr("No description found")
                             wrapMode: Text.Wrap
-                            linkColor: settings.brightMainColor
+                            linkColor: mainLayout.brightMainColor
                             textFormat: Text.StyledText
                             onLinkActivated: uriController.openUrlExternally ( link )
                         }

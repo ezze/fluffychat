@@ -53,7 +53,7 @@ Component {
                             "auth": {
                                 "password": oldPass.displayText,
                                 "type": "m.login.password",
-                                "user": settings.matrixid
+                                "user": matrix.matrixid
                             }
                         } )
                     }

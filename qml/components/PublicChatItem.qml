@@ -4,7 +4,7 @@ import Ubuntu.Components 1.3
 
 ListItem {
 
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
     height: visible * layout.height
     visible: {

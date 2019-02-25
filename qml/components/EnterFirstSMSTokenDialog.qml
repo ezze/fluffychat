@@ -12,7 +12,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: addressTextField
@@ -53,7 +53,7 @@ Component {
                         var threePidCreds = {
                             client_secret: _page.client_secret,
                             sid: _page.sid,
-                            id_server: settings.id_server
+                            id_server: matrix.id_server
                         }
                         _matrix.post ("/client/r0/account/3pid", {
                             bind: true,

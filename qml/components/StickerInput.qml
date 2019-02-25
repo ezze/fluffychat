@@ -106,7 +106,7 @@ Rectangle {
                 height: stickerInput.desiredHeight
                 property var mediaElement: mediaElem
                 source: {
-                    ( (settings.autoloadGifs && mediaElem.mimetype === "image/gif") || mediaElem.thumbnail_url === "") ?
+                    ( (matrix.autoloadGifs && mediaElem.mimetype === "image/gif") || mediaElem.thumbnail_url === "") ?
                     MatrixNames.getLinkFromMxc ( mediaElem.url ) :
                     MatrixNames.getThumbnailLinkFromMxc ( mediaElem.thumbnail_url, Math.round (height), Math.round (height) )
                 }
@@ -126,7 +126,7 @@ Rectangle {
         }
         header: WebView {
             id: uploader
-            url: "../components/upload.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
+            url: "../components/upload.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(matrix.server) + "&activeChat=" + encodeURIComponent(activeChat)
             width: stickerInput.desiredHeight
             height: width
             anchors.margins: stickerInput.desiredHeight / 2
