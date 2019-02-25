@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 09:09+0000\n"
+"POT-Creation-Date: 2019-02-25 10:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -788,11 +788,11 @@ msgstr ""
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:506
+#: ../qml/models/MatrixModel.qml:500
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
-"fluffychat/issues/new"
+"fluffychat/issues/new. Error details: %1"
 msgstr ""
 
 #: ../qml/models/ContentHubModel.qml:92
