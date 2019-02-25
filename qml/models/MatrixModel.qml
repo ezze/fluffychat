@@ -327,7 +327,6 @@ Item {
                 getData += "&" + i + "=" + encodeURIComponent(data[i])
             }
             getData = "?" + getData.substr(1)
-            //getData = getData.replace("")
         }
         else if ( data != null ) postData = data
 
@@ -425,7 +424,7 @@ Item {
     }
 
     function init () {
-        // Compatible with old versions
+        // Compatible with old versions TODO: Repair this
         /*if ( settings.token && settings.token !== "" ) {
         matrix.token = settings.token
         if ( settings.server ) matrix.server = settings.server
