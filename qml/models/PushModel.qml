@@ -19,12 +19,10 @@ PushClient {
 
     function updatePusher () {
         if ( token !== "" && (settings.pushToken !== token || settings.pushUrl !== pushUrl || settings.pushDeviceName !== deviceName) ) {
-            console.log("👷[Init] Trying to set pusher… '%1':'%2'".arg(settings.pushDeviceName).arg(deviceName))
             pushclient.setPusher ( true, function () {
                 settings.pushToken = pushtoken
                 settings.pushUrl = pushUrl
                 settings.pushDeviceName = deviceName
-                console.log("👷[Init] Pusher is set!")
             }, function ( error ) {
                 console.warn( "ERROR:", JSON.stringify(error))
                 toast.show ( error.error )

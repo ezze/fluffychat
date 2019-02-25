@@ -29,6 +29,9 @@ Item {
     // If there is a request which should bock the UI, this property will be set.
     property var blockUIRequest: null
 
+    // Sometimes the UI needs to become blocked completely.
+    property bool blockUI: false
+
     // This is the access token for the matrix client. When it is undefined, then
     // the user needs to sign in first
     property string token: ""
@@ -54,7 +57,7 @@ Item {
     * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
     */
     signal newEvent ( var type, var chat_id, var eventType, var eventContent )
-    onNewEvent: console.log("💬[Event] From: '%1', Type: '%2', content type: '%3'".arg(chat_id).arg(type).arg(eventType) )
+    onNewEvent: console.log("💬[Event] From: '%1', Type: '%2' (%3)".arg(chat_id).arg(eventType).arg(type) )
 
     /* Outside of the events there are updates for the global chat states which
     * are handled by this signal:
@@ -65,8 +68,6 @@ Item {
     property var syncRequest: null
     property var initialized: false
     property var abortSync: false
-
-    Component.onCompleted: matrix.init ()
 
 
     // Login and set username, token and server! Needs to be done, before anything else
@@ -184,9 +185,9 @@ Item {
     // TODO: Move into chat list model!
     function joinChat (chat_id) {
         showConfirmDialog ( i18n.tr("Do you want to join this chat?").arg(chat_id), function () {
-            loadingScreen.visible = true
+            blockUI = true
             matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
-                loadingScreen.visible = true
+                blockUI = true
                 matrix.waitForSync()
                 mainLayout.toChat( response.room_id )
             }, null, 2 )
@@ -344,7 +345,7 @@ Item {
                         toast.show (i18n.tr("😕 No connection..."))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
-                        loadingScreen.visible = false
+                        blockUI = false
                         if ( "consent_uri" in error ) {
                             consentUrl = error.consent_uri
                             var item = Qt.createComponent("../components/ConsentViewer.qml")
@@ -372,7 +373,7 @@ Item {
         timer.start();
 
         // Send the request now
-        if ( priority !== _PRIORITY.SYNC ) console.log("💌[Send]", action)
+        if ( priority !== _PRIORITY.SYNC ) console.log("📨[Send]", action)
         http.send( JSON.stringify( postData ) )
 
         return http
@@ -380,38 +381,43 @@ Item {
 
     function init () {
         if ( matrix.token === "" ) return
-        console.log("👷[Init] Init the matrix synchronization")
 
         // Start synchronizing
         initialized = true
         if ( settings.since ) {
+            console.log("👷[Init] Init the matrix synchronization")
             waitForSync ()
             storage.transaction ( "UPDATE Events SET status=-1 WHERE status=0" )
             return sync ( 1 )
         }
 
-        console.log("👷[Init] No previous synchronization found... Request the first synchronization now")
+        console.log("👷[Init] Request the first matrix synchronizaton")
         // Set the pusher if it is not set
         pushclient.updatePusher ()
 
-        loadingScreen.visible = true
+        blockUI = true
         storage.transaction ( "INSERT OR IGNORE INTO Users VALUES ( '" +
         settings.matrixid + "', '" + MatrixNames.transformFromId(settings.matrixid) + "', '', 'offline', 0, 0 )" )
 
-        // Discover which features the server does support
-        matrix.get ( "/client/versions", {}, function ( matrixVersions ) {
+        var onFristSyncResponse = function ( response ) {
+            if ( waitingForSync ) waitingForAnswer--
+            handleEvents ( response )
+
+            if ( !abortSync ) sync ()
+        }
+
+        var onVersionsResponse = function ( matrixVersions ) {
+            console.log(matrixVersions)
             settings.matrixVersions = matrixVersions.versions
             if ( "unstable_features" in matrixVersions && "m.lazy_load_members" in matrixVersions["unstable_features"] ) {
                 settings.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
             }
+            // Start the first synchronization
+            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(settings.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.SYNC )
+        }
 
-            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(settings.lazy_load_members)}, function ( response ) {
-                if ( waitingForSync ) waitingForAnswer--
-                handleEvents ( response )
-
-                if ( !abortSync ) sync ()
-            }, init, _PRIORITY.SYNC )
-        }, init)
+        // Discover which features the server does support
+        matrix.get ( "/client/versions", {}, onVersionsResponse, init)
 
     }
 
@@ -491,7 +497,7 @@ Item {
                     handlePresences ( response.presence)
 
                     settings.since = response.next_batch
-                    loadingScreen.visible = false
+                    blockUI = false
                     //console.log("===> RECEIVED RESPONSE! SYNCHRONIZATION performance: ", new Date().getTime() - timecount )
                 }
             )

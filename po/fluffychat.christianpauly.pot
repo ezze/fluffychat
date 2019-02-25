@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 08:43+0000\n"
+"POT-Creation-Date: 2019-02-25 09:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:132 ../qml/components/ChatEvent.qml:115
+#: ../qml/Main.qml:131 ../qml/components/ChatEvent.qml:115
 msgid "Are you sure?"
 msgstr ""
 
@@ -165,7 +165,7 @@ msgid "Username '%1' not found on %2"
 msgstr ""
 
 #: ../qml/pages/LoginPage.qml:44 ../qml/pages/LoginPage.qml:86
-#: ../qml/models/MatrixModel.qml:344
+#: ../qml/models/MatrixModel.qml:345
 msgid "😕 No connection..."
 msgstr ""
 
@@ -760,11 +760,11 @@ msgstr ""
 msgid "Add chat address"
 msgstr ""
 
-#: ../qml/models/PushModel.qml:38
+#: ../qml/models/PushModel.qml:36
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/models/PushModel.qml:72
+#: ../qml/models/PushModel.qml:70
 msgid "Push notifications are disabled..."
 msgstr ""
 
@@ -776,19 +776,19 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:186
+#: ../qml/models/MatrixModel.qml:187
 msgid "Do you want to join this chat?"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:225
+#: ../qml/models/MatrixModel.qml:226
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:442
+#: ../qml/models/MatrixModel.qml:448
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:500
+#: ../qml/models/MatrixModel.qml:506
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

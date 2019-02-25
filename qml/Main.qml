@@ -103,7 +103,6 @@ MainView {
     Toast { id: toast }
     ImageViewer { id: imageViewer }
     VideoPlayer { id: videoPlayer }
-    LoadingScreen { id: loadingScreen }
     LockedScreen { id: lockedScreen }
     LoadingModal { id: loadingModal }
     Audio { id: audio }

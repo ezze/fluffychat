@@ -158,7 +158,6 @@ ListView {
                 var tempEvent = model.get(i).event
                 if ( tempEvent.id === event.unsigned.transaction_id || tempEvent.id === event.id) {
                     if ( i > 0 ) event.sameSender = tempEvent.sameSender
-                    console.log("Dublication Transaction!", i, event.sameSender)
                     model.set( i, { "event": event } )
                     return
                 }
