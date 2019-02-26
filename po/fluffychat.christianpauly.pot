@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-26 10:31+0000\n"
+"POT-Creation-Date: 2019-02-26 11:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -204,23 +204,23 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:160 fluffychat.desktop.in.h:1
+#: ../qml/pages/ChatListPage.qml:157 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:160
+#: ../qml/pages/ChatListPage.qml:157
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:223
+#: ../qml/pages/ChatListPage.qml:220
 msgid "Search for your chats..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:243
+#: ../qml/pages/ChatListPage.qml:240
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:272
+#: ../qml/pages/ChatListPage.qml:269
 msgid "Add chat"
 msgstr ""
 
@@ -738,36 +738,36 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/models/PushModel.qml:81
+#: ../qml/models/PushModel.qml:72
 msgid "Push notifications are disabled..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:73
+#: ../qml/models/MatrixModel.qml:74
 msgid "USA"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:74
+#: ../qml/models/MatrixModel.qml:75
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:239
+#: ../qml/models/MatrixModel.qml:240
 msgid "Do you want to join this chat?"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:277
+#: ../qml/models/MatrixModel.qml:278
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:399 ../qml/scripts/LoginPageActions.js:32
+#: ../qml/models/MatrixModel.qml:400 ../qml/scripts/LoginPageActions.js:32
 #: ../qml/scripts/LoginPageActions.js:74
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:505
+#: ../qml/models/MatrixModel.qml:507
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:556
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

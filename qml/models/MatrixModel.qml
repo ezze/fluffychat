@@ -18,6 +18,7 @@ Item {
     readonly property var longPollingTimeout: 10000
 
     property var waitingForSync: false
+    property var lastSync: 0
 
     // The priority of a request:
     // LOW: The request is in the background. Errors will be ignored and the
@@ -493,6 +494,7 @@ function sync ( timeout ) {
         matrix.waitingForSync = false
         if ( matrix.token ) {
             handleEvents ( response )
+            matrix.lastSync = new Date().getTime()
             sync ()
         }
     }, function ( error ) {

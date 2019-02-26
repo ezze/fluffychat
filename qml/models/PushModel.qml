@@ -51,16 +51,7 @@ Item {
         }
 
         function newNotification ( message ) {
-            //console.log("==============================NEW NOTIFICATION==============================\n",message)
-            if ( message == "" ) return
-            try {
-                // Clear the persistent notification if the user is in this room
-                var room = message.room_name || message.sender_display_name || message.sender
-                if ( room === activeChatDisplayName ) innerPushClient.clearPersistent ( room )
-            }
-            catch ( e ) {
-                console.error ( message, e )
-            }
+            //console.log("🔔[Push Notification] Unread:", message.counts.unread, "(%1)".arg(message.content.msgtype || "No message"))
         }
 
         Component.onCompleted: {

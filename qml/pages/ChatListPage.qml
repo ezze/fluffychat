@@ -17,9 +17,6 @@ StyledPage {
         color: theme.palette.normal.background
     }
 
-
-    // This is the most importent function of this page! It updates all rooms, based
-    // on the informations in the sqlite database!
     Component.onCompleted: {
 
         // On the top are the rooms, which the user is invited to
