@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-26 08:11+0000\n"
+"POT-Creation-Date: 2019-02-26 08:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -216,16 +216,16 @@ msgstr ""
 msgid "Search for your chats..."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:245
+#: ../qml/pages/ChatListPage.qml:243
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:274
+#: ../qml/pages/ChatListPage.qml:272
 msgid "Add chat"
 msgstr ""
 
 #: ../qml/pages/ChatPrivacySettingsPage.qml:120
-#: ../qml/pages/ChatSettingsPage.qml:271
+#: ../qml/pages/ChatSettingsPage.qml:261
 msgid "Advanced settings"
 msgstr ""
 
@@ -431,7 +431,7 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:211
 #: ../qml/pages/NotificationChatSettingsPage.qml:57
-#: ../qml/pages/ChatSettingsPage.qml:265
+#: ../qml/pages/ChatSettingsPage.qml:255
 msgid "Notifications"
 msgstr ""
 
@@ -578,27 +578,27 @@ msgstr ""
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:329
+#: ../qml/pages/ChatPage.qml:327
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:352
+#: ../qml/pages/ChatPage.qml:350
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:422
+#: ../qml/pages/ChatPage.qml:420
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:422
+#: ../qml/pages/ChatPage.qml:420
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:436
+#: ../qml/pages/ChatPage.qml:434
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:467
+#: ../qml/pages/ChatPage.qml:465
 msgid "Type something ..."
 msgstr ""
 
@@ -666,56 +666,51 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:159
-#: ../qml/components/ChangeChatAvatarDialog.qml:12
-msgid "Edit chat picture"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:165
+#: ../qml/pages/ChatSettingsPage.qml:155
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:230
+#: ../qml/pages/ChatSettingsPage.qml:220
 msgid "Description:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:238
+#: ../qml/pages/ChatSettingsPage.qml:228
 msgid "No chat description found..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:293
+#: ../qml/pages/ChatSettingsPage.qml:283
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:293
+#: ../qml/pages/ChatSettingsPage.qml:283
 msgid "Press button to reload users..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:317
+#: ../qml/pages/ChatSettingsPage.qml:307
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:337
+#: ../qml/pages/ChatSettingsPage.qml:327
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:345
+#: ../qml/pages/ChatSettingsPage.qml:335
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:369
+#: ../qml/pages/ChatSettingsPage.qml:359
 msgid "Appoint to a member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:373
+#: ../qml/pages/ChatSettingsPage.qml:363
 msgid "Appoint to a Moderator"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:378
+#: ../qml/pages/ChatSettingsPage.qml:368
 msgid "Appoint to an Admin"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:383
+#: ../qml/pages/ChatSettingsPage.qml:373
 msgid "Appoint to Owner"
 msgstr ""
 
@@ -834,7 +829,6 @@ msgstr ""
 
 #: ../qml/components/ChangePasswordDialog.qml:38
 #: ../qml/components/DownloadDialog.qml:26
-#: ../qml/components/LeaveChatDialog.qml:27
 #: ../qml/components/NewGroupDialog.qml:27
 #: ../qml/components/RemoveDeviceDialog.qml:42
 #: ../qml/components/AddPhoneDialog.qml:37
@@ -847,7 +841,7 @@ msgstr ""
 #: ../qml/components/ChangeDisplaynameDialog.qml:33
 #: ../qml/components/AddContactDialog.qml:79
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
-#: ../qml/components/ChangeChatnameDialog.qml:41
+#: ../qml/components/ChangeChatnameDialog.qml:50
 #: ../qml/components/AddEmailDialog.qml:27
 msgid "Cancel"
 msgstr ""
@@ -887,6 +881,7 @@ msgstr ""
 #: ../qml/components/ChangePowerLevelDialog.qml:64
 #: ../qml/components/UserSettingsDialog.qml:82
 #: ../qml/components/ChangeChatAvatarDialog.qml:65
+#: ../qml/components/ChangeChatnameDialog.qml:84
 msgid "Close"
 msgstr ""
 
@@ -928,18 +923,6 @@ msgstr ""
 
 #: ../qml/components/WaitDialog.qml:36
 msgid "Cancel process"
-msgstr ""
-
-#: ../qml/components/LeaveChatDialog.qml:11
-msgid "Leave chat"
-msgstr ""
-
-#: ../qml/components/LeaveChatDialog.qml:19
-msgid "Are you sure you want to leave the chat?"
-msgstr ""
-
-#: ../qml/components/LeaveChatDialog.qml:32
-msgid "Leave"
 msgstr ""
 
 #: ../qml/components/NewGroupDialog.qml:19
@@ -1085,7 +1068,7 @@ msgstr ""
 
 #: ../qml/components/AddAliasDialog.qml:32
 #: ../qml/components/ChangeDisplaynameDialog.qml:38
-#: ../qml/components/ChangeChatnameDialog.qml:46
+#: ../qml/components/ChangeChatnameDialog.qml:55
 msgid "Save"
 msgstr ""
 
@@ -1256,15 +1239,23 @@ msgstr ""
 msgid "Or"
 msgstr ""
 
+#: ../qml/components/ChangeChatAvatarDialog.qml:12
+msgid "Edit chat picture"
+msgstr ""
+
 #: ../qml/components/ChangeChatnameDialog.qml:11
-msgid "Edit name and description"
+msgid "Chat settings and details"
 msgstr ""
 
 #: ../qml/components/ChangeChatnameDialog.qml:20
+msgid "Change chat avatar"
+msgstr ""
+
+#: ../qml/components/ChangeChatnameDialog.qml:26
 msgid "Enter a name for the chat"
 msgstr ""
 
-#: ../qml/components/ChangeChatnameDialog.qml:31
+#: ../qml/components/ChangeChatnameDialog.qml:38
 msgid "Enter a description for the chat"
 msgstr ""
 

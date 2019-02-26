@@ -144,8 +144,6 @@ StyledPage {
 
     ChangeChatAvatarDialog { id: changeChatAvatarDialog }
 
-    LeaveChatDialog { id: leaveChatDialog }
-
     header: PageHeader {
         id: header
         title: activeChatDisplayName
@@ -153,14 +151,6 @@ StyledPage {
         trailingActionBar {
             actions: [
             Action {
-                // TODO: Why is the app crashing if visible is set?
-                //visible: canChangeAvatar && !profileRow.visible
-                iconName: "camera-app-symbolic"
-                text: i18n.tr("Edit chat picture")
-                onTriggered: PopupUtils.open(changeChatAvatarDialog)
-            },
-            Action {
-                //visible: canChangeName
                 iconName: "edit"
                 text: i18n.tr("Edit chat name")
                 onTriggered: PopupUtils.open(changeChatnameDialog)

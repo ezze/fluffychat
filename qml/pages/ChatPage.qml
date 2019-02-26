@@ -310,8 +310,6 @@ StyledPage {
     }
     ]
 
-    LeaveChatDialog { id: leaveChatDialog }
-
     Icon {
         property var resolution: ( 1052 / 744 )
         visible: mainLayout.chatBackground === undefined

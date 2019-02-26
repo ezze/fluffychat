@@ -223,8 +223,6 @@ StyledPage {
         placeholderText: i18n.tr("Search for your chats...")
     }
 
-    LeaveChatDialog { id: leaveChatDialog }
-
     ListModel { id: model }
 
     ListView {
