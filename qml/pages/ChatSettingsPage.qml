@@ -228,7 +228,7 @@ StyledPage {
                         text: description !== "" ? description : i18n.tr("No chat description found...")
                         linkColor: mainLayout.brightMainColor
                         textFormat: Text.StyledText
-                        onLinkActivated: uriController.openUrlExternally ( link )
+                        onLinkActivated: shareController.openUrlExternally ( link )
                     }
                     Label {
                         text: " "

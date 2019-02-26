@@ -68,8 +68,8 @@ Item {
     }
 
     function openUrlExternally ( link ) {
-        if ( link.indexOf("fluffychat://") !== -1 ) uriController.openUri ( [link] )
-        else if ( link.indexOf("https://matrix.to/#/") !== -1 ) uriController.openUri ( [link] )
+        if ( link.indexOf("fluffychat://") !== -1 ) openUri ( [link] )
+        else if ( link.indexOf("https://matrix.to/#/") !== -1 ) openUri ( [link] )
         else if ( link.indexOf("http") !== -1 ) Qt.openUrlExternally ( link )
         else Qt.openUrlExternally ( "http://" + link )
     }

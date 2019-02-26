@@ -384,7 +384,7 @@ ListItem {
                 anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
                 anchors.leftMargin: units.gu(1)
                 anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
-                onLinkActivated: uriController.openUrlExternally ( link )
+                onLinkActivated: shareController.openUrlExternally ( link )
                 // Intital calculation of the max width and display URL's and
                 // make sure, that the label text is not empty for the correct
                 // height calculation.
@@ -427,6 +427,7 @@ ListItem {
                         textSize: Label.XxSmall
                         visible: !isStateEvent
                         wrapMode: Text.NoWrap
+                        textFormat: Text.PlainText
 
                         // Check that the sender displayname is not too long
                         Component.onCompleted: {
