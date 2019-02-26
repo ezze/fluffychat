@@ -12,7 +12,6 @@ ListItem {
         searchField.searchMatrixId ? matrixid.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
         : layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
     }
-
     color: mainLayout.darkmode ? "#202020" : "white"
 
     property var matrixid: matrix_id

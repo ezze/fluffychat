@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-26 11:08+0000\n"
+"POT-Creation-Date: 2019-02-26 11:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -391,6 +391,10 @@ msgstr ""
 
 #: ../qml/pages/CreateChatPage.qml:119
 msgid "Public groups"
+msgstr ""
+
+#: ../qml/pages/CreateChatPage.qml:131
+msgid "Click on the top right button to add contacts."
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:38
@@ -1138,7 +1142,7 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: ../qml/components/ContactListItem.qml:20
+#: ../qml/components/ContactListItem.qml:19
 msgid "Last active: %1"
 msgstr ""
 

@@ -127,6 +127,18 @@ StyledPage {
         }
     }
 
+    Label {
+        text: i18n.tr("Click on the top right button to add contacts.")
+        textSize: Label.Large
+        color: UbuntuColors.graphite
+        anchors.centerIn: chatListView
+        width: parent.width - units.gu(4)
+        horizontalAlignment: Text.AlignHCenter
+        elide: Text.ElideMiddle
+        wrapMode: Text.Wrap
+        z: -1
+    }
+
     ContactImport {
         id: contactImport
         onImportCompleted: createChatPage.update ()
