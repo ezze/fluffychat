@@ -36,9 +36,9 @@ Component {
                     var layout_local = layout
                     PopupUtils.close(dialogue)
                     if ( membership === "leave" ) {
-                        storage.transaction ( "DELETE FROM Memberships WHERE chat_id='" + activeChat + "'" )
-                        storage.transaction ( "DELETE FROM Events WHERE chat_id='" + activeChat + "'" )
-                        storage.transaction ( "DELETE FROM Chats WHERE id='" + activeChat + "'", update )
+                        storage.query ( "DELETE FROM Memberships WHERE chat_id=?", [ activeChat ] )
+                        storage.query ( "DELETE FROM Events WHERE chat_id=?", [ activeChat ] )
+                        storage.query ( "DELETE FROM Chats WHERE id=?", [ activeChat ] )
                         matrix.post("/client/r0/rooms/" + activeChat + "/forget", null)
                         mainLayout.removePages( layout.primaryPage )
                     }

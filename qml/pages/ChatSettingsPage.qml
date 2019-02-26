@@ -46,22 +46,20 @@ StyledPage {
         mainLayout.allowThreeColumns = true
 
         // Get the member status of the user himself
-        storage.transaction ( "SELECT description, avatar_url, membership, power_event_name, power_kick, power_ban, power_invite, power_event_power_levels, power_event_avatar FROM Chats WHERE id='" + activeChat + "'", function (res) {
+        var res = storage.query ( "SELECT description, avatar_url, membership, power_event_name, power_kick, power_ban, power_invite, power_event_power_levels, power_event_avatar FROM Chats WHERE id=?", [ activeChat ] )
 
-            description = res.rows[0].description
-            hasAvatar = (res.rows[0].avatar_url !== "" && res.rows[0].avatar_url !== null)
+        description = res.rows[0].description
+        hasAvatar = (res.rows[0].avatar_url !== "" && res.rows[0].avatar_url !== null)
 
-            storage.transaction ( "SELECT * FROM Memberships WHERE chat_id='" + activeChat + "' AND matrix_id='" + matrix.matrixid + "'", function (membershipResult) {
-                membership = membershipResult.rows[0].membership
-                power = membershipResult.rows[0].power_level
-                canChangeName = power >= res.rows[0].power_event_name
-                canKick = power >= res.rows[0].power_kick
-                canBan = power >= res.rows[0].power_ban
-                canInvite = power >= res.rows[0].power_invite
-                canChangeAvatar = power >= res.rows[0].power_event_avatar
-                canChangePermissions = power >= res.rows[0].power_event_power_levels
-            })
-        })
+        var membershipResult = storage.query ( "SELECT * FROM Memberships WHERE chat_id=? AND matrix_id=?", [ activeChat, matrix.matrixid ] )
+        membership = membershipResult.rows[0].membership
+        power = membershipResult.rows[0].power_level
+        canChangeName = power >= res.rows[0].power_event_name
+        canKick = power >= res.rows[0].power_kick
+        canBan = power >= res.rows[0].power_ban
+        canInvite = power >= res.rows[0].power_invite
+        canChangeAvatar = power >= res.rows[0].power_event_avatar
+        canChangePermissions = power >= res.rows[0].power_event_power_levels
 
         // Request the full memberlist, from the database AND from the server (lazy loading)
         model.clear()
@@ -221,7 +219,7 @@ StyledPage {
                         iconName: "camera-app-symbolic"
                         onClicked: PopupUtils.open(changeChatAvatarDialog)
                     }
-                    Component.onCompleted: MatrixNames.getChatAvatarUrl ( activeChat, function ( avatar_url ) { mxc = avatar_url } )
+                    Component.onCompleted: MatrixNames.getAvatarUrl ( activeChat, function ( avatar_url ) { mxc = avatar_url } )
                 }
 
                 Column {

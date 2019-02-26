@@ -19,11 +19,10 @@ Component {
             id: chatnameTextField
             placeholderText: i18n.tr("Enter a name for the chat")
             Component.onCompleted: {
-                storage.transaction ( "SELECT topic FROM Chats WHERE id='%1'".arg(activeChat), function ( res ) {
-                    if ( res.rows.length > 0 ) {
-                        chatnameTextField.text = chatName = res.rows[0].topic
-                    }
-                })
+                var res = storage.query ( "SELECT topic FROM Chats WHERE id='%1'".arg(activeChat))
+                if ( res.rows.length > 0 ) {
+                    chatnameTextField.text = chatName = res.rows[0].topic
+                }
             }
         }
 

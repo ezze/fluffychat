@@ -56,12 +56,12 @@ Item {
                     for ( var j = 0; j < response.threepids.length; j++ ) {
                         if ( response.threepids[j][0] === matrix.matrixid ) continue
                         counter++
-                        storage.transaction( "INSERT OR REPLACE INTO Contacts VALUES( '" +
-                        response.threepids[j][0] + "', '" +
-                        response.threepids[j][1] + "', '" +
-                        response.threepids[j][2] + "' )")
-                        storage.transaction( "INSERT OR IGNORE INTO Users VALUES( '" +
-                        response.threepids[j][2] + "', '', '', 'offline', 0, 0 )")
+                        storage.query( "INSERT OR REPLACE INTO Contacts VALUES( ?, ?, ? )", [
+                        response.threepids[j][0],
+                        response.threepids[j][1],
+                        response.threepids[j][2]
+                        ])
+                        storage.query( "INSERT OR IGNORE INTO Users VALUES( ?, '', '', 'offline', 0, 0 )", [ response.threepids[j][2] ] )
                     }
 
                     contactImportRoot.importCompleted ()

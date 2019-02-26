@@ -141,13 +141,13 @@ StyledPage {
         var room = res.rows[0]
         membership = room.membership
         if ( room.draft !== "" && room.draft !== null ) messageTextField.text = room.draft
-        storage.transaction ( "SELECT power_level FROM Memberships WHERE " +
-        "matrix_id='" + matrix.matrixid + "' AND chat_id='" + activeChat + "'", function ( rs ) {
-            var power_level = 0
-            if ( rs.rows.length > 0 ) power_level = rs.rows[0].power_level
-            chatScrollView.canRedact = power_level >= room.power_redact
-            canSendMessages = power_level >= room.power_events_default
-        })
+
+        var rs = storage.query ( "SELECT power_level FROM Memberships WHERE matrix_id=? AND chat_id=?", [
+        matrix.matrixid, activeChat ])
+        var power_level = 0
+        if ( rs.rows.length > 0 ) power_level = rs.rows[0].power_level
+        chatScrollView.canRedact = power_level >= room.power_redact
+        canSendMessages = power_level >= room.power_events_default
         chatScrollView.init ()
         chatActive = true
         chat_id = activeChat
@@ -164,7 +164,7 @@ StyledPage {
             // Check if the last event is in the database
             var found = false
             for ( var j = 0; j < chatScrollView.count; j++ ) {
-                if ( chatScrollView.get(j).event.id === room.fully_read ) {
+                if ( chatScrollView.model.get(j).event.id === room.fully_read ) {
                     chatScrollView.currentIndex = j
                     matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": lastEvent.id }, null, null, 0 )
                     found = true
@@ -285,24 +285,30 @@ StyledPage {
         }
 
         trailingActionBar {
-            numberOfSlots: 1
-            actions: [
-            Action {
-                iconName: "edit-delete"
-                text: i18n.tr("Remove")
-                visible: membership !== "join"
-                onTriggered: PopupUtils.open ( leaveChatDialog )
-            },
-            Action {
-                id: showSettingsPage
-                iconName: "info"
-                text: i18n.tr("Chat info")
-                visible: membership === "join" && mainLayout.columns < 2
-                onTriggered: mainLayout.addPageToNextColumn ( chatPage, Qt.resolvedUrl("./ChatSettingsPage.qml") )
-            }
-            ]
+            id: trailingBar
+        }
+
+    }
+
+    states: [
+    State {
+        id: defaultState
+        name: "default"
+        when: membership === "join"
+        property list<QtObject> trailingActions: [
+        Action {
+            id: showSettingsPage
+            iconName: "contextual-menu"
+            text: i18n.tr("Chat info")
+            onTriggered: mainLayout.addPageToNextColumn ( chatPage, Qt.resolvedUrl("./ChatSettingsPage.qml") )
+        }
+        ]
+        PropertyChanges {
+            target: trailingBar
+            actions: defaultState.trailingActions
         }
     }
+    ]
 
     LeaveChatDialog { id: leaveChatDialog }
 

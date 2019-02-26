@@ -32,30 +32,25 @@ StyledPage {
     }
 
     function init () {
-        storage.transaction ( "SELECT Chats.canonical_alias, Chats.power_event_canonical_alias, Chats.power_event_aliases, Memberships.power_level " +
-        " FROM Chats, Memberships WHERE " +
-        " Chats.id='" + activeChat + "' AND " +
-        " Memberships.chat_id='" + activeChat + "' AND " +
-        " Memberships.matrix_id='" + matrix.matrixid + "'", function ( res ) {
-            canEditCanonicalAlias = res.rows[0].power_event_canonical_alias <= res.rows[0].power_level
-            canEditAddresses = res.rows[0].power_event_aliases <= res.rows[0].power_level
-            var canonical_alias = res.rows[0].canonical_alias
+        var res = storage.query ( "SELECT Chats.canonical_alias, Chats.power_event_canonical_alias, Chats.power_event_aliases, Memberships.power_level " +
+        " FROM Chats, Memberships WHERE Chats.id=? AND Memberships.chat_id=? AND Memberships.matrix_id=?",
+        [ activeChat, activeChat, matrix.matrixid ])
+        canEditCanonicalAlias = res.rows[0].power_event_canonical_alias <= res.rows[0].power_level
+        canEditAddresses = res.rows[0].power_event_aliases <= res.rows[0].power_level
+        var canonical_alias = res.rows[0].canonical_alias
 
-            // Get all addresses
-            storage.transaction ( "SELECT address FROM Addresses WHERE chat_id='" + activeChat + "'", function (response) {
-                addresses = response.rows
-
-                model.clear()
-                for ( var i = 0; i < response.rows.length; i++ ) {
-                    console.log(response.rows[i].address)
-                    model.append({
-                        name: response.rows[ i ].address,
-                        isCanonicalAlias: response.rows[ i ].address === canonical_alias
-                    })
-                }
-                if ( response.rows.length === 0 ) PopupUtils.open( addAliasDialog )
+        // Get all addresses
+        var response = storage.query ( "SELECT address FROM Addresses WHERE chat_id=?", [ activeChat ] )
+        addresses = response.rows
+        model.clear()
+        for ( var i = 0; i < response.rows.length; i++ ) {
+            console.log(response.rows[i].address)
+            model.append({
+                name: response.rows[ i ].address,
+                isCanonicalAlias: response.rows[ i ].address === canonical_alias
             })
-        })
+        }
+        if ( response.rows.length === 0 ) PopupUtils.open( addAliasDialog )
     }
 
     header: PageHeader {

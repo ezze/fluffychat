@@ -23,30 +23,27 @@ StyledPage {
     Component.onCompleted: {
 
         // On the top are the rooms, which the user is invited to
-        storage.transaction ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, rooms.unread, " +
+        var res = storage.query ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, rooms.unread, " +
         " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.state_key, events.content_json, events.type " +
         " FROM Chats rooms LEFT JOIN Events events " +
         " ON rooms.id=events.chat_id " +
         " WHERE rooms.membership!='leave' " +
         " AND (events.origin_server_ts IN (" +
         " SELECT MAX(origin_server_ts) FROM Events WHERE chat_id=rooms.id " +
-        // " AND type='m.room.message' " +
         ") OR rooms.membership='invite')" +
         " GROUP BY rooms.id " +
-        " ORDER BY origin_server_ts DESC "
-        , function(res) {
-            // We now write the rooms in the column
-            for ( var i = 0; i < res.rows.length; i++ ) {
-                var room = res.rows.item(i)
-                var body = room.content_body || ""
-                room.content = JSON.parse(room.content_json)
-                if ( room.type !== "m.room.message" ) {
-                    room.content_body = EventDescription.getDisplay ( room )
-                }
-                // We request the room name, before we continue
-                model.append ( { "room": room } )
+        " ORDER BY origin_server_ts DESC " )
+        // We now write the rooms in the column
+        for ( var i = 0; i < res.rows.length; i++ ) {
+            var room = res.rows.item(i)
+            var body = room.content_body || ""
+            room.content = JSON.parse(room.content_json)
+            if ( room.type !== "m.room.message" ) {
+                room.content_body = EventDescription.getDisplay ( room )
             }
-        })
+            // We request the room name, before we continue
+            model.append ( { "room": room } )
+        }
     }
 
 

@@ -67,23 +67,22 @@ StyledPage {
 
     function update () {
         model.clear()
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Users.presence, Users.last_active_ago, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
-        " ON Contacts.matrix_id=Users.matrix_id WHERE Users.matrix_id!='" + matrix.matrixid + "' ORDER BY Contacts.medium DESC, LOWER(Users.displayname || replace(Users.matrix_id,'@','')) LIMIT 1000",
-        function( res )  {
-            for( var i = 0; i < res.rows.length; i++ ) {
-                var user = res.rows[i]
-                model.append({
-                    matrix_id: user.matrix_id,
-                    name: user.displayname || MatrixNames.transformFromId(user.matrix_id),
-                    avatar_url: user.avatar_url,
-                    medium: user.medium || "matrix",
-                    address: user.address || user.matrix_id,
-                    last_active_ago: user.last_active_ago,
-                    presence: user.presence,
-                    temp: false
-                })
-            }
-        })
+        var res = storage.query( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Users.presence, Users.last_active_ago, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
+        " ON Contacts.matrix_id=Users.matrix_id WHERE Users.matrix_id!=? ORDER BY Contacts.medium DESC, LOWER(Users.displayname || replace(Users.matrix_id,'@','')) LIMIT 1000", [
+        matrix.matrixid ] )
+        for( var i = 0; i < res.rows.length; i++ ) {
+            var user = res.rows[i]
+            model.append({
+                matrix_id: user.matrix_id,
+                name: user.displayname || MatrixNames.transformFromId(user.matrix_id),
+                avatar_url: user.avatar_url,
+                medium: user.medium || "matrix",
+                address: user.address || user.matrix_id,
+                last_active_ago: user.last_active_ago,
+                presence: user.presence,
+                temp: false
+            })
+        }
     }
 
     ListView {

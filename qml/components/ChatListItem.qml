@@ -131,8 +131,10 @@ ListItem {
             iconName: "edit-delete"
             text: i18n.tr("Leave this chat")
             onTriggered: {
-                activeChat = room.id
-                PopupUtils.open(leaveChatDialog)
+                var deleteAction = function () {
+                    matrix.post ( "/client/r0/rooms/%1/leave".arg(room.id), null, null, null, 2 )
+                }
+                showConfirmDialog ( i18n.tr("Do you want to leave this chat?"), deleteAction )
             }
         }
         ]

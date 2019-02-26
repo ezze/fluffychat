@@ -5,9 +5,9 @@ import Qt.labs.settings 1.0
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
 
-/*============================= STORAGE CONTROLLER =============================
+/*============================= STORAGE MODEL =============================
 
-The storage controller is responsible for the database. There are some helper
+The storage model is responsible for the database. There are some helper
 functions for transactions and for the config table. In the future, the
 database model will change sometimes and apps with a previous version must
 drop their existing database and replace with it with the new model. In this
@@ -16,6 +16,7 @@ are changes to the database model, the version-property MUST be increaded!
 */
 
 Item {
+
     id: storage
 
     property var version: "0.3.5"
@@ -27,45 +28,22 @@ Item {
     }
 
     // Shortener for the sqlite transactions
-    function transaction ( transaction, callback ) {
-        try {
-            db.transaction(
-                function(tx) {
-                    var rs = tx.executeSql( transaction )
-                    if ( callback ) callback ( rs )
-                }
-            )
-        }
-        catch (e) {
-            if ( e.code && e.code === 2 ) {
-                console.warn(e,transaction)
-                lockedScreen.visible = true
-            }
-            else console.warn(e,transaction)
-        }
-    }
-
-
-    function query ( query, insert, callback ) {
+    function query ( query, insert ) {
         try {
             var rs = {}
             db.transaction(
                 function(tx) {
-                    if ( insert ) {
-                        rs = tx.executeSql( query, insert )
-                    }
+                    if ( insert ) rs = tx.executeSql( query, insert )
                     else rs = tx.executeSql( query )
-                    if ( callback ) callback ( rs )
                 }
             )
             return rs
         }
         catch (e) {
+            console.error("❌[Error]",e,query)
             if ( e.code && e.code === 2 ) {
-                console.warn(e,transaction)
                 lockedScreen.visible = true
             }
-            else console.warn(e,query)
         }
     }
 
@@ -79,14 +57,14 @@ Item {
             drop ()
             lastVersion = version
         }
-        transaction ( 'PRAGMA foreign_keys = OFF')
-        transaction ( 'PRAGMA locking_mode = EXCLUSIVE')
-        transaction ( 'PRAGMA temp_store = MEMORY')
-        transaction ( 'PRAGMA cache_size')
-        transaction ( 'PRAGMA cache_size = 10000')
+        query ( 'PRAGMA foreign_keys = OFF')
+        query ( 'PRAGMA locking_mode = EXCLUSIVE')
+        query ( 'PRAGMA temp_store = MEMORY')
+        query ( 'PRAGMA cache_size')
+        query ( 'PRAGMA cache_size = 10000')
 
         // TABLE SCHEMA FOR CHATS
-        transaction('CREATE TABLE IF NOT EXISTS Chats(' +
+        query('CREATE TABLE IF NOT EXISTS Chats(' +
         'id TEXT PRIMARY KEY, ' +
         'membership TEXT, ' +
         'topic TEXT, ' +
@@ -126,7 +104,7 @@ Item {
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR EVENTS
-        transaction('CREATE TABLE IF NOT EXISTS Events(' +
+        query('CREATE TABLE IF NOT EXISTS Events(' +
         'id TEXT PRIMARY KEY, ' +
         'chat_id TEXT, ' +
         'origin_server_ts INTEGER, ' +
@@ -140,7 +118,7 @@ Item {
         'UNIQUE(id))')
 
         // TABLE SCHEMA FOR USERS
-        transaction('CREATE TABLE IF NOT EXISTS Users(' +
+        query('CREATE TABLE IF NOT EXISTS Users(' +
         'matrix_id TEXT, ' +
         'displayname TEXT, ' +
         'avatar_url TEXT, ' +
@@ -150,7 +128,7 @@ Item {
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR MEMBERSHIPS
-        transaction('CREATE TABLE IF NOT EXISTS Memberships(' +
+        query('CREATE TABLE IF NOT EXISTS Memberships(' +
         'chat_id TEXT, ' +      // The chat id of this membership
         'matrix_id TEXT, ' +    // The matrix id of this user
         'displayname TEXT, ' +
@@ -160,26 +138,26 @@ Item {
         'UNIQUE(chat_id, matrix_id))')
 
         // TABLE SCHEMA FOR CONTACTS
-        transaction('CREATE TABLE IF NOT EXISTS Contacts(' +
+        query('CREATE TABLE IF NOT EXISTS Contacts(' +
         'medium TEXT, ' +       // The medium this contact is identified by
         'address TEXT, ' +      // The email or phone number of this user if exists
         'matrix_id TEXT, ' +    // The matrix id of this user
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR CHAT ADDRESSES
-        transaction('CREATE TABLE IF NOT EXISTS Addresses(' +
+        query('CREATE TABLE IF NOT EXISTS Addresses(' +
         'chat_id TEXT, ' +    // The correct chat id in the form: !hashstring:homeserver.org
         'address TEXT, ' + // The address in the form: #roomname:homeserver.org
         'UNIQUE(chat_id, address))')
 
         // TABLE SCHEMA FOR THIRD PARTY IDENTIFIES
-        transaction('CREATE TABLE IF NOT EXISTS ThirdPIDs(' +
+        query('CREATE TABLE IF NOT EXISTS ThirdPIDs(' +
         'medium TEXT, ' +    // Should be "email" or "msisdn"
         'address TEXT, ' + // The email address or phone number
         'UNIQUE(medium, address))')
 
         // TABLE SCHEMA FOR UPLOADED MEDIA
-        transaction('CREATE TABLE IF NOT EXISTS Media(' +
+        query('CREATE TABLE IF NOT EXISTS Media(' +
         'mimetype TEXT, ' +
         'url TEXT, ' +
         'name TEXT, ' +
@@ -203,26 +181,26 @@ Item {
 
 
     function clear () {
-        transaction('DELETE FROM Chats')
-        transaction('DELETE FROM Events')
-        transaction('DELETE FROM Users')
-        transaction('DELETE FROM Memberships')
-        transaction('DELETE FROM Contacts')
-        transaction('DELETE FROM Addresses')
-        transaction('DELETE FROM ThirdPIDs')
-        transaction('DELETE FROM Media')
+        query('DELETE FROM Chats')
+        query('DELETE FROM Events')
+        query('DELETE FROM Users')
+        query('DELETE FROM Memberships')
+        query('DELETE FROM Contacts')
+        query('DELETE FROM Addresses')
+        query('DELETE FROM ThirdPIDs')
+        query('DELETE FROM Media')
     }
 
 
     function drop () {
-        transaction('DROP TABLE IF EXISTS Chats')
-        transaction('DROP TABLE IF EXISTS Events')
-        transaction('DROP TABLE IF EXISTS Users')
-        transaction('DROP TABLE IF EXISTS Memberships')
-        transaction('DROP TABLE IF EXISTS Contacts')
-        transaction('DROP TABLE IF EXISTS Addresses')
-        transaction('DROP TABLE IF EXISTS ThirdPIDs')
-        transaction('DROP TABLE IF EXISTS Media')
+        query('DROP TABLE IF EXISTS Chats')
+        query('DROP TABLE IF EXISTS Events')
+        query('DROP TABLE IF EXISTS Users')
+        query('DROP TABLE IF EXISTS Memberships')
+        query('DROP TABLE IF EXISTS Contacts')
+        query('DROP TABLE IF EXISTS Addresses')
+        query('DROP TABLE IF EXISTS ThirdPIDs')
+        query('DROP TABLE IF EXISTS Media')
     }
 
 

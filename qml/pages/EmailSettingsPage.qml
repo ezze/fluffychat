@@ -17,10 +17,10 @@ StyledPage {
 
         // Check for updates online
         matrix.get( "/client/r0/account/3pid", null, function ( res ) {
-            storage.transaction ( "DELETE FROM ThirdPIDs")
+            storage.query ( "DELETE FROM ThirdPIDs")
             if ( res.threepids.length === 0 ) return
             for ( var i = 0; i < res.threepids.length; i++ ) {
-                storage.query ( "INSERT OR IGNORE INTO ThirdPIDs VALUES( ?, ? )", [ res.threepids[i].medium, res.threepids[i].address ])
+                storage.query ( "INSERT OR IGNORE INTO ThirdPIDs VALUES( ?, ? )", [ res.threepids[i].medium, res.threepids[i].address ] )
             }
             update()
         })
@@ -29,14 +29,13 @@ StyledPage {
 
     function update () {
         // Get all email addresses
-        storage.transaction ( "SELECT address FROM ThirdPIDs WHERE medium='email'", function (response) {
-            model.clear()
-            for ( var i = 0; i < response.rows.length; i++ ) {
-                model.append({
-                    name: response.rows[ i ].address
-                })
-            }
-        })
+        var response = storage.query ( "SELECT address FROM ThirdPIDs WHERE medium='email'" )
+        model.clear()
+        for ( var i = 0; i < response.rows.length; i++ ) {
+            model.append({
+                name: response.rows[ i ].address
+            })
+        }
     }
 
     header: PageHeader {

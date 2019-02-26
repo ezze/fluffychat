@@ -19,11 +19,10 @@ Component {
             placeholderText: i18n.tr("Enter your new nickname")
             focus: true
             Component.onCompleted: {
-                storage.transaction ( "SELECT displayname FROM Users WHERE matrix_id='%1'".arg(matrix.matrixid), function ( res ) {
-                    if ( res.rows.length > 0 ) {
-                        displaynameTextField.text = res.rows[0].displayname
-                    }
-                })
+                var res = storage.query ( "SELECT displayname FROM Users WHERE matrix_id=?", [ matrix.matrixid ])
+                if ( res.rows.length > 0 ) {
+                    displaynameTextField.text = res.rows[0].displayname
+                }
             }
         }
         Row {

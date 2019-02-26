@@ -29,15 +29,14 @@ StyledPage {
 
     function updateAvatar ( type, chat_id, eventType, eventContent ) {
         if ( type === "m.room.member" && eventContent.sender === matrix.matrixid ) {
-            storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + matrix.matrixid + "'", function (rs) {
-                if ( rs.rows.length > 0 ) {
-                    var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
-                    avatarImage.name = displayname
-                    avatarImage.mxc = rs.rows[0].avatar_url
-                    hasAvatar = (rs.rows[0].avatar_url !== "" && rs.rows[0].avatar_url !== null)
-                    header.title = i18n.tr('Settings for %1').arg( displayname )
-                }
-            })
+            var rs = storage.query ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id=?", [ matrix.matrixid ] )
+            if ( rs.rows.length > 0 ) {
+                var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
+                avatarImage.name = displayname
+                avatarImage.mxc = rs.rows[0].avatar_url
+                hasAvatar = (rs.rows[0].avatar_url !== "" && rs.rows[0].avatar_url !== null)
+                header.title = i18n.tr('Settings for %1').arg( displayname )
+            }
         }
     }
 
@@ -67,12 +66,11 @@ StyledPage {
                 spacing: units.gu(2)
 
                 Component.onCompleted: {
-                    storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + matrix.matrixid + "'", function (rs) {
-                        if ( rs.rows.length > 0 ) {
-                            displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
-                            avatarImage.mxc = rs.rows[0].avatar_url
-                        }
-                    })
+                    var rs = storage.query ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id=?", [ matrix.matrixid ] )
+                    if ( rs.rows.length > 0 ) {
+                        displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
+                        avatarImage.mxc = rs.rows[0].avatar_url
+                    }
                 }
 
                 Rectangle {

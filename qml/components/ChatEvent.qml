@@ -45,7 +45,7 @@ ListItem {
             visible: event.status === msg_status.ERROR
             onTriggered: {
                 var body = event.content_body
-                storage.transaction ( "DELETE FROM Events WHERE id='" + event.id + "'")
+                storage.query ( "DELETE FROM Events WHERE id=?", [ event.id ])
                 removeEvent ( event.id )
                 chatPage.send ( body )
             }
@@ -109,7 +109,7 @@ ListItem {
             enabled: ((canRedact || sent) && event.status >= msg_status.SENT || event.status === msg_status.ERROR)
             onTriggered: {
                 if ( event.status === msg_status.ERROR ) {
-                    storage.transaction ( "DELETE FROM Events WHERE id='" + event.id + "'")
+                    storage.query ( "DELETE FROM Events WHERE id=?", [ event.id ] )
                     removeEvent ( event.id )
                 }
                 else showConfirmDialog ( i18n.tr("Are you sure?"), function () {

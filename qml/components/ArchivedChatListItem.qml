@@ -16,13 +16,7 @@ ListItem {
     visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
     height: visible ? layout.height : 0
 
-    onClicked: {
-        searchField.text = ""
-        activeChat = room.id
-        activeChatTypingUsers = room.typing || []
-        mainLayout.toChat (room.id)
-        if ( room.notification_count > 0 ) matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + room.eventsid, null )
-    }
+    onClicked: mainLayout.toChat (room.id)
 
     ListItemLayout {
         id: layout
@@ -43,10 +37,6 @@ ListItem {
             else MatrixNames.getChatAvatarById ( room.id, function (displayname) {
                 layout.title.text = displayname
                 avatar.name = displayname
-                // Is there a typing notification?
-                if ( room.typing && room.typing.length > 0 ) {
-                    layout.subtitle.text = MatrixNames.getTypingDisplayString ( room.typing, displayname )
-                }
             })
 
             // Get the room avatar if single chat
@@ -73,11 +63,11 @@ ListItem {
         Action {
             iconName: "edit-delete"
             onTriggered: {
-                console.log("REMOVING",room.id)
                 matrix.post( "/client/r0/rooms/%1/forget".arg(room.id) )
-                storage.transaction ( "DELETE FROM Memberships WHERE chat_id='" + room.id + "'" )
-                storage.transaction ( "DELETE FROM Events WHERE chat_id='" + room.id + "'" )
-                storage.transaction ( "DELETE FROM Chats WHERE id='" + room.id + "'", archivedChatListPage.update )
+                storage.query ( "DELETE FROM Memberships WHERE chat_id=?", [ room.id ] )
+                storage.query ( "DELETE FROM Events WHERE chat_id=?", [ room.id ] )
+                storage.query ( "DELETE FROM Chats WHERE id=?", [ room.id ] )
+                archivedChatListPage.update ()
             }
         }
         ]

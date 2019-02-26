@@ -14,12 +14,11 @@ ListItem {
     }
     property var matrixid: matrix_id
     onClicked: {
-        storage.transaction ( "SELECT * FROM Chats WHERE id='" + matrixid + "'", function (rs) {
-            if ( rs.rows.length > 0 ) {
-                mainLayout.toChat( matrixid )
-            }
-            else matrix.joinChat ( matrixid )
-        })
+        var rs = storage.query ( "SELECT * FROM Chats WHERE id=?", [ matrixid ] )
+        if ( rs.rows.length > 0 ) {
+            mainLayout.toChat( matrixid )
+        }
+        else matrix.joinChat ( matrixid )
     }
 
     ListItemLayout {
