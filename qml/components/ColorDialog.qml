@@ -31,7 +31,7 @@ Component {
             Button {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Reset")
-                onClicked: mainLayout.mainColorH = defaultMainColorH
+                onClicked: mainLayout.mainColorH = mainLayout.defaultMainColorH
             }
             Button {
                 width: (parent.width - units.gu(1)) / 2

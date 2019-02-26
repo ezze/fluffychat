@@ -9,6 +9,7 @@ Item {
 
     id: contentHub
     property url uri: ""
+    property var shareObject: null
 
     signal done ()
 
@@ -82,7 +83,7 @@ Item {
         console.log("NEW TRANSFER:",JSON.stringify(transfer))
         if ( transfer.contentType === ContentType.Links || transfer.contentType === ContentType.Text ) {
             mainLayout.removePages( layout.primaryPage )
-            shareObject = transfer
+            shareController.shareObject = transfer
         }
         else if ( transfer.contentType === ContentType.Contacts ) {
             for ( var i = 0; i < transfer.items.length; i++ ) {
@@ -128,14 +129,14 @@ Item {
 
     function shareTextIntern ( text ) {
         mainLayout.removePages( layout.primaryPage )
-        shareObject = {
+        shareController.shareObject = {
             items: [ contentItemComponent.createObject(contentHub, {"url" : "", "text": text}) ]
         }
     }
 
     function shareFileIntern ( event ) {
         mainLayout.removePages( layout.primaryPage )
-        shareObject = {
+        shareController.shareObject = {
             matrixEvent: event
         }
     }
@@ -143,7 +144,7 @@ Item {
     function shareLinkIntern ( url ) {
         uri = url
         mainLayout.removePages( layout.primaryPage )
-        shareObject = {
+        shareController.shareObject = {
             items: [ contentItemComponent.createObject(contentHub, {"url" : uri, "text": url}) ]
         }
     }

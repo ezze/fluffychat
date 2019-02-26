@@ -20,9 +20,9 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
         subtitle.text: membership !== "join" ? getDisplayMemberStatus ( membership ) : ""
-        subtitle.color: mainFontColor
+        subtitle.color: mainLayout.mainFontColor
 
         Avatar {
             id: avatar

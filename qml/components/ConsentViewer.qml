@@ -8,9 +8,10 @@ BottomEdge {
     id: consentViewer
     height: parent.height
 
+    readonly property string consentUrl
+
     onCollapseCompleted: {
         consentUrl = ""
-        consentContent = ""
         consentViewer.destroy ()
     }
     Component.onCompleted: commit()

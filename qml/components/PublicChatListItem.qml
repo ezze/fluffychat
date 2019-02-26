@@ -19,7 +19,7 @@ ListItem {
         width: parent.width
         title.text: (room.name || room.room_id) + (room.num_joined_members !== undefined ? " (%1)".arg(room.num_joined_members) : "")
         title.font.bold: true
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
         subtitle.text: room.topic || ""
         subtitle.color: "#888888"
         subtitle.linkColor: subtitle.color

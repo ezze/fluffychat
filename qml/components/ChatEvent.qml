@@ -166,7 +166,7 @@ ListItem {
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
         anchors.horizontalCenter: isStateEvent ? parent.horizontalCenter : undefined
-        border.color: mainBorderColor
+        border.color: mainLayout.mainBorderColor
         border.width: isStateEvent
 
         opacity: isStateEvent ? 0.75 : 1

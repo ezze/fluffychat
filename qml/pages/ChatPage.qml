@@ -10,6 +10,8 @@ import "../scripts/MessageFormats.js" as MessageFormats
 StyledPage {
 
     id: chatPage
+    
+    readonly property var typingTimeout: 30000
 
     property var membership: "join"
     property var isTyping: false
@@ -176,27 +178,27 @@ StyledPage {
 
 
         // Is there something to share? Then now share it!
-        if ( shareObject !== null ) {
+        if ( shareController.shareObject !== null ) {
             var message = ""
-            if ( shareObject.items ) {
-                for ( var i = 0; i < shareObject.items.length; i++ ) {
-                    if (String(shareObject.items[i].text).length > 0 && String(shareObject.items[i].url).length == 0) {
-                        message += String(shareObject.items[i].text)
+            if ( shareController.shareObject.items ) {
+                for ( var i = 0; i < shareController.shareObject.items.length; i++ ) {
+                    if (String(shareController.shareObject.items[i].text).length > 0 && String(shareController.shareObject.items[i].url).length == 0) {
+                        message += String(shareController.shareObject.items[i].text)
                     }
-                    else if (String(shareObject.items[i].url).length > 0 ) {
-                        message += String(shareObject.items[i].url)
+                    else if (String(shareController.shareObject.items[i].url).length > 0 ) {
+                        message += String(shareController.shareObject.items[i].url)
                     }
-                    if ( i+1 < shareObject.items.length ) message += "\n"
+                    if ( i+1 < shareController.shareObject.items.length ) message += "\n"
                 }
                 if ( message !== "") messageTextField.text = message
             }
-            else if ( shareObject.matrixEvent ) {
+            else if ( shareController.shareObject.matrixEvent ) {
                 var now = new Date().getTime()
                 var messageID = "" + now
-                matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, shareObject.matrixEvent, null, null, 2 )
+                matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, shareController.shareObject.matrixEvent, null, null, 2 )
             }
 
-            shareObject = null
+            shareController.shareObject = null
         }
     }
 
@@ -268,7 +270,7 @@ StyledPage {
             Label {
                 id: titleLabel
                 text: header.title
-                color: mainFontColor
+                color: mainLayout.mainFontColor
                 textSize: Label.Large
                 Transition {
                     NumberAnimation { properties: "anchors.topMargin"; duration: 1000 }
@@ -280,7 +282,7 @@ StyledPage {
                 visible: activeChatTypingUsers.length > 0
                 height: visible ? units.gu(2) : 0
                 text: (activeChatTypingUsers.length > 0 ? MatrixNames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
-                color: mainFontColor
+                color: mainLayout.mainFontColor
             }
         }
 

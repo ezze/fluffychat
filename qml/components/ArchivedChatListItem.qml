@@ -22,7 +22,7 @@ ListItem {
         id: layout
         title.text: i18n.tr("Unknown chat")
         title.font.bold: true
-        title.color: room.membership === "invite" ? mainLayout.mainColor : mainFontColor
+        title.color: room.membership === "invite" ? mainLayout.mainColor : mainLayout.mainFontColor
 
         Avatar {
             id: avatar

@@ -31,9 +31,9 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name + " (%1)".arg(address)
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
         subtitle.text: presenceStr
-        subtitle.color: mainFontColor
+        subtitle.color: mainLayout.mainFontColor
 
         Avatar {
             name: layout.title.text

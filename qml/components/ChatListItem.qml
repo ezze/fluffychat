@@ -39,7 +39,7 @@ ListItem {
             layout.title.text = displayname
         })
         title.font.bold: true
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
         subtitle.text: {
             room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
             (room.membership === "leave" ? "" :
@@ -47,7 +47,7 @@ ListItem {
             (room.content_body ? ( room.sender === matrix.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
             i18n.tr("No preview messages"))))
         }
-        subtitle.color: mainFontColor
+        subtitle.color: mainLayout.mainFontColor
         subtitle.linkColor: subtitle.color
 
         Avatar {
@@ -69,7 +69,7 @@ ListItem {
         anchors.top: parent.top
         anchors.margins: units.gu(2)
         text: MatrixNames.getChatTime ( room.origin_server_ts )
-        color: mainFontColor
+        color: mainLayout.mainFontColor
         textSize: Label.XSmall
         visible: text != ""
     }
@@ -83,14 +83,14 @@ ListItem {
         anchors.margins: units.gu(2)
         width: unreadLabel.width + units.gu(1)
         height: units.gu(2)
-        color: newNotifictaions ? mainLayout.mainColor : mainBorderColor
+        color: newNotifictaions ? mainLayout.mainColor : mainLayout.mainBorderColor
         radius: units.gu(0.5)
         Label {
             id: unreadLabel
             anchors.centerIn: parent
             text: room.notification_count || "+1"
             textSize: Label.Small
-            color: newNotifictaions ? UbuntuColors.porcelain : mainFontColor
+            color: newNotifictaions ? UbuntuColors.porcelain : mainLayout.mainFontColor
         }
         visible: newNotifictaions || isUnread
     }

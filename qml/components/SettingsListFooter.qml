@@ -17,7 +17,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
 
         UbuntuShape {
             SlotsLayout.position: SlotsLayout.Leading
@@ -31,7 +31,7 @@ ListItem {
                 height: width
                 anchors.centerIn: parent
                 name: icon
-                color: mainFontColor
+                color: mainLayout.mainFontColor
             }
         }
 

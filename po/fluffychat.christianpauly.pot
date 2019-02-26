@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-26 10:07+0000\n"
+"POT-Creation-Date: 2019-02-26 10:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:122 ../qml/components/ChatEvent.qml:115
+#: ../qml/Main.qml:102 ../qml/components/ChatEvent.qml:115
 msgid "Are you sure?"
 msgstr ""
 
@@ -569,36 +569,36 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:261 ../qml/components/ArchivedChatListItem.qml:23
+#: ../qml/pages/ChatPage.qml:263 ../qml/components/ArchivedChatListItem.qml:23
 #: ../qml/components/SimpleChatListItem.qml:26
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:302
+#: ../qml/pages/ChatPage.qml:304
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:327
+#: ../qml/pages/ChatPage.qml:329
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:350
+#: ../qml/pages/ChatPage.qml:352
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:420
+#: ../qml/pages/ChatPage.qml:422
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:420
+#: ../qml/pages/ChatPage.qml:422
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:434
+#: ../qml/pages/ChatPage.qml:436
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:465
+#: ../qml/pages/ChatPage.qml:467
 msgid "Type something ..."
 msgstr ""
 
@@ -742,39 +742,39 @@ msgstr ""
 msgid "Push notifications are disabled..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:67
+#: ../qml/models/MatrixModel.qml:73
 msgid "USA"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:68
+#: ../qml/models/MatrixModel.qml:74
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:233
+#: ../qml/models/MatrixModel.qml:239
 msgid "Do you want to join this chat?"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:271
+#: ../qml/models/MatrixModel.qml:277
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:32
+#: ../qml/models/MatrixModel.qml:399 ../qml/scripts/LoginPageActions.js:32
 #: ../qml/scripts/LoginPageActions.js:74
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:500
+#: ../qml/models/MatrixModel.qml:505
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:549
+#: ../qml/models/MatrixModel.qml:554
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
 "fluffychat/issues/new. Error details: %1"
 msgstr ""
 
-#: ../qml/models/ContentHubModel.qml:92
+#: ../qml/models/ContentHubModel.qml:93
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr ""
 
@@ -885,7 +885,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../qml/components/ConsentViewer.qml:23
+#: ../qml/components/ConsentViewer.qml:24
 msgid "Consent not given"
 msgstr ""
 
@@ -1215,7 +1215,7 @@ msgstr ""
 msgid "Enter your new nickname"
 msgstr ""
 
-#: ../qml/components/CommunityViewer.qml:108
+#: ../qml/components/CommunityViewer.qml:110
 msgid "No description found"
 msgstr ""
 
@@ -1305,12 +1305,12 @@ msgstr ""
 msgid "Owners"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:60
+#: ../qml/scripts/MatrixNames.js:59
 msgid "%1 is not a valid username"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:84 ../qml/scripts/MatrixNames.js:97
-#: ../qml/scripts/MatrixNames.js:104
+#: ../qml/scripts/MatrixNames.js:83 ../qml/scripts/MatrixNames.js:96
+#: ../qml/scripts/MatrixNames.js:103
 msgid "Empty chat"
 msgstr ""
 

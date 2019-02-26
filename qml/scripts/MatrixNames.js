@@ -47,9 +47,8 @@ function showUserSettings ( matrix_id ) {
 }
 
 function showCommunity ( matrix_id ) {
-    activeCommunity = matrix_id
     var item = Qt.createComponent("../components/CommunityViewer.qml")
-    item.createObject( root, { })
+    item.createObject( root, { activeCommunity: matrix_id})
 }
 
 function handleUserUri ( uri ) {

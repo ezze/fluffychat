@@ -34,44 +34,24 @@ MainView {
 
     This config variables are readonly!
     */
-    readonly property var defaultMainColorH: 0.73
     readonly property var defaultDomain: "ubports.chat"
     readonly property var defaultIDServer: "vector.im"
-    readonly property var defaultDeviceName: "UbuntuPhone"
-    readonly property var miniTimeout: 3000
-    readonly property var defaultTimeout: 30000
-    readonly property var longPollingTimeout: 10000
-    readonly property var typingTimeout: 30000
-    readonly property var borderColor: mainLayout.darkmode ? UbuntuColors.jet : UbuntuColors.silk
     readonly property var version: Qt.application.version
     readonly property var downloadPath: "/home/phablet/.local/share/ubuntu-download-manager/fluffychat.christianpauly/Downloads/"
     readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "HISTORY": 4, "ERROR": -1 }
-    readonly property var defaultPageColumnWidth: units.gu(50)
 
     /* =============================== GLOBAL VARIABLES ===============================
 
     This variables are accessable everywhere just with the variable names.
     */
     property var activeChat: null
-    property var activeCommunity: null
     property var chatActive: false
-    property var activeChatDisplayName: null
-    property var applicationState: Qt.application.state
-    property var activeChatTypingUsers: []
-    property var activeChatMembers: []
     property var activeUser: null
-    property var progressBarRequests: 0
-    property var waitingForSync: false
-    property var appstatus: 4
-    property var prevMode: false
     property var desiredPhoneNumber: null
     property var desiredUsername: null
-    property var consentUrl: ""
-    property var consentContent: ""
-    property var shareObject: null
-    property var mainFontColor: mainLayout.darkmode ? "#FFFFFF" : "#000000"
-    property var mainBorderColor: mainLayout.darkmode ? "#333333" : "#CCCCCC"
-    property var bottomEdgeCommited: false
+    property var activeChatDisplayName: null
+    property var activeChatTypingUsers: []
+    property var activeChatMembers: []
 
 
     /* =============================== LAYOUT ===============================

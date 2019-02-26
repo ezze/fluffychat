@@ -62,7 +62,7 @@ StyledPage {
             Row {
                 id: profileRow
                 width: parent.width
-                height: Math.min( parent.width / 2, defaultPageColumnWidth/2 )
+                height: Math.min( parent.width / 2, settingspage.width/2 )
                 spacing: units.gu(2)
 
                 Component.onCompleted: {

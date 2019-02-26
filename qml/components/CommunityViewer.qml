@@ -8,6 +8,8 @@ BottomEdge {
     id: communityViewer
     height: parent.height
 
+    readonly property string activeCommunity
+
     onCollapseCompleted: communityViewer.destroy ()
     Component.onCompleted: commit()
 

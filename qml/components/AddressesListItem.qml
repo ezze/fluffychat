@@ -16,7 +16,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: name + (isCanonicalAlias ? " (<b>" + i18n.tr('Canonical alias') + "</b>)" : "")
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
         Icon {
             name: "stock_link"
             color: mainLayout.mainColor

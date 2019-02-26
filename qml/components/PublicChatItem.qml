@@ -24,7 +24,7 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: displayname
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
 
         Avatar {
             name: displayname

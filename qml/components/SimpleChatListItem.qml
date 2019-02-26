@@ -24,7 +24,7 @@ ListItem {
         id: layout
         width: parent.width
         title.text: i18n.tr("Unknown chat")
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
 
         Avatar {
             id: avatar

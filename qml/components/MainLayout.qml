@@ -10,6 +10,10 @@ AdaptivePageLayout {
 
     id: mainLayout
     anchors.fill: parent
+    readonly property var defaultPageColumnWidth: units.gu(50)
+    readonly property var defaultMainColorH: 0.73
+    property var mainFontColor: mainLayout.darkmode ? "#FFFFFF" : "#000000"
+    property var mainBorderColor: mainLayout.darkmode ? "#333333" : "#CCCCCC"
 
     // Dark mode enabled?
     property var darkmode: false

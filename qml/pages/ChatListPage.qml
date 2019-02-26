@@ -157,7 +157,7 @@ StyledPage {
 
     header: PageHeader {
         id: header
-        title: shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
+        title: shareController.shareObject === null ? i18n.tr("FluffyChat") : i18n.tr("Share")
         flickable: chatListView
 
         leadingActionBar {
@@ -170,8 +170,8 @@ StyledPage {
             },
             Action {
                 iconName: "close"
-                visible: shareObject !== null
-                onTriggered: shareObject = null
+                visible: shareController.shareObject !== null
+                onTriggered: shareController.shareObject = null
             }]
         }
 
@@ -179,7 +179,7 @@ StyledPage {
             actions: [
             Action {
                 iconName: "filters"
-                visible: shareObject === null && !searching
+                visible: shareController.shareObject === null && !searching
                 onTriggered: mainLayout.addPageToNextColumn ( chatListPage, Qt.resolvedUrl("./SettingsPage.qml") )
             },
             Action {

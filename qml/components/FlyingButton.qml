@@ -17,7 +17,7 @@ Rectangle {
     anchors.rightMargin: -(scrollDownButton.width * 2)
     color: theme.palette.normal.background
     border.width: 1
-    border.color: mainFontColor
+    border.color: mainLayout.mainFontColor
     opacity: 0.9
     radius: width
 
@@ -35,7 +35,7 @@ Rectangle {
         height: width
         anchors.centerIn: parent
         z: 14
-        color: mainFontColor
+        color: mainLayout.mainFontColor
     }
 
     transitions: Transition {

@@ -13,6 +13,12 @@ credentials
 Item {
     id: matrix
 
+
+    readonly property var defaultTimeout: 30000
+    readonly property var longPollingTimeout: 10000
+
+    property var waitingForSync: false
+
     // The priority of a request:
     // LOW: The request is in the background. Errors will be ignored and the
     // waiting for an answer counter will not be increased.
@@ -394,9 +400,8 @@ Item {
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
                         if ( "consent_uri" in error ) {
-                            consentUrl = error.consent_uri
                             var item = Qt.createComponent("../components/ConsentViewer.qml")
-                            item.createObject( root, { })
+                            item.createObject( root, { consentUrl: error.consent_uri })
                         }
                         else error ( error.error )
                     }
@@ -454,7 +459,7 @@ Item {
     console.log("👷[Init] Request the first matrix synchronizaton")
 
     var onFristSyncResponse = function ( response ) {
-        if ( waitingForSync ) waitingForAnswer--
+        if ( matrix.waitingForSync ) waitingForAnswer--
         handleEvents ( response )
 
         if ( !abortSync ) sync ()
@@ -484,8 +489,8 @@ function sync ( timeout ) {
 
     syncRequest = matrix.get ("/client/r0/sync", data, function ( response ) {
 
-        if ( waitingForSync ) waitingForAnswer--
-        waitingForSync = false
+        if ( matrix.waitingForSync ) waitingForAnswer--
+        matrix.waitingForSync = false
         if ( matrix.token ) {
             handleEvents ( response )
             sync ()
@@ -517,15 +522,15 @@ function restartSync () {
 
 
 function waitForSync () {
-    if ( waitingForSync ) return
-    waitingForSync = true
+    if ( matrix.waitingForSync ) return
+    matrix.waitingForSync = true
     waitingForAnswer++
 }
 
 
 function stopWaitForSync () {
-    if ( !waitingForSync ) return
-    waitingForSync = false
+    if ( !matrix.waitingForSync ) return
+    matrix.waitingForSync = false
     waitingForAnswer--
 }
 
