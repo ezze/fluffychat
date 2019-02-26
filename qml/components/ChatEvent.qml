@@ -336,164 +336,134 @@ ListItem {
             }
 
 
-            /*  ====================VIDEO MESSAGE====================
+            /*  ====================FILE MESSAGE====================
             */
-            /*MouseArea {
-            width: videoLink.width
-            height: videoLink.height
-            anchors.left: parent.left
-            anchors.leftMargin: units.gu(1)
-            onClicked: videoPlayer.show ( event.content.url)
-            Rectangle {
-            id: videoLink
-            visible: event.content.msgtype === "m.video"
-            gradient: Gradient {
-            GradientStop { position: 0.0; color: "#000000" }
-            GradientStop { position: 0.5; color: "#303030"}
-            GradientStop { position: 1.0; color: "#101010" }
-        }
-        width: visible * units.gu(32)
-        height: visible * units.gu(18)
-        radius: units.gu(0.5)
-        Icon {
-        name: "media-preview-start"
-        color: UbuntuColors.silk
-        anchors.centerIn: parent
-        width: units.gu(4)
-        height: width
-    }
-}
-}*/
-
-
-/*  ====================FILE MESSAGE====================
-*/
-Button {
-    id: downloadButton
-    color: mainLayout.brightMainColor
-    text: i18n.tr("Download: ") + event.content.body
-    onClicked: {
-        downloadDialog.filename = event.content_body
-        downloadDialog.shareFunc = contentHub.shareAll
-        downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
-        downloadDialog.current = PopupUtils.open(downloadDialog)
-    }
-    visible: event.content.msgtype === "m.file" || event.content.msgtype === "m.video"
-    height: visible ? units.gu(4) : 0
-    width: visible ? units.gu(26) : 0
-    anchors.left: parent.left
-    anchors.leftMargin: units.gu(1)
-}
-
-
-/*  ====================TEXT MESSAGE====================
-* In this label, the body of the matrix message is displayed. This label
-* is main responsible for the width of the message bubble.
-*/
-Label {
-    id: messageLabel
-    opacity: isMediaEvent ? 0 : 1
-    height: opacity ? undefined : 0
-    text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( event.origin_server_ts ) :
-    (event.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
-    event.content_body || event.content.body)
-    color: (!sent || isStateEvent) ? (mainLayout.darkmode ? "white" : "black") :
-    (event.status < msg_status.SEEN ? mainLayout.mainColor : "white")
-    linkColor: mainLayout.brightMainColor
-    Behavior on color {
-        ColorAnimation { from: mainLayout.mainColor; duration: 300 }
-    }
-    wrapMode: Text.Wrap
-    textFormat: Text.StyledText
-    textSize: isStateEvent ? Label.XSmall :
-    (event.content.msgtype === "m.fluffychat.whisper" ? Label.XxSmall :
-    (event.content.msgtype === "m.fluffychat.roar" ? Label.XLarge : Label.Medium))
-
-    font.italic: event.content.msgtype === "m.emote"
-    anchors.left: parent.left
-    anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
-    anchors.leftMargin: units.gu(1)
-    anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
-    onLinkActivated: uriController.openUrlExternally ( link )
-    // Intital calculation of the max width and display URL's and
-    // make sure, that the label text is not empty for the correct
-    // height calculation.
-    Component.onCompleted: {
-        if ( !event.content_body ) event.content_body = event.content.body
-        var maxWidth = message.width - avatar.width - units.gu(5)
-        if ( width > maxWidth ) width = maxWidth
-        if ( text === "" ) text = " "
-        if ( event.content.msgtype === "m.emote" ) text = senderDisplayname + " " + text
-    }
-}
-
-Rectangle {
-    color: imageVisible ? bgcolor : "#00000000"
-    height: metaLabelRow.height + imageVisible*units.gu(0.5)
-    width: metaLabelRow.width + imageVisible*units.gu(0.5)
-    anchors.left: sent ? undefined : parent.left
-    anchors.leftMargin: !imageVisible*units.gu(1)
-    anchors.right: sent ? parent.right : undefined
-    anchors.rightMargin: imageVisible ? 0 : -units.gu(1)
-    radius: width / 10
-
-    Row {
-        id: metaLabelRow
-        spacing: units.gu(0.25)
-        anchors.centerIn: parent
-
-        // This label is for the meta-informations, which means it displays the
-        // display name of the sender of this message and the time.
-        Label {
-            id: metaLabel
-            text: {
-                // Show the senders displayname only if its not the user him-/herself.
-                ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
-                ("<font color='" + MatrixNames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
-                : "")
-                + MatrixNames.getChatTime ( event.origin_server_ts )
+            Button {
+                id: downloadButton
+                color: mainLayout.brightMainColor
+                text: i18n.tr("Download: ") + event.content.body
+                onClicked: {
+                    downloadDialog.filename = event.content_body
+                    downloadDialog.shareFunc = contentHub.shareAll
+                    downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
+                    downloadDialog.current = PopupUtils.open(downloadDialog)
+                }
+                visible: event.content.msgtype === "m.file" || event.content.msgtype === "m.video"
+                height: visible ? units.gu(4) : 0
+                width: visible ? units.gu(26) : 0
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(1)
             }
-            color: messageLabel.color
-            textSize: Label.XxSmall
-            visible: !isStateEvent
-            wrapMode: Text.NoWrap
 
-            // Check that the sender displayname is not too long
-            Component.onCompleted: {
-                if ( senderDisplayname.length > 40 ) {
-                    senderDisplayname = senderDisplayname.substr(0,39)
+
+            /*  ====================TEXT MESSAGE====================
+            * In this label, the body of the matrix message is displayed. This label
+            * is main responsible for the width of the message bubble.
+            */
+            Label {
+                id: messageLabel
+                opacity: isMediaEvent ? 0 : 1
+                height: opacity ? undefined : 0
+                text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( event.origin_server_ts ) :
+                (event.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
+                event.content_body || event.content.body)
+                color: (!sent || isStateEvent) ? (mainLayout.darkmode ? "white" : "black") :
+                (event.status < msg_status.SEEN ? mainLayout.mainColor : "white")
+                linkColor: mainLayout.brightMainColor
+                Behavior on color {
+                    ColorAnimation { from: mainLayout.mainColor; duration: 300 }
+                }
+                wrapMode: Text.Wrap
+                textFormat: Text.StyledText
+                textSize: isStateEvent ? Label.XSmall :
+                (event.content.msgtype === "m.fluffychat.whisper" ? Label.XxSmall :
+                (event.content.msgtype === "m.fluffychat.roar" ? Label.XLarge : Label.Medium))
+
+                font.italic: event.content.msgtype === "m.emote"
+                anchors.left: parent.left
+                anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
+                anchors.leftMargin: units.gu(1)
+                anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
+                onLinkActivated: uriController.openUrlExternally ( link )
+                // Intital calculation of the max width and display URL's and
+                // make sure, that the label text is not empty for the correct
+                // height calculation.
+                Component.onCompleted: {
+                    if ( !event.content_body ) event.content_body = event.content.body
+                    var maxWidth = message.width - avatar.width - units.gu(5)
+                    if ( width > maxWidth ) width = maxWidth
+                    if ( text === "" ) text = " "
+                    if ( event.content.msgtype === "m.emote" ) text = senderDisplayname + " " + text
+                }
+            }
+
+            Rectangle {
+                color: imageVisible ? bgcolor : "#00000000"
+                height: metaLabelRow.height + imageVisible*units.gu(0.5)
+                width: metaLabelRow.width + imageVisible*units.gu(0.5)
+                anchors.left: sent ? undefined : parent.left
+                anchors.leftMargin: !imageVisible*units.gu(1)
+                anchors.right: sent ? parent.right : undefined
+                anchors.rightMargin: imageVisible ? 0 : -units.gu(1)
+                radius: width / 10
+
+                Row {
+                    id: metaLabelRow
+                    spacing: units.gu(0.25)
+                    anchors.centerIn: parent
+
+                    // This label is for the meta-informations, which means it displays the
+                    // display name of the sender of this message and the time.
+                    Label {
+                        id: metaLabel
+                        text: {
+                            // Show the senders displayname only if its not the user him-/herself.
+                            ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
+                            ("<font color='" + MatrixNames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
+                            : "")
+                            + MatrixNames.getChatTime ( event.origin_server_ts )
+                        }
+                        color: messageLabel.color
+                        textSize: Label.XxSmall
+                        visible: !isStateEvent
+                        wrapMode: Text.NoWrap
+
+                        // Check that the sender displayname is not too long
+                        Component.onCompleted: {
+                            if ( senderDisplayname.length > 40 ) {
+                                senderDisplayname = senderDisplayname.substr(0,39)
+                            }
+                        }
+
+                    }
+                    // When the message is just sending, then this activity indicator is visible
+                    ActivityIndicator {
+                        id: activity
+                        visible: sending
+                        running: visible
+                        height: metaLabel.height
+                        width: height
+                    }
+                    // When the message is received, there should be an icon
+                    Icon {
+                        id: statusIcon
+                        visible: !isStateEvent && sent && event.status !== msg_status.SENDING
+                        source: "../../assets/" +
+                        (event.status === msg_status.SEEN ? "seen" :
+                        (event.status === msg_status.RECEIVED ? "received" :
+                        (event.status === msg_status.ERROR ? "error" :
+                        (event.status === msg_status.HISTORY ? "received" : "send"))))
+                        + ".svg"
+                        height: metaLabel.height
+                        color: event.status === msg_status.SENT ? messageBubble.color :
+                        (event.status === msg_status.ERROR ? UbuntuColors.red : metaLabel.color)
+                        width: height
+                    }
                 }
             }
 
         }
-        // When the message is just sending, then this activity indicator is visible
-        ActivityIndicator {
-            id: activity
-            visible: sending
-            running: visible
-            height: metaLabel.height
-            width: height
-        }
-        // When the message is received, there should be an icon
-        Icon {
-            id: statusIcon
-            visible: !isStateEvent && sent && event.status !== msg_status.SENDING
-            source: "../../assets/" +
-            (event.status === msg_status.SEEN ? "seen" :
-            (event.status === msg_status.RECEIVED ? "received" :
-            (event.status === msg_status.ERROR ? "error" :
-            (event.status === msg_status.HISTORY ? "received" : "send"))))
-            + ".svg"
-            height: metaLabel.height
-            color: event.status === msg_status.SENT ? messageBubble.color :
-            (event.status === msg_status.ERROR ? UbuntuColors.red : metaLabel.color)
-            width: height
-        }
     }
-}
-
-}
-}
 
 
 }

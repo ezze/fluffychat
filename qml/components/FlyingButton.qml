@@ -9,44 +9,35 @@ Rectangle {
     property alias mouseArea: mouseArea
     property var visibleState: false
 
-    width: flyingButton.width
-    height: flyingButton.height
+    width: units.gu(6)
+    height: width
     anchors.bottom: parent.bottom
     anchors.right: parent.right
     anchors.margins: width / 2
     anchors.rightMargin: -(scrollDownButton.width * 2)
-    color: "#00000000"
-    opacity: 0.75
+    color: theme.palette.normal.background
+    border.width: 1
+    border.color: mainFontColor
+    opacity: 0.9
+    radius: width
 
-    UbuntuShape {
-        id: flyingButton
-
-        aspect: UbuntuShape.Flat
-        width: units.gu(7)
+    z: 14
+    MouseArea {
+        id: mouseArea
+        onPressed: parent.color = "#888888"
+        onReleased: parent.color = theme.palette.normal.background
+        anchors.fill: parent
+        enabled: parent.visible
+    }
+    Icon {
+        name: iconName
+        width: units.gu(3.5)
         height: width
-        relativeRadius: 0.75
-        backgroundMode: UbuntuShape.VerticalGradient
-        backgroundColor: mainLayout.mainColor
-        secondaryBackgroundColor: mainLayout.brightMainColor
+        anchors.centerIn: parent
         z: 14
-        MouseArea {
-            id: mouseArea
-            onPressed: parent.aspect = UbuntuShape.Inset
-            onReleased: parent.aspect = UbuntuShape.Flat
-            anchors.fill: parent
-            enabled: parent.visible
-        }
-        Icon {
-            name: iconName
-            width: units.gu(3.5)
-            height: width
-            anchors.centerIn: parent
-            z: 14
-            color: "white"
-        }
+        color: mainFontColor
     }
 
-    z: 2
     transitions: Transition {
         SpringAnimation {
             spring: 2
