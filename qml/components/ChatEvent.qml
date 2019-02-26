@@ -10,19 +10,19 @@ import "../scripts/MessageFormats.js" as MessageFormats
 
 ListItem {
     id: message
-    property var isStateEvent: event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker"
-    property var isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1 || event.type === "m.sticker"
-    property var isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
-    property var imageVisible: image.showGif || image.showThumbnail ? true : false
-    property var sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
-    property var isLeftSideEvent: !sent || isStateEvent
-    property var sending: sent && event.status === msg_status.SENDING
-    property var senderDisplayname: activeChatMembers[event.sender].displayname!==undefined ? activeChatMembers[event.sender].displayname : MatrixNames.transformFromId(event.sender)
+    property bool isStateEvent: event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker"
+    property bool isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1 || event.type === "m.sticker"
+    property bool isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
+    property bool imageVisible: image.showGif || image.showThumbnail ? true : false
+    property bool sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
+    property bool isLeftSideEvent: !sent || isStateEvent
+    property bool sending: sent && event.status === msg_status.SENDING
+    property string senderDisplayname: activeChatMembers[event.sender].displayname!==undefined ? activeChatMembers[event.sender].displayname : MatrixNames.transformFromId(event.sender)
     property var bgcolor: (isStateEvent ? (mainLayout.darkmode ? "black" : "white") :
     (!sent ? mainLayout.darkmode ? "#191A15" : UbuntuColors.porcelain :
     (event.status < msg_status.SEEN ? mainLayout.brighterMainColor : mainLayout.mainColor)))
     property var lastEvent: index > 0 ? chatScrollView.model.get(index-1).event : null
-    property var sameSender: lastEvent !== null ? lastEvent.sender === event.sender : false
+    property bool sameSender: lastEvent !== null ? lastEvent.sender === event.sender : false
 
     divider.visible: false
     highlightColor: "#00000000"

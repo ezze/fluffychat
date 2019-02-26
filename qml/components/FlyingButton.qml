@@ -33,6 +33,7 @@ Rectangle {
         name: iconName
         width: units.gu(3.5)
         height: width
+        anchors.topMargin: height / 2
         anchors.centerIn: parent
         z: 14
         color: mainLayout.mainFontColor

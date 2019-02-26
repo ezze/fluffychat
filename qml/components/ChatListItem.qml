@@ -67,7 +67,8 @@ ListItem {
         id: stampLabel
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.margins: units.gu(2)
+        anchors.topMargin: units.gu(2.5)
+        anchors.rightMargin: units.gu(2)
         text: MatrixNames.getChatTime ( room.origin_server_ts )
         color: mainLayout.mainFontColor
         textSize: Label.XSmall
@@ -78,9 +79,10 @@ ListItem {
     // Notification count bubble on the bottom right
     Rectangle {
         id: notificationBubble
+        anchors.top: stampLabel.bottom
         anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.margins: units.gu(2)
+        anchors.topMargin: units.gu(0.5)
+        anchors.rightMargin: units.gu(2)
         width: unreadLabel.width + units.gu(1)
         height: units.gu(2)
         color: newNotifictaions ? mainLayout.mainColor : mainLayout.mainBorderColor
