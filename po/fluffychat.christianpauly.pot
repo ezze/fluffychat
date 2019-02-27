@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-27 14:38+0000\n"
+"POT-Creation-Date: 2019-02-27 16:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -715,7 +715,7 @@ msgstr ""
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:47 ../qml/components/ChatEvent.qml:35
+#: ../qml/components/MemberListItem.qml:47 ../qml/components/ChatEvent.qml:34
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
@@ -867,7 +867,7 @@ msgid "Please enter your password"
 msgstr ""
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
-#: ../qml/components/ChatEvent.qml:77
+#: ../qml/components/ChatEvent.qml:76
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
@@ -877,35 +877,35 @@ msgstr ""
 msgid "Remove this email address?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:41
+#: ../qml/components/ChatEvent.qml:40
 msgid "Try to send again"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:47
+#: ../qml/components/ChatEvent.qml:46
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:53
+#: ../qml/components/ChatEvent.qml:52
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:59
+#: ../qml/components/ChatEvent.qml:58
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:65
+#: ../qml/components/ChatEvent.qml:64
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:229
+#: ../qml/components/ChatEvent.qml:235
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:229
+#: ../qml/components/ChatEvent.qml:235
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:294
+#: ../qml/components/ChatEvent.qml:305
 msgid "Download: "
 msgstr ""
 

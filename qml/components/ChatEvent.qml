@@ -1,7 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.3
 import QtGraphicalEffects 1.0
 import "../components"
 import "../scripts/EventDescription.js" as EventDescription
@@ -11,7 +10,7 @@ import "../scripts/ChatEventActions.js" as ItemActions
 ListItem {
     id: message
     property bool isStateEvent: event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker"
-    property bool isMediaEvent: [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1 || event.type === "m.sticker"
+    property bool isMediaEvent: isImage || [ "m.file", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1
     property bool isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
     property bool imageVisible: image.showGif || image.showThumbnail ? true : false
     property bool sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
@@ -94,24 +93,28 @@ ListItem {
     }
 
 
-    Avatar {
+    Loader {
         id: avatar
-        mxc: opacity ? activeChatMembers[event.sender].avatar_url : ""
-        name: senderDisplayname
-        anchors.left: isLeftSideEvent ? parent.left : undefined
-        anchors.right: !isLeftSideEvent ? parent.right : undefined
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: units.gu(1)
-        anchors.leftMargin: units.gu(1)
-        anchors.rightMargin: units.gu(1)
-        opacity: (sameSender || isStateEvent) ? 0 : 1
+        anchors {
+            left: isLeftSideEvent ? parent.left : undefined
+            right: !isLeftSideEvent ? parent.right : undefined
+            bottom: parent.bottom
+            bottomMargin: units.gu(1)
+            leftMargin: units.gu(1)
+            rightMargin: units.gu(1)
+        }
         width: isStateEvent ? units.gu(3) : units.gu(5)
-        onClickFunction: function () {
-            if ( opacity ) MatrixNames.showUserSettings ( event.sender )
+        active: !sameSender && !isStateEvent
+        sourceComponent: Avatar {
+            id: avatarInstance
+            mxc: opacity ? activeChatMembers[event.sender].avatar_url : ""
+            name: senderDisplayname
+            opacity: (sameSender || isStateEvent) ? 0 : 1
+            onClickFunction: function () {
+                if ( opacity ) MatrixNames.showUserSettings ( event.sender )
+            }
         }
     }
-
-
 
 
     Rectangle {
@@ -164,188 +167,198 @@ ListItem {
             /* ====================IMAGE OR STICKER====================
             * If the message is an image or a sticker, then show this, following:
             * http://yuml.me/diagram/plain/activity/(start)-><a>[Gif-Image && autload active]->(Show full MXC), <a>[else]-><b>[Thumbnail exists]->(Show thumbnail), <b>[Thumbnail is null]->(Show "Show Image"-Button)               */
-            Rectangle {
+            Loader {
                 id: image
-                color: "#00000000"
-                width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : (showGif && gif.status === Image.Ready ? gif.width : height*(9/16)))
-                height: (!showButton ? units.gu(30) : showImageButton.height)
-                visible: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
-                property var hasThumbnail: event.content.info && event.content.info.thumbnail_url
-                property var isGif: visible && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
-                property var showGif: isGif && matrix.autoloadGifs
-                property var showThumbnail: visible && !showGif && (hasThumbnail || matrix.autoloadGifs)
-                property var showButton: visible && !showGif && !showThumbnail
+                active: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
+                property bool hasThumbnail: event.content.info && event.content.info.thumbnail_url
+                property bool isGif: visible && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
+                property bool showGif: isGif && matrix.autoloadGifs
+                property bool showThumbnail: visible && !showGif && (hasThumbnail || matrix.autoloadGifs)
+                property bool showButton: visible && !showGif && !showThumbnail
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: imageViewer.show ( event.content.url )
-                }
+                sourceComponent: Rectangle {
+                    id: imageObj
+                    color: "#00000000"
+                    width: thumbnail.status === Image.Ready ? thumbnail.width : (showButton ? showImageButton.width : (showGif && gif.status === Image.Ready ? gif.width : height*(9/16)))
+                    height: (!showButton ? units.gu(30) : showImageButton.height)
 
-                Image {
-                    id: thumbnail
-                    source: visible ? (image.hasThumbnail ? MatrixNames.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) :
-                    MatrixNames.getLinkFromMxc ( event.content.url )) : ""
-                    property var onlyOneError: true
-                    height: parent.height
-                    width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
-                    fillMode: Image.PreserveAspectCrop
-                    layer.enabled: true
-                    layer.effect: OpacityMask {
-                        maskSource: mask
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: imageViewer.show ( event.content.url )
                     }
-                    visible: image.showThumbnail
-                    opacity: status === Image.Ready
-                    cache: true
-                }
 
-                AnimatedImage {
-                    id: gif
-                    source: image.showGif ? MatrixNames.getLinkFromMxc ( event.content.url ) : ""
-                    height: parent.height
-                    width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
-                    fillMode: Image.PreserveAspectCrop
-                    visible: image.showGif
-                    opacity: status === Image.Ready
-                }
+                    Image {
+                        id: thumbnail
+                        source: visible ? (image.hasThumbnail ? MatrixNames.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) :
+                        MatrixNames.getLinkFromMxc ( event.content.url )) : ""
+                        property var onlyOneError: true
+                        height: parent.height
+                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
+                        fillMode: Image.PreserveAspectCrop
+                        layer.enabled: true
+                        layer.effect: OpacityMask {
+                            maskSource: mask
+                        }
+                        visible: image.showThumbnail
+                        opacity: status === Image.Ready
+                        cache: true
+                    }
 
-                ActivityIndicator {
-                    visible: thumbnail.status === Image.Loading || (image.showGif && !gif.opacity && !image.showButton)
-                    anchors.centerIn: parent
-                    width: units.gu(2)
-                    height: width
-                    running: visible
-                }
+                    AnimatedImage {
+                        id: gif
+                        source: image.showGif ? MatrixNames.getLinkFromMxc ( event.content.url ) : ""
+                        height: parent.height
+                        width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
+                        fillMode: Image.PreserveAspectCrop
+                        visible: image.showGif
+                        opacity: status === Image.Ready
+                    }
 
-                Icon {
-                    visible: !image.showButton && (thumbnail.status === Image.Error || gif.status === Image.Error)
-                    anchors.centerIn: parent
-                    width: units.gu(6)
-                    height: width
-                    name: "sync-error"
-                }
+                    ActivityIndicator {
+                        visible: thumbnail.status === Image.Loading || (image.showGif && !gif.opacity && !image.showButton)
+                        anchors.centerIn: parent
+                        width: units.gu(2)
+                        height: width
+                        running: visible
+                    }
 
-                Button {
-                    id: showImageButton
-                    text: image.isGif ? i18n.tr("Load gif") : i18n.tr("Show image")
-                    onClicked: image.showGif = true
-                    visible: image.showButton
-                    height: visible ? units.gu(4) : 0
-                    width: visible ? units.gu(26) : 0
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(1)
-                    color: mainLayout.brightMainColor
+                    Icon {
+                        visible: !image.showButton && (thumbnail.status === Image.Error || gif.status === Image.Error)
+                        anchors.centerIn: parent
+                        width: units.gu(6)
+                        height: width
+                        name: "sync-error"
+                    }
+
+                    Button {
+                        id: showImageButton
+                        text: image.isGif ? i18n.tr("Load gif") : i18n.tr("Show image")
+                        onClicked: image.showGif = true
+                        visible: image.showButton
+                        height: visible ? units.gu(4) : 0
+                        width: visible ? units.gu(26) : 0
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(1)
+                        color: mainLayout.brightMainColor
+                    }
                 }
             }
 
 
             /*  ====================AUDIO MESSAGE====================
             */
-            Row {
-                id: audioPlayer
-                visible: event.content.msgtype === "m.audio"
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(1)
-                spacing: units.gu(1)
-                width: visible ? undefined : 0
-                height: visible * units.gu(6)
+            Loader {
+                active: event.content.msgtype === "m.audio"
+                sourceComponent: Row {
+                    id: audioPlayer
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(1)
+                    spacing: units.gu(1)
+                    width: visible ? undefined : 0
+                    height: visible * units.gu(6)
 
-                Button {
-                    id: playButton
-                    anchors.verticalCenter: parent.verticalCenter
-                    property var playing: false
-                    color: "white"
-                    iconName: playing ? "media-playback-pause" : "media-playback-start"
-                    onClicked: ItemActions.toggleAudioPlayer ( event )
-                    width: units.gu(4)
-                }
-                Button {
-                    id: stopButton
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: "white"
-                    iconName: "media-playback-stop"
-                    opacity: audio.source === MatrixNames.getLinkFromMxc ( event.content.url ) && audio.position === 0 ? 0.75 : 1
-                    onClicked: {
-                        audio.stop ()
-                        playButton.playing = false
+                    Button {
+                        id: playButton
+                        anchors.verticalCenter: parent.verticalCenter
+                        property var playing: false
+                        color: "white"
+                        iconName: playing ? "media-playback-pause" : "media-playback-start"
+                        onClicked: ItemActions.toggleAudioPlayer ( event )
+                        width: units.gu(4)
                     }
-                    width: units.gu(4)
-                }
-                Button {
-                    id: downloadAudioButton
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: "white"
-                    iconName: "document-save-as"
-                    onClicked: {
-                        downloadDialog.filename = event.content_body
-                        downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
-                        downloadDialog.shareFunc = contentHub.shareAudio
-                        downloadDialog.current = PopupUtils.open(downloadDialog)
+                    Button {
+                        id: stopButton
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: "white"
+                        iconName: "media-playback-stop"
+                        opacity: audio.source === MatrixNames.getLinkFromMxc ( event.content.url ) && audio.position === 0 ? 0.75 : 1
+                        onClicked: {
+                            audio.stop ()
+                            playButton.playing = false
+                        }
+                        width: units.gu(4)
                     }
-                    width: units.gu(4)
+                    Button {
+                        id: downloadAudioButton
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: "white"
+                        iconName: "document-save-as"
+                        onClicked: {
+                            downloadDialog.filename = event.content_body
+                            downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
+                            downloadDialog.shareFunc = contentHub.shareAudio
+                            downloadDialog.current = PopupUtils.open(downloadDialog)
+                        }
+                        width: units.gu(4)
+                    }
                 }
             }
 
 
             /*  ====================FILE MESSAGE====================
             */
-            Button {
-                id: downloadButton
-                color: mainLayout.brightMainColor
-                text: i18n.tr("Download: ") + event.content.body
-                onClicked: {
-                    downloadDialog.filename = event.content_body
-                    downloadDialog.shareFunc = contentHub.shareAll
-                    downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
-                    downloadDialog.current = PopupUtils.open(downloadDialog)
+            Loader {
+                active: event.content.msgtype === "m.file" || event.content.msgtype === "m.video"
+                sourceComponent: Button {
+                    id: downloadButton
+                    color: mainLayout.brightMainColor
+                    text: i18n.tr("Download: ") + event.content.body
+                    onClicked: {
+                        downloadDialog.filename = event.content_body
+                        downloadDialog.shareFunc = contentHub.shareAll
+                        downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
+                        downloadDialog.current = PopupUtils.open(downloadDialog)
+                    }
+                    height: visible ? units.gu(4) : 0
+                    width: visible ? units.gu(26) : 0
+                    anchors.left: parent.left
+                    anchors.leftMargin: units.gu(1)
                 }
-                visible: event.content.msgtype === "m.file" || event.content.msgtype === "m.video"
-                height: visible ? units.gu(4) : 0
-                width: visible ? units.gu(26) : 0
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(1)
             }
-
 
             /*  ====================TEXT MESSAGE====================
             * In this label, the body of the matrix message is displayed. This label
             * is main responsible for the width of the message bubble.
             */
-            Label {
+            Loader {
                 id: messageLabel
-                opacity: isMediaEvent ? 0 : 1
-                height: opacity ? undefined : 0
-                text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( event.origin_server_ts ) :
-                (event.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
-                event.content_body || event.content.body)
-                color: (!sent || isStateEvent) ? (mainLayout.darkmode ? "white" : "black") :
-                (event.status < msg_status.SEEN ? mainLayout.mainColor : "white")
-                linkColor: mainLayout.brightMainColor
-                Behavior on color {
-                    ColorAnimation { from: mainLayout.mainColor; duration: 300 }
-                }
-                wrapMode: Text.Wrap
-                textFormat: Text.StyledText
-                textSize: isStateEvent ? Label.XSmall :
-                (event.content.msgtype === "m.fluffychat.whisper" ? Label.XxSmall :
-                (event.content.msgtype === "m.fluffychat.roar" ? Label.XLarge : Label.Medium))
+                active: !isMediaEvent
+                sourceComponent: Label {
+                    id: messageLabel
+                    text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( event.origin_server_ts ) :
+                    (event.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
+                    event.content_body || event.content.body)
+                    color: (!sent || isStateEvent) ? (mainLayout.darkmode ? "white" : "black") :
+                    (event.status < msg_status.SEEN ? mainLayout.mainColor : "white")
+                    linkColor: mainLayout.brightMainColor
+                    Behavior on color {
+                        ColorAnimation { from: mainLayout.mainColor; duration: 300 }
+                    }
+                    wrapMode: Text.Wrap
+                    textFormat: Text.StyledText
+                    textSize: isStateEvent ? Label.XSmall :
+                    (event.content.msgtype === "m.fluffychat.whisper" ? Label.XxSmall :
+                    (event.content.msgtype === "m.fluffychat.roar" ? Label.XLarge : Label.Medium))
 
-                font.italic: event.content.msgtype === "m.emote"
-                anchors.left: parent.left
-                anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
-                anchors.leftMargin: units.gu(1)
-                anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
-                onLinkActivated: contentHub.openUrlExternally ( link )
-                // Intital calculation of the max width and display URL's and
-                // make sure, that the label text is not empty for the correct
-                // height calculation.
-                Component.onCompleted: {
-                    if ( !event.content_body ) event.content_body = event.content.body
-                    var maxWidth = message.width - avatar.width - units.gu(5)
-                    if ( width > maxWidth ) width = maxWidth
-                    if ( text === "" ) text = " "
-                    if ( event.content.msgtype === "m.emote" ) text = senderDisplayname + " " + text
+                    font.italic: event.content.msgtype === "m.emote"
+                    anchors.left: parent.left
+                    anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
+                    anchors.leftMargin: units.gu(1)
+                    anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
+                    onLinkActivated: contentHub.openUrlExternally ( link )
+                    // Intital calculation of the max width and display URL's and
+                    // make sure, that the label text is not empty for the correct
+                    // height calculation.
+                    Component.onCompleted: {
+                        if ( !event.content_body ) event.content_body = event.content.body
+                        var maxWidth = message.width - avatar.width - units.gu(5)
+                        if ( width > maxWidth ) width = maxWidth
+                        if ( text === "" ) text = " "
+                        if ( event.content.msgtype === "m.emote" ) text = senderDisplayname + " " + text
+                    }
                 }
             }
+
 
             Rectangle {
                 color: imageVisible ? bgcolor : "#00000000"
@@ -412,9 +425,6 @@ ListItem {
                     }
                 }
             }
-
         }
     }
-
-
 }
