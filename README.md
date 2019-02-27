@@ -1,17 +1,17 @@
 ![](https://i.imgur.com/wi7RlVt.png)
 
 <p align="center">
-  <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/images/downloadButton.jpg" /></a><br>
+  <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/assets/images/downloadButton.jpg" /></a><br>
   <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a> - <a href="https://hosted.weblate.org/projects/fluffychat/" target="new">Help with translations</a> - <a href="https://christianpauly.github.io/fluffychat/faq.html" target="new">FAQ</a> - <a href="https://christianpauly.github.io/fluffychat/" target="new">Website</a>
  </p>
 <br>
 <br>
 <p>
-  <img src="/docs/screenshots/screenshot20181026_144145721.png" width="19%" />
-  <img src="/docs/screenshots/screenshot20181026_144832172.png" width="19%" />
-  <img src="/docs/screenshots/screenshot20181026_144549035.png" width="19%" />
-  <img src="/docs/screenshots/screenshot20181026_144653603.png" width="19%" />
-  <img src="/docs/screenshots/screenshot20181026_144726947.png" width="19%" />
+  <img src="/docs/images/screenshot20181026_144145721.png" width="19%" />
+  <img src="/docs/images/screenshot20181026_144832172.png" width="19%" />
+  <img src="/docs/images/screenshot20181026_144549035.png" width="19%" />
+  <img src="/docs/images/screenshot20181026_144653603.png" width="19%" />
+  <img src="/docs/images/screenshot20181026_144726947.png" width="19%" />
 </p>
 
 # Features
