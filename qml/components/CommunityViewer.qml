@@ -111,7 +111,7 @@ BottomEdge {
                             wrapMode: Text.Wrap
                             linkColor: mainLayout.brightMainColor
                             textFormat: Text.StyledText
-                            onLinkActivated: shareController.openUrlExternally ( link )
+                            onLinkActivated: contentHub.openUrlExternally ( link )
                         }
                     }
                     Rectangle {

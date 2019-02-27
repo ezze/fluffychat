@@ -16,15 +16,17 @@ function transformFromId ( matrixid ) {
     return capitalizeFirstLetter ( (matrixid.substr(1)).split(":")[0] )
 }
 
+
 // Just capitalize the first letter of a string
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+
 function getTypingDisplayString ( user_ids, roomname ) {
     if ( user_ids.length === 0 ) return ""
-    var username = getChatAvatarById( user_ids[0] )
     if ( user_ids.length === 1 ) {
+        var username = getById( user_ids[0] )
         if ( username === roomname ) return i18n.tr("✏ is typing…")
         else return i18n.tr("✏ %1 is typing…").arg( username )
     }
@@ -41,15 +43,18 @@ function powerlevelToStatus ( power_level ) {
     else return i18n.tr('Owners')
 }
 
+
 function showUserSettings ( matrix_id ) {
     activeUser = matrix_id
     PopupUtils.open( userSettingsDialog )
 }
 
+
 function showCommunity ( matrix_id ) {
     var item = Qt.createComponent("../components/CommunityViewer.qml")
     item.createObject( root, { activeCommunity: matrix_id})
 }
+
 
 function handleUserUri ( uri ) {
     if ( uri.slice(0,1) === "@" && uri.indexOf(":") !== -1 ) {
@@ -60,6 +65,7 @@ function handleUserUri ( uri ) {
     }
 }
 
+
 function stringToColor ( str ) {
     if ( str.indexOf("@") !== -1 ) str = getChatAvatarById ( str )
     var number = 0
@@ -67,6 +73,7 @@ function stringToColor ( str ) {
     number = (number % 10) / 10
     return Qt.hsla( number, 0.6, 0.8, 1 )
 }
+
 
 function stringToDarkColor ( str ) {
     if ( str === null ) return Qt.hsla( 0, 0.8, 0.35, 1 )
@@ -76,6 +83,7 @@ function stringToDarkColor ( str ) {
     number = (number % 10) / 10
     return Qt.hsla( number, 0.8, 0.6, 1 )
 }
+
 
 // This function detects the room name of a chatroom.
 // Unfortunetly we need a callback function, because of the sql queries ...
@@ -119,15 +127,16 @@ function getAvatarUrl ( chat_id, callback ) {
 
 
 function getAvatarFromSingleChat ( chat_id, callback ) {
+    var avatarStr = ""
     var rs = storage.query( "SELECT Users.avatar_url FROM Users, Memberships " +
     " WHERE Memberships.matrix_id=Users.matrix_id " +
     " AND Memberships.chat_id=? " +
     " AND (Memberships.membership='join' OR Memberships.membership='invite') " +
     " AND Memberships.matrix_id!=? ",
     [ chat_id, matrix.matrixid ] )
-    if ( rs.rows.length === 1 ) callback ( rs.rows[0].avatar_url )
-    else callback ( "" )
-    return ""
+    if ( rs.rows.length === 1 ) avatarStr = rs.rows[0].avatar_url
+    if ( callback ) callback ( "" )
+    return avatarStr
 }
 
 

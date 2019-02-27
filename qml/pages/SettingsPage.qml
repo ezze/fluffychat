@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/SettingsPageActions.js" as PageActions
 
 StyledPage {
     id: settingsPage
@@ -13,31 +14,14 @@ StyledPage {
 
     Connections {
         target: matrix
-        onNewEvent: updateAvatar ( type, chat_id, eventType, eventContent )
+        onNewEvent: PageActions.updateAvatar ( type, chat_id, eventType, eventContent )
     }
 
     MediaImport { id: backgroundImport }
 
     Connections {
         target: backgroundImport
-        onMediaReceived: changeBackground ( mediaUrl )
-    }
-
-    function changeBackground ( mediaUrl ) {
-        mainLayout.chatBackground = mediaUrl
-    }
-
-    function updateAvatar ( type, chat_id, eventType, eventContent ) {
-        if ( type === "m.room.member" && eventContent.sender === matrix.matrixid ) {
-            var rs = storage.query ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id=?", [ matrix.matrixid ] )
-            if ( rs.rows.length > 0 ) {
-                var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
-                avatarImage.name = displayname
-                avatarImage.mxc = rs.rows[0].avatar_url
-                hasAvatar = (rs.rows[0].avatar_url !== "" && rs.rows[0].avatar_url !== null)
-                header.title = i18n.tr('Settings for %1').arg( displayname )
-            }
-        }
+        onMediaReceived: PageActions.changeBackground ( mediaUrl )
     }
 
     header: PageHeader {
@@ -65,13 +49,7 @@ StyledPage {
                 height: Math.min( parent.width / 2, settingspage.width/2 )
                 spacing: units.gu(2)
 
-                Component.onCompleted: {
-                    var rs = storage.query ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id=?", [ matrix.matrixid ] )
-                    if ( rs.rows.length > 0 ) {
-                        displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : matrix.matrixid
-                        avatarImage.mxc = rs.rows[0].avatar_url
-                    }
-                }
+                Component.onCompleted: PageActions.getProfileInfo ()
 
                 Rectangle {
                     height: parent.height
@@ -183,10 +161,7 @@ StyledPage {
                         MouseArea {
                             anchors.fill: parent
                             visible: mainLayout.chatBackground !== undefined
-                            onClicked: {
-                                mainLayout.chatBackground = undefined
-                                toast.show ( i18n.tr("Background removed") )
-                            }
+                            onClicked: PageActions.removeBackground ()
                         }
                         Icon {
                             width: units.gu(2)

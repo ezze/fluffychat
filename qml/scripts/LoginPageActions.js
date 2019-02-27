@@ -1,6 +1,32 @@
 // File: LoginPageActions.js
 // Description: Actions for LoginPage.qml
 
+function changeHomeServer ( homeserverInput, dialogue ) {
+    domainChanged = true
+    loginDomain = homeserverInput.displayText.toLowerCase()
+    if ( homeserverInput.displayText === "" ) loginDomain = defaultDomain
+    PopupUtils.close(dialogue)
+}
+
+function changeIDServer ( identityserverInput, dialogue ) {
+    if ( identityserverInput.displayText === "" ) matrix.id_server = defaultIDServer
+    else matrix.id_server = identityserverInput.displayText.toLowerCase()
+    PopupUtils.close(dialogue)
+}
+
+function showCountryPicker () {
+    var item = Qt.createComponent("../components/CountryPicker.qml")
+    item.createObject( root, { })
+}
+
+function updateHomeServerByTextField ( displayText ) {
+    if ( domainChanged ) return
+    if ( displayText.indexOf ("@") !== -1 && !domainChanged ) {
+        var usernameSplitted = displayText.substr(1).split ( ":" )
+        loginDomain = usernameSplitted [1]
+    }
+}
+
 function login () {
     if ( loginDomain === "" ) loginDomain = defaultDomain
     signInButton.enabled = false

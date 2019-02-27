@@ -1,12 +1,12 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
-import "./countrycodes.js" as CountryData
+import "../scripts/countrycodes.js" as CountryData
 
 BottomEdge {
 
     id: countryPicker
-    height: parent.height - parent.header.height
+    height: parent.height
 
     onCollapseCompleted: countryPicker.destroy ()
     Component.onCompleted: commit()

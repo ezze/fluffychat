@@ -12,7 +12,7 @@ ListItem {
 
     color: mainLayout.darkmode ? "#202020" : "white"
 
-    onClicked: matrix.joinChat ( room.room_id )
+    onClicked: mainLayout.toChat ( room.room_id )
 
     ListItemLayout {
         id: layout
@@ -29,7 +29,7 @@ ListItem {
             SlotsLayout.position: SlotsLayout.Leading
             name: layout.title.text
             mxc: room.avatar_url || ""
-            onClickFunction: function () { matrix.joinChat ( room.room_id ) }
+            onClickFunction: function () { mainLayout.toChat ( room.room_id ) }
         }
     }
 }

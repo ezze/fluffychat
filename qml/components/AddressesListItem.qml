@@ -8,10 +8,7 @@ ListItem {
 
     color: mainLayout.darkmode ? "#202020" : "white"
 
-    onClicked: {
-        contentHub.toClipboard ( name )
-        toast.show ( i18n.tr('Copied to clipboard') )
-    }
+    onClicked: contentHub.toClipboard ( name )
 
     ListItemLayout {
         id: layout

@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import "../scripts/ChangeChatNameDialogActions.js" as ItemActions
 
 Component {
     id: dialog
@@ -25,12 +26,7 @@ Component {
             id: chatnameTextField
             placeholderText: i18n.tr("Enter a name for the chat")
             readOnly: !canChangeName
-            Component.onCompleted: {
-                var res = storage.query ( "SELECT topic FROM Chats WHERE id='%1'".arg(activeChat))
-                if ( res.rows.length > 0 ) {
-                    chatnameTextField.text = chatName = res.rows[0].topic
-                }
-            }
+            text: storage.query ( "SELECT topic FROM Chats WHERE id='%1'".arg(activeChat)).rows[0].topic
         }
 
         TextArea {
@@ -54,28 +50,7 @@ Component {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Save")
                 color: UbuntuColors.green
-                onClicked: {
-
-                    // Change the name if the user has changed it
-                    if ( chatnameTextField.displayText !== chatName ) {
-                        var messageID = Math.floor((Math.random() * 1000000) + 1)
-                        matrix.put( "/client/r0/rooms/%1/send/m.room.name/%2".arg(activeChat).arg(messageID),
-                        {
-                            name: chatnameTextField.displayText
-                        } )
-                    }
-
-                    // Change the description if the user has changed it
-                    if ( descriptionTextField.displayText !== description ) {
-                        var messageID2 = Math.floor((Math.random() * 1000000) + 1)
-                        matrix.put( "/client/r0/rooms/%1/send/m.room.topic/%2".arg(activeChat).arg(messageID2),
-                        {
-                            topic: descriptionTextField.displayText
-                        } )
-                    }
-
-                    PopupUtils.close(dialogue)
-                }
+                onClicked: ItemActions.save ( chatnameTextField, descriptionTextField, dialogue )
             }
         }
 

@@ -6,255 +6,40 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
+import "../scripts/ChatPageActions.js" as ChatPageActions
 
 StyledPage {
 
     id: chatPage
-    
+
     readonly property var typingTimeout: 30000
 
     property var membership: "join"
     property var isTyping: false
     property var pageName: "chat"
     property var canSendMessages: true
+    property var canRedact: false
     property var replyEvent: null
     property var chat_id
     property var topic: ""
+    property var historyCount: 30
+    property var requesting: false
+    property var initialized: -1
+    property var count: model.count
 
     anchors.fill: parent
 
-    function send ( message ) {
-        if ( !messageTextField.displayText.replace(/\s/g, '').length && message === undefined ) return
 
-        var sticker = undefined
-        if ( message === undefined ) {
-            messageTextField.focus = false
-            message = messageTextField.displayText
-            messageTextField.focus = true
-        }
-        if ( typeof message !== "string" ) sticker = message
+    Component.onCompleted: ChatPageActions.init ()
 
-        // Send the message
-        var now = new Date().getTime()
-        var messageID = "" + now
-        var data = {
-            msgtype: "m.text",
-            body: message
-        }
-
-        if ( sticker !== undefined ) {
-            if ( !sticker.name ) sticker.name = "sticker"
-            data.body = sticker.name
-            data.msgtype = "m.sticker"
-            data.url = sticker.url
-            data.info = {
-                "mimetype": sticker.mimetype,
-                "thumbnail_url": sticker.thumbnail_url || sticker.url,
-            }
-        }
-        else {
-
-            // Add reply event to message
-            if ( replyEvent !== null ) {
-
-                // Add event ID to the reply object
-                data["m.relates_to"] = {
-                    "m.in_reply_to": {
-                        "event_id": replyEvent.id
-                    }
-                }
-
-                // Use formatted body
-                data.format = "org.matrix.custom.html"
-                data.formatted_body = '<mx-reply><blockquote><a href="https://matrix.to/#/%1/%2">In reply to</a> <a href="https://matrix.to/#/%3">%4</a><br>%5</blockquote></mx-reply>'
-                .arg(activeChat).arg(replyEvent.id).arg(replyEvent.sender).arg(replyEvent.sender).arg(replyEvent.content.body)
-                + data.body
-
-                // Change the normal body too
-                var contentLines = replyEvent.content.body.split("\n")
-                for ( var i = 0; i < contentLines.length; i++ ) {
-                    if ( contentLines[i].slice(0,1) === ">" ) {
-                        contentLines.splice(i,1)
-                        i--
-                    }
-                }
-                replyEvent.content.body = contentLines.join("\n")
-                var replyBody = "> <%1> ".arg(replyEvent.sender) + replyEvent.content.body.split("\n").join("\n>")
-                data.body = replyBody + "\n\n" + data.body
-
-                replyEvent = null
-            }
-
-            data = MessageFormats.handleCommands ( data )
-
-        }
-
-        var type = sticker === undefined ? "m.room.message" : "m.sticker"
-
-        // Send the message
-        var fakeEvent = {
-            type: type,
-            event_id: messageID,
-            id: messageID,
-            sender: matrix.matrixid,
-            content_body: MessageFormats.formatText ( data.body ),
-            displayname: activeChatMembers[matrix.matrixid].displayname,
-            avatar_url: activeChatMembers[matrix.matrixid].avatar_url,
-            status: msg_status.SENDING,
-            origin_server_ts: now,
-            content: data
-        }
-
-        matrix.newEvent( type, activeChat, "timeline", fakeEvent )
-
-        matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
-            chatScrollView.messageSent ( messageID, response )
-        }, function ( error ) {
-            if ( error === "DELETE" ) chatScrollView.removeEvent ( messageID )
-            else chatScrollView.errorEvent ( messageID )
-        } )
-
-        if ( sticker === undefined ) {
-            isTyping = true
-            messageTextField.text = " " // Workaround for bug on bq tablet
-            messageTextField.text = ""
-            messageTextField.height = header.height - units.gu(2)
-            sendTypingNotification ( false )
-            isTyping = false
-        }
-    }
-
-
-    function sendTypingNotification ( typing ) {
-        if ( !matrix.sendTypingNotification ) return
-        if ( typing !== isTyping) {
-            typingTimer.stop ()
-            isTyping = typing
-            matrix.put ( "/client/r0/rooms/%1/typing/%2".arg( activeChat ).arg( matrix.matrixid ), {
-                typing: typing
-            }, null, null, 0 )
-        }
-    }
-
-
-    Component.onCompleted: {
-        var res = storage.query ( "SELECT draft, topic, membership, unread, fully_read, notification_count, power_events_default, power_redact FROM Chats WHERE id=?", [ activeChat ])
-        if ( res.rows.length === 0 ) return
-        var room = res.rows[0]
-        membership = room.membership
-        if ( room.draft !== "" && room.draft !== null ) messageTextField.text = room.draft
-
-        var rs = storage.query ( "SELECT power_level FROM Memberships WHERE matrix_id=? AND chat_id=?", [
-        matrix.matrixid, activeChat ])
-        var power_level = 0
-        if ( rs.rows.length > 0 ) power_level = rs.rows[0].power_level
-        chatScrollView.canRedact = power_level >= room.power_redact
-        canSendMessages = power_level >= room.power_events_default
-        chatScrollView.init ()
-        chatActive = true
-        chat_id = activeChat
-        topic = room.topic
-
-        // Is there an unread marker? Then mark as read!
-        var lastEvent = chatScrollView.model.get(0).event
-        if ( room.unread < lastEvent.origin_server_ts && lastEvent.sender !== matrix.matrixid ) {
-            matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
-        }
-
-        // Scroll top to the last seen message?
-        if ( room.fully_read !== lastEvent.id ) {
-            // Check if the last event is in the database
-            var found = false
-            for ( var j = 0; j < chatScrollView.count; j++ ) {
-                if ( chatScrollView.model.get(j).event.id === room.fully_read ) {
-                    chatScrollView.currentIndex = j
-                    matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": lastEvent.id }, null, null, 0 )
-                    found = true
-                    break
-                }
-            }
-            if ( !found ) chatScrollView.requestHistory ( room.fully_read )
-        }
-
-
-        // Is there something to share? Then now share it!
-        if ( shareController.shareObject !== null ) {
-            var message = ""
-            if ( shareController.shareObject.items ) {
-                for ( var i = 0; i < shareController.shareObject.items.length; i++ ) {
-                    if (String(shareController.shareObject.items[i].text).length > 0 && String(shareController.shareObject.items[i].url).length == 0) {
-                        message += String(shareController.shareObject.items[i].text)
-                    }
-                    else if (String(shareController.shareObject.items[i].url).length > 0 ) {
-                        message += String(shareController.shareObject.items[i].url)
-                    }
-                    if ( i+1 < shareController.shareObject.items.length ) message += "\n"
-                }
-                if ( message !== "") messageTextField.text = message
-            }
-            else if ( shareController.shareObject.matrixEvent ) {
-                var now = new Date().getTime()
-                var messageID = "" + now
-                matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, shareController.shareObject.matrixEvent, null, null, 2 )
-            }
-
-            shareController.shareObject = null
-        }
-    }
-
-    Component.onDestruction: {
-        if ( chat_id !== activeChat ) return
-        var lastEventId = chatScrollView.count > 0 ? chatScrollView.lastEventId : ""
-        storage.query ( "UPDATE Chats SET draft=? WHERE id=?", [
-        messageTextField.displayText,
-        activeChat
-        ])
-        sendTypingNotification ( false )
-        chatActive = false
-        activeChat = null
-        audio.stop ()
-        audio.source = ""
-    }
+    Component.onDestruction: ChatPageActions.destruction ()
 
     Connections {
         target: matrix
-        onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
-        onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
+        onNewChatUpdate: ChatPageActions.newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )
+        onNewEvent: ChatPageActions.newEvent ( type, chat_id, eventType, eventContent )
     }
 
-    function newChatUpdate ( chat_id, new_membership, notification_count, highlight_count, limitedTimeline ) {
-        if ( chat_id !== activeChat ) return
-        membership = new_membership
-        if ( limitedTimeline ) chatScrollView.model.clear ()
-    }
-
-    function newEvent ( type, chat_id, eventType, eventContent ) {
-        if ( chat_id !== activeChat ) return
-        if ( type === "m.typing" ) {
-            activeChatTypingUsers = eventContent
-        }
-        else if ( type === "m.room.member") {
-            activeChatMembers [eventContent.state_key] = eventContent.content
-            if ( activeChatMembers [eventContent.state_key].displayname === undefined || activeChatMembers [eventContent.state_key].displayname === null || activeChatMembers [eventContent.state_key].displayname === "" ) {
-                activeChatMembers [eventContent.state_key].displayname = MatrixNames.transformFromId ( eventContent.state_key )
-            }
-            if ( activeChatMembers [eventContent.state_key].avatar_url === undefined || activeChatMembers [eventContent.state_key].avatar_url === null ) {
-                activeChatMembers [eventContent.state_key].avatar_url = ""
-            }
-            if ( topic === "" ) {
-                MatrixNames.getChatAvatarById ( activeChat, function ( name ) {
-                    activeChatDisplayName = name
-                })
-            }
-        }
-        else if ( type === "m.receipt" && eventContent.user !== matrix.matrixid ) {
-            chatScrollView.markRead ( eventContent.ts )
-        }
-        if ( eventType === "timeline" ) {
-            chatScrollView.handleNewEvent ( type, eventContent )
-            matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + eventContent.event_id, null )
-        }
-    }
 
     ChangeChatnameDialog { id: changeChatnameDialog }
 
@@ -328,7 +113,7 @@ StyledPage {
     Label {
         text: i18n.tr('No messages in this chat ...')
         anchors.centerIn: parent
-        visible: chatScrollView.count === 0
+        visible: count === 0
     }
 
 
@@ -391,8 +176,30 @@ StyledPage {
         visibleState: !chatScrollView.atYEnd
     }
 
-    ChatScrollView {
+    ListView {
+
         id: chatScrollView
+
+        width: parent.width
+        height: parent.height - 2 * chatInput.height
+        anchors.bottom: chatInput.top
+        verticalLayoutDirection: ListView.BottomToTop
+        delegate: ChatEvent {}
+        model: ListModel { id: model }
+        onContentYChanged: if ( atYBeginning ) ChatPageActions.requestHistory ()
+        move: Transition {
+            NumberAnimation { property: "opacity"; to:1; duration: 1 }
+        }
+        displaced: Transition {
+            SmoothedAnimation { property: "y"; duration: 300 }
+            NumberAnimation { property: "opacity"; to:1; duration: 1 }
+        }
+        add: Transition {
+            NumberAnimation { property: "opacity"; from: 0; to:1; duration: 200 }
+        }
+        remove: Transition {
+            NumberAnimation { property: "opacity"; from: 1; to:0; duration: 200 }
+        }
     }
 
     StickerInput {
@@ -422,13 +229,7 @@ StyledPage {
             text: membership === "invite" ? i18n.tr("Accept invitation") : i18n.tr("Join")
             anchors.centerIn: parent
             visible: membership !== "join"
-            onClicked: {
-                loadingScreen.visible = true
-                matrix.post("/client/r0/join/" + encodeURIComponent(activeChat), null, function () {
-                    matrix.waitForSync ()
-                    membership = "join"
-                })
-            }
+            onClicked: ChatPageActions.join ()
         }
 
 
@@ -468,23 +269,8 @@ StyledPage {
             Keys.onReturnPressed: insert( cursorPosition, "\n")
             // If the user leaves the focus of the textfield: Send that he is no
             // longer typing.
-            onActiveFocusChanged: {
-                if ( activeFocus && stickerInput.visible ) stickerInput.hide()
-                if ( !activeFocus ) sendTypingNotification ( activeFocus )
-            }
-            onDisplayTextChanged: {
-                // A message must not start with white space
-                if ( displayText === " " ) text = ""
-                else {
-                    // Send typing notification true or false
-                    if ( displayText !== "" ) {
-                        sendTypingNotification ( true )
-                    }
-                    else {
-                        sendTypingNotification ( false )
-                    }
-                }
-            }
+            onActiveFocusChanged: ChatPageActions.ActiveFocusChanged ( activeFocus )
+            onDisplayTextChanged: ChatPageActions.sendTypingNotification ( displayText !== "" )
             visible: membership === "join" && canSendMessages
         }
 
@@ -510,7 +296,7 @@ StyledPage {
             Action {
                 id: sendButton
                 iconName: "send"
-                onTriggered: send ()
+                onTriggered: ChatPageActions.send ()
             }
             ]
         }

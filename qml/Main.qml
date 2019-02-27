@@ -124,7 +124,10 @@ MainView {
     }
     SettingsModel { id: settings }
     UserMetricsModel { id: userMetrics }
-    ContentHubModel { id: shareController }
+    ContentHubModel {
+        id: contentHub
+        onCopiedToClipboard: toast.show( i18n.tr("Copied to the clipboard") )
+    }
 
 
     /* =============================== CONNECTION MANAGER ===============================

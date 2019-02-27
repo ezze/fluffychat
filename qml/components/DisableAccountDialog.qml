@@ -47,18 +47,13 @@ Component {
                 text: i18n.tr("Remove")
                 color: UbuntuColors.red
                 enabled: oldPass.displayText !== ""
-                onClicked: {
-                    var setPusherCallback = function () {
-                        matrix.post ( "/client/r0/account/deactivate", {
-                            "auth": {
-                                "password": oldPass.displayText,
-                                "type": "m.login.password",
-                                "user": matrix.matrixid
-                            }
-                        } )
+                onClicked: matrix.post ( "/client/r0/account/deactivate", {
+                    "auth": {
+                        "password": oldPass.displayText,
+                        "type": "m.login.password",
+                        "user": matrix.matrixid
                     }
-                    pushclient.setPusher ( false, setPusherCallback, setPusherCallback )
-                }
+                } )
             }
         }
     }

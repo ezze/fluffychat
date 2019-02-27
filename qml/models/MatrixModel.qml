@@ -235,17 +235,6 @@ Item {
     }
 
 
-    // TODO: Move into chat list model!
-    function joinChat (chat_id) {
-        showConfirmDialog ( i18n.tr("Do you want to join this chat?").arg(chat_id), function () {
-            matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
-                matrix.waitForSync()
-                mainLayout.toChat( response.room_id )
-            }, null, 2 )
-        } )
-    }
-
-
     // TODO: Move into room model!
     function sendMessage ( messageID, data, chat_id, success_callback, error_callback ) {
         var newMessageID = ""

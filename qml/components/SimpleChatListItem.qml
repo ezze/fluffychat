@@ -5,6 +5,7 @@ import QtGraphicalEffects 1.0
 import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
+import "../scripts/SimpleChatListItemActions.js" as ItemActions
 
 ListItem {
     id: chatListItem
@@ -16,9 +17,7 @@ ListItem {
     property var room
     height: layout.height
 
-    onClicked: {
-        mainLayout.toChat ( room.id )
-    }
+    onClicked: mainLayout.toChat ( room.id )
 
     ListItemLayout {
         id: layout
@@ -35,23 +34,6 @@ ListItem {
             onClickFunction: function () {}
         }
 
-        Component.onCompleted: {
-
-            // Get the room name
-            if ( room.topic !== "" ) layout.title.text = room.topic
-            else MatrixNames.getChatAvatarById ( room.id, function (displayname) {
-                layout.title.text = displayname
-                avatar.name = displayname
-                // Is there a typing notification?
-                if ( room.typing && room.typing.length > 0 ) {
-                    layout.subtitle.text = MatrixNames.getTypingDisplayString ( room.typing, displayname )
-                }
-            })
-
-            // Get the room avatar if single chat
-            if ( avatar.mxc === "") MatrixNames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
-                avatar.mxc = avatar_url
-            } )
-        }
+        Component.onCompleted: ItemActions.init ()
     }
 }

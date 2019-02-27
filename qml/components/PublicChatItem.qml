@@ -13,13 +13,7 @@ ListItem {
         : layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1)
     }
     property var matrixid: matrix_id
-    onClicked: {
-        var rs = storage.query ( "SELECT * FROM Chats WHERE id=?", [ matrixid ] )
-        if ( rs.rows.length > 0 ) {
-            mainLayout.toChat( matrixid )
-        }
-        else matrix.joinChat ( matrixid )
-    }
+    onClicked: mainLayout.toChat ( matrixid )
 
     ListItemLayout {
         id: layout

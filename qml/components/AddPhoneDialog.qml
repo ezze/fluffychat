@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import "../scripts/AddPhoneDialogActions.js" as ItemActions
 
 Component {
     id: dialog
@@ -43,30 +44,7 @@ Component {
                 text: i18n.tr("Connect")
                 color: UbuntuColors.green
                 enabled: addressTextField.displayText !== ""
-                onClicked: {
-                    var address = addressTextField.displayText
-                    if ( address.charAt(0) === "0" ) address = address.replace( "0", matrix.countryTel )
-                    PopupUtils.close(dialogue)
-                    PopupUtils.open(enterSMSToken)
-                    client_secret = "SECRET:" + new Date().getTime()
-                    var _phoneSettingsPage = phoneSettingsPage
-
-                    var callback = function ( response ) {
-                        if ( response.error ) return toast.show ( response.error )
-                        if ( response.sid ) {
-                            _phoneSettingsPage.sid = response.sid
-                        }
-                    }
-
-                    // Verify this address with this matrix id
-                    matrix.post ( "/client/r0/account/3pid/msisdn/requestToken", {
-                        client_secret: client_secret,
-                        country: matrix.countryCode,
-                        phone_number: address,
-                        send_attempt: 1,
-                        id_server: matrix.id_server
-                    }, callback, callback)
-                }
+                onClicked: ItemActions.add ( addressTextField.displayText, dialogue )
             }
         }
     }

@@ -14,7 +14,7 @@ StyledPage {
 
     property var domainChanged: false
 
-    Component.onCompleted: if ( mainLayout.darkmode ) mainLayout.darkmode = false
+    Component.onCompleted: mainLayout.darkmode = false
 
     header: PageHeader {
         title: i18n.tr('Homeserver %1').arg( (loginDomain || defaultDomain) )
@@ -26,10 +26,7 @@ StyledPage {
             Action {
                 iconName: "sync-idle"
                 text: i18n.tr("Change homeserver")
-                onTriggered: {
-                    domainChanged = true
-                    PopupUtils.open(changeHomeserverDialog)
-                }
+                onTriggered: PopupUtils.open(changeHomeserverDialog)
             },
             Action {
                 iconName: "hotspot-connected"
@@ -73,11 +70,7 @@ StyledPage {
             }
             Button {
                 text: "OK"
-                onClicked: {
-                    loginDomain = homeserverInput.displayText.toLowerCase()
-                    if ( homeserverInput.displayText === "" ) loginDomain = defaultDomain
-                    PopupUtils.close(dialogue)
-                }
+                onClicked: LoginPageActions.changeHomeServer ( homeserverInput, dialogue )
             }
         }
     }
@@ -95,11 +88,7 @@ StyledPage {
             }
             Button {
                 text: "OK"
-                onClicked: {
-                    if ( identityserverInput.displayText === "" ) matrix.id_server = defaultIDServer
-                    else matrix.id_server = identityserverInput.displayText.toLowerCase()
-                    PopupUtils.close(dialogue)
-                }
+                onClicked: LoginPageActions.changeIDServer ( identityserverInput, dialogue )
             }
         }
     }
@@ -130,10 +119,7 @@ StyledPage {
                 Button {
                     width: units.gu(8)
                     text: matrix.countryCode + " +%1".arg(matrix.countryTel)
-                    onClicked: {
-                        var item = Qt.createComponent("../components/CountryPicker.qml")
-                        item.createObject( root, { })
-                    }
+                    onClicked: LoginPageActions.showCountryPicker ()
                 }
                 TextField {
                     id: phoneTextField
@@ -149,12 +135,7 @@ StyledPage {
                 placeholderText: i18n.tr("Username or Matrix ID")
                 Keys.onReturnPressed: LoginPageActions.login()
                 width: elemWidth
-                onDisplayTextChanged: {
-                    if ( displayText.indexOf ("@") !== -1 && !domainChanged ) {
-                        var usernameSplitted = displayText.substr(1).split ( ":" )
-                        loginDomain = usernameSplitted [1]
-                    }
-                }
+                onDisplayTextChanged: LoginPageActions.updateHomeServerByTextField ( displayText )
             }
 
             Rectangle {

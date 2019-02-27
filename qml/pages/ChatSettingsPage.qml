@@ -228,7 +228,7 @@ StyledPage {
                         text: description !== "" ? description : i18n.tr("No chat description found...")
                         linkColor: mainLayout.brightMainColor
                         textFormat: Text.StyledText
-                        onLinkActivated: shareController.openUrlExternally ( link )
+                        onLinkActivated: contentHub.openUrlExternally ( link )
                     }
                     Label {
                         text: " "
@@ -260,7 +260,7 @@ StyledPage {
                     SettingsListLink {
                         name: i18n.tr("Advanced settings")
                         icon: "filters"
-                        page: "ChatPrivacySettingsPage"
+                        page: "ChatAdvancedSettingsPage"
                         sourcePage: chatSettingsPage
                     }
                 }

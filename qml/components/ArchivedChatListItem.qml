@@ -5,6 +5,7 @@ import QtGraphicalEffects 1.0
 import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
+import "../scripts/ArchivedChatListItemActions.js" as ItemActions
 
 ListItem {
     id: chatListItem
@@ -20,29 +21,15 @@ ListItem {
 
     ListItemLayout {
         id: layout
-        title.text: i18n.tr("Unknown chat")
+        title.text: room.topic || MatrixNames.getChatAvatarById ( room.id )
         title.font.bold: true
         title.color: room.membership === "invite" ? mainLayout.mainColor : mainLayout.mainFontColor
 
         Avatar {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
-            name: room.topic || room.id
-            mxc: room.avatar_url || ""
-        }
-
-        Component.onCompleted: {
-            // Get the room name
-            if ( room.topic !== "" ) layout.title.text = room.topic
-            else MatrixNames.getChatAvatarById ( room.id, function (displayname) {
-                layout.title.text = displayname
-                avatar.name = displayname
-            })
-
-            // Get the room avatar if single chat
-            if ( avatar.mxc === "") MatrixNames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
-                avatar.mxc = avatar_url
-            } )
+            name: title.text
+            mxc: room.avatar_url || MatrixNames.getAvatarFromSingleChat ( room.id )
         }
     }
 
@@ -62,13 +49,7 @@ ListItem {
         actions: [
         Action {
             iconName: "edit-delete"
-            onTriggered: {
-                matrix.post( "/client/r0/rooms/%1/forget".arg(room.id) )
-                storage.query ( "DELETE FROM Memberships WHERE chat_id=?", [ room.id ] )
-                storage.query ( "DELETE FROM Events WHERE chat_id=?", [ room.id ] )
-                storage.query ( "DELETE FROM Chats WHERE id=?", [ room.id ] )
-                archivedChatListPage.update ()
-            }
+            onTriggered: ItemActions.clear ( room.id )
         }
         ]
     }

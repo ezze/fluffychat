@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import "../scripts/StartChatDialog.js" as StartChatDialog
 
 Component {
     id: dialog
@@ -22,17 +23,8 @@ Component {
             text: i18n.tr("Start private chat")
             color: UbuntuColors.green
             onClicked: {
-                var data = {
-                    "invite": [ matrixidTextField.displayText ],
-                    "is_direct": true,
-                    "preset": "trusted_private_chat"
-                }
-                var _toast = toast
-                matrix.post( "/client/r0/createRoom", data, function (res) {
-                    if ( res.room_id ) _mainLayout.toChat ( res.room_id )
-                    _toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
-                }, null, 2 )
-                PopupUtils.close(dialogue)
+                StartChatDialog.startChat ( dialogue )
+                bottomEdge.collapse ()
             }
         }
         Label {

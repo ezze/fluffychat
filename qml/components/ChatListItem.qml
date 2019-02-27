@@ -4,6 +4,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
+import "../scripts/ChatListItemActions.js" as ChatListItemActions
 
 ListItem {
     id: chatListItem
@@ -12,41 +13,22 @@ ListItem {
     property var isUnread: (room.unread < room.origin_server_ts && room.sender !== matrix.matrixid) || room.membership === "invite"
     property var newNotifictaions: room.notification_count > 0
 
-    visible: { layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1 }
+    visible: layout.title.text.toUpperCase().indexOf( searchField.displayText.toUpperCase() ) !== -1
     height: visible ? layout.height : 0
 
-    color: activeChat === room.id ? highlightColor :
-    (mainLayout.darkmode ? "#202020" : "white")
+    color: activeChat === room.id ? highlightColor : mainBackgroundColor
 
-    highlightColor: mainLayout.darkmode ? mainLayout.mainColor : mainLayout.brighterMainColor
+    highlightColor: mainHighlightColor
 
-    function triggered () {
-        if ( room.membership !== "leave" ) {
-            activeChatTypingUsers = room.typing || []
-            mainLayout.toChat ( room.id )
-        }
-        else matrix.joinChat ( room.id )
-        searchField.text = ""
-        searching = false
-    }
-
-    onClicked: triggered ()
+    onClicked: ChatListItemActions.toChat ()
 
     ListItemLayout {
         id: layout
         width: parent.width - notificationBubble.width - highlightBubble.width
-        title.text: room.topic !== "" && room.topic !== null ? room.topic : MatrixNames.getChatAvatarById ( room.id, function (displayname) {
-            layout.title.text = displayname
-        })
+        title.text: ChatListItemActions.calcTitle ()
         title.font.bold: true
         title.color: mainLayout.mainFontColor
-        subtitle.text: {
-            room.membership === "invite" ? i18n.tr("You have been invited to this chat") :
-            (room.membership === "leave" ? "" :
-            (room.topic !== "" && room.typing && room.typing.length > 0 ? MatrixNames.getTypingDisplayString ( room.typing, room.topic ) :
-            (room.content_body ? ( room.sender === matrix.matrixid ? i18n.tr("You: ") : "" ) + room.content_body :
-            i18n.tr("No preview messages"))))
-        }
+        subtitle.text: ChatListItemActions.calcSubtitle ()
         subtitle.color: mainLayout.mainFontColor
         subtitle.linkColor: subtitle.color
 
@@ -55,9 +37,7 @@ ListItem {
             SlotsLayout.position: SlotsLayout.Leading
             name: layout.title.text
             width: units.gu(7)
-            mxc: room.avatar_url !== "" && room.avatar_url !== null && room.avatar_url !== undefined ? room.avatar_url : MatrixNames.getAvatarFromSingleChat ( room.id, function ( avatar_url ) {
-                avatar.mxc = avatar_url
-            } )
+            mxc: ChatListItemActions.calcAvatar ()
             onClickFunction: function () { triggered () }
         }
     }
@@ -97,7 +77,6 @@ ListItem {
         visible: newNotifictaions || isUnread
     }
 
-
     Icon {
         id: highlightBubble
         visible: room.highlight_count > 0
@@ -110,37 +89,15 @@ ListItem {
         height: width
     }
 
-
-    // Notification-settings Button
-    trailingActions: ListItemActions {
-        actions: [
-        Action {
-            iconName: "info"
-            visible: mainLayout.columns < 2
-            text: i18n.tr("Chat settings")
-            onTriggered: {
-                activeChat = room.id
-                mainLayout.addPageToNextColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/ChatSettingsPage.qml") )
-            }
-        }
-        ]
-    }
-
     // Delete Button
     leadingActions: ListItemActions {
         actions: [
         Action {
             iconName: "edit-delete"
             text: i18n.tr("Leave this chat")
-            onTriggered: {
-                var deleteAction = function () {
-                    matrix.post ( "/client/r0/rooms/%1/leave".arg(room.id), null, null, null, 2 )
-                }
-                showConfirmDialog ( i18n.tr("Do you want to leave this chat?"), deleteAction )
-            }
+            onTriggered: ChatListItemActions.remove ()
         }
         ]
     }
-
 
 }

@@ -45,14 +45,12 @@ Component {
                         sid: sid,
                         token: addressTextField.displayText
                     }, function () {
-                        console.log("SUBMITSUCCESS")
                         PopupUtils.close(dialogue)
                         var threePidCreds = {
                             client_secret: _page.client_secret,
                             sid: _page.sid,
                             id_server: matrix.id_server
                         }
-                        console.log("threePidCreds",JSON.stringify(threePidCreds))
                         _matrix.post ("/client/r0/account/3pid", {
                             bind: true,
                             threePidCreds: threePidCreds

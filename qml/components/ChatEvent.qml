@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 import "../components"
 import "../scripts/EventDescription.js" as EventDescription
 import "../scripts/MatrixNames.js" as MatrixNames
-import "../scripts/MessageFormats.js" as MessageFormats
+import "../scripts/ChatEventActions.js" as ItemActions
 
 ListItem {
     id: message
@@ -18,9 +18,7 @@ ListItem {
     property bool isLeftSideEvent: !sent || isStateEvent
     property bool sending: sent && event.status === msg_status.SENDING
     property string senderDisplayname: activeChatMembers[event.sender].displayname!==undefined ? activeChatMembers[event.sender].displayname : MatrixNames.transformFromId(event.sender)
-    property var bgcolor: (isStateEvent ? (mainLayout.darkmode ? "black" : "white") :
-    (!sent ? mainLayout.darkmode ? "#191A15" : UbuntuColors.porcelain :
-    (event.status < msg_status.SEEN ? mainLayout.brighterMainColor : mainLayout.mainColor)))
+    property var bgcolor: ItemActions.calcBubbleBackground ( isStateEvent, sent, event.status )
     property var lastEvent: index > 0 ? chatScrollView.model.get(index-1).event : null
     property bool sameSender: lastEvent !== null ? lastEvent.sender === event.sender : false
 
@@ -43,59 +41,31 @@ ListItem {
             text: i18n.tr("Try to send again")
             iconName: "send"
             visible: event.status === msg_status.ERROR
-            onTriggered: {
-                var body = event.content_body
-                storage.query ( "DELETE FROM Events WHERE id=?", [ event.id ])
-                removeEvent ( event.id )
-                chatPage.send ( body )
-            }
+            onTriggered: ItemActions.resendMessage ( event )
         },
         Action {
             text: i18n.tr("Reply")
             iconName: "mail-reply"
             visible: !isStateEvent && event.status >= msg_status.SENT && canSendMessages
-            onTriggered: {
-                chatPage.replyEvent = event
-                messageTextField.focus = true
-            }
+            onTriggered: ItemActions.startReply ( event )
         },
         Action {
             text: i18n.tr("Copy text")
             iconName: "edit-copy"
             visible: !isStateEvent && event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
-            onTriggered: {
-                contentHub.toClipboard ( event.content.body )
-                toast.show( i18n.tr("Text has been copied to the clipboard") )
-            }
+            onTriggered: contentHub.toClipboard ( event.content.body )
         },
         Action {
             text: i18n.tr("Add to sticker collection")
             iconName: "add"
             visible: event.type === "m.sticker" || event.content.type === "m.image"
-            onTriggered: {
-                showConfirmDialog ( i18n.tr("Add to sticker collection?"), function () {
-                    storage.query( "INSERT OR IGNORE INTO Media VALUES(?,?,?,?)", [
-                    "image/gif",
-                    event.content.url,
-                    event.content.url,
-                    event.content.url
-                    ], function ( result ) {
-                        if ( result.rowsAffected == 0 ) toast.show (i18n.tr("Already added as sticker"))
-                        else toast.show (i18n.tr("Added as sticker"))
-                    })
-                } )
-            }
+            onTriggered: ItemActions.addAsSticker ( event )
         },
         Action {
             text: i18n.tr("Forward")
             iconName: "toolkit_chevron-ltr_4gu"
-            visible: !isStateEvent //&& event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
-            onTriggered: {
-                if ( !isMediaEvent ) {
-                    contentHub.shareTextIntern ("%1 (%2): %3".arg( senderDisplayname ).arg( MatrixNames.getChatTime (event.origin_server_ts) ).arg( event.content.body ))
-                }
-                else contentHub.shareFileIntern( event.content )
-            }
+            visible: !isStateEvent
+            onTriggered: ItemActions.share ( isMediaEvent, senderDisplayname, event )
         }
         ]
     }
@@ -107,18 +77,7 @@ ListItem {
             text: i18n.tr("Remove")
             iconName: "edit-delete"
             enabled: ((canRedact || sent) && event.status >= msg_status.SENT || event.status === msg_status.ERROR)
-            onTriggered: {
-                if ( event.status === msg_status.ERROR ) {
-                    storage.query ( "DELETE FROM Events WHERE id=?", [ event.id ] )
-                    removeEvent ( event.id )
-                }
-                else showConfirmDialog ( i18n.tr("Are you sure?"), function () {
-                    matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
-                    .arg(activeChat)
-                    .arg(event.id)
-                    .arg(new Date().getTime()) )
-                })
-            }
+            onTriggered: ItemActions.removeEvent ( event )
         }
         ]
     }
@@ -148,9 +107,7 @@ ListItem {
         opacity: (sameSender || isStateEvent) ? 0 : 1
         width: isStateEvent ? units.gu(3) : units.gu(5)
         onClickFunction: function () {
-            if ( !opacity ) return
-            activeUser = event.sender
-            MatrixNames.showUserSettings ( event.sender )
+            if ( opacity ) MatrixNames.showUserSettings ( event.sender )
         }
     }
 
@@ -171,7 +128,7 @@ ListItem {
 
         opacity: isStateEvent ? 0.75 : 1
         z: 2
-        color: imageVisible ? "#00000000" : bgcolor
+        color: imageVisible ? "transparent" : bgcolor
 
         Behavior on color {
             ColorAnimation { from: mainLayout.brighterMainColor; duration: 300 }
@@ -298,14 +255,7 @@ ListItem {
                     property var playing: false
                     color: "white"
                     iconName: playing ? "media-playback-pause" : "media-playback-start"
-                    onClicked: {
-                        if ( audio.source !== MatrixNames.getLinkFromMxc ( event.content.url ) ) {
-                            audio.source = MatrixNames.getLinkFromMxc ( event.content.url )
-                        }
-                        if ( playing ) audio.pause ()
-                        else audio.play ()
-                        playing = !playing
-                    }
+                    onClicked: ItemActions.toggleAudioPlayer ( event )
                     width: units.gu(4)
                 }
                 Button {
@@ -384,7 +334,7 @@ ListItem {
                 anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
                 anchors.leftMargin: units.gu(1)
                 anchors.bottomMargin: isStateEvent ? units.gu(0.5) : 0
-                onLinkActivated: shareController.openUrlExternally ( link )
+                onLinkActivated: contentHub.openUrlExternally ( link )
                 // Intital calculation of the max width and display URL's and
                 // make sure, that the label text is not empty for the correct
                 // height calculation.

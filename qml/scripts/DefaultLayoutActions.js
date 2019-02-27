@@ -3,13 +3,24 @@
 
 
 function toChat( chatID, toInvitePage ) {
-    if ( activeChat === chatID ) return
-    activeChat = chatID
-    if ( toInvitePage ) {
-        mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/InvitePage.qml"))
+    var rs = storage.query ( "SELECT * FROM Chats WHERE id=?", [ chatID ] )
+    if ( rs.rows.length > 0 ) {
+        if ( activeChat === chatID ) return
+        activeChat = chatID
+        if ( toInvitePage ) {
+            mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/InvitePage.qml"))
+        }
+        else {
+            mainLayout.addPageToNextColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/ChatPage.qml"))
+        }
     }
     else {
-        mainLayout.addPageToNextColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/ChatPage.qml"))
+        showConfirmDialog ( i18n.tr("Do you want to join this chat?").arg(chat_id), function () {
+            matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
+                matrix.waitForSync()
+                mainLayout.toChat( response.room_id )
+            }, null, 2 )
+        } )
     }
 }
 

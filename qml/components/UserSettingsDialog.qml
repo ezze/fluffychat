@@ -3,6 +3,8 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../scripts/MatrixNames.js" as MatrixNames
+import "../scripts/UserSettingsDialogActions.js" as ItemActions
+import "../scripts/StartChatDialog.js" as StartChatDialog
 
 Component {
     id: dialog
@@ -10,6 +12,8 @@ Component {
     Dialog {
         id: dialogue
         title: activeUser
+
+        Component.onCompleted:  ItemActions.init ()
 
         property var presence: "offline"
         property var last_active_ago: 0
@@ -124,19 +128,7 @@ Component {
             height: layout.height
             color: Qt.rgba(0,0,0,0)
             visible: activeUser !== matrix.matrixid
-            onClicked: {
-                userSettingsViewer.collapse ()
-                var data = {
-                    "invite": [ activeUser ],
-                    "is_direct": true,
-                    "preset": "trusted_private_chat"
-                }
-                var _toast = toast
-                matrix.post( "/client/r0/createRoom", data, function (res) {
-                    if ( res.room_id ) _mainLayout.toChat ( res.room_id )
-                    _toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
-                }, null, 2 )
-            }
+            onClicked: StartChatDialog.startChat ( dialogue )
 
             ListItemLayout {
                 id: layout
@@ -147,39 +139,6 @@ Component {
                     height: units.gu(4)
                     SlotsLayout.position: SlotsLayout.Leading
                 }
-            }
-        }
-
-
-        Component.onCompleted:  {
-            title = MatrixNames.transformFromId ( activeUser )
-
-            var res = storage.query ( "SELECT displayname, avatar_url, presence, last_active_ago, currently_active FROM Users WHERE matrix_id=?", [ activeUser ] )
-            if ( res.rows.length === 1 ) avatarImage.mxc = res.rows[0].avatar_url
-            if ( res.rows[0].displayname !== "" && res.rows[0].displayname !== null ) {
-                title = res.rows[0].displayname
-            }
-            presence = res.rows[0].presence
-            last_active_ago = res.rows[0].last_active_ago
-            currently_active = res.rows[0].currently_active
-
-            if ( activeUser === matrix.matrixid ) return
-            res = storage.query ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url " +
-            " FROM Chats rooms, Memberships memberships " +
-            " WHERE (memberships.membership='join' OR memberships.membership='invite') " +
-            " AND memberships.matrix_id=? " +
-            " AND memberships.chat_id=rooms.id " +
-            " ORDER BY rooms.topic "
-            , [ activeUser ] )
-            chatListView.children = ""
-            // We now write the rooms in the column
-            for ( var i = 0; i < res.rows.length; i++ ) {
-                var room = res.rows.item(i)
-                // We request the room name, before we continue
-                var item = Qt.createComponent("../components/SimpleChatListItem.qml")
-                item.createObject(chatListView, {
-                    "room": room
-                })
             }
         }
     }

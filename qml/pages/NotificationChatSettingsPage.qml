@@ -2,17 +2,15 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import "../components"
+import "../scripts/NotificationChatSettingsPageActions.js" as PageActions
 
 StyledPage {
     id: notificationChatSettingsPage
     anchors.fill: parent
 
+    Component.onCompleted: PageActions.updateView ()
+
     property var status: 0
-
-
-    function setPushRule ( action ) {
-        matrix.put ( "/client/r0/pushrules/global/room/%1".arg(activeChat), {"actions": [ action ] }, update )
-    }
 
     // To disable the background image on this page
     Rectangle {
@@ -20,44 +18,9 @@ StyledPage {
         color: theme.palette.normal.background
     }
 
-    function updateView () {
-        status = 0
-        scrollView.opacity = 0.5
-        matrix.get ( "/client/r0/pushrules/", null, function ( response ) {
-            scrollView.opacity = 1
-
-            // Case 1: Is the chatid a rule_id in the override rules and is there the action "dont_notify"?
-            for ( var i = 0; i < response.global.override.length; i++ ) {
-                if ( response.global.override[i].rule_id === activeChat ) {
-                    if ( response.global.override[i].actions.indexOf("dont_notify") !== -1 ) {
-                        status = 1
-                        return
-                    }
-                    break
-                }
-            }
-
-            // Case 2: Is the chatid in the room rules and notifications are disabled?
-            for ( var i = 0; i < response.global.room.length; i++ ) {
-                if ( response.global.room[i].rule_id === activeChat ) {
-                    if ( response.global.room[i].actions.indexOf("dont_notify") !== -1 ) {
-                        status = 2
-                        return
-                    }
-                    break
-                }
-            }
-
-            // Case 3: The notifications are enabled
-            status = 3
-        }, null, 1 )
-    }
-
     header: PageHeader {
         title: i18n.tr('Notifications')
     }
-
-    Component.onCompleted: updateView ()
 
     ScrollView {
         id: scrollView
@@ -79,11 +42,7 @@ StyledPage {
                     anchors.margins: units.gu(2)
                 }
                 icon: "audio-volume-high"
-                onClicked: {
-                    if ( status === 0 ) return
-                    else if ( status === 1 ) matrix.remove ( "/client/r0/pushrules/global/override/%1".arg(activeChat), null, updateView )
-                    else if ( status === 2 ) matrix.remove ( "/client/r0/pushrules/global/room/%1".arg(activeChat), null, updateView )
-                }
+                onClicked: PageActions.setNotify ()
             }
             SettingsListItem {
                 name: i18n.tr("Only if mentioned")
@@ -98,15 +57,7 @@ StyledPage {
                     anchors.margins: units.gu(2)
                 }
                 icon: "audio-volume-low"
-                onClicked: {
-                    if ( status === 0 ) return
-                    else if ( status === 1 ) {
-                        matrix.remove ( "/client/r0/pushrules/global/override/%1".arg(activeChat), null, function () {
-                            matrix.put ( "/client/r0/pushrules/global/room/%1".arg(activeChat), {"actions": [ "dont_notify" ] }, updateView )
-                        } )
-                    }
-                    else if ( status === 3 ) matrix.put ( "/client/r0/pushrules/global/room/%1".arg(activeChat), {"actions": [ "dont_notify" ] }, updateView )
-                }
+                onClicked: PageActions.setOnlyMentions ()
             }
             SettingsListItem {
                 name: i18n.tr("Don't notify")
@@ -121,36 +72,8 @@ StyledPage {
                     anchors.margins: units.gu(2)
                 }
                 icon: "audio-volume-muted"
-                onClicked: {
-                    if ( status === 0 ) return
-                    else if ( status === 2 ) {
-                        matrix.remove ( "/client/r0/pushrules/global/room/%1".arg(activeChat), null, function () {
-                            matrix.put ( "/client/r0/pushrules/global/override/%1".arg(activeChat),
-                            {
-                                "actions": [ "dont_notify" ],
-                                "conditions": [{
-                                    "key": "room_id",
-                                    "kind": "event_match",
-                                    "pattern": activeChat
-                                }]
-                            }, updateView )
-                        } )
-
-                    }
-                    else if ( status === 3 ) {
-                        matrix.put ( "/client/r0/pushrules/global/override/%1".arg(activeChat),
-                        {
-                            "actions": [ "dont_notify" ],
-                            "conditions": [{
-                                "key": "room_id",
-                                "kind": "event_match",
-                                "pattern": activeChat
-                            }]
-                        }, updateView )
-                    }
-                }
+                onClicked: PageActions.setMuted ()
             }
-
         }
     }
 }
