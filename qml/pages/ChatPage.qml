@@ -8,7 +8,7 @@ import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
 import "../scripts/ChatPageActions.js" as ChatPageActions
 
-StyledPage {
+Page {
 
     id: chatPage
 

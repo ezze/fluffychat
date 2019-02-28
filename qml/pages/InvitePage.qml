@@ -5,7 +5,7 @@ import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/InvitePageActions.js" as PageActions
 
-StyledPage {
+Page {
     anchors.fill: parent
 
     Component.onCompleted: PageActions.init ()

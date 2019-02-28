@@ -218,7 +218,7 @@ Item {
                         matrix.handleSync ( sync, newChatUpdate, newEvent )
                     }
                 )
-                storage.syncInitialized ()
+                if ( matrix.prevBatch === "" ) storage.syncInitialized ()
             }
             catch (e) {
                 console.error("❌[Error]",e,query)

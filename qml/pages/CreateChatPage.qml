@@ -6,7 +6,7 @@ import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/CreateChatPageActions.js" as PageActions
 
-StyledPage {
+Page {
     id: createChatPage
     anchors.fill: parent
 

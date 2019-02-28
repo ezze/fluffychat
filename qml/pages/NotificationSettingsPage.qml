@@ -5,7 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/NotificationSettingsPageActions.js" as PageActions
 
-StyledPage {
+Page {
     id: notificationSettingsPage
     anchors.fill: parent
 

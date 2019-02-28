@@ -5,7 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
-StyledPage {
+Page {
     id: chatSettingsPage
     anchors.fill: parent
 

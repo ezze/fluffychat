@@ -5,7 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/PasswordCreationPageActions.js" as PageStack
 
-StyledPage {
+Page {
     id: passwordCreationPage
     anchors.fill: parent
 

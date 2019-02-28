@@ -5,7 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/DiscoverPageActions.js" as PageActions
 
-StyledPage {
+Page {
     anchors.fill: parent
     id: discoverPage
 

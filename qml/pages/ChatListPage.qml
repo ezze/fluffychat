@@ -7,7 +7,7 @@ import "../scripts/EventDescription.js" as EventDescription
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/ChatListPageActions.js" as ChatListPageActions
 
-StyledPage {
+Page {
     anchors.fill: parent
     id: chatListPage
 

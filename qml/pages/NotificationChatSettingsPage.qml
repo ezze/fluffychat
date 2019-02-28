@@ -4,7 +4,7 @@ import Ubuntu.Components 1.3
 import "../components"
 import "../scripts/NotificationChatSettingsPageActions.js" as PageActions
 
-StyledPage {
+Page {
     id: notificationChatSettingsPage
     anchors.fill: parent
 

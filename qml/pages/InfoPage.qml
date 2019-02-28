@@ -4,7 +4,7 @@ import Ubuntu.Components 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
-StyledPage {
+Page {
     id: infoPage
     anchors.fill: parent
 

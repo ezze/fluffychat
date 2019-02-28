@@ -5,7 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/ChatAliasSettingsPageActions.js" as ChatAliasSettingsPageActions
 
-StyledPage {
+Page {
     anchors.fill: parent
 
     property var canEditAddresses: false

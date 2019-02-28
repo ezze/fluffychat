@@ -6,7 +6,7 @@ import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/LoginPageActions.js" as LoginPageActions
 
-StyledPage {
+Page {
     id: loginPage
     anchors.fill: parent
 

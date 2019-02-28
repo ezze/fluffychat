@@ -24,7 +24,7 @@ import QtQuick 2.9
 import Ubuntu.Components 1.3
 import "../models"
 
-StyledPage {
+Page {
     id: walkthrough
 
     // Property to set the app name used in the walkthrough

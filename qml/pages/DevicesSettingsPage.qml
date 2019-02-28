@@ -5,7 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/DevicesSettingsPageActions.js" as PageActions
 
-StyledPage {
+Page {
     id: devicesSettingsPage
     anchors.fill: parent
 

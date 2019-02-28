@@ -6,7 +6,7 @@ import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/ChatAdvancedSettingsPageActions.js" as PageActions
 
-StyledPage {
+Page {
     id: chatPrivacySettingsPage
     anchors.fill: parent
 

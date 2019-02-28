@@ -5,7 +5,7 @@ import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/NotificationTargetSettingsPageActions.js" as PageStack
 
-StyledPage {
+Page {
     id: notificationTargetPage
     anchors.fill: parent
 
