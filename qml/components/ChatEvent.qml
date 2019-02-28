@@ -9,6 +9,7 @@ import "../scripts/ChatEventActions.js" as ItemActions
 
 ListItem {
     id: message
+
     property bool isStateEvent: event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker"
     property bool isMediaEvent: isImage || [ "m.file", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1
     property bool isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
@@ -245,8 +246,7 @@ ListItem {
             }
 
 
-            /*  ====================AUDIO MESSAGE====================
-            */
+            //  ====================AUDIO MESSAGE====================
             Loader {
                 active: event.content.msgtype === "m.audio"
                 sourceComponent: Row {
@@ -295,8 +295,7 @@ ListItem {
             }
 
 
-            /*  ====================FILE MESSAGE====================
-            */
+            //  ====================FILE MESSAGE====================
             Loader {
                 active: event.content.msgtype === "m.file" || event.content.msgtype === "m.video"
                 sourceComponent: Button {

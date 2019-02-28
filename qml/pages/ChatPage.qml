@@ -25,10 +25,13 @@ StyledPage {
     property var historyCount: 30
     property var requesting: false
     property var initialized: -1
-    property var count: model.count
+    property var count: chatScrollView.count
+    property alias model: chatScrollView.model
 
     anchors.fill: parent
 
+    signal load ()
+    onLoad: ChatPageActions.init ()
 
     Component.onCompleted: ChatPageActions.init ()
 
@@ -69,6 +72,18 @@ StyledPage {
                 text: (activeChatTypingUsers.length > 0 ? MatrixNames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
                 color: mainLayout.mainFontColor
             }
+        }
+
+        leadingActionBar {
+            actions: [
+            Action {
+                iconName: "back"
+                onTriggered: {
+                    ChatPageActions.destruction ()
+                    mainLayout.removePages( mainLayout.primaryPage )
+                }
+            }
+            ]
         }
 
         trailingActionBar {
@@ -176,30 +191,8 @@ StyledPage {
         visibleState: !chatScrollView.atYEnd
     }
 
-    ListView {
-
+    ChatScrollView {
         id: chatScrollView
-
-        width: parent.width
-        height: parent.height - 2 * chatInput.height
-        anchors.bottom: chatInput.top
-        verticalLayoutDirection: ListView.BottomToTop
-        delegate: ChatEvent {}
-        model: ListModel { id: model }
-        onContentYChanged: if ( atYBeginning ) ChatPageActions.requestHistory ()
-        move: Transition {
-            NumberAnimation { property: "opacity"; to:1; duration: 1 }
-        }
-        displaced: Transition {
-            SmoothedAnimation { property: "y"; duration: 300 }
-            NumberAnimation { property: "opacity"; to:1; duration: 1 }
-        }
-        add: Transition {
-            NumberAnimation { property: "opacity"; from: 0; to:1; duration: 200 }
-        }
-        remove: Transition {
-            NumberAnimation { property: "opacity"; from: 1; to:0; duration: 200 }
-        }
     }
 
     StickerInput {

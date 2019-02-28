@@ -11,7 +11,8 @@ function toChat( chatID, toInvitePage ) {
             mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/InvitePage.qml"))
         }
         else {
-            mainLayout.addPageToNextColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/ChatPage.qml"))
+            mainLayout.addPageToNextColumn ( mainLayout.primaryPage, chatPage)
+            chatPage.load()
         }
     }
     else {

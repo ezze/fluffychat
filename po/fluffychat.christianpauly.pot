@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-27 16:03+0000\n"
+"POT-Creation-Date: 2019-02-28 07:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:102 ../qml/scripts/ChatEventActions.js:50
+#: ../qml/Main.qml:102 ../qml/scripts/ChatEventActions.js:92
 msgid "Are you sure?"
 msgstr ""
 
@@ -394,35 +394,35 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:48 ../qml/components/SimpleChatListItem.qml:25
+#: ../qml/pages/ChatPage.qml:51 ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:89
+#: ../qml/pages/ChatPage.qml:104
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:114
+#: ../qml/pages/ChatPage.qml:129
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:137
+#: ../qml/pages/ChatPage.qml:152
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:229
+#: ../qml/pages/ChatPage.qml:222
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:229
+#: ../qml/pages/ChatPage.qml:222
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:237
+#: ../qml/pages/ChatPage.qml:230
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:268
+#: ../qml/pages/ChatPage.qml:261
 msgid "Type something ..."
 msgstr ""
 
@@ -715,7 +715,8 @@ msgstr ""
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:47 ../qml/components/ChatEvent.qml:34
+#: ../qml/components/MemberListItem.qml:47 ../qml/components/ChatEvent.qml:35
+#: ../qml/components/ChatScrollView.qml:44
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
@@ -867,8 +868,9 @@ msgid "Please enter your password"
 msgstr ""
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
-#: ../qml/components/ChatEvent.qml:76
+#: ../qml/components/ChatEvent.qml:77
 #: ../qml/components/DisableAccountDialog.qml:47
+#: ../qml/components/ChatScrollView.qml:86
 msgid "Remove"
 msgstr ""
 
@@ -877,35 +879,35 @@ msgstr ""
 msgid "Remove this email address?"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:40
+#: ../qml/components/ChatEvent.qml:41 ../qml/components/ChatScrollView.qml:50
 msgid "Try to send again"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:46
+#: ../qml/components/ChatEvent.qml:47 ../qml/components/ChatScrollView.qml:56
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:52
+#: ../qml/components/ChatEvent.qml:53 ../qml/components/ChatScrollView.qml:62
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:58
+#: ../qml/components/ChatEvent.qml:59 ../qml/components/ChatScrollView.qml:68
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:64
+#: ../qml/components/ChatEvent.qml:65 ../qml/components/ChatScrollView.qml:74
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:235
+#: ../qml/components/ChatEvent.qml:236 ../qml/components/ChatScrollView.qml:245
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:235
+#: ../qml/components/ChatEvent.qml:236 ../qml/components/ChatScrollView.qml:245
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatEvent.qml:305
+#: ../qml/components/ChatEvent.qml:304 ../qml/components/ChatScrollView.qml:313
 msgid "Download: "
 msgstr ""
 
@@ -1121,7 +1123,7 @@ msgstr ""
 msgid "Background removed"
 msgstr ""
 
-#: ../qml/scripts/DefaultLayoutActions.js:18
+#: ../qml/scripts/DefaultLayoutActions.js:19
 msgid "Do you want to join this chat?"
 msgstr ""
 
@@ -1377,15 +1379,15 @@ msgstr ""
 msgid "Do you want to leave this chat?"
 msgstr ""
 
-#: ../qml/scripts/ChatEventActions.js:25
+#: ../qml/scripts/ChatEventActions.js:67
 msgid "Add to sticker collection?"
 msgstr ""
 
-#: ../qml/scripts/ChatEventActions.js:32
+#: ../qml/scripts/ChatEventActions.js:74
 msgid "Already added as sticker"
 msgstr ""
 
-#: ../qml/scripts/ChatEventActions.js:33
+#: ../qml/scripts/ChatEventActions.js:75
 msgid "Added as sticker"
 msgstr ""
 

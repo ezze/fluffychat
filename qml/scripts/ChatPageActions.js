@@ -266,49 +266,6 @@ function newEvent ( type, chat_id, eventType, eventContent ) {
 }
 
 
-
-// Request more previous events from the server
-function requestHistory ( event_id ) {
-    if ( initialized !== model.count || requesting || (model.count > 0 && model.get( model.count -1 ).event.type === "m.room.create") ) return
-    requesting = true
-    var rs = storage.query ( "SELECT prev_batch FROM Chats WHERE id=?", [ activeChat ] )
-    if ( rs.rows.length === 0 ) return
-    var data = {
-        from: rs.rows[0].prev_batch,
-        dir: "b",
-        limit: historyCount
-    }
-
-    var historyRequestCallback = function ( result ) {
-        if ( result.chunk.length > 0 ) {
-            var eventFound = false
-            for ( var i = 0; i < result.chunk.length; i++ ) {
-                if ( event_id && !eventFound && event_id === result.chunk[i].event_id ) eventFound = i
-                addEventToList ( result.chunk[i], true )
-            }
-            matrix.handleRoomEvents ( activeChat, result.chunk, "history" )
-            requesting = false
-            storage.query ( "UPDATE Chats SET prev_batch=? WHERE id=?", [ result.end, activeChat ])
-        }
-        else requesting = false
-        if ( event_id ) {
-            if ( eventFound !== false ) {
-                currentIndex = count - 1 - historyCount + eventFound
-                matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": model.get(0).event.id }, null, null, 0 )
-                currentIndex = count - 1 - historyCount + eventFound
-            }
-            else requestHistory ( event_id )
-        }
-    }
-
-    var historyRequestErrorCallback = function () {
-        requesting = false
-    }
-
-    matrix.get( "/client/r0/rooms/" + activeChat + "/messages", data, historyRequestCallback, historyRequestErrorCallback, event_id ? 2 : 1 )
-}
-
-
 // This function writes the event in the chat. The event MUST have the format
 // of a database entry, described in the storage controller
 function addEventToList ( event, history ) {

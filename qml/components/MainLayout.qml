@@ -93,6 +93,7 @@ AdaptivePageLayout {
     WaitDialog {
         id: waitDialog
     }
+    ChatPage { id: chatPage }
     Connections {
         target: matrix
         onBlockUIRequestChanged: matrix.blockUIRequest !== null ? PopupUtils.open ( waitDialog ) : function(){}
