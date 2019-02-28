@@ -107,6 +107,8 @@ Item {
         property alias countryTel: matrix.countryTel
     }
 
+    signal newSync ( var sync )
+
     // This should be shown in the GUI for example as a toast
     signal error ( var error )
 
@@ -116,7 +118,6 @@ Item {
     * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
     */
     signal newEvent ( var type, var chat_id, var eventType, var eventContent )
-    onNewEvent: console.log("💬[Event] From: '%1', Type: '%2' (%3)".arg(chat_id).arg(eventType).arg(type) )
 
     /* Outside of the events there are updates for the global chat states which
     * are handled by this signal:
@@ -534,12 +535,11 @@ function handleEvents ( response ) {
     var changed = false
     var timecount = new Date().getTime()
     try {
-        handleRooms ( response.rooms.join, "join" )
-        handleRooms ( response.rooms.leave, "leave" )
-        handleRooms ( response.rooms.invite, "invite" )
-        handlePresences ( response.presence)
+        newSync ( response )
+        if ( matrix.prevBatch !== "" ) {
+            handleSync ( response, newChatUpdate, newEvent )
+        }
         matrix.prevBatch = response.next_batch
-        //console.log("[Sync performance] ", new Date().getTime() - timecount )
     }
     catch ( e ) {
         toast.show ( i18n.tr("😰 A critical error has occurred! Sorry, the connection to the server has ended! Please report this bug on: https://github.com/ChristianPauly/fluffychat/issues/new. Error details: %1").arg(e) )
@@ -549,9 +549,17 @@ function handleEvents ( response ) {
         return
     }
 }
+
+function handleSync ( sync, newChatCB, newEventCB ) {
+    handleRooms ( sync.rooms.join, "join", newChatCB, newEventCB )
+    handleRooms ( sync.rooms.leave, "leave", newChatCB, newEventCB )
+    handleRooms ( sync.rooms.invite, "invite", newChatCB, newEventCB )
+    handlePresences ( sync.presence, newEventCB)
+}
+
 // Handling the synchronization events starts with the rooms, which means
 // that the informations should be saved in the database
-function handleRooms ( rooms, membership ) {
+function handleRooms ( rooms, membership, newChatCB, newEventCB ) {
     for ( var id in rooms ) {
         var room = rooms[id]
 
@@ -559,25 +567,25 @@ function handleRooms ( rooms, membership ) {
         var notification_count = (room.unread_notifications && room.unread_notifications.notification_count || 0)
         var limitedTimeline = (room.timeline ? (room.timeline.limited ? 1 : 0) : 0)
 
-        newChatUpdate ( id, membership, notification_count, highlight_count, limitedTimeline, room.timeline.prev_batch )
+        newChatCB ( id, membership, notification_count, highlight_count, limitedTimeline, room.timeline.prev_batch )
 
         // Handle now all room events and save them in the database
-        if ( room.state ) handleRoomEvents ( id, room.state.events, "state", room )
-        if ( room.invite_state ) handleRoomEvents ( id, room.invite_state.events, "invite_state", room )
-        if ( room.timeline ) handleRoomEvents ( id, room.timeline.events, "timeline", room )
-        if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events )
-        if ( room.account_data ) handleRoomEvents ( id, room.account_data.events, "account_data", room )
+        if ( room.state ) handleRoomEvents ( id, room.state.events, "state", newEventCB )
+        if ( room.invite_state ) handleRoomEvents ( id, room.invite_state.events, "invite_state", newEventCB )
+        if ( room.timeline ) handleRoomEvents ( id, room.timeline.events, "timeline", newEventCB )
+        if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events, newEventCB )
+        if ( room.account_data ) handleRoomEvents ( id, room.account_data.events, "account_data", newEventCB )
     }
 }
 // Handle the presences
-function handlePresences ( presences ) {
+function handlePresences ( presences, newEventCB ) {
     for ( var i = 0; i < presences.events.length; i++ ) {
         var pEvent = presences.events[i]
-        newEvent ( pEvent.type, pEvent.sender, "presence", pEvent )
+        newEventCB ( pEvent.type, pEvent.sender, "presence", pEvent )
     }
 }
 // Handle ephemerals (message receipts)
-function handleEphemeral ( id, events ) {
+function handleEphemeral ( id, events, newEventCB ) {
     for ( var i = 0; i < events.length; i++ ) {
         if ( events[i].type === "m.receipt" ) {
             for ( var e in events[i].content ) {
@@ -585,7 +593,7 @@ function handleEphemeral ( id, events ) {
                     var timestamp = events[i].content[e]["m.read"][user].ts
 
                     // Call the newEvent signal for updating the GUI
-                    newEvent ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
+                    newEventCB ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
                 }
             }
         }
@@ -595,15 +603,22 @@ function handleEphemeral ( id, events ) {
             var ownTyping = user_ids.indexOf( matrix.matrixid )
             if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
             // Call the signal
-            newEvent ( events[ i ].type, id, "ephemeral", user_ids )
+            newEventCB ( events[ i ].type, id, "ephemeral", user_ids )
         }
     }
 }
+
+
 // Handle room events
-function handleRoomEvents ( roomid, events, type ) {
+function handleRoomEvents ( roomid, events, type, newEventCB ) {
     // We go through the events array
     for ( var i = 0; i < events.length; i++ ) {
-        newEvent ( events[i].type, roomid, type, events[i] )
+        newEventCB ( events[i].type, roomid, type, events[i] )
+    }
+    if ( matrix.prevBatch !== "" ) {
+        for ( var i = 0; i < events.length; i++ ) {
+            console.log("💬[Event] From: '%1', Type: '%2' (%3)".arg(roomid).arg(type).arg(events[i].type) )
+        }
     }
 }
 

@@ -26,6 +26,11 @@ StyledPage {
         onNewEvent: ChatListPageActions.newEvent ( type, chat_id, eventType, eventContent )
     }
 
+    Connections {
+        target: storage
+        onSyncInitialized: ChatListPageActions.loadFromDatabase ()
+    }
+
     property bool searching: false
 
     header: PageHeader {
