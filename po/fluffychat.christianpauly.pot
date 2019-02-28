@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-28 07:50+0000\n"
+"POT-Creation-Date: 2019-02-28 09:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -394,35 +394,35 @@ msgid ""
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:51 ../qml/components/SimpleChatListItem.qml:25
+#: ../qml/pages/ChatPage.qml:47 ../qml/components/SimpleChatListItem.qml:25
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:104
+#: ../qml/pages/ChatPage.qml:100
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:129
+#: ../qml/pages/ChatPage.qml:125
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:152
+#: ../qml/pages/ChatPage.qml:148
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:222
+#: ../qml/pages/ChatPage.qml:218
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:222
+#: ../qml/pages/ChatPage.qml:218
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:230
+#: ../qml/pages/ChatPage.qml:226
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:261
+#: ../qml/pages/ChatPage.qml:257
 msgid "Type something ..."
 msgstr ""
 
@@ -691,20 +691,20 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:267
+#: ../qml/models/MatrixModel.qml:268
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:389 ../qml/scripts/LoginPageActions.js:58
+#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:58
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:496
+#: ../qml/models/MatrixModel.qml:497
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:545
+#: ../qml/models/MatrixModel.qml:547
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -715,7 +715,7 @@ msgstr ""
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:47 ../qml/components/ChatEvent.qml:35
+#: ../qml/components/MemberListItem.qml:47
 #: ../qml/components/ChatScrollView.qml:44
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
@@ -868,7 +868,6 @@ msgid "Please enter your password"
 msgstr ""
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
-#: ../qml/components/ChatEvent.qml:77
 #: ../qml/components/DisableAccountDialog.qml:47
 #: ../qml/components/ChatScrollView.qml:86
 msgid "Remove"
@@ -877,38 +876,6 @@ msgstr ""
 #: ../qml/components/PhoneListItem.qml:31
 #: ../qml/components/EmailListItem.qml:31
 msgid "Remove this email address?"
-msgstr ""
-
-#: ../qml/components/ChatEvent.qml:41 ../qml/components/ChatScrollView.qml:50
-msgid "Try to send again"
-msgstr ""
-
-#: ../qml/components/ChatEvent.qml:47 ../qml/components/ChatScrollView.qml:56
-msgid "Reply"
-msgstr ""
-
-#: ../qml/components/ChatEvent.qml:53 ../qml/components/ChatScrollView.qml:62
-msgid "Copy text"
-msgstr ""
-
-#: ../qml/components/ChatEvent.qml:59 ../qml/components/ChatScrollView.qml:68
-msgid "Add to sticker collection"
-msgstr ""
-
-#: ../qml/components/ChatEvent.qml:65 ../qml/components/ChatScrollView.qml:74
-msgid "Forward"
-msgstr ""
-
-#: ../qml/components/ChatEvent.qml:236 ../qml/components/ChatScrollView.qml:245
-msgid "Load gif"
-msgstr ""
-
-#: ../qml/components/ChatEvent.qml:236 ../qml/components/ChatScrollView.qml:245
-msgid "Show image"
-msgstr ""
-
-#: ../qml/components/ChatEvent.qml:304 ../qml/components/ChatScrollView.qml:313
-msgid "Download: "
 msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:12
@@ -1001,6 +968,38 @@ msgstr ""
 
 #: ../qml/components/ContactListItem.qml:19
 msgid "Last active: %1"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:50
+msgid "Try to send again"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:56
+msgid "Reply"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:62
+msgid "Copy text"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:68
+msgid "Add to sticker collection"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:74
+msgid "Forward"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:245
+msgid "Load gif"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:245
+msgid "Show image"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:313
+msgid "Download: "
 msgstr ""
 
 #: ../qml/components/TargetListItem.qml:24

@@ -33,10 +33,6 @@ StyledPage {
     signal load ()
     onLoad: ChatPageActions.init ()
 
-    Component.onCompleted: ChatPageActions.init ()
-
-    Component.onDestruction: ChatPageActions.destruction ()
-
     Connections {
         target: matrix
         onNewChatUpdate: ChatPageActions.newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )

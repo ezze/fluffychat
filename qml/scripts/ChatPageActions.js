@@ -218,6 +218,7 @@ function init () {
 }
 
 function destruction () {
+    model.clear ()
     if ( chat_id !== activeChat ) return
     var lastEventId = chatScrollView.count > 0 ? chatScrollView.lastEventId : ""
     storage.query ( "UPDATE Chats SET draft=? WHERE id=?", [

@@ -398,7 +398,7 @@ ListView {
                             textSize: Label.XxSmall
                             visible: !isStateEvent
                             wrapMode: Text.NoWrap
-                            textFormat: Text.PlainText
+                            textFormat: Text.StyledText
 
                             // Check that the sender displayname is not too long
                             Component.onCompleted: {
