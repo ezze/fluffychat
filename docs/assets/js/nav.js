@@ -27,10 +27,11 @@ window.onload = function(e){
 function switchToCorrectLanguage () {
 
 	/* Switch to correct language */
-	if ( document.documentURI.endsWith("/") ) {
-		document.documentURI.slice( 0, document.documentURI.length-1 )
+	var currentUri = document.documentURI
+	if ( currentUri.endsWith("/") ) {
+		currentUri = currentUri.slice( 0, currentUri.length-1 )
 	}
-	var splittedUrl = document.documentURI.split("/");
+	var splittedUrl = currentUri.split("/");
 
 	// Detect the current language
 	var currentLanguage = splittedUrl[splittedUrl.length-1];
@@ -57,4 +58,4 @@ function switchToCorrectLanguage () {
 }
 
 
-//switchToCorrectLanguage ()
+switchToCorrectLanguage ()
