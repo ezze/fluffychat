@@ -551,10 +551,12 @@ function handleEvents ( response ) {
 }
 
 function handleSync ( sync, newChatCB, newEventCB ) {
-    handleRooms ( sync.rooms.join, "join", newChatCB, newEventCB )
-    handleRooms ( sync.rooms.leave, "leave", newChatCB, newEventCB )
-    handleRooms ( sync.rooms.invite, "invite", newChatCB, newEventCB )
-    handlePresences ( sync.presence, newEventCB)
+    if ( sync.rooms ) {
+        if ( sync.rooms.join ) handleRooms ( sync.rooms.join, "join", newChatCB, newEventCB )
+        if ( sync.rooms.leave ) handleRooms ( sync.rooms.leave, "leave", newChatCB, newEventCB )
+        if ( sync.rooms.invite ) handleRooms ( sync.rooms.invite, "invite", newChatCB, newEventCB )
+    }
+    if ( sync.presence ) handlePresences ( sync.presence, newEventCB)
 }
 
 // Handling the synchronization events starts with the rooms, which means

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 11:18+0000\n"
+"POT-Creation-Date: 2019-03-01 12:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:102 ../qml/scripts/ChatEventActions.js:92
+#: ../qml/Main.qml:102 ../qml/scripts/ChatEventActions.js:50
 msgid "Are you sure?"
 msgstr ""
 
@@ -154,7 +154,7 @@ msgid "OK"
 msgstr ""
 
 #: ../qml/components/MemberListItem.qml:47
-#: ../qml/components/ChatScrollView.qml:47
+#: ../qml/components/ChatScrollView.qml:48
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
@@ -315,41 +315,41 @@ msgstr ""
 msgid "<b>Gateway</b>: %2"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:53
+#: ../qml/components/ChatScrollView.qml:54
 msgid "Try to send again"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:59
+#: ../qml/components/ChatScrollView.qml:60
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:65
+#: ../qml/components/ChatScrollView.qml:66
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:71
+#: ../qml/components/ChatScrollView.qml:72
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:77
+#: ../qml/components/ChatScrollView.qml:78
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:89
+#: ../qml/components/ChatScrollView.qml:90
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
 msgid "Remove"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:248
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:248
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:316
+#: ../qml/components/ChatScrollView.qml:317
 msgid "Download: "
 msgstr ""
 
@@ -978,19 +978,19 @@ msgstr ""
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:218
+#: ../qml/pages/ChatPage.qml:219
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:218
+#: ../qml/pages/ChatPage.qml:219
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:226
+#: ../qml/pages/ChatPage.qml:227
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:257
+#: ../qml/pages/ChatPage.qml:258
 msgid "Type something ..."
 msgstr ""
 
@@ -1386,15 +1386,15 @@ msgstr ""
 msgid "No connection to "
 msgstr ""
 
-#: ../qml/scripts/ChatEventActions.js:67
+#: ../qml/scripts/ChatEventActions.js:25
 msgid "Add to sticker collection?"
 msgstr ""
 
-#: ../qml/scripts/ChatEventActions.js:74
+#: ../qml/scripts/ChatEventActions.js:32
 msgid "Already added as sticker"
 msgstr ""
 
-#: ../qml/scripts/ChatEventActions.js:75
+#: ../qml/scripts/ChatEventActions.js:33
 msgid "Added as sticker"
 msgstr ""
 

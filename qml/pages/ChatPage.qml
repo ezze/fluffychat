@@ -189,6 +189,7 @@ Page {
 
     ChatScrollView {
         id: chatScrollView
+        onContentYChanged: if ( atYBeginning ) ChatPageActions.requestHistory ()
     }
 
     StickerInput {

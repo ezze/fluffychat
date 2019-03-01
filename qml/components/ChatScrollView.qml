@@ -7,6 +7,7 @@ import "../components"
 import "../scripts/EventDescription.js" as EventDescription
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/ChatEventActions.js" as ItemActions
+import "../scripts/MessageFormats.js" as MessageFormats
 
 ListView {
 
@@ -440,7 +441,6 @@ ListView {
     }
 
     model: ListModel { id: model }
-    onContentYChanged: if ( atYBeginning ) ItemActions.requestHistory ()
     move: Transition {
         NumberAnimation { property: "opacity"; to:1; duration: 1 }
     }
