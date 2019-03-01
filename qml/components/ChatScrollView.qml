@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import QtGraphicalEffects 1.0
+import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/EventDescription.js" as EventDescription
 import "../scripts/MatrixNames.js" as MatrixNames
@@ -29,6 +30,8 @@ ListView {
         property string senderDisplayname: activeChatMembers[event.sender].displayname!==undefined ? activeChatMembers[event.sender].displayname : MatrixNames.transformFromId(event.sender)
         property var bgcolor: ItemActions.calcBubbleBackground ( isStateEvent, sent, event.status )
         property var lastEvent: index > 0 ? chatScrollView.model.get(index-1).event : null
+        property var fontColor: (!sent || isStateEvent) ? mainLayout.mainFontColor :
+        (event.status < msg_status.SEEN ? mainLayout.mainColor : "white")
         property bool sameSender: lastEvent !== null ? lastEvent.sender === event.sender : false
 
         divider.visible: false
@@ -336,8 +339,7 @@ ListView {
                         text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( event.origin_server_ts ) :
                         (event.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
                         event.content_body || event.content.body)
-                        color: (!sent || isStateEvent) ? (mainLayout.darkmode ? "white" : "black") :
-                        (event.status < msg_status.SEEN ? mainLayout.mainColor : "white")
+                        color: fontColor
                         linkColor: mainLayout.brightMainColor
                         Behavior on color {
                             ColorAnimation { from: mainLayout.mainColor; duration: 300 }
@@ -394,7 +396,7 @@ ListView {
                                 : "")
                                 + MatrixNames.getChatTime ( event.origin_server_ts )
                             }
-                            color: messageLabel.color
+                            color: fontColor
                             textSize: Label.XxSmall
                             visible: !isStateEvent
                             wrapMode: Text.NoWrap
