@@ -115,7 +115,6 @@ function sendTypingNotification ( typing ) {
 }
 
 function init () {
-    var timecount = new Date().getTime()
     // Get infos about the chat
     var res = storage.query ( "SELECT draft, topic, membership, unread, fully_read, notification_count, power_events_default, power_redact FROM Chats WHERE id=?", [ activeChat ])
     if ( res.rows.length === 0 ) return
@@ -214,7 +213,6 @@ function init () {
 
         contentHub.shareObject = null
     }
-    console.log("[ChatPage performance] ", new Date().getTime() - timecount )
 }
 
 function destruction () {
