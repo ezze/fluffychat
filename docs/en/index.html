@@ -12,9 +12,17 @@
     languages.push("es");
     
     var splittedUrl = document.documentURI.split("/");
-    var currentLanguage = splittedUrl[splittedUrl.length-2];
+    var currentLanguage = splittedUrl[splittedUrl.length-1];
+    if ( window.location.href.endsWith (".html") ) {
+        currentLanguage = splittedUrl[splittedUrl.length-2];
+    }
     if ( languages.indexOf(splittedUrl[splittedUrl.length-2]) === -1 && languages.indexOf(navigator.language) !== -1 ) {
-        window.location.href += navigator.language;
+        if ( window.location.href.endsWith (".html") ) {
+            splittedUrl[splittedUrl.length] = splittedUrl[splittedUrl.length-1];
+            splittedUrl[splittedUrl.length-2] = navigator.language;
+            window.location.href = splittedUrl.join("/")
+        }
+        else window.location.href += navigator.language;
     }
     </script>
     <!-- Basic Page Needs
@@ -185,7 +193,27 @@
 
 <div class="spacer"> </div>
 
+<div class="container">
+
 <div id="footer">
+    Languages available: (
+    
+    
+    
+    
+    <a href="../en">en</a>
+    
+    
+    
+    <a href="../de">de</a>
+    
+    
+    
+    <a href="../es">es</a>
+    
+    
+    )
+    <br/>
     <a href="https://github.com/ChristianPauly/fluffychat/blob/master/LICENSE" target="new">GNU General Public License</a> -
     <a href="https://github.com/ChristianPauly/fluffychat/blob/master/CHANGELOG.md" target="new">Changelog</a> -
     <a href="https://hosted.weblate.org/projects/fluffychat/" target="new">Help with translations</a> -
@@ -194,6 +222,8 @@
     <a href="https://github.com/ChristianPauly/fluffychat/graphs/contributors" target="new">Contributors</a> -
     <a href="https://github.com/ChristianPauly/fluffychat#special-thanks-to" target="new">Special thanks to</a> -
     <a href="https://ubports.com" target="new">UBports</a>
+</div>
+
 </div>
 
 </body>
