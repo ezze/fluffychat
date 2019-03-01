@@ -54,4 +54,4 @@ function switchToCorrectLanguage () {
 }
 
 
-switchToCorrectLanguage ()
+//switchToCorrectLanguage ()
