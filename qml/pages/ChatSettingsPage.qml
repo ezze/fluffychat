@@ -52,14 +52,16 @@ Page {
         hasAvatar = (res.rows[0].avatar_url !== "" && res.rows[0].avatar_url !== null)
 
         var membershipResult = storage.query ( "SELECT * FROM Memberships WHERE chat_id=? AND matrix_id=?", [ activeChat, matrix.matrixid ] )
-        membership = membershipResult.rows[0].membership
-        power = membershipResult.rows[0].power_level
-        canChangeName = power >= res.rows[0].power_event_name
-        canKick = power >= res.rows[0].power_kick
-        canBan = power >= res.rows[0].power_ban
-        canInvite = power >= res.rows[0].power_invite
-        canChangeAvatar = power >= res.rows[0].power_event_avatar
-        canChangePermissions = power >= res.rows[0].power_event_power_levels
+        if ( membershipResult.rows.length > 0 ) {
+            membership = membershipResult.rows[0].membership
+            power = membershipResult.rows[0].power_level
+            canChangeName = power >= res.rows[0].power_event_name
+            canKick = power >= res.rows[0].power_kick
+            canBan = power >= res.rows[0].power_ban
+            canInvite = power >= res.rows[0].power_invite
+            canChangeAvatar = power >= res.rows[0].power_event_avatar
+            canChangePermissions = power >= res.rows[0].power_event_power_levels
+        }
 
         // Request the full memberlist, from the database AND from the server (lazy loading)
         model.clear()

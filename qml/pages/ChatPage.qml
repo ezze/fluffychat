@@ -46,27 +46,32 @@ Page {
         id: header
         title: (activeChatDisplayName || i18n.tr("Unknown chat"))
 
-        contents: Column {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
+        contents: Rectangle {
+            anchors.fill: parent
+            color: "transparent"
+            Column {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
 
-            Label {
-                id: titleLabel
-                text: header.title
-                color: mainLayout.mainFontColor
-                textSize: Label.Large
-                Transition {
-                    NumberAnimation { properties: "anchors.topMargin"; duration: 1000 }
+                Label {
+                    id: titleLabel
+                    text: header.title
+                    color: mainLayout.mainFontColor
+                    textSize: Label.Large
+                    width: parent.width
+                    Transition {
+                        NumberAnimation { properties: "anchors.topMargin"; duration: 1000 }
+                    }
                 }
-            }
 
-            Label {
-                id: typingLabel
-                visible: activeChatTypingUsers.length > 0
-                height: visible ? units.gu(2) : 0
-                text: (activeChatTypingUsers.length > 0 ? MatrixNames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
-                color: mainLayout.mainFontColor
+                Label {
+                    id: typingLabel
+                    visible: activeChatTypingUsers.length > 0
+                    height: visible ? units.gu(2) : 0
+                    text: (activeChatTypingUsers.length > 0 ? MatrixNames.getTypingDisplayString( activeChatTypingUsers, activeChatDisplayName ) : "")
+                    color: mainLayout.mainFontColor
+                }
             }
         }
 

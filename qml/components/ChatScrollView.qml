@@ -21,19 +21,21 @@ ListView {
     delegate: ListItem {
         id: message
 
-        property bool isStateEvent: event.type !== "m.room.message" && event.type !== "m.room.encrypted" && event.type !== "m.sticker"
-        property bool isMediaEvent: isImage || [ "m.file", "m.video", "m.audio" ].indexOf( event.content.msgtype ) !== -1
-        property bool isImage: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
+        property var eventModel: event || {}
+
+        property bool isStateEvent: eventModel.type !== "m.room.message" && eventModel.type !== "m.room.encrypted" && eventModel.type !== "m.sticker"
+        property bool isMediaEvent: isImage || [ "m.file", "m.video", "m.audio" ].indexOf( eventModel.content.msgtype ) !== -1
+        property bool isImage: !isStateEvent && (eventModel.content.msgtype === "m.image" || eventModel.type === "m.sticker")
         property bool imageVisible: image.showGif || image.showThumbnail ? true : false
-        property bool sent: event.sender.toLowerCase() === matrix.matrixid.toLowerCase()
+        property bool sent: eventModel.sender.toLowerCase() === matrix.matrixid.toLowerCase()
         property bool isLeftSideEvent: !sent || isStateEvent
-        property bool sending: sent && event.status === msg_status.SENDING
-        property string senderDisplayname: activeChatMembers[event.sender].displayname!==undefined ? activeChatMembers[event.sender].displayname : MatrixNames.transformFromId(event.sender)
-        property var bgcolor: ItemActions.calcBubbleBackground ( isStateEvent, sent, event.status )
+        property bool sending: sent && eventModel.status === msg_status.SENDING
+        property string senderDisplayname: typeof activeChatMembers[eventModel.sender] !== "undefined" ? activeChatMembers[eventModel.sender].displayname : MatrixNames.transformFromId(eventModel.sender)
+        property var bgcolor: ItemActions.calcBubbleBackground ( isStateEvent, sent, eventModel.status )
         property var lastEvent: index > 0 ? chatScrollView.model.get(index-1).event : null
         property var fontColor: (!sent || isStateEvent) ? mainLayout.mainFontColor :
-        (event.status < msg_status.SEEN ? mainLayout.mainColor : "white")
-        property bool sameSender: lastEvent !== null ? lastEvent.sender === event.sender : false
+        (eventModel.status < msg_status.SEEN ? mainLayout.mainColor : "white")
+        property bool sameSender: lastEvent !== null ? lastEvent.sender === eventModel.sender : false
 
         divider.visible: false
         highlightColor: "#00000000"
@@ -53,25 +55,25 @@ ListView {
             Action {
                 text: i18n.tr("Try to send again")
                 iconName: "send"
-                visible: event.status === msg_status.ERROR
+                visible: eventModel.status === msg_status.ERROR
                 onTriggered: ItemActions.resendMessage ( event )
             },
             Action {
                 text: i18n.tr("Reply")
                 iconName: "mail-reply"
-                visible: !isStateEvent && event.status >= msg_status.SENT && canSendMessages
+                visible: !isStateEvent && eventModel.status >= msg_status.SENT && canSendMessages
                 onTriggered: ItemActions.startReply ( event )
             },
             Action {
                 text: i18n.tr("Copy text")
                 iconName: "edit-copy"
-                visible: !isStateEvent && event.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( event.content.msgtype ) === -1
-                onTriggered: contentHub.toClipboard ( event.content.body )
+                visible: !isStateEvent && eventModel.type === "m.room.message" && [ "m.file", "m.image", "m.video", "m.audio" ].indexOf( eventModel.content.msgtype ) === -1
+                onTriggered: contentHub.toClipboard ( eventModel.content.body )
             },
             Action {
                 text: i18n.tr("Add to sticker collection")
                 iconName: "add"
-                visible: event.type === "m.sticker" || event.content.type === "m.image"
+                visible: eventModel.type === "m.sticker" || eventModel.content.type === "m.image"
                 onTriggered: ItemActions.addAsSticker ( event )
             },
             Action {
@@ -89,7 +91,7 @@ ListView {
             Action {
                 text: i18n.tr("Remove")
                 iconName: "edit-delete"
-                enabled: ((canRedact || sent) && event.status >= msg_status.SENT || event.status === msg_status.ERROR)
+                enabled: ((canRedact || sent) && eventModel.status >= msg_status.SENT || eventModel.status === msg_status.ERROR)
                 onTriggered: ItemActions.removeEvent ( event )
             }
             ]
@@ -121,11 +123,11 @@ ListView {
             active: !sameSender && !isStateEvent
             sourceComponent: Avatar {
                 id: avatarInstance
-                mxc: opacity ? activeChatMembers[event.sender].avatar_url : ""
+                mxc: opacity && typeof activeChatMembers[eventModel.sender] !== "undefined" ? activeChatMembers[eventModel.sender].avatar_url : ""
                 name: senderDisplayname
                 opacity: (sameSender || isStateEvent) ? 0 : 1
                 onClickFunction: function () {
-                    if ( opacity ) MatrixNames.showUserSettings ( event.sender )
+                    if ( opacity ) MatrixNames.showUserSettings ( eventModel.sender )
                 }
             }
         }
@@ -183,9 +185,9 @@ ListView {
                 * http://yuml.me/diagram/plain/activity/(start)-><a>[Gif-Image && autload active]->(Show full MXC), <a>[else]-><b>[Thumbnail exists]->(Show thumbnail), <b>[Thumbnail is null]->(Show "Show Image"-Button)               */
                 Loader {
                     id: image
-                    active: !isStateEvent && (event.content.msgtype === "m.image" || event.type === "m.sticker")
-                    property bool hasThumbnail: active && event.content.info && event.content.info.thumbnail_url
-                    property bool isGif: active && event.content.info && event.content.info.mimetype && event.content.info.mimetype === "image/gif"
+                    active: !isStateEvent && (eventModel.content.msgtype === "m.image" || eventModel.type === "m.sticker")
+                    property bool hasThumbnail: active && eventModel.content.info && eventModel.content.info.thumbnail_url
+                    property bool isGif: active && eventModel.content.info && eventModel.content.info.mimetype && eventModel.content.info.mimetype === "image/gif"
                     property bool showGif: isGif && matrix.autoloadGifs
                     property bool showThumbnail: visible && !showGif && (hasThumbnail || matrix.autoloadGifs)
                     property bool showButton: visible && !showGif && !showThumbnail
@@ -198,13 +200,13 @@ ListView {
 
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: imageViewer.show ( event.content.url )
+                            onClicked: imageViewer.show ( eventModel.content.url )
                         }
 
                         Image {
                             id: thumbnail
-                            source: visible ? (image.hasThumbnail ? MatrixNames.getThumbnailLinkFromMxc ( event.content.info.thumbnail_url, Math.round (height), Math.round (height) ) :
-                            MatrixNames.getLinkFromMxc ( event.content.url )) : ""
+                            source: visible ? (image.hasThumbnail ? MatrixNames.getThumbnailLinkFromMxc ( eventModel.content.info.thumbnail_url, Math.round (height), Math.round (height) ) :
+                            MatrixNames.getLinkFromMxc ( eventModel.content.url )) : ""
                             property var onlyOneError: true
                             height: parent.height
                             width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
@@ -220,7 +222,7 @@ ListView {
 
                         AnimatedImage {
                             id: gif
-                            source: image.showGif ? MatrixNames.getLinkFromMxc ( event.content.url ) : ""
+                            source: image.showGif ? MatrixNames.getLinkFromMxc ( eventModel.content.url ) : ""
                             height: parent.height
                             width: Math.min ( height * ( sourceSize.width / sourceSize.height ), message.width - units.gu(3) - avatar.width)
                             fillMode: Image.PreserveAspectCrop
@@ -261,7 +263,7 @@ ListView {
 
                 //  ====================AUDIO MESSAGE====================
                 Loader {
-                    active: event.content.msgtype === "m.audio"
+                    active: eventModel.content.msgtype === "m.audio"
                     sourceComponent: Row {
                         id: audioPlayer
                         anchors.left: parent.left
@@ -284,7 +286,7 @@ ListView {
                             anchors.verticalCenter: parent.verticalCenter
                             color: "white"
                             iconName: "media-playback-stop"
-                            opacity: audio.source === MatrixNames.getLinkFromMxc ( event.content.url ) && audio.position === 0 ? 0.75 : 1
+                            opacity: audio.source === MatrixNames.getLinkFromMxc ( eventModel.content.url ) && audio.position === 0 ? 0.75 : 1
                             onClicked: {
                                 audio.stop ()
                                 playButton.playing = false
@@ -297,8 +299,8 @@ ListView {
                             color: "white"
                             iconName: "document-save-as"
                             onClicked: {
-                                downloadDialog.filename = event.content_body
-                                downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
+                                downloadDialog.filename = eventModel.content_body
+                                downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( eventModel.content.url )
                                 downloadDialog.shareFunc = contentHub.shareAudio
                                 downloadDialog.current = PopupUtils.open(downloadDialog)
                             }
@@ -310,15 +312,15 @@ ListView {
 
                 //  ====================FILE MESSAGE====================
                 Loader {
-                    active: event.content.msgtype === "m.file" || event.content.msgtype === "m.video"
+                    active: eventModel.content.msgtype === "m.file" || eventModel.content.msgtype === "m.video"
                     sourceComponent: Button {
                         id: downloadButton
                         color: mainLayout.brightMainColor
-                        text: i18n.tr("Download: ") + event.content.body
+                        text: i18n.tr("Download: ") + eventModel.content.body
                         onClicked: {
-                            downloadDialog.filename = event.content_body
+                            downloadDialog.filename = eventModel.content_body
                             downloadDialog.shareFunc = contentHub.shareAll
-                            downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( event.content.url )
+                            downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( eventModel.content.url )
                             downloadDialog.current = PopupUtils.open(downloadDialog)
                         }
                         height: visible ? units.gu(4) : 0
@@ -337,9 +339,9 @@ ListView {
                     active: !isMediaEvent
                     sourceComponent: Label {
                         id: messageLabel
-                        text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( event.origin_server_ts ) :
-                        (event.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
-                        event.content_body || event.content.body)
+                        text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( eventModel.origin_server_ts ) :
+                        (eventModel.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
+                        eventModel.content_body || eventModel.content.body)
                         color: fontColor
                         linkColor: mainLayout.brightMainColor
                         Behavior on color {
@@ -348,10 +350,10 @@ ListView {
                         wrapMode: Text.Wrap
                         textFormat: Text.StyledText
                         textSize: isStateEvent ? Label.XSmall :
-                        (event.content.msgtype === "m.fluffychat.whisper" ? Label.XxSmall :
-                        (event.content.msgtype === "m.fluffychat.roar" ? Label.XLarge : Label.Medium))
+                        (eventModel.content.msgtype === "m.fluffychat.whisper" ? Label.XxSmall :
+                        (eventModel.content.msgtype === "m.fluffychat.roar" ? Label.XLarge : Label.Medium))
 
-                        font.italic: event.content.msgtype === "m.emote"
+                        font.italic: eventModel.content.msgtype === "m.emote"
                         anchors.left: parent.left
                         anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)
                         anchors.leftMargin: units.gu(1)
@@ -361,11 +363,11 @@ ListView {
                         // make sure, that the label text is not empty for the correct
                         // height calculation.
                         Component.onCompleted: {
-                            if ( !event.content_body ) event.content_body = event.content.body
+                            if ( !eventModel.content_body ) eventModel.content_body = eventModel.content.body
                             var maxWidth = message.width - avatar.width - units.gu(5)
                             if ( width > maxWidth ) width = maxWidth
                             if ( text === "" ) text = " "
-                            if ( event.content.msgtype === "m.emote" ) text = senderDisplayname + " " + text
+                            if ( eventModel.content.msgtype === "m.emote" ) text = senderDisplayname + " " + text
                         }
                     }
                 }
@@ -392,10 +394,10 @@ ListView {
                             id: metaLabel
                             text: {
                                 // Show the senders displayname only if its not the user him-/herself.
-                                ((event.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
+                                ((eventModel.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
                                 ("<font color='" + MatrixNames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
                                 : "")
-                                + MatrixNames.getChatTime ( event.origin_server_ts )
+                                + MatrixNames.getChatTime ( eventModel.origin_server_ts )
                             }
                             color: fontColor
                             textSize: Label.XxSmall
@@ -422,16 +424,16 @@ ListView {
                         // When the message is received, there should be an icon
                         Icon {
                             id: statusIcon
-                            visible: !isStateEvent && sent && event.status !== msg_status.SENDING
+                            visible: !isStateEvent && sent && eventModel.status !== msg_status.SENDING
                             source: "../../assets/" +
-                            (event.status === msg_status.SEEN ? "seen" :
-                            (event.status === msg_status.RECEIVED ? "received" :
-                            (event.status === msg_status.ERROR ? "error" :
-                            (event.status === msg_status.HISTORY ? "received" : "send"))))
+                            (eventModel.status === msg_status.SEEN ? "seen" :
+                            (eventModel.status === msg_status.RECEIVED ? "received" :
+                            (eventModel.status === msg_status.ERROR ? "error" :
+                            (eventModel.status === msg_status.HISTORY ? "received" : "send"))))
                             + ".svg"
                             height: metaLabel.height
-                            color: event.status === msg_status.SENT ? messageBubble.color :
-                            (event.status === msg_status.ERROR ? UbuntuColors.red : metaLabel.color)
+                            color: eventModel.status === msg_status.SENT ? messageBubble.color :
+                            (eventModel.status === msg_status.ERROR ? UbuntuColors.red : metaLabel.color)
                             width: height
                         }
                     }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-04 11:29+0000\n"
+"POT-Creation-Date: 2019-03-04 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -264,7 +264,7 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:186
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
-#: ../qml/pages/ChatSettingsPage.qml:255
+#: ../qml/pages/ChatSettingsPage.qml:257
 msgid "Notifications"
 msgstr ""
 
@@ -398,31 +398,31 @@ msgstr ""
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:100
+#: ../qml/pages/ChatPage.qml:104
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:125
+#: ../qml/pages/ChatPage.qml:129
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:148
+#: ../qml/pages/ChatPage.qml:152
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:219
+#: ../qml/pages/ChatPage.qml:223
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:219
+#: ../qml/pages/ChatPage.qml:223
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:227
+#: ../qml/pages/ChatPage.qml:231
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:258
+#: ../qml/pages/ChatPage.qml:262
 msgid "Type something ..."
 msgstr ""
 
@@ -435,7 +435,7 @@ msgid "No phone numbers connected"
 msgstr ""
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
-#: ../qml/pages/ChatSettingsPage.qml:261
+#: ../qml/pages/ChatSettingsPage.qml:263
 msgid "Advanced settings"
 msgstr ""
 
@@ -583,75 +583,75 @@ msgstr ""
 msgid "No chats found"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:125
+#: ../qml/pages/ChatSettingsPage.qml:127
 msgid "Member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:126
+#: ../qml/pages/ChatSettingsPage.qml:128
 msgid "Was invited"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:127
+#: ../qml/pages/ChatSettingsPage.qml:129
 msgid "Has left the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:128
+#: ../qml/pages/ChatSettingsPage.qml:130
 msgid "Has knocked"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:129
+#: ../qml/pages/ChatSettingsPage.qml:131
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:130
+#: ../qml/pages/ChatSettingsPage.qml:132
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:155
+#: ../qml/pages/ChatSettingsPage.qml:157
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:220
+#: ../qml/pages/ChatSettingsPage.qml:222
 msgid "Description:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:228
+#: ../qml/pages/ChatSettingsPage.qml:230
 msgid "No chat description found..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:283
+#: ../qml/pages/ChatSettingsPage.qml:285
 msgid "Users in this chat (%1):"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:283
+#: ../qml/pages/ChatSettingsPage.qml:285
 msgid "Press button to reload users..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:307
+#: ../qml/pages/ChatSettingsPage.qml:309
 msgid "Search..."
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:327
+#: ../qml/pages/ChatSettingsPage.qml:329
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:335
+#: ../qml/pages/ChatSettingsPage.qml:337
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:359
+#: ../qml/pages/ChatSettingsPage.qml:361
 msgid "Appoint to a member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:363
+#: ../qml/pages/ChatSettingsPage.qml:365
 msgid "Appoint to a Moderator"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:368
+#: ../qml/pages/ChatSettingsPage.qml:370
 msgid "Appoint to an Admin"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:373
+#: ../qml/pages/ChatSettingsPage.qml:375
 msgid "Appoint to Owner"
 msgstr ""
 
@@ -716,7 +716,7 @@ msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..
 msgstr ""
 
 #: ../qml/components/MemberListItem.qml:47
-#: ../qml/components/ChatScrollView.qml:48
+#: ../qml/components/ChatScrollView.qml:50
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
@@ -869,7 +869,7 @@ msgstr ""
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
-#: ../qml/components/ChatScrollView.qml:90
+#: ../qml/components/ChatScrollView.qml:92
 msgid "Remove"
 msgstr ""
 
@@ -970,35 +970,35 @@ msgstr ""
 msgid "Last active: %1"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:54
+#: ../qml/components/ChatScrollView.qml:56
 msgid "Try to send again"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:60
+#: ../qml/components/ChatScrollView.qml:62
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:66
+#: ../qml/components/ChatScrollView.qml:68
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:72
+#: ../qml/components/ChatScrollView.qml:74
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:78
+#: ../qml/components/ChatScrollView.qml:80
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:251
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:251
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:317
+#: ../qml/components/ChatScrollView.qml:319
 msgid "Download: "
 msgstr ""
 
