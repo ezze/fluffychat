@@ -114,6 +114,8 @@ Item {
 
     signal reseted ()
 
+    signal showConsentUrl ( var url )
+
     /* The newEvent signal is the most importent signal in this concept. Every time
     * the app receives a new synchronization, this event is called for every signal
     * to update the GUI. For example, for a new message, it is called:
@@ -385,21 +387,25 @@ Item {
 
                 }
                 catch ( error ) {
-                    if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("❌[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
+                    // First unify the error schema and log the error
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
+                    if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("❌[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
+
+                    // Is the errcode something we can handle?
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
-                    if ( !error_callback && error.error === "CONNERROR" ) {
+                    else if ( !error_callback && error.error === "CONNERROR" ) {
                         error (i18n.tr("😕 No connection..."))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
                         if ( "consent_uri" in error ) {
-                            var item = Qt.createComponent("../components/ConsentViewer.qml")
-                            item.createObject( root, { consentUrl: error.consent_uri })
+                            showConsentUrl ( error.consent_uri )
                         }
                         else error ( error.error )
                     }
+
+                    // Error callback or error signal?
                     else if ( error_callback ) error_callback ( error )
-                    else if ( error.errcode !== undefined && error.error !== undefined && priority > _PRIORITY.LOW ) error ( error.error )
+                    else if ( error.errcode !== undefined && error.error !== undefined && priority > _PRIORITY.LOW ) matrix.error ( error.error )
                 }
             }
         }
@@ -674,7 +680,7 @@ function validateEvent ( event, type ) {
 
     // Handle timeline events
     for ( var item in mask.roomEvent ) {
-        if ( typeof event[item] !== mask.roomEvent[item] ) return false
+        if ( typeof event[item] !== mask["roomEvent"][item] ) return false
 
         if ( item === "content" ) {
             if ( typeof mask[event.type] === "object" ) {

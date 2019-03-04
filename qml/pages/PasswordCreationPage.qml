@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
-import "../scripts/PasswordCreationPageActions.js" as PageStack
+import "../scripts/PasswordCreationPageActions.js" as PageActions
 
 Page {
     id: passwordCreationPage
@@ -13,9 +13,6 @@ Page {
 
     property var sid: null
     property var client_secret: null
-
-
-    EnterFirstSMSTokenDialog { id: enterSMSToken }
 
 
     header: PageHeader {

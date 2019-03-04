@@ -11,9 +11,7 @@ var linebreakRegex = /[\r\n]+/gm
 
 function formatText ( tempText ) {
     // HTML characters
-    tempText = tempText.split("&").join("&amp;")
-    .split('"').join("&quot;")
-    .split("<").join("&lt;")
+    tempText = tempText.split("<").join("&lt;")
     .split(">").join("&gt;")
 
     // Format markdown links
@@ -48,6 +46,8 @@ function formatText ( tempText ) {
 
     // Set the newline tags correct
     tempText = tempText.replace(linebreakRegex,"<br>")
+
+    tempText = tempText.split("&").join("&amp;")
 
     return tempText
 }

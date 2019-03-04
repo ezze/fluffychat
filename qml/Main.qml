@@ -79,6 +79,9 @@ MainView {
     Audio { id: audio }
     ConfirmDialog { id: confirmDialog }
     UserSettingsDialog { id: userSettingsDialog }
+    property var firstSMSSid: null
+    property var firstSMSClientSecret: null
+    EnterFirstSMSTokenDialog { id: enterFirstSMSToken }
     DownloadDialog {
         id: downloadDialog
         property var current: null
@@ -118,6 +121,12 @@ MainView {
         id: matrix
         onError: toast.show ( error )
         onReseted: mainLayout.init ()
+        onShowConsentUrl: {
+            var openUrlFunction = function () {
+                Qt.openUrlExternally ( url )
+            }
+            showConfirmDialog ( i18n.tr("You must agree to the privacy policy"), openUrlFunction )
+        }
     }
     PushModel {
         id: pushClient

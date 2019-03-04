@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-04 12:47+0000\n"
+"POT-Creation-Date: 2019-03-04 14:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:102 ../qml/scripts/ChatEventActions.js:50
+#: ../qml/Main.qml:105 ../qml/scripts/ChatEventActions.js:50
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/Main.qml:130
+#: ../qml/Main.qml:128
+msgid "You must agree to the privacy policy"
+msgstr ""
+
+#: ../qml/Main.qml:139
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -86,22 +90,22 @@ msgstr ""
 msgid "No email addresses connected"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:22
+#: ../qml/pages/PasswordCreationPage.qml:19
 msgid "Please set a password"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:52
+#: ../qml/pages/PasswordCreationPage.qml:49
 msgid ""
 "Please set a strong password. To reset your password, you will need to "
 "provide an e-mail address later"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:68
+#: ../qml/pages/PasswordCreationPage.qml:65
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:89 ../qml/pages/LoginPage.qml:179
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:179
 msgid "Sign up"
 msgstr ""
 
@@ -691,20 +695,20 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:270
+#: ../qml/models/MatrixModel.qml:272
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:58
-#: ../qml/scripts/LoginPageActions.js:100
+#: ../qml/models/MatrixModel.qml:397 ../qml/scripts/LoginPageActions.js:58
+#: ../qml/scripts/LoginPageActions.js:99
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:499
+#: ../qml/models/MatrixModel.qml:505
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:548
+#: ../qml/models/MatrixModel.qml:554
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -801,10 +805,6 @@ msgstr ""
 #: ../qml/components/ChangeChatAvatarDialog.qml:65
 #: ../qml/components/ChangeChatnameDialog.qml:59
 msgid "Close"
-msgstr ""
-
-#: ../qml/components/ConsentViewer.qml:24
-msgid "Consent not given"
 msgstr ""
 
 #: ../qml/components/TargetInfoDialog.qml:11
@@ -1177,21 +1177,21 @@ msgstr ""
 msgid "Empty chat"
 msgstr ""
 
-#: ../qml/scripts/PasswordCreationPageActions.js:29
+#: ../qml/scripts/PasswordCreationPageActions.js:28
 msgid "Username already taken"
 msgstr ""
 
-#: ../qml/scripts/PasswordCreationPageActions.js:30
+#: ../qml/scripts/PasswordCreationPageActions.js:29
 msgid "The desired user ID is not a valid user name"
 msgstr ""
 
-#: ../qml/scripts/PasswordCreationPageActions.js:31
+#: ../qml/scripts/PasswordCreationPageActions.js:30
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
 
-#: ../qml/scripts/PasswordCreationPageActions.js:32
+#: ../qml/scripts/PasswordCreationPageActions.js:31
 msgid "Registration on %1 failed..."
 msgstr ""
 
@@ -1398,6 +1398,6 @@ msgstr ""
 msgid "Username '%1' not found on %2"
 msgstr ""
 
-#: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
+#: ../qml/scripts/LoginPageActions.js:96 ../qml/scripts/LoginPageActions.js:98
 msgid "Username is already taken"
 msgstr ""
