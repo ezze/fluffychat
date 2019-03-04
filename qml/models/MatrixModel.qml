@@ -625,18 +625,20 @@ function handlePresences ( presences, newEventCB ) {
 // Handle ephemerals (message receipts)
 function handleEphemeral ( id, events, newEventCB ) {
     for ( var i = 0; i < events.length; i++ ) {
-        if ( !(typeof events[i].type === "string" && typeof events[i].content === "object" && events[i].type === "m.receipt") ) continue
-        for ( var e in events[i].content ) {
-            if ( !(typeof events[i].content[e] === "object" && typeof events[i].content[e]["m.read"] === "object") ) continue
-            for ( var user in events[i].content[e]["m.read"]) {
-                if ( !(typeof events[i].content[e]["m.read"][user] === "object" && typeof events[i].content[e]["m.read"][user].ts === "number") ) continue
-                var timestamp = events[i].content[e]["m.read"][user].ts
+        if ( !(typeof events[i].type === "string" && typeof events[i].content === "object") ) continue
+        if ( events[i].type === "m.receipt" ) {
+            for ( var e in events[i].content ) {
+                if ( !(typeof events[i].content[e] === "object" && typeof events[i].content[e]["m.read"] === "object") ) continue
+                for ( var user in events[i].content[e]["m.read"]) {
+                    if ( !(typeof events[i].content[e]["m.read"][user] === "object" && typeof events[i].content[e]["m.read"][user].ts === "number") ) continue
+                    var timestamp = events[i].content[e]["m.read"][user].ts
 
-                // Call the newEvent signal for updating the GUI
-                newEventCB ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
+                    // Call the newEvent signal for updating the GUI
+                    newEventCB ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
+                }
             }
         }
-        if ( events[ i ].type === "m.typing" ) {
+        else if ( events[ i ].type === "m.typing" ) {
             if ( !(typeof events[i].content === "object" && typeof events[ i ].content.user_ids === "object") ) continue
             var user_ids = events[i].content.user_ids
             // If the user is typing, remove his id from the list of typing users
