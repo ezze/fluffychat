@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-04 12:05+0000\n"
+"POT-Creation-Date: 2019-03-04 12:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/Main.qml:129
+#: ../qml/Main.qml:130
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -691,20 +691,20 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:269
+#: ../qml/models/MatrixModel.qml:270
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:391 ../qml/scripts/LoginPageActions.js:58
+#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:58
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:498
+#: ../qml/models/MatrixModel.qml:499
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:546
+#: ../qml/models/MatrixModel.qml:547
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1195,11 +1195,11 @@ msgstr ""
 msgid "Registration on %1 failed..."
 msgstr ""
 
-#: ../qml/scripts/PasswordInputPageActions.js:18
+#: ../qml/scripts/PasswordInputPageActions.js:10
 msgid "Invalid username or password"
 msgstr ""
 
-#: ../qml/scripts/PasswordInputPageActions.js:21
+#: ../qml/scripts/PasswordInputPageActions.js:13
 msgid "No connection to "
 msgstr ""
 

@@ -2,7 +2,7 @@
 // Description: Actions for ChatListPage.qml
 
 function loadFromDatabase () {
-
+    model.clear ()
     // On the top are the rooms, which the user is invited to
     var res = storage.query ("SELECT rooms.id, rooms.topic, rooms.membership, rooms.notification_count, rooms.highlight_count, rooms.avatar_url, rooms.unread, " +
     " events.id AS eventsid, ifnull(events.origin_server_ts, DateTime('now')) AS origin_server_ts, events.content_body, events.sender, events.state_key, events.content_json, events.type " +

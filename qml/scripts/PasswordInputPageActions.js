@@ -4,14 +4,6 @@
 function login () {
     signInButton.enabled = false
 
-    // If the login is successfull
-    var success_callback = function ( response ) {
-        signInButton.enabled = true
-        // Go to the ChatListPage
-        mainLayout.init()
-    }
-
-    // If error
     var error_callback = function ( error ) {
         signInButton.enabled = true
         if ( error.errcode == "M_FORBIDDEN" ) {
@@ -23,5 +15,5 @@ function login () {
     }
 
     // Start the request
-    matrix.login ( matrix.username, passwordInput.text, matrix.server, "UbuntuPhone", success_callback, error_callback )
+    matrix.login ( matrix.username, passwordInput.text, matrix.server, "UbuntuPhone", null, error_callback )
 }

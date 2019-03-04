@@ -434,7 +434,6 @@ Item {
             var newMembership = syncTX.executeSql( "INSERT OR IGNORE INTO Memberships VALUES(?,?,?,?,?,0)", [
             chat_id, state_key, insertDisplayname, insertAvatarUrl, membership
             ] )
-            console.log("Saved membership:", JSON.stringify(newMembership), JSON.stringify(eventContent))
             if ( newMembership.rowsAffected === 0 ) {
                 var queryStr = "UPDATE Memberships SET membership=?"
                 var queryArgs = [ membership ]

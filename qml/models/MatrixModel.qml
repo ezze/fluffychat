@@ -112,6 +112,8 @@ Item {
     // This should be shown in the GUI for example as a toast
     signal error ( var error )
 
+    signal reseted ()
+
     /* The newEvent signal is the most importent signal in this concept. Every time
     * the app receives a new synchronization, this event is called for every signal
     * to update the GUI. For example, for a new message, it is called:
@@ -233,7 +235,6 @@ Item {
 
     function reset () {
         resetSettings ()
-        mainLayout.init ()
     }
 
 
@@ -491,7 +492,7 @@ function sync ( timeout ) {
     }, function ( error ) {
         if ( !abortSync && matrix.token !== undefined ) {
             if ( error.errcode === "M_INVALID" ) {
-                mainLayout.init ()
+                reset ()
             }
             else {
                 if ( online ) restartSync ()

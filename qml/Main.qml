@@ -117,6 +117,7 @@ MainView {
     MatrixModel {
         id: matrix
         onError: toast.show ( error )
+        onReseted: mainLayout.init ()
     }
     PushModel {
         id: pushClient
