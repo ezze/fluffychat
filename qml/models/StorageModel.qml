@@ -19,7 +19,7 @@ Item {
 
     id: storage
 
-    property var version: "0.3.6"
+    property var version: "0.3.7"
     property string lastVersion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -113,7 +113,6 @@ Item {
         'sender TEXT, ' +
         'state_key TEXT, ' +
         'content_body TEXT, ' +
-        'content_msgtype STRING, ' +
         'type TEXT, ' +
         'content_json TEXT, ' +
         "status INTEGER, " +
@@ -235,21 +234,16 @@ Item {
 
     function newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline, prevBatch ) {
         // Insert the chat into the database if not exists
-        var insertResult = syncTX.executeSql ("INSERT OR IGNORE INTO Chats " +
-        "VALUES('" + chat_id + "', '" + membership + "', '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ")
+        syncTX.executeSql ("INSERT OR IGNORE INTO Chats " +
+        "VALUES(?, ?, '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ", [
+        chat_id, membership
+        ] )
 
         // Update the notification counts and the limited timeline boolean
-        var updateResult = syncTX.executeSql ( "UPDATE Chats SET " +
-        " highlight_count=" + highlight_count +
-        ", notification_count=" + notification_count +
-        ", membership='" + membership +
-        "', limitedTimeline=" + limitedTimeline +
-        " WHERE id='" + chat_id + "' AND ( " +
-        " highlight_count!=" + highlight_count +
-        " OR notification_count!=" + notification_count +
-        " OR membership!='" + membership +
-        "' OR limitedTimeline!=" + limitedTimeline +
-        ") ")
+        syncTX.executeSql ( "UPDATE Chats SET highlight_count=?, notification_count=?, membership=?, limitedTimeline=? WHERE id=? ", [
+        highlight_count, notification_count, membership, limitedTimeline, chat_id
+        ] )
+
         // Is the timeline limited? Then all previous messages should be
         // removed from the database!
         if ( limitedTimeline ) {
@@ -259,47 +253,61 @@ Item {
     }
 
     function newEvent ( type, chat_id, eventType, eventContent ) {
-        console.log("mep", type, chat_id, eventType, eventContent)
         // Save timeline events in the database
         if ( eventType === "timeline" || eventType === "history" ) {
-            console.log("mep")
+
+            // calculate the status
             var status = msg_status.RECEIVED
-            if ( eventContent.status ) status = eventContent.status
+            if ( typeof eventContent.status !== "number" ) status = eventContent.status
             else if ( eventType === "history" ) status = msg_status.HISTORY
-    console.log("mep")
+
             // Format the text for the app
-            if( eventContent.content.body ) eventContent.content_body = MessageFormats.formatText ( eventContent.content.body )
+            if( typeof eventContent.content.body === "string" ) {
+                eventContent.content_body = MessageFormats.formatText ( eventContent.content.body )
+            }
             else eventContent.content_body = null
-    console.log("mep")
+
             // Make unsigned part of the content
-            if ( eventContent.content.unsigned === undefined && eventContent.unsigned !== undefined ) {
+            if ( typeof eventContent.content.unsigned === "undefined" && typeof eventContent.unsigned !== "undefined" ) {
                 eventContent.content.unsigned = eventContent.unsigned
             }
-    console.log("mep")
-            syncTX.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+
+            // Get the state_key for m.room.member events
+            var state_key = ""
+            if ( typeof eventContent.state_key === "string" ) {
+                state_key = eventContent.state_key
+            }
+
+            syncTX.executeSql ( "INSERT OR REPLACE INTO Events VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
             [ eventContent.event_id,
             chat_id,
             eventContent.origin_server_ts,
             eventContent.sender,
-            eventContent.state_key || eventContent.sender,
+            state_key,
             eventContent.content_body,
-            eventContent.content.msgtype || null,
             eventContent.type,
             JSON.stringify(eventContent.content),
             status ])
         }
-    console.log("mep")
+
+        // If this is a history event, then stop here...
         if ( eventType === "history" ) return
 
         // Handle state events
         switch ( type ) {
 
         case "m.presence":
-            var query = "UPDATE Users SET presence = '%1' ".arg( eventContent.content.presence )
-            if ( eventContent.content.currently_active !== undefined ) query += ", currently_active = %1 ".arg( eventContent.content.currently_active ? "1" : "0" )
-            if ( eventContent.content.last_active_ago !== undefined ) query += ", last_active_ago = %1 ".arg( (new Date().getTime() - eventContent.content.last_active_ago).toString() )
-            query += "WHERE matrix_id = '%1'".arg(eventContent.sender)
-            syncTX.executeSql( query )
+            if ( typeof eventContent.content.presence === "string" ) {
+                var query = "UPDATE Users SET presence = '%1' ".arg( eventContent.content.presence )
+                if ( typeof eventContent.content.currently_active !== "undefined" ) {
+                    query += ", currently_active = %1 ".arg( eventContent.content.currently_active ? "1" : "0" )
+                }
+                if ( typeof eventContent.content.last_active_ago !== "undefined" ) {
+                    query += ", last_active_ago = %1 ".arg( (new Date().getTime() - eventContent.content.last_active_ago).toString() )
+                }
+                query += "WHERE matrix_id = '%1'".arg(eventContent.sender)
+                syncTX.executeSql( query )
+            }
             break
 
         case "m.receipt":
@@ -374,6 +382,7 @@ Item {
         case "m.room.aliases":
             syncTX.executeSql( "DELETE FROM Addresses WHERE chat_id='" + chat_id + "'")
             for ( var alias = 0; alias < eventContent.content.aliases.length; alias++ ) {
+                if ( typeof eventContent.content.aliases[alias] !== "string" ) break
                 syncTX.executeSql( "INSERT INTO Addresses VALUES(?,?)",
                 [ chat_id, eventContent.content.aliases[alias] ] )
             }
@@ -384,49 +393,84 @@ Item {
             syncTX.executeSql( "UPDATE Chats SET fully_read=? WHERE id=?",
             [ eventContent.content.event_id,
             chat_id ])
+            break
             // This event means, that someone joined the room, has left the room
             // or has changed his nickname
         case "m.room.member":
+            var membership = eventContent.content.membership
+            var state_key = eventContent.state_key
+            var insertDisplayname = ""
+            var insertAvatarUrl = ""
+            if ( typeof eventContent.content.displayname === "string" ) {
+                insertDisplayname = eventContent.content.displayname
+            }
+            if ( typeof eventContent.content.avatar_url === "string" ) {
+                insertAvatarUrl = eventContent.content.avatar_url
+            }
+
             // Update user database
-            if ( eventContent.content.membership !== "leave" && eventContent.content.membership !== "ban" ) syncTX.executeSql( "INSERT OR REPLACE INTO Users VALUES(?, ?, ?, 'offline', 0, 0)",
-            [ eventContent.state_key,
-            eventContent.content.displayname || MatrixNames.transformFromId(eventContent.state_key),
-            eventContent.content.avatar_url || "" ])
+            var newUser = syncTX.executeSql( "INSERT OR IGNORE INTO Users VALUES(?,?,?, '', '', 0)", [
+            state_key, insertDisplayname, insertAvatarUrl
+            ] )
+            if ( newUser.rowsAffected === 0 ) {
+                var queryStr = "UPDATE Users SET matrix_id=?"
+                var queryArgs = [ state_key ]
 
-            var memberInsertResult = syncTX.executeSql( "INSERT OR IGNORE INTO Memberships VALUES('" + chat_id + "', '" + eventContent.state_key + "', ?, ?, ?, " +
-            "COALESCE(" +
-            "(SELECT power_level FROM Memberships WHERE chat_id='" + chat_id + "' AND matrix_id='" + eventContent.state_key + "'), " +
-            "(SELECT power_user_default FROM Chats WHERE id='" + chat_id + "')" +
-            "))",
-            [ eventContent.content.displayname || "",
-            eventContent.content.avatar_url || "",
-            eventContent.content.membership ])
+                if ( typeof eventContent.content.displayname === "" ) {
+                    queryStr += " , displayname=?"
+                    queryArgs[queryArgs.length] = eventContent.content.displayname
+                }
+                if ( typeof eventContent.content.avatar_url === "" ) {
+                    queryStr += " , avatar_url=?"
+                    queryArgs[queryArgs.length] = eventContent.content.avatar_url
+                }
 
-            if ( memberInsertResult.rowsAffected === 0 ) {
-                var queryStr = "UPDATE Memberships SET membership='" + eventContent.content.membership + "'"
-                if ( eventContent.content.displayname !== undefined ) queryStr += ", displayname='" + (eventContent.content.displayname || "") + "' "
-                if ( eventContent.content.avatar_url !== undefined ) queryStr += ", avatar_url='" + (eventContent.content.avatar_url || "") + "' "
-                queryStr += " WHERE matrix_id='" + eventContent.state_key + "' AND chat_id='" + chat_id + "'"
-                syncTX.executeSql( queryStr )
+                queryStr += " WHERE matrix_id=?"
+                queryArgs[queryArgs.length] = state_key
+                syncTX.executeSql( queryStr, queryArgs)
+            }
+
+            // Update membership table
+            var newMembership = syncTX.executeSql( "INSERT OR IGNORE INTO Memberships VALUES(?,?,?,?,?,0)", [
+            chat_id, state_key, insertDisplayname, insertAvatarUrl, membership
+            ] )
+            console.log("Saved membership:", JSON.stringify(newMembership), JSON.stringify(eventContent))
+            if ( newMembership.rowsAffected === 0 ) {
+                var queryStr = "UPDATE Memberships SET membership=?"
+                var queryArgs = [ membership ]
+
+                if ( typeof eventContent.content.displayname === "" ) {
+                    queryStr += " , displayname=?"
+                    queryArgs[queryArgs.length] = eventContent.content.displayname
+                }
+                if ( typeof eventContent.content.avatar_url === "" ) {
+                    queryStr += " , avatar_url=?"
+                    queryArgs[queryArgs.length] = eventContent.content.avatar_url
+                }
+
+                queryStr += " WHERE matrix_id=? AND chat_id=?"
+                queryArgs[queryArgs.length] = state_key
+                queryArgs[queryArgs.length] = chat_id
+                syncTX.executeSql( queryStr, queryArgs)
             }
             break
             // This event changes the permissions of the users and the power levels
         case "m.room.power_levels":
             var query = "UPDATE Chats SET "
-            if ( eventContent.content.ban ) query += ", power_ban=" + eventContent.content.ban
-            if ( eventContent.content.events_default ) query += ", power_events_default=" + eventContent.content.events_default
-            if ( eventContent.content.state_default ) query += ", power_state_default=" + eventContent.content.state_default
-            if ( eventContent.content.redact ) query += ", power_redact=" + eventContent.content.redact
-            if ( eventContent.content.invite ) query += ", power_invite=" + eventContent.content.invite
-            if ( eventContent.content.kick ) query += ", power_kick=" + eventContent.content.kick
-            if ( eventContent.content.user_default ) query += ", power_user_default=" + eventContent.content.user_default
-            if ( eventContent.content.events ) {
-                if ( eventContent.content.events["m.room.avatar"] ) query += ", power_event_avatar=" + eventContent.content.events["m.room.avatar"]
-                if ( eventContent.content.events["m.room.history_visibility"] ) query += ", power_event_history_visibility=" + eventContent.content.events["m.room.history_visibility"]
-                if ( eventContent.content.events["m.room.canonical_alias"] ) query += ", power_event_canonical_alias=" + eventContent.content.events["m.room.canonical_alias"]
-                if ( eventContent.content.events["m.room.aliases"] ) query += ", power_event_aliases=" + eventContent.content.events["m.room.aliases"]
-                if ( eventContent.content.events["m.room.name"] ) query += ", power_event_name=" + eventContent.content.events["m.room.name"]
-                if ( eventContent.content.events["m.room.power_levels"] ) query += ", power_event_power_levels=" + eventContent.content.events["m.room.power_levels"]
+            if ( typeof eventContent.content.ban === "number" ) query += ", power_ban=" + eventContent.content.ban
+            if ( typeof eventContent.content.events_default === "number" ) query += ", power_events_default=" + eventContent.content.events_default
+            if ( typeof eventContent.content.state_default === "number" ) query += ", power_state_default=" + eventContent.content.state_default
+            if ( typeof eventContent.content.redact === "number" ) query += ", power_redact=" + eventContent.content.redact
+            if ( typeof eventContent.content.invite === "number" ) query += ", power_invite=" + eventContent.content.invite
+            if ( typeof eventContent.content.kick === "number" ) query += ", power_kick=" + eventContent.content.kick
+            if ( typeof eventContent.content.user_default === "number" ) query += ", power_user_default=" + eventContent.content.user_default
+            if ( typeof eventContent.content.events === "object" ) {
+                if ( typeof eventContent.content.events["m.room.avatar"] === "number" ) query += ", power_event_avatar=" + eventContent.content.events["m.room.avatar"]
+                if ( typeof eventContent.content.events["m.room.history_visibility"] === "number" ) query += ", power_event_history_visibility=" + eventContent.content.events["m.room.history_visibility"]
+                if ( typeof eventContent.content.events["m.room.canonical_alias"] === "number" ) query += ", power_event_canonical_alias=" + eventContent.content.events["m.room.canonical_alias"]
+                if ( typeof eventContent.content.events["m.room.aliases"] === "number" ) query += ", power_event_aliases=" + eventContent.content.events["m.room.aliases"]
+                if ( typeof eventContent.content.events["m.room.name"] === "number" ) query += ", power_event_name=" + eventContent.content.events["m.room.name"]
+                if ( typeof eventContent.content.events["m.room.power_levels"] === "number" ) query += ", power_event_power_levels=" + eventContent.content.events["m.room.power_levels"]
             }
             if ( query !== "UPDATE Chats SET ") {
                 query = query.replace(",","")
@@ -434,10 +478,12 @@ Item {
             }
 
             // Set the users power levels:
-            if ( eventContent.content.users ) {
+            if ( typeof eventContent.content.users === "object" ) {
                 for ( var user in eventContent.content.users ) {
+                    var power_level = eventContent.content.users[user]
+                    if ( typeof power_level !== "number" || typeof user !== "string" ) break
                     var updateResult = syncTX.executeSql( "UPDATE Memberships SET power_level=? WHERE matrix_id=? AND chat_id=?",
-                    [ eventContent.content.users[user],
+                    [ power_level,
                     user,
                     chat_id ])
                     if ( updateResult.rowsAffected === 0 ) {
@@ -445,7 +491,7 @@ Item {
                         [ chat_id,
                         user,
                         "unknown",
-                        eventContent.content.users[user] ])
+                        power_level ])
                     }
                 }
             }

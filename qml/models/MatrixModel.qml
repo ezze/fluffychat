@@ -616,9 +616,8 @@ function handleRooms ( rooms, membership, newChatCB, newEventCB ) {
 function handlePresences ( presences, newEventCB ) {
     for ( var i = 0; i < presences.length; i++ ) {
         var presence = presences[i]
-        if ( typeof presence === "object" && typeof presence.type === "string" && typeof presence.sender === "string" ) {
-            newEventCB ( presence.type, presence.sender, "presence", presence )
-        }
+        if ( validateEvent ( presence, "presence" ) ) newEventCB ( presence.type, presence.sender, "presence", presence )
+        else console.warn( "💤[Invalid] Ignoring invalid event:", JSON.stringify(presence) )
     }
 }
 
@@ -653,8 +652,8 @@ function handleEphemeral ( id, events, newEventCB ) {
 function handleRoomEvents ( roomid, events, type, newEventCB ) {
     // We go through the events array
     for ( var i = 0; i < events.length; i++ ) {
-        if ( validateEvent ( events[i] ) ) newEventCB ( events[i].type, roomid, type, events[i] )
-        else console.warn( "❌[Error] Invalid event:", JSON.stringify(events[i]) )
+        if ( validateEvent ( events[i], type ) ) newEventCB ( events[i].type, roomid, type, events[i] )
+        else console.warn( "💤[Invalid] Ignoring invalid event:", JSON.stringify(events[i]) )
     }
     if ( matrix.prevBatch !== "" ) {
         for ( var i = 0; i < events.length; i++ ) {
@@ -664,7 +663,16 @@ function handleRoomEvents ( roomid, events, type, newEventCB ) {
 }
 
 // Validates common room events
-function validateEvent ( event ) {
+function validateEvent ( event, type ) {
+    // Handle account data events
+    if ( typeof mask[type] === "object"  ) {
+        for ( var item in mask.event ) {
+            if ( typeof event[item] !== mask.event[item] ) return false
+        }
+        return true
+    }
+
+    // Handle timeline events
     for ( var item in mask.roomEvent ) {
         if ( typeof event[item] !== mask.roomEvent[item] ) return false
 
@@ -674,18 +682,29 @@ function validateEvent ( event ) {
                     if ( typeof event.content[contentItem] !== mask[event.type][contentItem] ) return false
                 }
             }
-            else console.warn( "❌[Warning] Unknown event type:", event.type )
         }
     }
     // m.room.member events also have a state_key
     if ( event.type === "m.room.member" ) {
         if ( typeof event["state_key"] !== "string" ) return false
     }
+    else if ( event.type === "m.room.redaction" ) {
+        if ( typeof event["redacts"] !== "string" ) return false
+    }
 
     return true
 }
 
 readonly property var mask: {
+    "presence": {
+        "sender": "string",
+        "content": "object",
+        "type": "string"
+    },
+    "account_data": {
+        "content": "object",
+        "type": "string"
+    },
     "roomEvent": {
         "content": "object",
         "type": "string",
@@ -696,6 +715,11 @@ readonly property var mask: {
     "m.room.message": {
         "body": "string",
         "msgtype": "string"
+    },
+    "m.sticker": {
+        "body": "string",
+        "info": "object",
+        "url": "string"
     },
     "m.room.message.feedback": {
         "target_event_id": "string",
@@ -729,7 +753,48 @@ readonly property var mask: {
         "membership": "string"
     },
     "m.room.power_levels": { },
-    "m.room.redaction": { }
+    "m.room.redaction": { },
+    "m.room.third_party_invite": {
+        "display_name": "string",
+        "key_validity_url": "string",
+        "public_key": "string"
+    },
+    "m.room.guest_access": {
+        "guest_access": "string"
+    },
+    "m.room.history_visibility": {
+
+    },
+    "m.fully_read": {
+        "event_id": "string"
+    },
+    "m.room.encryption": {
+        "algorithm": "string"
+    },
+    "m.room.encrypted": {
+        "algorithm": "string",
+        "sender_key": "string"
+    },
+    "m.room_key": {
+        "algorithm": "string",
+        "room_id": "string",
+        "session_id": "string",
+        "session_key": "string"
+    },
+    "m.room_key_request": {
+        "action": "string",
+        "requesting_device_id": "string",
+        "request_id": "string"
+    },
+    "m.forwarded_room_key": {
+        "algorithm": "string",
+        "room_id": "string",
+        "sender_key": "string",
+        "session_id": "string",
+        "session_key": "string",
+        "sender_claimed_ed25519_key": "string",
+        "forwarding_curve25519_key_chain": "object"
+    },
 }
 
 }
