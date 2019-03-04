@@ -212,6 +212,10 @@ Item {
         target: matrix
 
         onNewSync: {
+            if ( matrix.prevBatch !== "" ) {
+                syncTX = { executeSql: storage.query }
+                return
+            }
             try {
                 db.transaction(
                     function(tx) {
@@ -228,6 +232,9 @@ Item {
                 }
             }
         }
+
+        onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
+        onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline, prevBatch )
 
 
     }
@@ -258,7 +265,7 @@ Item {
 
             // calculate the status
             var status = msg_status.RECEIVED
-            if ( typeof eventContent.status !== "number" ) status = eventContent.status
+            if ( typeof eventContent.status === "number" ) status = eventContent.status
             else if ( eventType === "history" ) status = msg_status.HISTORY
 
             // Format the text for the app

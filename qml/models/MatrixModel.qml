@@ -537,6 +537,7 @@ function handleEvents ( response ) {
     var changed = false
     var timecount = new Date().getTime()
     try {
+
         newSync ( response )
         if ( matrix.prevBatch !== "" ) {
             handleSync ( response, newChatUpdate, newEvent )

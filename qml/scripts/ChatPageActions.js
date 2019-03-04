@@ -231,16 +231,7 @@ function requestHistory ( event_id ) {
         if ( result.chunk.length > 0 ) {
             var eventFound = false
 
-            storage.db.transaction(
-                function(tx) {
-                    storage.syncTX = tx
-                    for ( var i = 0; i < result.chunk.length; i++ ) {
-                        if ( event_id && !eventFound && event_id === result.chunk[i].event_id ) eventFound = i
-                        addEventToList ( result.chunk[i], true )
-                        storage.newEvent ( result.chunk[i].content.msgtype, activeChat, "history", result.chunk[i] )
-                    }
-                }
-            )
+            matrix.handleRoomEvents ( activeChat, result.chunk, "history", matrix.newEvent )
 
             requesting = false
             storage.query ( "UPDATE Chats SET prev_batch=? WHERE id=?", [ result.end, activeChat ])
@@ -306,9 +297,17 @@ function newEvent ( type, chat_id, eventType, eventContent ) {
     else if ( type === "m.receipt" && eventContent.user !== matrix.matrixid ) {
         markRead ( eventContent.ts )
     }
-    if ( eventType === "timeline" ) {
-        handleNewEvent ( type, eventContent )
-        matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + eventContent.event_id, null )
+    if ( eventType === "timeline" || eventType === "history" ) {
+        eventContent.id = eventContent.event_id
+        if ( typeof eventContent.status !== "number" ) {
+            eventContent.status = msg_status.RECEIVED
+        }
+        addEventToList ( eventContent, eventType === "history" )
+
+        if ( type === "m.room.redaction" ) removeEvent ( eventContent.redacts )
+        if ( eventType !== "history" ) {
+            matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + eventContent.event_id, null )
+        }
     }
 }
 
@@ -433,7 +432,6 @@ function errorEvent ( messageID ) {
 // controller. It just has to format the event to the database format
 function handleNewEvent ( type, eventContent ) {
     eventContent.id = eventContent.event_id
-    eventContent.status = msg_status.RECEIVED
     addEventToList ( eventContent )
 
     if ( type === "m.room.redaction" ) removeEvent ( eventContent.redacts )
