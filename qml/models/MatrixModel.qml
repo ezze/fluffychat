@@ -118,6 +118,7 @@ Item {
     * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
     */
     signal newEvent ( var type, var chat_id, var eventType, var eventContent )
+    onNewEvent: console.log("💬[Event] From: '%1', Type: '%2' (%3)".arg(chat_id).arg(type).arg(eventType) )
 
     /* Outside of the events there are updates for the global chat states which
     * are handled by this signal:
@@ -654,11 +655,6 @@ function handleRoomEvents ( roomid, events, type, newEventCB ) {
     for ( var i = 0; i < events.length; i++ ) {
         if ( validateEvent ( events[i], type ) ) newEventCB ( events[i].type, roomid, type, events[i] )
         else console.warn( "💤[Invalid] Ignoring invalid event:", JSON.stringify(events[i]) )
-    }
-    if ( matrix.prevBatch !== "" ) {
-        for ( var i = 0; i < events.length; i++ ) {
-            console.log("💬[Event] From: '%1', Type: '%2' (%3)".arg(roomid).arg(type).arg(events[i].type) )
-        }
     }
 }
 

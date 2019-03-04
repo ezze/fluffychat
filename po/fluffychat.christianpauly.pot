@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-04 11:47+0000\n"
+"POT-Creation-Date: 2019-03-04 11:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -398,31 +398,31 @@ msgstr ""
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:104
+#: ../qml/pages/ChatPage.qml:105
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:129
+#: ../qml/pages/ChatPage.qml:130
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:152
+#: ../qml/pages/ChatPage.qml:153
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:223
+#: ../qml/pages/ChatPage.qml:224
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:223
+#: ../qml/pages/ChatPage.qml:224
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:231
+#: ../qml/pages/ChatPage.qml:232
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:262
+#: ../qml/pages/ChatPage.qml:263
 msgid "Type something ..."
 msgstr ""
 
@@ -691,20 +691,20 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:268
+#: ../qml/models/MatrixModel.qml:269
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:58
+#: ../qml/models/MatrixModel.qml:391 ../qml/scripts/LoginPageActions.js:58
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:497
+#: ../qml/models/MatrixModel.qml:498
 msgid "You are offline 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:545
+#: ../qml/models/MatrixModel.qml:546
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
