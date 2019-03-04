@@ -551,12 +551,14 @@ function handleEvents ( response ) {
 }
 
 function handleSync ( sync, newChatCB, newEventCB ) {
-    if ( sync.rooms ) {
-        if ( sync.rooms.join ) handleRooms ( sync.rooms.join, "join", newChatCB, newEventCB )
-        if ( sync.rooms.leave ) handleRooms ( sync.rooms.leave, "leave", newChatCB, newEventCB )
-        if ( sync.rooms.invite ) handleRooms ( sync.rooms.invite, "invite", newChatCB, newEventCB )
+    if ( typeof sync.rooms === "object" ) {
+        if ( typeof sync.rooms.join === "object" ) handleRooms ( sync.rooms.join, "join", newChatCB, newEventCB )
+        if ( typeof sync.rooms.leave === "object" ) handleRooms ( sync.rooms.leave, "leave", newChatCB, newEventCB )
+        if ( typeof sync.rooms.invite === "object" ) handleRooms ( sync.rooms.invite, "invite", newChatCB, newEventCB )
     }
-    if ( sync.presence ) handlePresences ( sync.presence, newEventCB)
+    if ( typeof sync.presence === "object" && typeof sync.presence.events === "object" ) {
+        handlePresences ( sync.presence.events, newEventCB)
+    }
 }
 
 // Handling the synchronization events starts with the rooms, which means
@@ -565,42 +567,78 @@ function handleRooms ( rooms, membership, newChatCB, newEventCB ) {
     for ( var id in rooms ) {
         var room = rooms[id]
 
-        var highlight_count = (room.unread_notifications && room.unread_notifications.highlight_count || 0)
-        var notification_count = (room.unread_notifications && room.unread_notifications.notification_count || 0)
-        var limitedTimeline = (room.timeline ? (room.timeline.limited ? 1 : 0) : 0)
+        // calculate the notification counts, the limitedTimeline and prevbatch and trigger the signal
+        var highlight_count = 0
+        var notification_count = 0
+        var prev_batch = ""
+        var limitedTimeline = 0
 
-        newChatCB ( id, membership, notification_count, highlight_count, limitedTimeline, room.timeline.prev_batch )
+        if ( typeof room.unread_notifications === "object" ) {
+            if ( typeof room.unread_notifications.highlight_count === "number" ) {
+                highlight_count = room.unread_notifications.highlight_count
+            }
+            if ( typeof room.unread_notifications.notification_count === "number" ) {
+                notification_count = room.unread_notifications.notification_count
+            }
+        }
+
+        if ( typeof room.timeline === "object" ) {
+            if ( typeof room.timeline.limited === "boolean" ) {
+                limitedTimeline = room.timeline.limited ? 1 : 0
+            }
+            if ( typeof room.timeline.prev_batch === "string" ) {
+                prev_batch = room.timeline.prev_batch
+            }
+        }
+
+        newChatCB ( id, membership, notification_count, highlight_count, limitedTimeline, prev_batch )
 
         // Handle now all room events and save them in the database
-        if ( room.state ) handleRoomEvents ( id, room.state.events, "state", newEventCB )
-        if ( room.invite_state ) handleRoomEvents ( id, room.invite_state.events, "invite_state", newEventCB )
-        if ( room.timeline ) handleRoomEvents ( id, room.timeline.events, "timeline", newEventCB )
-        if ( room.ephemeral ) handleEphemeral ( id, room.ephemeral.events, newEventCB )
-        if ( room.account_data ) handleRoomEvents ( id, room.account_data.events, "account_data", newEventCB )
+        if ( typeof room.state === "object" && typeof room.state.events === "object" ) {
+            handleRoomEvents ( id, room.state.events, "state", newEventCB )
+        }
+        if ( typeof room.invite_state === "object" && typeof room.invite_state.events === "object" ) {
+            handleRoomEvents ( id, room.invite_state.events, "invite_state", newEventCB )
+        }
+        if ( typeof room.timeline === "object" && typeof room.timeline.events === "object" ) {
+            handleRoomEvents ( id, room.timeline.events, "timeline", newEventCB )
+        }
+        if ( typeof room.ephemeral === "object" && typeof room.ephemeral.events === "object" ) {
+            handleEphemeral ( id, room.ephemeral.events, newEventCB )
+        }
+        if ( typeof room.account_data === "object" && typeof room.account_data.events === "object" ) {
+            handleRoomEvents ( id, room.account_data.events, "account_data", newEventCB )
+        }
     }
 }
+
 // Handle the presences
 function handlePresences ( presences, newEventCB ) {
-    for ( var i = 0; i < presences.events.length; i++ ) {
-        var pEvent = presences.events[i]
-        newEventCB ( pEvent.type, pEvent.sender, "presence", pEvent )
+    for ( var i = 0; i < presences.length; i++ ) {
+        var presence = presences[i]
+        if ( typeof presence === "object" && typeof presence.type === "string" && typeof presence.sender === "string" ) {
+            newEventCB ( presence.type, presence.sender, "presence", presence )
+        }
     }
 }
+
 // Handle ephemerals (message receipts)
 function handleEphemeral ( id, events, newEventCB ) {
     for ( var i = 0; i < events.length; i++ ) {
-        if ( events[i].type === "m.receipt" ) {
-            for ( var e in events[i].content ) {
-                for ( var user in events[i].content[e]["m.read"]) {
-                    var timestamp = events[i].content[e]["m.read"][user].ts
+        if ( !(typeof events[i].type === "string" && typeof events[i].content === "object" && events[i].type === "m.receipt") ) continue
+        for ( var e in events[i].content ) {
+            if ( !(typeof events[i].content[e] === "object" && typeof events[i].content[e]["m.read"] === "object") ) continue
+            for ( var user in events[i].content[e]["m.read"]) {
+                if ( !(typeof events[i].content[e]["m.read"][user] === "object" && typeof events[i].content[e]["m.read"][user].ts === "number") ) continue
+                var timestamp = events[i].content[e]["m.read"][user].ts
 
-                    // Call the newEvent signal for updating the GUI
-                    newEventCB ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
-                }
+                // Call the newEvent signal for updating the GUI
+                newEventCB ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
             }
         }
         if ( events[ i ].type === "m.typing" ) {
-            var user_ids = events[ i ].content.user_ids
+            if ( !(typeof events[i].content === "object" && typeof events[ i ].content.user_ids === "object") ) continue
+            var user_ids = events[i].content.user_ids
             // If the user is typing, remove his id from the list of typing users
             var ownTyping = user_ids.indexOf( matrix.matrixid )
             if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
@@ -615,7 +653,8 @@ function handleEphemeral ( id, events, newEventCB ) {
 function handleRoomEvents ( roomid, events, type, newEventCB ) {
     // We go through the events array
     for ( var i = 0; i < events.length; i++ ) {
-        newEventCB ( events[i].type, roomid, type, events[i] )
+        if ( validateEvent ( events[i] ) ) newEventCB ( events[i].type, roomid, type, events[i] )
+        else console.warn( "❌[Error] Invalid event:", JSON.stringify(events[i]) )
     }
     if ( matrix.prevBatch !== "" ) {
         for ( var i = 0; i < events.length; i++ ) {
@@ -624,5 +663,73 @@ function handleRoomEvents ( roomid, events, type, newEventCB ) {
     }
 }
 
+// Validates common room events
+function validateEvent ( event ) {
+    for ( var item in mask.roomEvent ) {
+        if ( typeof event[item] !== mask.roomEvent[item] ) return false
+
+        if ( item === "content" ) {
+            if ( typeof mask[event.type] === "object" ) {
+                for ( var contentItem in mask[event.type] ) {
+                    if ( typeof event.content[contentItem] !== mask[event.type][contentItem] ) return false
+                }
+            }
+            else console.warn( "❌[Warning] Unknown event type:", event.type )
+        }
+    }
+    // m.room.member events also have a state_key
+    if ( event.type === "m.room.member" ) {
+        if ( typeof event["state_key"] !== "string" ) return false
+    }
+
+    return true
+}
+
+readonly property var mask: {
+    "roomEvent": {
+        "content": "object",
+        "type": "string",
+        "event_id": "string",
+        "sender": "string",
+        "origin_server_ts": "number"
+    },
+    "m.room.message": {
+        "body": "string",
+        "msgtype": "string"
+    },
+    "m.room.message.feedback": {
+        "target_event_id": "string",
+        "type": "string"
+    },
+    "m.room.name": {
+        "name": "string"
+    },
+    "m.room.topic": {
+        "topic": "string"
+    },
+    "m.room.avatar": {
+        "url": "string"
+    },
+    "m.room.pinned_events": {
+        "pinned": "object"
+    },
+    "m.room.aliases": {
+        "aliases": "object"
+    },
+    "m.room.canonical_alias": {
+        "alias": "string"
+    },
+    "m.room.create": {
+        "creator": "string"
+    },
+    "m.room.join_rules": {
+        "join_rule": "string"
+    },
+    "m.room.member": {
+        "membership": "string"
+    },
+    "m.room.power_levels": { },
+    "m.room.redaction": { }
+}
 
 }
