@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-05 10:18+0000\n"
+"POT-Creation-Date: 2019-03-05 10:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -231,11 +231,11 @@ msgid "Change chat avatar"
 msgstr ""
 
 #: ../qml/components/ChangeChatnameDialog.qml:27
-msgid "Enter a name for the chat"
+msgid "No chat name yet"
 msgstr ""
 
 #: ../qml/components/ChangeChatnameDialog.qml:34
-msgid "Enter a description for the chat"
+msgid "No description yet"
 msgstr ""
 
 #: ../qml/components/ColorDialog.qml:11

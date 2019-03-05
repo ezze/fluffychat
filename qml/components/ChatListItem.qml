@@ -38,7 +38,7 @@ ListItem {
             name: layout.title.text
             width: units.gu(7)
             mxc: ChatListItemActions.calcAvatar ()
-            onClickFunction: function () { triggered () }
+            onClickFunction: function () { chatListItem.clicked () }
         }
     }
 
