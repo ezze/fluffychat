@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-04 14:47+0000\n"
+"POT-Creation-Date: 2019-03-04 15:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -801,7 +801,7 @@ msgstr ""
 #: ../qml/components/ChangeAvatarDialog.qml:66
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/UserSettingsDialog.qml:86
+#: ../qml/components/UserSettingsDialog.qml:87
 #: ../qml/components/ChangeChatAvatarDialog.qml:65
 #: ../qml/components/ChangeChatnameDialog.qml:59
 msgid "Close"
@@ -1012,7 +1012,7 @@ msgid "Delete sticker"
 msgstr ""
 
 #: ../qml/components/UsernameListItem.qml:12
-#: ../qml/components/UserSettingsDialog.qml:54
+#: ../qml/components/UserSettingsDialog.qml:55
 msgid "Full username:"
 msgstr ""
 
@@ -1028,19 +1028,19 @@ msgstr ""
 msgid "Last seen: %1"
 msgstr ""
 
-#: ../qml/components/UserSettingsDialog.qml:78
+#: ../qml/components/UserSettingsDialog.qml:79
 msgid "Username has been copied to the clipboard"
 msgstr ""
 
-#: ../qml/components/UserSettingsDialog.qml:106
+#: ../qml/components/UserSettingsDialog.qml:107
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/components/UserSettingsDialog.qml:106
+#: ../qml/components/UserSettingsDialog.qml:107
 msgid "You are that!"
 msgstr ""
 
-#: ../qml/components/UserSettingsDialog.qml:135
+#: ../qml/components/UserSettingsDialog.qml:136
 msgid "Start new chat"
 msgstr ""
 

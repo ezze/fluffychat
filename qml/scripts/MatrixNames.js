@@ -126,6 +126,16 @@ function getAvatarUrl ( chat_id, callback ) {
 }
 
 
+function getUserAvatarUrl ( matrix_id, callback ) {
+    var avatar_url = ""
+    var rs = storage.query ( "SELECT avatar_url FROM Users " +
+    " WHERE matrix_id=? ", [ matrix_id ] )
+    if ( rs.rows.length > 0 && rs.rows[0].avatar_url !== "" && rs.rows[0].avatar_url !== null ) avatar_url = rs.rows[0].avatar_url
+    if ( callback ) callback ( avatar_url )
+    return avatar_url
+}
+
+
 function getAvatarFromSingleChat ( chat_id, callback ) {
     var avatarStr = ""
     var rs = storage.query( "SELECT Users.avatar_url FROM Users, Memberships " +

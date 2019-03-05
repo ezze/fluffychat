@@ -11,7 +11,7 @@ Component {
 
     Dialog {
         id: dialogue
-        title: activeUser
+        title: MatrixNames.getById ( activeUser )
 
         Component.onCompleted:  ItemActions.init ()
 
@@ -39,6 +39,7 @@ Component {
             name: activeUser
             width: parent.width
             height: width
+            mxc: MatrixNames.getUserAvatarUrl ( activeUser )
             onClickFunction: function () {
                 imageViewer.show ( mxc )
             }
