@@ -24,14 +24,14 @@ Component {
         }
         TextField {
             id: chatnameTextField
-            placeholderText: i18n.tr("Enter a name for the chat")
+            placeholderText: i18n.tr("No chat name yet")
             readOnly: !canChangeName
             text: storage.query ( "SELECT topic FROM Chats WHERE id='%1'".arg(activeChat)).rows[0].topic
         }
 
         TextArea {
             id: descriptionTextField
-            placeholderText: i18n.tr("Enter a description for the chat")
+            placeholderText: i18n.tr("No description yet")
             text: description
             height: chatnameTextField.height *3
             readOnly: !canChangeName
