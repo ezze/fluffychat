@@ -11,6 +11,8 @@
     
     languages.push("es");
     
+    languages.push("nl");
+    
     </script>
     <!-- Basic Page Needs
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -96,7 +98,7 @@
 <h4 id="cómo-puedo-restablecer-mi-contraseña">¿Cómo puedo restablecer mi contraseña?<a id="1-1"></a></h4>
 
 <p>Debe conectar una dirección de correo electrónico a su cuenta. Se puede hacer en la configuración de la cuenta. Si no tiene conectada una dirección de correo electrónico, tiene que contactar con el soporte de su «homeserver» (servidor de datos).
- (<a href="#Quéesunhomeserver">¿Qué es un «homeserver» (servidor de datos)?</a>)<br />
+ (<a href="#1-5">¿Qué es un «homeserver» (servidor de datos)?</a>)<br />
 <a href="https://www.ubports.chat/#/forgot_password">Pulse aquí para restablecer su contraseña</a>.</p>
 
 <h4 id="cómo-puedo-crear-una-nueva-cuenta">¿Cómo puedo crear una nueva cuenta?<a id="1-2"></a></h4>
@@ -104,7 +106,7 @@
 <ol>
   <li>Si ya ha iniciado sesión en FluffyChat, vaya a configuración y pulse en «cerrar sesión» en la parte inferior.</li>
   <li>Elija un nuevo nombre de usuario y compruebe que está seleccionado «crear una cuenta».</li>
-  <li>Si quiere crear una cuenta en un «homeserver» (servidor de datos) distinto al predeterminado (ubports.chat), vaya al menú superior de la izquierda y cambie el «homeserver» (servidor de datos). (<a href="#Quéesunhomeserver">¿Qué es un «homeserver» (servidor de datos)?</a>)</li>
+  <li>Si quiere crear una cuenta en un «homeserver» (servidor de datos) distinto al predeterminado (ubports.chat), vaya al menú superior de la izquierda y cambie el «homeserver» (servidor de datos). (<a href="#1-5">¿Qué es un «homeserver» (servidor de datos)?</a>)</li>
   <li>Vaya a «iniciar sesión» y elija una nueva contraseña.</li>
 </ol>
 
@@ -112,17 +114,17 @@
 
 <ol>
   <li>Si ya ha iniciado sesión en FluffyChat, vaya a configuración y pulse en «cerrar sesión» en la parte inferior.</li>
-  <li>Introduzca el nombre de usuario o la identificación («ID») de Matrix de su cuenta antigua. (<a href="#QuéesunaIDdeMatrix">¿Qué es una identificación («ID») de Matrix?</a>) Si no recuerda su nombre de usuario o su identificación («ID») de Matrix pero recuerda el número de teléfono conectado con su cuenta, entonces puede introducir cualquier nombr de usuario y el número de teléfono correcto en el siguiente paso. El nombre de usuario será localizado automáticamente.</li>
+  <li>Introduzca el nombre de usuario o la identificación («ID») de Matrix de su cuenta antigua. (<a href="#1-4">¿Qué es una identificación («ID») de Matrix?</a>) Si no recuerda su nombre de usuario o su identificación («ID») de Matrix pero recuerda el número de teléfono conectado con su cuenta, entonces puede introducir cualquier nombr de usuario y el número de teléfono correcto en el siguiente paso. El nombre de usuario será localizado automáticamente.</li>
   <li>(Opcional) Introduzca el número de teléfono de su antigua cuenta.</li>
-  <li>Si su cuenta antigua no está en el «homeserver» (servidor de datos) predeterminado (ubports.chat), vaya al menú superior de la izquierda y cambie el «homeserver» (servidor de datos). (<a href="#Quéesunhomeserver">¿Qué es un «homeserver» (servidor de datos)?</a>)</li>
+  <li>Si su cuenta antigua no está en el «homeserver» (servidor de datos) predeterminado (ubports.chat), vaya al menú superior de la izquierda y cambie el «homeserver» (servidor de datos). (<a href="#1-5">¿Qué es un «homeserver» (servidor de datos)?</a>)</li>
   <li>Asegúrese de que «crear una cuenta» <strong>no</strong> está marcado.</li>
-  <li>Vaya a «iniciar sesión» e Introduzca su contraseña. (<a href="#Comopuedorestablecermicontraseña">¿Contraseña olvidada?</a>)</li>
+  <li>Vaya a «iniciar sesión» e Introduzca su contraseña. (<a href="#1-1">¿Contraseña olvidada?</a>)</li>
 </ol>
 
 <h4 id="qué-es-una-identificación-id-de-matrix">¿Qué es una identificación («ID») de Matrix?<a id="1-4"></a></h4>
 
-<p>Su «ID» de Matrix es su identificador único en la red de Matrix. Es una combinación de su nombre de usuario y de su «homeserver» (servidor de datos). (<a href="#Quéesunhomeserver">¿Qué es un «homeserver» (servidor de datos)?</a>)<br />
-El formato de una identificación («ID») de Matrix es sencillo: @nombredeusuario:homeserver. Por ejemplo, si su nombre de usuario es «alicia» y su «homeserver» (servidor de datos) es «homeserver.abc», entonces su («ID») de Matrix es: @alicia:homeserver.abc</p>
+<p>Su «ID» de Matrix es su identificador único en la red de Matrix. Es una combinación de su nombre de usuario y de su «homeserver» (servidor de datos). (<a href="#1-5">¿Qué es un «homeserver» (servidor de datos)?</a>)<br />
+El formato de una identificación («ID») de Matrix es sencillo: <code>@nombredeusuario:homeserver</code>. Por ejemplo, si su nombre de usuario es «alicia» y su «homeserver» (servidor de datos) es «homeserver.abc», entonces su («ID») de Matrix es: <code>@alicia:homeserver.abc</code></p>
 
 <h4 id="qué-es-un-homeserver-servidor-de-datos">¿Qué es un «homeserver» (servidor de datos)?<a id="1-5"></a></h4>
 
@@ -135,46 +137,46 @@ Los usuarios de Matrix pueden enlazar «IDs» de terceras partes («3PIDs») a s
 
 <h2 id="comenzar-a-chatear">Comenzar a chatear<a id="2"></a></h2>
 
-<h4 id="cómo-puedo-comenzar-un-nuevo-chat">¿Cómo puedo comenzar un nuevo chat?<a id="2.1"></a></h4>
+<h4 id="cómo-puedo-comenzar-un-nuevo-chat">¿Cómo puedo comenzar un nuevo chat?<a id="2-1"></a></h4>
 
 <ol>
   <li>Vaya al botón “+” en la página de inicio o deslice desde abajo en el dispositivo.</li>
   <li>Elija los contactos que quiere invitar a su nuevo chat. No es necesario invitar a alguno.</li>
-  <li>Si no encuentra un contacto, puede <a href="#Cómopuedoañadircontactosporsunúmerodeteléfono">añadirlo por el número de teléfono</a> o introducir su «ID» de Matrix en el campo de búsqueda. (¿Qué es una identificación («ID») de Matrix?](#QuéesunaIDdeMatrix))</li>
+  <li>Si no encuentra un contacto, puede <a href="#2-4">añadirlo por el número de teléfono</a> o introducir su «ID» de Matrix en el campo de búsqueda. (¿Qué es una identificación («ID») de Matrix?](#1-4))</li>
   <li>Vaya a «crear chat»</li>
   <li>Si desea crear un chat directo con un contacto, simplemente seleccione un contacto o toque el avatar y vaya a «Iniciar chat directo».</li>
 </ol>
 
-<h4 id="cómo-puedo-unirme-a-un-chat-público">¿Cómo puedo unirme a un chat público?<a id="2.2"></a></h4>
+<h4 id="cómo-puedo-unirme-a-un-chat-público">¿Cómo puedo unirme a un chat público?<a id="2-2"></a></h4>
 
 <p>Un chat público tiene una o más direcciones públicas llamadas «alias». Siempre empiezan con «#» y terminan con «:homeserver.abc». Por ejemplo: <a href="fluffychat://#fluffychat:matrix.org">#fluffychat:matrix.org</a>. Solo pulse en el enlace para participar en el chat o introduzca un alias en el campo de búsqueda en la página de inicio de FluffyChat.</p>
 
-<h4 id="cómo-puedo-unirme-a-una-comunidad">¿Cómo puedo unirme a una comunidad?<a id="2.3"></a></h4>
+<h4 id="cómo-puedo-unirme-a-una-comunidad">¿Cómo puedo unirme a una comunidad?<a id="2-3"></a></h4>
 
 <p>Una comunidad pública tiene una o más direcciones públicas llamadas «alias». Siempre empiezan con «+» y terminan con «:homeserver.abc». Por ejemplo: <a href="fluffychat://+ubports_community:matrix.org">+ubports_community:matrix.org</a>. Solo pulse en el enlace para ver todos los chats asociados con una comunidad. Para más detalles, visite la <a href="https://www.ubports.chat">aplicación web de escritorio</a>.</p>
 
-<h4 id="cómo-puedo-añadir-contactos-por-su-número-de-teléfono">¿Cómo puedo añadir contactos por su número de teléfono?<a id="2.4"></a></h4>
+<h4 id="cómo-puedo-añadir-contactos-por-su-número-de-teléfono">¿Cómo puedo añadir contactos por su número de teléfono?<a id="2-4"></a></h4>
 
 <ol>
   <li>Vaya al botón «+» en la página de inicio o deslice desde abajo en el dispositivo.</li>
   <li>Vaya a «añadir contacto» en la parte superior de la izquierda.</li>
   <li>Elija su aplicación de agenda.</li>
   <li>Seleccione el contacto que desee añadir o seleccione todos los contactos y confirme.</li>
-  <li>FluffyChat buscará esos contactos en el servidor de identidad. (<a href="#Quéesunservidordeidentidad">¿Qué es un servidor de identidad?</a>)</li>
+  <li>FluffyChat buscará esos contactos en el servidor de identidad. (<a href="#1-6">¿Qué es un servidor de identidad?</a>)</li>
 </ol>
 
-<h4 id="qué-órdenes-están-disponibles">¿Qué «/órdenes» están disponibles?<a id="2.5"></a></h4>
+<h4 id="qué-órdenes-están-disponibles">¿Qué «/órdenes» están disponibles?<a id="2-5"></a></h4>
 
 <ul>
-  <li>«/me» (Enviará «msgtype: m.emote») Muestra una acción.</li>
-  <li>«/whisper» (Enviará «msgtype: m.fluffychat.whisper») El texto del mensaje será muy pequeño</li>
-  <li>«/roar» (Enviará «msgtype: m.fluffychat.roar») El texto del mensaje será muy grande, en negrita y mayúsculas</li>
-  <li>«/shrug» Coloca «¯\(ツ)/¯» al inicio del mensaje</li>
+  <li><code>/me</code> (Enviará «msgtype: m.emote») Muestra una acción.</li>
+  <li><code>/whisper</code> (Enviará «msgtype: m.fluffychat.whisper») El texto del mensaje será muy pequeño</li>
+  <li><code>/roar</code> (Enviará «msgtype: m.fluffychat.roar») El texto del mensaje será muy grande, en negrita y mayúsculas</li>
+  <li><code>/shrug</code> Coloca «¯\(ツ)/¯» al inicio del mensaje</li>
 </ul>
 
 <h2 id="configuración-del-chat">Configuración del chat<a id="3"></a></h2>
 
-<h4 id="cómo-puedo-expulsar-o-vetar-a-un-usuario-en-el-chat">¿Cómo puedo expulsar o vetar a un usuario en el chat?<a id="3.1"></a></h4>
+<h4 id="cómo-puedo-expulsar-o-vetar-a-un-usuario-en-el-chat">¿Cómo puedo expulsar o vetar a un usuario en el chat?<a id="3-1"></a></h4>
 
 <p>Necesita tener los permisos necesarios para expulsar («kick») o vetar («ban») a un usuario en un chat.</p>
 
@@ -185,7 +187,7 @@ Los usuarios de Matrix pueden enlazar «IDs» de terceras partes («3PIDs») a s
   <li>Pulse en el botón de expulsar o vetar y confirme</li>
 </ol>
 
-<h4 id="cómo-puedo-cambiar-los-permisos-de-usuario-en-un-chat">¿Cómo puedo cambiar los permisos de usuario en un chat?<a id="3.2"></a></h4>
+<h4 id="cómo-puedo-cambiar-los-permisos-de-usuario-en-un-chat">¿Cómo puedo cambiar los permisos de usuario en un chat?<a id="3-2"></a></h4>
 
 <p>Necesita el permiso para cambiar los permisos de los usuarios.</p>
 
@@ -196,7 +198,7 @@ Los usuarios de Matrix pueden enlazar «IDs» de terceras partes («3PIDs») a s
   <li>Pulse en el botón de permiso de usuario que desee y confirme</li>
 </ol>
 
-<h4 id="cómo-puedo-cambiar-el-tema-del-chat-y-la-descripción">¿Cómo puedo cambiar el tema del chat y la descripción?<a id="3.3"></a></h4>
+<h4 id="cómo-puedo-cambiar-el-tema-del-chat-y-la-descripción">¿Cómo puedo cambiar el tema del chat y la descripción?<a id="3-3"></a></h4>
 
 <p>Necesita el permiso para cambiar el tema del chat y la descripción.</p>
 
@@ -206,7 +208,7 @@ Los usuarios de Matrix pueden enlazar «IDs» de terceras partes («3PIDs») a s
   <li>Pulse en el botón «editar» superior de la derecha e introduzca el tema y/o descripción que desee</li>
 </ol>
 
-<h4 id="cómo-puedo-editar-la-configuración-de-privacidad-del-chat">¿Cómo puedo editar la configuración de privacidad del chat?<a id="3.4"></a></h4>
+<h4 id="cómo-puedo-editar-la-configuración-de-privacidad-del-chat">¿Cómo puedo editar la configuración de privacidad del chat?<a id="3-4"></a></h4>
 
 <p>Necesita el permiso para editar la configuración de privacidad del chat.</p>
 
@@ -217,7 +219,7 @@ Los usuarios de Matrix pueden enlazar «IDs» de terceras partes («3PIDs») a s
   <li>Active o desactive las opciones que desee y edite las opciones de permisos de usuario</li>
 </ol>
 
-<h4 id="cuáles-son-los-alias-del-chat-y-como-puedo-editarlos">¿Cuáles son los alias del chat y como puedo editarlos?<a id="3.5"></a></h4>
+<h4 id="cuáles-son-los-alias-del-chat-y-como-puedo-editarlos">¿Cuáles son los alias del chat y como puedo editarlos?<a id="3-5"></a></h4>
 
 <p>Los alias de un chat son las direcciones de un chat público que se pueden usar para unirse a un chat. Necesita el permiso del chat para cambiarlos.</p>
 
@@ -228,7 +230,7 @@ Los usuarios de Matrix pueden enlazar «IDs» de terceras partes («3PIDs») a s
   <li>Active o desactive las opciones que desee y edite las opciones de permisos de usuario</li>
 </ol>
 
-<h4 id="cómo-puedo-enviar-pegatinas-animadas-con-giphy">¿Cómo puedo enviar pegatinas animadas con Giphy?<a id="3.6"></a></h4>
+<h4 id="cómo-puedo-enviar-pegatinas-animadas-con-giphy">¿Cómo puedo enviar pegatinas animadas con Giphy?<a id="3-6"></a></h4>
 
 <ol>
   <li>Comience un nuevo chat con <a href="fluffychat://@neb_giphy:​matrix.org">@neb_giphy:​matrix.org</a>.</li>
@@ -238,29 +240,29 @@ Los usuarios de Matrix pueden enlazar «IDs» de terceras partes («3PIDs») a s
 
 <h2 id="pasarela-a-otros-sistemas-de-chat">Pasarela a otros sistemas de chat<a id="4"></a></h2>
 
-<h4 id="qué-es-matrix">¿Qué es Matrix?<a id="4.1"></a></h4>
+<h4 id="qué-es-matrix">¿Qué es Matrix?<a id="4-1"></a></h4>
 
 <p>Matrix es un estándar abierto, interoperable y descentralizado para la comunicación en tiempo real sobre IP. Se puede usar para mensajería instantánea, voz sobre IP («VoIP/WebRTC»), comunicación de «internet de las cosas» o donde quiera que necesite una API estándar HTTP para publicar y suscribir datos, a la vez que mantiene el histórico de la conversación.</p>
 
-<h4 id="cómo-puedo-unirme-a-un-chat-multi-usuario-de-xmpp">¿Cómo puedo unirme a un chat multi-usuario de XMPP?<a id="4.2"></a></h4>
+<h4 id="cómo-puedo-unirme-a-un-chat-multi-usuario-de-xmpp">¿Cómo puedo unirme a un chat multi-usuario de XMPP?<a id="4-2"></a></h4>
 
 <p>La manera más sencilla actual es usar la pasarela existente en matrix.org.<br />
-Cada chat multi-usuario de XMPP tiene un identificador de Jabber («JID») con el formato: <code class="highlighter-rouge">chatname@chat.server.abc</code><br />
-El nombre de chat es la parte <strong>local</strong> y «chat.server.abc» es la parte del <strong>servidor</strong>. Puede unirse a este chat entrando en la sala pública de Matrix: <code class="highlighter-rouge">#_xmpp_server_local:matrix.org</code> (<a href="#Cómounirmeaunchatpúblico">¿Cómo puedo unirme a un chat público?</a>)<br />
+Cada chat multi-usuario de XMPP tiene un identificador de Jabber («JID») con el formato: <code>chatname@chat.server.abc</code><br />
+El nombre de chat es la parte <strong>local</strong> y «chat.server.abc» es la parte del <strong>servidor</strong>. Puede unirse a este chat entrando en la sala pública de Matrix: <code class="highlighter-rouge">#_xmpp_server_local:matrix.org</code> (<a href="#2-2">¿Cómo puedo unirme a un chat público?</a>)<br />
 Para el ejemplo dado sería: <code class="highlighter-rouge">#_xmpp_chat.server.abc_chatname:matrix.org</code></p>
 
-<h4 id="cómo-puedo-entrar-en-un-nodo-de-irc-en-freenode">¿Cómo puedo entrar en un nodo de IRC en Freenode?<a id="4.3"></a></h4>
+<h4 id="cómo-puedo-entrar-en-un-nodo-de-irc-en-freenode">¿Cómo puedo entrar en un nodo de IRC en Freenode?<a id="4-3"></a></h4>
 
 <p>Si desea entrar al nodo <code class="highlighter-rouge">#chatname</code> en freenode puede unirse al chat público: <code class="highlighter-rouge">#freenode_#chatname:matrix.org</code><br />
 Sustituya <code class="highlighter-rouge">#chatname</code> con el nodo que desee y en el que esté.</p>
 
-<h4 id="cómo-puedo-hacer-una-pasarela-entre-un-chat-de-grupo-y-un-grupo-de-telegram">¿Cómo puedo hacer una pasarela entre un chat de grupo y un grupo de Telegram?<a id="4.4"></a></h4>
+<h4 id="cómo-puedo-hacer-una-pasarela-entre-un-chat-de-grupo-y-un-grupo-de-telegram">¿Cómo puedo hacer una pasarela entre un chat de grupo y un grupo de Telegram?<a id="4-4"></a></h4>
 
 <p>Vea el tutorial en <a href="https://wayneoutthere.com/how-to-bridge-matrix-telegram/">wayneoutthere.com</a>.</p>
 
 <h2 id="gestión-de-errores">Gestión de errores<a id="5"></a></h2>
 
-<h4 id="por-qué-no-recibo-notificaciones">¿Por qué no recibo notificaciones?<a id="5.1"></a></h4>
+<h4 id="por-qué-no-recibo-notificaciones">¿Por qué no recibo notificaciones?<a id="5-1"></a></h4>
 
 <p>¿Tiene una cuenta de Ubuntu One activada en «configuración del sistema»?<br />
 Si va a fluffychat -&gt; Configuración -&gt; Notificaciones -&gt; Objetivos: ¿ve algún dispositivo «UbuntuPhone»?<br />
@@ -268,17 +270,17 @@ Si va a fluffychat -&gt; Configuración -&gt; Notificaciones -&gt; Objetivos: ¿
 ¿Tiene instalada la última versión de FluffyChat disponible en OpenStore?<br />
 ¿Ha probado a activar y desactivar de nuevo el «modo avión»? A veces el servicio de notificaciones de UBports las envía con retraso (será arreglado pronto). Si aún tiene el problema, contácteme en la sala: <a href="fluffychat://#fluffychat:matrix.org">#fluffychat:matrix.org</a></p>
 
-<h4 id="por-qué-no-puedo-conectar-con-el-puerto-8448">¿Por qué no puedo conectar con el puerto 8448?<a id="5.2"></a></h4>
+<h4 id="por-qué-no-puedo-conectar-con-el-puerto-8448">¿Por qué no puedo conectar con el puerto 8448?<a id="5-2"></a></h4>
 
 <p>¡Perdón! Confusamente la mayoría de los «homeservers» (servidores de datos) usan un certificado ssl diferente en el puerto 8448, que produce un error. Actualemente la solicitud «xmlhttp» en QML no permite esa clase de certificados.</p>
 
-<h4 id="por-qué-no-puedo-conectar-con-un-certificado-auto-firmado">¿Por qué no puedo conectar con un certificado auto-firmado?<a id="5.3"></a></h4>
+<h4 id="por-qué-no-puedo-conectar-con-un-certificado-auto-firmado">¿Por qué no puedo conectar con un certificado auto-firmado?<a id="5-3"></a></h4>
 
 <p>El mismo problema… Le recomiendo que use un certificado de Let’s Encrypt.</p>
 
 <h2 id="acerca-de-fluffychat">Acerca de FluffyChat<a id="6"></a></h2>
 
-<h4 id="cómo-se-financia-fluffychat">¿Cómo se financia FluffyChat?<a id="6.1"></a></h4>
+<h4 id="cómo-se-financia-fluffychat">¿Cómo se financia FluffyChat?<a id="6-1"></a></h4>
 
 <p>FluffyChat es financiado por la comunidad. Puede apoyar a FluffyChat en <a href="https://www.patreon.com/krillechritzelius">Patreon</a> o <a href="https://liberapay.com/KrilleChritzelius">Liberapay</a></p>
 
@@ -314,6 +316,10 @@ Si va a fluffychat -&gt; Configuración -&gt; Notificaciones -&gt; Objetivos: ¿
     
     
     <a href="../es">es</a>
+    
+    
+    
+    <a href="../nl">nl</a>
     
     
     )
