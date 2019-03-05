@@ -63,7 +63,7 @@ Item {
         }
         else if ( uri.slice(0,14) === "fluffychat://+" ) {
             uri = uri.replace("fluffychat://","")
-            MatrixNames.showCommunity(uri)
+            bottomEdgePageStack.push ( Qt.resolvedUrl ("../pages/CommunityPage.qml" ), { activeCommunity: uri } )
         }
         else console.error("Unkown uri...", uri)
     }
@@ -83,7 +83,7 @@ Item {
     function startImport ( transfer ) {
         console.log("NEW TRANSFER:",JSON.stringify(transfer))
         if ( transfer.contentType === ContentType.Links || transfer.contentType === ContentType.Text ) {
-            mainLayout.removePages( layout.primaryPage )
+            mainLayout.removePages( mainLayout.primaryPage )
             contentHub.shareObject = transfer
         }
         else if ( transfer.contentType === ContentType.Contacts ) {
@@ -129,14 +129,14 @@ Item {
     }
 
     function shareTextIntern ( text ) {
-        mainLayout.removePages( layout.primaryPage )
+        mainLayout.removePages( mainLayout.primaryPage )
         contentHub.shareObject = {
             items: [ contentItemComponent.createObject(contentHub, {"url" : "", "text": text}) ]
         }
     }
 
     function shareFileIntern ( event ) {
-        mainLayout.removePages( layout.primaryPage )
+        mainLayout.removePages( mainLayout.primaryPage )
         contentHub.shareObject = {
             matrixEvent: event
         }
@@ -144,7 +144,7 @@ Item {
 
     function shareLinkIntern ( url ) {
         uri = url
-        mainLayout.removePages( layout.primaryPage )
+        mainLayout.removePages( mainLayout.primaryPage )
         contentHub.shareObject = {
             items: [ contentItemComponent.createObject(contentHub, {"url" : uri, "text": url}) ]
         }

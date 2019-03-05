@@ -36,12 +36,12 @@ Page {
             Action {
                 iconName: "info"
                 text: i18n.tr("About FluffyChat")
-                onTriggered: mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("./InfoPage.qml") )
+                onTriggered: bottomEdgePageStack.push ( Qt.resolvedUrl("./InfoPage.qml") )
             },
             Action {
                 iconName: "private-browsing"
                 text: i18n.tr("Privacy Policy")
-                onTriggered: mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("./PrivacyPolicyPage.qml") )
+                onTriggered: bottomEdgePageStack.push ( Qt.resolvedUrl("./PrivacyPolicyPage.qml") )
             }
             ]
         }
@@ -119,7 +119,7 @@ Page {
                 Button {
                     width: units.gu(8)
                     text: matrix.countryCode + " +%1".arg(matrix.countryTel)
-                    onClicked: LoginPageActions.showCountryPicker ()
+                    onClicked: bottomEdgePageStack.push ( Qt.resolvedUrl ( "./CountryPickerPage.qml" ) )
                 }
                 TextField {
                     id: phoneTextField

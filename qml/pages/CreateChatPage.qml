@@ -77,10 +77,7 @@ Page {
                 icon: "find"
                 name: i18n.tr("Public groups")
                 iconWidth: units.gu(4)
-                onClicked: {
-                    bottomEdge.collapse ()
-                    mainLayout.addPageToCurrentColumn ( layout.primaryPage, Qt.resolvedUrl("./DiscoverPage.qml") )
-                }
+                onClicked: bottomEdgePageStack.push ( Qt.resolvedUrl("./DiscoverPage.qml") )
                 anchors.bottom: parent.bottom
             }
         }

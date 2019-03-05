@@ -58,7 +58,7 @@ Page {
             Action {
                 iconName: "filters"
                 visible: contentHub.shareObject === null && !searching
-                onTriggered: mainLayout.addPageToNextColumn ( chatListPage, Qt.resolvedUrl("./SettingsPage.qml") )
+                onTriggered: bottomEdgePageStack.push (Qt.resolvedUrl("./SettingsPage.qml"))
             },
             Action {
                 iconName: "find"

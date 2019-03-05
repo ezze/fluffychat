@@ -161,6 +161,7 @@ function init () {
     // We now write the rooms in the column
 
     initialized = res.rows.length
+    model.clear ()
     for ( var i = res.rows.length-1; i >= 0; i-- ) {
         var event = res.rows.item(i)
         event.content = JSON.parse( event.content_json )

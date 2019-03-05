@@ -47,7 +47,7 @@ Page {
             SettingsListItem {
                 name: i18n.tr("Join the community")
                 icon: "contact-group"
-                onClicked: MatrixNames.showCommunity("+ubports_community:matrix.org")
+                onClicked: bottomEdgePageStack.push ( Qt.resolvedUrl ("../pages/CommunityPage.qml" ), { activeCommunity: "+ubports_community:matrix.org" } )
             }
 
             SettingsListLink {

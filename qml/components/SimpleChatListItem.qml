@@ -17,7 +17,10 @@ ListItem {
     property var room
     height: layout.height
 
-    onClicked: mainLayout.toChat ( room.id )
+    onClicked: {
+        bottomEdgePageStack.pop ()
+        mainLayout.toChat ( room.id )
+    }
 
     ListItemLayout {
         id: layout

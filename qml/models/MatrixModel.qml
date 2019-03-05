@@ -175,7 +175,7 @@ Item {
         var onResponse = function ( response ) {
             // If error
             if ( response.errcode ) {
-                if ( response.errcode !== "M_USER_IN_USE" ) resetSettings ()
+                if ( response.errcode !== "M_USER_IN_USE" ) reset ()
                 if ( error_callback ) error_callback ( response )
                 return
             }
@@ -235,11 +235,6 @@ Item {
     }
 
 
-    function reset () {
-        resetSettings ()
-    }
-
-
     // TODO: Move into room model!
     function sendMessage ( messageID, data, chat_id, success_callback, error_callback ) {
         var newMessageID = ""
@@ -290,7 +285,7 @@ Item {
     }
 
 
-    function resetSettings () {
+    function reset () {
         matrix.token = ""
         matrix.username = matrix.server = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = ""
     }

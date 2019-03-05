@@ -63,6 +63,7 @@ MainView {
     // session and autoconnect with them. If not, then just go to the login Page.
 
     MainLayout { id: mainLayout }
+    BottomEdgePageStack { id: bottomEdgePageStack}
 
     ProgressBar {
         id: requestProgressBar

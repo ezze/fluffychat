@@ -235,7 +235,7 @@ Page {
                     name: i18n.tr("Invite friends")
                     icon: "contact-new"
                     iconWidth: units.gu(4)
-                    onClicked: mainLayout.addPageToCurrentColumn ( chatSettingsPage, Qt.resolvedUrl("./InvitePage.qml") )
+                    onClicked: bottomEdgePageStack.push ( Qt.resolvedUrl("./InvitePage.qml") )
                 }
 
                 Button {

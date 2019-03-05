@@ -49,25 +49,6 @@ AdaptivePageLayout {
 
     layouts: [
     PageColumnsLayout {
-        when: width >= 3*defaultPageColumnWidth && matrix.isLogged && allowThreeColumns
-        // column #0
-        PageColumn {
-            minimumWidth: 0.5*defaultPageColumnWidth
-            maximumWidth: 1.5*defaultPageColumnWidth
-            preferredWidth: defaultPageColumnWidth
-        }
-        // column #1
-        PageColumn {
-            fillWidth: true
-        }
-        // column #2
-        PageColumn {
-            minimumWidth: 0.5*defaultPageColumnWidth
-            maximumWidth: 1.5*defaultPageColumnWidth
-            preferredWidth: defaultPageColumnWidth
-        }
-    },
-    PageColumnsLayout {
         when: width >= 2*defaultPageColumnWidth && matrix.isLogged
         // column #0
         PageColumn {
@@ -96,6 +77,7 @@ AdaptivePageLayout {
     ChatPage { id: chatPage }
     Connections {
         target: matrix
+        onIsLoggedChanged: DefaultLayoutActions.init ()
         onBlockUIRequestChanged: matrix.blockUIRequest !== null ? PopupUtils.open ( waitDialog ) : function(){}
     }
 

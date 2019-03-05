@@ -22,7 +22,7 @@ Page {
     property var replyEvent: null
     property var chat_id
     property var topic: ""
-    property var historyCount: 30
+    property var historyCount: 20
     property var requesting: false
     property var initialized: -1
     property var count: chatScrollView.count
@@ -103,7 +103,7 @@ Page {
             id: showSettingsPage
             iconName: "contextual-menu"
             text: i18n.tr("Chat info")
-            onTriggered: mainLayout.addPageToNextColumn ( chatPage, Qt.resolvedUrl("./ChatSettingsPage.qml") )
+            onTriggered: bottomEdgePageStack.push (Qt.resolvedUrl("./ChatSettingsPage.qml") )
         }
         ]
         PropertyChanges {

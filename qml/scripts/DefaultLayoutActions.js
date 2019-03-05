@@ -5,6 +5,7 @@
 function toChat( chatID, toInvitePage ) {
     var rs = storage.query ( "SELECT * FROM Chats WHERE id=?", [ chatID ] )
     if ( rs.rows.length > 0 ) {
+        bottomEdgePageStack.clear ()
         if ( activeChat === chatID ) return
         activeChat = chatID
         if ( toInvitePage ) {

@@ -41,6 +41,7 @@ Component {
                 color: UbuntuColors.red
                 onClicked: {
                     PopupUtils.close(dialogue)
+                    bottomEdgePageStack.pop ()
                     matrix.logout ()
                 }
             }

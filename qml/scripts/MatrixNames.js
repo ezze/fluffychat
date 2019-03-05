@@ -46,7 +46,7 @@ function powerlevelToStatus ( power_level ) {
 
 function showUserSettings ( matrix_id ) {
     activeUser = matrix_id
-    PopupUtils.open( userSettingsDialog )
+    bottomEdgePageStack.push ( Qt.resolvedUrl ("../pages/UserPage.qml"))
 }
 
 
