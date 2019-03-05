@@ -19,13 +19,14 @@ function init () {
 }
 
 
-function search ( displayText ) {
-    searchMatrixId = displayText.slice( 0,1 ) === "@"
+function search () {
+    var displayText = searchField.displayText
+    searchField.searchMatrixId = displayText.slice( 0,1 ) === "@"
 
-    if ( searchMatrixId && displayText.indexOf(":") !== -1 ) {
-        if ( tempElement !== null ) {
-            model.remove ( tempElement)
-            tempElement = null
+    if ( searchField.searchMatrixId && displayText.indexOf(":") !== -1 ) {
+        if ( searchField.tempElement !== null ) {
+            model.remove ( searchField.tempElement)
+            searchField.tempElement = null
         }
         model.append ( {
             matrix_id: displayText,
@@ -35,6 +36,6 @@ function search ( displayText ) {
             avatar_url: "",
             temp: true
         })
-        tempElement = model.count - 1
+        searchField.tempElement = model.count - 1
     }
 }

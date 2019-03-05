@@ -3,7 +3,7 @@
 
 
 function toChat( chatID, toInvitePage ) {
-    var rs = storage.query ( "SELECT * FROM Chats WHERE id=?", [ chatID ] )
+    var rs = storage.query ( "SELECT * FROM Chats WHERE id=? AND membership!='leave'", [ chatID ] )
     if ( rs.rows.length > 0 ) {
         bottomEdgePageStack.clear ()
         if ( activeChat === chatID ) return
@@ -17,12 +17,17 @@ function toChat( chatID, toInvitePage ) {
         }
     }
     else {
-        showConfirmDialog ( i18n.tr("Do you want to join this chat?").arg(chat_id), function () {
-            matrix.post( "/client/r0/join/" + encodeURIComponent(chat_id), null, function ( response ) {
-                matrix.waitForSync()
-                mainLayout.toChat( response.room_id )
-            }, null, 2 )
-        } )
+        var chatJoinedSuccess = function ( response ) {
+            matrix.waitForSync()
+            activeChat = chatID
+            bottomEdgePageStack.clear ()
+            mainLayout.addPageToNextColumn ( mainLayout.primaryPage, chatPage)
+            chatPage.load()
+        }
+        var joinChatAction = function () {
+            matrix.post( "/client/r0/join/" + encodeURIComponent(chatID), null, chatJoinedSuccess, null, 2 )
+        }
+        showConfirmDialog ( i18n.tr("Do you want to join this chat?").arg(chatID), joinChatAction )
     }
 }
 

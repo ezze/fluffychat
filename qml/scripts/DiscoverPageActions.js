@@ -36,26 +36,19 @@ function init () {
 
 
 function displayTextChanged ( displayText ) {
-    if ( tempElement ) {
+    if ( searchField.tempElement ) {
         model.remove ( model.count - 1 )
-        tempElement  = false
+        searchField.tempElement  = false
     }
 
     if ( displayText.slice( 0,1 ) === "#" ) {
-        searchMatrixId = displayText
-        if ( searchMatrixId.indexOf(":") === -1 ) searchMatrixId += ":%1".arg(matrix.server)
+        searchField.searchMatrixId = displayText
+        if ( searchField.searchMatrixId.indexOf(":") === -1 ) searchField.searchMatrixId += ":%1".arg(matrix.server)
 
 
         model.append ( { "room": {
-            id: searchMatrixId,
-            topic: searchMatrixId,
-            membership: "leave",
-            avatar_url: "",
-            origin_server_ts: new Date().getTime(),
-            typing: [],
-            notification_count: 0,
-            highlight_count: 0
+            room_id: searchField.searchMatrixId
         } } )
-        tempElement = true
+        searchField.tempElement = true
     }
 }
