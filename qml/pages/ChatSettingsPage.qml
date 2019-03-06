@@ -266,12 +266,7 @@ Page {
                 visible: power >= 50
             }
             Action {
-                text: i18n.tr("Appoint to an Admin")
-                onTriggered: PageActions.changePowerLevel ( 99 )
-                visible: power >= 99
-            }
-            Action {
-                text: i18n.tr("Appoint to Owner")
+                text: i18n.tr("Appoint to Admin")
                 onTriggered: PageActions.changePowerLevel ( 100 )
                 visible: power >= 100
             }

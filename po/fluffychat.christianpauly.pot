@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 10:09+0000\n"
+"POT-Creation-Date: 2019-03-06 10:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -514,81 +514,6 @@ msgstr ""
 msgid "Anyone can access full chat history"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:108
-msgid "Chat permissions"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:113
-msgid "Who can send messages?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:119
-msgid "Who can configure this chat?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:125
-msgid "Who can remove messages?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:131
-msgid "Who can invite users?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:137
-msgid "Who can ban users?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:143
-msgid "Who can kick users?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:149
-msgid "Who can change the chat name?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:155
-msgid "Who can change the chat avatar?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:161
-msgid "Who can change the chat history visibility?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:167
-msgid "Who can change the chat addresses?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:173
-msgid "Who can change the canonical chat alias?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:179
-msgid "Who can change the user permissions?"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:185
-msgid "Default user permissions:"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:197
-#: ../qml/scripts/MatrixNames.js:40
-msgid "Members"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:201
-#: ../qml/scripts/MatrixNames.js:41
-msgid "Moderators"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:205
-#: ../qml/scripts/MatrixNames.js:42
-msgid "Admins"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:209
-msgid "Owner"
-msgstr ""
-
 #: ../qml/pages/NotificationChatSettingsPage.qml:33
 msgid "Notify"
 msgstr ""
@@ -658,11 +583,7 @@ msgid "Appoint to a Moderator"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:269
-msgid "Appoint to an Admin"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:274
-msgid "Appoint to Owner"
+msgid "Appoint to Admin"
 msgstr ""
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:15
@@ -725,20 +646,20 @@ msgstr ""
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:47
+#: ../qml/components/MemberListItem.qml:48
 #: ../qml/components/ChatScrollView.qml:50
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:85
+#: ../qml/components/MemberListItem.qml:86
 msgid "Ban from this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:93
+#: ../qml/components/MemberListItem.qml:94
 msgid "Cancel banishment?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:101
+#: ../qml/components/MemberListItem.qml:102
 msgid "Kick from this chat?"
 msgstr ""
 
@@ -1173,6 +1094,18 @@ msgstr ""
 
 #: ../qml/scripts/MatrixNames.js:34
 msgid "✏ %1 and %2 more are typing…"
+msgstr ""
+
+#: ../qml/scripts/MatrixNames.js:40
+msgid "Members"
+msgstr ""
+
+#: ../qml/scripts/MatrixNames.js:41
+msgid "Moderators"
+msgstr ""
+
+#: ../qml/scripts/MatrixNames.js:42
+msgid "Admins"
 msgstr ""
 
 #: ../qml/scripts/MatrixNames.js:43
