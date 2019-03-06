@@ -4,6 +4,7 @@
 function register () {
 
     var registerSuccess = function () {
+        var _root = root
 
         if ( desiredPhoneNumber !== null ) {
             root.firstSMSClientSecret = "SECRET:" + new Date().getTime()
@@ -16,9 +17,9 @@ function register () {
                 send_attempt: 1,
                 id_server: matrix.id_server
             }, function ( response ) {
-                if ( response.sid ) root.firstSMSSid = response.sid
+                if ( response.sid ) _root.firstSMSSid = response.sid
             }, function ( response ) {
-                if ( response.sid ) root.firstSMSSid = response.sid
+                if ( response.sid ) _root.firstSMSSid = response.sid
             } )
         }
         else mainLayout.init ()

@@ -384,7 +384,7 @@ Item {
                 catch ( error ) {
                     // First unify the error schema and log the error
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
-                    if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("❌[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", error)
+                    if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("❌[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", error, JSON.stringify(error))
 
                     // Is the errcode something we can handle?
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
@@ -577,7 +577,7 @@ function handleRooms ( rooms, membership, newChatCB, newEventCB ) {
         var prev_batch = ""
         var limitedTimeline = 0
 
-        if ( typeof room.unread_noprioritytifications === "object" ) {
+        if ( typeof room.unread_notifications === "object" ) {
             if ( typeof room.unread_notifications.highlight_count === "number" ) {
                 highlight_count = room.unread_notifications.highlight_count
             }

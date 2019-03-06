@@ -82,8 +82,7 @@ ListItem {
         visible: room.highlight_count > 0
         name: "dialog-warning-symbolic"
         anchors.right: notificationBubble.left
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: units.gu(2)
+        anchors.verticalCenter: notificationBubble.verticalCenter
         anchors.rightMargin: units.gu(0.5)
         width: units.gu(2)
         height: width

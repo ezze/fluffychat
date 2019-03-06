@@ -37,6 +37,7 @@ function loadFromDatabase () {
 * - Update the counter of unseen messages
 */
 function newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline ) {
+
     // Update the chat list item.
     // Search the room in the model
     var j = 0
