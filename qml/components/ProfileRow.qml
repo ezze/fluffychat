@@ -24,7 +24,7 @@ Row {
 
     Avatar {  // Useravatar
         id: avatarImage
-        name: matrixid
+        name: displayname
         height: parent.height - units.gu(3)
         width: height
         mxc: avatar_url

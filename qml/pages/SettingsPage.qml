@@ -59,7 +59,7 @@ Page {
 
                 Avatar {  // Useravatar
                     id: avatarImage
-                    name: matrix.matrixid
+                    name: displayname
                     height: parent.height - units.gu(3)
                     width: height
                     mxc: avatar_url
