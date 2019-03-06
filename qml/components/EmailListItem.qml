@@ -29,7 +29,7 @@ ListItem {
             iconName: "edit-delete"
             onTriggered: {
                 showConfirmDialog ( i18n.tr('Remove this email address?'), function () {
-                    matrix.post ( "/client/unstable/account/3pid/delete", { medium: "email", address: thisAddress }, emailSettingsPage.sync )
+                    matrix.post ( "/client/unstable/account/3pid/delete", { medium: "email", address: thisAddress }, emailSettingsPage.sync, null, 2 )
                 } )
             }
         }

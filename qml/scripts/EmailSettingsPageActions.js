@@ -12,7 +12,7 @@ function sync () {
             storage.query ( "INSERT OR IGNORE INTO ThirdPIDs VALUES( ?, ? )", [ res.threepids[i].medium, res.threepids[i].address ] )
         }
         update()
-    })
+    }, null, 2 )
 }
 
 

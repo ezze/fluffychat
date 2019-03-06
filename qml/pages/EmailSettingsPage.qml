@@ -12,6 +12,9 @@ Page {
 
     Component.onCompleted: PageActions.sync ()
 
+    signal sync ()
+    onSync: PageActions.sync ()
+
 
     header: PageHeader {
         id: header

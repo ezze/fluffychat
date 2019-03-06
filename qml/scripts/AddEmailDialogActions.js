@@ -5,11 +5,11 @@ function add ( address, dialogue ) {
     var secret = "SECRET:" + new Date().getTime()
 
     var success_callback = function ( response ) {
-        var sid = response.sid
-        showConfirmDialog ( i18n.tr("Have you confirmed your email address?"), sendSecondReq )
+        var sendsecondReqSid = function () { sendSecondReq ( response.sid ) }
+        showConfirmDialog ( i18n.tr("Have you confirmed your email address?"), sendsecondReqSid )
     }
 
-    var sendSecondReq = function () {
+    var sendSecondReq = function ( sid ) {
         var threePidCreds = {
             client_secret: secret,
             sid: sid,
@@ -18,7 +18,7 @@ function add ( address, dialogue ) {
         matrix.post ("/client/r0/account/3pid", {
             bind: true,
             threePidCreds: threePidCreds
-        }, emailSettingsPage.sync )
+        }, emailSettingsPage.sync, null, 2 )
     }
 
     // Verify this address with this matrix id
@@ -27,7 +27,7 @@ function add ( address, dialogue ) {
         email: address,
         send_attempt: 1,
         id_server: matrix.id_server
-    }, success_callback)
+    }, success_callback, null, 2)
 
     PopupUtils.close(dialogue)
 }
