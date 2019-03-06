@@ -47,13 +47,18 @@ Component {
                 text: i18n.tr("Remove")
                 color: UbuntuColors.red
                 enabled: oldPass.displayText !== ""
-                onClicked: matrix.post ( "/client/r0/account/deactivate", {
-                    "auth": {
-                        "password": oldPass.displayText,
-                        "type": "m.login.password",
-                        "user": matrix.matrixid
+                onClicked: {
+                    var data = {
+                        "auth": {
+                            "password": oldPass.text,
+                            "type": "m.login.password",
+                            "user": matrix.matrixid
+                        },
+                        "erase": true
                     }
-                } )
+                    matrix.post ( "/client/r0/account/deactivate", data, null, null, 2 )
+                    PopupUtils.close ( dialogue )
+                }
             }
         }
     }

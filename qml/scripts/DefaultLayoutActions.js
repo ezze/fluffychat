@@ -44,6 +44,7 @@ function getPrimaryPage () {
 
 
 function init () {
+    bottomEdgePageStack.clear ()
     mainLayout.primaryPageSource = Qt.resolvedUrl(getPrimaryPage ())
     mainLayout.removePages( mainLayout.primaryPage )
 }
