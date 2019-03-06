@@ -74,7 +74,7 @@ function login () {
         }, function ( response ) {
 
             // Step 3.2: There is a registered matrix id. Go to the password input...
-            if ( false && response.mxid ) {
+            if ( response.mxid ) {
                 var splittedMxid = response.mxid.substr(1).split ( ":" )
                 matrix.username = splittedMxid[0]
                 matrix.server = splittedMxid[1]
