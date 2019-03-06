@@ -28,20 +28,9 @@ ListItem {
         Avatar {
             id: avatar
             SlotsLayout.position: SlotsLayout.Leading
-            name: title.text
+            name: layout.title.text
             mxc: room.avatar_url || MatrixNames.getAvatarFromSingleChat ( room.id )
         }
-    }
-
-
-    Label {
-        id: stampLabel
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.margins: units.gu(2)
-        text: MatrixNames.getChatTime ( room.origin_server_ts )
-        textSize: Label.XSmall
-        visible: text != ""
     }
 
     // Delete Button

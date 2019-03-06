@@ -25,7 +25,7 @@ function toChat( chatID, toInvitePage ) {
         var joinChatAction = function () {
             matrix.post( "/client/r0/join/" + encodeURIComponent(chatID), null, chatJoinedSuccess, null, 2 )
         }
-        showConfirmDialog ( i18n.tr("Do you want to join this chat?").arg(chatID), joinChatAction )
+        showConfirmDialog ( i18n.tr("Do you want to join this chat?"), joinChatAction )
     }
 }
 
