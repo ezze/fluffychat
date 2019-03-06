@@ -110,7 +110,7 @@ Item {
     signal newSync ( var sync )
 
     // This should be shown in the GUI for example as a toast
-    signal error ( var error )
+    signal reqError ( var error )
 
     signal reseted ()
 
@@ -389,18 +389,18 @@ Item {
                     // Is the errcode something we can handle?
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                     else if ( !error_callback && error.error === "CONNERROR" ) {
-                        matrix.error (i18n.tr("😕 No connection..."))
+                        matrix.reqError (i18n.tr("😕 No connection..."))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
                         if ( "consent_uri" in error ) {
                             showConsentUrl ( error.consent_uri )
                         }
-                        else matrix.error ( error.error )
+                        else matrix.reqError ( error.error )
                     }
 
                     // Error callback or error signal?
                     else if ( error_callback ) error_callback ( error )
-                    else if ( error.errcode !== undefined && error.error !== undefined && priority > _PRIORITY.LOW ) matrix.error ( error.error )
+                    else if ( priority > _PRIORITY.LOW ) matrix.reqError ( error.error )
                 }
             }
         }
@@ -577,7 +577,7 @@ function handleRooms ( rooms, membership, newChatCB, newEventCB ) {
         var prev_batch = ""
         var limitedTimeline = 0
 
-        if ( typeof room.unread_notifications === "object" ) {
+        if ( typeof room.unread_noprioritytifications === "object" ) {
             if ( typeof room.unread_notifications.highlight_count === "number" ) {
                 highlight_count = room.unread_notifications.highlight_count
             }

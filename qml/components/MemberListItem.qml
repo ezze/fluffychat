@@ -11,7 +11,8 @@ ListItem {
         layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
     }
     height: visible ? layout.height : 0
-    property var settingsOn: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === matrix.matrixid)
+    property bool isUserItself: matrixid === matrix.matrixid
+    property var settingsOn: (canBan || canKick || canChangePermissions) && (power > userPower || isUserItself)
     property var status: MatrixNames.powerlevelToStatus(userPower)
     color: mainLayout.darkmode ? "#202020" : "white"
 
@@ -85,7 +86,7 @@ ListItem {
             onTriggered: showConfirmDialog( i18n.tr("Ban from this chat?"), function () {
                 matrix.post("/client/r0/rooms/" + activeChat + "/ban", { "user_id": matrixid } )
             })
-            visible: settingsOn && canBan && membership !== "ban"
+            visible: settingsOn && canBan && membership !== "ban" && !isUserItself
         },
         // Unban button
         Action {
@@ -93,7 +94,7 @@ ListItem {
             onTriggered: showConfirmDialog( i18n.tr("Cancel banishment?"), function () {
                 matrix.post("/client/r0/rooms/" + activeChat + "/unban", { "user_id": matrixid } )
             })
-            visible: settingsOn && canBan && membership === "ban"
+            visible: settingsOn && canBan && membership === "ban" && !isUserItself
         },
         // Kick button
         Action {
@@ -101,7 +102,7 @@ ListItem {
             onTriggered: showConfirmDialog( i18n.tr("Kick from this chat?"), function () {
                 matrix.post("/client/r0/rooms/" + activeChat + "/kick", { "user_id": matrixid } )
             })
-            visible: settingsOn && canKick && membership !== "leave" && membership !== "ban"
+            visible: settingsOn && canKick && membership !== "leave" && membership !== "ban" && !isUserItself
         }
         ]
     }

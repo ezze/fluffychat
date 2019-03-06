@@ -120,7 +120,7 @@ MainView {
     StorageModel { id: storage }
     MatrixModel {
         id: matrix
-        onError: toast.show ( error )
+        onReqError: toast.show ( error )
         onReseted: mainLayout.init ()
         onShowConsentUrl: {
             var openUrlFunction = function () {

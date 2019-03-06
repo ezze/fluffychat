@@ -96,8 +96,14 @@ function changePowerLevel ( level ) {
     var data = {
         users: {}
     }
+    var powerLevelResults = storage.query ( "SELECT matrix_id, power_level FROM Memberships WHERE chat_id=? AND power_level>0", [activeChat] )
+    for ( var i = 0; i < powerLevelResults.rows.length; i++ ) {
+        var userRow = powerLevelResults.rows[i]
+        data.users[ userRow.matrix_id ] = userRow.power_level
+    }
     data.users[selectedUserId] = level
-    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data )
+    console.log(JSON.stringify(data))
+    matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.power_levels/", data, null, null, 2 )
 }
 
 function destruct () {
