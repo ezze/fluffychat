@@ -36,14 +36,16 @@ function update () {
 
 
 function createNewGroup () {
+
+    var createNewGroupSuccess = function ( response ) {
+        toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
+        mainLayout.toChat ( response.room_id, true )
+    }
+
     var createNewGroupCallback = function () {
         bottomEdge.collapse ()
-        matrix.post( "/client/r0/createRoom", {
-            preset: "private_chat"
-        }, function ( response ) {
-            toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
-            mainLayout.toChat ( response.room_id, true )
-        }, null, 2 )
+        matrix.post( "/client/r0/createRoom", { preset: "private_chat" }, createNewGroupSuccess, null, 2 )
     }
+
     showConfirmDialog ( i18n.tr("Do you want to create a new group now?"), createNewGroupCallback )
 }

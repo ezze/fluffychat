@@ -8,12 +8,10 @@ function toChat( chatID, toInvitePage ) {
         bottomEdgePageStack.clear ()
         if ( activeChat === chatID ) return
         activeChat = chatID
+        mainLayout.addPageToNextColumn ( mainLayout.primaryPage, chatPage)
+        chatPage.load()
         if ( toInvitePage ) {
-            mainLayout.addPageToCurrentColumn ( mainLayout.primaryPage, Qt.resolvedUrl("../pages/InvitePage.qml"))
-        }
-        else {
-            mainLayout.addPageToNextColumn ( mainLayout.primaryPage, chatPage)
-            chatPage.load()
+            bottomEdgePageStack.push ( Qt.resolvedUrl("../pages/InvitePage.qml") )
         }
     }
     else {
