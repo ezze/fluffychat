@@ -84,8 +84,10 @@ AdaptivePageLayout {
     primaryPageSource: Qt.resolvedUrl( DefaultLayoutActions.getPrimaryPage () )
 
     signal init ()
-    signal toChat ( var chatID, var toInvitePage )
+    signal toChat ( var chatID )
+    signal toChatInvitePage ( var chatID )
 
     onInit: DefaultLayoutActions.init ()
-    onToChat: DefaultLayoutActions.toChat ( chatID, toInvitePage )
+    onToChat: DefaultLayoutActions.toChat ( chatID )
+    onToChatInvitePage: DefaultLayoutActions.toChat ( chatID, true )
 }

@@ -79,7 +79,6 @@ MainView {
     LockedScreen { id: lockedScreen }
     Audio { id: audio }
     ConfirmDialog { id: confirmDialog }
-    UserSettingsDialog { id: userSettingsDialog }
     property var firstSMSSid: null
     property var firstSMSClientSecret: null
     EnterFirstSMSTokenDialog { id: enterFirstSMSToken }
