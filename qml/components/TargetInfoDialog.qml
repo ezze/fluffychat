@@ -17,7 +17,7 @@ Component {
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter
                 name: "info"
-                color: settings.mainColor
+                color: mainLayout.mainColor
             }
         }
         Label {

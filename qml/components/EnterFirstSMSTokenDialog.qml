@@ -12,7 +12,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: addressTextField
@@ -28,44 +28,39 @@ Component {
                 text: i18n.tr("Cancel")
                 onClicked: {
                     PopupUtils.close(dialogue)
-                    mainStack.pop()
-                    mainStack.pop()
-                    if ( tabletMode ) mainStack.push(Qt.resolvedUrl("../pages/BlankPage.qml"))
-                    else mainStack.push(Qt.resolvedUrl("../pages/ChatListPage.qml"))
+                    layout.init ()
                 }
             }
             Button {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Connect")
                 color: UbuntuColors.green
-                enabled: addressTextField.displayText !== "" && sid !== null
+                enabled: addressTextField.displayText !== "" && root.firstSMSSid !== null
                 onClicked: {
-                    var success_callback = function () {
-                        PopupUtils.close(dialogue)
-                        root.init ()
-                    }
-                    var _page = passwordCreationPage
-                    var _matrix = matrix
-
-                    matrix.post ( "/identity/api/v1/validate/msisdn/submitToken", {
-                        client_secret: client_secret,
-                        sid: sid,
-                        token: addressTextField.displayText
-                    }, function () {
+                    var firstSuccessCallback = function () {
 
                         var threePidCreds = {
-                            client_secret: _page.client_secret,
-                            sid: _page.sid,
-                            id_server: settings.id_server
+                            client_secret: root.firstSMSClientSecret,
+                            sid: root.firstSMSSid,
+                            id_server: matrix.id_server
                         }
-                        _matrix.post ("/client/r0/account/3pid", {
+                        matrix.post ("/client/r0/account/3pid", {
                             bind: true,
                             threePidCreds: threePidCreds
                         }, null, null, 2 )
-                        success_callback ()
-                    }, function ( error ) {
+                        PopupUtils.close(dialogue)
+                    }
+
+                    var firstErrorCallback = function ( error ) {
                         dialogue.title = error.error
-                    }, 2 )
+                    }
+                    var data = {
+                        client_secret: root.firstSMSClientSecret,
+                        sid: root.firstSMSSid,
+                        token: addressTextField.displayText
+                    }
+                    console.log(JSON.stringify (data))
+                    matrix.post ( "/identity/api/v1/validate/msisdn/submitToken", data, firstSuccessCallback, firstErrorCallback, 2 )
                 }
             }
         }

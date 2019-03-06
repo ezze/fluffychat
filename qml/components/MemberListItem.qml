@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/MatrixNames.js" as MatrixNames
 
 ListItem {
     visible: {
@@ -10,18 +11,19 @@ ListItem {
         layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
     }
     height: visible ? layout.height : 0
-    property var settingsOn: (canBan || canKick || canChangePermissions) && (power > userPower || matrixid === settings.matrixid)
-    property var status: usernames.powerlevelToStatus(userPower)
-    color: settings.darkmode ? "#202020" : "white"
+    property bool isUserItself: matrixid === matrix.matrixid
+    property var settingsOn: (canBan || canKick || canChangePermissions) && (power > userPower || isUserItself)
+    property var status: MatrixNames.powerlevelToStatus(userPower)
+    color: mainLayout.darkmode ? "#202020" : "white"
 
-    onClicked: usernames.showUserSettings ( matrixid )
+    onClicked: MatrixNames.showUserSettings ( matrixid )
 
     ListItemLayout {
         id: layout
         title.text: name
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
         subtitle.text: membership !== "join" ? getDisplayMemberStatus ( membership ) : ""
-        subtitle.color: mainFontColor
+        subtitle.color: mainLayout.mainFontColor
 
         Avatar {
             id: avatar
@@ -32,7 +34,7 @@ ListItem {
             mxc: avatar_url || ""
             opacity: membership === "join" ? 1 : 0.5
             onClickFunction: function () {
-                usernames.showUserSettings ( matrixid )
+                MatrixNames.showUserSettings ( matrixid )
             }
         }
         Icon {
@@ -84,7 +86,7 @@ ListItem {
             onTriggered: showConfirmDialog( i18n.tr("Ban from this chat?"), function () {
                 matrix.post("/client/r0/rooms/" + activeChat + "/ban", { "user_id": matrixid } )
             })
-            visible: settingsOn && canBan && membership !== "ban"
+            visible: settingsOn && canBan && membership !== "ban" && !isUserItself
         },
         // Unban button
         Action {
@@ -92,7 +94,7 @@ ListItem {
             onTriggered: showConfirmDialog( i18n.tr("Cancel banishment?"), function () {
                 matrix.post("/client/r0/rooms/" + activeChat + "/unban", { "user_id": matrixid } )
             })
-            visible: settingsOn && canBan && membership === "ban"
+            visible: settingsOn && canBan && membership === "ban" && !isUserItself
         },
         // Kick button
         Action {
@@ -100,7 +102,7 @@ ListItem {
             onTriggered: showConfirmDialog( i18n.tr("Kick from this chat?"), function () {
                 matrix.post("/client/r0/rooms/" + activeChat + "/kick", { "user_id": matrixid } )
             })
-            visible: settingsOn && canKick && membership !== "leave" && membership !== "ban"
+            visible: settingsOn && canKick && membership !== "leave" && membership !== "ban" && !isUserItself
         }
         ]
     }

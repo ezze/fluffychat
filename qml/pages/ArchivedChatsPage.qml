@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/ArchivedChatsPageActions.js" as ArchivedChatsPageActions
 
 Page {
     anchors.fill: parent
@@ -13,33 +14,16 @@ Page {
 
     // This is the most importent function of this page! It updates all rooms, based
     // on the informations in the sqlite database!
-    Component.onCompleted: update ()
-
-    function update () {
-
-        // On the top are the rooms, which the user is invited to
-        storage.transaction ("SELECT rooms.id, rooms.topic, rooms.avatar_url " +
-        " FROM Chats rooms " +
-        " WHERE rooms.membership='leave' " +
-        " ORDER BY rooms.topic DESC "
-        , function(res) {
-            model.clear ()
-            // We now write the rooms in the column
-            for ( var i = 0; i < res.rows.length; i++ ) {
-                var room = res.rows.item(i)
-                // We request the room name, before we continue
-                model.append ( { "room": room } )
-            }
-        })
-    }
+    Component.onCompleted: ArchivedChatsPageActions.update ()
 
 
     Connections {
-        target: events
-        onNewChatUpdate: update ()
+        target: matrix
+        onNewChatUpdate: ArchivedChatsPageActions.update ()
     }
+    
 
-    header: FcPageHeader {
+    header: PageHeader {
         id: header
         title: i18n.tr("Archived chats")
 
@@ -60,8 +44,6 @@ Page {
             placeholderText: i18n.tr("Search archived chats...")
         }
     }
-
-
 
 
     Label {

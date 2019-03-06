@@ -53,7 +53,7 @@ Rectangle {
 
         label.text = tempText
 
-        var maxWidth = mainStackWidth - units.gu(6)
+        var maxWidth = root.width - units.gu(6)
         if ( label.width > maxWidth ) label.width = maxWidth
 
         visible = true

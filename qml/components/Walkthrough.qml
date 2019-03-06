@@ -22,7 +22,7 @@
 
 import QtQuick 2.9
 import Ubuntu.Components 1.3
-import "../controller"
+import "../models"
 
 Page {
     id: walkthrough
@@ -110,40 +110,36 @@ Page {
         }
     }
 
-    // Label to skip the walkthrough.
-    Label {
-        id: skipLabel
-
-        color: settings.darkmode ? "white" : "black"
-        fontSize: "medium"
-        objectName: "skipLabel"
-        text: i18n.tr("Skip")
-        visible: listView.currentIndex !== listView.count-1
-        width: contentWidth
-
+    Icon {
+        id: backIcon
         anchors {
             bottom: parent.bottom
-            left: parent.left
+            right: slideIndicator.left
             margins: units.gu(2)
         }
+        color: mainLayout.darkmode ? "white" : "black"
+        height: units.gu(2)
+        name: "go-previous"
+        width: height
+        asynchronous: true
+        visible: listView.currentIndex > 0
     }
 
     MouseArea {
         anchors {
             bottom: parent.bottom
-            horizontalCenter: skipLabel.horizontalCenter
+            horizontalCenter: backIcon.horizontalCenter
         }
         height: units.gu(6)
-        visible: listView.currentIndex !== listView.count-1
-        width: skipLabel.width + skipLabel.anchors.margins*2
+        width: height
 
-        onClicked: walkthrough.finished()
+        onClicked: previousSlide()
 
         Rectangle {
             anchors {
                 fill: parent
             }
-            color: settings.darkmode ? "white" : "black"
+            color: mainLayout.darkmode ? "white" : "black"
             opacity: parent.pressed ? 0.1 : 0
 
             Behavior on opacity {
@@ -171,7 +167,7 @@ Page {
                 antialiasing: true
                 height: width
                 width: units.gu(1.5)
-                color: listView.currentIndex == index ? settings.mainColor : UbuntuColors.slate
+                color: listView.currentIndex == index ? mainLayout.mainColor : UbuntuColors.slate
                 radius: width
             }
         }
@@ -181,12 +177,12 @@ Page {
         id: nextIcon
         anchors {
             bottom: parent.bottom
-            right: parent.right
+            left: slideIndicator.right
             margins: units.gu(2)
         }
-        color: settings.darkmode ? "white" : "black"
+        color: mainLayout.darkmode ? "white" : "black"
         height: units.gu(2)
-        name: "chevron"
+        name: "go-next"
         width: height
         asynchronous: true
     }
@@ -205,7 +201,7 @@ Page {
             anchors {
                 fill: parent
             }
-            color: settings.darkmode ? "white" : "black"
+            color: mainLayout.darkmode ? "white" : "black"
             opacity: parent.pressed ? 0.1 : 0
 
             Behavior on opacity {
@@ -217,7 +213,7 @@ Page {
     }
 
     Component.onCompleted: {
-        if ( settings.walkthroughFinished ) {
+        if ( mainLayout.walkthroughFinished ) {
             nextSlide()
             nextSlide()
         }

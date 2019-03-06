@@ -26,8 +26,5 @@ ListItem {
             height: width
         }
     }
-    onClicked: {
-        shareController.toClipboard ( matrix_id )
-        toast.show( i18n.tr("Username has been copied to the clipboard") )
-    }
+    onClicked: contentHub.toClipboard ( matrix_id )
 }

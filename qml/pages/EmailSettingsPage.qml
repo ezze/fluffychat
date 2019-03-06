@@ -3,43 +3,20 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/EmailSettingsPageActions.js" as PageActions
 
 Page {
     id: emailSettingsPage
     anchors.fill: parent
 
 
-    Component.onCompleted: sync ()
+    Component.onCompleted: PageActions.sync ()
+
+    signal sync ()
+    onSync: PageActions.sync ()
 
 
-    function sync () {
-        update()
-
-        // Check for updates online
-        matrix.get( "/client/r0/account/3pid", null, function ( res ) {
-            storage.transaction ( "DELETE FROM ThirdPIDs")
-            if ( res.threepids.length === 0 ) return
-            for ( var i = 0; i < res.threepids.length; i++ ) {
-                storage.query ( "INSERT OR IGNORE INTO ThirdPIDs VALUES( ?, ? )", [ res.threepids[i].medium, res.threepids[i].address ])
-            }
-            update()
-        })
-    }
-
-
-    function update () {
-        // Get all email addresses
-        storage.transaction ( "SELECT address FROM ThirdPIDs WHERE medium='email'", function (response) {
-            model.clear()
-            for ( var i = 0; i < response.rows.length; i++ ) {
-                model.append({
-                    name: response.rows[ i ].address
-                })
-            }
-        })
-    }
-
-    header: FcPageHeader {
+    header: PageHeader {
         id: header
         title:  i18n.tr('Connected email addresses')
 

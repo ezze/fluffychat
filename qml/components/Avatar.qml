@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import QtGraphicalEffects 1.0
+import "../scripts/MatrixNames.js" as MatrixNames
 
 UbuntuShape {
     id: avatarRect
@@ -10,8 +11,8 @@ UbuntuShape {
     relativeRadius: 0.75
     aspect: UbuntuShape.Flat
     backgroundMode: UbuntuShape.VerticalGradient
-    backgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : usernames.stringToDarkColor ( name )
-    secondaryBackgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : usernames.stringToColor ( name )
+    backgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : MatrixNames.stringToDarkColor ( name )
+    secondaryBackgroundColor: avatar.status === Image.Ready ? theme.palette.normal.background : MatrixNames.stringToColor ( name )
     z:1
 
     property var mxc: ""
@@ -28,7 +29,7 @@ UbuntuShape {
 
     source: Image {
         id: avatar
-        source:  mxc !== null && mxc !== "" && mxc !== undefined ? media.getThumbnailLinkFromMxc ( mxc, width, height ) : ""
+        source:  mxc !== null && mxc !== "" && mxc !== undefined ? MatrixNames.getThumbnailLinkFromMxc ( mxc, width, height ) : ""
         anchors.fill: parent
         cache: true
         sourceSize.width: width

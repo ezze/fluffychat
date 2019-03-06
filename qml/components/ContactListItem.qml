@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/MatrixNames.js" as MatrixNames
 
 ListItem {
 
@@ -11,12 +12,11 @@ ListItem {
         searchField.searchMatrixId ? matrixid.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
         : layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1
     }
-
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
     property var matrixid: matrix_id
     property var tempElement: temp
-    property var presenceStr: last_active_ago !== 0 ? i18n.tr("Last active: %1").arg( stamp.getChatTime ( last_active_ago ) ) : presence
+    property var presenceStr: last_active_ago !== 0 ? i18n.tr("Last active: %1").arg( MatrixNames.getChatTime ( last_active_ago ) ) : presence
 
     onSelectedChanged: {
         if ( selected ) inviteList[inviteList.length] = matrixid
@@ -25,14 +25,14 @@ ListItem {
         selectedCount = inviteList.length
     }
 
-    onClicked: usernames.showUserSettings ( matrixid )
+    onClicked: MatrixNames.showUserSettings ( matrixid )
 
     ListItemLayout {
         id: layout
         title.text: name + " (%1)".arg(address)
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
         subtitle.text: presenceStr
-        subtitle.color: mainFontColor
+        subtitle.color: mainLayout.mainFontColor
 
         Avatar {
             name: layout.title.text
@@ -41,7 +41,7 @@ ListItem {
             height: width
             mxc: avatar_url || ""
             onClickFunction: function () {
-                usernames.showUserSettings ( matrixid )
+                MatrixNames.showUserSettings ( matrixid )
             }
         }
 

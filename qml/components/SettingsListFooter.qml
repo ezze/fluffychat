@@ -7,31 +7,31 @@ ListItem {
     property var name: ""
     property var icon: "settings"
     property var rightIcon: ""
-    property var iconColor: settings.mainColor
+    property var iconColor: mainLayout.mainColor
     property var iconWidth: units.gu(6)
     height: layout.height
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
     selectMode: false
 
     ListItemLayout {
         id: layout
         title.text: name
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
 
         UbuntuShape {
             SlotsLayout.position: SlotsLayout.Leading
             width: iconWidth
             height: listItem.visible ? width : 0
             aspect: UbuntuShape.Flat
-            backgroundColor: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
+            backgroundColor: mainLayout.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
             relativeRadius: 0.75
             Icon {
                 width: iconWidth / 2
                 height: width
                 anchors.centerIn: parent
                 name: icon
-                color: mainFontColor
+                color: mainLayout.mainFontColor
             }
         }
 

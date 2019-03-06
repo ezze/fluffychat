@@ -24,7 +24,6 @@ Item {
 
     property alias contentType: sourcePicker.contentType
 
-
     function share( content, type ) {
         contentType = type
         PopupUtils.open(dialogue)

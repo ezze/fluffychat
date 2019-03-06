@@ -3,12 +3,14 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/MatrixNames.js" as MatrixNames
+import "../scripts/CreateChatPageActions.js" as PageActions
 
 Page {
     id: createChatPage
     anchors.fill: parent
 
-    header: StyledPageHeader {
+    header: PageHeader {
         id: header
         title: i18n.tr('Add Chat')
 
@@ -42,47 +44,14 @@ Page {
     }
 
     Connections {
-        target: events
-        //onNewEvent: updatePresence ( type, chat_id, eventType, eventContent )
-    }
-
-    function updatePresence ( type, chat_id, eventType, eventContent ) {
-        if ( type === "m.presence" ) {
-            for ( var i = 0; i < model.count; i++ ) {
-                if ( model.get(i).matrix_id === eventContent.sender ) {
-                    model.set(i).presence = eventContent.presence
-                    if ( eventContent.last_active_ago ) model.set(i).last_active_ago = eventContent.last_active_ago
-                    break
-                }
-            }
-        }
+        target: matrix
+        //onNewEvent: PageActions.updatePresence ( type, chat_id, eventType, eventContent )
     }
 
     Connections {
         target: bottomEdge
-        onCommitCompleted: update ()
+        onCommitCompleted: PageActions.update ()
         onCollapseCompleted: model.clear()
-    }
-
-    function update () {
-        model.clear()
-        storage.transaction( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Users.presence, Users.last_active_ago, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
-        " ON Contacts.matrix_id=Users.matrix_id WHERE Users.matrix_id!='" + settings.matrixid + "' ORDER BY Contacts.medium DESC, LOWER(Users.displayname || replace(Users.matrix_id,'@','')) LIMIT 1000",
-        function( res )  {
-            for( var i = 0; i < res.rows.length; i++ ) {
-                var user = res.rows[i]
-                model.append({
-                    matrix_id: user.matrix_id,
-                    name: user.displayname || usernames.transformFromId(user.matrix_id),
-                    avatar_url: user.avatar_url,
-                    medium: user.medium || "matrix",
-                    address: user.address || user.matrix_id,
-                    last_active_ago: user.last_active_ago,
-                    presence: user.presence,
-                    temp: false
-                })
-            }
-        })
     }
 
     ListView {
@@ -101,35 +70,34 @@ Page {
                 icon: "contact-group"
                 name: i18n.tr("New group")
                 iconWidth: units.gu(4)
-                onClicked: {
-                    var createNewGroup = function () {
-                        matrix.post( "/client/r0/createRoom", {
-                            preset: "private_chat"
-                        }, function ( response ) {
-                            toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
-                            mainStack.toChat ( response.room_id )
-                            mainStack.push(Qt.resolvedUrl("./InvitePage.qml"))
-                        }, null, 2 )
-                    }
-                    showConfirmDialog ( i18n.tr("Do you want to create a new group now?"), createNewGroup )
-                }
+                onClicked: PageActions.createNewGroup ()
                 anchors.top: parent.top
             }
             SettingsListFooter {
                 icon: "find"
                 name: i18n.tr("Public groups")
                 iconWidth: units.gu(4)
-                onClicked: {
-                    mainStack.toStart ("./pages/DiscoverPage.qml")
-                }
+                onClicked: bottomEdgePageStack.push ( Qt.resolvedUrl("./DiscoverPage.qml") )
                 anchors.bottom: parent.bottom
             }
         }
     }
 
+    Label {
+        text: i18n.tr("Click on the top right button to add contacts.")
+        textSize: Label.Large
+        color: UbuntuColors.graphite
+        anchors.centerIn: chatListView
+        width: parent.width - units.gu(4)
+        horizontalAlignment: Text.AlignHCenter
+        elide: Text.ElideMiddle
+        wrapMode: Text.Wrap
+        z: -1
+    }
+
     ContactImport {
         id: contactImport
-        onImportCompleted: createChatPage.update ()
+        onImportCompleted: PageActions.update ()
     }
 
     AddContactDialog { id: addContactDialog }

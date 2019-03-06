@@ -4,6 +4,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import Ubuntu.Web 0.2
 import "../components"
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Rectangle {
     id: stickerInput
@@ -18,24 +19,24 @@ Rectangle {
     anchors.horizontalCenter: parent.horizontalCenter
 
     readonly property var defaultList: [
-        "mxc://ubports.chat/hMPVSdxMQoZmTqNpABGRfFTt",  // Winking cat
-        "mxc://ubports.chat/uWRyfILPTBgHhLBOxXeWeNnE",  // Coffee cat
-        "mxc://ubports.chat/fggtURHSHeXoZgQmMoOAwiTV",  // Show tongue cat
-        "mxc://ubports.chat/pybzaOmbBZhHbjQkjibgrCyT",  // Hunsting cat
-        "mxc://ubports.chat/jGNFehLdNXjbPTTCvdWaWziN",  // Loving cat
-        "mxc://ubports.chat/rPiZBdRsiZrSnlvgIMHPidqn",  // Sad cat
-        "mxc://ubports.chat/qhZEXxIgxWxVRLUtButgsbbM",  // Playing cat
-        "mxc://ubports.chat/YcHCZIjNbsktBfDfGAXMjlQc",  // Training cat
-        "mxc://ubports.chat/VMfpmawEJMyRUOhUCvwMjZFO",  // Crying cat
-        "mxc://ubports.chat/uaMAYHMsoEHSJPceeJjMflHC",  // Depri cat
-        "mxc://ubports.chat/yJsVquEaWEGaHIenSCUwYvOy",  // Smiling cat
-        "mxc://ubports.chat/WuQiokhMnFZDxLrmgmUtFclB",  // Lying cat
-        "mxc://ubports.chat/eoSpmepOlclpnoasXDEBlcRO",  // Happy cat
-        "mxc://ubports.chat/QaHKWggOLOwADLjSmPhnvbLq",  // Exciting cat
-        "mxc://ubports.chat/JcCNzymdQdNFCwfucyDtVeFU",  // Chilling cat
-        "mxc://ubports.chat/nPwnZOKkoivoAGcLZIQrXppv",  // Crying cat 2
-        "mxc://ubports.chat/pKEucOjlewDWCduWWJLvnLyf",  // Sleeping cat
-        "mxc://ubports.chat/mSQEBhUchahSBBJGoNstPCqs"   // Trash cat
+    "mxc://ubports.chat/hMPVSdxMQoZmTqNpABGRfFTt",  // Winking cat
+    "mxc://ubports.chat/uWRyfILPTBgHhLBOxXeWeNnE",  // Coffee cat
+    "mxc://ubports.chat/fggtURHSHeXoZgQmMoOAwiTV",  // Show tongue cat
+    "mxc://ubports.chat/pybzaOmbBZhHbjQkjibgrCyT",  // Hunsting cat
+    "mxc://ubports.chat/jGNFehLdNXjbPTTCvdWaWziN",  // Loving cat
+    "mxc://ubports.chat/rPiZBdRsiZrSnlvgIMHPidqn",  // Sad cat
+    "mxc://ubports.chat/qhZEXxIgxWxVRLUtButgsbbM",  // Playing cat
+    "mxc://ubports.chat/YcHCZIjNbsktBfDfGAXMjlQc",  // Training cat
+    "mxc://ubports.chat/VMfpmawEJMyRUOhUCvwMjZFO",  // Crying cat
+    "mxc://ubports.chat/uaMAYHMsoEHSJPceeJjMflHC",  // Depri cat
+    "mxc://ubports.chat/yJsVquEaWEGaHIenSCUwYvOy",  // Smiling cat
+    "mxc://ubports.chat/WuQiokhMnFZDxLrmgmUtFclB",  // Lying cat
+    "mxc://ubports.chat/eoSpmepOlclpnoasXDEBlcRO",  // Happy cat
+    "mxc://ubports.chat/QaHKWggOLOwADLjSmPhnvbLq",  // Exciting cat
+    "mxc://ubports.chat/JcCNzymdQdNFCwfucyDtVeFU",  // Chilling cat
+    "mxc://ubports.chat/nPwnZOKkoivoAGcLZIQrXppv",  // Crying cat 2
+    "mxc://ubports.chat/pKEucOjlewDWCduWWJLvnLyf",  // Sleeping cat
+    "mxc://ubports.chat/mSQEBhUchahSBBJGoNstPCqs"   // Trash cat
     ]
 
     Rectangle {
@@ -56,7 +57,7 @@ Rectangle {
                 text: i18n.tr("Delete sticker")
                 onTriggered: {
                     var url = deleteActions.contextElem.url
-                    storage.transaction ( "DELETE FROM Media WHERE url='" + url + "'")
+                    storage.query ( "DELETE FROM Media WHERE url=?", [ url ] )
                     for ( var i = 0; i < stickerModel.count; i++ ) {
                         if ( stickerModel.get(i).mediaElem.url === url ) {
                             stickerModel.remove(i)
@@ -72,20 +73,19 @@ Rectangle {
         chatScrollView.positionViewAtBeginning ()
         messageTextField.focus = false
         visible = true
-        storage.transaction ("SELECT * FROM Media", function ( res ) {
-            stickerModel.clear()
-            for ( var i = res.rows.length-1; i >= 0; i-- ) {
-                stickerModel.append( { mediaElem: res.rows[i] } )
+        var res = storage.query ( "SELECT * FROM Media" )
+        stickerModel.clear()
+        for ( var i = res.rows.length-1; i >= 0; i-- ) {
+            stickerModel.append( { mediaElem: res.rows[i] } )
+        }
+        for ( var i = 0; i < defaultList.length; i++ ) {
+            var mediaElem = {
+                url: defaultList[i],
+                mimetype: "image/jpeg",
+                thumbnail_url: ""
             }
-            for ( var i = 0; i < defaultList.length; i++ ) {
-                var mediaElem = {
-                    url: defaultList[i],
-                    mimetype: "image/jpeg",
-                    thumbnail_url: ""
-                }
-                stickerModel.append( { mediaElem: mediaElem } )
-            }
-        })
+            stickerModel.append( { mediaElem: mediaElem } )
+        }
     }
 
     function hide() { visible = false }
@@ -105,9 +105,9 @@ Rectangle {
                 height: stickerInput.desiredHeight
                 property var mediaElement: mediaElem
                 source: {
-                    ( (settings.autoloadGifs && mediaElem.mimetype === "image/gif") || mediaElem.thumbnail_url === "") ?
-                    media.getLinkFromMxc ( mediaElem.url ) :
-                    media.getThumbnailLinkFromMxc ( mediaElem.thumbnail_url, Math.round (height), Math.round (height) )
+                    ( (matrix.autoloadGifs && mediaElem.mimetype === "image/gif") || mediaElem.thumbnail_url === "") ?
+                    MatrixNames.getLinkFromMxc ( mediaElem.url ) :
+                    MatrixNames.getThumbnailLinkFromMxc ( mediaElem.thumbnail_url, Math.round (height), Math.round (height) )
                 }
                 fillMode: Image.PreserveAspectFit
             }
@@ -125,7 +125,7 @@ Rectangle {
         }
         header: WebView {
             id: uploader
-            url: "../components/upload.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
+            url: "../components/upload.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(matrix.server) + "&activeChat=" + encodeURIComponent(activeChat)
             width: stickerInput.desiredHeight
             height: width
             anchors.margins: stickerInput.desiredHeight / 2

@@ -48,16 +48,16 @@ Component {
                 color: UbuntuColors.red
                 enabled: oldPass.displayText !== ""
                 onClicked: {
-                    var setPusherCallback = function () {
-                        matrix.post ( "/client/r0/account/deactivate", {
-                            "auth": {
-                                "password": oldPass.displayText,
-                                "type": "m.login.password",
-                                "user": settings.matrixid
-                            }
-                        } )
+                    var data = {
+                        "auth": {
+                            "password": oldPass.text,
+                            "type": "m.login.password",
+                            "user": matrix.matrixid
+                        },
+                        "erase": true
                     }
-                    pushclient.setPusher ( false, setPusherCallback, setPusherCallback )
+                    matrix.post ( "/client/r0/account/deactivate", data, null, null, 2 )
+                    PopupUtils.close ( dialogue )
                 }
             }
         }

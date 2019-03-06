@@ -4,9 +4,10 @@ import Ubuntu.Components 1.3
 import "../components"
 
 Page {
+    id: infoPage
     anchors.fill: parent
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Info about FluffyChat %1 on %2').arg(version).arg(Qt.platform.os)
     }
 
@@ -17,7 +18,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: mainStackWidth
+            width: infoPage.width
 
             Image {
                 id: coffeeImage
@@ -38,20 +39,21 @@ Page {
             SettingsListItem {
                 name: i18n.tr("Support on Liberapay")
                 icon: "like"
-                iconColor: settings.mainColor
+                iconColor: mainLayout.mainColor
                 onClicked: Qt.openUrlExternally("https://liberapay.com/KrilleChritzelius")
             }
 
             SettingsListItem {
                 name: i18n.tr("Join the community")
                 icon: "contact-group"
-                onClicked: usernames.showCommunity("+ubports_community:matrix.org")
+                onClicked: bottomEdgePageStack.push ( Qt.resolvedUrl ("../pages/CommunityPage.qml" ), { activeCommunity: "+ubports_community:matrix.org" } )
             }
 
             SettingsListLink {
                 name: i18n.tr("Privacy Policy")
                 icon: "private-browsing"
                 page: "PrivacyPolicyPage"
+                sourcePage: infoPage
             }
 
             SettingsListItem {

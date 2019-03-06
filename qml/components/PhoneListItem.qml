@@ -7,16 +7,16 @@ ListItem {
     height: layout.height
     property var thisAddress: name
 
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
     ListItemLayout {
         id: layout
         title.text: name
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
 
         Icon {
             name: "phone-symbolic"
-            color: settings.mainColor
+            color: mainLayout.mainColor
             width: units.gu(4)
             height: units.gu(4)
             SlotsLayout.position: SlotsLayout.Leading
@@ -28,8 +28,8 @@ ListItem {
         Action {
             iconName: "edit-delete"
             onTriggered: {
-                showConfirmDialog ( i18n.tr('Remove this email address?'), function () {
-                    matrix.post ( "/client/unstable/account/3pid/delete", { medium: "msisdn", address: thisAddress }, phoneSettingsPage.sync )
+                showConfirmDialog ( i18n.tr('Remove this phone number?'), function () {
+                    matrix.post ( "/client/unstable/account/3pid/delete", { medium: "msisdn", address: thisAddress }, phoneSettingsPage.sync, null, 2 )
                 } )
             }
         }

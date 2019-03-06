@@ -4,9 +4,10 @@ import Ubuntu.Components 1.3
 import "../components"
 
 Page {
+    id: privacyPolicyPage
     anchors.fill: parent
 
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Privacy Policy')
     }
 
@@ -17,7 +18,7 @@ Page {
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: mainStackWidth
+            width: privacyPolicyPage.width
 
             Label {
                 anchors.left: parent.left

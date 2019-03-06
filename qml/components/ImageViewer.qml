@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Rectangle {
 
@@ -21,7 +22,7 @@ Rectangle {
         onClicked: function () {}
     }
 
-    StyledPageHeader {
+    PageHeader {
         id: header
         z: 20
         title: ""
@@ -41,8 +42,8 @@ Rectangle {
                 iconName: "document-save-as"
                 onTriggered: {
                     downloadDialog.filename = mxc
-                    downloadDialog.downloadUrl = media.getLinkFromMxc ( mxc )
-                    downloadDialog.shareFunc = shareController.sharePicture
+                    downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( mxc )
+                    downloadDialog.shareFunc = contentHub.sharePicture
                     downloadDialog.current = PopupUtils.open(downloadDialog)
                 }
             }
@@ -54,7 +55,7 @@ Rectangle {
 
     function show ( new_mxc ) {
         mxc = new_mxc
-        thumbnail.source = media.getLinkFromMxc ( mxc )
+        thumbnail.source = MatrixNames.getLinkFromMxc ( mxc )
         visible = true
     }
 

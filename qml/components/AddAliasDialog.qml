@@ -12,11 +12,11 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: addressTextField
-            placeholderText: i18n.tr("#chatname:%1").arg( settings.server )
+            placeholderText: i18n.tr("#chatname:%1").arg( matrix.server )
             focus: true
         }
         Row {
@@ -33,12 +33,8 @@ Component {
                 color: UbuntuColors.green
                 enabled: addressTextField.displayText.indexOf("#") !== -1 && addressTextField.displayText.indexOf(":") !== -1
                 onClicked: {
-                    matrix.put("/client/r0/directory/room/" + encodeURIComponent(addressTextField.displayText), { "room_id": activeChat }, function () {
-                        PopupUtils.close(dialogue)
-                    }, function () {
-                        dialogue.title = i18n.tr("Please try another address")
-                    } )
-
+                    matrix.put("/client/r0/directory/room/" + encodeURIComponent(addressTextField.displayText), { "room_id": activeChat }, null, null, 2)
+                    PopupUtils.close(dialogue)
                 }
             }
         }

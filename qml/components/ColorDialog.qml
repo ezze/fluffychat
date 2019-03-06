@@ -12,15 +12,15 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
 
         Slider {
             minimumValue: 0
             maximumValue: 100
             stepSize: 1
-            value: settings.mainColorH*100
-            onValueChanged: settings.mainColorH = value / 100
+            value: mainLayout.mainColorH*100
+            onValueChanged: mainLayout.mainColorH = value / 100
             function formatValue ( v ) { return i18n.tr("Hue: %1").arg(Math.round(v)) }
         }
 
@@ -31,12 +31,12 @@ Component {
             Button {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Reset")
-                onClicked: settings.mainColorH = defaultMainColorH
+                onClicked: mainLayout.mainColorH = mainLayout.defaultMainColorH
             }
             Button {
                 width: (parent.width - units.gu(1)) / 2
                 text: i18n.tr("Close")
-                color: settings.mainColor
+                color: mainLayout.mainColor
                 onClicked: PopupUtils.close(dialogue)
             }
         }

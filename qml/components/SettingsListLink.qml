@@ -5,16 +5,17 @@ import Ubuntu.Components 1.3
 ListItem {
     property var name: ""
     property var icon: "settings"
-    property var iconColor: settings.mainColor
+    property var iconColor: mainLayout.mainColor
     property var page
+    property var sourcePage: mainLayout.primaryPage
     property var iconWidth: units.gu(3)
     height: layout.height
-    onClicked: mainStack.push(Qt.resolvedUrl("../pages/%1.qml".arg(page)))
+    onClicked: bottomEdgePageStack.push (Qt.resolvedUrl("../pages/%1.qml".arg(page)))
 
     ListItemLayout {
         id: layout
         title.text: name
-        title.color: settings.darkmode ? "white" : "black"
+        title.color: mainLayout.darkmode ? "white" : "black"
         Icon {
             name: icon
             width: iconWidth

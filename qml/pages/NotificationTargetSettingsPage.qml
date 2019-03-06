@@ -3,51 +3,15 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/NotificationTargetSettingsPageActions.js" as PageActions
 
 Page {
+    id: notificationTargetPage
     anchors.fill: parent
 
     property var currentTarget
 
-    function changeRule ( rule_id, enabled, type ) {
-        console.log( notificationSettingsList.enabled )
-        if ( notificationSettingsList.enabled ) {
-            notificationSettingsList.enabled = false
-            matrix.put ( "/client/r0/pushrules/global/%1/%2/enabled".arg(type).arg(rule_id), {"enabled": enabled}, getRules )
-        }
-    }
-
-    function getRules () {
-        matrix.get( "/client/r0/pushrules/", null, function ( response ) {
-
-            notificationSettingsList.enabled = false
-
-            for ( var type in response.global ) {
-                for ( var i = 0; i < response.global[type].length; i++ ) {
-                    if ( response.global[type][i].rule_id === ".m.rule.master" ) {
-                        mrule_master.isChecked = !response.global[type][i].enabled
-                        break
-                    }
-                }
-            }
-
-            notificationSettingsList.enabled = true
-
-        } );
-    }
-
-    function getTargets () {
-        matrix.get ( "/client/r0/pushers", null, function ( response ) {
-            targetList.children = ""
-            for ( var i = 0; i < response.pushers.length; i++ ) {
-                var newListItem = Qt.createComponent("../components/TargetListItem.qml")
-                newListItem.createObject(targetList, { target: response.pushers[i] } )
-            }
-        })
-    }
-
-
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Notification settings')
     }
 
@@ -67,15 +31,16 @@ Page {
                 icon: "audio-volume-high"
                 isEnabled: notificationSettingsList.enabled
                 onSwitching: function () {
-                    if ( isEnabled ) changeRule ( ".m.rule.master", !isChecked, "override" )
+                    if ( isEnabled ) PageActions.changeRule ( ".m.rule.master", !isChecked, "override" )
                 }
-                Component.onCompleted: getRules ()
+                Component.onCompleted: PageActions.getRules ()
             }
 
             SettingsListLink {
                 name: i18n.tr("Advanced notification settings")
                 icon: "filters"
                 page: "NotificationSettingsPage"
+                sourcePage: notificationTargetPage
             }
 
             Rectangle {
@@ -112,13 +77,9 @@ Page {
                 width: parent.width
                 id: targetList
 
-                Component.onCompleted: getTargets ()
+                Component.onCompleted: PageActions.getTargets ()
             }
         }
-
     }
-
-
-
     TargetInfoDialog { id: targetInfoDialog }
 }

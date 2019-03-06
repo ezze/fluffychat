@@ -6,20 +6,17 @@ ListItem {
     height: layout.height
     property var thisAddress: name
 
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
-    onClicked: {
-        shareController.toClipboard ( name )
-        toast.show ( i18n.tr('Copied to clipboard') )
-    }
+    onClicked: contentHub.toClipboard ( name )
 
     ListItemLayout {
         id: layout
         title.text: name + (isCanonicalAlias ? " (<b>" + i18n.tr('Canonical alias') + "</b>)" : "")
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
         Icon {
             name: "stock_link"
-            color: settings.mainColor
+            color: mainLayout.mainColor
             width: units.gu(4)
             height: units.gu(4)
             SlotsLayout.position: SlotsLayout.Leading

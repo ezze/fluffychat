@@ -18,6 +18,7 @@ import QtQuick 2.2
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3 as Popups
 import Ubuntu.Content 1.3 as ContentHub
+import "../scripts/MatrixNames.js" as MatrixNames
 
 Item {
     id: contactImportRoot
@@ -40,7 +41,7 @@ Item {
                 for ( var i = 0; i < lines.length; i++ ) {
                     if ( lines[i].indexOf ("TEL;") !== -1 ) {
                         var phoneNumber = lines[i].split(":")[1].replace(/\D/g,'')
-                        if ( phoneNumber.charAt(0) === "0" ) phoneNumber = phoneNumber.replace( "0", settings.countryTel )
+                        if ( phoneNumber.charAt(0) === "0" ) phoneNumber = phoneNumber.replace( "0", matrix.countryTel )
                         threepids[threepids.length] = [ "msisdn", phoneNumber ]
                         // TODO: normalize the numbers with a leading 0 to the users country number
                     }
@@ -53,19 +54,19 @@ Item {
                 matrix.post ( "/identity/api/v1/bulk_lookup", { threepids: threepids }, function ( response ) {
                     var counter = 0
                     for ( var j = 0; j < response.threepids.length; j++ ) {
-                        if ( response.threepids[j][0] === settings.matrixid ) continue
+                        if ( response.threepids[j][0] === matrix.matrixid ) continue
                         counter++
-                        storage.transaction( "INSERT OR REPLACE INTO Contacts VALUES( '" +
-                        response.threepids[j][0] + "', '" +
-                        response.threepids[j][1] + "', '" +
-                        response.threepids[j][2] + "' )")
-                        storage.transaction( "INSERT OR IGNORE INTO Users VALUES( '" +
-                        response.threepids[j][2] + "', '', '', 'offline', 0, 0 )")
+                        storage.query( "INSERT OR REPLACE INTO Contacts VALUES( ?, ?, ? )", [
+                        response.threepids[j][0],
+                        response.threepids[j][1],
+                        response.threepids[j][2]
+                        ])
+                        storage.query( "INSERT OR IGNORE INTO Users VALUES( ?, '', '', 'offline', 0, 0 )", [ response.threepids[j][2] ] )
                     }
 
                     contactImportRoot.importCompleted ()
                     if ( response.threepids.length === 1 ) {
-                        usernames.showUserSettings ( response.threepids[0][2] )
+                        MatrixNames.showUserSettings ( response.threepids[0][2] )
                     }
                     else {
                         toast.show ( i18n.tr('%1 contacts were found').arg(counter) )

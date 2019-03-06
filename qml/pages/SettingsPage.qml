@@ -3,44 +3,28 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/SettingsPageActions.js" as PageActions
 
 Page {
+    id: settingsPage
     anchors.fill: parent
 
     property var displayname
-    property var hasAvatar: false
+    property var hasAvatar: avatarImage.mxc !== null
 
     Connections {
-        target: events
-        onNewEvent: updateAvatar ( type, chat_id, eventType, eventContent )
+        target: matrix
+        onNewEvent: PageActions.updateAvatar ( type, chat_id, eventType, eventContent )
     }
 
     MediaImport { id: backgroundImport }
 
     Connections {
         target: backgroundImport
-        onMediaReceived: changeBackground ( mediaUrl )
+        onMediaReceived: PageActions.changeBackground ( mediaUrl )
     }
 
-    function changeBackground ( mediaUrl ) {
-        settings.chatBackground = mediaUrl
-    }
-
-    function updateAvatar ( type, chat_id, eventType, eventContent ) {
-        if ( type === "m.room.member" && eventContent.sender === settings.matrixid ) {
-            storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + settings.matrixid + "'", function (rs) {
-                if ( rs.rows.length > 0 ) {
-                    var displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
-                    avatarImage.name = displayname
-                    avatarImage.mxc = rs.rows[0].avatar_url
-                    hasAvatar = (rs.rows[0].avatar_url !== "" && rs.rows[0].avatar_url !== null)
-                    header.title = i18n.tr('Settings for %1').arg( displayname )
-                }
-            })
-        }
-    }
-
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Settings')
         flickable: scrollView.flickableItem
     }
@@ -51,7 +35,7 @@ Page {
         height: parent.height
         anchors.top: parent.top
         contentItem: Column {
-            width: mainStackWidth
+            width: scrollView.width
 
             Rectangle {
                 width: parent.width
@@ -62,17 +46,10 @@ Page {
             Row {
                 id: profileRow
                 width: parent.width
-                height: parent.width / 2
+                height: Math.min( parent.width / 2, settingsPage.width/2 )
                 spacing: units.gu(2)
 
-                Component.onCompleted: {
-                    storage.transaction ( "SELECT avatar_url, displayname FROM Users WHERE matrix_id='" + settings.matrixid + "'", function (rs) {
-                        if ( rs.rows.length > 0 ) {
-                            displayname = rs.rows[0].displayname !== "" ? rs.rows[0].displayname : settings.matrixid
-                            avatarImage.mxc = rs.rows[0].avatar_url
-                        }
-                    })
-                }
+                Component.onCompleted: PageActions.getProfileInfo ()
 
                 Rectangle {
                     height: parent.height
@@ -82,7 +59,7 @@ Page {
 
                 Avatar {  // Useravatar
                     id: avatarImage
-                    name: settings.matrixid
+                    name: displayname
                     height: parent.height - units.gu(3)
                     width: height
                     mxc: avatar_url
@@ -101,7 +78,7 @@ Page {
                 }
 
                 Column {
-                    width: parent.height - units.gu(3)
+                    width: parent.width - avatarImage.width - parent.spacing
                     anchors.verticalCenter: parent.verticalCenter
                     Label {
                         text: i18n.tr("Username:")
@@ -110,7 +87,7 @@ Page {
                         font.bold: true
                     }
                     Label {
-                        text: settings.matrixid
+                        text: matrix.matrixid
                         width: parent.width
                         wrapMode: Text.Wrap
                     }
@@ -176,18 +153,15 @@ Page {
                         SlotsLayout.position: SlotsLayout.Trailing
                         width: units.gu(4)
                         height: width
-                        visible: settings.chatBackground !== undefined
-                        color: settings.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
+                        visible: mainLayout.chatBackground !== undefined
+                        color: mainLayout.darkmode ? Qt.hsla( 0, 0, 0.04, 1 ) : Qt.hsla( 0, 0, 0.96, 1 )
                         border.width: 1
-                        border.color: settings.darkmode ? UbuntuColors.slate : UbuntuColors.silk
+                        border.color: mainLayout.darkmode ? UbuntuColors.slate : UbuntuColors.silk
                         radius: width / 6
                         MouseArea {
                             anchors.fill: parent
-                            visible: settings.chatBackground !== undefined
-                            onClicked: {
-                                settings.chatBackground = undefined
-                                toast.show ( i18n.tr("Background removed") )
-                            }
+                            visible: mainLayout.chatBackground !== undefined
+                            onClicked: PageActions.removeBackground ()
                         }
                         Icon {
                             width: units.gu(2)
@@ -195,7 +169,7 @@ Page {
                             anchors.centerIn: parent
                             name: "edit-delete"
                             color: UbuntuColors.red
-                            visible: settings.chatBackground !== undefined
+                            visible: mainLayout.chatBackground !== undefined
                         }
                     }
                 }
@@ -204,14 +178,15 @@ Page {
             SettingsListSwitch {
                 name: i18n.tr("Dark mode")
                 icon: "display-brightness-max"
-                onSwitching: function () { settings.darkmode = isChecked }
-                isChecked: settings.darkmode
+                onSwitching: function () { mainLayout.darkmode = isChecked }
+                isChecked: mainLayout.darkmode
             }
 
             SettingsListLink {
                 name: i18n.tr("Notifications")
                 icon: "notification"
                 page: "NotificationTargetSettingsPage"
+                sourcePage: settingsPage
             }
 
             ListSeperator {
@@ -221,28 +196,29 @@ Page {
             SettingsListSwitch {
                 name: i18n.tr("Display 'I am typing' when typing")
                 icon: "edit"
-                onSwitching: function () { settings.sendTypingNotification = isChecked }
-                isChecked: settings.sendTypingNotification
+                onSwitching: function () { matrix.sendTypingNotification = isChecked }
+                isChecked: matrix.sendTypingNotification
             }
 
             SettingsListSwitch {
                 name: i18n.tr("Hide less important events")
                 icon: "info"
-                onSwitching: function () { settings.hideLessImportantEvents = isChecked }
-                isChecked: settings.hideLessImportantEvents
+                onSwitching: function () { matrix.hideLessImportantEvents = isChecked }
+                isChecked: matrix.hideLessImportantEvents
             }
 
             SettingsListSwitch {
                 name: i18n.tr("Autoload animated images")
                 icon: "stock_image"
-                onSwitching: function () { settings.autoloadGifs = isChecked }
-                isChecked: settings.autoloadGifs
+                onSwitching: function () { matrix.autoloadGifs = isChecked }
+                isChecked: matrix.autoloadGifs
             }
 
             SettingsListLink {
                 name: i18n.tr("Archived chats")
                 icon: "inbox-all"
                 page: "ArchivedChatsPage"
+                sourcePage: settingsPage
             }
 
             ListSeperator {
@@ -253,18 +229,21 @@ Page {
                 name: i18n.tr("Connected phone numbers")
                 icon: "phone-symbolic"
                 page: "PhoneSettingsPage"
+                sourcePage: settingsPage
             }
 
             SettingsListLink {
                 name: i18n.tr("Connected email addresses")
                 icon: "email"
                 page: "EmailSettingsPage"
+                sourcePage: settingsPage
             }
 
             SettingsListLink {
                 name: i18n.tr("Devices")
                 icon: "phone-smartphone-symbolic"
                 page: "DevicesSettingsPage"
+                sourcePage: settingsPage
             }
 
             SettingsListItem {
@@ -297,6 +276,7 @@ Page {
                 name: i18n.tr("About FluffyChat")
                 icon: "info"
                 page: "InfoPage"
+                sourcePage: settingsPage
             }
         }
     }

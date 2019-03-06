@@ -3,62 +3,42 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
+import "../scripts/PasswordInputPageActions.js" as PageActions
 
 Page {
+    id: passwordInputPage
     anchors.fill: parent
 
-    function login () {
-        signInButton.enabled = false
-        var _tabletMode = tabletMode
-        var _toast = toast
-
-        // If the login is successfull
-        var success_callback = function ( response ) {
-            signInButton.enabled = true
-            // Go to the ChatListPage
-            root.init()
-        }
-
-        // If error
-        var error_callback = function ( error ) {
-            signInButton.enabled = true
-            if ( error.errcode == "M_FORBIDDEN" ) {
-                toast.show ( i18n.tr("Invalid username or password") )
-            }
-            else {
-                toast.show ( i18n.tr("No connection to ") + settings.server )
-            }
-        }
-
-        // Start the request
-        matrix.login ( settings.username, passwordInput.text, settings.server, "UbuntuPhone", success_callback, error_callback )
-    }
-
-    header: FcPageHeader {
+    header: PageHeader {
         title: i18n.tr('Enter your password')
     }
 
     ScrollView {
         id: scrollView
-        width: root.width
+        width: passwordInputPage.width
         height: parent.height - header.height
         anchors.top: header.bottom
         contentItem: Column {
-            width: root.width
+            width: passwordInputPage.width
             spacing: units.gu(2)
 
-            Icon {
-                id: banner
-                name: "user-admin"
-                color: settings.mainColor
-                width: root.width * 2/5
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
+            Rectangle {
+                id: bannerRect
+                width: parent.width
+                height: (passwordInputPage.height - header.height)/2 - (3 * passwordInput.height) - units.gu(4)
+                Icon {
+                    id: banner
+                    name: "user-admin"
+                    anchors.centerIn: parent
+                    width: units.gu(6)
+                    height: width
+                }
             }
+
 
             Label {
                 id: loginStatus
-                text: i18n.tr("Please enter your password for: <b>%1</b>").arg(settings.username)
+                text: i18n.tr("Please enter your password for: <b>%1</b>").arg(matrix.username)
                 width: Math.min( parent.width - units.gu(4), units.gu(50))
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
@@ -71,14 +51,14 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 echoMode: TextInput.Password
                 width: Math.min( parent.width - units.gu(4), units.gu(50))
-                Keys.onReturnPressed: login()
+                Keys.onReturnPressed: PageActions.login()
                 Component.onCompleted: focus = true
             }
 
             Rectangle {
                 width: parent.width
                 color: theme.palette.normal.background
-                height: Math.max(scrollView.height - banner.height - loginStatus.height - passwordInput.height - signInButton.height - units.gu(9),0)
+                height: Math.max(scrollView.height - bannerRect.height - loginStatus.height - passwordInput.height - signInButton.height - units.gu(9),0)
             }
 
             Button {
@@ -86,7 +66,7 @@ Page {
                 text: i18n.tr("Sign in")
                 width: passwordInput.width
                 color: UbuntuColors.green
-                onClicked: login()
+                onClicked: PageActions.login()
                 enabled: passwordInput.text !== ""
                 anchors.horizontalCenter: parent.horizontalCenter
             }

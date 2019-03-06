@@ -14,7 +14,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
 
         Item {
@@ -27,7 +27,7 @@ Component {
             }
             WebView {
                 id: uploader
-                url: "../components/ChangeChatAvatar.html?token=" + encodeURIComponent(settings.token) + "&domain=" + encodeURIComponent(settings.server) + "&activeChat=" + encodeURIComponent(activeChat)
+                url: "../components/ChangeChatAvatar.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(matrix.server) + "&activeChat=" + encodeURIComponent(activeChat)
                 width: units.gu(6)
                 height: width
                 anchors.horizontalCenter: parent.horizontalCenter

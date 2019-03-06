@@ -12,7 +12,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: oldPass
@@ -44,16 +44,19 @@ Component {
                 color: UbuntuColors.green
                 enabled: oldPass.displayText !== "" && newPass.displayText !== "" && newPass2.displayText !== "" && newPass.text === newPass2.text
                 onClicked: {
+                    var _toast = toast
+                    var toastText = i18n.tr("Password has been changed")
+                    var successCallback = function () {
+                        _toast.show ( toastText )
+                    }
                     matrix.post ( "/client/r0/account/password",{
                         "auth": {
                             "password": oldPass.text,
                             "type": "m.login.password",
-                            "user": settings.matrixid
+                            "user": matrix.matrixid
                         },
                         "new_password": newPass.text
-                    }, function () {
-                        toast.show ( i18n.tr("Password has been changed") )
-                    } )
+                    }, successCallback, null, 2 )
                     PopupUtils.close(dialogue)
                 }
             }

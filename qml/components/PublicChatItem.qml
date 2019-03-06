@@ -4,7 +4,7 @@ import Ubuntu.Components 1.3
 
 ListItem {
 
-    color: settings.darkmode ? "#202020" : "white"
+    color: mainLayout.darkmode ? "#202020" : "white"
 
     height: visible * layout.height
     visible: {
@@ -13,19 +13,12 @@ ListItem {
         : layout.title.text.toUpperCase().indexOf( searchField.upperCaseText ) !== -1)
     }
     property var matrixid: matrix_id
-    onClicked: {
-        storage.transaction ( "SELECT * FROM Chats WHERE id='" + matrixid + "'", function (rs) {
-            if ( rs.rows.length > 0 ) {
-                mainStack.toChat( matrixid )
-            }
-            else matrix.joinChat ( matrixid )
-        })
-    }
+    onClicked: mainLayout.toChat ( matrixid )
 
     ListItemLayout {
         id: layout
         title.text: displayname
-        title.color: mainFontColor
+        title.color: mainLayout.mainFontColor
 
         Avatar {
             name: displayname

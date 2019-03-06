@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import "../scripts/RemoveDeviceDialogActions.js" as ItemActions
 
 Component {
     id: dialog
@@ -26,7 +27,7 @@ Component {
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
-            color: settings.mainColor
+            color: mainLayout.mainColor
         }
         TextField {
             id: passwordInput
@@ -47,33 +48,8 @@ Component {
                 text: i18n.tr("Remove")
                 color: UbuntuColors.red
                 enabled: passwordInput.displayText !== ""
-                onClicked: {
-                    var device_id = currentDevice.device_id
-                    var update = getDevices
-                    var matrixObj = matrix
-                    var matrixid = settings.matrixid
-                    var password = passwordInput.text
-                    matrix.post ( "/client/unstable/delete_devices", { "devices": [device_id] }, update, function (res) {
-                        console.log( "erste Antwort", JSON.stringify(res) )
-                        if ( "session" in res ) {
-                            matrixObj.post ( "/client/unstable/delete_devices", {
-                                "auth": {
-                                    "type": "m.login.password",
-                                    "session": res.session,
-                                    "user": matrixid,
-                                    "password": password
-                                },
-                                "devices": [device_id]
-                            }, function (res) {
-                                console.log( "fertig",JSON.stringify(res) )
-                                update()
-                            }, null, 2)
-                        }
-                        else update()
-                    }, null, 2)
-                    PopupUtils.close(dialogue)
-                }
+                onClicked: ItemActions.removeDevice ( currentDevice.device_id, passwordInput.text, dialogue )
             }
-        }
+        } 
     }
 }
