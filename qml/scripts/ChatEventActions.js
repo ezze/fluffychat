@@ -11,7 +11,7 @@ function calcBubbleBackground ( isStateEvent, sent, status ) {
 function resendMessage ( event ) {
     var body = event.content_body
     storage.query ( "DELETE FROM Events WHERE id=?", [ event.id ])
-    removeEvent ( event.id )
+    chatPage.removeEvent ( event.id )
     chatPage.send ( body )
 }
 
@@ -45,9 +45,9 @@ function share ( isMediaEvent, senderDisplayname, event ) {
 function removeEvent ( event ) {
     if ( event.status === msg_status.ERROR ) {
         storage.query ( "DELETE FROM Events WHERE id=?", [ event.id ] )
-        removeEvent ( event.id )
+        chatPage.removeEvent ( event.id )
     }
-    else showConfirmDialog ( i18n.tr("Are you sure?"), function () {
+    else showConfirmDialog ( i18n.tr("Remove this message?"), function () {
         matrix.put( "/client/r0/rooms/%1/redact/%2/%3"
         .arg(activeChat)
         .arg(event.id)
