@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 14:58+0000\n"
+"POT-Creation-Date: 2019-03-06 15:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Kick from this chat?"
 msgstr ""
 
-#: ../qml/components/ChatListItem.qml:97
+#: ../qml/components/ChatListItem.qml:96
 msgid "Leave this chat"
 msgstr ""
 

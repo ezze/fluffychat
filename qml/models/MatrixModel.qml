@@ -577,7 +577,7 @@ function handleRooms ( rooms, membership, newChatCB, newEventCB ) {
         var prev_batch = ""
         var limitedTimeline = 0
 
-        if ( typeof room.unread_noprioritytifications === "object" ) {
+        if ( typeof room.unread_notifications === "object" ) {
             if ( typeof room.unread_notifications.highlight_count === "number" ) {
                 highlight_count = room.unread_notifications.highlight_count
             }
