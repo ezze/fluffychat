@@ -423,11 +423,11 @@ Item {
                 var queryStr = "UPDATE Users SET matrix_id=?"
                 var queryArgs = [ state_key ]
 
-                if ( typeof eventContent.content.displayname === "" ) {
+                if ( typeof eventContent.content.displayname === "string" ) {
                     queryStr += " , displayname=?"
                     queryArgs[queryArgs.length] = eventContent.content.displayname
                 }
-                if ( typeof eventContent.content.avatar_url === "" ) {
+                if ( typeof eventContent.content.avatar_url === "string" ) {
                     queryStr += " , avatar_url=?"
                     queryArgs[queryArgs.length] = eventContent.content.avatar_url
                 }
@@ -445,11 +445,11 @@ Item {
                 var queryStr = "UPDATE Memberships SET membership=?"
                 var queryArgs = [ membership ]
 
-                if ( typeof eventContent.content.displayname === "" ) {
+                if ( typeof eventContent.content.displayname === "string" ) {
                     queryStr += " , displayname=?"
                     queryArgs[queryArgs.length] = eventContent.content.displayname
                 }
-                if ( typeof eventContent.content.avatar_url === "" ) {
+                if ( typeof eventContent.content.avatar_url === "string" ) {
                     queryStr += " , avatar_url=?"
                     queryArgs[queryArgs.length] = eventContent.content.avatar_url
                 }

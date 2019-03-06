@@ -54,9 +54,7 @@ Component {
             visible: hasAvatar
             color: UbuntuColors.red
             onClicked: {
-                matrix.put ( "/client/r0/profile/" + matrix.matrixid + "/avatar_url", { avatar_url: "" }, function () {
-                    profileRow.avatar_url = ""
-                }, null, 2)
+                matrix.put ( "/client/r0/profile/" + matrix.matrixid + "/avatar_url", { avatar_url: "" }, null, null, 2)
                 PopupUtils.close(dialogue)
             }
         }

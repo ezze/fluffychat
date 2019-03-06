@@ -10,7 +10,7 @@ Page {
     anchors.fill: parent
 
     property var displayname
-    property var hasAvatar: false
+    property var hasAvatar: avatarImage.mxc !== null
 
     Connections {
         target: matrix

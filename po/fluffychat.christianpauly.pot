@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 11:00+0000\n"
+"POT-Creation-Date: 2019-03-06 11:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,40 +29,40 @@ msgstr ""
 msgid "Copied to the clipboard"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:12
+#: ../qml/pages/InfoPage.qml:11
 msgid "Info about FluffyChat %1 on %2"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:34 ../qml/pages/WalkthroughPage.qml:246
+#: ../qml/pages/InfoPage.qml:33 ../qml/pages/WalkthroughPage.qml:246
 msgid "Become a patron"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:41
+#: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:48
+#: ../qml/pages/InfoPage.qml:47
 msgid "Join the community"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:54 ../qml/pages/LoginPage.qml:43
+#: ../qml/pages/InfoPage.qml:53 ../qml/pages/LoginPage.qml:43
 #: ../qml/pages/PrivacyPolicyPage.qml:11
 msgid "Privacy Policy"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:61
+#: ../qml/pages/InfoPage.qml:60
 msgid "Website"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:67
+#: ../qml/pages/InfoPage.qml:66
 msgid "Contributors"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:73
+#: ../qml/pages/InfoPage.qml:72
 msgid "Source code"
 msgstr ""
 
-#: ../qml/pages/InfoPage.qml:79
+#: ../qml/pages/InfoPage.qml:78
 msgid "License"
 msgstr ""
 
@@ -719,7 +719,7 @@ msgstr ""
 msgid "Remove picture"
 msgstr ""
 
-#: ../qml/components/ChangeAvatarDialog.qml:66
+#: ../qml/components/ChangeAvatarDialog.qml:64
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/BottomEdgePageStack.qml:92
 #: ../qml/components/ColorDialog.qml:38
@@ -1042,11 +1042,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/scripts/SettingsPageActions.js:16
-msgid "Settings for %1"
-msgstr ""
-
-#: ../qml/scripts/SettingsPageActions.js:33
+#: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
 msgstr ""
 
