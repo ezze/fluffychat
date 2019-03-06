@@ -14,6 +14,7 @@ AdaptivePageLayout {
     readonly property var defaultMainColorH: 0.73
     property var mainFontColor: mainLayout.darkmode ? "#FFFFFF" : "#000000"
     property var mainBorderColor: mainLayout.darkmode ? "#333333" : "#CCCCCC"
+    property var mainDividerColor: mainLayout.darkmode ? UbuntuColors.slate : UbuntuColors.silk
     property var mainBackgroundColor: mainLayout.darkmode ? "#202020" : "white"
     property var mainHighlightColor: mainLayout.darkmode ? mainLayout.mainColor : mainLayout.brighterMainColor
     property var incommingChatBubbleBackground: mainLayout.darkmode ? "#191A15" : UbuntuColors.porcelain
