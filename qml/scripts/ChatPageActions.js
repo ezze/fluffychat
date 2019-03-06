@@ -176,13 +176,14 @@ function init () {
     }
 
     // Scroll top to the last seen message?
+    matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": lastEvent.id }, null, null, 0 )
     if ( room.fully_read !== lastEvent.id ) {
         // Check if the last event is in the database
         var found = false
         for ( var j = 0; j < count; j++ ) {
             if ( chatScrollView.model.get(j).event.id === room.fully_read ) {
-                chatScrollView.currentIndex = j
-                matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": lastEvent.id }, null, null, 0 )
+                chatScrollView.positionViewAtIndex (j, ListView.Contain )
+
                 found = true
                 break
             }
@@ -222,6 +223,8 @@ function requestHistory ( event_id ) {
     requesting = true
     var rs = storage.query ( "SELECT prev_batch FROM Chats WHERE id=?", [ activeChat ] )
     if ( rs.rows.length === 0 ) return
+    var maxHistoryCount = historyCount
+    if ( event_id ) maxHistoryCount = historyCount*4
     var data = {
         from: rs.rows[0].prev_batch,
         dir: "b",
@@ -232,6 +235,12 @@ function requestHistory ( event_id ) {
         if ( result.chunk.length > 0 ) {
             var eventFound = false
 
+            if ( event_id ) {
+                for ( var i = 0; i < result.chunk.length; i++ ) {
+                    if ( event_id && !eventFound && event_id === result.chunk[i].event_id ) eventFound = i
+                }
+            }
+            
             matrix.handleRoomEvents ( activeChat, result.chunk, "history", matrix.newEvent )
 
             requesting = false
@@ -240,11 +249,10 @@ function requestHistory ( event_id ) {
         else requesting = false
         if ( event_id ) {
             if ( eventFound !== false ) {
-                currentIndex = count - 1 - historyCount + eventFound
-                matrix.post ( "/client/r0/rooms/%1/read_markers".arg(activeChat), { "m.fully_read": model.get(0).event.id }, null, null, 0 )
-                currentIndex = count - 1 - historyCount + eventFound
+                var indx = count - 1 - historyCount + eventFound
+                chatScrollView.positionViewAtIndex ( indx, ListView.Contain )
             }
-            else requestHistory ( event_id )
+            else toast.show ( i18n.tr ( "Too much new messages" ) )
         }
     }
 
