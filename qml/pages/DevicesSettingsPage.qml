@@ -29,5 +29,8 @@ Page {
         }
     }
 
+    signal getDevices ()
+    onGetDevices: PageActions.getDevices ()
+
     RemoveDeviceDialog { id: removeDeviceDialog }
 }

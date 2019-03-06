@@ -2,17 +2,19 @@
 // Description: Actions for RemoveDeviceDialog.qml
 
 function removeDevice ( device_id, password, dialogue ) {
-    var authData = {
-        "auth": {
-            "type": "m.login.password",
-            "session": res.session,
-            "user": matrix.matrixid,
-            "password": passwordInput.text
-        },
-        "devices": [device_id]
-    }
 
     var firstResponse = function (res) {
+
+        var authData = {
+            "auth": {
+                "type": "m.login.password",
+                "session": res.session,
+                "user": matrix.matrixid,
+                "password": password
+            },
+            "devices": [device_id]
+        }
+
         if ( "session" in res ) {
             matrix.post ( "/client/unstable/delete_devices", authData, getDevices, null, 2)
         }

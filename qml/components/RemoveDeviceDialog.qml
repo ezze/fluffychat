@@ -50,6 +50,6 @@ Component {
                 enabled: passwordInput.displayText !== ""
                 onClicked: ItemActions.removeDevice ( currentDevice.device_id, passwordInput.text, dialogue )
             }
-        }
+        } 
     }
 }
