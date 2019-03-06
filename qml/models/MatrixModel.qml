@@ -384,7 +384,7 @@ Item {
                 catch ( error ) {
                     // First unify the error schema and log the error
                     if ( typeof error === "string" ) error = {"errcode": "ERROR", "error": error}
-                    if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("❌[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", JSON.stringify(error))
+                    if ( priority !== _PRIORITY.SYNC && !error_callback ) console.error("❌[Error] Request:", type, requestUrl, JSON.stringify(data), " Error-Report: ", error)
 
                     // Is the errcode something we can handle?
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
