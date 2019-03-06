@@ -78,6 +78,7 @@ Item {
     function toClipboard ( text ) {
         mimeData.text = text
         Clipboard.push( mimeData )
+        toast.show ( i18n.tr ( "Copied to clipboard" ) )
     }
 
     function startImport ( transfer ) {
@@ -130,6 +131,7 @@ Item {
 
     function shareTextIntern ( text ) {
         mainLayout.removePages( mainLayout.primaryPage )
+        bottomEdgePageStack.clear ()
         contentHub.shareObject = {
             items: [ contentItemComponent.createObject(contentHub, {"url" : "", "text": text}) ]
         }
@@ -137,6 +139,7 @@ Item {
 
     function shareFileIntern ( event ) {
         mainLayout.removePages( mainLayout.primaryPage )
+        bottomEdgePageStack.clear ()
         contentHub.shareObject = {
             matrixEvent: event
         }
@@ -145,6 +148,7 @@ Item {
     function shareLinkIntern ( url ) {
         uri = url
         mainLayout.removePages( mainLayout.primaryPage )
+        bottomEdgePageStack.clear ()
         contentHub.shareObject = {
             items: [ contentItemComponent.createObject(contentHub, {"url" : uri, "text": url}) ]
         }

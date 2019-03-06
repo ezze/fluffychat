@@ -28,7 +28,7 @@ ListItem {
         Action {
             iconName: "edit-delete"
             onTriggered: {
-                showConfirmDialog ( i18n.tr('Remove this email address?'), function () {
+                showConfirmDialog ( i18n.tr('Remove this phone number?'), function () {
                     matrix.post ( "/client/unstable/account/3pid/delete", { medium: "msisdn", address: thisAddress }, phoneSettingsPage.sync, null, 2 )
                 } )
             }

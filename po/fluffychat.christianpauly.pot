@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 14:29+0000\n"
+"POT-Creation-Date: 2019-03-06 14:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,11 @@ msgid ""
 "fluffychat/issues/new. Error details: %1"
 msgstr ""
 
-#: ../qml/models/ContentHubModel.qml:94
+#: ../qml/models/ContentHubModel.qml:81
+msgid "Copied to clipboard"
+msgstr ""
+
+#: ../qml/models/ContentHubModel.qml:95
 msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
 msgstr ""
 
@@ -448,8 +452,7 @@ msgid "Cancel process"
 msgstr ""
 
 #: ../qml/components/PhoneListItem.qml:31
-#: ../qml/components/EmailListItem.qml:31
-msgid "Remove this email address?"
+msgid "Remove this phone number?"
 msgstr ""
 
 #: ../qml/components/DeviceListItem.qml:27
@@ -463,6 +466,10 @@ msgstr ""
 #: ../qml/components/DisableAccountDialog.qml:25
 msgid ""
 "Are you sure that you want to remove your account? This can not be undone."
+msgstr ""
+
+#: ../qml/components/EmailListItem.qml:31
+msgid "Remove this email address?"
 msgstr ""
 
 #: ../qml/components/ChangeAvatarDialog.qml:12
@@ -1195,21 +1202,21 @@ msgstr ""
 msgid "Do you want to join this chat?"
 msgstr ""
 
-#: ../qml/scripts/PasswordCreationPageActions.js:28
+#: ../qml/scripts/PasswordCreationPageActions.js:29
 msgid "Username already taken"
 msgstr ""
 
-#: ../qml/scripts/PasswordCreationPageActions.js:29
+#: ../qml/scripts/PasswordCreationPageActions.js:30
 msgid "The desired user ID is not a valid user name"
 msgstr ""
 
-#: ../qml/scripts/PasswordCreationPageActions.js:30
+#: ../qml/scripts/PasswordCreationPageActions.js:31
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
 msgstr ""
 
-#: ../qml/scripts/PasswordCreationPageActions.js:31
+#: ../qml/scripts/PasswordCreationPageActions.js:32
 msgid "Registration on %1 failed..."
 msgstr ""
 

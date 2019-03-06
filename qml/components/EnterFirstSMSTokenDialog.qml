@@ -41,7 +41,7 @@ Component {
 
                         var threePidCreds = {
                             client_secret: root.firstSMSClientSecret,
-                            sid: firstSMSSid,
+                            sid: root.firstSMSSid,
                             id_server: matrix.id_server
                         }
                         matrix.post ("/client/r0/account/3pid", {
@@ -56,7 +56,7 @@ Component {
                     }
                     var data = {
                         client_secret: root.firstSMSClientSecret,
-                        sid: firstSMSSid,
+                        sid: root.firstSMSSid,
                         token: addressTextField.displayText
                     }
                     console.log(JSON.stringify (data))
