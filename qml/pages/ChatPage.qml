@@ -33,6 +33,9 @@ Page {
     signal load ()
     onLoad: ChatPageActions.init ()
 
+    signal send ( var message )
+    onSend: ChatPageActions.send ( message )
+
     Connections {
         target: matrix
         onNewChatUpdate: ChatPageActions.newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline )

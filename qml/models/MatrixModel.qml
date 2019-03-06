@@ -389,13 +389,13 @@ Item {
                     // Is the errcode something we can handle?
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                     else if ( !error_callback && error.error === "CONNERROR" ) {
-                        error (i18n.tr("😕 No connection..."))
+                        matrix.error (i18n.tr("😕 No connection..."))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
                         if ( "consent_uri" in error ) {
                             showConsentUrl ( error.consent_uri )
                         }
-                        else error ( error.error )
+                        else matrix.error ( error.error )
                     }
 
                     // Error callback or error signal?
