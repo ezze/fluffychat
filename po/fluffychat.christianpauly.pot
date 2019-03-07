@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 18:57+0000\n"
+"POT-Creation-Date: 2019-03-07 07:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -600,11 +600,11 @@ msgstr ""
 msgid "Add chat address"
 msgstr ""
 
-#: ../qml/models/PushModel.qml:47
+#: ../qml/models/PushModel.qml:49
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/models/PushModel.qml:72
+#: ../qml/models/PushModel.qml:74
 msgid "Push notifications are disabled..."
 msgstr ""
 
@@ -1049,7 +1049,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/scripts/ChatPageActions.js:255
+#: ../qml/scripts/ChatPageActions.js:256
 msgid "Too much new messages"
 msgstr ""
 

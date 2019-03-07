@@ -9,6 +9,8 @@ Item {
 
     property alias pushtoken: innerPushClient.token
 
+    signal dismissNotification ( var tag )
+    onDismissNotification: innerPushClient.clearPersistent ( tag )
     signal error ( var error )
 
     PushClient {
@@ -51,7 +53,7 @@ Item {
         }
 
         function newNotification ( message ) {
-            //console.log("🔔[Push Notification] Unread:", message.counts.unread, "(%1)".arg(message.content.msgtype || "No message"))
+            console.log("🔔[Push Notification]")
         }
 
         Component.onCompleted: {
