@@ -132,7 +132,6 @@ MainView {
         id: pushClient
         onError: toast.show ( error )
     }
-    SettingsModel { id: settings }
     UserMetricsModel { id: userMetrics }
     ContentHubModel {
         id: contentHub

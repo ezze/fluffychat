@@ -53,7 +53,7 @@ Item {
         }
 
         function newNotification ( message ) {
-            console.log("🔔[Push Notification]")
+            //console.log("🔔[Push Notification]")
         }
 
         Component.onCompleted: {

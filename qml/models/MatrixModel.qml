@@ -122,7 +122,7 @@ Item {
     * onNewEvent( "m.room.message", "!chat_id:server.com", "timeline", {sender: "@bob:server.com", body: "Hello world"} )
     */
     signal newEvent ( var type, var chat_id, var eventType, var eventContent )
-    onNewEvent: console.log("💬[Event] From: '%1', Type: '%2' (%3)".arg(chat_id).arg(type).arg(eventType) )
+    //onNewEvent: console.log("💬[Event] From: '%1', Type: '%2' (%3)".arg(chat_id).arg(type).arg(eventType) )
 
     /* Outside of the events there are updates for the global chat states which
     * are handled by this signal:
@@ -419,26 +419,13 @@ Item {
         timer.start();
 
         // Send the request now
-        if ( priority !== _PRIORITY.SYNC ) console.log("📨[%1]".arg(type), action)
+        //if ( priority !== _PRIORITY.SYNC ) console.log("📨[%1]".arg(type), action)
         http.send( JSON.stringify( postData ) )
 
         return http
     }
 
     function init () {
-        // Compatible with old versions TODO: Repair this
-        /*if ( settings.token && settings.token !== "" ) {
-        matrix.token = settings.token
-        if ( settings.server ) matrix.server = settings.server
-        if ( settings.username ) matrix.username = settings.username
-        if ( settings.matrixid ) matrix.matrixid = settings.matrixid
-        if ( settings.id_server ) matrix.id_server = settings.id_server
-        if ( settings.deviceID ) matrix.deviceID = settings.deviceID
-        if ( settings.deviceName ) matrix.deviceName = settings.deviceName
-        if ( settings.countryCode ) matrix.countryCode = settings.countryCode
-        if ( settings.countryTel ) matrix.countryTel = settings.countryTel
-        settings.token = ""
-    }*/
 
     if ( matrix.token === "" ) return
 

@@ -19,14 +19,14 @@ Item {
 
     id: storage
 
-    property var version: "0.3.7"
-    property string lastVersion: ""
+    property var version: "0.3.8"
+    property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
     signal syncInitialized ()
 
     Settings {
-        property alias lastVersion: storage.lastVersion
+        property alias dbversion: storage.dbversion
     }
 
     // Shortener for the sqlite transactions
@@ -53,11 +53,11 @@ Item {
     // Initializing the database
     Component.onCompleted: {
         // Check the database version number
-        if ( lastVersion !== version ) {
+        if ( dbversion !== version ) {
             console.log ("👷[Init] Create the database and drop previous one if existing")
             matrix.prevBatch = ""
             drop ()
-            lastVersion = version
+            dbversion = version
         }
         query ( 'PRAGMA foreign_keys = OFF')
         query ( 'PRAGMA locking_mode = EXCLUSIVE')
