@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-08 13:37+0000\n"
-"PO-Revision-Date: 2019-01-18 15:26+0000\n"
+"PO-Revision-Date: 2019-03-09 10:21+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -17,15 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5.1-dev\n"
 
 #: ../qml/Main.qml:105
 msgid "Are you sure?"
 msgstr "Er du sikker?"
 
 #: ../qml/Main.qml:128
+#, fuzzy
 msgid "You must agree to the privacy policy"
-msgstr ""
+msgstr "Du må samtykke til personvernspraksisen"
 
 #: ../qml/Main.qml:138
 #, fuzzy
@@ -157,8 +158,9 @@ msgid "Your username is: %1"
 msgstr "(Ditt brukernavn er: <b>%1</b>)"
 
 #: ../qml/components/AddContactDialog.qml:49
+#, fuzzy
 msgid "Or"
-msgstr ""
+msgstr "Eller"
 
 #: ../qml/components/AddContactDialog.qml:63 ../qml/pages/CreateChatPage.qml:22
 #, fuzzy
@@ -248,12 +250,14 @@ msgid "Displayname:"
 msgstr "Endre visningsnavn"
 
 #: ../qml/components/ProfileRow.qml:70
+#, fuzzy
 msgid "Online:"
-msgstr ""
+msgstr "På nett:"
 
 #: ../qml/components/ProfileRow.qml:70
+#, fuzzy
 msgid "Offline"
-msgstr ""
+msgstr "Frakoblet"
 
 #: ../qml/components/ProfileRow.qml:78
 #, fuzzy
@@ -375,7 +379,7 @@ msgstr "Koble til"
 
 #: ../qml/components/BottomEdgePageStack.qml:92
 msgid "Back"
-msgstr ""
+msgstr "Tilbake"
 
 #: ../qml/components/TargetInfoDialog.qml:11
 msgid "Target details"
@@ -416,7 +420,7 @@ msgstr "Kopier tekst"
 
 #: ../qml/components/ChatScrollView.qml:74
 msgid "Add to sticker collection"
-msgstr ""
+msgstr "Legg til i klistremerkesamling"
 
 #: ../qml/components/ChatScrollView.qml:80
 msgid "Forward"
@@ -430,7 +434,7 @@ msgstr "Fjern"
 
 #: ../qml/components/ChatScrollView.qml:251
 msgid "Load gif"
-msgstr ""
+msgstr "Last GIF"
 
 #: ../qml/components/ChatScrollView.qml:251
 msgid "Show image"
@@ -538,7 +542,7 @@ msgstr "Fjern enheten"
 
 #: ../qml/components/ChangeAvatarDialog.qml:12
 msgid "Edit profile picture"
-msgstr ""
+msgstr "Rediger profilbilde"
 
 #: ../qml/pages/PasswordInputPage.qml:13
 #, fuzzy
@@ -593,7 +597,7 @@ msgstr "Offentlig"
 
 #: ../qml/pages/CreateChatPage.qml:87
 msgid "Click on the top right button to add contacts."
-msgstr ""
+msgstr "Klikk på knappen øverst til høyre for å legge til kontakter."
 
 #: ../qml/pages/UserPage.qml:34
 #, fuzzy
@@ -790,6 +794,7 @@ msgstr "Søk etter sludringsnavn…"
 #: ../qml/pages/ChatListPage.qml:121
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
+"Dra fra bunnen for å starte ny sludring eller oppdag offentlige grupper."
 
 #: ../qml/pages/ChatListPage.qml:150
 #, fuzzy
@@ -837,7 +842,7 @@ msgstr "Telefonnummer (valgfritt)"
 
 #: ../qml/pages/LoginPage.qml:135
 msgid "Username or Matrix ID"
-msgstr ""
+msgstr "Brukernavn eller Matrix ID"
 
 #: ../qml/pages/LoginPage.qml:173
 #, fuzzy
@@ -901,7 +906,7 @@ msgstr "Sludringsinnstillinger:"
 
 #: ../qml/pages/SettingsPage.qml:114
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 #: ../qml/pages/SettingsPage.qml:130
 #, fuzzy
@@ -968,7 +973,7 @@ msgstr "Sludringsinnstillinger:"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "Access"
-msgstr ""
+msgstr "Vis"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
 msgid "Users can be invited"
@@ -1137,16 +1142,19 @@ msgid "Reload"
 msgstr "Last inn igjen"
 
 #: ../qml/pages/ChatSettingsPage.qml:260
+#, fuzzy
 msgid "Appoint to a member"
-msgstr ""
+msgstr "Utpek som medlem"
 
 #: ../qml/pages/ChatSettingsPage.qml:264
+#, fuzzy
 msgid "Appoint to a Moderator"
-msgstr ""
+msgstr "Utpek som moderator"
 
 #: ../qml/pages/ChatSettingsPage.qml:269
+#, fuzzy
 msgid "Appoint to Admin"
-msgstr ""
+msgstr "Utpek som administrator"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:15
 #, fuzzy
@@ -1195,7 +1203,7 @@ msgstr "Merk deg at FluffyChat ikke støtter transportkryptering enda."
 
 #: ../qml/scripts/CreateChatPageActions.js:50
 msgid "Do you want to create a new group now?"
-msgstr ""
+msgstr "Ønsker du å opprette en ny gruppe nå?"
 
 #: ../qml/scripts/EventDescription.js:7
 #, fuzzy
@@ -1483,7 +1491,7 @@ msgstr "Administratorer"
 
 #: ../qml/scripts/MatrixNames.js:43
 msgid "Owners"
-msgstr ""
+msgstr "Eiere"
 
 #: ../qml/scripts/MatrixNames.js:64
 #, fuzzy
@@ -1548,7 +1556,7 @@ msgstr "Ingen tilkobling til "
 
 #: ../qml/scripts/ChatEventActions.js:25
 msgid "Add to sticker collection?"
-msgstr ""
+msgstr "Legg til i klistremerkesamling?"
 
 #: ../qml/scripts/ChatEventActions.js:32
 msgid "Already added as sticker"
