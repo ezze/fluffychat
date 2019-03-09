@@ -71,14 +71,14 @@ Row {
             width: parent.width
             wrapMode: Text.Wrap
             font.bold: true
-            visible: matrixid !== settings.matrixid
+            visible: matrixid !== matrix.matrixid
             color: presence === "online" ? UbuntuColors.green : "#888888"
         }
         Label {
             text: currently_active ? i18n.tr("Currently active") : (last_active_ago !== 0 ? i18n.tr("Last seen: %1").arg( stamp.getChatTime ( presenceListItem.last_active_ago ) ) : " ")
             width: parent.width
             wrapMode: Text.Wrap
-            visible: matrixid !== settings.matrixid
+            visible: matrixid !== matrix.matrixid
         }
         Label {
             text: " "

@@ -62,20 +62,20 @@ Page {
             }
 
             ListSeperator {
-                text: matrix_id !== settings.matrixid ? i18n.tr("Chats with this user:") : i18n.tr("You are that!")
+                text: matrix_id !== matrix.matrixid ? i18n.tr("Chats with this user:") : i18n.tr("You are that!")
             }
 
             Column {
                 id: chatListView
                 width: parent.width
-                visible: matrix_id !== settings.matrixid
+                visible: matrix_id !== matrix.matrixid
             }
 
             ListItem {
                 id: startNewChatButton
                 height: layout.height
                 color: Qt.rgba(0,0,0,0)
-                visible: matrix_id !== settings.matrixid
+                visible: matrix_id !== matrix.matrixid
                 onClicked: PageActions.startPrivateChat ()
 
                 ListItemLayout {
