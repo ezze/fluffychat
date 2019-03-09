@@ -3,6 +3,7 @@
 
 
 function toChat( chatID, toInvitePage ) {
+    if ( mainLayout.updateInfosFinished !== version ) mainLayout.updateInfosFinished = version
     var rs = storage.query ( "SELECT * FROM Chats WHERE id=? AND membership!='leave'", [ chatID ] )
     if ( rs.rows.length > 0 ) {
         bottomEdgePageStack.clear ()
