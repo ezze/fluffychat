@@ -47,7 +47,7 @@ Page {
                     }
                     height: (parent.height - introductionText.height - bodyText.contentHeight - 4.5*units.gu(4))
                     fillMode: Image.PreserveAspectFit
-                    source: Qt.resolvedUrl("../../assets/sticker09.jpg")
+                    source: Qt.resolvedUrl("../../assets/sticker09.png")
                     asynchronous: true
                 }
 
@@ -98,7 +98,7 @@ Page {
                     }
                     height: (parent.height - introductionText.height - bodyText.contentHeight - 4.5*units.gu(4))
                     fillMode: Image.PreserveAspectFit
-                    source: Qt.resolvedUrl("../../assets/sticker08.jpg")
+                    source: Qt.resolvedUrl("../../assets/sticker08.png")
                     asynchronous: true
                 }
 
@@ -149,7 +149,7 @@ Page {
                     }
                     height: (parent.height - introductionText.height - bodyText.contentHeight - 4.5*units.gu(4))
                     fillMode: Image.PreserveAspectFit
-                    source: Qt.resolvedUrl("../../assets/sticker15.jpg")
+                    source: Qt.resolvedUrl("../../assets/sticker15.png")
                     asynchronous: true
                 }
 
@@ -201,7 +201,7 @@ Page {
                     height: (parent.height - introductionText.height - finalMessage.contentHeight - continueButton.height - 4.5*units.gu(4))
                     visible: height > 0
                     fillMode: Image.PreserveAspectFit
-                    source: Qt.resolvedUrl("../../assets/sticker12.jpg")
+                    source: Qt.resolvedUrl("../../assets/sticker12.png")
                     asynchronous: true
                 }
 
