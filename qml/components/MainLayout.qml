@@ -50,12 +50,25 @@ AdaptivePageLayout {
 
     layouts: [
     PageColumnsLayout {
-        when: width >= 2*defaultPageColumnWidth && matrix.isLogged
+        when: width >= 3*defaultPageColumnWidth && matrix.isLogged
         // column #0
         PageColumn {
             minimumWidth: 0.5*defaultPageColumnWidth
             maximumWidth: 1.5*defaultPageColumnWidth
             preferredWidth: defaultPageColumnWidth
+        }
+        // column #1
+        PageColumn {
+            fillWidth: true
+        }
+    },
+    PageColumnsLayout {
+        when: width >= 2*defaultPageColumnWidth && matrix.isLogged
+        // column #0
+        PageColumn {
+            minimumWidth: 0.5*defaultPageColumnWidth
+            maximumWidth: defaultPageColumnWidth
+            preferredWidth: 0.75*defaultPageColumnWidth
         }
         // column #1
         PageColumn {
