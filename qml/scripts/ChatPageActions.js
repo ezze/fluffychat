@@ -233,6 +233,7 @@ function requestHistory ( event_id ) {
     }
 
     var historyRequestCallback = function ( result ) {
+        if ( activeChat !== currentChat ) return
         if ( result.chunk.length > 0 ) {
             var eventFound = false
 
@@ -260,6 +261,8 @@ function requestHistory ( event_id ) {
     var historyRequestErrorCallback = function () {
         requesting = false
     }
+
+    var currentChat = activeChat
 
     matrix.get( "/client/r0/rooms/" + activeChat + "/messages", data, historyRequestCallback, historyRequestErrorCallback, 1 )
 }
