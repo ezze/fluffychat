@@ -261,7 +261,7 @@ function requestHistory ( event_id ) {
         requesting = false
     }
 
-    matrix.get( "/client/r0/rooms/" + activeChat + "/messages", data, historyRequestCallback, historyRequestErrorCallback, event_id ? 2 : 1 )
+    matrix.get( "/client/r0/rooms/" + activeChat + "/messages", data, historyRequestCallback, historyRequestErrorCallback, 1 )
 }
 
 function destruction () {
