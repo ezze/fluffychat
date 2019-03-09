@@ -228,9 +228,12 @@ Page {
                     }
                     fontSize: "large"
                     horizontalAlignment: Text.AlignHLeft
-                    text: i18n.tr("FluffyChat is open, nonprofit and cute. The development and servers are all funded by the community.")
+                    text: i18n.tr("FluffyChat is open, nonprofit and cute. The development and servers are all funded by the community. You can donate for this project on <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>")
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
+                    linkColor: mainLayout.brightMainColor
+                    textFormat: Text.StyledText
+                    onLinkActivated: contentHub.openUrlExternally ( link )
                 }
 
                 Button {
@@ -242,11 +245,10 @@ Page {
                     }
                     color: UbuntuColors.green
                     height: units.gu(5)
-                    iconName: "like"
-                    text: i18n.tr("Become a patron")
+                    text: i18n.tr("Continue")
                     width: units.gu(36)
 
-                    onClicked: Qt.openUrlExternally("https://www.patreon.com/krillechritzelius")
+                    onClicked: walkthrough.finished()
                 }
             }
         }

@@ -85,12 +85,14 @@ Page {
             bottom: slideIndicator.top
         }
 
-        model: walkthrough.model
+
+        model: mainLayout.walkthroughFinished ? [ walkthrough.model[2], walkthrough.model[3] ] : walkthrough.model
         snapMode: ListView.SnapOneItem
         orientation: Qt.Horizontal
         highlightMoveDuration: UbuntuAnimation.FastDuration
         highlightRangeMode: ListView.StrictlyEnforceRange
         highlightFollowsCurrentItem: true
+
 
         delegate: Item {
             width: listView.width
@@ -161,7 +163,7 @@ Page {
         }
 
         Repeater {
-            model: walkthrough.model.length
+            model: listView.model.length
             delegate: Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 antialiasing: true
@@ -185,6 +187,7 @@ Page {
         name: "go-next"
         width: height
         asynchronous: true
+        visible: listView.currentIndex < listView.model.length-1
     }
 
     MouseArea {
@@ -213,10 +216,6 @@ Page {
     }
 
     Component.onCompleted: {
-        if ( mainLayout.walkthroughFinished ) {
-            nextSlide()
-            nextSlide()
-        }
         forceActiveFocus()
     }
 }
