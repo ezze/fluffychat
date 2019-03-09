@@ -106,7 +106,7 @@ Page {
     ListView {
         id: chatListView
         width: parent.width
-        height: parent.height
+        height: parent.height - bottomEdgeHint.height
         anchors.top: parent.top
         delegate: ChatListItem {}
         model: model
@@ -146,6 +146,7 @@ Page {
         }
 
         hint {
+            id: bottomEdgeHint
             status: BottomEdgeHint.Locked
             text: bottomEdge.hint.status == BottomEdgeHint.Locked ? i18n.tr("Add chat") : ""
             iconName: "compose"
