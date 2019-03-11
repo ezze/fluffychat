@@ -189,8 +189,8 @@ ListView {
                     property bool hasThumbnail: active && eventModel.content.info && eventModel.content.info.thumbnail_url
                     property bool isGif: active && eventModel.content.info && eventModel.content.info.mimetype && eventModel.content.info.mimetype === "image/gif"
                     property bool showGif: isGif && matrix.autoloadGifs
-                    property bool showThumbnail: visible && !showGif && (hasThumbnail || matrix.autoloadGifs)
-                    property bool showButton: visible && !showGif && !showThumbnail
+                    property bool showThumbnail: active && !showGif && (hasThumbnail || matrix.autoloadGifs)
+                    property bool showButton: active && !showGif && !showThumbnail
 
                     sourceComponent: Rectangle {
                         id: imageObj
