@@ -427,363 +427,371 @@ Item {
 
     function init () {
 
-    if ( matrix.token === "" ) return
+        if ( matrix.token === "" ) return
 
-    // Start synchronizing
-    initialized = true
-    if ( matrix.prevBatch !== "" ) {
-        console.log("👷[Init] Init the matrix synchronization")
-        waitForSync ()
-        return sync ( 1 )
-    }
-
-    console.log("👷[Init] Request the first matrix synchronizaton")
-
-    var onFristSyncResponse = function ( response ) {
-        if ( matrix.waitingForSync ) waitingForAnswer--
-        handleEvents ( response )
-
-        if ( !abortSync ) sync ()
-    }
-
-    var onVersionsResponse = function ( matrixVersions ) {
-        console.log("👷[Init] Supported Matrix versions:", JSON.stringify(matrixVersions))
-        matrix.matrixVersions = matrixVersions.versions
-        if ( "unstable_features" in matrixVersions && "m.lazy_load_members" in matrixVersions["unstable_features"] ) {
-            matrix.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
+        // Start synchronizing
+        initialized = true
+        if ( matrix.prevBatch !== "" ) {
+            console.log("👷[Init] Init the matrix synchronization")
+            waitForSync ()
+            return sync ( 1 )
         }
-        // Start the first synchronization
-        matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.HIGH )
-    }
 
-    // Discover which features the server does support
-    matrix.get ( "/client/versions", {}, onVersionsResponse, init)
+        console.log("👷[Init] Request the first matrix synchronizaton")
 
-}
-
-
-function sync ( timeout ) {
-    if ( matrix.token === null || matrix.token === undefined || abortSync ) return
-
-    var data = { "since": matrix.prevBatch, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members) }
-
-    if ( !timeout ) data.timeout = longPollingTimeout
-
-    syncRequest = matrix.get ("/client/r0/sync", data, function ( response ) {
-
-        if ( matrix.waitingForSync ) waitingForAnswer--
-        matrix.waitingForSync = false
-        if ( matrix.token ) {
+        var onFristSyncResponse = function ( response ) {
+            if ( matrix.waitingForSync ) waitingForAnswer--
             handleEvents ( response )
-            matrix.lastSync = new Date().getTime()
-            sync ()
+
+            if ( !abortSync ) sync ()
         }
-    }, function ( error ) {
-        if ( !abortSync && matrix.token !== undefined ) {
+
+        var onVersionsResponse = function ( matrixVersions ) {
+            console.log("👷[Init] Supported Matrix versions:", JSON.stringify(matrixVersions))
+            matrix.matrixVersions = matrixVersions.versions
+            if ( "unstable_features" in matrixVersions && "m.lazy_load_members" in matrixVersions["unstable_features"] ) {
+                matrix.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
+            }
+            // Start the first synchronization
+            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.HIGH )
+        }
+
+        // Discover which features the server does support
+        matrix.get ( "/client/versions", {}, onVersionsResponse, init)
+
+    }
+
+
+    function sync ( timeout ) {
+        if ( matrix.token === null || matrix.token === undefined || abortSync ) return
+
+        var data = { "since": matrix.prevBatch, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members) }
+
+        if ( !timeout ) data.timeout = longPollingTimeout
+
+        var successCallback = function ( response ) {
+            if ( matrix.waitingForSync ) waitingForAnswer--
+            if ( typeof response === "object" && typeof response.next_batch === "string" ) {
+                matrix.waitingForSync = false
+                handleEvents ( response )
+                matrix.lastSync = new Date().getTime()
+                sync ()
+            }
+            else errorCallback ( {error: response, errcode:"BAD_GATEWAY"} )
+        }
+
+        var errorCallback = function ( error ) {
+            console.error ( "❌[Error] Synchronization:", JSON.stringify(error) )
             if ( error.errcode === "M_INVALID" ) {
+                matrix.reqError ( i18n.tr("Your session is no longer valid") )
                 reset ()
             }
-            else {
-                if ( online ) restartSync ()
-                else console.error ( i18n.tr("You are offline 😕") )
+            else if ( error.errcode === "BAD_GATEWAY" ) {
+                abortSync = true
+                matrix.reqError ( i18n.tr("No connection to the homeserver 😕") )
             }
-        }
-    }, _PRIORITY.SYNC );
-}
-
-
-function restartSync () {
-    if ( !initialized ) return init()
-    if ( syncRequest === null ) return
-    if ( syncRequest ) {
-        abortSync = true
-        syncRequest.abort ()
-        abortSync = false
-    }
-    sync ( true )
-}
-
-
-function waitForSync () {
-    if ( matrix.waitingForSync ) return
-    matrix.waitingForSync = true
-    waitingForAnswer++
-}
-
-
-function stopWaitForSync () {
-    if ( !matrix.waitingForSync ) return
-    matrix.waitingForSync = false
-    waitingForAnswer--
-}
-
-
-// This function starts handling the events, saving new data in the storage,
-// deleting data, updating data and call signals
-function handleEvents ( response ) {
-
-    //console.log( "[Sync details]", JSON.stringify( response ) )
-    var changed = false
-    var timecount = new Date().getTime()
-    try {
-
-        newSync ( response )
-        if ( matrix.prevBatch !== "" ) {
-            handleSync ( response, newChatUpdate, newEvent )
-        }
-        matrix.prevBatch = response.next_batch
-    }
-    catch ( e ) {
-        toast.show ( i18n.tr("😰 A critical error has occurred! Sorry, the connection to the server has ended! Please report this bug on: https://github.com/ChristianPauly/fluffychat/issues/new. Error details: %1").arg(e) )
-        console.log ( "❌[Critical error]",e )
-        abortSync = true
-        syncRequest.abort ()
-        return
-    }
-}
-
-function handleSync ( sync, newChatCB, newEventCB ) {
-    if ( typeof sync.rooms === "object" ) {
-        if ( typeof sync.rooms.join === "object" ) handleRooms ( sync.rooms.join, "join", newChatCB, newEventCB )
-        if ( typeof sync.rooms.leave === "object" ) handleRooms ( sync.rooms.leave, "leave", newChatCB, newEventCB )
-        if ( typeof sync.rooms.invite === "object" ) handleRooms ( sync.rooms.invite, "invite", newChatCB, newEventCB )
-    }
-    if ( typeof sync.presence === "object" && typeof sync.presence.events === "object" ) {
-        handlePresences ( sync.presence.events, newEventCB)
-    }
-}
-
-// Handling the synchronization events starts with the rooms, which means
-// that the informations should be saved in the database
-function handleRooms ( rooms, membership, newChatCB, newEventCB ) {
-    for ( var id in rooms ) {
-        var room = rooms[id]
-
-        // calculate the notification counts, the limitedTimeline and prevbatch and trigger the signal
-        var highlight_count = 0
-        var notification_count = 0
-        var prev_batch = ""
-        var limitedTimeline = 0
-
-        if ( typeof room.unread_notifications === "object" ) {
-            if ( typeof room.unread_notifications.highlight_count === "number" ) {
-                highlight_count = room.unread_notifications.highlight_count
-            }
-            if ( typeof room.unread_notifications.notification_count === "number" ) {
-                notification_count = room.unread_notifications.notification_count
+            else if ( typeof error.error === "string" ) {
+                matrix.reqError ( error.error )
             }
         }
 
-        if ( typeof room.timeline === "object" ) {
-            if ( typeof room.timeline.limited === "boolean" ) {
-                limitedTimeline = room.timeline.limited ? 1 : 0
-            }
-            if ( typeof room.timeline.prev_batch === "string" ) {
-                prev_batch = room.timeline.prev_batch
-            }
-        }
+        syncRequest = matrix.get ("/client/r0/sync", data, successCallback, errorCallback, _PRIORITY.SYNC );
+    }
 
-        newChatCB ( id, membership, notification_count, highlight_count, limitedTimeline, prev_batch )
 
-        // Handle now all room events and save them in the database
-        if ( typeof room.state === "object" && typeof room.state.events === "object" ) {
-            handleRoomEvents ( id, room.state.events, "state", newEventCB )
+    function restartSync () {
+        if ( !initialized ) return init()
+        if ( syncRequest === null ) return
+        if ( syncRequest ) {
+            abortSync = true
+            syncRequest.abort ()
+            abortSync = false
         }
-        if ( typeof room.invite_state === "object" && typeof room.invite_state.events === "object" ) {
-            handleRoomEvents ( id, room.invite_state.events, "invite_state", newEventCB )
+        sync ( true )
+    }
+
+
+    function waitForSync () {
+        if ( matrix.waitingForSync ) return
+        matrix.waitingForSync = true
+        waitingForAnswer++
+    }
+
+
+    function stopWaitForSync () {
+        if ( !matrix.waitingForSync ) return
+        matrix.waitingForSync = false
+        waitingForAnswer--
+    }
+
+
+    // This function starts handling the events, saving new data in the storage,
+    // deleting data, updating data and call signals
+    function handleEvents ( response ) {
+
+        //console.log( "[Sync details]", JSON.stringify( response ) )
+        var changed = false
+        var timecount = new Date().getTime()
+        try {
+
+            newSync ( response )
+            if ( matrix.prevBatch !== "" ) {
+                handleSync ( response, newChatUpdate, newEvent )
+            }
+            matrix.prevBatch = response.next_batch
         }
-        if ( typeof room.timeline === "object" && typeof room.timeline.events === "object" ) {
-            handleRoomEvents ( id, room.timeline.events, "timeline", newEventCB )
-        }
-        if ( typeof room.ephemeral === "object" && typeof room.ephemeral.events === "object" ) {
-            handleEphemeral ( id, room.ephemeral.events, newEventCB )
-        }
-        if ( typeof room.account_data === "object" && typeof room.account_data.events === "object" ) {
-            handleRoomEvents ( id, room.account_data.events, "account_data", newEventCB )
+        catch ( e ) {
+            toast.show ( i18n.tr("😰 A critical error has occurred! Sorry, the connection to the server has ended! Please report this bug on: https://github.com/ChristianPauly/fluffychat/issues/new. Error details: %1").arg(e) )
+            console.log ( "❌[Critical error]",e )
+            abortSync = true
+            syncRequest.abort ()
+            return
         }
     }
-}
 
-// Handle the presences
-function handlePresences ( presences, newEventCB ) {
-    for ( var i = 0; i < presences.length; i++ ) {
-        var presence = presences[i]
-        if ( validateEvent ( presence, "presence" ) ) newEventCB ( presence.type, presence.sender, "presence", presence )
-        else console.warn( "💤[Invalid] Ignoring invalid event:", JSON.stringify(presence) )
+    function handleSync ( sync, newChatCB, newEventCB ) {
+        if ( typeof sync !== "object" ) return
+        if ( typeof sync.rooms === "object" ) {
+            if ( typeof sync.rooms.join === "object" ) handleRooms ( sync.rooms.join, "join", newChatCB, newEventCB )
+            if ( typeof sync.rooms.leave === "object" ) handleRooms ( sync.rooms.leave, "leave", newChatCB, newEventCB )
+            if ( typeof sync.rooms.invite === "object" ) handleRooms ( sync.rooms.invite, "invite", newChatCB, newEventCB )
+        }
+        if ( typeof sync.presence === "object" && typeof sync.presence.events === "object" ) {
+            handlePresences ( sync.presence.events, newEventCB)
+        }
     }
-}
 
-// Handle ephemerals (message receipts)
-function handleEphemeral ( id, events, newEventCB ) {
-    for ( var i = 0; i < events.length; i++ ) {
-        if ( !(typeof events[i].type === "string" && typeof events[i].content === "object") ) continue
-        if ( events[i].type === "m.receipt" ) {
-            for ( var e in events[i].content ) {
-                if ( !(typeof events[i].content[e] === "object" && typeof events[i].content[e]["m.read"] === "object") ) continue
-                for ( var user in events[i].content[e]["m.read"]) {
-                    if ( !(typeof events[i].content[e]["m.read"][user] === "object" && typeof events[i].content[e]["m.read"][user].ts === "number") ) continue
-                    var timestamp = events[i].content[e]["m.read"][user].ts
+    // Handling the synchronization events starts with the rooms, which means
+    // that the informations should be saved in the database
+    function handleRooms ( rooms, membership, newChatCB, newEventCB ) {
+        for ( var id in rooms ) {
+            var room = rooms[id]
 
-                    // Call the newEvent signal for updating the GUI
-                    newEventCB ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
+            // calculate the notification counts, the limitedTimeline and prevbatch and trigger the signal
+            var highlight_count = 0
+            var notification_count = 0
+            var prev_batch = ""
+            var limitedTimeline = 0
+
+            if ( typeof room.unread_notifications === "object" ) {
+                if ( typeof room.unread_notifications.highlight_count === "number" ) {
+                    highlight_count = room.unread_notifications.highlight_count
+                }
+                if ( typeof room.unread_notifications.notification_count === "number" ) {
+                    notification_count = room.unread_notifications.notification_count
+                }
+            }
+
+            if ( typeof room.timeline === "object" ) {
+                if ( typeof room.timeline.limited === "boolean" ) {
+                    limitedTimeline = room.timeline.limited ? 1 : 0
+                }
+                if ( typeof room.timeline.prev_batch === "string" ) {
+                    prev_batch = room.timeline.prev_batch
+                }
+            }
+
+            newChatCB ( id, membership, notification_count, highlight_count, limitedTimeline, prev_batch )
+
+            // Handle now all room events and save them in the database
+            if ( typeof room.state === "object" && typeof room.state.events === "object" ) {
+                handleRoomEvents ( id, room.state.events, "state", newEventCB )
+            }
+            if ( typeof room.invite_state === "object" && typeof room.invite_state.events === "object" ) {
+                handleRoomEvents ( id, room.invite_state.events, "invite_state", newEventCB )
+            }
+            if ( typeof room.timeline === "object" && typeof room.timeline.events === "object" ) {
+                handleRoomEvents ( id, room.timeline.events, "timeline", newEventCB )
+            }
+            if ( typeof room.ephemeral === "object" && typeof room.ephemeral.events === "object" ) {
+                handleEphemeral ( id, room.ephemeral.events, newEventCB )
+            }
+            if ( typeof room.account_data === "object" && typeof room.account_data.events === "object" ) {
+                handleRoomEvents ( id, room.account_data.events, "account_data", newEventCB )
+            }
+        }
+    }
+
+    // Handle the presences
+    function handlePresences ( presences, newEventCB ) {
+        for ( var i = 0; i < presences.length; i++ ) {
+            var presence = presences[i]
+            if ( validateEvent ( presence, "presence" ) ) newEventCB ( presence.type, presence.sender, "presence", presence )
+            else console.warn( "💤[Invalid] Ignoring invalid event:", JSON.stringify(presence) )
+        }
+    }
+
+    // Handle ephemerals (message receipts)
+    function handleEphemeral ( id, events, newEventCB ) {
+        for ( var i = 0; i < events.length; i++ ) {
+            if ( !(typeof events[i].type === "string" && typeof events[i].content === "object") ) continue
+            if ( events[i].type === "m.receipt" ) {
+                for ( var e in events[i].content ) {
+                    if ( !(typeof events[i].content[e] === "object" && typeof events[i].content[e]["m.read"] === "object") ) continue
+                    for ( var user in events[i].content[e]["m.read"]) {
+                        if ( !(typeof events[i].content[e]["m.read"][user] === "object" && typeof events[i].content[e]["m.read"][user].ts === "number") ) continue
+                        var timestamp = events[i].content[e]["m.read"][user].ts
+
+                        // Call the newEvent signal for updating the GUI
+                        newEventCB ( events[i].type, id, "ephemeral", { ts: timestamp, user: user } )
+                    }
+                }
+            }
+            else if ( events[ i ].type === "m.typing" ) {
+                if ( !(typeof events[i].content === "object" && typeof events[ i ].content.user_ids === "object") ) continue
+                var user_ids = events[i].content.user_ids
+                // If the user is typing, remove his id from the list of typing users
+                var ownTyping = user_ids.indexOf( matrix.matrixid )
+                if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
+                // Call the signal
+                newEventCB ( events[ i ].type, id, "ephemeral", user_ids )
+            }
+        }
+    }
+
+
+    // Handle room events
+    function handleRoomEvents ( roomid, events, type, newEventCB ) {
+        // We go through the events array
+        for ( var i = 0; i < events.length; i++ ) {
+            if ( validateEvent ( events[i], type ) ) newEventCB ( events[i].type, roomid, type, events[i] )
+            else console.warn( "💤[Invalid] Ignoring invalid event:", JSON.stringify(events[i]) )
+        }
+    }
+
+    // Validates common room events
+    function validateEvent ( event, type ) {
+        // Handle account data events
+        if ( typeof mask[type] === "object"  ) {
+            for ( var item in mask.event ) {
+                if ( typeof event[item] !== mask.event[item] ) return false
+            }
+            return true
+        }
+
+        // Handle timeline events
+        for ( var item in mask.roomEvent ) {
+            if ( typeof event[item] !== mask["roomEvent"][item] ) return false
+
+            if ( item === "content" ) {
+                if ( typeof mask[event.type] === "object" ) {
+                    for ( var contentItem in mask[event.type] ) {
+                        if ( typeof event.content[contentItem] !== mask[event.type][contentItem] ) return false
+                    }
                 }
             }
         }
-        else if ( events[ i ].type === "m.typing" ) {
-            if ( !(typeof events[i].content === "object" && typeof events[ i ].content.user_ids === "object") ) continue
-            var user_ids = events[i].content.user_ids
-            // If the user is typing, remove his id from the list of typing users
-            var ownTyping = user_ids.indexOf( matrix.matrixid )
-            if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
-            // Call the signal
-            newEventCB ( events[ i ].type, id, "ephemeral", user_ids )
+        // m.room.member events also have a state_key
+        if ( event.type === "m.room.member" ) {
+            if ( typeof event["state_key"] !== "string" ) return false
         }
-    }
-}
-
-
-// Handle room events
-function handleRoomEvents ( roomid, events, type, newEventCB ) {
-    // We go through the events array
-    for ( var i = 0; i < events.length; i++ ) {
-        if ( validateEvent ( events[i], type ) ) newEventCB ( events[i].type, roomid, type, events[i] )
-        else console.warn( "💤[Invalid] Ignoring invalid event:", JSON.stringify(events[i]) )
-    }
-}
-
-// Validates common room events
-function validateEvent ( event, type ) {
-    // Handle account data events
-    if ( typeof mask[type] === "object"  ) {
-        for ( var item in mask.event ) {
-            if ( typeof event[item] !== mask.event[item] ) return false
+        else if ( event.type === "m.room.redaction" ) {
+            if ( typeof event["redacts"] !== "string" ) return false
         }
+
         return true
     }
 
-    // Handle timeline events
-    for ( var item in mask.roomEvent ) {
-        if ( typeof event[item] !== mask["roomEvent"][item] ) return false
+    readonly property var mask: {
+        "presence": {
+            "sender": "string",
+            "content": "object",
+            "type": "string"
+        },
+        "account_data": {
+            "content": "object",
+            "type": "string"
+        },
+        "roomEvent": {
+            "content": "object",
+            "type": "string",
+            "event_id": "string",
+            "sender": "string",
+            "origin_server_ts": "number"
+        },
+        "m.room.message": {
+            "body": "string",
+            "msgtype": "string"
+        },
+        "m.sticker": {
+            "body": "string",
+            "info": "object",
+            "url": "string"
+        },
+        "m.room.message.feedback": {
+            "target_event_id": "string",
+            "type": "string"
+        },
+        "m.room.name": {
+            "name": "string"
+        },
+        "m.room.topic": {
+            "topic": "string"
+        },
+        "m.room.avatar": {
+            "url": "string"
+        },
+        "m.room.pinned_events": {
+            "pinned": "object"
+        },
+        "m.room.aliases": {
+            "aliases": "object"
+        },
+        "m.room.canonical_alias": {
+            "alias": "string"
+        },
+        "m.room.create": {
+            "creator": "string"
+        },
+        "m.room.join_rules": {
+            "join_rule": "string"
+        },
+        "m.room.member": {
+            "membership": "string"
+        },
+        "m.room.power_levels": { },
+        "m.room.redaction": { },
+        "m.room.third_party_invite": {
+            "display_name": "string",
+            "key_validity_url": "string",
+            "public_key": "string"
+        },
+        "m.room.guest_access": {
+            "guest_access": "string"
+        },
+        "m.room.history_visibility": {
 
-        if ( item === "content" ) {
-            if ( typeof mask[event.type] === "object" ) {
-                for ( var contentItem in mask[event.type] ) {
-                    if ( typeof event.content[contentItem] !== mask[event.type][contentItem] ) return false
-                }
-            }
-        }
+        },
+        "m.fully_read": {
+            "event_id": "string"
+        },
+        "m.room.encryption": {
+            "algorithm": "string"
+        },
+        "m.room.encrypted": {
+            "algorithm": "string",
+            "sender_key": "string"
+        },
+        "m.room_key": {
+            "algorithm": "string",
+            "room_id": "string",
+            "session_id": "string",
+            "session_key": "string"
+        },
+        "m.room_key_request": {
+            "action": "string",
+            "requesting_device_id": "string",
+            "request_id": "string"
+        },
+        "m.forwarded_room_key": {
+            "algorithm": "string",
+            "room_id": "string",
+            "sender_key": "string",
+            "session_id": "string",
+            "session_key": "string",
+            "sender_claimed_ed25519_key": "string",
+            "forwarding_curve25519_key_chain": "object"
+        },
     }
-    // m.room.member events also have a state_key
-    if ( event.type === "m.room.member" ) {
-        if ( typeof event["state_key"] !== "string" ) return false
-    }
-    else if ( event.type === "m.room.redaction" ) {
-        if ( typeof event["redacts"] !== "string" ) return false
-    }
-
-    return true
-}
-
-readonly property var mask: {
-    "presence": {
-        "sender": "string",
-        "content": "object",
-        "type": "string"
-    },
-    "account_data": {
-        "content": "object",
-        "type": "string"
-    },
-    "roomEvent": {
-        "content": "object",
-        "type": "string",
-        "event_id": "string",
-        "sender": "string",
-        "origin_server_ts": "number"
-    },
-    "m.room.message": {
-        "body": "string",
-        "msgtype": "string"
-    },
-    "m.sticker": {
-        "body": "string",
-        "info": "object",
-        "url": "string"
-    },
-    "m.room.message.feedback": {
-        "target_event_id": "string",
-        "type": "string"
-    },
-    "m.room.name": {
-        "name": "string"
-    },
-    "m.room.topic": {
-        "topic": "string"
-    },
-    "m.room.avatar": {
-        "url": "string"
-    },
-    "m.room.pinned_events": {
-        "pinned": "object"
-    },
-    "m.room.aliases": {
-        "aliases": "object"
-    },
-    "m.room.canonical_alias": {
-        "alias": "string"
-    },
-    "m.room.create": {
-        "creator": "string"
-    },
-    "m.room.join_rules": {
-        "join_rule": "string"
-    },
-    "m.room.member": {
-        "membership": "string"
-    },
-    "m.room.power_levels": { },
-    "m.room.redaction": { },
-    "m.room.third_party_invite": {
-        "display_name": "string",
-        "key_validity_url": "string",
-        "public_key": "string"
-    },
-    "m.room.guest_access": {
-        "guest_access": "string"
-    },
-    "m.room.history_visibility": {
-
-    },
-    "m.fully_read": {
-        "event_id": "string"
-    },
-    "m.room.encryption": {
-        "algorithm": "string"
-    },
-    "m.room.encrypted": {
-        "algorithm": "string",
-        "sender_key": "string"
-    },
-    "m.room_key": {
-        "algorithm": "string",
-        "room_id": "string",
-        "session_id": "string",
-        "session_key": "string"
-    },
-    "m.room_key_request": {
-        "action": "string",
-        "requesting_device_id": "string",
-        "request_id": "string"
-    },
-    "m.forwarded_room_key": {
-        "algorithm": "string",
-        "room_id": "string",
-        "sender_key": "string",
-        "session_id": "string",
-        "session_key": "string",
-        "sender_claimed_ed25519_key": "string",
-        "forwarding_curve25519_key_chain": "object"
-    },
-}
 
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 10:00+0000\n"
+"POT-Creation-Date: 2019-03-11 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -631,11 +631,15 @@ msgstr ""
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:488
-msgid "You are offline 😕"
+#: ../qml/models/MatrixModel.qml:486
+msgid "Your session is no longer valid"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:537
+#: ../qml/models/MatrixModel.qml:491
+msgid "No connection to the homeserver 😕"
+msgstr ""
+
+#: ../qml/models/MatrixModel.qml:544
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
