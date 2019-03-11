@@ -447,6 +447,7 @@ Item {
     }
 
     var onVersionsResponse = function ( matrixVersions ) {
+        console.log("👷[Init] Supported Matrix versions:", JSON.stringify(matrixVersions))
         matrix.matrixVersions = matrixVersions.versions
         if ( "unstable_features" in matrixVersions && "m.lazy_load_members" in matrixVersions["unstable_features"] ) {
             matrix.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
