@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-11 11:26+0000\n"
-"PO-Revision-Date: 2019-03-09 10:21+0000\n"
+"PO-Revision-Date: 2019-03-12 09:24+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.5.1-dev\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #: ../qml/Main.qml:105
 msgid "Are you sure?"
@@ -148,6 +148,8 @@ msgid ""
 "Improved stability and performance, new translations, design changes, better "
 "tablet support and a lot of bug fixes."
 msgstr ""
+"Vylepšený výkon a stabilita, nové překlady, změny ve vzhledu, lepší podpora "
+"tabletů a spousty opravených chyb."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -160,6 +162,10 @@ msgid ""
 "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
 "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
+"FluffyChat je otevřený, neziskový a fajn. Vývoj a servery jsou finančně "
+"podporovány komunitou. Pro zaslání Vašeho finančního příspěvku projektu "
+"použijte <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> "
+"nebo <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:248
 msgid "Continue"
@@ -662,13 +668,11 @@ msgstr "😕 Nejste připojení..."
 
 #: ../qml/models/MatrixModel.qml:486
 msgid "Your session is no longer valid"
-msgstr ""
+msgstr "Vaše sezení je již neplatné"
 
 #: ../qml/models/MatrixModel.qml:491
-#, fuzzy
-#| msgid "No connection to "
 msgid "No connection to the homeserver 😕"
-msgstr "Bez připojení "
+msgstr "Žádné připojení k homeserveru 😕"
 
 #: ../qml/models/MatrixModel.qml:544
 msgid ""
