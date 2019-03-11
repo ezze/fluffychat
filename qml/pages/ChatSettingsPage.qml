@@ -257,16 +257,16 @@ Page {
         z: 10
         actions: ActionList {
             Action {
-                text: i18n.tr("Appoint to a member")
+                text: i18n.tr("Enroll as member")
                 onTriggered: PageActions.changePowerLevel ( 0 )
             }
             Action {
-                text: i18n.tr("Appoint to a Moderator")
+                text: i18n.tr("Appoint to moderator")
                 onTriggered: PageActions.changePowerLevel ( 50 )
                 visible: power >= 50
             }
             Action {
-                text: i18n.tr("Appoint to Admin")
+                text: i18n.tr("Appoint to admin")
                 onTriggered: PageActions.changePowerLevel ( 100 )
                 visible: power >= 100
             }
