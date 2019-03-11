@@ -177,7 +177,7 @@ Page {
                     fontSize: "large"
                     height: contentHeight
                     horizontalAlignment: Text.AlignHLeft
-                    text: i18n.tr("Improved stability and performance, new translations, design changes, better tablet support and a lot of bug fixes.")
+                    text: i18n.tr("Improved stability and performance, new translations, design changes, better tablet support and a lot of bugfixes.")
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                 }
