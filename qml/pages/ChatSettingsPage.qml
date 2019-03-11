@@ -133,7 +133,7 @@ Page {
                     Label {
                         width: parent.width
                         wrapMode: Text.Wrap
-                        text: description !== "" ? description : i18n.tr("No chat description found...")
+                        text: description !== "" ? description : i18n.tr("No chat description found…")
                         linkColor: mainLayout.brightMainColor
                         textFormat: Text.StyledText
                         onLinkActivated: contentHub.openUrlExternally ( link )
@@ -212,7 +212,7 @@ Page {
                         leftMargin: units.gu(2)
                     }
                     inputMethodHints: Qt.ImhNoPredictiveText
-                    placeholderText: i18n.tr("Search...")
+                    placeholderText: i18n.tr("Search…")
                     onActiveFocusChanged: if ( activeFocus ) scrollView.flickableItem.contentY = scrollView.flickableItem.contentHeight - scrollView.height
                 }
             }
