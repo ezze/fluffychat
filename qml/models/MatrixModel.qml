@@ -389,7 +389,7 @@ Item {
                     // Is the errcode something we can handle?
                     if ( error.errcode === "M_UNKNOWN_TOKEN" ) reset ()
                     else if ( !error_callback && error.error === "CONNERROR" ) {
-                        matrix.reqError (i18n.tr("😕 No connection..."))
+                        matrix.reqError (i18n.tr("😕 No connection…"))
                     }
                     else if ( error.errcode === "M_CONSENT_NOT_GIVEN") {
                         if ( "consent_uri" in error ) {
@@ -483,7 +483,7 @@ Item {
         var errorCallback = function ( error ) {
             console.error ( "❌[Error] Synchronization:", JSON.stringify(error) )
             if ( error.errcode === "M_INVALID" ) {
-                matrix.reqError ( i18n.tr("Your session is no longer valid") )
+                matrix.reqError ( i18n.tr("Your session has expired") )
                 reset ()
             }
             else if ( error.errcode === "BAD_GATEWAY" ) {
