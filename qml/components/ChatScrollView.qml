@@ -278,7 +278,10 @@ ListView {
                             property var playing: false
                             color: "white"
                             iconName: playing ? "media-playback-pause" : "media-playback-start"
-                            onClicked: ItemActions.toggleAudioPlayer ( event )
+                            onClicked: {
+                                ItemActions.toggleAudioPlayer ( event, playing )
+                                playing = !playing
+                            }
                             width: units.gu(4)
                         }
                         Button {
@@ -396,7 +399,7 @@ ListView {
                                 // Show the senders displayname only if its not the user him-/herself.
                                 ((eventModel.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
                                 ("<font color='" + MatrixNames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
-                                : "")
+                                : ( eventModel.content.msgtype === "m.audio" ? eventModel.content.body + " - " : ""))
                                 + MatrixNames.getChatTime ( eventModel.origin_server_ts )
                             }
                             color: fontColor
