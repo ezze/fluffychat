@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 11:26+0000\n"
+"POT-Creation-Date: 2019-03-12 08:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -626,20 +626,20 @@ msgstr ""
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:58
+#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:58
 #: ../qml/scripts/LoginPageActions.js:99
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:486
-msgid "Your session is no longer valid"
-msgstr ""
-
-#: ../qml/models/MatrixModel.qml:491
+#: ../qml/models/MatrixModel.qml:481
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:544
+#: ../qml/models/MatrixModel.qml:488
+msgid "Your session is no longer valid"
+msgstr ""
+
+#: ../qml/models/MatrixModel.qml:555
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
