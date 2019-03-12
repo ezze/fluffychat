@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-11 11:26+0000\n"
-"PO-Revision-Date: 2019-03-09 10:18+0000\n"
+"PO-Revision-Date: 2019-03-12 09:24+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1-dev\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #: ../qml/Main.qml:105
 msgid "Are you sure?"
@@ -148,6 +148,8 @@ msgid ""
 "Improved stability and performance, new translations, design changes, better "
 "tablet support and a lot of bug fixes."
 msgstr ""
+"Stabilitäts- und Performance-Verbesserungen, neue Übersetzungen, Änderungen "
+"am Design, bessere Tablet-Unterstützung und einige Fehlerbehebungen."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -160,6 +162,10 @@ msgid ""
 "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
 "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
+"FluffyChat ist offen, unkommerziell und süß. Die Entwicklung und Server sind "
+"alle Spendenbasiert. Du kannst für dieses Projekt spenden auf <a "
+"href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> und <a "
+"href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:248
 msgid "Continue"
@@ -668,7 +674,7 @@ msgstr "Keine Verbindung ..."
 
 #: ../qml/models/MatrixModel.qml:486
 msgid "Your session is no longer valid"
-msgstr ""
+msgstr "Deine Sitzung ist nicht länger gültig"
 
 #: ../qml/models/MatrixModel.qml:491
 msgid "No connection to the homeserver 😕"
