@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-12 08:47+0000\n"
+"POT-Creation-Date: 2019-03-12 09:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -626,20 +626,20 @@ msgstr ""
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:58
-#: ../qml/scripts/LoginPageActions.js:99
+#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection..."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:481
+#: ../qml/models/MatrixModel.qml:480
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:488
+#: ../qml/models/MatrixModel.qml:487
 msgid "Your session is no longer valid"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:555
+#: ../qml/models/MatrixModel.qml:554
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1355,10 +1355,14 @@ msgstr ""
 msgid "Do you want to create a new group now?"
 msgstr ""
 
-#: ../qml/scripts/LoginPageActions.js:55
+#: ../qml/scripts/LoginPageActions.js:54
+msgid "Server %1 not found"
+msgstr ""
+
+#: ../qml/scripts/LoginPageActions.js:56
 msgid "Username '%1' not found on %2"
 msgstr ""
 
-#: ../qml/scripts/LoginPageActions.js:96 ../qml/scripts/LoginPageActions.js:98
+#: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr ""
