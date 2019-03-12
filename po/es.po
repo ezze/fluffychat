@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 11:26+0000\n"
+"POT-Creation-Date: 2019-03-12 09:22+0000\n"
 "PO-Revision-Date: 2019-03-12 09:24+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
@@ -665,20 +665,20 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "No tiene permiso para chatear aquí."
 
-#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:58
-#: ../qml/scripts/LoginPageActions.js:99
+#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection..."
 msgstr "😕 Sin conexión..."
 
-#: ../qml/models/MatrixModel.qml:486
-msgid "Your session is no longer valid"
-msgstr "Su sesión ya no es válida"
-
-#: ../qml/models/MatrixModel.qml:491
+#: ../qml/models/MatrixModel.qml:480
 msgid "No connection to the homeserver 😕"
 msgstr "Sin conexión al servidor 😕"
 
-#: ../qml/models/MatrixModel.qml:544
+#: ../qml/models/MatrixModel.qml:487
+msgid "Your session is no longer valid"
+msgstr "Su sesión ya no es válida"
+
+#: ../qml/models/MatrixModel.qml:554
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -970,7 +970,7 @@ msgstr "Cargar gif"
 msgid "Show image"
 msgstr "Mostrar imagen"
 
-#: ../qml/components/ChatScrollView.qml:319
+#: ../qml/components/ChatScrollView.qml:322
 msgid "Download: "
 msgstr "Descargar: "
 
@@ -1404,11 +1404,17 @@ msgstr "¿Eliminar este mensaje?"
 msgid "Do you want to create a new group now?"
 msgstr "¿Quiere crear un nuevo grupo ahora?"
 
-#: ../qml/scripts/LoginPageActions.js:55
+#: ../qml/scripts/LoginPageActions.js:54
+#, fuzzy
+#| msgid "Username '%1' not found on %2"
+msgid "Server %1 not found"
+msgstr "No se encontró el nombre de usuario «%1» en %2"
+
+#: ../qml/scripts/LoginPageActions.js:56
 msgid "Username '%1' not found on %2"
 msgstr "No se encontró el nombre de usuario «%1» en %2"
 
-#: ../qml/scripts/LoginPageActions.js:96 ../qml/scripts/LoginPageActions.js:98
+#: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "El nombre de usuario ya está tomado"
 

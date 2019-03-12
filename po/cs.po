@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 11:26+0000\n"
+"POT-Creation-Date: 2019-03-12 09:22+0000\n"
 "PO-Revision-Date: 2019-03-12 09:24+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
@@ -661,20 +661,20 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Nemáte svolení k chatování v této místnosti."
 
-#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:58
-#: ../qml/scripts/LoginPageActions.js:99
+#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection..."
 msgstr "😕 Nejste připojení..."
 
-#: ../qml/models/MatrixModel.qml:486
-msgid "Your session is no longer valid"
-msgstr "Vaše sezení je již neplatné"
-
-#: ../qml/models/MatrixModel.qml:491
+#: ../qml/models/MatrixModel.qml:480
 msgid "No connection to the homeserver 😕"
 msgstr "Žádné připojení k homeserveru 😕"
 
-#: ../qml/models/MatrixModel.qml:544
+#: ../qml/models/MatrixModel.qml:487
+msgid "Your session is no longer valid"
+msgstr "Vaše sezení je již neplatné"
+
+#: ../qml/models/MatrixModel.qml:554
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -968,7 +968,7 @@ msgstr "Nahrát gif"
 msgid "Show image"
 msgstr "Ukázat obrázek"
 
-#: ../qml/components/ChatScrollView.qml:319
+#: ../qml/components/ChatScrollView.qml:322
 msgid "Download: "
 msgstr "Stáhnout: "
 
@@ -1401,11 +1401,17 @@ msgstr "Odstranit tuto zprávu?"
 msgid "Do you want to create a new group now?"
 msgstr "Chcete nyní vytvořit novou skupinu?"
 
-#: ../qml/scripts/LoginPageActions.js:55
+#: ../qml/scripts/LoginPageActions.js:54
+#, fuzzy
+#| msgid "Username '%1' not found on %2"
+msgid "Server %1 not found"
+msgstr "Jméno uživatele '%1' nenalezeno v %2"
+
+#: ../qml/scripts/LoginPageActions.js:56
 msgid "Username '%1' not found on %2"
 msgstr "Jméno uživatele '%1' nenalezeno v %2"
 
-#: ../qml/scripts/LoginPageActions.js:96 ../qml/scripts/LoginPageActions.js:98
+#: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Toto uživatelské jméno již někdo používá"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 11:26+0000\n"
+"POT-Creation-Date: 2019-03-12 09:22+0000\n"
 "PO-Revision-Date: 2019-01-22 20:04+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
@@ -702,22 +702,22 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Non hai il permesso di messaggiare qui."
 
-#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:58
-#: ../qml/scripts/LoginPageActions.js:99
+#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection..."
 msgstr "😕 Nessuna connessione..."
 
-#: ../qml/models/MatrixModel.qml:486
-msgid "Your session is no longer valid"
-msgstr ""
-
-#: ../qml/models/MatrixModel.qml:491
+#: ../qml/models/MatrixModel.qml:480
 #, fuzzy
 #| msgid "No connection to "
 msgid "No connection to the homeserver 😕"
 msgstr "Nessuna connessione a "
 
-#: ../qml/models/MatrixModel.qml:544
+#: ../qml/models/MatrixModel.qml:487
+msgid "Your session is no longer valid"
+msgstr ""
+
+#: ../qml/models/MatrixModel.qml:554
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -1020,7 +1020,7 @@ msgstr ""
 msgid "Show image"
 msgstr "Mostra immagine"
 
-#: ../qml/components/ChatScrollView.qml:319
+#: ../qml/components/ChatScrollView.qml:322
 msgid "Download: "
 msgstr "Scarica: "
 
@@ -1496,11 +1496,17 @@ msgstr "Rimuovere questo indirizzo email?"
 msgid "Do you want to create a new group now?"
 msgstr ""
 
-#: ../qml/scripts/LoginPageActions.js:55
+#: ../qml/scripts/LoginPageActions.js:54
+#, fuzzy
+#| msgid "Username '%1' not found on %2"
+msgid "Server %1 not found"
+msgstr "Nome utente '%1' non trovato su %2"
+
+#: ../qml/scripts/LoginPageActions.js:56
 msgid "Username '%1' not found on %2"
 msgstr "Nome utente '%1' non trovato su %2"
 
-#: ../qml/scripts/LoginPageActions.js:96 ../qml/scripts/LoginPageActions.js:98
+#: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Il nome utente è già stato preso"
 
