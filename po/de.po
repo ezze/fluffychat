@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-12 09:22+0000\n"
-"PO-Revision-Date: 2019-03-12 09:24+0000\n"
+"PO-Revision-Date: 2019-03-12 09:26+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -1413,10 +1413,8 @@ msgid "Do you want to create a new group now?"
 msgstr "Möchtest du jetzt eine neue Gruppe erstellen?"
 
 #: ../qml/scripts/LoginPageActions.js:54
-#, fuzzy
-#| msgid "Username '%1' not found on %2"
 msgid "Server %1 not found"
-msgstr "Nutzername \"%1\" nicht gefunden auf %2"
+msgstr "Server %1 wurde nicht gefunden"
 
 #: ../qml/scripts/LoginPageActions.js:56
 msgid "Username '%1' not found on %2"
