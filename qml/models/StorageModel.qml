@@ -212,10 +212,10 @@ Item {
         target: matrix
 
         onNewSync: {
-            if ( matrix.prevBatch !== "" ) {
+            /*if ( matrix.prevBatch !== "" ) {
                 syncTX = { executeSql: storage.query }
                 return
-            }
+            }*/
             try {
                 db.transaction(
                     function(tx) {
@@ -233,8 +233,8 @@ Item {
             }
         }
 
-        onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
-        onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline, prevBatch )
+        //onNewEvent: newEvent ( type, chat_id, eventType, eventContent )
+        //onNewChatUpdate: newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline, prevBatch )
 
 
     }
