@@ -488,8 +488,8 @@ Item {
                 reset ()
             }
             else {
+                waitForSync ()
                 abortSync = true
-                matrix.reqError ( error.error )
                 // Restart sync after some seconds
                 function Timer() {
                     return Qt.createQmlObject("import QtQuick 2.0; Timer {}", root)
