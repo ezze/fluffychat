@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 06:47+0000\n"
+"POT-Creation-Date: 2019-03-13 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -639,7 +639,7 @@ msgstr ""
 msgid "Your session is no longer valid"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:551
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1059,7 +1059,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/scripts/ChatPageActions.js:258
+#: ../qml/scripts/ChatPageActions.js:260
 msgid "Too much new messages"
 msgstr ""
 

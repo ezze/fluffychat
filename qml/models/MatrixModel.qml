@@ -543,11 +543,8 @@ Item {
         var changed = false
         var timecount = new Date().getTime()
         try {
-
+            handleSync ( response, newChatUpdate, newEvent )
             newSync ( response )
-            if ( matrix.prevBatch !== "" ) {
-                handleSync ( response, newChatUpdate, newEvent )
-            }
             matrix.prevBatch = response.next_batch
         }
         catch ( e ) {

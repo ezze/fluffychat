@@ -84,6 +84,7 @@ function send ( message ) {
     }
 
     matrix.newEvent( type, activeChat, "timeline", fakeEvent )
+    storage.save ()
 
     matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
         messageSent ( messageID, response )
@@ -245,6 +246,7 @@ function requestHistory ( event_id ) {
             }
 
             matrix.handleRoomEvents ( activeChat, result.chunk, "history", matrix.newEvent )
+            storage.save ()
 
             requesting = false
             storage.query ( "UPDATE Chats SET prev_batch=? WHERE id=?", [ result.end, activeChat ])
@@ -359,12 +361,8 @@ function addEventToList ( event, history ) {
                 state_key: event.sender,
                 type: "m.room.member"
             }
-            storage.db.transaction(
-                function(tx) {
-                    matrix.transaction = tx
-                    matrix.handleRoomEvents ( activeChat, [ newEvent ], "state" )
-                }
-            )
+            matrix.handleRoomEvents ( activeChat, [ newEvent ], "state" )
+            storage.save ()
         }, null, 0)
     }
 
