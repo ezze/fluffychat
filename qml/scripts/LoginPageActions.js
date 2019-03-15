@@ -40,7 +40,7 @@ function login () {
     if ( username.indexOf ("@") !== -1 ) {
         var usernameSplitted = username.substr(1).split ( ":" )
         username = usernameSplitted [0]
-        loginDomain = usernameSplitted [1]
+        if ( !domainChanged ) loginDomain = usernameSplitted [1]
     }
     matrix.username = username
     matrix.server = loginDomain
@@ -51,7 +51,8 @@ function login () {
     // Step 2.1: If there is no phone number and the user is not new, then check if user exists:
     else if  ( phoneTextField.displayText === "" ) {
         matrix.get( "/client/r0/register/available", {"username": username.toLowerCase() }, function ( response ) {
-            if ( !response.available ) mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("../pages/PasswordInputPage.qml") )
+            if ( typeof response.available !== "boolean" ) toast.show (i18n.tr("Server %1 not found").arg(matrix.server))
+            else if ( !response.available ) mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("../pages/PasswordInputPage.qml") )
             else toast.show (i18n.tr("Username '%1' not found on %2").arg(username).arg(loginDomain))
         }, function ( response ) {
             if ( response.errcode === "M_USER_IN_USE" ) mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("../pages/PasswordInputPage.qml") )

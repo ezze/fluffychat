@@ -463,7 +463,7 @@ Item {
 
 
     function sync ( timeout ) {
-        if ( matrix.token === null || matrix.token === undefined || abortSync ) return
+        if ( !isLogged || abortSync ) return
 
         var data = { "since": matrix.prevBatch, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members) }
 
@@ -477,21 +477,29 @@ Item {
                 matrix.lastSync = new Date().getTime()
                 sync ()
             }
-            else errorCallback ( {error: response, errcode:"BAD_GATEWAY"} )
+            else errorCallback ( {error: i18n.tr("No connection to the homeserver 😕"), errcode:"INVALID_RESPONSE"} )
         }
 
         var errorCallback = function ( error ) {
+            if ( abortSync ) return
             console.error ( "❌[Error] Synchronization:", JSON.stringify(error) )
             if ( error.errcode === "M_INVALID" ) {
                 matrix.reqError ( i18n.tr("Your session has expired") )
                 reset ()
             }
-            else if ( error.errcode === "BAD_GATEWAY" ) {
+            else {
+                waitForSync ()
                 abortSync = true
-                matrix.reqError ( i18n.tr("No connection to the homeserver 😕") )
-            }
-            else if ( typeof error.error === "string" ) {
-                matrix.reqError ( error.error )
+                // Restart sync after some seconds
+                function Timer() {
+                    return Qt.createQmlObject("import QtQuick 2.0; Timer {}", root)
+                }
+                var timer = new Timer()
+                timer.stop ()
+                timer.interval = longPollingTimeout
+                timer.repeat = false
+                timer.triggered.connect(matrix.restartSync)
+                timer.start()
             }
         }
 
@@ -500,6 +508,8 @@ Item {
 
 
     function restartSync () {
+        if ( !isLogged ) return
+        console.log ( "👷[Init] Restarting synchronization" )
         if ( !initialized ) return init()
         if ( syncRequest === null ) return
         if ( syncRequest ) {
@@ -533,11 +543,8 @@ Item {
         var changed = false
         var timecount = new Date().getTime()
         try {
-
+            handleSync ( response, newChatUpdate, newEvent )
             newSync ( response )
-            if ( matrix.prevBatch !== "" ) {
-                handleSync ( response, newChatUpdate, newEvent )
-            }
             matrix.prevBatch = response.next_batch
         }
         catch ( e ) {

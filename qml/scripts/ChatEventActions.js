@@ -55,7 +55,7 @@ function removeEvent ( event ) {
     })
 }
 
-function toggleAudioPlayer ( event ) {
+function toggleAudioPlayer ( event, playing ) {
     if ( audio.source !== MatrixNames.getLinkFromMxc ( event.content.url ) ) {
         audio.source = MatrixNames.getLinkFromMxc ( event.content.url )
     }
