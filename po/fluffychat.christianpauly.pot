@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 18:30+0000\n"
+"POT-Creation-Date: 2019-03-16 12:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,7 +116,7 @@ msgstr ""
 #: ../qml/pages/WalkthroughPage.qml:78
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
-"or an unique username to find friends."
+"or a unique username to find friends."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:115
@@ -137,7 +137,7 @@ msgstr ""
 #: ../qml/pages/WalkthroughPage.qml:180
 msgid ""
 "Improved stability and performance, new translations, design changes, better "
-"tablet support and a lot of bug fixes."
+"tablet support and a lot of bugfixes."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:218
@@ -146,10 +146,10 @@ msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:231
 msgid ""
-"FluffyChat is open, nonprofit and cute. The development and servers are all "
-"funded by the community. You can donate for this project on <a href='https://"
-"www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-"liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
+"FluffyChat is open, nonprofit and cute. The development and servers is all "
+"community funded. You can donate to this project on <a href='https://www."
+"patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay."
+"com/KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:248
@@ -209,7 +209,7 @@ msgid "Share"
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:101
-msgid "Search for your chats..."
+msgid "Search for your chats…"
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:121
@@ -344,7 +344,7 @@ msgid "Password..."
 msgstr ""
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
-msgid "Receive notifications for..."
+msgid "Receive notifications for…"
 msgstr ""
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
@@ -413,11 +413,11 @@ msgid "Choose a country"
 msgstr ""
 
 #: ../qml/pages/CountryPickerPage.qml:28
-msgid "Search country name..."
+msgid "Search for country by name…"
 msgstr ""
 
 #: ../qml/pages/UserPage.qml:34
-msgid "Username has been copied to the clipboard"
+msgid "Username copied to the clipboard"
 msgstr ""
 
 #: ../qml/pages/UserPage.qml:65
@@ -425,7 +425,7 @@ msgid "Chats with this user:"
 msgstr ""
 
 #: ../qml/pages/UserPage.qml:65
-msgid "You are that!"
+msgid "This is you."
 msgstr ""
 
 #: ../qml/pages/UserPage.qml:83
@@ -535,11 +535,11 @@ msgid "and matrix.org"
 msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:44
-msgid "Search for chats or #aliases..."
+msgid "Search for chats or #aliases…"
 msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:67
-msgid "Loading..."
+msgid "Loading…"
 msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:67
@@ -555,7 +555,7 @@ msgid "Description:"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:136
-msgid "No chat description found..."
+msgid "No chat description found…"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:191
@@ -563,7 +563,7 @@ msgid "Users in this chat (%1):"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:215
-msgid "Search..."
+msgid "Search…"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:235
@@ -575,15 +575,15 @@ msgid "Reload"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:260
-msgid "Appoint to a member"
+msgid "Enroll as member"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:264
-msgid "Appoint to a Moderator"
+msgid "Appoint to moderator"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:269
-msgid "Appoint to Admin"
+msgid "Appoint to admin"
 msgstr ""
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:15
@@ -611,7 +611,7 @@ msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
 #: ../qml/models/PushModel.qml:74
-msgid "Push notifications are disabled..."
+msgid "Push notifications are turned off…"
 msgstr ""
 
 #: ../qml/models/MatrixModel.qml:74
@@ -628,7 +628,7 @@ msgstr ""
 
 #: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
-msgid "😕 No connection..."
+msgid "😕 No connection…"
 msgstr ""
 
 #: ../qml/models/MatrixModel.qml:480
@@ -636,7 +636,7 @@ msgid "No connection to the homeserver 😕"
 msgstr ""
 
 #: ../qml/models/MatrixModel.qml:487
-msgid "Your session is no longer valid"
+msgid "Your session has expired"
 msgstr ""
 
 #: ../qml/models/MatrixModel.qml:551
@@ -651,7 +651,7 @@ msgid "Copied to clipboard"
 msgstr ""
 
 #: ../qml/models/ContentHubModel.qml:95
-msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
+msgid "Sorry. 😕 Sharing photos, videos or files is not yet supported…"
 msgstr ""
 
 #: ../qml/components/MemberListItem.qml:48
@@ -771,7 +771,7 @@ msgid "Download"
 msgstr ""
 
 #: ../qml/components/WaitDialog.qml:11
-msgid "Loading... Please wait!"
+msgid "Loading… Please wait."
 msgstr ""
 
 #: ../qml/components/WaitDialog.qml:36
@@ -821,7 +821,7 @@ msgid "Connect new phone number"
 msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:12
-msgid "..."
+msgid "…"
 msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:22
@@ -829,7 +829,7 @@ msgid "Please log out to change your country"
 msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:26
-msgid "Phone number..."
+msgid "Phone number…"
 msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:44
@@ -853,7 +853,7 @@ msgid "Yes"
 msgstr ""
 
 #: ../qml/components/LogoutDialog.qml:25
-msgid "Are you sure that you want to log out?"
+msgid "Are you sure you want to log out?"
 msgstr ""
 
 #: ../qml/components/AddAliasDialog.qml:11
@@ -1135,7 +1135,7 @@ msgid "Username already taken"
 msgstr ""
 
 #: ../qml/scripts/PasswordCreationPageActions.js:30
-msgid "The desired user ID is not a valid user name"
+msgid "The desired user ID is not a valid username"
 msgstr ""
 
 #: ../qml/scripts/PasswordCreationPageActions.js:31
@@ -1145,7 +1145,7 @@ msgid ""
 msgstr ""
 
 #: ../qml/scripts/PasswordCreationPageActions.js:32
-msgid "Registration on %1 failed..."
+msgid "Could not register on %1…"
 msgstr ""
 
 #: ../qml/scripts/PasswordInputPageActions.js:10

@@ -1,4 +1,13 @@
 {
-  "template": "cmake",
-  "kill": "qmlscene"
+    "template": "cmake",
+    "libraries": [
+        {
+            "name": "olm",
+            "template": "custom",
+            "build": "cmake ../../../libs/olm -Bbuild && cmake --build build",
+            "src_dir": "libs/olm",
+            "prebuild": "git submodule update --init --recursive"
+        }
+    ],
+    "kill": "qmlscene"
 }
