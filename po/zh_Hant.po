@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 06:47+0000\n"
+"POT-Creation-Date: 2019-03-13 18:30+0000\n"
 "PO-Revision-Date: 2019-01-12 02:06+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -707,7 +707,7 @@ msgstr "沒有聯絡到 "
 msgid "Your session is no longer valid"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:551
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -1161,12 +1161,6 @@ msgstr "被禁止參與聊天"
 msgid "Unknown"
 msgstr "未知"
 
-#: ../qml/scripts/ChatPageActions.js:258
-#, fuzzy
-#| msgid "Common messages"
-msgid "Too much new messages"
-msgstr "常見訊息"
-
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
 msgstr "刪除背景"
@@ -1513,6 +1507,11 @@ msgstr "在 %2 上找不到用戶名稱'%1'"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "用戶名稱已被使用"
+
+#, fuzzy
+#~| msgid "Common messages"
+#~ msgid "Too much new messages"
+#~ msgstr "常見訊息"
 
 #~ msgid "You are offline 😕"
 #~ msgstr "你已經離線 😕"

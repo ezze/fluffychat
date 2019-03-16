@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 06:47+0000\n"
+"POT-Creation-Date: 2019-03-13 18:30+0000\n"
 "PO-Revision-Date: 2019-03-09 10:21+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
@@ -678,7 +678,7 @@ msgstr "Cap connexió a "
 msgid "Your session is no longer valid"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:551
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1103,10 +1103,6 @@ msgstr "Blocat del xat"
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: ../qml/scripts/ChatPageActions.js:258
-msgid "Too much new messages"
-msgstr "Massa missatges nous"
-
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
 msgstr "S'ha eliminat el fons"
@@ -1419,6 +1415,9 @@ msgstr "No s'ha trobat el nom d'usuari «%1» a %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "El nom d'usuari ja existeix"
+
+#~ msgid "Too much new messages"
+#~ msgstr "Massa missatges nous"
 
 #~ msgid "You are offline 😕"
 #~ msgstr "Esteu fora de línia 😕"

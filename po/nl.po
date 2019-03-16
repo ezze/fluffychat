@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 06:47+0000\n"
+"POT-Creation-Date: 2019-03-13 18:30+0000\n"
 "PO-Revision-Date: 2019-03-09 10:21+0000\n"
 "Last-Translator: Mathijs Veen <mathijsv33n@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
@@ -672,7 +672,7 @@ msgstr "Geen verbinding met de homeserver 😕"
 msgid "Your session is no longer valid"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:551
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1101,10 +1101,6 @@ msgstr "Werd verbannen uit de chat"
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: ../qml/scripts/ChatPageActions.js:258
-msgid "Too much new messages"
-msgstr "Teveel nieuwe berichten"
-
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
 msgstr "Achtergrond verwijderd"
@@ -1417,6 +1413,9 @@ msgstr "Gebruikersnaam '%1' niet gevonden op %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Gebruikersnaam al in gebruik"
+
+#~ msgid "Too much new messages"
+#~ msgstr "Teveel nieuwe berichten"
 
 #~ msgid "You are offline 😕"
 #~ msgstr "U bent offline 😕"

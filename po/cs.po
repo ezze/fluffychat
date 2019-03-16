@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 06:47+0000\n"
+"POT-Creation-Date: 2019-03-13 18:30+0000\n"
 "PO-Revision-Date: 2019-03-13 06:51+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
@@ -674,7 +674,7 @@ msgstr "Žádné připojení k homeserveru 😕"
 msgid "Your session is no longer valid"
 msgstr "Vaše sezení je již neplatné"
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:551
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1101,10 +1101,6 @@ msgstr "Byl z chatu vyloučen"
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: ../qml/scripts/ChatPageActions.js:258
-msgid "Too much new messages"
-msgstr "Příliš mnoho nových zpráv"
-
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
 msgstr "Pozadí odstraněno"
@@ -1412,6 +1408,9 @@ msgstr "Jméno uživatele '%1' nenalezeno v %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Toto uživatelské jméno již někdo používá"
+
+#~ msgid "Too much new messages"
+#~ msgstr "Příliš mnoho nových zpráv"
 
 #~ msgid "You are offline 😕"
 #~ msgstr "Jste nedostupný 😕"
