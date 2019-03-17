@@ -1,10 +1,11 @@
 {
     "template": "cmake",
+    "dir": "build/fluffychat",
     "libraries": [
         {
             "name": "olm",
             "template": "custom",
-            "build": "cmake ../../../libs/olm -Bbuild && cmake --build build",
+            "build": "cmake ../../../libs/olm -Bbuild -DOLM_TESTS=OFF -DBUILD_SHARED_LIBS=OFF && cmake --build build",
             "src_dir": "libs/olm",
             "prebuild": "git submodule update --init --recursive"
         }

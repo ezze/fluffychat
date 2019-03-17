@@ -1,4 +1,5 @@
 #include <QDebug>
+#include <olm/olm.h>
 
 #include "qolm.h"
 
