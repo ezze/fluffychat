@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-13 18:30+0000\n"
-"PO-Revision-Date: 2019-01-22 20:04+0000\n"
+"PO-Revision-Date: 2019-03-19 17:03+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ../qml/Main.qml:105
 msgid "Are you sure?"
@@ -25,7 +25,7 @@ msgstr "Sei sicuro?"
 
 #: ../qml/Main.qml:128
 msgid "You must agree to the privacy policy"
-msgstr ""
+msgstr "Devi essere d'accordo con la politica di riservatezza"
 
 #: ../qml/Main.qml:138
 #, fuzzy
