@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-13 18:30+0000\n"
-"PO-Revision-Date: 2019-03-14 22:03+0000\n"
-"Last-Translator: Anne Onyme 017 <anneonyme017@netcourrier.com>\n"
+"PO-Revision-Date: 2019-03-22 23:38+0000\n"
+"Last-Translator: libermax <libremax@protonmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
 "translations/fr/>\n"
 "Language: fr\n"
@@ -90,7 +90,7 @@ msgstr "Ajouter une adresse de courriel"
 
 #: ../qml/pages/EmailSettingsPage.qml:39
 msgid "No email addresses connected"
-msgstr "Aucun adresse de courriel connectée"
+msgstr "Aucune adresse de courriel connectée"
 
 #: ../qml/pages/PasswordCreationPage.qml:19
 msgid "Please set a password"
@@ -102,7 +102,7 @@ msgid ""
 "provide an e-mail address later"
 msgstr ""
 "Veuillez définir un mot de passe fort. Pour réinitialiser votre mot de "
-"passe, vous devrez fournir une adresse électronique plus tard"
+"passe, vous devrez fournir une adresse de courriel plus tard"
 
 #: ../qml/pages/PasswordCreationPage.qml:65
 #, javascript-format
@@ -562,7 +562,7 @@ msgstr "Tout le monde peut voir l'historique complet de la discussion"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:33
 msgid "Notify"
-msgstr "Avertir"
+msgstr "Notifier"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:48
 msgid "Only if mentioned"
@@ -570,7 +570,7 @@ msgstr "Seulement si mentionné(e)"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:63
 msgid "Don't notify"
-msgstr "Ne pas avertir"
+msgstr "Ne pas notifier"
 
 #: ../qml/pages/DiscoverPage.qml:24
 msgid "Groups on %1"
@@ -642,7 +642,7 @@ msgstr "Activer les notifications"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:40
 msgid "Advanced notification settings"
-msgstr "Paramètres avancés de notifications"
+msgstr "Paramètres avancés de notification"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:59
 msgid "Devices that receive push notifications:"
@@ -662,7 +662,7 @@ msgstr "Les notifications sont désactivées..."
 
 #: ../qml/models/MatrixModel.qml:74
 msgid "USA"
-msgstr "États-Unis"
+msgstr "États-Unis d'Amérique"
 
 #: ../qml/models/MatrixModel.qml:75
 msgid "1"
@@ -721,7 +721,7 @@ msgstr "Annuler le bannissement ?"
 
 #: ../qml/components/MemberListItem.qml:102
 msgid "Kick from this chat?"
-msgstr "Chasser de cette discussion ?"
+msgstr "Exclure de cette discussion ?"
 
 #: ../qml/components/ChangePasswordDialog.qml:11
 msgid "Change your password"
@@ -899,7 +899,8 @@ msgstr "Supprimer mon compte"
 msgid ""
 "Are you sure that you want to remove your account? This can not be undone."
 msgstr ""
-"Êtes-vous sûr(e) de vouloir supprimer votre compte ?Ceci ne peut être annulé."
+"Êtes-vous sûr(e) de vouloir supprimer votre compte ? Ceci ne peut être "
+"annulé."
 
 #: ../qml/components/ConfirmDialog.qml:27
 msgid "Yes"
@@ -1000,7 +1001,7 @@ msgstr "Identifiant complet :"
 
 #: ../qml/components/EmailListItem.qml:31
 msgid "Remove this email address?"
-msgstr "Supprimer cette adresse électronique ?"
+msgstr "Supprimer cette adresse de courriel ?"
 
 #: ../qml/components/AddressesListItem.qml:15
 msgid "Canonical alias"
@@ -1056,11 +1057,11 @@ msgstr "Pas encore de description"
 
 #: ../qml/components/DeviceListItem.qml:27
 msgid "Last seen: "
-msgstr "Dernière vue : "
+msgstr "Vu pour la dernière fois : "
 
 #: ../qml/components/AddEmailDialog.qml:12
 msgid "Connect new email address"
-msgstr "Connecter une nouvelle adresse électronique"
+msgstr "Connecter une nouvelle adresse de courriel"
 
 #: ../qml/components/AddEmailDialog.qml:20
 msgid "youremail@example.edu"
@@ -1104,7 +1105,7 @@ msgstr "A quitté la discussion"
 
 #: ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Has knocked"
-msgstr "A frappé"
+msgstr "A exclu"
 
 #: ../qml/scripts/ChatPageSettingsActions.js:91
 msgid "Was banned from the chat"
@@ -1124,7 +1125,7 @@ msgstr "Voulez-vous vous joindre à cette discussion ?"
 
 #: ../qml/scripts/AddEmailDialogActions.js:9
 msgid "Have you confirmed your email address?"
-msgstr "Avez-vous confirmé votre adresse électronique ?"
+msgstr "Avez-vous confirmé votre adresse de courriel ?"
 
 #: ../qml/scripts/InviteListItemActions.js:9
 msgid "%1 has been invited"
@@ -1304,7 +1305,7 @@ msgstr ""
 
 #: ../qml/scripts/EventDescription.js:72
 msgid "Encrypted message"
-msgstr "Message crypté"
+msgstr "Message chiffré"
 
 #: ../qml/scripts/EventDescription.js:75
 msgid "%1 sent a sticker"
@@ -1348,7 +1349,7 @@ msgstr "Privée"
 
 #: ../qml/scripts/EventDescription.js:115
 msgid "Knock"
-msgstr "Frapper"
+msgstr "Exclure"
 
 #: ../qml/scripts/EventDescription.js:118
 msgid "All chatters"
@@ -1400,11 +1401,11 @@ msgstr "Ajouter à la collection d'autocollants ?"
 
 #: ../qml/scripts/ChatEventActions.js:32
 msgid "Already added as sticker"
-msgstr "Déjà ajoutée aux autocollants"
+msgstr "Déjà ajouté aux autocollants"
 
 #: ../qml/scripts/ChatEventActions.js:33
 msgid "Added as sticker"
-msgstr "Ajoutée aux autocollants"
+msgstr "Ajouté aux autocollants"
 
 #: ../qml/scripts/ChatEventActions.js:50
 msgid "Remove this message?"
