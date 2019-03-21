@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-13 18:30+0000\n"
-"PO-Revision-Date: 2019-03-09 10:21+0000\n"
+"PO-Revision-Date: 2019-03-22 23:38+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1-dev\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ../qml/Main.qml:105
 msgid "Are you sure?"
@@ -148,6 +148,8 @@ msgid ""
 "Improved stability and performance, new translations, design changes, better "
 "tablet support and a lot of bug fixes."
 msgstr ""
+"Millores en l'estabilitat i rendiment, noves traduccions, canvi de disseny, "
+"millor suport per tauleta i un caramull de correccions d'errors."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -160,12 +162,15 @@ msgid ""
 "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
 "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
+"El FluffyChat és obert, sense ànim de lucre i bufó. Tant el desenvolupament "
+"com els servidors es financen la comunitat. Podeu fer donacions a aquest "
+"projecte amb <a href='https://www.patreon.com/"
+"bePatron?u=11123241'>Patreon</a> o <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:248
-#, fuzzy
-#| msgid "Contributors"
 msgid "Continue"
-msgstr "Contribució"
+msgstr "Continua"
 
 #: ../qml/pages/LoginPage.qml:20
 msgid "Homeserver %1"
@@ -669,14 +674,12 @@ msgid "😕 No connection..."
 msgstr "😕 Sense connexió..."
 
 #: ../qml/models/MatrixModel.qml:480
-#, fuzzy
-#| msgid "No connection to "
 msgid "No connection to the homeserver 😕"
-msgstr "Cap connexió a "
+msgstr "Sense connexió amb el servidor propi 😕"
 
 #: ../qml/models/MatrixModel.qml:487
 msgid "Your session is no longer valid"
-msgstr ""
+msgstr "La vostra sessió ja no és vàlida"
 
 #: ../qml/models/MatrixModel.qml:551
 msgid ""
@@ -1403,10 +1406,8 @@ msgid "Do you want to create a new group now?"
 msgstr "Voleu crear un nou grup ara?"
 
 #: ../qml/scripts/LoginPageActions.js:54
-#, fuzzy
-#| msgid "Username '%1' not found on %2"
 msgid "Server %1 not found"
-msgstr "No s'ha trobat el nom d'usuari «%1» a %2"
+msgstr "No s'ha trobat el servidor %1"
 
 #: ../qml/scripts/LoginPageActions.js:56
 msgid "Username '%1' not found on %2"
