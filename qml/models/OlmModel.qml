@@ -1,19 +1,12 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.3
-import Qt.labs.settings 1.0
 import Qolm 1.0
 
 Item {
     id: olmModel
-    property var account: null;
-
-    Settings {
-        property alias account: olmModel.account
-    }
 
     Component.onCompleted: {
-        console.log("OlmModel created")
-        console.log("Calling speak function...")
-        Qolm.speak()
+        var keys = JSON.parse(Qolm.createAccount().split("}")[0] + "}")
+        console.log("Keys received\nFingerprint key: '%1'\nIdentity key: '%2'".arg(keys["ed25519"]).arg(keys["curve25519"]))
     }
 }
