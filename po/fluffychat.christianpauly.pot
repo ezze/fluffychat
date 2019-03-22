@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-17 10:02+0000\n"
+"POT-Creation-Date: 2019-03-22 14:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:138
+#: ../qml/Main.qml:139
 msgid "Copied to the clipboard"
 msgstr ""
 

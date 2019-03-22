@@ -51,6 +51,7 @@ cd fluffychat
 
 3. Build with clickable
 ```
+clickable build-libs
 clickable click-build
 ```
 

@@ -128,6 +128,7 @@ MainView {
             showConfirmDialog ( i18n.tr("You must agree to the privacy policy"), openUrlFunction )
         }
     }
+    OlmModel { id: olmModel }
     PushModel {
         id: pushClient
         onError: toast.show ( error )
