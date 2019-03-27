@@ -1,16 +1,16 @@
-#ifndef QOLM_H
-#define QOLM_H
+#ifndef E2EE_H
+#define E2EE_H
 
 #include <QObject>
 #include <olm/olm.h>
 #include <QJsonObject>
 
-class Qolm: public QObject {
+class E2ee: public QObject {
     Q_OBJECT
 
 public:
-    Qolm();
-    ~Qolm() = default;
+    E2ee();
+    ~E2ee() = default;
 
     Q_INVOKABLE QString createAccount();
 

@@ -1,16 +1,16 @@
 #include <QDebug>
 #include <olm/olm.h>
 
-#include "qolm.h"
+#include "e2ee.h"
 
-Qolm::Qolm() {
+E2ee::E2ee() {
 
 }
 
 /** Creates a new Olm account and generates fingerprint and identity keys. These
 are returned in a json object for Qml use.
 **/
-QString Qolm::createAccount() {
+QString E2ee::createAccount() {
 
     size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
 

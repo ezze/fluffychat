@@ -1,1 +1,1 @@
-add_subdirectory(Qolm)
+add_subdirectory(E2ee)
