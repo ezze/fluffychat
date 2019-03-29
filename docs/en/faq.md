@@ -64,7 +64,7 @@ You can manually enter the alias by going to "Start a new chat" -> "Public chats
 
 #### How can I join a community?<a id="2-3"/>
 
-A public chat has one or more public addresses called aliases. They always start with '+' and end with ':homeserver.abc'. For example: [+ubports\_community:matrix.org](fluffychat://+ubports_community:matrix.org). Just click on the link to see all chats associated with this community. For more features, visit the [desktop web app](https://www.ubports.chat).
+A community has one or more public addresses called aliases. They always start with '+' and end with ':homeserver.abc'. For example: [+ubports\_community:matrix.org](fluffychat://+ubports_community:matrix.org). Just click on the link to see all chats associated with this community. For more features, visit the [desktop web app](https://www.ubports.chat).
 
 #### How can I add contacts by their phone number?<a id="2-4"/>
 
