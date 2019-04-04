@@ -24,7 +24,7 @@ public:
 
     Q_INVOKABLE QString createAccount();
 
-    Q_INVOKABLE QString uploadFile(QString path, QString url, QString token);
+    Q_INVOKABLE bool uploadFile(QString path, QString url, QString token);
 
     /*Q_INVOKABLE void newDevice(QString device_id);
     Q_INVOKABLE QJsonObject restoreDevice(QJsonObject device);
@@ -37,7 +37,7 @@ public:
     Q_INVOKABLE QString encryptFile(QString path, QString accounts[]);*/
 
 signals:
-    void replyFinished();
+    void uploadFinished(QString reply);
 
 };
 

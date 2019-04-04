@@ -60,12 +60,12 @@ QString E2ee::createAccount() {
 
 /** Uploads an encrypted or unencrypted file.
 **/
-QString E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
+bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
 
     QFile file(path);
 
     if(!(file.exists() && file.open(QIODevice::ReadOnly))) {
-        return "{ERROR:\"FILE_NOT_FOUND\"}";
+        return false;
     }
     QByteArray data = file.readAll();
     qDebug() << "Data size: " + QString::number(data.size());
@@ -87,6 +87,7 @@ QString E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
 
     QByteArray response = reply->readAll();
     QString dataReply(response);
+    uploadFinished(dataReply);
 
-    return dataReply;
+    return true;
 }

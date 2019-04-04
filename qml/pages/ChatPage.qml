@@ -298,6 +298,11 @@ Page {
             onMediaReceived: E2ee.uploadFile(mediaUrl.replace("file:/",""), "https://%1/_matrix/media/r0/upload".arg(matrix.server), matrix.token)
         }
 
+        Connections {
+            target: E2ee
+            onUploadFinished: console.log(reply)
+        }
+
         ActionBar {
             id: chatInputActionBar
             visible: membership === "join" && canSendMessages
