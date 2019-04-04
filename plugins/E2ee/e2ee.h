@@ -4,6 +4,13 @@
 #include <QObject>
 #include <olm/olm.h>
 #include <QJsonObject>
+#include <QFile>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
+#include <QUrl>
+#include <QCommandLineParser>
 
 class E2ee: public QObject {
     Q_OBJECT
@@ -17,7 +24,7 @@ public:
 
     Q_INVOKABLE QString createAccount();
 
-    Q_INVOKABLE void uploadFile(QString path, QString url, QString token);
+    Q_INVOKABLE QString uploadFile(QString path, QString url, QString token);
 
     /*Q_INVOKABLE void newDevice(QString device_id);
     Q_INVOKABLE QJsonObject restoreDevice(QJsonObject device);
@@ -28,6 +35,9 @@ public:
 
     Q_INVOKABLE QString encryptMessage(QString body, QString accounts[]);
     Q_INVOKABLE QString encryptFile(QString path, QString accounts[]);*/
+
+signals:
+    void replyFinished();
 
 };
 

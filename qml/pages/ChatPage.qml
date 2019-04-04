@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Content 1.3
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import E2ee 1.0
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
@@ -289,7 +290,12 @@ Page {
             color: mainLayout.darkmode ? UbuntuColors.inkstone : UbuntuColors.porcelain
             visible: membership === "join" && canSendMessages && replyEvent === null
             width: height
-            onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
+            onClicked: mediaImport.requestMedia()//stickerInput.visible ? stickerInput.hide() : stickerInput.show()
+        }
+
+        MediaImport {
+            id: mediaImport
+            onMediaReceived: E2ee.uploadFile(mediaUrl.replace("file:/",""), "https://%1/_matrix/media/r0/upload".arg(matrix.server), matrix.token)
         }
 
         ActionBar {

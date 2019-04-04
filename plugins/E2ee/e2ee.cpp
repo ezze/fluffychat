@@ -60,12 +60,16 @@ QString E2ee::createAccount() {
 
 /** Uploads an encrypted or unencrypted file.
 **/
-void E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
+QString E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
 
     QFile file(path);
 
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    if(!(file.exists() && file.open(QIODevice::ReadOnly))) {
+        return "{ERROR:\"FILE_NOT_FOUND\"}";
+    }
     QByteArray data = file.readAll();
+    qDebug() << "Data size: " + QString::number(data.size());
+    file.close();
 
     token = "Bearer " + token;
     uploadUrl += "?filename=" + file.fileName();
@@ -77,8 +81,12 @@ void E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
 
     QNetworkAccessManager manager;
     QNetworkReply* reply = manager.post(request, data);
+    QEventLoop loop;
+    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
 
-    while(!reply->isFinished()) { }
+    QByteArray response = reply->readAll();
+    QString dataReply(response);
 
-    qDebug() << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toString();
+    return dataReply;
 }
