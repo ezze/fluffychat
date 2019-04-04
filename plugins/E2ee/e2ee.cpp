@@ -4,7 +4,15 @@
 #include "e2ee.h"
 
 E2ee::E2ee() {
+    m_olmAccount = nullptr;
+}
 
+E2ee::~E2ee() {
+    if (m_olmAccount) {
+        memset(m_olmAccount, 0, olm_account_size());
+        free(m_olmAccount);
+        m_olmAccount = nullptr;
+    }
 }
 
 /** Creates a new Olm account and generates fingerprint and identity keys. These
@@ -16,19 +24,28 @@ QString E2ee::createAccount() {
 
     void * accountMemory = malloc( accountSize ); // Allocate the memory
 
-    OlmAccount* olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
+    m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
 
-    size_t randomSize = olm_create_account_random_length(olmAccount); // Get the random size for account creation
+    size_t randomSize = olm_create_account_random_length(m_olmAccount); // Get the random size for account creation
 
     void * randomMemory = malloc( randomSize ); // Allocate the memory
 
-    olm_create_account(olmAccount, randomMemory, randomSize); // Create the Olm account
+    size_t resultOlmCreation = olm_create_account(m_olmAccount, randomMemory, randomSize); // Create the Olm account
+
+    if (resultOlmCreation == olm_error()) {
+        return olm_account_last_error(m_olmAccount);
+    }
+
+    memset(randomMemory, 0, randomSize); // Set the allocated memory in ram to 0 everywhere
+
+    free(randomMemory);  // Free the memory
 
     // Get the size for the output puffer for the identity key and save them in
     // the output buffer:
-    size_t identityKeysLength = olm_account_identity_keys_length(olmAccount);
+    size_t identityKeysLength = olm_account_identity_keys_length(m_olmAccount);
     char identityKeys[identityKeysLength];
-    olm_account_identity_keys(olmAccount, identityKeys, identityKeysLength);
+    memset(identityKeys, 0, identityKeysLength);
+    olm_account_identity_keys(m_olmAccount, identityKeys, identityKeysLength);
 
     return identityKeys;
 }

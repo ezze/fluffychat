@@ -8,9 +8,12 @@
 class E2ee: public QObject {
     Q_OBJECT
 
+private:
+    OlmAccount* m_olmAccount;
+
 public:
     E2ee();
-    ~E2ee() = default;
+    ~E2ee();
 
     Q_INVOKABLE QString createAccount();
 
