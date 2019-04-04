@@ -1,5 +1,13 @@
 #include <QDebug>
 #include <olm/olm.h>
+#include <QFile>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
+#include <QUrl>
+#include <QCommandLineParser>
 
 #include "e2ee.h"
 
@@ -48,4 +56,29 @@ QString E2ee::createAccount() {
     olm_account_identity_keys(m_olmAccount, identityKeys, identityKeysLength);
 
     return identityKeys;
+}
+
+/** Uploads an encrypted or unencrypted file.
+**/
+void E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
+
+    QFile file(path);
+
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QByteArray data = file.readAll();
+
+    token = "Bearer " + token;
+    uploadUrl += "?filename=" + file.fileName();
+
+    QUrl url(uploadUrl);
+    QNetworkRequest request(url);
+    request.setRawHeader(QByteArray("Authorization"), token.toUtf8());
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    QNetworkAccessManager manager;
+    QNetworkReply* reply = manager.post(request, data);
+
+    while(!reply->isFinished()) { }
+
+    qDebug() << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toString();
 }
