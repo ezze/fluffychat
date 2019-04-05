@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 16:40+0000\n"
+"POT-Creation-Date: 2019-04-05 16:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:111
+#: ../qml/Main.qml:112
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/Main.qml:134
+#: ../qml/Main.qml:135
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:148
+#: ../qml/Main.qml:150
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -606,11 +606,11 @@ msgstr ""
 msgid "Add chat address"
 msgstr ""
 
-#: ../qml/models/PushModel.qml:49
+#: ../qml/models/PushModel.qml:52
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/models/PushModel.qml:74
+#: ../qml/models/PushModel.qml:77
 msgid "Push notifications are turned off…"
 msgstr ""
 

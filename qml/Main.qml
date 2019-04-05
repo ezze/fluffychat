@@ -57,6 +57,7 @@ MainView {
     property var activeChatDisplayName: null
     property var activeChatTypingUsers: []
     property var activeChatMembers: []
+    property string pushToken: ""
 
 
     /* =============================== LAYOUT ===============================
@@ -138,10 +139,11 @@ MainView {
         id: connectivity
         source: Qt.resolvedUrl("./components/CustomConnectivity.qml")
     }
-    PushModel {
+    Loader {
         id: pushClient
-        onError: toast.show ( error )
+        source: Qt.resolvedUrl("./models/PushModel.qml")
     }
+    signal dismissNotification (string tag)
     UserMetricsModel { id: userMetrics }
     ContentHubModel {
         id: contentHub

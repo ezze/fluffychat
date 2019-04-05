@@ -173,7 +173,7 @@ function init () {
 
     // Is there an unread marker? Then mark as read!
     var lastEvent = chatScrollView.model.get(0).event
-    pushClient.dismissNotification ( activeChat )
+    dismissNotification ( activeChat )
     if ( room.unread < lastEvent.origin_server_ts && lastEvent.sender !== matrix.matrixid ) {
         matrix.post( "/client/r0/rooms/" + activeChat + "/receipt/m.read/" + lastEvent.id, null, null, null, 0 )
     }

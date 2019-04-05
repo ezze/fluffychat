@@ -9,8 +9,10 @@ Item {
 
     property alias pushtoken: innerPushClient.token
 
-    signal dismissNotification ( var tag )
-    onDismissNotification: innerPushClient.clearPersistent ( tag )
+    Connections {
+        target: root
+        onDismissNotification: innerPushClient.clearPersistent ( tag )
+    }
     signal error ( var error )
 
     PushClient {
@@ -24,6 +26,7 @@ Item {
         property string pushDeviceName: ""
 
         onTokenChanged: {
+            root.pushToken = token
             if ( !matrix.isLogged ) return
             // Set the pusher if it is not set
             updatePusher ()

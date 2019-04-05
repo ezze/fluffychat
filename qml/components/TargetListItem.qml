@@ -11,7 +11,7 @@ ListItem {
     color: mainLayout.darkmode ? "#202020" : "white"
 
     property var target
-    property var thisDevice: target.pushkey === pushClient.pushtoken
+    property var thisDevice: target.pushkey === root.pushToken
 
     onClicked: {
         currentTarget = target
