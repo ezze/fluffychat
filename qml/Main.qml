@@ -22,6 +22,8 @@ MainView {
     applicationName: 'fluffychat.christianpauly'
     automaticOrientation: true
 
+    Component.onCompleted: applicationName = i18n.tr("FluffyChat")
+
     // automatically anchor items to keyboard that are anchored to the bottom
     anchorToKeyboard: true
 
