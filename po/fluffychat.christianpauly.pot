@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-04 19:08+0000\n"
+"POT-Creation-Date: 2019-04-05 09:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:105
+#: ../qml/Main.qml:110
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/Main.qml:128
+#: ../qml/Main.qml:133
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:139
+#: ../qml/Main.qml:143
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -460,7 +460,7 @@ msgstr ""
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:275
+#: ../qml/pages/ChatPage.qml:274
 msgid "Type something ..."
 msgstr ""
 
@@ -614,43 +614,43 @@ msgstr ""
 msgid "Push notifications are turned off…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:74
+#: ../qml/models/MatrixModel.qml:75
 msgid "USA"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:75
+#: ../qml/models/MatrixModel.qml:76
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:267
+#: ../qml/models/MatrixModel.qml:268
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:480
+#: ../qml/models/MatrixModel.qml:493
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:487
+#: ../qml/models/MatrixModel.qml:500
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:551
+#: ../qml/models/MatrixModel.qml:564
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
 "fluffychat/issues/new. Error details: %1"
 msgstr ""
 
-#: ../qml/models/ContentHubModel.qml:81
+#: ../qml/models/ContentHubModel.qml:83
 msgid "Copied to clipboard"
 msgstr ""
 
-#: ../qml/models/ContentHubModel.qml:95
+#: ../qml/models/ContentHubModel.qml:97
 msgid "Sorry. 😕 Sharing photos, videos or files is not yet supported…"
 msgstr ""
 
@@ -699,7 +699,7 @@ msgstr ""
 #: ../qml/components/ChangeDisplaynameDialog.qml:28
 #: ../qml/components/AddContactDialog.qml:71
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
-#: ../qml/components/ChangeChatnameDialog.qml:46
+#: ../qml/components/ChangeChatnameDialog.qml:49
 #: ../qml/components/AddEmailDialog.qml:28
 msgid "Cancel"
 msgstr ""
@@ -712,33 +712,25 @@ msgstr ""
 msgid "Password has been changed"
 msgstr ""
 
-#: ../qml/components/ChangeAvatarDialog.qml:12
+#: ../qml/components/ChangeAvatarDialog.qml:11
 msgid "Edit profile picture"
 msgstr ""
 
-#: ../qml/components/ChangeAvatarDialog.qml:38
-#: ../qml/components/StickerInput.qml:138
+#: ../qml/components/ChangeAvatarDialog.qml:21
+msgid "New profile picture"
+msgstr ""
+
+#: ../qml/components/ChangeAvatarDialog.qml:39
 #: ../qml/components/ChangeChatAvatarDialog.qml:39
-msgid "Error"
-msgstr ""
-
-#: ../qml/components/ChangeAvatarDialog.qml:42
-#: ../qml/components/StickerInput.qml:142
-#: ../qml/components/ChangeChatAvatarDialog.qml:43
-msgid "OK"
-msgstr ""
-
-#: ../qml/components/ChangeAvatarDialog.qml:53
-#: ../qml/components/ChangeChatAvatarDialog.qml:54
 msgid "Remove picture"
 msgstr ""
 
-#: ../qml/components/ChangeAvatarDialog.qml:64
+#: ../qml/components/ChangeAvatarDialog.qml:50
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/BottomEdgePageStack.qml:92
 #: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangeChatAvatarDialog.qml:65
-#: ../qml/components/ChangeChatnameDialog.qml:59
+#: ../qml/components/ChangeChatAvatarDialog.qml:50
+#: ../qml/components/ChangeChatnameDialog.qml:62
 msgid "Close"
 msgstr ""
 
@@ -866,7 +858,7 @@ msgstr ""
 
 #: ../qml/components/AddAliasDialog.qml:32
 #: ../qml/components/ChangeDisplaynameDialog.qml:33
-#: ../qml/components/ChangeChatnameDialog.qml:51
+#: ../qml/components/ChangeChatnameDialog.qml:54
 msgid "Save"
 msgstr ""
 
@@ -937,7 +929,7 @@ msgstr ""
 msgid "This device"
 msgstr ""
 
-#: ../qml/components/StickerInput.qml:57
+#: ../qml/components/StickerInput.qml:56
 msgid "Delete sticker"
 msgstr ""
 
@@ -981,8 +973,12 @@ msgstr ""
 msgid "Or"
 msgstr ""
 
-#: ../qml/components/ChangeChatAvatarDialog.qml:12
+#: ../qml/components/ChangeChatAvatarDialog.qml:11
 msgid "Edit chat picture"
+msgstr ""
+
+#: ../qml/components/ChangeChatAvatarDialog.qml:21
+msgid "New chat picture"
 msgstr ""
 
 #: ../qml/components/ChangeChatnameDialog.qml:12
@@ -993,11 +989,11 @@ msgstr ""
 msgid "Change chat avatar"
 msgstr ""
 
-#: ../qml/components/ChangeChatnameDialog.qml:27
+#: ../qml/components/ChangeChatnameDialog.qml:30
 msgid "No chat name yet"
 msgstr ""
 
-#: ../qml/components/ChangeChatnameDialog.qml:34
+#: ../qml/components/ChangeChatnameDialog.qml:37
 msgid "No description yet"
 msgstr ""
 

@@ -37,7 +37,7 @@ public:
     Q_INVOKABLE QString encryptFile(QString path, QString accounts[]);*/
 
 signals:
-    void uploadFinished(QString reply);
+    void uploadFinished(QString reply, QString mimeType, QString fileName, int size);
 
 };
 

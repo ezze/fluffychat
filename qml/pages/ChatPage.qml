@@ -263,11 +263,10 @@ Page {
         TextArea {
             id: messageTextField
             anchors {
-                bottom: parent.bottom
-                margins: units.gu(1)
-                rightMargin: units.gu(0.5)
+                verticalCenter: parent.verticalCenter
                 right: chatInputActionBar.left
                 left: showStickerInput.visible ? showStickerInput.right : parent.left
+                margins: units.gu(1)
             }
             property var hasText: false
             autoSize: height <= chatPage.width / 2 - header.height - units.gu(2)
@@ -278,7 +277,7 @@ Page {
             // longer typing.
             onActiveFocusChanged: ChatPageActions.ActiveFocusChanged ( activeFocus )
             onDisplayTextChanged: ChatPageActions.sendTypingNotification ( displayText !== "" )
-            visible: membership === "join" && canSendMessages
+            visible: membership === "join" && canSendMessages && !stickerInput.visible
         }
 
         Button {
@@ -286,34 +285,67 @@ Page {
             iconName: stickerInput.visible ? "close" : "add"
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            anchors.leftMargin: units.gu(1)
+            anchors.margins: units.gu(1)
             color: mainLayout.darkmode ? UbuntuColors.inkstone : UbuntuColors.porcelain
             visible: membership === "join" && canSendMessages && replyEvent === null
             width: height
-            onClicked: mediaImport.requestMedia()//stickerInput.visible ? stickerInput.hide() : stickerInput.show()
-        }
-
-        MediaImport {
-            id: mediaImport
-            onMediaReceived: E2ee.uploadFile(mediaUrl.replace("file:/",""), "https://%1/_matrix/media/r0/upload".arg(matrix.server), matrix.token)
-        }
-
-        Connections {
-            target: E2ee
-            onUploadFinished: console.log(reply)
+            onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
         }
 
         ActionBar {
             id: chatInputActionBar
             visible: membership === "join" && canSendMessages
+            numberOfSlots: 6
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            anchors.rightMargin: units.gu(0.5)
+            delegate: Item {
+                height: parent.height
+                width: insideButton.height + units.gu(1)
+                Button {
+                    id: insideButton
+                    action: modelData
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: height
+                    color: mainLayout.darkmode ? UbuntuColors.inkstone : UbuntuColors.porcelain
+                }
+            }
             actions: [
             Action {
                 id: sendButton
                 iconName: "send"
+                visible: !stickerInput.visible && messageTextField.displayText !== ""
                 onTriggered: ChatPageActions.send ()
+            },
+            Action {
+                iconName: "camera-app-symbolic"
+                visible: stickerInput.visible || messageTextField.displayText === ""
+                onTriggered: ChatPageActions.sendPicture ()
+            },
+            Action {
+                iconName: "address-book-app-symbolic"
+                visible: stickerInput.visible
+                onTriggered: ChatPageActions.sendContact ()
+            },
+            Action {
+                iconName: "x-office-document-symbolic"
+                visible: stickerInput.visible
+                onTriggered: ChatPageActions.sendDocument ()
+            },
+            Action {
+                iconName: "mediaplayer-app-symbolic"
+                visible: stickerInput.visible
+                onTriggered: ChatPageActions.sendVideo ()
+            },
+            Action {
+                iconName: "preferences-desktop-sounds-symbolic"
+                visible: stickerInput.visible
+                onTriggered: ChatPageActions.sendAudio ()
+            },
+            Action {
+                iconName: "attachment"
+                visible: stickerInput.visible
+                onTriggered: ChatPageActions.sendAll ()
             }
             ]
         }

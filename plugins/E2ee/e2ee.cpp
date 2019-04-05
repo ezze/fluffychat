@@ -4,6 +4,8 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QUrl>
@@ -67,17 +69,22 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
     if(!(file.exists() && file.open(QIODevice::ReadOnly))) {
         return false;
     }
+
+    QString fileName = path.split("/").last();
+
     QByteArray data = file.readAll();
     qDebug() << "Data size: " + QString::number(data.size());
     file.close();
 
+    uploadUrl = uploadUrl + "?filename=" + fileName;
     token = "Bearer " + token;
-    uploadUrl += "?filename=" + file.fileName();
 
     QUrl url(uploadUrl);
     QNetworkRequest request(url);
+    QString mimeType = QMimeDatabase().mimeTypeForFile( path ).name();
+    qDebug() << mimeType;
     request.setRawHeader(QByteArray("Authorization"), token.toUtf8());
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
 
     QNetworkAccessManager manager;
     QNetworkReply* reply = manager.post(request, data);
@@ -87,7 +94,7 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
 
     QByteArray response = reply->readAll();
     QString dataReply(response);
-    uploadFinished(dataReply);
+    uploadFinished(dataReply, mimeType, fileName, data.size());
 
     return true;
 }

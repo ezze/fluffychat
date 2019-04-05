@@ -20,7 +20,10 @@ Component {
             visible: canChangeAvatar
             text: i18n.tr("Change chat avatar")
             color: mainLayout.mainColor
-            onClicked: PopupUtils.open(changeChatAvatarDialog)
+            onClicked: {
+                PopupUtils.open(changeChatAvatarDialog)
+                PopupUtils.close(dialogue)
+            }
         }
         TextField {
             id: chatnameTextField

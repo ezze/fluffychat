@@ -41,6 +41,8 @@ Item {
         ContentItem { }
     }
 
+    MediaImport { id: mediaImport}
+
     ContactImport { id: contactImport }
 
     function openUri ( uris ) {
@@ -152,6 +154,30 @@ Item {
         contentHub.shareObject = {
             items: [ contentItemComponent.createObject(contentHub, {"url" : uri, "text": url}) ]
         }
+    }
+
+    function importPicture (callback) {
+        mediaImport.requestMedia(ContentType.Pictures, callback)
+    }
+
+    function importAudio (callback) {
+        mediaImport.requestMedia(ContentType.Music, callback)
+    }
+
+    function importVideo (callback) {
+        mediaImport.requestMedia(ContentType.Videos, callback)
+    }
+
+    function importDocument (callback) {
+        mediaImport.requestMedia(ContentType.Documents, callback)
+    }
+
+    function importContact (callback) {
+        mediaImport.requestMedia(ContentType.Contacts, callback)
+    }
+
+    function importAll (callback) {
+        mediaImport.requestMedia(ContentType.All, callback)
     }
 
 }

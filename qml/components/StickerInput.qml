@@ -2,7 +2,6 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
-import Ubuntu.Web 0.2
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 
@@ -123,32 +122,9 @@ Rectangle {
                 }
             }
         }
-        header: WebView {
-            id: uploader
-            url: "../components/upload.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(matrix.server) + "&activeChat=" + encodeURIComponent(activeChat)
-            width: stickerInput.desiredHeight
-            height: width
-            anchors.margins: stickerInput.desiredHeight / 2
-            anchors.verticalCenter: parent.verticalCenter
-            preferences.allowFileAccessFromFileUrls: true
-            preferences.allowUniversalAccessFromFileUrls: true
-            filePicker: pickerComponent
-            visible: stickerInput.visible
-            alertDialog: Dialog {
-                title: i18n.tr("Error")
-                text: model.message
-                parent: QuickUtils.rootItem(this)
-                Button {
-                    text: i18n.tr("OK")
-                    onClicked: model.accept()
-                }
-                Component.onCompleted: show()
-            }
-        }
         model: ListModel { id: stickerModel }
     }
-
-
+    
     states: State {
         name: "visible"; when: stickerInput.visible
         PropertyChanges {

@@ -486,3 +486,57 @@ function ActiveFocusChanged ( activeFocus ) {
     if ( activeFocus && stickerInput.visible ) stickerInput.hide()
     if ( !activeFocus ) sendTypingNotification ( activeFocus )
 }
+
+function sendAttachmentMessage (responseText, mimeType, fileName, size){
+    var msgType = mimeType.split("/")[0]
+    if (["image","audio","video"].indexOf(msgType) === -1) msgType = "file"
+    msgType = "m."+msgType
+    var url = JSON.parse(responseText).content_uri
+    var mediaElem = {
+        body: fileName,
+        msgtype: msgType,
+        url: url,
+        info: {
+            mimetype: mimeType,
+            size: size
+        }
+    }
+    if ( msgType === "m.image" ) {
+        mediaElem.info.thumbnail_url = url
+        mediaElem.info.thumbnail_info = {
+            mimetype: mimeType,
+            size: size
+         }
+    }
+    var now = new Date().getTime()
+    var messageID = "" + now
+    matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, mediaElem, null, null, 2 )
+}
+
+function uploadAndSend (mediaUrl) {
+    matrix.upload(mediaUrl, sendAttachmentMessage)
+}
+
+function sendAll () {
+    contentHub.importAll()
+}
+
+function sendPicture () {
+    contentHub.importPicture(uploadAndSend)
+}
+
+function sendAudio () {
+    contentHub.importAudio(uploadAndSend)
+}
+
+function sendVideo () {
+    contentHub.importVideo(uploadAndSend)
+}
+
+function sendDocument () {
+    contentHub.importDocument(uploadAndSend)
+}
+
+function sendContact () {
+    contentHub.importContact(uploadAndSend)
+}
