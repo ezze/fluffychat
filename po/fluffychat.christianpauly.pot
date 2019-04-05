@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 16:29+0000\n"
+"POT-Creation-Date: 2019-04-05 16:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:144
+#: ../qml/Main.qml:148
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -232,15 +232,15 @@ msgstr ""
 msgid "Filter contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:72
+#: ../qml/pages/CreateChatPage.qml:71
 msgid "New group"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:79
+#: ../qml/pages/CreateChatPage.qml:78
 msgid "Public groups"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:88
+#: ../qml/pages/CreateChatPage.qml:87
 msgid "Click on the top right button to add contacts."
 msgstr ""
 
@@ -538,11 +538,11 @@ msgstr ""
 msgid "Search for chats or #aliases…"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:68
+#: ../qml/pages/DiscoverPage.qml:67
 msgid "Loading…"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:68
+#: ../qml/pages/DiscoverPage.qml:67
 msgid "No chats found"
 msgstr ""
 
@@ -566,23 +566,23 @@ msgstr ""
 msgid "Search…"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:236
+#: ../qml/pages/ChatSettingsPage.qml:235
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:244
+#: ../qml/pages/ChatSettingsPage.qml:243
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:261
+#: ../qml/pages/ChatSettingsPage.qml:260
 msgid "Enroll as member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:265
+#: ../qml/pages/ChatSettingsPage.qml:264
 msgid "Appoint to moderator"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:270
+#: ../qml/pages/ChatSettingsPage.qml:269
 msgid "Appoint to admin"
 msgstr ""
 
@@ -614,36 +614,36 @@ msgstr ""
 msgid "Push notifications are turned off…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:75
+#: ../qml/models/MatrixModel.qml:74
 msgid "USA"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:76
+#: ../qml/models/MatrixModel.qml:75
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:268
+#: ../qml/models/MatrixModel.qml:267
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:389 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:440
+#: ../qml/models/MatrixModel.qml:439
 msgid "Upload error:"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:516
+#: ../qml/models/MatrixModel.qml:515
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:523
+#: ../qml/models/MatrixModel.qml:522
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:587
+#: ../qml/models/MatrixModel.qml:586
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

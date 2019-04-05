@@ -134,6 +134,10 @@ MainView {
             showConfirmDialog ( i18n.tr("You must agree to the privacy policy"), openUrlFunction )
         }
     }
+    Loader {
+        id: connectivity
+        source: Qt.resolvedUrl("./components/CustomConnectivity.qml")
+    }
     PushModel {
         id: pushClient
         onError: toast.show ( error )

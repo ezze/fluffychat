@@ -1,6 +1,5 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
-import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
 import E2ee 1.0
 
@@ -86,7 +85,7 @@ Item {
     // The list of the current active requests, to prevent multiple same requests
     property var activeRequests: []
 
-    property var online: Connectivity ? Connectivity.online : true
+    property var online: true
     onOnlineChanged: if ( online ) restartSync ()
 
     // Save this properties in the settings
