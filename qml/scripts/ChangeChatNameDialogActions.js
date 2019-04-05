@@ -4,7 +4,7 @@
 function save ( chatnameTextField, descriptionTextField, dialogue ) {
 
     // Change the name if the user has changed it
-    if ( chatnameTextField.displayText !== chatName ) {
+    if ( chatnameTextField.displayText !== dialogue.chatName ) {
         var messageID = Math.floor((Math.random() * 1000000) + 1)
         matrix.put( "/client/r0/rooms/%1/send/m.room.name/%2".arg(activeChat).arg(messageID),
         {
