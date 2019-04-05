@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import QtMultimedia 5.4
+import Qt.labs.settings 1.0
 import "models"
 import "components"
 import "scripts/MatrixNames.js" as MatrixNames
@@ -24,8 +25,12 @@ MainView {
     // automatically anchor items to keyboard that are anchored to the bottom
     anchorToKeyboard: true
 
-    width: units.gu(45)
+    width: units.gu(125)
     height: units.gu(75)
+    Settings {
+        property alias width: root.width
+        property alias height: root.height
+    }
     theme: ThemeSettings {
         name: mainLayout.darkmode ? "Ubuntu.Components.Themes.SuruDark" : "Ubuntu.Components.Themes.Ambiance"
     }
