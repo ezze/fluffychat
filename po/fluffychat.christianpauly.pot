@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 11:13+0000\n"
+"POT-Creation-Date: 2019-04-05 11:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -631,15 +631,19 @@ msgstr ""
 msgid "😕 No connection…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:508
+#: ../qml/models/MatrixModel.qml:440
+msgid "Upload error:"
+msgstr ""
+
+#: ../qml/models/MatrixModel.qml:516
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:515
+#: ../qml/models/MatrixModel.qml:523
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:579
+#: ../qml/models/MatrixModel.qml:587
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

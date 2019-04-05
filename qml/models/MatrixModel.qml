@@ -432,6 +432,14 @@ Item {
 
     Connections {
         target: E2ee
+        onUploadFinished: {
+            try {
+                JSON.parse(reply).content_uri
+            }
+            catch(e) {
+                reqError ( i18n.tr("Upload error:") + reply )
+            }
+        }
         onUploadProgress: {
             if ( bytesTotal === 0 ) {
                 requestProgressBar.indeterminate = true
