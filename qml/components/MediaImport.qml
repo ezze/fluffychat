@@ -27,7 +27,11 @@ Item {
 
     signal mediaReceived(string mediaUrl)
 
-    function requestMedia() {
+    property var callback
+
+    function requestMedia(type, cb) {
+        if ( type ) contentType = type
+        if ( cb ) callback = cb
         if (!root.importDialog) {
             root.importDialog = PopupUtils.open(contentHubDialog, root)
         } else {
@@ -51,7 +55,7 @@ Item {
                     id: peerPicker
 
                     anchors.fill: parent
-                    anchors.topMargin: page.header.height
+                    anchors.topMargin: root.header.height
 
                     contentType: root.contentType
                     handler: ContentHub.ContentHandler.Source
@@ -79,6 +83,7 @@ Item {
                         dialogue.hide()
                         if (dialogue.activeTransfer.items.length > 0) {
                             root.mediaReceived(dialogue.activeTransfer.items[0].url)
+                            root.callback(dialogue.activeTransfer.items[0].url)
                         }
                     }
 

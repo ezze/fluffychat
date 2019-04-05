@@ -199,16 +199,21 @@ function init () {
     if ( contentHub.shareObject !== null ) {
         var message = ""
         if ( contentHub.shareObject.items ) {
-            for ( var i = 0; i < contentHub.shareObject.items.length; i++ ) {
-                if (String(contentHub.shareObject.items[i].text).length > 0 && String(contentHub.shareObject.items[i].url).length == 0) {
-                    message += String(contentHub.shareObject.items[i].text)
+            // Share pure text or url?
+            if ( contentHub.shareObject.contentType === ContentType.Links || contentHub.shareObject.contentType === ContentType.Text ) {
+                for ( var i = 0; i < contentHub.shareObject.items.length; i++ ) {
+                    if (String(contentHub.shareObject.items[i].text).length > 0 && String(contentHub.shareObject.items[i].url).length == 0) {
+                        message += String(contentHub.shareObject.items[i].text)
+                    }
+                    else if (String(contentHub.shareObject.items[i].url).length > 0 ) {
+                        message += String(contentHub.shareObject.items[i].url)
+                    }
+                    if ( i+1 < contentHub.shareObject.items.length ) message += "\n"
                 }
-                else if (String(contentHub.shareObject.items[i].url).length > 0 ) {
-                    message += String(contentHub.shareObject.items[i].url)
-                }
-                if ( i+1 < contentHub.shareObject.items.length ) message += "\n"
+                if ( message !== "") messageTextField.text = message
             }
-            if ( message !== "") messageTextField.text = message
+            // Share a file given by a path?
+            else uploadAndSend ( contentHub.shareObject.items[0].url )
         }
         else if ( contentHub.shareObject.matrixEvent ) {
             var now = new Date().getTime()
@@ -485,4 +490,63 @@ function join () {
 function ActiveFocusChanged ( activeFocus ) {
     if ( activeFocus && stickerInput.visible ) stickerInput.hide()
     if ( !activeFocus ) sendTypingNotification ( activeFocus )
+}
+
+function sendAttachmentMessage (responseText, mimeType, fileName, size, activeChat){
+    var msgType = mimeType.split("/")[0]
+    if (["image","audio","video"].indexOf(msgType) === -1) msgType = "file"
+    msgType = "m."+msgType
+    var url = JSON.parse(responseText).content_uri
+    var mediaElem = {
+        body: fileName,
+        msgtype: msgType,
+        url: url,
+        info: {
+            mimetype: mimeType,
+            size: size
+        }
+    }
+    if ( msgType === "m.image" ) {
+        mediaElem.info.thumbnail_url = url
+        mediaElem.info.thumbnail_info = {
+            mimetype: mimeType,
+            size: size
+         }
+    }
+    var now = new Date().getTime()
+    var messageID = "" + now
+    matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, mediaElem )
+}
+
+function uploadAndSend (mediaUrl) {
+    stickerInput.hide()
+    var activeChatLocal = activeChat
+    toast.show(i18n.tr("Uploading..."))
+    matrix.upload(mediaUrl, function (responseText, mimeType, fileName, size) {
+        sendAttachmentMessage(responseText, mimeType, fileName, size, activeChatLocal)
+    })
+}
+
+function sendAll () {
+    contentHub.importAll()
+}
+
+function sendPicture () {
+    contentHub.importPicture(uploadAndSend)
+}
+
+function sendAudio () {
+    contentHub.importAudio(uploadAndSend)
+}
+
+function sendVideo () {
+    contentHub.importVideo(uploadAndSend)
+}
+
+function sendDocument () {
+    contentHub.importDocument(uploadAndSend)
+}
+
+function sendContact () {
+    contentHub.importContact(uploadAndSend)
 }

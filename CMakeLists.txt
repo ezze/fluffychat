@@ -1,6 +1,13 @@
 project(fluffychat C CXX)
 cmake_minimum_required(VERSION 3.0.0)
 
+# Components PATH
+execute_process(
+    COMMAND dpkg-architecture -qDEB_HOST_MULTIARCH
+    OUTPUT_VARIABLE ARCH_TRIPLET
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 find_package(Qt5Core)
@@ -8,14 +15,9 @@ find_package(Qt5Qml)
 find_package(Qt5Quick)
 
 # Automatically create moc files
+
 set(CMAKE_AUTOMOC ON)
 
-# Components PATH
-execute_process(
-    COMMAND dpkg-architecture -qDEB_HOST_MULTIARCH
-    OUTPUT_VARIABLE ARCH_TRIPLET
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-)
 
 set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 

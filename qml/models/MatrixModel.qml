@@ -2,6 +2,7 @@ import QtQuick 2.9
 import Ubuntu.Components 1.3
 import Ubuntu.Connectivity 1.0
 import Qt.labs.settings 1.0
+import E2ee 1.0
 
 /* =============================== MATRIX MODEL ===============================
 
@@ -313,7 +314,7 @@ Item {
         if ( priority === undefined ) priority = _PRIORITY.MEDIUM
 
         // Check if the same request is actual sent
-        var checksum = type + JSON.stringify(data) + action
+        var checksum = Qt.btoa(type + JSON.stringify(data) + action)
         if ( activeRequests.indexOf(checksum) !== -1 ) return console.warn( "❌[Error] Multiple requests detected: %1".arg(action) )
         else activeRequests.push ( checksum )
 
@@ -376,9 +377,6 @@ Item {
                         if ( "errcode" in response || http.status !== 200 ) throw response
                         if ( callback ) callback( response )
                     }
-                    else if ( responseType = "image/png" ) {
-                        if ( callback ) callback( http.responseText )
-                    }
 
                 }
                 catch ( error ) {
@@ -419,10 +417,40 @@ Item {
         timer.start();
 
         // Send the request now
-        //if ( priority !== _PRIORITY.SYNC ) console.log("📨[%1]".arg(type), action)
+        if ( priority !== _PRIORITY.SYNC ) console.log("📨[%1]".arg(type), action)
         http.send( JSON.stringify( postData ) )
 
         return http
+    }
+
+    function upload (mediaUrl, callback) {
+        var path = "" + mediaUrl
+        path = path.replace("file:/","")
+        connectOnce (E2ee.uploadFinished, callback)
+        E2ee.uploadFile(path, "https://%1/_matrix/media/r0/upload".arg(matrix.server), matrix.token)
+    }
+
+    Connections {
+        target: E2ee
+        onUploadProgress: {
+            if ( bytesTotal === 0 ) {
+                requestProgressBar.indeterminate = true
+            }
+            else {
+                var percent = Math.round(bytesSent/bytesTotal)
+                console.log(Math.round(bytesSent/bytesTotal) +"%")
+                requestProgressBar.indeterminate = false
+                requestProgressBar.value = percent
+            }
+        }
+    }
+
+    function connectOnce(sig, slot) {
+        var f = function() {
+            slot.apply(this, arguments)
+            sig.disconnect(f)
+        }
+        sig.connect(f)
     }
 
     function init () {

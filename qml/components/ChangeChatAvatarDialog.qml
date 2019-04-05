@@ -2,7 +2,6 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
-import Ubuntu.Web 0.2
 
 Component {
     id: dialog
@@ -17,37 +16,23 @@ Component {
             color: mainLayout.mainColor
         }
 
-        Item {
-
-            height: uploader.height
-
-            Component {
-                id: pickerComponent
-                PickerDialog {}
-            }
-            WebView {
-                id: uploader
-                url: "../components/ChangeChatAvatar.html?token=" + encodeURIComponent(matrix.token) + "&domain=" + encodeURIComponent(matrix.server) + "&activeChat=" + encodeURIComponent(activeChat)
-                width: units.gu(6)
-                height: width
-                anchors.horizontalCenter: parent.horizontalCenter
-                preferences.allowFileAccessFromFileUrls: true
-                preferences.allowUniversalAccessFromFileUrls: true
-                filePicker: pickerComponent
-                visible: canChangeAvatar
-                alertDialog: Dialog {
-                    title: i18n.tr("Error")
-                    text: model.message
-                    parent: QuickUtils.rootItem(this)
-                    Button {
-                        text: i18n.tr("OK")
-                        onClicked: model.accept()
-                    }
-                    Component.onCompleted: show()
+        Button {
+            width: (parent.width - units.gu(1)) / 2
+            text: i18n.tr("New chat picture")
+            color: UbuntuColors.green
+            onClicked: {
+                var _matrix = matrix
+                var _activeChat = activeChat
+                var editFunction = function (responseText) {
+                    _matrix.put ( "/client/r0/rooms/" + _activeChat + "/state/m.room.avatar", { url: JSON.parse(responseText).content_uri }, null, null, 2)
                 }
+                var uploadFunction = function (mediaUrl) {
+                    _matrix.upload(mediaUrl, editFunction)
+                }
+                contentHub.importPicture(uploadFunction)
+                PopupUtils.close(dialogue)
             }
         }
-
 
         Button {
             width: (parent.width - units.gu(1)) / 2

@@ -39,6 +39,11 @@ MainView {
     readonly property var version: Qt.application.version
     readonly property var downloadPath: "/home/phablet/.local/share/ubuntu-download-manager/fluffychat.christianpauly/Downloads/"
     readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "HISTORY": 4, "ERROR": -1 }
+    readonly property var mimeTypeToMsgType: {
+        "image/jpeg": "m.image",
+        "image/png": "m.image",
+        "image/gif": "m.image",
+    }
 
     /* =============================== GLOBAL VARIABLES ===============================
 
@@ -70,7 +75,8 @@ MainView {
         indeterminate: true
         width: parent.width
         anchors.top: parent.top
-        visible: matrix.waitingForAnswer > 0
+        visible: matrix.waitingForAnswer > 0 || !indeterminate
+        maximumValue: 100
         z: 10
     }
 
