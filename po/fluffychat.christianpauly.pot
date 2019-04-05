@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 17:13+0000\n"
+"POT-Creation-Date: 2019-04-05 17:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/Main.qml:25 ../qml/pages/ChatListPage.qml:38
+#: fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr ""
 
 #: ../qml/Main.qml:114
 msgid "Are you sure?"
@@ -66,7 +71,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:218
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:225
 msgid "Archived chats"
 msgstr ""
 
@@ -78,7 +83,7 @@ msgstr ""
 msgid "There are no archived chats"
 msgstr ""
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:236
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:243
 msgid "Connected email addresses"
 msgstr ""
 
@@ -168,7 +173,7 @@ msgstr ""
 msgid "Change ID-server"
 msgstr ""
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:276
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:283
 msgid "About FluffyChat"
 msgstr ""
 
@@ -198,10 +203,6 @@ msgstr ""
 
 #: ../qml/pages/LoginPage.qml:179 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
-msgstr ""
-
-#: ../qml/pages/ChatListPage.qml:38 fluffychat.desktop.in.h:1
-msgid "FluffyChat"
 msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:38
@@ -283,47 +284,51 @@ msgid "Chat settings:"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:197
-msgid "Display 'I am typing' when typing"
+msgid "Send with enter"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:204
-msgid "Hide less important events"
+msgid "Display 'I am typing' when typing"
 msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:211
+msgid "Hide less important events"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:218
 msgid "Autoload animated images"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:225
+#: ../qml/pages/SettingsPage.qml:232
 msgid "Account settings:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:229 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:236 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:243 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:250 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:250
+#: ../qml/pages/SettingsPage.qml:257
 msgid "Change password"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:256
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Check out:"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:260
+#: ../qml/pages/SettingsPage.qml:267
 msgid "Disable account"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:266 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:273 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:272
+#: ../qml/pages/SettingsPage.qml:279
 msgid "More:"
 msgstr ""
 
@@ -614,36 +619,36 @@ msgstr ""
 msgid "Push notifications are turned off…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:74
+#: ../qml/models/MatrixModel.qml:77
 msgid "USA"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:75
+#: ../qml/models/MatrixModel.qml:78
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:267
+#: ../qml/models/MatrixModel.qml:271
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:389 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:439
+#: ../qml/models/MatrixModel.qml:443
 msgid "Upload error:"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:515
+#: ../qml/models/MatrixModel.qml:519
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:522
+#: ../qml/models/MatrixModel.qml:526
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:586
+#: ../qml/models/MatrixModel.qml:590
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

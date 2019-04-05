@@ -272,7 +272,12 @@ Page {
             autoSize: height <= chatPage.width / 2 - header.height - units.gu(2)
             maximumLineCount: 0
             placeholderText: i18n.tr("Type something ...")
-            Keys.onReturnPressed: insert( cursorPosition, "\n")
+            Keys.onReturnPressed: {
+                var send = matrix.sendWithEnter
+                if ( event.modifiers === Qt.ShiftModifier ) send = !send
+                if ( send ) ChatPageActions.send ()
+                else insert( cursorPosition, "\n")
+            }
             // If the user leaves the focus of the textfield: Send that he is no
             // longer typing.
             onActiveFocusChanged: ChatPageActions.ActiveFocusChanged ( activeFocus )

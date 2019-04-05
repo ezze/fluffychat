@@ -64,6 +64,9 @@ Item {
     // Chat settings: Send typing notification?
     property var sendTypingNotification: true
 
+    // Chat settings: Send with enter?
+    property var sendWithEnter: false
+
     // Chat settings: Hide less important events?
     property var hideLessImportantEvents: true
 
@@ -101,6 +104,7 @@ Item {
         property alias matrixVersions: matrix.matrixVersions
         property alias lazy_load_members: matrix.lazy_load_members
         property alias sendTypingNotification: matrix.sendTypingNotification
+        property alias sendWithEnter: matrix.sendWithEnter
         property alias hideLessImportantEvents: matrix.hideLessImportantEvents
         property alias autoloadGifs: matrix.autoloadGifs
         property alias countryCode: matrix.countryCode

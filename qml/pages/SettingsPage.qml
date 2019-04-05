@@ -194,6 +194,13 @@ Page {
             }
 
             SettingsListSwitch {
+                name: i18n.tr("Send with enter")
+                icon: "keyboard-enter"
+                onSwitching: function () { matrix.sendWithEnter = isChecked }
+                isChecked: matrix.sendWithEnter
+            }
+
+            SettingsListSwitch {
                 name: i18n.tr("Display 'I am typing' when typing")
                 icon: "edit"
                 onSwitching: function () { matrix.sendTypingNotification = isChecked }
