@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 06:47+0000\n"
-"PO-Revision-Date: 2019-01-22 20:04+0000\n"
+"POT-Creation-Date: 2019-03-13 18:30+0000\n"
+"PO-Revision-Date: 2019-03-19 17:03+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ../qml/Main.qml:105
 msgid "Are you sure?"
@@ -25,7 +25,7 @@ msgstr "Sei sicuro?"
 
 #: ../qml/Main.qml:128
 msgid "You must agree to the privacy policy"
-msgstr ""
+msgstr "Devi essere d'accordo con la politica di riservatezza"
 
 #: ../qml/Main.qml:138
 #, fuzzy
@@ -717,7 +717,7 @@ msgstr "Nessuna connessione a "
 msgid "Your session is no longer valid"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:551
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -1175,12 +1175,6 @@ msgstr "È stato bannato dalla conversazione"
 msgid "Unknown"
 msgstr "Sconosciuto"
 
-#: ../qml/scripts/ChatPageActions.js:258
-#, fuzzy
-#| msgid "Common messages"
-msgid "Too much new messages"
-msgstr "Messaggi comuni"
-
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
 msgstr "Sfondo rimosso"
@@ -1509,6 +1503,11 @@ msgstr "Nome utente '%1' non trovato su %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Il nome utente è già stato preso"
+
+#, fuzzy
+#~| msgid "Common messages"
+#~ msgid "Too much new messages"
+#~ msgstr "Messaggi comuni"
 
 #~ msgid "You are offline 😕"
 #~ msgstr "Sei offline 😕"

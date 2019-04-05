@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 06:47+0000\n"
+"POT-Creation-Date: 2019-03-13 18:30+0000\n"
 "PO-Revision-Date: 2019-03-13 06:51+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
@@ -678,7 +678,7 @@ msgstr "Sin conexión al servidor 😕"
 msgid "Your session is no longer valid"
 msgstr "Su sesión ya no es válida"
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:551
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1103,10 +1103,6 @@ msgstr "Ha sido vetado en el chat"
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: ../qml/scripts/ChatPageActions.js:258
-msgid "Too much new messages"
-msgstr "Demasiados mensajes nuevos"
-
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
 msgstr "Eliminado el fondo de pantalla"
@@ -1415,6 +1411,9 @@ msgstr "No se encontró el nombre de usuario «%1» en %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "El nombre de usuario ya está tomado"
+
+#~ msgid "Too much new messages"
+#~ msgstr "Demasiados mensajes nuevos"
 
 #~ msgid "You are offline 😕"
 #~ msgstr "Está desconectado 😕"
