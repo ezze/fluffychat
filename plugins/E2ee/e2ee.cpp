@@ -89,6 +89,8 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
     QNetworkAccessManager manager;
     QNetworkReply* reply = manager.post(request, data);
     QEventLoop loop;
+    connect(reply, SIGNAL(uploadProgress(qint64, qint64)),
+        this, SLOT(uploadProgressSlot(qint64, qint64)));
     connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
     loop.exec();
 
@@ -97,4 +99,9 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
     uploadFinished(dataReply, mimeType, fileName, data.size());
 
     return true;
+}
+
+
+void E2ee::uploadProgressSlot(qint64 bytesSent, qint64 bytesTotal) {
+    uploadProgress(bytesSent, bytesTotal);
 }

@@ -75,7 +75,8 @@ MainView {
         indeterminate: true
         width: parent.width
         anchors.top: parent.top
-        visible: matrix.waitingForAnswer > 0
+        visible: matrix.waitingForAnswer > 0 || !indeterminate
+        maximumValue: 100
         z: 10
     }
 

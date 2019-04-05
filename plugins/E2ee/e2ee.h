@@ -36,8 +36,12 @@ public:
     Q_INVOKABLE QString encryptMessage(QString body, QString accounts[]);
     Q_INVOKABLE QString encryptFile(QString path, QString accounts[]);*/
 
+public slots:
+    void uploadProgressSlot(qint64 bytesSent, qint64 bytesTotal);
+
 signals:
     void uploadFinished(QString reply, QString mimeType, QString fileName, int size);
+    void uploadProgress(qint64 bytesSent, qint64 bytesTotal);
 
 };
 

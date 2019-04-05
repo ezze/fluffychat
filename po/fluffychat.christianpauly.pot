@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 10:17+0000\n"
+"POT-Creation-Date: 2019-04-05 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:110
+#: ../qml/Main.qml:111
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/Main.qml:133
+#: ../qml/Main.qml:134
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:143
+#: ../qml/Main.qml:144
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -631,15 +631,15 @@ msgstr ""
 msgid "😕 No connection…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:493
+#: ../qml/models/MatrixModel.qml:508
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:500
+#: ../qml/models/MatrixModel.qml:515
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:564
+#: ../qml/models/MatrixModel.qml:579
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1049,6 +1049,10 @@ msgstr ""
 
 #: ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
+msgstr ""
+
+#: ../qml/scripts/ChatPageActions.js:523
+msgid "Uploading..."
 msgstr ""
 
 #: ../qml/scripts/SettingsPageActions.js:31

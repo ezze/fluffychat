@@ -430,6 +430,21 @@ Item {
         E2ee.uploadFile(path, "https://%1/_matrix/media/r0/upload".arg(matrix.server), matrix.token)
     }
 
+    Connections {
+        target: E2ee
+        onUploadProgress: {
+            if ( bytesTotal === 0 ) {
+                requestProgressBar.indeterminate = true
+            }
+            else {
+                var percent = Math.round(bytesSent/bytesTotal)
+                console.log(Math.round(bytesSent/bytesTotal) +"%")
+                requestProgressBar.indeterminate = false
+                requestProgressBar.value = percent
+            }
+        }
+    }
+
     function connectOnce(sig, slot) {
         var f = function() {
             slot.apply(this, arguments)

@@ -492,7 +492,7 @@ function ActiveFocusChanged ( activeFocus ) {
     if ( !activeFocus ) sendTypingNotification ( activeFocus )
 }
 
-function sendAttachmentMessage (responseText, mimeType, fileName, size){
+function sendAttachmentMessage (responseText, mimeType, fileName, size, activeChat){
     var msgType = mimeType.split("/")[0]
     if (["image","audio","video"].indexOf(msgType) === -1) msgType = "file"
     msgType = "m."+msgType
@@ -515,11 +515,16 @@ function sendAttachmentMessage (responseText, mimeType, fileName, size){
     }
     var now = new Date().getTime()
     var messageID = "" + now
-    matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, mediaElem, null, null, 2 )
+    matrix.put( "/client/r0/rooms/" + activeChat + "/send/m.room.message/" + messageID, mediaElem )
 }
 
 function uploadAndSend (mediaUrl) {
-    matrix.upload(mediaUrl, sendAttachmentMessage)
+    stickerInput.hide()
+    var activeChatLocal = activeChat
+    toast.show(i18n.tr("Uploading..."))
+    matrix.upload(mediaUrl, function (responseText, mimeType, fileName, size) {
+        sendAttachmentMessage(responseText, mimeType, fileName, size, activeChatLocal)
+    })
 }
 
 function sendAll () {
