@@ -35,14 +35,14 @@ parts:
       - assets
       - lib
       - share
-      - usr
       - qml
     after: [olm]
   desktop-file:
     plugin: dump
-    source: .
+    source: snap/local
     organize:
-      fluffychat_snap.desktop: usr/share/applications/fluffychat.desktop
+      fluffychat.desktop: usr/share/applications/fluffychat.desktop
+    stage: [ usr/share/applications/fluffychat.desktop ]
   olm:
     source: libs/olm
     plugin: cmake
