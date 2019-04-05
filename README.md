@@ -17,6 +17,7 @@
 # Features
  * Single and group chats
  * Send images and files
+ * ContentHub integration
  * Offline chat history
  * Push Notifications
  * Account settings
@@ -36,10 +37,11 @@
 
 ##### Planned features
  * End2End-encryption
- * Sharing files
  * Search for messages and files
 
 #### How to build
+
+##### Build Click for Ubuntu Touch
 
 1. Install clickable as described here: https://github.com/bhdouglass/clickable
 
@@ -53,6 +55,22 @@ cd fluffychat
 ```
 clickable build-libs
 clickable click-build
+```
+
+##### Build Snap for Desktop
+
+1. Install snapcraft as described here: https://snapcraft.io
+
+2. Close this repo:
+```
+git clone https://github.com/ChristianPauly/fluffychat
+cd fluffychat
+```
+
+3. Build with snapcraft and install
+```
+snapcraft --debug
+snap install [filename].snap --dangerous
 ```
 
 # Special thanks to
