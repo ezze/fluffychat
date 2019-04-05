@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 18:30+0000\n"
+"POT-Creation-Date: 2019-04-05 10:55+0000\n"
 "PO-Revision-Date: 2019-01-12 02:06+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: ../qml/Main.qml:105
+#: ../qml/Main.qml:111
 msgid "Are you sure?"
 msgstr "您確定嗎？"
 
-#: ../qml/Main.qml:128
+#: ../qml/Main.qml:134
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:138
+#: ../qml/Main.qml:144
 #, fuzzy
 #| msgid "Copied to clipboard"
 msgid "Copied to the clipboard"
@@ -122,9 +122,13 @@ msgid "Welcome to FluffyChat"
 msgstr "歡迎來到 FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
+#, fuzzy
+#| msgid ""
+#| "Chat with your friends and join the community. You can use your phone "
+#| "number or an unique username to find friends."
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
-"or an unique username to find friends."
+"or a unique username to find friends."
 msgstr ""
 "與您的朋友聊天，加入社區。您可以使用您的電話號碼或唯一的用戶名稱來找尋朋友。"
 
@@ -148,7 +152,7 @@ msgstr "版本 %1 有什麼新功能？"
 #: ../qml/pages/WalkthroughPage.qml:180
 msgid ""
 "Improved stability and performance, new translations, design changes, better "
-"tablet support and a lot of bug fixes."
+"tablet support and a lot of bugfixes."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:218
@@ -157,10 +161,10 @@ msgstr "社區贊助"
 
 #: ../qml/pages/WalkthroughPage.qml:231
 msgid ""
-"FluffyChat is open, nonprofit and cute. The development and servers are all "
-"funded by the community. You can donate for this project on <a href='https://"
-"www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-"liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
+"FluffyChat is open, nonprofit and cute. The development and servers is all "
+"community funded. You can donate to this project on <a href='https://www."
+"patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay."
+"com/KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:248
@@ -221,7 +225,7 @@ msgstr "分享"
 
 #: ../qml/pages/ChatListPage.qml:101
 #, fuzzy
-msgid "Search for your chats..."
+msgid "Search for your chats…"
 msgstr "搜尋聊天名稱..."
 
 #: ../qml/pages/ChatListPage.qml:121
@@ -371,7 +375,7 @@ msgstr "密碼..."
 #: ../qml/pages/NotificationSettingsPage.qml:13
 #, fuzzy
 #| msgid "Enable notifications"
-msgid "Receive notifications for..."
+msgid "Receive notifications for…"
 msgstr "啟用通知"
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
@@ -463,11 +467,15 @@ msgid "Choose a country"
 msgstr "選擇一個國家"
 
 #: ../qml/pages/CountryPickerPage.qml:28
-msgid "Search country name..."
+#, fuzzy
+#| msgid "Search country name..."
+msgid "Search for country by name…"
 msgstr "搜尋國家名稱..."
 
 #: ../qml/pages/UserPage.qml:34
-msgid "Username has been copied to the clipboard"
+#, fuzzy
+#| msgid "Username has been copied to the clipboard"
+msgid "Username copied to the clipboard"
 msgstr "用戶名稱已經復製到剪貼簿上"
 
 #: ../qml/pages/UserPage.qml:65
@@ -475,38 +483,38 @@ msgid "Chats with this user:"
 msgstr "與此用戶聊天："
 
 #: ../qml/pages/UserPage.qml:65
-msgid "You are that!"
-msgstr "你就是那樣！"
+msgid "This is you."
+msgstr ""
 
 #: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
 msgstr "開始新的聊天"
 
-#: ../qml/pages/ChatPage.qml:53 ../qml/components/SimpleChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr "未知的聊天"
 
-#: ../qml/pages/ChatPage.qml:111
+#: ../qml/pages/ChatPage.qml:112
 msgid "Chat info"
 msgstr "聊天訊息"
 
-#: ../qml/pages/ChatPage.qml:136
+#: ../qml/pages/ChatPage.qml:137
 msgid "No messages in this chat ..."
 msgstr "此聊天中沒有訊息…"
 
-#: ../qml/pages/ChatPage.qml:159
+#: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "回覆 <b>%1</b>: \"%2\""
 
-#: ../qml/pages/ChatPage.qml:235
+#: ../qml/pages/ChatPage.qml:236
 msgid "Accept invitation"
 msgstr "接受邀請"
 
-#: ../qml/pages/ChatPage.qml:235
+#: ../qml/pages/ChatPage.qml:236
 msgid "Join"
 msgstr "加入"
 
-#: ../qml/pages/ChatPage.qml:243
+#: ../qml/pages/ChatPage.qml:244
 msgid "You do not have posting permissions here"
 msgstr "您沒有此處發佈的權限"
 
@@ -591,12 +599,12 @@ msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:44
 #, fuzzy
-msgid "Search for chats or #aliases..."
+msgid "Search for chats or #aliases…"
 msgstr "搜尋聊天或公共場所..."
 
 #: ../qml/pages/DiscoverPage.qml:67
 #, fuzzy
-msgid "Loading..."
+msgid "Loading…"
 msgstr "同步中...請稍候。"
 
 #: ../qml/pages/DiscoverPage.qml:67
@@ -617,7 +625,7 @@ msgstr "找不到說明"
 #: ../qml/pages/ChatSettingsPage.qml:136
 #, fuzzy
 #| msgid "No description found"
-msgid "No chat description found..."
+msgid "No chat description found…"
 msgstr "找不到說明"
 
 #: ../qml/pages/ChatSettingsPage.qml:191
@@ -625,7 +633,9 @@ msgid "Users in this chat (%1):"
 msgstr "此聊天中的用戶（%1）:"
 
 #: ../qml/pages/ChatSettingsPage.qml:215
-msgid "Search..."
+#, fuzzy
+#| msgid "Search..."
+msgid "Search…"
 msgstr "搜尋..."
 
 #: ../qml/pages/ChatSettingsPage.qml:235
@@ -637,15 +647,15 @@ msgid "Reload"
 msgstr "重新整理"
 
 #: ../qml/pages/ChatSettingsPage.qml:260
-msgid "Appoint to a member"
+msgid "Enroll as member"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:264
-msgid "Appoint to a Moderator"
+msgid "Appoint to moderator"
 msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:269
-msgid "Appoint to Admin"
+msgid "Appoint to admin"
 msgstr ""
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:15
@@ -677,37 +687,41 @@ msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr "請登入 Ubuntu One 以接收推送通知。"
 
 #: ../qml/models/PushModel.qml:74
-msgid "Push notifications are disabled..."
+#, fuzzy
+#| msgid "Push notifications are disabled..."
+msgid "Push notifications are turned off…"
 msgstr "推送通知被禁用..."
 
-#: ../qml/models/MatrixModel.qml:74
+#: ../qml/models/MatrixModel.qml:75
 msgid "USA"
 msgstr "美國"
 
-#: ../qml/models/MatrixModel.qml:75
+#: ../qml/models/MatrixModel.qml:76
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:267
+#: ../qml/models/MatrixModel.qml:268
 msgid "You are not allowed to chat here."
 msgstr "你不能在這裡聊天。"
 
-#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
-msgid "😕 No connection..."
+#, fuzzy
+#| msgid "😕 No connection..."
+msgid "😕 No connection…"
 msgstr "😕沒有聯絡..."
 
-#: ../qml/models/MatrixModel.qml:480
+#: ../qml/models/MatrixModel.qml:508
 #, fuzzy
 #| msgid "No connection to "
 msgid "No connection to the homeserver 😕"
 msgstr "沒有聯絡到 "
 
-#: ../qml/models/MatrixModel.qml:487
-msgid "Your session is no longer valid"
+#: ../qml/models/MatrixModel.qml:515
+msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:551
+#: ../qml/models/MatrixModel.qml:579
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -721,13 +735,9 @@ msgstr ""
 "😰抱歉，發生嚴重錯誤！ 與伺服器的連接已經結束！ 請報告這個錯誤：https://"
 "github.com/ChristianPauly/fluffychat/issues/new"
 
-#: ../qml/models/ContentHubModel.qml:81
+#: ../qml/models/ContentHubModel.qml:83
 msgid "Copied to clipboard"
 msgstr "複製到剪貼簿"
-
-#: ../qml/models/ContentHubModel.qml:95
-msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
-msgstr "對不起 😕 。尚未支援分享照片，影片或文件…"
 
 #: ../qml/components/MemberListItem.qml:48
 #: ../qml/components/ChatScrollView.qml:50
@@ -774,7 +784,7 @@ msgstr "請重複輸入"
 #: ../qml/components/ChangeDisplaynameDialog.qml:28
 #: ../qml/components/AddContactDialog.qml:71
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
-#: ../qml/components/ChangeChatnameDialog.qml:46
+#: ../qml/components/ChangeChatnameDialog.qml:49
 #: ../qml/components/AddEmailDialog.qml:28
 msgid "Cancel"
 msgstr "取消"
@@ -787,35 +797,29 @@ msgstr "更改"
 msgid "Password has been changed"
 msgstr "密碼已被更改"
 
-#: ../qml/components/ChangeAvatarDialog.qml:12
+#: ../qml/components/ChangeAvatarDialog.qml:11
 msgid "Edit profile picture"
 msgstr ""
 
-#: ../qml/components/ChangeAvatarDialog.qml:38
-#: ../qml/components/StickerInput.qml:138
+#: ../qml/components/ChangeAvatarDialog.qml:21
+#, fuzzy
+#| msgid "Remove the device"
+msgid "New profile picture"
+msgstr "移除裝置"
+
+#: ../qml/components/ChangeAvatarDialog.qml:39
 #: ../qml/components/ChangeChatAvatarDialog.qml:39
-msgid "Error"
-msgstr "錯誤"
-
-#: ../qml/components/ChangeAvatarDialog.qml:42
-#: ../qml/components/StickerInput.qml:142
-#: ../qml/components/ChangeChatAvatarDialog.qml:43
-msgid "OK"
-msgstr "是"
-
-#: ../qml/components/ChangeAvatarDialog.qml:53
-#: ../qml/components/ChangeChatAvatarDialog.qml:54
 #, fuzzy
 #| msgid "Remove the device"
 msgid "Remove picture"
 msgstr "移除裝置"
 
-#: ../qml/components/ChangeAvatarDialog.qml:64
+#: ../qml/components/ChangeAvatarDialog.qml:50
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/BottomEdgePageStack.qml:92
 #: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangeChatAvatarDialog.qml:65
-#: ../qml/components/ChangeChatnameDialog.qml:59
+#: ../qml/components/ChangeChatAvatarDialog.qml:50
+#: ../qml/components/ChangeChatnameDialog.qml:62
 msgid "Close"
 msgstr "關閉"
 
@@ -849,7 +853,7 @@ msgstr "下載"
 
 #: ../qml/components/WaitDialog.qml:11
 #, fuzzy
-msgid "Loading... Please wait!"
+msgid "Loading… Please wait."
 msgstr "同步中...請稍候。"
 
 #: ../qml/components/WaitDialog.qml:36
@@ -902,15 +906,17 @@ msgid "Connect new phone number"
 msgstr "連接新的電話號碼"
 
 #: ../qml/components/AddPhoneDialog.qml:12
-msgid "..."
-msgstr "..."
+msgid "…"
+msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:22
 msgid "Please log out to change your country"
 msgstr "請退出以更改您的國家/地區"
 
 #: ../qml/components/AddPhoneDialog.qml:26
-msgid "Phone number..."
+#, fuzzy
+#| msgid "Phone number..."
+msgid "Phone number…"
 msgstr "電話號碼..."
 
 #: ../qml/components/AddPhoneDialog.qml:44
@@ -934,7 +940,9 @@ msgid "Yes"
 msgstr "是"
 
 #: ../qml/components/LogoutDialog.qml:25
-msgid "Are you sure that you want to log out?"
+#, fuzzy
+#| msgid "Are you sure that you want to log out?"
+msgid "Are you sure you want to log out?"
 msgstr "你確定要登出嗎？"
 
 #: ../qml/components/AddAliasDialog.qml:11
@@ -947,7 +955,7 @@ msgstr "#聊天名稱:%1"
 
 #: ../qml/components/AddAliasDialog.qml:32
 #: ../qml/components/ChangeDisplaynameDialog.qml:33
-#: ../qml/components/ChangeChatnameDialog.qml:51
+#: ../qml/components/ChangeChatnameDialog.qml:54
 msgid "Save"
 msgstr "保存"
 
@@ -1018,7 +1026,7 @@ msgstr "下載: "
 msgid "This device"
 msgstr "這個裝置"
 
-#: ../qml/components/StickerInput.qml:57
+#: ../qml/components/StickerInput.qml:56
 msgid "Delete sticker"
 msgstr "刪除貼紙"
 
@@ -1070,10 +1078,16 @@ msgstr "(您的用戶名稱是: <b>%1</b>)"
 msgid "Or"
 msgstr ""
 
-#: ../qml/components/ChangeChatAvatarDialog.qml:12
+#: ../qml/components/ChangeChatAvatarDialog.qml:11
 #, fuzzy
 #| msgid "Edit chat name"
 msgid "Edit chat picture"
+msgstr "編輯聊天名稱"
+
+#: ../qml/components/ChangeChatAvatarDialog.qml:21
+#, fuzzy
+#| msgid "Edit chat name"
+msgid "New chat picture"
 msgstr "編輯聊天名稱"
 
 #: ../qml/components/ChangeChatnameDialog.qml:12
@@ -1087,13 +1101,13 @@ msgstr "聊天設定："
 msgid "Change chat avatar"
 msgstr "%1 更改了聊天頭像"
 
-#: ../qml/components/ChangeChatnameDialog.qml:27
+#: ../qml/components/ChangeChatnameDialog.qml:30
 #, fuzzy
 #| msgid "Edit chat name"
 msgid "No chat name yet"
 msgstr "編輯聊天名稱"
 
-#: ../qml/components/ChangeChatnameDialog.qml:34
+#: ../qml/components/ChangeChatnameDialog.qml:37
 #, fuzzy
 #| msgid "No description found"
 msgid "No description yet"
@@ -1160,6 +1174,11 @@ msgstr "被禁止參與聊天"
 #: ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr "未知"
+
+#: ../qml/scripts/ChatPageActions.js:523
+#, fuzzy
+msgid "Uploading..."
+msgstr "同步中...請稍候。"
 
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
@@ -1246,7 +1265,9 @@ msgid "Username already taken"
 msgstr "用戶名已存在"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:30
-msgid "The desired user ID is not a valid user name"
+#, fuzzy
+#| msgid "The desired user ID is not a valid user name"
+msgid "The desired user ID is not a valid username"
 msgstr "所需的用戶ID並不是一個有效的用戶名稱"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:31
@@ -1256,8 +1277,8 @@ msgid ""
 msgstr "所需的用戶ID位於應用程式服務聲明的獨占名稱空間中"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:32
-msgid "Registration on %1 failed..."
-msgstr "註冊 %1 時失敗了..."
+msgid "Could not register on %1…"
+msgstr ""
 
 #: ../qml/scripts/PasswordInputPageActions.js:10
 msgid "Invalid username or password"
@@ -1507,6 +1528,25 @@ msgstr "在 %2 上找不到用戶名稱'%1'"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "用戶名稱已被使用"
+
+#~ msgid "You are that!"
+#~ msgstr "你就是那樣！"
+
+#~ msgid ""
+#~ "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
+#~ msgstr "對不起 😕 。尚未支援分享照片，影片或文件…"
+
+#~ msgid "Error"
+#~ msgstr "錯誤"
+
+#~ msgid "OK"
+#~ msgstr "是"
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Registration on %1 failed..."
+#~ msgstr "註冊 %1 時失敗了..."
 
 #, fuzzy
 #~| msgid "Common messages"

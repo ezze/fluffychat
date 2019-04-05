@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 18:30+0000\n"
+"POT-Creation-Date: 2019-04-05 10:55+0000\n"
 "PO-Revision-Date: 2019-03-12 09:24+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -19,16 +19,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.5.1\n"
 
-#: ../qml/Main.qml:105
+#: ../qml/Main.qml:111
 msgid "Are you sure?"
 msgstr "Er du sikker?"
 
-#: ../qml/Main.qml:128
+#: ../qml/Main.qml:134
 #, fuzzy
 msgid "You must agree to the privacy policy"
 msgstr "Du må samtykke til personvernspraksisen"
 
-#: ../qml/Main.qml:138
+#: ../qml/Main.qml:144
 #, fuzzy
 msgid "Copied to the clipboard"
 msgstr "%1 har blitt bannlyst fra sludringen"
@@ -124,9 +124,13 @@ msgid "Welcome to FluffyChat"
 msgstr "Velkommen til FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
+#, fuzzy
+#| msgid ""
+#| "Chat with your friends and join the community. You can use your phone "
+#| "number or an unique username to find friends."
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
-"or an unique username to find friends."
+"or a unique username to find friends."
 msgstr ""
 "Sludre med dine venner og ta del i gemenskapen. Du kan bruke ditt "
 "telefonnummer eller et unikt brukernavn for å finne venner."
@@ -154,7 +158,7 @@ msgstr "Hva er nytt i versjon %1?"
 #, fuzzy
 msgid ""
 "Improved stability and performance, new translations, design changes, better "
-"tablet support and a lot of bug fixes."
+"tablet support and a lot of bugfixes."
 msgstr ""
 "Forbedret stabilitet og ytelse, nye oversettelser, designendringer, bedre "
 "nettbrettstøtte og mange feilrettinger."
@@ -166,10 +170,10 @@ msgstr "Dugnadsfinansiering"
 #: ../qml/pages/WalkthroughPage.qml:231
 #, fuzzy
 msgid ""
-"FluffyChat is open, nonprofit and cute. The development and servers are all "
-"funded by the community. You can donate for this project on <a href='https://"
-"www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-"liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
+"FluffyChat is open, nonprofit and cute. The development and servers is all "
+"community funded. You can donate to this project on <a href='https://www."
+"patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay."
+"com/KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat er åpent, veldedig og søtt. Utviklingen og tjenerne kronerulles "
 "av gemenskapen. Du kan donere til dette prosjektet på <a href='https://www."
@@ -238,7 +242,7 @@ msgstr "Del"
 
 #: ../qml/pages/ChatListPage.qml:101
 #, fuzzy
-msgid "Search for your chats..."
+msgid "Search for your chats…"
 msgstr "Søk etter sludringsnavn…"
 
 #: ../qml/pages/ChatListPage.qml:121
@@ -386,7 +390,7 @@ msgstr "Passord"
 #: ../qml/pages/NotificationSettingsPage.qml:13
 #, fuzzy
 #| msgid "Enable notifications"
-msgid "Receive notifications for..."
+msgid "Receive notifications for…"
 msgstr "Skru på merknader"
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
@@ -482,12 +486,13 @@ msgid "Choose a country"
 msgstr "Velg et land"
 
 #: ../qml/pages/CountryPickerPage.qml:28
-msgid "Search country name..."
-msgstr "Søk etter landsnavn…"
+#, fuzzy
+msgid "Search for country by name…"
+msgstr "Søk etter sludringsnavn…"
 
 #: ../qml/pages/UserPage.qml:34
 #, fuzzy
-msgid "Username has been copied to the clipboard"
+msgid "Username copied to the clipboard"
 msgstr "%1 har blitt bannlyst fra sludringen"
 
 #: ../qml/pages/UserPage.qml:65
@@ -495,40 +500,39 @@ msgid "Chats with this user:"
 msgstr "Sludringer med denne brukeren:"
 
 #: ../qml/pages/UserPage.qml:65
-#, fuzzy
-msgid "You are that!"
-msgstr "Det er deg!"
+msgid "This is you."
+msgstr ""
 
 #: ../qml/pages/UserPage.qml:83
 #, fuzzy
 msgid "Start new chat"
 msgstr "Start ny sludring"
 
-#: ../qml/pages/ChatPage.qml:53 ../qml/components/SimpleChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr "Ukjent sludring"
 
-#: ../qml/pages/ChatPage.qml:111
+#: ../qml/pages/ChatPage.qml:112
 msgid "Chat info"
 msgstr "Slurdingsinfo"
 
-#: ../qml/pages/ChatPage.qml:136
+#: ../qml/pages/ChatPage.qml:137
 msgid "No messages in this chat ..."
 msgstr "Ingen meldinger i denne sludringen…"
 
-#: ../qml/pages/ChatPage.qml:159
+#: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "Svar <b>%1</b>: \"%2\""
 
-#: ../qml/pages/ChatPage.qml:235
+#: ../qml/pages/ChatPage.qml:236
 msgid "Accept invitation"
 msgstr "Godta invitasjon"
 
-#: ../qml/pages/ChatPage.qml:235
+#: ../qml/pages/ChatPage.qml:236
 msgid "Join"
 msgstr "Ta del"
 
-#: ../qml/pages/ChatPage.qml:243
+#: ../qml/pages/ChatPage.qml:244
 #, fuzzy
 msgid "You do not have posting permissions here"
 msgstr "Du har ikke tilgang til å skrive i denne sludringen."
@@ -614,12 +618,12 @@ msgstr "og matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:44
 #, fuzzy
-msgid "Search for chats or #aliases..."
+msgid "Search for chats or #aliases…"
 msgstr "Søk etter sludringsnavn…"
 
 #: ../qml/pages/DiscoverPage.qml:67
 #, fuzzy
-msgid "Loading..."
+msgid "Loading…"
 msgstr "Synkroniserer… Vent."
 
 #: ../qml/pages/DiscoverPage.qml:67
@@ -638,7 +642,7 @@ msgstr "Beskrivelse:"
 #: ../qml/pages/ChatSettingsPage.qml:136
 #, fuzzy
 #| msgid "No description found"
-msgid "No chat description found..."
+msgid "No chat description found…"
 msgstr "Fant ingen beskrivelse"
 
 #: ../qml/pages/ChatSettingsPage.qml:191
@@ -646,7 +650,9 @@ msgid "Users in this chat (%1):"
 msgstr "Brukere i denne slurdringen (%1):"
 
 #: ../qml/pages/ChatSettingsPage.qml:215
-msgid "Search..."
+#, fuzzy
+#| msgid "Search..."
+msgid "Search…"
 msgstr "Søk…"
 
 #: ../qml/pages/ChatSettingsPage.qml:235
@@ -660,17 +666,17 @@ msgstr "Last inn igjen"
 
 #: ../qml/pages/ChatSettingsPage.qml:260
 #, fuzzy
-msgid "Appoint to a member"
+msgid "Enroll as member"
 msgstr "Utpek som medlem"
 
 #: ../qml/pages/ChatSettingsPage.qml:264
 #, fuzzy
-msgid "Appoint to a Moderator"
+msgid "Appoint to moderator"
 msgstr "Utpek som moderator"
 
 #: ../qml/pages/ChatSettingsPage.qml:269
 #, fuzzy
-msgid "Appoint to Admin"
+msgid "Appoint to admin"
 msgstr "Utpek som administrator"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:15
@@ -701,40 +707,42 @@ msgstr "Logg inn på Ubuntu One for å motta push-merknader."
 
 #: ../qml/models/PushModel.qml:74
 #, fuzzy
-msgid "Push notifications are disabled..."
+msgid "Push notifications are turned off…"
 msgstr "Push-merknader er avskrudd…"
 
-#: ../qml/models/MatrixModel.qml:74
+#: ../qml/models/MatrixModel.qml:75
 #, fuzzy
 msgid "USA"
 msgstr "NO"
 
-#: ../qml/models/MatrixModel.qml:75
+#: ../qml/models/MatrixModel.qml:76
 #, fuzzy
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:267
+#: ../qml/models/MatrixModel.qml:268
 #, fuzzy
 msgid "You are not allowed to chat here."
 msgstr "Du tillates ikke å sludre her."
 
-#: ../qml/models/MatrixModel.qml:392 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 #, fuzzy
-msgid "😕 No connection..."
+msgid "😕 No connection…"
 msgstr "Ingen tilkobling til "
 
-#: ../qml/models/MatrixModel.qml:480
+#: ../qml/models/MatrixModel.qml:508
 #, fuzzy
 msgid "No connection to the homeserver 😕"
 msgstr "Ingen tilkobling til hjemmetjeneren 😕"
 
-#: ../qml/models/MatrixModel.qml:487
-msgid "Your session is no longer valid"
+#: ../qml/models/MatrixModel.qml:515
+#, fuzzy
+#| msgid "Your session is no longer valid"
+msgid "Your session has expired"
 msgstr "Økten din er ikke lenger gyldig"
 
-#: ../qml/models/MatrixModel.qml:551
+#: ../qml/models/MatrixModel.qml:579
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -748,15 +756,10 @@ msgstr ""
 "😰 Kritisk feil. Tilkoblingen til tjeneren gikk ned. Innrapporter feil på: "
 "https://github.com/ChristianPauly/fluffychat/issues/new"
 
-#: ../qml/models/ContentHubModel.qml:81
+#: ../qml/models/ContentHubModel.qml:83
 #, fuzzy
 msgid "Copied to clipboard"
 msgstr "%1 har blitt bannlyst fra sludringen"
-
-#: ../qml/models/ContentHubModel.qml:95
-#, fuzzy
-msgid "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
-msgstr "😕 Deling av bilder, videoer eller filer støttes ikke enda…"
 
 #: ../qml/components/MemberListItem.qml:48
 #: ../qml/components/ChatScrollView.qml:50
@@ -804,7 +807,7 @@ msgstr "Gjenta"
 #: ../qml/components/ChangeDisplaynameDialog.qml:28
 #: ../qml/components/AddContactDialog.qml:71
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
-#: ../qml/components/ChangeChatnameDialog.qml:46
+#: ../qml/components/ChangeChatnameDialog.qml:49
 #: ../qml/components/AddEmailDialog.qml:28
 msgid "Cancel"
 msgstr "Avbryt"
@@ -818,33 +821,27 @@ msgstr "Endre"
 msgid "Password has been changed"
 msgstr "Sludretilgangene har blitt endret"
 
-#: ../qml/components/ChangeAvatarDialog.qml:12
+#: ../qml/components/ChangeAvatarDialog.qml:11
 msgid "Edit profile picture"
 msgstr "Rediger profilbilde"
 
-#: ../qml/components/ChangeAvatarDialog.qml:38
-#: ../qml/components/StickerInput.qml:138
+#: ../qml/components/ChangeAvatarDialog.qml:21
+#, fuzzy
+#| msgid "Edit profile picture"
+msgid "New profile picture"
+msgstr "Rediger profilbilde"
+
+#: ../qml/components/ChangeAvatarDialog.qml:39
 #: ../qml/components/ChangeChatAvatarDialog.qml:39
-msgid "Error"
-msgstr "Feil"
-
-#: ../qml/components/ChangeAvatarDialog.qml:42
-#: ../qml/components/StickerInput.qml:142
-#: ../qml/components/ChangeChatAvatarDialog.qml:43
-msgid "OK"
-msgstr "OK"
-
-#: ../qml/components/ChangeAvatarDialog.qml:53
-#: ../qml/components/ChangeChatAvatarDialog.qml:54
 msgid "Remove picture"
 msgstr "Fjern bilde"
 
-#: ../qml/components/ChangeAvatarDialog.qml:64
+#: ../qml/components/ChangeAvatarDialog.qml:50
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/BottomEdgePageStack.qml:92
 #: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangeChatAvatarDialog.qml:65
-#: ../qml/components/ChangeChatnameDialog.qml:59
+#: ../qml/components/ChangeChatAvatarDialog.qml:50
+#: ../qml/components/ChangeChatnameDialog.qml:62
 msgid "Close"
 msgstr "Lukk"
 
@@ -878,7 +875,9 @@ msgid "Download"
 msgstr "Last ned"
 
 #: ../qml/components/WaitDialog.qml:11
-msgid "Loading... Please wait!"
+#, fuzzy
+#| msgid "Loading... Please wait!"
+msgid "Loading… Please wait."
 msgstr "Laster inn… Vent."
 
 #: ../qml/components/WaitDialog.qml:36
@@ -930,16 +929,17 @@ msgid "Connect new phone number"
 msgstr "Koble til nytt telefonnummer"
 
 #: ../qml/components/AddPhoneDialog.qml:12
-#, fuzzy
-msgid "..."
-msgstr "…"
+msgid "…"
+msgstr ""
 
 #: ../qml/components/AddPhoneDialog.qml:22
 msgid "Please log out to change your country"
 msgstr "Logg ut for å endre ditt land"
 
 #: ../qml/components/AddPhoneDialog.qml:26
-msgid "Phone number..."
+#, fuzzy
+#| msgid "Phone number..."
+msgid "Phone number…"
 msgstr "Telefonnummer…"
 
 #: ../qml/components/AddPhoneDialog.qml:44
@@ -966,7 +966,7 @@ msgstr "Ja"
 
 #: ../qml/components/LogoutDialog.qml:25
 #, fuzzy
-msgid "Are you sure that you want to log out?"
+msgid "Are you sure you want to log out?"
 msgstr "Er du sikker på at du vil logge ut?"
 
 #: ../qml/components/AddAliasDialog.qml:11
@@ -980,7 +980,7 @@ msgstr "#sludrenavn:%1"
 
 #: ../qml/components/AddAliasDialog.qml:32
 #: ../qml/components/ChangeDisplaynameDialog.qml:33
-#: ../qml/components/ChangeChatnameDialog.qml:51
+#: ../qml/components/ChangeChatnameDialog.qml:54
 msgid "Save"
 msgstr "Lagre"
 
@@ -1056,7 +1056,7 @@ msgstr "Last ned: "
 msgid "This device"
 msgstr "Denne enheten"
 
-#: ../qml/components/StickerInput.qml:57
+#: ../qml/components/StickerInput.qml:56
 msgid "Delete sticker"
 msgstr "Slett klistremerke"
 
@@ -1105,8 +1105,14 @@ msgstr "Ditt brukernavn er: %1"
 msgid "Or"
 msgstr "Eller"
 
-#: ../qml/components/ChangeChatAvatarDialog.qml:12
+#: ../qml/components/ChangeChatAvatarDialog.qml:11
 msgid "Edit chat picture"
+msgstr "Rediger sludringsbilde"
+
+#: ../qml/components/ChangeChatAvatarDialog.qml:21
+#, fuzzy
+#| msgid "Edit chat picture"
+msgid "New chat picture"
 msgstr "Rediger sludringsbilde"
 
 #: ../qml/components/ChangeChatnameDialog.qml:12
@@ -1119,11 +1125,11 @@ msgstr "Sludringsinnstillinger:"
 msgid "Change chat avatar"
 msgstr "Endre sludreavatar"
 
-#: ../qml/components/ChangeChatnameDialog.qml:27
+#: ../qml/components/ChangeChatnameDialog.qml:30
 msgid "No chat name yet"
 msgstr "Inget sludringsnavn enda"
 
-#: ../qml/components/ChangeChatnameDialog.qml:34
+#: ../qml/components/ChangeChatnameDialog.qml:37
 msgid "No description yet"
 msgstr "Ingen beskrivelse enda"
 
@@ -1190,6 +1196,11 @@ msgstr "Ble bannlyst fra sludringen"
 #: ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr "Ukjent"
+
+#: ../qml/scripts/ChatPageActions.js:523
+#, fuzzy
+msgid "Uploading..."
+msgstr "Synkroniserer… Vent."
 
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
@@ -1275,7 +1286,7 @@ msgstr "Brukernavn allerede i bruk"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:30
 #, fuzzy
-msgid "The desired user ID is not a valid user name"
+msgid "The desired user ID is not a valid username"
 msgstr "Ønsket bruker-ID er ikke et gyldig brukernavn"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:31
@@ -1288,8 +1299,8 @@ msgstr ""
 "programtjeneste."
 
 #: ../qml/scripts/PasswordCreationPageActions.js:32
-msgid "Registration on %1 failed..."
-msgstr "Registrering på %1 mislyktes…"
+msgid "Could not register on %1…"
+msgstr ""
 
 #: ../qml/scripts/PasswordInputPageActions.js:10
 msgid "Invalid username or password"
@@ -1535,6 +1546,31 @@ msgstr "Brukernavn \"%1\" ikke funnet på %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Brukernavn allerede i bruk"
+
+#~ msgid "Search country name..."
+#~ msgstr "Søk etter landsnavn…"
+
+#, fuzzy
+#~ msgid "You are that!"
+#~ msgstr "Det er deg!"
+
+#, fuzzy
+#~ msgid ""
+#~ "We are sorry. 😕 Sharing photos, videos or files is not yet supported..."
+#~ msgstr "😕 Deling av bilder, videoer eller filer støttes ikke enda…"
+
+#~ msgid "Error"
+#~ msgstr "Feil"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#, fuzzy
+#~ msgid "..."
+#~ msgstr "…"
+
+#~ msgid "Registration on %1 failed..."
+#~ msgstr "Registrering på %1 mislyktes…"
 
 #~ msgid "Too much new messages"
 #~ msgstr "For mange nye meldinger"
@@ -1805,10 +1841,6 @@ msgstr "Brukernavn allerede i bruk"
 
 #~ msgid "Delete message"
 #~ msgstr "Slett melding"
-
-#, fuzzy
-#~ msgid "Search for chat names…"
-#~ msgstr "Søk etter sludringsnavn…"
 
 #~ msgid "Donate us a coffee"
 #~ msgstr "Spander kaffe"
