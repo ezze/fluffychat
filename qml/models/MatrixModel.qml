@@ -417,7 +417,7 @@ Item {
         timer.start();
 
         // Send the request now
-        if ( priority !== _PRIORITY.SYNC ) console.log("📨[%1]".arg(type), action)
+        //if ( priority !== _PRIORITY.SYNC ) console.log("📨[%1]".arg(type), action)
         http.send( JSON.stringify( postData ) )
 
         return http

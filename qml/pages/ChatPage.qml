@@ -318,7 +318,7 @@ Page {
                 onTriggered: ChatPageActions.send ()
             },
             Action {
-                iconName: "camera-app-symbolic"
+                iconName: "stock_image"
                 visible: stickerInput.visible || messageTextField.displayText === ""
                 onTriggered: ChatPageActions.sendPicture ()
             },
@@ -328,12 +328,7 @@ Page {
                 onTriggered: ChatPageActions.sendContact ()
             },
             Action {
-                iconName: "x-office-document-symbolic"
-                visible: stickerInput.visible
-                onTriggered: ChatPageActions.sendDocument ()
-            },
-            Action {
-                iconName: "mediaplayer-app-symbolic"
+                iconName: "stock_video"
                 visible: stickerInput.visible
                 onTriggered: ChatPageActions.sendVideo ()
             },

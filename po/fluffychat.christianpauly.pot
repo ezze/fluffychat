@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 11:39+0000\n"
+"POT-Creation-Date: 2019-04-05 16:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -212,11 +212,11 @@ msgstr ""
 msgid "Search for your chats…"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:121
+#: ../qml/pages/ChatListPage.qml:122
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:151
+#: ../qml/pages/ChatListPage.qml:152
 msgid "Add chat"
 msgstr ""
 
@@ -232,15 +232,15 @@ msgstr ""
 msgid "Filter contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:71
+#: ../qml/pages/CreateChatPage.qml:72
 msgid "New group"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:78
+#: ../qml/pages/CreateChatPage.qml:79
 msgid "Public groups"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:87
+#: ../qml/pages/CreateChatPage.qml:88
 msgid "Click on the top right button to add contacts."
 msgstr ""
 
@@ -538,11 +538,11 @@ msgstr ""
 msgid "Search for chats or #aliases…"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:67
+#: ../qml/pages/DiscoverPage.qml:68
 msgid "Loading…"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:67
+#: ../qml/pages/DiscoverPage.qml:68
 msgid "No chats found"
 msgstr ""
 
@@ -566,23 +566,23 @@ msgstr ""
 msgid "Search…"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:235
+#: ../qml/pages/ChatSettingsPage.qml:236
 msgid "Invite friends"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:243
+#: ../qml/pages/ChatSettingsPage.qml:244
 msgid "Reload"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:260
+#: ../qml/pages/ChatSettingsPage.qml:261
 msgid "Enroll as member"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:264
+#: ../qml/pages/ChatSettingsPage.qml:265
 msgid "Appoint to moderator"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:269
+#: ../qml/pages/ChatSettingsPage.qml:270
 msgid "Appoint to admin"
 msgstr ""
 
@@ -655,7 +655,7 @@ msgid "Copied to clipboard"
 msgstr ""
 
 #: ../qml/components/MemberListItem.qml:48
-#: ../qml/components/ChatScrollView.qml:50
+#: ../qml/components/ChatScrollView.qml:51
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 
@@ -800,7 +800,7 @@ msgstr ""
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
-#: ../qml/components/ChatScrollView.qml:92
+#: ../qml/components/ChatScrollView.qml:93
 msgid "Remove"
 msgstr ""
 
@@ -892,35 +892,35 @@ msgstr ""
 msgid "Last active: %1"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:56
+#: ../qml/components/ChatScrollView.qml:57
 msgid "Try to send again"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:62
+#: ../qml/components/ChatScrollView.qml:63
 msgid "Reply"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:68
+#: ../qml/components/ChatScrollView.qml:69
 msgid "Copy text"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:74
+#: ../qml/components/ChatScrollView.qml:75
 msgid "Add to sticker collection"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:80
+#: ../qml/components/ChatScrollView.qml:81
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:251
+#: ../qml/components/ChatScrollView.qml:252
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:251
+#: ../qml/components/ChatScrollView.qml:252
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:322
+#: ../qml/components/ChatScrollView.qml:323
 msgid "Download: "
 msgstr ""
 

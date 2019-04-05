@@ -543,10 +543,6 @@ function sendVideo () {
     contentHub.importVideo(uploadAndSend)
 }
 
-function sendDocument () {
-    contentHub.importDocument(uploadAndSend)
-}
-
 function sendContact () {
     contentHub.importContact(uploadAndSend)
 }

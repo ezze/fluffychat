@@ -91,6 +91,7 @@ Rectangle {
 
     ListView {
         id: grid
+        clip: true
         anchors.fill: parent
         orientation: ListView.Horizontal
         delegate: Rectangle {
@@ -124,7 +125,7 @@ Rectangle {
         }
         model: ListModel { id: stickerModel }
     }
-    
+
     states: State {
         name: "visible"; when: stickerInput.visible
         PropertyChanges {

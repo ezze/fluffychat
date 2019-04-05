@@ -105,6 +105,7 @@ Page {
 
     ListView {
         id: chatListView
+        clip: true
         width: parent.width
         height: parent.height - bottomEdgeHint.height
         anchors.top: parent.top

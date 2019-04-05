@@ -14,6 +14,7 @@ ListView {
     id: chatScrollView
     property alias count: model.count
 
+    clip: true
     width: parent.width
     height: parent.height - 2 * chatInput.height
     anchors.bottom: chatInput.top
