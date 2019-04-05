@@ -1,3 +1,9 @@
+### FluffyChat 11.1:
++ File transfer now possible using different types
++ Sharing files from other apps now possible
++ New translations - thanks to all translators
+- Fixed: Can not change chat name or description
+
 ### FluffyChat 11:
 + Improved stability and performance
 + New translations - thanks to all translators
