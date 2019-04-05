@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 06:47+0000\n"
+"POT-Creation-Date: 2019-03-13 18:30+0000\n"
 "PO-Revision-Date: 2019-03-12 09:26+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
@@ -680,7 +680,7 @@ msgstr "Keine Verbindung zum Homeserver 😕"
 msgid "Your session is no longer valid"
 msgstr "Deine Sitzung ist nicht länger gültig"
 
-#: ../qml/models/MatrixModel.qml:554
+#: ../qml/models/MatrixModel.qml:551
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1109,10 +1109,6 @@ msgstr "Wurde aus dem Chat verbannt"
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: ../qml/scripts/ChatPageActions.js:258
-msgid "Too much new messages"
-msgstr "Zu viele neue Nachrichten"
-
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
 msgstr "Hintergrund entfernt"
@@ -1423,6 +1419,9 @@ msgstr "Nutzername \"%1\" nicht gefunden auf %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Benutzername schon vergeben"
+
+#~ msgid "Too much new messages"
+#~ msgstr "Zu viele neue Nachrichten"
 
 #~ msgid "You are offline 😕"
 #~ msgstr "Du bist offline 😕"
