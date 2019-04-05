@@ -199,16 +199,21 @@ function init () {
     if ( contentHub.shareObject !== null ) {
         var message = ""
         if ( contentHub.shareObject.items ) {
-            for ( var i = 0; i < contentHub.shareObject.items.length; i++ ) {
-                if (String(contentHub.shareObject.items[i].text).length > 0 && String(contentHub.shareObject.items[i].url).length == 0) {
-                    message += String(contentHub.shareObject.items[i].text)
+            // Share pure text or url?
+            if ( contentHub.shareObject.contentType === ContentType.Links || contentHub.shareObject.contentType === ContentType.Text ) {
+                for ( var i = 0; i < contentHub.shareObject.items.length; i++ ) {
+                    if (String(contentHub.shareObject.items[i].text).length > 0 && String(contentHub.shareObject.items[i].url).length == 0) {
+                        message += String(contentHub.shareObject.items[i].text)
+                    }
+                    else if (String(contentHub.shareObject.items[i].url).length > 0 ) {
+                        message += String(contentHub.shareObject.items[i].url)
+                    }
+                    if ( i+1 < contentHub.shareObject.items.length ) message += "\n"
                 }
-                else if (String(contentHub.shareObject.items[i].url).length > 0 ) {
-                    message += String(contentHub.shareObject.items[i].url)
-                }
-                if ( i+1 < contentHub.shareObject.items.length ) message += "\n"
+                if ( message !== "") messageTextField.text = message
             }
-            if ( message !== "") messageTextField.text = message
+            // Share a file given by a path?
+            else uploadAndSend ( contentHub.shareObject.items[0].url )
         }
         else if ( contentHub.shareObject.matrixEvent ) {
             var now = new Date().getTime()

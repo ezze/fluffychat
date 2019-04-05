@@ -85,16 +85,15 @@ Item {
 
     function startImport ( transfer ) {
         console.log("NEW TRANSFER:",JSON.stringify(transfer))
-        if ( transfer.contentType === ContentType.Links || transfer.contentType === ContentType.Text ) {
-            mainLayout.removePages( mainLayout.primaryPage )
-            contentHub.shareObject = transfer
-        }
-        else if ( transfer.contentType === ContentType.Contacts ) {
+        if ( transfer.contentType === ContentType.Contacts ) {
             for ( var i = 0; i < transfer.items.length; i++ ) {
                 contactImport.mediaReceived ( String(transfer.items[i].url) )
             }
         }
-        else toast.show (i18n.tr("Sorry. 😕 Sharing photos, videos or files is not yet supported…"))
+        else {
+            mainLayout.removePages( mainLayout.primaryPage )
+            contentHub.shareObject = transfer
+        }
     }
 
     function share(url, text, contentType) {
