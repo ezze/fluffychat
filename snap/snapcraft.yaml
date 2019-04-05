@@ -19,7 +19,9 @@ apps:
       - opengl
       - network
       - network-bind
+      - network-manager
       - pulseaudio
+      - home
 
 parts:
   fluffychat:
@@ -37,6 +39,13 @@ parts:
       - share
       - usr
       - qml
+    after: [olm]
+  olm:
+    source: libs/olm
+    plugin: cmake
+    override-build: |
+      cmake ../src -Bbuild -DOLM_TESTS=OFF -DBUILD_SHARED_LIBS=OFF && \
+      cmake --build build
   qt-conf:
     plugin: dump
     source: snap/local
