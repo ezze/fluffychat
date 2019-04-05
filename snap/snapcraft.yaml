@@ -31,8 +31,6 @@ parts:
       - qtbase5-dev
       - qtdeclarative5-dev
       - intltool
-    organize:
-      fluffychat.desktop: usr/share/applications/
     stage:
       - assets
       - lib
@@ -40,6 +38,11 @@ parts:
       - usr
       - qml
     after: [olm]
+  desktop-file:
+    plugin: dump
+    source: .
+    organize:
+      fluffychat_snap.desktop: usr/share/applications/fluffychat.desktop
   olm:
     source: libs/olm
     plugin: cmake
