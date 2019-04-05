@@ -204,11 +204,8 @@ Page {
         onContentYChanged: if ( atYBeginning ) ChatPageActions.requestHistory ()
     }
 
-    property var stickerInput: stickerInputLoader.item
-
-    Loader {
-        id: stickerInputLoader
-        source: "../components/StickerInput.qml"
+    StickerInput {
+        id: stickerInput
         anchors.bottom: chatInput.top
     }
 
@@ -296,7 +293,6 @@ Page {
             anchors.margins: units.gu(1)
             color: mainLayout.darkmode ? UbuntuColors.inkstone : UbuntuColors.porcelain
             visible: membership === "join" && canSendMessages && replyEvent === null
-                     && stickerInputLoader.status === Loader.Ready
             width: height
             onClicked: stickerInput.visible ? stickerInput.hide() : stickerInput.show()
         }
