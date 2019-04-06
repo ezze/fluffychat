@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-05 17:25+0000\n"
-"PO-Revision-Date: 2019-04-06 06:06+0000\n"
+"PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -153,6 +153,9 @@ msgid ""
 "File transfer now possible using different types. Sharing files from other "
 "apps now possible. Fixed: Can not change chat name or description."
 msgstr ""
+"Ahora es posible la transferencia de archivos usando diferentes tipos y "
+"compartir archivos desde otras aplicaciones. Solucionado: no poder cambiar "
+"el nombre del chat o la descripción."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -299,7 +302,7 @@ msgstr "Configuración del chat:"
 
 #: ../qml/pages/SettingsPage.qml:197
 msgid "Send with enter"
-msgstr ""
+msgstr "Enviar con la tecla intro"
 
 #: ../qml/pages/SettingsPage.qml:204
 msgid "Display 'I am typing' when typing"
@@ -675,7 +678,7 @@ msgstr "😕 Sin conexión…"
 
 #: ../qml/models/MatrixModel.qml:443
 msgid "Upload error:"
-msgstr ""
+msgstr "Error de subida:"
 
 #: ../qml/models/MatrixModel.qml:519
 msgid "No connection to the homeserver 😕"
