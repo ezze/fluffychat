@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 10:55+0000\n"
-"PO-Revision-Date: 2019-03-13 06:51+0000\n"
+"POT-Creation-Date: 2019-04-05 17:25+0000\n"
+"PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -17,17 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.6-dev\n"
 
-#: ../qml/Main.qml:111
+#: ../qml/Main.qml:25 ../qml/pages/ChatListPage.qml:38
+#: fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
+
+#: ../qml/Main.qml:114
 msgid "Are you sure?"
 msgstr "¿Seguro?"
 
-#: ../qml/Main.qml:134
+#: ../qml/Main.qml:137
 msgid "You must agree to the privacy policy"
 msgstr "Debe aceptar la política de privacidad"
 
-#: ../qml/Main.qml:144
+#: ../qml/Main.qml:152
 msgid "Copied to the clipboard"
 msgstr "Copiado al portapapeles"
 
@@ -68,7 +73,7 @@ msgstr "Código fuente"
 msgid "License"
 msgstr "Licencia"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:218
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:225
 msgid "Archived chats"
 msgstr "Chats archivados"
 
@@ -80,7 +85,7 @@ msgstr "Busque chats archivados..."
 msgid "There are no archived chats"
 msgstr "No hay ningún chat archivado"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:236
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:243
 msgid "Connected email addresses"
 msgstr "Direcciones de correo electrónico conectadas"
 
@@ -118,10 +123,6 @@ msgid "Welcome to FluffyChat"
 msgstr "Bienvenida/o a FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
-#, fuzzy
-#| msgid ""
-#| "Chat with your friends and join the community. You can use your phone "
-#| "number or an unique username to find friends."
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or a unique username to find friends."
@@ -148,28 +149,19 @@ msgid "What's new in version %1?"
 msgstr "¿Qué novedades hay en la versión %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-#, fuzzy
-#| msgid ""
-#| "Improved stability and performance, new translations, design changes, "
-#| "better tablet support and a lot of bug fixes."
 msgid ""
-"Improved stability and performance, new translations, design changes, better "
-"tablet support and a lot of bugfixes."
+"File transfer now possible using different types. Sharing files from other "
+"apps now possible. Fixed: Can not change chat name or description."
 msgstr ""
-"Rendimiento y estabilidad mejorados, nuevas traducciones, cambios de diseño, "
-"mejor soporte para las tabletas y un montón de fallos corregidos."
+"Ahora es posible la transferencia de archivos usando diferentes tipos y "
+"compartir archivos desde otras aplicaciones. Solucionado: no poder cambiar "
+"el nombre del chat o la descripción."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
 msgstr "Financiado por la comunidad"
 
 #: ../qml/pages/WalkthroughPage.qml:231
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers are "
-#| "all funded by the community. You can donate for this project on <a "
-#| "href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a "
-#| "href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -197,7 +189,7 @@ msgstr "Cambiar servidor de datos («homeserver»)"
 msgid "Change ID-server"
 msgstr "Cambiar servidor de identidad («identityserver»)"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:276
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:283
 msgid "About FluffyChat"
 msgstr "Acerca de FluffyChat"
 
@@ -229,26 +221,20 @@ msgstr "Crear una cuenta nueva"
 msgid "Sign in"
 msgstr "Iniciar sesión"
 
-#: ../qml/pages/ChatListPage.qml:38 fluffychat.desktop.in.h:1
-msgid "FluffyChat"
-msgstr "FluffyChat"
-
 #: ../qml/pages/ChatListPage.qml:38
 msgid "Share"
 msgstr "Compartir"
 
 #: ../qml/pages/ChatListPage.qml:101
-#, fuzzy
-#| msgid "Search for your chats..."
 msgid "Search for your chats…"
-msgstr "Busque sus chats..."
+msgstr "Busque sus chats…"
 
-#: ../qml/pages/ChatListPage.qml:121
+#: ../qml/pages/ChatListPage.qml:122
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 "Deslice desde abajo para iniciar un nuevo chat o descubrir grupos públicos."
 
-#: ../qml/pages/ChatListPage.qml:151
+#: ../qml/pages/ChatListPage.qml:152
 msgid "Add chat"
 msgstr "Añadir chat"
 
@@ -315,47 +301,51 @@ msgid "Chat settings:"
 msgstr "Configuración del chat:"
 
 #: ../qml/pages/SettingsPage.qml:197
+msgid "Send with enter"
+msgstr "Enviar con la tecla intro"
+
+#: ../qml/pages/SettingsPage.qml:204
 msgid "Display 'I am typing' when typing"
 msgstr "Mostrar «estoy escribiendo» cuando escriba"
 
-#: ../qml/pages/SettingsPage.qml:204
+#: ../qml/pages/SettingsPage.qml:211
 msgid "Hide less important events"
 msgstr "Ocultar los eventos menos importantes"
 
-#: ../qml/pages/SettingsPage.qml:211
+#: ../qml/pages/SettingsPage.qml:218
 msgid "Autoload animated images"
 msgstr "Carga automática de las imágenes animadas"
 
-#: ../qml/pages/SettingsPage.qml:225
+#: ../qml/pages/SettingsPage.qml:232
 msgid "Account settings:"
 msgstr "Configuración de la cuenta:"
 
-#: ../qml/pages/SettingsPage.qml:229 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:236 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr "Números de teléfono conectados"
 
-#: ../qml/pages/SettingsPage.qml:243 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:250 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: ../qml/pages/SettingsPage.qml:250
+#: ../qml/pages/SettingsPage.qml:257
 msgid "Change password"
 msgstr "Cambiar contraseña"
 
-#: ../qml/pages/SettingsPage.qml:256
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Check out:"
 msgstr "Comprobar:"
 
-#: ../qml/pages/SettingsPage.qml:260
+#: ../qml/pages/SettingsPage.qml:267
 msgid "Disable account"
 msgstr "Desactivar la cuenta"
 
-#: ../qml/pages/SettingsPage.qml:266 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:273 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: ../qml/pages/SettingsPage.qml:272
+#: ../qml/pages/SettingsPage.qml:279
 msgid "More:"
 msgstr "Más:"
 
@@ -376,10 +366,8 @@ msgid "Password..."
 msgstr "Contraseña..."
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
-#, fuzzy
-#| msgid "Receive notifications for..."
 msgid "Receive notifications for…"
-msgstr "Recibir notificaciones para..."
+msgstr "Recibir notificaciones para…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
 msgid "Common messages"
@@ -470,16 +458,12 @@ msgid "Choose a country"
 msgstr "Elegir un país"
 
 #: ../qml/pages/CountryPickerPage.qml:28
-#, fuzzy
-#| msgid "Search for chat names…"
 msgid "Search for country by name…"
-msgstr "Buscar nombres de chat…"
+msgstr "Buscar país por nombre…"
 
 #: ../qml/pages/UserPage.qml:34
-#, fuzzy
-#| msgid "Username has been copied to the clipboard"
 msgid "Username copied to the clipboard"
-msgstr "El nombre de usuario ha sido copiado al portapapeles"
+msgstr "Nombre de usuario copiado al portapapeles"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "Chats with this user:"
@@ -487,7 +471,7 @@ msgstr "Chats con este usuario:"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "This is you."
-msgstr ""
+msgstr "Este es su usuario."
 
 #: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
@@ -596,16 +580,12 @@ msgid "and matrix.org"
 msgstr "y matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:44
-#, fuzzy
-#| msgid "Search for chats or #aliases..."
 msgid "Search for chats or #aliases…"
-msgstr "Buscar por chats o #alias..."
+msgstr "Buscar por chats o #alias…"
 
 #: ../qml/pages/DiscoverPage.qml:67
-#, fuzzy
-#| msgid "Loading..."
 msgid "Loading…"
-msgstr "Cargando..."
+msgstr "Cargando…"
 
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "No chats found"
@@ -620,20 +600,16 @@ msgid "Description:"
 msgstr "Descripción:"
 
 #: ../qml/pages/ChatSettingsPage.qml:136
-#, fuzzy
-#| msgid "No chat description found..."
 msgid "No chat description found…"
-msgstr "No se ha encontrado la descripción del chat..."
+msgstr "No se ha encontrado la descripción del chat…"
 
 #: ../qml/pages/ChatSettingsPage.qml:191
 msgid "Users in this chat (%1):"
 msgstr "Usuarios en este chat (%1):"
 
 #: ../qml/pages/ChatSettingsPage.qml:215
-#, fuzzy
-#| msgid "Search..."
 msgid "Search…"
-msgstr "Buscar..."
+msgstr "Buscar…"
 
 #: ../qml/pages/ChatSettingsPage.qml:235
 msgid "Invite friends"
@@ -644,22 +620,16 @@ msgid "Reload"
 msgstr "Volver a cargar"
 
 #: ../qml/pages/ChatSettingsPage.qml:260
-#, fuzzy
-#| msgid "Appoint to a member"
 msgid "Enroll as member"
-msgstr "Nombrar a un miembro"
+msgstr "Inscribirse como miembro"
 
 #: ../qml/pages/ChatSettingsPage.qml:264
-#, fuzzy
-#| msgid "Appoint to a Moderator"
 msgid "Appoint to moderator"
 msgstr "Nombrar a un moderador"
 
 #: ../qml/pages/ChatSettingsPage.qml:269
-#, fuzzy
-#| msgid "Appoint to Admin"
 msgid "Appoint to admin"
-msgstr "Nombrar un administrador"
+msgstr "Nombrar a un administrador"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:15
 msgid "Notification settings"
@@ -681,46 +651,44 @@ msgstr "Dispositivos que reciben notificaciones:"
 msgid "Add chat address"
 msgstr "Añadir dirección del chat"
 
-#: ../qml/models/PushModel.qml:49
+#: ../qml/models/PushModel.qml:52
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr "Conéctese a Ubuntu One para recibir notificaciones."
 
-#: ../qml/models/PushModel.qml:74
-#, fuzzy
-#| msgid "Push notifications are disabled..."
+#: ../qml/models/PushModel.qml:77
 msgid "Push notifications are turned off…"
-msgstr "Las notificaciones están desactivadas..."
+msgstr "Las notificaciones están desactivadas…"
 
-#: ../qml/models/MatrixModel.qml:75
+#: ../qml/models/MatrixModel.qml:77
 msgid "USA"
 msgstr "EEUU"
 
-#: ../qml/models/MatrixModel.qml:76
+#: ../qml/models/MatrixModel.qml:78
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:268
+#: ../qml/models/MatrixModel.qml:271
 msgid "You are not allowed to chat here."
 msgstr "No tiene permiso para chatear aquí."
 
-#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
-#, fuzzy
-#| msgid "😕 No connection..."
 msgid "😕 No connection…"
-msgstr "😕 Sin conexión..."
+msgstr "😕 Sin conexión…"
 
-#: ../qml/models/MatrixModel.qml:508
+#: ../qml/models/MatrixModel.qml:443
+msgid "Upload error:"
+msgstr "Error de subida:"
+
+#: ../qml/models/MatrixModel.qml:519
 msgid "No connection to the homeserver 😕"
 msgstr "Sin conexión al servidor 😕"
 
-#: ../qml/models/MatrixModel.qml:515
-#, fuzzy
-#| msgid "Your session is no longer valid"
+#: ../qml/models/MatrixModel.qml:526
 msgid "Your session has expired"
-msgstr "Su sesión ya no es válida"
+msgstr "Su sesión ha caducado"
 
-#: ../qml/models/MatrixModel.qml:579
+#: ../qml/models/MatrixModel.qml:590
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -735,7 +703,7 @@ msgid "Copied to clipboard"
 msgstr "Copiado al portapapeles"
 
 #: ../qml/components/MemberListItem.qml:48
-#: ../qml/components/ChatScrollView.qml:50
+#: ../qml/components/ChatScrollView.qml:51
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr "Deslizar a la izquierda o la derecha para las acciones. 😉"
 
@@ -797,10 +765,8 @@ msgid "Edit profile picture"
 msgstr "Editar imagen de perfil"
 
 #: ../qml/components/ChangeAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit profile picture"
 msgid "New profile picture"
-msgstr "Editar imagen de perfil"
+msgstr "Nueva imagen de perfil"
 
 #: ../qml/components/ChangeAvatarDialog.qml:39
 #: ../qml/components/ChangeChatAvatarDialog.qml:39
@@ -845,10 +811,8 @@ msgid "Download"
 msgstr "Descargar"
 
 #: ../qml/components/WaitDialog.qml:11
-#, fuzzy
-#| msgid "Loading... Please wait!"
 msgid "Loading… Please wait."
-msgstr "Cargando... ¡Espere por favor!"
+msgstr "Cargando… espere."
 
 #: ../qml/components/WaitDialog.qml:36
 msgid "Cancel process"
@@ -884,7 +848,7 @@ msgstr "Introduzca su contraseña"
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
-#: ../qml/components/ChatScrollView.qml:92
+#: ../qml/components/ChatScrollView.qml:93
 msgid "Remove"
 msgstr "Eliminar"
 
@@ -898,17 +862,15 @@ msgstr "Conectar nuevo número de teléfono"
 
 #: ../qml/components/AddPhoneDialog.qml:12
 msgid "…"
-msgstr ""
+msgstr "…"
 
 #: ../qml/components/AddPhoneDialog.qml:22
 msgid "Please log out to change your country"
 msgstr "Cierre la sesión para cambiar el país"
 
 #: ../qml/components/AddPhoneDialog.qml:26
-#, fuzzy
-#| msgid "Phone number..."
 msgid "Phone number…"
-msgstr "Número de teléfono..."
+msgstr "Número de teléfono…"
 
 #: ../qml/components/AddPhoneDialog.qml:44
 #: ../qml/components/EnterSMSTokenDialog.qml:33
@@ -931,8 +893,6 @@ msgid "Yes"
 msgstr "Sí"
 
 #: ../qml/components/LogoutDialog.qml:25
-#, fuzzy
-#| msgid "Are you sure that you want to log out?"
 msgid "Are you sure you want to log out?"
 msgstr "¿Seguro que quiere cerrar la sesión?"
 
@@ -980,35 +940,35 @@ msgstr "Reiniciar"
 msgid "Last active: %1"
 msgstr "Visto por última vez: %1"
 
-#: ../qml/components/ChatScrollView.qml:56
+#: ../qml/components/ChatScrollView.qml:57
 msgid "Try to send again"
 msgstr "Intentar enviar de nuevo"
 
-#: ../qml/components/ChatScrollView.qml:62
+#: ../qml/components/ChatScrollView.qml:63
 msgid "Reply"
 msgstr "Contestar"
 
-#: ../qml/components/ChatScrollView.qml:68
+#: ../qml/components/ChatScrollView.qml:69
 msgid "Copy text"
 msgstr "Copiar texto"
 
-#: ../qml/components/ChatScrollView.qml:74
+#: ../qml/components/ChatScrollView.qml:75
 msgid "Add to sticker collection"
 msgstr "Añadir a la colección de pegatinas"
 
-#: ../qml/components/ChatScrollView.qml:80
+#: ../qml/components/ChatScrollView.qml:81
 msgid "Forward"
 msgstr "Reenviar"
 
-#: ../qml/components/ChatScrollView.qml:251
+#: ../qml/components/ChatScrollView.qml:252
 msgid "Load gif"
 msgstr "Cargar gif"
 
-#: ../qml/components/ChatScrollView.qml:251
+#: ../qml/components/ChatScrollView.qml:252
 msgid "Show image"
 msgstr "Mostrar imagen"
 
-#: ../qml/components/ChatScrollView.qml:322
+#: ../qml/components/ChatScrollView.qml:323
 msgid "Download: "
 msgstr "Descargar: "
 
@@ -1066,10 +1026,8 @@ msgid "Edit chat picture"
 msgstr "Editar la imagen del chat"
 
 #: ../qml/components/ChangeChatAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit chat picture"
 msgid "New chat picture"
-msgstr "Editar la imagen del chat"
+msgstr "Nueva imagen del chat"
 
 #: ../qml/components/ChangeChatnameDialog.qml:12
 msgid "Chat settings and details"
@@ -1147,11 +1105,9 @@ msgstr "Ha sido vetado en el chat"
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: ../qml/scripts/ChatPageActions.js:523
-#, fuzzy
-#| msgid "Loading..."
+#: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
-msgstr "Cargando..."
+msgstr "Subiendo…"
 
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
@@ -1230,8 +1186,6 @@ msgid "Username already taken"
 msgstr "Nombre de usuario ya tomado"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:30
-#, fuzzy
-#| msgid "The desired user ID is not a valid user name"
 msgid "The desired user ID is not a valid username"
 msgstr "El ID de usuario deseado no es un nombre de usuario válido"
 
@@ -1245,7 +1199,7 @@ msgstr ""
 
 #: ../qml/scripts/PasswordCreationPageActions.js:32
 msgid "Could not register on %1…"
-msgstr ""
+msgstr "No se pudo registrar en %1…"
 
 #: ../qml/scripts/PasswordInputPageActions.js:10
 msgid "Invalid username or password"
@@ -1463,6 +1417,13 @@ msgstr "No se encontró el nombre de usuario «%1» en %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "El nombre de usuario ya está tomado"
+
+#~ msgid ""
+#~ "Improved stability and performance, new translations, design changes, "
+#~ "better tablet support and a lot of bugfixes."
+#~ msgstr ""
+#~ "Rendimiento y estabilidad mejorados, nuevas traducciones, cambios de "
+#~ "diseño, mejor soporte para las tabletas y un montón de fallos corregidos."
 
 #~ msgid "Search country name..."
 #~ msgstr "Buscar nombre del país..."

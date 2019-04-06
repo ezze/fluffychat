@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 10:55+0000\n"
+"POT-Creation-Date: 2019-04-05 17:25+0000\n"
 "PO-Revision-Date: 2019-03-22 23:38+0000\n"
 "Last-Translator: libermax <libremax@protonmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
@@ -19,15 +19,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.6-dev\n"
 
-#: ../qml/Main.qml:111
+#: ../qml/Main.qml:25 ../qml/pages/ChatListPage.qml:38
+#: fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
+
+#: ../qml/Main.qml:114
 msgid "Are you sure?"
 msgstr "Êtes-vous sûr(e) ?"
 
-#: ../qml/Main.qml:134
+#: ../qml/Main.qml:137
 msgid "You must agree to the privacy policy"
 msgstr "Vous devez accepter la politique de protection de la vie privée"
 
-#: ../qml/Main.qml:144
+#: ../qml/Main.qml:152
 msgid "Copied to the clipboard"
 msgstr "Copié dans le presse-papier"
 
@@ -68,7 +73,7 @@ msgstr "Code source"
 msgid "License"
 msgstr "Licence"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:218
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:225
 msgid "Archived chats"
 msgstr "Discussions archivées"
 
@@ -80,7 +85,7 @@ msgstr "Chercher dans les discussions archivées..."
 msgid "There are no archived chats"
 msgstr "Il n'y a pas de discussions archivées"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:236
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:243
 msgid "Connected email addresses"
 msgstr "Adresses de courriel connectées"
 
@@ -150,17 +155,10 @@ msgid "What's new in version %1?"
 msgstr "Quoi de neuf dans la version %1 ?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-#, fuzzy
-#| msgid ""
-#| "Improved stability and performance, new translations, design changes, "
-#| "better tablet support and a lot of bug fixes."
 msgid ""
-"Improved stability and performance, new translations, design changes, better "
-"tablet support and a lot of bugfixes."
+"File transfer now possible using different types. Sharing files from other "
+"apps now possible. Fixed: Can not change chat name or description."
 msgstr ""
-"Stabilité et performance améliorées, nouvelles traductions, changements de "
-"conception, meilleure prise en charge des tablettes et énormément de "
-"problèmes résolus."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -201,7 +199,7 @@ msgstr "Changer de serveur d'accueil"
 msgid "Change ID-server"
 msgstr "Changer de serveur d'identités"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:276
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:283
 msgid "About FluffyChat"
 msgstr "À propos de FluffyChat"
 
@@ -233,10 +231,6 @@ msgstr "Créer un nouveau compte"
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: ../qml/pages/ChatListPage.qml:38 fluffychat.desktop.in.h:1
-msgid "FluffyChat"
-msgstr "FluffyChat"
-
 #: ../qml/pages/ChatListPage.qml:38
 msgid "Share"
 msgstr "Partager"
@@ -247,13 +241,13 @@ msgstr "Partager"
 msgid "Search for your chats…"
 msgstr "Chercher des noms de discussions..."
 
-#: ../qml/pages/ChatListPage.qml:121
+#: ../qml/pages/ChatListPage.qml:122
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 "Faites glisser vers le haut à partir du bas pour commencer une nouvelle "
 "discussion ou découvrir des groupes publics."
 
-#: ../qml/pages/ChatListPage.qml:151
+#: ../qml/pages/ChatListPage.qml:152
 msgid "Add chat"
 msgstr "Ajouter une discussion"
 
@@ -320,47 +314,51 @@ msgid "Chat settings:"
 msgstr "Paramètres de la discussion :"
 
 #: ../qml/pages/SettingsPage.qml:197
+msgid "Send with enter"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:204
 msgid "Display 'I am typing' when typing"
 msgstr "Afficher « J'écris » lorsque j'écris"
 
-#: ../qml/pages/SettingsPage.qml:204
+#: ../qml/pages/SettingsPage.qml:211
 msgid "Hide less important events"
 msgstr "Masquer les événements moins importants"
 
-#: ../qml/pages/SettingsPage.qml:211
+#: ../qml/pages/SettingsPage.qml:218
 msgid "Autoload animated images"
 msgstr "Charger automatiquement les images animées"
 
-#: ../qml/pages/SettingsPage.qml:225
+#: ../qml/pages/SettingsPage.qml:232
 msgid "Account settings:"
 msgstr "Paramètres du compte :"
 
-#: ../qml/pages/SettingsPage.qml:229 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:236 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr "Numéros de téléphone connectés"
 
-#: ../qml/pages/SettingsPage.qml:243 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:250 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Appareils"
 
-#: ../qml/pages/SettingsPage.qml:250
+#: ../qml/pages/SettingsPage.qml:257
 msgid "Change password"
 msgstr "Modifier le mot de passe"
 
-#: ../qml/pages/SettingsPage.qml:256
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Check out:"
 msgstr "Quitter la discussion :"
 
-#: ../qml/pages/SettingsPage.qml:260
+#: ../qml/pages/SettingsPage.qml:267
 msgid "Disable account"
 msgstr "Désactiver le compte"
 
-#: ../qml/pages/SettingsPage.qml:266 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:273 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Se déconnecter"
 
-#: ../qml/pages/SettingsPage.qml:272
+#: ../qml/pages/SettingsPage.qml:279
 msgid "More:"
 msgstr "Plus :"
 
@@ -688,46 +686,50 @@ msgstr "Appareils qui reçoivent des notifications :"
 msgid "Add chat address"
 msgstr "Ajouter une adresse de discussion"
 
-#: ../qml/models/PushModel.qml:49
+#: ../qml/models/PushModel.qml:52
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr "Veuillez vous connecter à Ubuntu One pour recevoir des notifications."
 
-#: ../qml/models/PushModel.qml:74
+#: ../qml/models/PushModel.qml:77
 #, fuzzy
 #| msgid "Push notifications are disabled..."
 msgid "Push notifications are turned off…"
 msgstr "Les notifications sont désactivées..."
 
-#: ../qml/models/MatrixModel.qml:75
+#: ../qml/models/MatrixModel.qml:77
 msgid "USA"
 msgstr "États-Unis d'Amérique"
 
-#: ../qml/models/MatrixModel.qml:76
+#: ../qml/models/MatrixModel.qml:78
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:268
+#: ../qml/models/MatrixModel.qml:271
 msgid "You are not allowed to chat here."
 msgstr "Vous n'êtes pas autorisé(e) à discuter ici."
 
-#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 #, fuzzy
 #| msgid "😕 No connection..."
 msgid "😕 No connection…"
 msgstr "😕 Pas de connexion..."
 
-#: ../qml/models/MatrixModel.qml:508
+#: ../qml/models/MatrixModel.qml:443
+msgid "Upload error:"
+msgstr ""
+
+#: ../qml/models/MatrixModel.qml:519
 msgid "No connection to the homeserver 😕"
 msgstr "Aucune connexion au serveur d'accueil 😕"
 
-#: ../qml/models/MatrixModel.qml:515
+#: ../qml/models/MatrixModel.qml:526
 #, fuzzy
 #| msgid "Your session is no longer valid"
 msgid "Your session has expired"
 msgstr "Votre session n'est plus valide"
 
-#: ../qml/models/MatrixModel.qml:579
+#: ../qml/models/MatrixModel.qml:590
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -742,7 +744,7 @@ msgid "Copied to clipboard"
 msgstr "A été copié dans le presse-papier"
 
 #: ../qml/components/MemberListItem.qml:48
-#: ../qml/components/ChatScrollView.qml:50
+#: ../qml/components/ChatScrollView.qml:51
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr ""
 "Faire glisser vers la gauche ou vers la droite pour accéder aux actions. 😉"
@@ -892,7 +894,7 @@ msgstr "Veuillez saisir votre mot de passe"
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
-#: ../qml/components/ChatScrollView.qml:92
+#: ../qml/components/ChatScrollView.qml:93
 msgid "Remove"
 msgstr "Supprimer"
 
@@ -990,35 +992,35 @@ msgstr "Réinitialiser"
 msgid "Last active: %1"
 msgstr "Dernier actif ou dernière active : %1"
 
-#: ../qml/components/ChatScrollView.qml:56
+#: ../qml/components/ChatScrollView.qml:57
 msgid "Try to send again"
 msgstr "Essayer d'envoyer à nouveau"
 
-#: ../qml/components/ChatScrollView.qml:62
+#: ../qml/components/ChatScrollView.qml:63
 msgid "Reply"
 msgstr "Répondre"
 
-#: ../qml/components/ChatScrollView.qml:68
+#: ../qml/components/ChatScrollView.qml:69
 msgid "Copy text"
 msgstr "Copier le texte"
 
-#: ../qml/components/ChatScrollView.qml:74
+#: ../qml/components/ChatScrollView.qml:75
 msgid "Add to sticker collection"
 msgstr "Ajouter à la collection d'autocollants"
 
-#: ../qml/components/ChatScrollView.qml:80
+#: ../qml/components/ChatScrollView.qml:81
 msgid "Forward"
 msgstr "Transférer"
 
-#: ../qml/components/ChatScrollView.qml:251
+#: ../qml/components/ChatScrollView.qml:252
 msgid "Load gif"
 msgstr "Charger un GIF"
 
-#: ../qml/components/ChatScrollView.qml:251
+#: ../qml/components/ChatScrollView.qml:252
 msgid "Show image"
 msgstr "Afficher l'image"
 
-#: ../qml/components/ChatScrollView.qml:322
+#: ../qml/components/ChatScrollView.qml:323
 msgid "Download: "
 msgstr "Télécharger : "
 
@@ -1157,7 +1159,7 @@ msgstr "A été banni(e) de la discussion"
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: ../qml/scripts/ChatPageActions.js:523
+#: ../qml/scripts/ChatPageActions.js:524
 #, fuzzy
 #| msgid "Loading..."
 msgid "Uploading..."
@@ -1476,6 +1478,18 @@ msgstr "Identifiant « %1 » non trouvé sur %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Cet identifiant est déjà pris"
+
+#, fuzzy
+#~| msgid ""
+#~| "Improved stability and performance, new translations, design changes, "
+#~| "better tablet support and a lot of bug fixes."
+#~ msgid ""
+#~ "Improved stability and performance, new translations, design changes, "
+#~ "better tablet support and a lot of bugfixes."
+#~ msgstr ""
+#~ "Stabilité et performance améliorées, nouvelles traductions, changements "
+#~ "de conception, meilleure prise en charge des tablettes et énormément de "
+#~ "problèmes résolus."
 
 #~ msgid "Search country name..."
 #~ msgstr "Recherche d'un nom de pays..."

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 10:55+0000\n"
-"PO-Revision-Date: 2019-03-22 23:38+0000\n"
+"POT-Creation-Date: 2019-04-05 17:25+0000\n"
+"PO-Revision-Date: 2019-04-06 06:06+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ca/>\n"
@@ -19,15 +19,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.6-dev\n"
 
-#: ../qml/Main.qml:111
+#: ../qml/Main.qml:25 ../qml/pages/ChatListPage.qml:38
+#: fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
+
+#: ../qml/Main.qml:114
 msgid "Are you sure?"
 msgstr "Segur?"
 
-#: ../qml/Main.qml:134
+#: ../qml/Main.qml:137
 msgid "You must agree to the privacy policy"
 msgstr "Heu d'acceptar la política de privacitat"
 
-#: ../qml/Main.qml:144
+#: ../qml/Main.qml:152
 msgid "Copied to the clipboard"
 msgstr "S'ha copiat al porta-retalls"
 
@@ -68,7 +73,7 @@ msgstr "Codi font"
 msgid "License"
 msgstr "Llicència"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:218
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:225
 msgid "Archived chats"
 msgstr "Xats arxivats"
 
@@ -80,7 +85,7 @@ msgstr "Cerca als xats arxivats…"
 msgid "There are no archived chats"
 msgstr "No hi ha cap xat arxivat"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:236
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:243
 msgid "Connected email addresses"
 msgstr "Adreces de correu connectades"
 
@@ -118,10 +123,6 @@ msgid "Welcome to FluffyChat"
 msgstr "Benvingut/da al FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
-#, fuzzy
-#| msgid ""
-#| "Chat with your friends and join the community. You can use your phone "
-#| "number or an unique username to find friends."
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or a unique username to find friends."
@@ -148,28 +149,16 @@ msgid "What's new in version %1?"
 msgstr "Quines novetats hi ha a la versió %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-#, fuzzy
-#| msgid ""
-#| "Improved stability and performance, new translations, design changes, "
-#| "better tablet support and a lot of bug fixes."
 msgid ""
-"Improved stability and performance, new translations, design changes, better "
-"tablet support and a lot of bugfixes."
+"File transfer now possible using different types. Sharing files from other "
+"apps now possible. Fixed: Can not change chat name or description."
 msgstr ""
-"Millores en l'estabilitat i rendiment, noves traduccions, canvi de disseny, "
-"millor suport per tauleta i un caramull de correccions d'errors."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
 msgstr "Finançat per la comunitat"
 
 #: ../qml/pages/WalkthroughPage.qml:231
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers are "
-#| "all funded by the community. You can donate for this project on <a "
-#| "href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a "
-#| "href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -197,7 +186,7 @@ msgstr "Canvia el servidor propi"
 msgid "Change ID-server"
 msgstr "Canvia el servidor d'identitas"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:276
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:283
 msgid "About FluffyChat"
 msgstr "Quant al FluffyChat"
 
@@ -229,27 +218,21 @@ msgstr "Crea un compte nou"
 msgid "Sign in"
 msgstr "Inicia la sessió"
 
-#: ../qml/pages/ChatListPage.qml:38 fluffychat.desktop.in.h:1
-msgid "FluffyChat"
-msgstr "FluffyChat"
-
 #: ../qml/pages/ChatListPage.qml:38
 msgid "Share"
 msgstr "Comparteix"
 
 #: ../qml/pages/ChatListPage.qml:101
-#, fuzzy
-#| msgid "Search for your chats..."
 msgid "Search for your chats…"
 msgstr "Cerca als meus xats…"
 
-#: ../qml/pages/ChatListPage.qml:121
+#: ../qml/pages/ChatListPage.qml:122
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 "Llisqueu cap amunt des de la part inferior per a iniciar un xat nou o "
 "descobrir grups públics."
 
-#: ../qml/pages/ChatListPage.qml:151
+#: ../qml/pages/ChatListPage.qml:152
 msgid "Add chat"
 msgstr "Afegeix un xat"
 
@@ -316,47 +299,51 @@ msgid "Chat settings:"
 msgstr "Preferències del xat:"
 
 #: ../qml/pages/SettingsPage.qml:197
+msgid "Send with enter"
+msgstr ""
+
+#: ../qml/pages/SettingsPage.qml:204
 msgid "Display 'I am typing' when typing"
 msgstr "Mostra «Estic escrivint» en escriure"
 
-#: ../qml/pages/SettingsPage.qml:204
+#: ../qml/pages/SettingsPage.qml:211
 msgid "Hide less important events"
 msgstr "Amaga els esdeveniments menys importants"
 
-#: ../qml/pages/SettingsPage.qml:211
+#: ../qml/pages/SettingsPage.qml:218
 msgid "Autoload animated images"
 msgstr "Carrega automàticament les imtges"
 
-#: ../qml/pages/SettingsPage.qml:225
+#: ../qml/pages/SettingsPage.qml:232
 msgid "Account settings:"
 msgstr "Preferències del compte:"
 
-#: ../qml/pages/SettingsPage.qml:229 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:236 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr "Números de telèfon connectats"
 
-#: ../qml/pages/SettingsPage.qml:243 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:250 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Dispositius"
 
-#: ../qml/pages/SettingsPage.qml:250
+#: ../qml/pages/SettingsPage.qml:257
 msgid "Change password"
 msgstr "Canvia la contrasenya"
 
-#: ../qml/pages/SettingsPage.qml:256
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Check out:"
 msgstr "Verifica:"
 
-#: ../qml/pages/SettingsPage.qml:260
+#: ../qml/pages/SettingsPage.qml:267
 msgid "Disable account"
 msgstr "Desactiva el compte"
 
-#: ../qml/pages/SettingsPage.qml:266 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:273 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Surt"
 
-#: ../qml/pages/SettingsPage.qml:272
+#: ../qml/pages/SettingsPage.qml:279
 msgid "More:"
 msgstr "Més:"
 
@@ -377,8 +364,6 @@ msgid "Password..."
 msgstr "Contrasenya…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
-#, fuzzy
-#| msgid "Receive notifications for..."
 msgid "Receive notifications for…"
 msgstr "Rebre notificacions push per…"
 
@@ -472,16 +457,12 @@ msgid "Choose a country"
 msgstr "Escolliu un país"
 
 #: ../qml/pages/CountryPickerPage.qml:28
-#, fuzzy
-#| msgid "Search country name..."
 msgid "Search for country by name…"
-msgstr "Cerca un nom de país…"
+msgstr "Cerca per nom de país…"
 
 #: ../qml/pages/UserPage.qml:34
-#, fuzzy
-#| msgid "Username has been copied to the clipboard"
 msgid "Username copied to the clipboard"
-msgstr "El nom d'usuari s'ha copiat en el porta-retalls"
+msgstr "S'ha copiat el nom d'usuari al porta-retalls"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "Chats with this user:"
@@ -489,7 +470,7 @@ msgstr "Xats amb aquest usuari:"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "This is you."
-msgstr ""
+msgstr "Sou vós."
 
 #: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
@@ -598,14 +579,10 @@ msgid "and matrix.org"
 msgstr "i matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:44
-#, fuzzy
-#| msgid "Search for chats or #aliases..."
 msgid "Search for chats or #aliases…"
 msgstr "Cerca xats o #àlies…"
 
 #: ../qml/pages/DiscoverPage.qml:67
-#, fuzzy
-#| msgid "Loading..."
 msgid "Loading…"
 msgstr "Carregant…"
 
@@ -622,8 +599,6 @@ msgid "Description:"
 msgstr "Descripció:"
 
 #: ../qml/pages/ChatSettingsPage.qml:136
-#, fuzzy
-#| msgid "No chat description found..."
 msgid "No chat description found…"
 msgstr "No s'ha trobar cap descripció del xat…"
 
@@ -632,8 +607,6 @@ msgid "Users in this chat (%1):"
 msgstr "Usuaris en aquest xat (%1):"
 
 #: ../qml/pages/ChatSettingsPage.qml:215
-#, fuzzy
-#| msgid "Search..."
 msgid "Search…"
 msgstr "Cerca…"
 
@@ -646,20 +619,14 @@ msgid "Reload"
 msgstr "Recarrega"
 
 #: ../qml/pages/ChatSettingsPage.qml:260
-#, fuzzy
-#| msgid "Appoint to a member"
 msgid "Enroll as member"
-msgstr "Designa un membre"
+msgstr "Inscriviu-vos com a membre"
 
 #: ../qml/pages/ChatSettingsPage.qml:264
-#, fuzzy
-#| msgid "Appoint to a Moderator"
 msgid "Appoint to moderator"
 msgstr "Designa com moderador/a"
 
 #: ../qml/pages/ChatSettingsPage.qml:269
-#, fuzzy
-#| msgid "Appoint to Admin"
 msgid "Appoint to admin"
 msgstr "Designa com administrador/a"
 
@@ -683,46 +650,44 @@ msgstr "Dispositius que reben notificacions push:"
 msgid "Add chat address"
 msgstr "Afegeix adreça de xat"
 
-#: ../qml/models/PushModel.qml:49
+#: ../qml/models/PushModel.qml:52
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr "Inicieu una sessió amb Ubuntu One per rebre notificacions push."
 
-#: ../qml/models/PushModel.qml:74
-#, fuzzy
-#| msgid "Push notifications are disabled..."
+#: ../qml/models/PushModel.qml:77
 msgid "Push notifications are turned off…"
-msgstr "Les notificacions push estan desactivades..."
+msgstr "Notificacions push desactivades…"
 
-#: ../qml/models/MatrixModel.qml:75
+#: ../qml/models/MatrixModel.qml:77
 msgid "USA"
 msgstr "EUA"
 
-#: ../qml/models/MatrixModel.qml:76
+#: ../qml/models/MatrixModel.qml:78
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:268
+#: ../qml/models/MatrixModel.qml:271
 msgid "You are not allowed to chat here."
 msgstr "Aquí no teniu permís per xatejar."
 
-#: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
-#, fuzzy
-#| msgid "😕 No connection..."
 msgid "😕 No connection…"
-msgstr "😕 Sense connexió..."
+msgstr "😕 Sense connexió…"
 
-#: ../qml/models/MatrixModel.qml:508
+#: ../qml/models/MatrixModel.qml:443
+msgid "Upload error:"
+msgstr ""
+
+#: ../qml/models/MatrixModel.qml:519
 msgid "No connection to the homeserver 😕"
 msgstr "Sense connexió amb el servidor propi 😕"
 
-#: ../qml/models/MatrixModel.qml:515
-#, fuzzy
-#| msgid "Your session is no longer valid"
+#: ../qml/models/MatrixModel.qml:526
 msgid "Your session has expired"
-msgstr "La vostra sessió ja no és vàlida"
+msgstr "La vostra sessió ha caducat"
 
-#: ../qml/models/MatrixModel.qml:579
+#: ../qml/models/MatrixModel.qml:590
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -737,7 +702,7 @@ msgid "Copied to clipboard"
 msgstr "S'ha copiat al porta-retalls"
 
 #: ../qml/components/MemberListItem.qml:48
-#: ../qml/components/ChatScrollView.qml:50
+#: ../qml/components/ChatScrollView.qml:51
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr "Llisqueu cap a l'esquerra o la dreta per accions 😉"
 
@@ -799,10 +764,8 @@ msgid "Edit profile picture"
 msgstr "Edita la imatge de perfil"
 
 #: ../qml/components/ChangeAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit profile picture"
 msgid "New profile picture"
-msgstr "Edita la imatge de perfil"
+msgstr "Nova imatge de perfil"
 
 #: ../qml/components/ChangeAvatarDialog.qml:39
 #: ../qml/components/ChangeChatAvatarDialog.qml:39
@@ -847,10 +810,8 @@ msgid "Download"
 msgstr "Descarrega"
 
 #: ../qml/components/WaitDialog.qml:11
-#, fuzzy
-#| msgid "Loading... Please wait!"
 msgid "Loading… Please wait."
-msgstr "Espereu, s'està carregant…"
+msgstr "S'està carregant… Espereu."
 
 #: ../qml/components/WaitDialog.qml:36
 msgid "Cancel process"
@@ -886,7 +847,7 @@ msgstr "Introduïu la vostra contrasenya"
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
-#: ../qml/components/ChatScrollView.qml:92
+#: ../qml/components/ChatScrollView.qml:93
 msgid "Remove"
 msgstr "Elimina"
 
@@ -900,15 +861,13 @@ msgstr "Connecta un número de telèfon nou"
 
 #: ../qml/components/AddPhoneDialog.qml:12
 msgid "…"
-msgstr ""
+msgstr "…"
 
 #: ../qml/components/AddPhoneDialog.qml:22
 msgid "Please log out to change your country"
 msgstr "Sortiu de la sessió per canviar el vostre país"
 
 #: ../qml/components/AddPhoneDialog.qml:26
-#, fuzzy
-#| msgid "Phone number..."
 msgid "Phone number…"
 msgstr "Número de telèfon…"
 
@@ -933,8 +892,6 @@ msgid "Yes"
 msgstr "Sí"
 
 #: ../qml/components/LogoutDialog.qml:25
-#, fuzzy
-#| msgid "Are you sure that you want to log out?"
 msgid "Are you sure you want to log out?"
 msgstr "Segur que voleu sortir?"
 
@@ -982,35 +939,35 @@ msgstr "Reinicia"
 msgid "Last active: %1"
 msgstr "Darrera activitat: %1"
 
-#: ../qml/components/ChatScrollView.qml:56
+#: ../qml/components/ChatScrollView.qml:57
 msgid "Try to send again"
 msgstr "Proveu d'enviar-ho un altre cop"
 
-#: ../qml/components/ChatScrollView.qml:62
+#: ../qml/components/ChatScrollView.qml:63
 msgid "Reply"
 msgstr "Respon"
 
-#: ../qml/components/ChatScrollView.qml:68
+#: ../qml/components/ChatScrollView.qml:69
 msgid "Copy text"
 msgstr "Copia el text"
 
-#: ../qml/components/ChatScrollView.qml:74
+#: ../qml/components/ChatScrollView.qml:75
 msgid "Add to sticker collection"
 msgstr "Afegeix a la col·lecció d'adhesius"
 
-#: ../qml/components/ChatScrollView.qml:80
+#: ../qml/components/ChatScrollView.qml:81
 msgid "Forward"
 msgstr "Reenvia"
 
-#: ../qml/components/ChatScrollView.qml:251
+#: ../qml/components/ChatScrollView.qml:252
 msgid "Load gif"
 msgstr "Carrega el gif"
 
-#: ../qml/components/ChatScrollView.qml:251
+#: ../qml/components/ChatScrollView.qml:252
 msgid "Show image"
 msgstr "Mostra la imatge"
 
-#: ../qml/components/ChatScrollView.qml:322
+#: ../qml/components/ChatScrollView.qml:323
 msgid "Download: "
 msgstr "Descarrega: "
 
@@ -1068,10 +1025,8 @@ msgid "Edit chat picture"
 msgstr "Edita la imatge del xat"
 
 #: ../qml/components/ChangeChatAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit chat picture"
 msgid "New chat picture"
-msgstr "Edita la imatge del xat"
+msgstr "Nova imatge de xat"
 
 #: ../qml/components/ChangeChatnameDialog.qml:12
 msgid "Chat settings and details"
@@ -1149,9 +1104,7 @@ msgstr "Blocat del xat"
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: ../qml/scripts/ChatPageActions.js:523
-#, fuzzy
-#| msgid "Loading..."
+#: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
 msgstr "Carregant…"
 
@@ -1233,8 +1186,6 @@ msgid "Username already taken"
 msgstr "Aquest usuari ja existeix"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:30
-#, fuzzy
-#| msgid "The desired user ID is not a valid user name"
 msgid "The desired user ID is not a valid username"
 msgstr "L'identificador d'usuari que desitgeu no és un nom d'usuari vàlid"
 
@@ -1248,7 +1199,7 @@ msgstr ""
 
 #: ../qml/scripts/PasswordCreationPageActions.js:32
 msgid "Could not register on %1…"
-msgstr ""
+msgstr "No s'ha pogut registrar a %1…"
 
 #: ../qml/scripts/PasswordInputPageActions.js:10
 msgid "Invalid username or password"
@@ -1467,6 +1418,13 @@ msgstr "No s'ha trobat el nom d'usuari «%1» a %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "El nom d'usuari ja existeix"
+
+#~ msgid ""
+#~ "Improved stability and performance, new translations, design changes, "
+#~ "better tablet support and a lot of bugfixes."
+#~ msgstr ""
+#~ "Millores en l'estabilitat i rendiment, noves traduccions, canvi de "
+#~ "disseny, millor suport per tauleta i un caramull de correccions d'errors."
 
 #~ msgid "You are that!"
 #~ msgstr "Vos sou aquest!"
