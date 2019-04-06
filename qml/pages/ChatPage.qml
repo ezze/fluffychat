@@ -328,11 +328,6 @@ Page {
                 onTriggered: ChatPageActions.sendPicture ()
             },
             Action {
-                iconName: "address-book-app-symbolic"
-                visible: stickerInput.visible
-                onTriggered: ChatPageActions.sendContact ()
-            },
-            Action {
                 iconName: "stock_video"
                 visible: stickerInput.visible
                 onTriggered: ChatPageActions.sendVideo ()
