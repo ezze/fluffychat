@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-05 10:55+0000\n"
-"PO-Revision-Date: 2019-03-13 06:51+0000\n"
+"PO-Revision-Date: 2019-04-06 06:06+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: ../qml/Main.qml:111
 msgid "Are you sure?"
@@ -118,10 +118,6 @@ msgid "Welcome to FluffyChat"
 msgstr "Vítejte ve FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
-#, fuzzy
-#| msgid ""
-#| "Chat with your friends and join the community. You can use your phone "
-#| "number or an unique username to find friends."
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or a unique username to find friends."
@@ -148,10 +144,6 @@ msgid "What's new in version %1?"
 msgstr "Co je nového ve verzi %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-#, fuzzy
-#| msgid ""
-#| "Improved stability and performance, new translations, design changes, "
-#| "better tablet support and a lot of bug fixes."
 msgid ""
 "Improved stability and performance, new translations, design changes, better "
 "tablet support and a lot of bugfixes."
@@ -164,12 +156,6 @@ msgid "Community funded"
 msgstr "Financováno komunitou"
 
 #: ../qml/pages/WalkthroughPage.qml:231
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers are "
-#| "all funded by the community. You can donate for this project on <a "
-#| "href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a "
-#| "href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -238,10 +224,8 @@ msgid "Share"
 msgstr "Sdílet"
 
 #: ../qml/pages/ChatListPage.qml:101
-#, fuzzy
-#| msgid "Search for your chats..."
 msgid "Search for your chats…"
-msgstr "Vyhledat vaše chaty..."
+msgstr "Vyhledat vaše chaty…"
 
 #: ../qml/pages/ChatListPage.qml:121
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
@@ -376,10 +360,8 @@ msgid "Password..."
 msgstr "Heslo…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
-#, fuzzy
-#| msgid "Receive notifications for..."
 msgid "Receive notifications for…"
-msgstr "Získat oznámení pro..."
+msgstr "Získat oznámení pro…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
 msgid "Common messages"
@@ -466,14 +448,10 @@ msgid "Choose a country"
 msgstr "Zvolit zemi"
 
 #: ../qml/pages/CountryPickerPage.qml:28
-#, fuzzy
-#| msgid "Search for chat names…"
 msgid "Search for country by name…"
-msgstr "Vyhledat názvy chatů…"
+msgstr "Vyhledat stát dle názvu…"
 
 #: ../qml/pages/UserPage.qml:34
-#, fuzzy
-#| msgid "Username has been copied to the clipboard"
 msgid "Username copied to the clipboard"
 msgstr "Jméno uživatele bylo zkopírováno do schránky"
 
@@ -483,7 +461,7 @@ msgstr "Chaty s tímto uživatelem:"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "This is you."
-msgstr ""
+msgstr "Tohle jste vy."
 
 #: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
@@ -592,16 +570,12 @@ msgid "and matrix.org"
 msgstr "a matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:44
-#, fuzzy
-#| msgid "Search for chats or #aliases..."
 msgid "Search for chats or #aliases…"
-msgstr "Vyhledat chaty anebo #aliasy..."
+msgstr "Vyhledat chaty anebo #aliasy…"
 
 #: ../qml/pages/DiscoverPage.qml:67
-#, fuzzy
-#| msgid "Loading..."
 msgid "Loading…"
-msgstr "Načítám..."
+msgstr "Načítám…"
 
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "No chats found"
@@ -616,20 +590,16 @@ msgid "Description:"
 msgstr "Popis:"
 
 #: ../qml/pages/ChatSettingsPage.qml:136
-#, fuzzy
-#| msgid "No chat description found..."
 msgid "No chat description found…"
-msgstr "Nenalezen žádný popis chatovací místnosti..."
+msgstr "Nenalezen žádný popis chatovací místnosti…"
 
 #: ../qml/pages/ChatSettingsPage.qml:191
 msgid "Users in this chat (%1):"
 msgstr "Uživatele tohoto chatu (%1):"
 
 #: ../qml/pages/ChatSettingsPage.qml:215
-#, fuzzy
-#| msgid "Search..."
 msgid "Search…"
-msgstr "Vyhledat..."
+msgstr "Vyhledat…"
 
 #: ../qml/pages/ChatSettingsPage.qml:235
 msgid "Invite friends"
@@ -640,20 +610,14 @@ msgid "Reload"
 msgstr "Načíst znovu"
 
 #: ../qml/pages/ChatSettingsPage.qml:260
-#, fuzzy
-#| msgid "Appoint to a member"
 msgid "Enroll as member"
-msgstr "Jmenovat nějakého člena"
+msgstr "Zapsat se jako člen"
 
 #: ../qml/pages/ChatSettingsPage.qml:264
-#, fuzzy
-#| msgid "Appoint to a Moderator"
 msgid "Appoint to moderator"
 msgstr "Jmenovat moderátora"
 
 #: ../qml/pages/ChatSettingsPage.qml:269
-#, fuzzy
-#| msgid "Appoint to Admin"
 msgid "Appoint to admin"
 msgstr "Jmenovat správce"
 
@@ -682,10 +646,8 @@ msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr "Pro příjem oznámení se přihlašte k Vašemu Ubuntu One účtu."
 
 #: ../qml/models/PushModel.qml:74
-#, fuzzy
-#| msgid "Push notifications are disabled..."
 msgid "Push notifications are turned off…"
-msgstr "Příjem oznámení je deaktivován..."
+msgstr "Oznámení jsou vypnuta…"
 
 #: ../qml/models/MatrixModel.qml:75
 msgid "USA"
@@ -701,20 +663,16 @@ msgstr "Nemáte svolení k chatování v této místnosti."
 
 #: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
-#, fuzzy
-#| msgid "😕 No connection..."
 msgid "😕 No connection…"
-msgstr "😕 Nejste připojení..."
+msgstr "😕 Nejste připojení…"
 
 #: ../qml/models/MatrixModel.qml:508
 msgid "No connection to the homeserver 😕"
 msgstr "Žádné připojení k homeserveru 😕"
 
 #: ../qml/models/MatrixModel.qml:515
-#, fuzzy
-#| msgid "Your session is no longer valid"
 msgid "Your session has expired"
-msgstr "Vaše sezení je již neplatné"
+msgstr "Vašemu sezení vypršel čas"
 
 #: ../qml/models/MatrixModel.qml:579
 msgid ""
@@ -794,10 +752,8 @@ msgid "Edit profile picture"
 msgstr "Editovat profilový obrázek"
 
 #: ../qml/components/ChangeAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit profile picture"
 msgid "New profile picture"
-msgstr "Editovat profilový obrázek"
+msgstr "Nový profilový obrázek"
 
 #: ../qml/components/ChangeAvatarDialog.qml:39
 #: ../qml/components/ChangeChatAvatarDialog.qml:39
@@ -842,10 +798,8 @@ msgid "Download"
 msgstr "Stáhnout"
 
 #: ../qml/components/WaitDialog.qml:11
-#, fuzzy
-#| msgid "Loading... Please wait!"
 msgid "Loading… Please wait."
-msgstr "Načítám… Prosím vyčkejte!"
+msgstr "Načítám... Prosím vyčkejte."
 
 #: ../qml/components/WaitDialog.qml:36
 msgid "Cancel process"
@@ -895,17 +849,15 @@ msgstr "Připojit nové telefonní číslo"
 
 #: ../qml/components/AddPhoneDialog.qml:12
 msgid "…"
-msgstr ""
+msgstr "…"
 
 #: ../qml/components/AddPhoneDialog.qml:22
 msgid "Please log out to change your country"
 msgstr "Pro změnu země se prosím odhlaste"
 
 #: ../qml/components/AddPhoneDialog.qml:26
-#, fuzzy
-#| msgid "Phone number..."
 msgid "Phone number…"
-msgstr "Telefonní číslo..."
+msgstr "Telefonní číslo…"
 
 #: ../qml/components/AddPhoneDialog.qml:44
 #: ../qml/components/EnterSMSTokenDialog.qml:33
@@ -928,8 +880,6 @@ msgid "Yes"
 msgstr "Ano"
 
 #: ../qml/components/LogoutDialog.qml:25
-#, fuzzy
-#| msgid "Are you sure that you want to log out?"
 msgid "Are you sure you want to log out?"
 msgstr "Opravdu se chcete odhlásit?"
 
@@ -1063,10 +1013,8 @@ msgid "Edit chat picture"
 msgstr "Editovat obrázek chatu"
 
 #: ../qml/components/ChangeChatAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit chat picture"
 msgid "New chat picture"
-msgstr "Editovat obrázek chatu"
+msgstr "Nový obrázek chatu"
 
 #: ../qml/components/ChangeChatnameDialog.qml:12
 msgid "Chat settings and details"
@@ -1145,8 +1093,6 @@ msgid "Unknown"
 msgstr "Neznámý"
 
 #: ../qml/scripts/ChatPageActions.js:523
-#, fuzzy
-#| msgid "Loading..."
 msgid "Uploading..."
 msgstr "Načítám..."
 
@@ -1227,8 +1173,6 @@ msgid "Username already taken"
 msgstr "Uživatelské jméno již použito"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:30
-#, fuzzy
-#| msgid "The desired user ID is not a valid user name"
 msgid "The desired user ID is not a valid username"
 msgstr "Požadované ID uživatele je neplatné uživatelské jméno"
 
@@ -1241,7 +1185,7 @@ msgstr ""
 
 #: ../qml/scripts/PasswordCreationPageActions.js:32
 msgid "Could not register on %1…"
-msgstr ""
+msgstr "Nebylo možné zaregistrovat na %1…"
 
 #: ../qml/scripts/PasswordInputPageActions.js:10
 msgid "Invalid username or password"

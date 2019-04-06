@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-05 10:55+0000\n"
-"PO-Revision-Date: 2019-03-22 23:38+0000\n"
+"PO-Revision-Date: 2019-04-06 06:06+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ca/>\n"
@@ -118,10 +118,6 @@ msgid "Welcome to FluffyChat"
 msgstr "Benvingut/da al FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
-#, fuzzy
-#| msgid ""
-#| "Chat with your friends and join the community. You can use your phone "
-#| "number or an unique username to find friends."
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or a unique username to find friends."
@@ -148,10 +144,6 @@ msgid "What's new in version %1?"
 msgstr "Quines novetats hi ha a la versió %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-#, fuzzy
-#| msgid ""
-#| "Improved stability and performance, new translations, design changes, "
-#| "better tablet support and a lot of bug fixes."
 msgid ""
 "Improved stability and performance, new translations, design changes, better "
 "tablet support and a lot of bugfixes."
@@ -164,12 +156,6 @@ msgid "Community funded"
 msgstr "Finançat per la comunitat"
 
 #: ../qml/pages/WalkthroughPage.qml:231
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers are "
-#| "all funded by the community. You can donate for this project on <a "
-#| "href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a "
-#| "href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -178,8 +164,9 @@ msgid ""
 msgstr ""
 "El FluffyChat és obert, sense ànim de lucre i bufó. Tant el desenvolupament "
 "com els servidors es financen la comunitat. Podeu fer donacions a aquest "
-"projecte amb <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</"
-"a> o <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
+"projecte amb <a href='https://www.patreon.com/"
+"bePatron?u=11123241'>Patreon</a> o <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:248
 msgid "Continue"
@@ -238,8 +225,6 @@ msgid "Share"
 msgstr "Comparteix"
 
 #: ../qml/pages/ChatListPage.qml:101
-#, fuzzy
-#| msgid "Search for your chats..."
 msgid "Search for your chats…"
 msgstr "Cerca als meus xats…"
 
@@ -377,8 +362,6 @@ msgid "Password..."
 msgstr "Contrasenya…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
-#, fuzzy
-#| msgid "Receive notifications for..."
 msgid "Receive notifications for…"
 msgstr "Rebre notificacions push per…"
 
@@ -472,16 +455,12 @@ msgid "Choose a country"
 msgstr "Escolliu un país"
 
 #: ../qml/pages/CountryPickerPage.qml:28
-#, fuzzy
-#| msgid "Search country name..."
 msgid "Search for country by name…"
-msgstr "Cerca un nom de país…"
+msgstr "Cerca per nom de país…"
 
 #: ../qml/pages/UserPage.qml:34
-#, fuzzy
-#| msgid "Username has been copied to the clipboard"
 msgid "Username copied to the clipboard"
-msgstr "El nom d'usuari s'ha copiat en el porta-retalls"
+msgstr "S'ha copiat el nom d'usuari al porta-retalls"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "Chats with this user:"
@@ -489,7 +468,7 @@ msgstr "Xats amb aquest usuari:"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "This is you."
-msgstr ""
+msgstr "Sou vós."
 
 #: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
@@ -598,14 +577,10 @@ msgid "and matrix.org"
 msgstr "i matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:44
-#, fuzzy
-#| msgid "Search for chats or #aliases..."
 msgid "Search for chats or #aliases…"
 msgstr "Cerca xats o #àlies…"
 
 #: ../qml/pages/DiscoverPage.qml:67
-#, fuzzy
-#| msgid "Loading..."
 msgid "Loading…"
 msgstr "Carregant…"
 
@@ -622,8 +597,6 @@ msgid "Description:"
 msgstr "Descripció:"
 
 #: ../qml/pages/ChatSettingsPage.qml:136
-#, fuzzy
-#| msgid "No chat description found..."
 msgid "No chat description found…"
 msgstr "No s'ha trobar cap descripció del xat…"
 
@@ -632,8 +605,6 @@ msgid "Users in this chat (%1):"
 msgstr "Usuaris en aquest xat (%1):"
 
 #: ../qml/pages/ChatSettingsPage.qml:215
-#, fuzzy
-#| msgid "Search..."
 msgid "Search…"
 msgstr "Cerca…"
 
@@ -646,20 +617,14 @@ msgid "Reload"
 msgstr "Recarrega"
 
 #: ../qml/pages/ChatSettingsPage.qml:260
-#, fuzzy
-#| msgid "Appoint to a member"
 msgid "Enroll as member"
-msgstr "Designa un membre"
+msgstr "Inscriviu-vos com a membre"
 
 #: ../qml/pages/ChatSettingsPage.qml:264
-#, fuzzy
-#| msgid "Appoint to a Moderator"
 msgid "Appoint to moderator"
 msgstr "Designa com moderador/a"
 
 #: ../qml/pages/ChatSettingsPage.qml:269
-#, fuzzy
-#| msgid "Appoint to Admin"
 msgid "Appoint to admin"
 msgstr "Designa com administrador/a"
 
@@ -688,10 +653,8 @@ msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr "Inicieu una sessió amb Ubuntu One per rebre notificacions push."
 
 #: ../qml/models/PushModel.qml:74
-#, fuzzy
-#| msgid "Push notifications are disabled..."
 msgid "Push notifications are turned off…"
-msgstr "Les notificacions push estan desactivades..."
+msgstr "Notificacions push desactivades…"
 
 #: ../qml/models/MatrixModel.qml:75
 msgid "USA"
@@ -707,20 +670,16 @@ msgstr "Aquí no teniu permís per xatejar."
 
 #: ../qml/models/MatrixModel.qml:390 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
-#, fuzzy
-#| msgid "😕 No connection..."
 msgid "😕 No connection…"
-msgstr "😕 Sense connexió..."
+msgstr "😕 Sense connexió…"
 
 #: ../qml/models/MatrixModel.qml:508
 msgid "No connection to the homeserver 😕"
 msgstr "Sense connexió amb el servidor propi 😕"
 
 #: ../qml/models/MatrixModel.qml:515
-#, fuzzy
-#| msgid "Your session is no longer valid"
 msgid "Your session has expired"
-msgstr "La vostra sessió ja no és vàlida"
+msgstr "La vostra sessió ha caducat"
 
 #: ../qml/models/MatrixModel.qml:579
 msgid ""
@@ -799,10 +758,8 @@ msgid "Edit profile picture"
 msgstr "Edita la imatge de perfil"
 
 #: ../qml/components/ChangeAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit profile picture"
 msgid "New profile picture"
-msgstr "Edita la imatge de perfil"
+msgstr "Nova imatge de perfil"
 
 #: ../qml/components/ChangeAvatarDialog.qml:39
 #: ../qml/components/ChangeChatAvatarDialog.qml:39
@@ -847,10 +804,8 @@ msgid "Download"
 msgstr "Descarrega"
 
 #: ../qml/components/WaitDialog.qml:11
-#, fuzzy
-#| msgid "Loading... Please wait!"
 msgid "Loading… Please wait."
-msgstr "Espereu, s'està carregant…"
+msgstr "S'està carregant… Espereu."
 
 #: ../qml/components/WaitDialog.qml:36
 msgid "Cancel process"
@@ -900,15 +855,13 @@ msgstr "Connecta un número de telèfon nou"
 
 #: ../qml/components/AddPhoneDialog.qml:12
 msgid "…"
-msgstr ""
+msgstr "…"
 
 #: ../qml/components/AddPhoneDialog.qml:22
 msgid "Please log out to change your country"
 msgstr "Sortiu de la sessió per canviar el vostre país"
 
 #: ../qml/components/AddPhoneDialog.qml:26
-#, fuzzy
-#| msgid "Phone number..."
 msgid "Phone number…"
 msgstr "Número de telèfon…"
 
@@ -933,8 +886,6 @@ msgid "Yes"
 msgstr "Sí"
 
 #: ../qml/components/LogoutDialog.qml:25
-#, fuzzy
-#| msgid "Are you sure that you want to log out?"
 msgid "Are you sure you want to log out?"
 msgstr "Segur que voleu sortir?"
 
@@ -1068,10 +1019,8 @@ msgid "Edit chat picture"
 msgstr "Edita la imatge del xat"
 
 #: ../qml/components/ChangeChatAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit chat picture"
 msgid "New chat picture"
-msgstr "Edita la imatge del xat"
+msgstr "Nova imatge de xat"
 
 #: ../qml/components/ChangeChatnameDialog.qml:12
 msgid "Chat settings and details"
@@ -1150,8 +1099,6 @@ msgid "Unknown"
 msgstr "Desconegut"
 
 #: ../qml/scripts/ChatPageActions.js:523
-#, fuzzy
-#| msgid "Loading..."
 msgid "Uploading..."
 msgstr "Carregant…"
 
@@ -1233,8 +1180,6 @@ msgid "Username already taken"
 msgstr "Aquest usuari ja existeix"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:30
-#, fuzzy
-#| msgid "The desired user ID is not a valid user name"
 msgid "The desired user ID is not a valid username"
 msgstr "L'identificador d'usuari que desitgeu no és un nom d'usuari vàlid"
 
@@ -1248,7 +1193,7 @@ msgstr ""
 
 #: ../qml/scripts/PasswordCreationPageActions.js:32
 msgid "Could not register on %1…"
-msgstr ""
+msgstr "No s'ha pogut registrar a %1…"
 
 #: ../qml/scripts/PasswordInputPageActions.js:10
 msgid "Invalid username or password"
