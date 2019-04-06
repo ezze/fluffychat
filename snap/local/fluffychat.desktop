@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=FluffyChat
+Exec=qmlscene qml/Main.qml
+Icon=${SNAP}/assets/logo.svg
+Terminal=false
+Type=Application

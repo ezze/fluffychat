@@ -1,2 +1,10 @@
+# Qt
+*.user
+*.qmlc
+
+# Clickable
 build
 .clickable
+
+# Snapcraft
+*.snap
