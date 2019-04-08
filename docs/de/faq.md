@@ -19,7 +19,7 @@ lang: de
 Du musst dein Konto mit deiner E-Mail-Adresse verbinden. Das machst du in den Einstellungen. Wenn du keine E-Mail-Adresse hast, musst du dich an den Support deines Homeservers wenden. ([Was ist der Homeserver?](#1-5))  
 [Klicke hier um dein Passwort zurück zu setzten](https://www.ubports.chat/#/forgot_password).
 
-#### Wie mache ich ein neues Konto?<a id="1-2"/>
+#### Wie erstelle ich ein neues Konto?<a id="1-2"/>
 
 1.  Wenn du bereits in FluffyChat angemeldet bist, gehe zu den Einstellungen und melde dich ab.
 2.  Wähle einen neuen Benutzernamen und klicke auf "Neues Konto erstellen"
@@ -28,153 +28,149 @@ Du musst dein Konto mit deiner E-Mail-Adresse verbinden. Das machst du in den Ei
 
 #### Wie kann ich mich in mein altes Konto einloggen?<a id="1-3"/>
 
-1.  If you are already logged in in FluffyChat then go to the settings and tab on "Logout" at the bottom.
-2.  Enter the username or your Matrix ID of your old account. ([What is a Matrix ID?](#1-4)) If you don't remember your username or Matrix ID but you remember the phone number connected with your account, then you can just enter any username and enter the correct phone number in the next step. The username will be automatically found.
-3.  (Optional) Enter the phone number of your old account.
-4.  If your old account is not on the default homeserver (ubports.chat), go to the top left menu and change the homeserver. ([What is a homeserver?](#1-5))
-5.  Make sure that "Create an account" is **not** checked.
-6.  Go to "Log In" and enter your password. ([Password forgotten?](#1-1))
+1. Wenn du breits in FluffyChat eingeloggt bist gehe in die Einstellungen und klicke auf "Ausloggen".
+2.   Gib deinen Benutzernamen oder die Matrix ID von deinem alten Account ein. ([Was ist die Matrix ID?](#1f-4)) Wenn du deinen Benutzernamen oder deine Matrix ID nicht mehr weißt, aber dafür die Handynummer die mit dem Accout Verbunden ist, kannst du einfach irgendeinen Benutzernamen und im nächsten Schritt die richtige Handynummer eingeben. Dann wird dein Benutzername automatisch gefunden.
+3.  (Optional) Gib die Handynummer von deinem alten Account ein.
+4.   Wenn dein alter Account nicht auf deinem Standart-Homeserver ( ubports.chat) ist, klicke auf das Menü oben links und ändere den Homeserver. ([Was ist ein  Homeserver?](#1-5))
+5.   Vergewissere dich, dass "Konto erstellen" **nicht** Markiert ist.
+6. Klicke auf "Einloggen" und gib dein Passowrt ein. ([Passwort vergessen?](#1-1))
 
-#### What is a Matrix ID?<a id="1-4"/>
+#### Was ist eine  MatrixID?<a id="1-4"/>
 
-Your Matrix ID is your unique identifier in the Matrix network. It is a combination of your username and your homeserver. ([What is a homeserver?](#1-5))  
-The format of a Matrix ID is simple: <code>@username:homeserver</code>. For example, if your username is "alice" and your homeserver is "homeserver.abc", then your Matrix ID is: <code>@alice:homeserver.abc</code>
+ Deine Matrix ID ist deine eingene Identifizierung im Matrix Netzwerk. Es ist eine Kombination aus deinem Benutzernamen und deinem Homeserver. ([Was ist ein Homeserver?](#1-5))  
+ Das Format einer Matrix ID ist einfach: @benutzername:homeserver. Zum Beispiel: Wenn dein Benutzername "Alice" ist und dein Homeserver "homeserver.abc" heißt, lautet deine Matrix ID "alice:homeserver.abc.
 
-#### What is a homeserver?<a id="1-5"/>
+#### Was ist ein Homeserver?<a id="1-5"/>
 
-Matrix is a federated network of homeservers. What does this mean? There is no centralized "FluffyChat server" but there are multiple homeservers you can use. You are free to pick the homeserver you want. Like the email all users from all homeservers can communicate with eachother. There is a default homeserver on FluffyChat named "https://ubports.chat". You are able to host your own homeserver. [Click here for a guide how to start](https://matrix.org/docs/guides/installing-synapse).
+ Matrix ist ein fördiertes Netzwerk von Homeservern. Was bedeutet das? Es gibt keinen zeltralisierten "FluffyChat-Server", es gibt viele verschiedene Homeserver die du nutzen kannst. Du kannst also den Homeserver wählen den du möchtest.Genau wie bei der Email könnte alle Nutzer von allen HOmeservern miteinander Kommunizieren.Auf FluffyChat gibt es einen Standard-Homeserver mit dem Namen "https://ubports.chat". Du kannst deinen eigenen Homeserver hosten. [Klicke hier um eine Aleitung zum Starten zu erhalten.](https://matrix.org/docs/guides/installing-synapse).
 
-#### What is an identity server?<a id="1-6"/>
+#### Was ist ein Identity Server ?<a id="1-6"/>
 
-Users in Matrix are identified internally via their Matrix ID. However, existing 3rd party ID (3PID) namespaces such as email addresses or phone numbers should be used publicly to identify Matrix users, at least for invitation purposes. A Matrix "Identity" describes both the user ID and any other existing IDs from third party namespaces linked to their account.  
-Matrix users can link third-party IDs (3PIDs) to their user ID. Linking 3PIDs creates a mapping from a 3PID to a user ID. This mapping can then be used by Matrix users in order to discover the MXIDs of their contacts. In order to ensure that the mapping from 3PID to user ID is genuine, the intention is for a globally federated cluster of trusted "Identity Servers" (IS) be used to verify the 3PID and persist and replicate the mappings. Usage of an IS is not required in order for a client application to be part of the Matrix ecosystem. However, without one clients will not be able to look up user IDs using 3PIDs.
+Benutzer in der Matrix werden intern über ihre Matix ID identifiziert. Vorhandene Namespaces mit Drittanbieter-IDs (3PID) wie E-Mail-Adressen oder Telefonnummern sollten jedoch zur Identifizierung von Matrix-Benutzern zumindest für Einladungszwecke öffentlich verwendet werden.Eine Matrix "Identity" beschreibt sowohl die Benutzer-ID als auch alle anderen vorhandenen IDs von mit ihrem Konto verknüpften Namespaces von Drittanbietern. 
+Matrix-Benutzer können Drittanbieter-IDs (3PIDs) mit ihrer Benutzer-ID verknüpfen.Durch das Verknüpfen von 3PIDs wird eine Zuordnung von einer 3PID zu einer Benutzer-ID erstellt.Diese Zuordnung kann dann von Matrix-Benutzern verwendet werden, um die MXIDs ihrer Kontakte zu ermitteln. Um sicherzustellen, dass die Zuordnung von 3PID zu Benutzer-ID echt ist, soll ein global eingebundener Cluster von vertrauenswürdigen "Identity Servern" (IS) verwendet werden, um die 3PID zu überprüfen und die Zuordnungen beizubehalten und zu replizieren.Die Verwendung eines IS ist nicht erforderlich, damit eine Clientanwendung Teil des Matrix-Ökosystems ist.Ohne einen Client können Benutzer-IDs jedoch nicht mit 3PIDs gesucht werden. 
+## Einen neuen Chat starten<a id="2"/>
 
-## Start chatting<a id="2"/>
+#### Wie kann ich einen neuen Chat starten? <a id="2.1"/>
 
-#### How can I start a new chat?<a id="2-1"/>
+1. Klicke auf  der Startseite auf "Chat hinzufügen" oder wische bei deinem Handy von unten nach oben. 
+2.   Wähle den Kontakt aus mit welchem du Chatten möchtest und klicke auf "Neuen Chat starten" Alternativ kannst du auf eine neue Gruppe erstellen und Kontakte einladen.
+3.  Falls du einen Kontakt nicht finden solltest kannst du diesen  [über seine Nummer hinzufügen] (#2-4)oder ihre Matrix ID in die Suchleiste iengeben.([Was ist eine Matrix ID?](#1-4))
 
-1.  Click on "Add Chat" at the start page or swipe up from the bottom on phones.
-2.  Choose your contacts you want to chat and click on "Start a new chat". Alternatively you can create a new group and invite contacts.
-3.  If you don't find a contact, you can [add them by their phone number](#2-4) or enter their Matrix ID in the search field. ([What is a Matrix ID?](#1-4))
+####  Wie kann ich einem öffentlichen Chat beitreten?<a id="2.2"/>
 
-#### How can I join a public chat?<a id="2-2"/>
+ Ein öffentlicher Chat hat ein oder mehrere öffentliche Adressen die sich Aliases nennen. Sie fangen immer mit einem "#" und hören mit einem ":homeserver.abc"auf. Zum Beispiel:[#fluffychat:matrix.org](fluffychat://#fluffychat:matrix.org). Klicke einfach auf den Link um dem Chat beizutreten.Du kannst den Alias manuell eingeben, indem du auf "Neuen Chat beginnen" gehst. 
 
-A public chat has one or more public addresses called aliases. They always start with '#' and end with ':homeserver.abc'. For example: [#fluffychat:matrix.org](fluffychat://#fluffychat:matrix.org). Just click on the link to participate in the chat.
-You can manually enter the alias by going to "Start a new chat" -> "Public chats".
+#### Wie kann ich einer Community beitreten?<a id="2.3"/>
 
-#### How can I join a community?<a id="2-3"/>
+ Eine Commuity hat eine oder mehrere Adressen die sich Aliasses nennen. Sie beginnen inner mit einem '+'und enden mit ':homeserver.abc'. Zum Beispiel:[+ubports\_community:matrix.org](fluffychat://+ubports_community:matrix.org). Klicke einfach auf den Link, um alle mit dieser Community verbundenen Chats anzuzeigen.Für noch mehr Optionen Benutze den beigefügten Link [desktop web app](https://www.ubports.chat).
 
-A public chat has one or more public addresses called aliases. They always start with '+' and end with ':homeserver.abc'. For example: [+ubports\_community:matrix.org](fluffychat://+ubports_community:matrix.org). Just click on the link to see all chats associated with this community. For more features, visit the [desktop web app](https://www.ubports.chat).
+#### Wie kann ich Kontakte über ihre Handynummer hinzufügen?<a id="2.4"/>
 
-#### How can I add contacts by their phone number?<a id="2-4"/>
-
-1.  Click on the "Start chat" button at the start page or swipe up from the bottom on phones.
-2.  Click on the add contact button at the top right.
-3.  Click on "Import from address book" and Choose your address book app.
+1. Klicke auf den "Chat starten" button auf der Startseite oder wische auf deinem Handy von unten nach oben.
+2. Klicke oben rechts auf der Schaltfläche auf "Kontakt hinzufügen".
+3. Klicke auf "Import aus Adressbuch" und wähle deine Adressbuch-App aus.
 4.  Select the contact you want to add or select all contacts and confirm.
-5.  FluffyChat will search for these contacts in the identity server. ([What is an identity server?](#1-6))
+5. FluffyChat sucht im Identitätsserver nach diesen Kontakten. ([Was ist ein Identitätsserver?](#1-6))
 
-#### Which /commands are available?<a id="2-5"/>
+#### Welche Befehle stehen zur Verfügung?<a id="2.5"/>
 
-*   <code>/me</code> (Will send msgtype: m.emote) Displays an action.
-*   <code>/whisper</code> (Will send msgtype: m.fluffychat.whisper) The message text will be very small
-*   <code>/roar</code> (Will send msgtype: m.fluffychat.roar) The message text will be very large, bold and in capital letters
-*   <code>/shrug</code> Puts ¯\\(ツ)/¯ at the start of the message
+*   `/me` (Will send msgtype: m.emote) Zeigt eine Aktion an.
+*   `/whisper` (Will send msgtype: m.fluffychat.whisper) Der Nachrichtentext wird sehr klein sein.
+*   `/roar` (Will send msgtype: m.fluffychat.roar) Der Nachrichtentext ist sehr groß, fett und in Großbuchstaben.
+*   `/shrug` Puts ¯\\(ツ)/¯ Am Anfang der Nachricht.
 
-## Chat settings<a id="3"/>
+## Chat Einstellungen<a id="3"/>
 
-#### How can I kick or ban a user from a chat?<a id="3-1"/>
+#### Wie kann ich einen Nutzer aus dem Chat werfen oder sperren?<a id="3.1"/>
 
-You need the permission to kick or ban a user from a chat.
+Du benötigst die Berechtigung, um einen Benutzer aus einem Chat zu sperren.
 
-1.  Go to the chat
-2.  Go to "Chat details" in the top right menu
-3.  Find the user you want to kick or ban and swipe the user list item to the right.
-4.  Click on the kick or the ban button and confirm
+1. Gehe zu dem Chat. 
+2. Klicke oben rechts im Menü auf "Chat Details".
+3.  Suche den Benutzer, den du Rauswefgen oder sperren möchten, und ziehe den Benutzerlisteneintrag nach rechts.
+4.  Klicke auf den "rauswerfen" oder "sperren" button und bestätige diese Eingabe.
 
-#### How can I change the user permissions in a chat?<a id="3-2"/>
+#### Wie kann ich die Benutzerberechtigungen in einem Chat ändern?<a id="3.2"/>
 
-You need the permission to change the user permissions.
+Du brauchst die Berechtigung, um die Benutzerberechtigungen zu ändern.
 
-1.  Go to the chat
-2.  Go to "Chat details" in the top right menu
-3.  Find the user you want to kick or ban and swipe the user list item to the left.
-4.  Click on the desired user permission button and confirm
+1.  Gehe auf den Chat.
+2.  Klicke  oben rechts im Menü auf "Chat Details". Go to "Chat details" in the top right menu
+3.  Gib den Nutzer an, den du rauswerfen oder sperren möchtest und ziehe den Nutzer nach links. 
+4.  Klicke  auf die gewünschte Benutzerberechtigungsschaltfläche und bestätige 
 
-#### How can I change the chat topic and description?<a id="3-3"/>
+#### Wie kann ich das Chat- Thema und die Beschreibung ändern?<a id="3.3"/>
 
-You need the permission to change the chat topic and description.
+Du brauchst die Berechtigung um das Thema und die Beschreibung zu ändern.
 
-1.  Go to the chat
-2.  Go to "Chat details" in the top right menu
-3.  Click on the top right edit button and enter the desired chat topic and/or description
+1.   Kliche auf den Chat.
+2.  Gehe dann rechts oben im Menü auf "Chat Details".
+3.  Klicken Sie oben rechts auf die Schaltfläche "Bearbeiten" und geben Sie das gewünschte Chat-Thema und / oder die Beschreibung ein.
 
-#### How can I edit the chat privacy settings?<a id="3-4"/>
+#### Wie kann ich die Datenschutzeinstellungen bearbeiten?<a id="3.4"/>
 
-You need the permission to edit the chat privacy settings.
+ Du brauchst eine Erlaubnis um die Datenschutzeinstellungen zu bearbeiten.
+ 
+1.  Gehe auf den Chat.
+2.  Klicke dann oben rechts im Menü auf "Chat Details" 
+3.  Gehe zu "Erweiterte Einstellungen"
+4.  Aktiviere oder deaktiviere die gewünschten Optionen und bearbeite die Benutzerberechtigungsoptionen.
 
-1.  Go to the chat
-2.  Go to "Chat details" in the top right menu
-3.  Go to "Advanced settings"
-4.  Toggle or untoggle the desired options and edit the user permission options
+#### Was sind Chat-Aliasses und wie kann ich diese bearbeiten?<a id="3.5"/>
 
-#### What are chat aliases and how can I edit them?<a id="3-5"/>
+Aliasnamen sind öffentliche Chat-Adressen, an denen du teilnehmen kannst. Du benötigst die Chatberechtigungen, um sie zu ändern.
 
-Chat aliases are public chat addresses which can be used to join a chat. You need the chat permissions to change them.
+1.   Gehe auf den Chat. 
+2.   Klicke oben rechts im Menü auf "Chat Details". 
+3.   Gehe auf "privatsphäre und Sicherheit" 
+4.   Aktiviere oder deaktiviere die gewünschten Optionen und bearbeite die Benutzerberechtigungsoptionen. 
 
-1.  Go to the chat
-2.  Go to "Chat details" in the top right menu
-3.  Go to "Privacy and security"
-4.  Toggle or untoggle the desired options and edit the user permission options
+#### Wie kann ich animierte Sticker mit Giphy senden?<a id="3.6"/>
 
-#### How can I send animated stickers with Giphy?<a id="3-6"/>
+1.  Beginne einen neuen Chat mit  [@neb\_giphy:​matrix.org](fluffychat://@neb_giphy:​matrix.org).
+2.  Suche nach GIFs durch Eingabe: '!giphy KEYWORD'
+3.  Leite den Sticker weiter, indem du die Stickernachricht nach links streichst, und klicke auf die Schaltfläche ">".
 
-1.  Start a new chat with [@neb\_giphy:​matrix.org](fluffychat://@neb_giphy:​matrix.org).
-2.  Search for gifs by typing: <code>!giphy KEYWORD</code>
-3.  Forward the sticker by swiping the sticker message to the left and click on the ">" button.
+## Brücke zu anderen Chat-Systemen<a id="4"/>
 
-## Bridge to other chat systems<a id="4"/>
+#### Was ist Matrix?<a id="4.1"/>
 
-#### What is Matrix?<a id="4-1"/>
+Matrix ist ein offener Standard für interoperable, dezentrale Echtzeitkommunikation über IP. Es kann verwendet werden, um Instant Messaging, VoIP / WebRTC-Signalisierung und Internet of Things-Kommunikation zu betreiben - oder überall, wo Sie eine Standard-HTTP-API zum Veröffentlichen und Abonnieren von Daten benötigen, während Sie den Konversationsverlauf verfolgen.
 
-Matrix is an open standard for interoperable, decentralised, real-time communication over IP. It can be used to power Instant Messaging, VoIP/WebRTC signalling, Internet of Things communication - or anywhere you need a standard HTTP API for publishing and subscribing to data whilst tracking the conversation history.
+#### Wie kann ich einem XMPP-Gruppenchat beitreten?<a id="4.2"/>
 
-#### How can I enter a XMPP multi-user chat?<a id="4-2"/>
+Der einfachste Weg ist derzeit die Verwendung der Bridge auf matrix.org.
+Jeder XMPP-Chat für mehrere Benutzer verfügt über eine Jabber-ID (JID) mit dem Format: `chatname @ chat.server.abc` 
+Der Chatname ist der ** lokale ** Teil und der Chat.server.abc ist der ** Server ** Teil. Sie können diesen Chat betreten, indem Sie den Matrix Public Room betreten: `#_xmpp_server_local: matrix.org` ([Wie kann ich einem öffentlichen Chat beitreten?] (# 2-2)) 
+Für das gegebene Beispiel wäre das: `#_xmpp_chat.server.abc_chatname:matrix.org`
 
-The easiest way currently is to use the bridge on matrix.org.  
-Every XMPP multi-user chat has a Jabber identifier (JID) with the format: <code>chatname@chat.server.abc</code>
-The chatname is the **local** part and the chat.server.abc is the **server** part. You can enter this chat by entering the Matrix public room: `#_xmpp_server_local:matrix.org` ([How can I join a public chat?](#2-2))  
-For the given example this would be: `#_xmpp_chat.server.abc_chatname:matrix.org`
+#### Wie kann ich einem IRC-Knoten in Freenode beitreten?<a id="4.3"/>
 
-#### How can I enter an IRC node on Freenode?<a id="4-3"/>
+Wenn du den Knoten "#chatname" in Freenode eingeben möchtest, können Sie einfach dem öffentlichen Chat beitreten: `#freenode_#chatname:matrix.org`  
+Ersetze den "#chatname" durch den Knoten, dem du beitreten möchtest, und du bist dabei.
 
-If you want to enter the node `#chatname` on freenode you can just join the public chat: `#freenode_#chatname:matrix.org`  
-Replace `#chatname` with the node you want to join and you are in.
+#### Wie kann ich einen Gruppenchat mit einem Telegrammgruppenchat koppeln?<a id="4.4"/>
 
-#### How can I bridge a group chat with a Telegram group chat?<a id="4-4"/>
+Schau dir die Anleitung unter [wayneoutthere.com](https://wayneoutthere.com/how-to-bridge-matrix-telegram/) an.
 
-Look at the tutorial on [wayneoutthere.com](https://wayneoutthere.com/how-to-bridge-matrix-telegram/).
+## Fehlerbehandlung<a id="5"/>
 
-## Error handling<a id="5"/>
+#### Warum erhalte ich keine Push-Benachrichtigungen?<a id="5.1"/>
 
-#### Why don't I receive push notifications?<a id="5-1"/>
+Hast du eine Ubuntu One-Konto in deinen Systemeinstellungen?
+Wenn du in Fluffychat gehst -> Einstellungen -> Benachrichtigungen: Gibt es ein Gerät "UbuntuPhone" mit der Bezeichnung "Dieses Gerät"?
+Hast du versucht dich nochmal "auszuloggen" und wieder "einzuloggen"?  
+Hast du die neuste Versoin von Fluffyschat von dem OpenStore installiert?
+Hast du versucht den Flugmodus an und aus zu stellen? Have you tried to turn airplaine mode on and off again? Manchmal werden Benachrichtigungen mit Verzögerung vom UBports-Push-Dienst gesendet (wird in Kürze behoben). Wenn du das Problem immer noch hast, wende dich bitte an mich unter: [#fluffychat:matrix.org](fluffychat://#fluffychat:matrix.org)
 
-Do you have an Ubuntu One account in the system settings?  
-When you go into fluffychat -> Settings -> Notifications: Is there a device "UbuntuPhone" with the label "This device"?  
-Have you tried to logout and login?  
-Do you have the latest version of FluffyChat installed from the OpenStore?  
-Have you tried to turn airplaine mode on and off again? Sometimes notifications are sent with a delay from the UBports push service (will be fixed soon) If you still have the problem, then please contact me at the room: [#fluffychat:matrix.org](fluffychat://#fluffychat:matrix.org)
+#### Wieso kann ich mich nicht mit dem Port 8448 verbinden?<a id="5.2"/>
 
-#### Why can't I connect with port 8448?<a id="5-2"/>
+Es tut uns leid! Auf dem  Port 8448 verwenden die meisten Homeserver ein anderes SSL-Zertifikat, was zu einem Fehler führt. Derzeit erlaubt das xmlhttprequest in QML diese Zertifikate nicht.
+###Warum kann ich keine Verbindung mit einem selbstsignierten Zertifikat herstellen?<a id="5.3"/>
 
-Sorry! On port 8448 the most homeservers use a different ssl certificate, which causes an error. Currently the xmlhttprequest in QML does not allow those certificates.
+Da ist das gleiche Problem ... Ich empfehle dir, ein Letsencrypt-Zertifikat zu verwenden.
+## Über FluffyChat<a id="6"/>
 
-#### Why can't I connect with self signed certificate?<a id="5-3"/>
+#### Wie wird FluffyChat finanziert?<a id="6.1"/>
 
-The same problem... I recommend you to use a letsencrypt certificate.
-
-## About FluffyChat<a id="6"/>
-
-#### How is FluffyChat founded?<a id="6.1"/>
-
-FluffyChat is funded by the community. You can support FluffyChat on [Patreon](https://www.patreon.com/krillechritzelius) or [Liberapay](https://liberapay.com/KrilleChritzelius)
+FluffyChat wird von der Community finanziert. Du kannst FluffyChat unterstützen unter [Patreon](https://www.patreon.com/krillechritzelius) oder unter [Liberapay](https://liberapay.com/KrilleChritzelius).
