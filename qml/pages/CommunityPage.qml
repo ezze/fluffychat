@@ -77,12 +77,7 @@ Page {
                 }
             }
 
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: UbuntuColors.ash
-                visible: communityInfo.text !== ""
-            }
+            ListItem { height: 1 }  // Divider
 
             Rectangle {
                 width: parent.width
@@ -114,11 +109,7 @@ Page {
                 visible: communityInfo.text !== ""
             }
 
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: UbuntuColors.ash
-            }
+            ListItem { height: 1 }  // Divider
 
             Column {
                 id: chatListView

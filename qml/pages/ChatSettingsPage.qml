@@ -153,12 +153,8 @@ Page {
                 Column {
                     id: settingsColumn
                     width: parent.width
-                    Rectangle {
-                        width: parent.width
-                        height: 1
-                        color: UbuntuColors.ash
-                        visible: profileRow.visible
-                    }
+                    ListItem { height: 1 }  // Divider
+
                     SettingsListLink {
                         name: i18n.tr("Notifications")
                         icon: "notification"
@@ -216,11 +212,8 @@ Page {
                     onActiveFocusChanged: if ( activeFocus ) scrollView.flickableItem.contentY = scrollView.flickableItem.contentHeight - scrollView.height
                 }
             }
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: UbuntuColors.ash
-            }
+            
+            ListItem { height: 1 }  // Divider
 
             ListView {
                 id: memberList

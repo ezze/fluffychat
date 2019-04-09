@@ -118,13 +118,7 @@ Page {
 
             }
 
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: UbuntuColors.ash
-            }
-
-
+            ListItem { height: 1 }  // Divider
 
             SettingsListItem {
                 name: i18n.tr("Change main color")
