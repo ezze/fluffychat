@@ -44,6 +44,7 @@ MainView {
     readonly property var version: Qt.application.version
     readonly property var downloadPath: "/home/phablet/.local/share/ubuntu-download-manager/fluffychat.christianpauly/Downloads/"
     readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "HISTORY": 4, "ERROR": -1 }
+    readonly property var platforms: { "UBPORTS": "Ubuntu Touch", "LINUX": "Linux" }
 
     /* =============================== GLOBAL VARIABLES ===============================
 
@@ -58,6 +59,12 @@ MainView {
     property var activeChatTypingUsers: []
     property var activeChatMembers: []
     property string pushToken: ""
+    property string platform: {
+        if (pushClient.status === Loader.Error) return platforms.LINUX
+        else return platforms.UBPORTS
+    }
+    property bool mobileMode: platform === platforms.UBPORTS
+    property string deviceName: "FluffyChat %1".arg(platform)
 
 
     /* =============================== LAYOUT ===============================

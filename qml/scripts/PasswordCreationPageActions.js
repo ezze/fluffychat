@@ -32,7 +32,7 @@ function register () {
         else toast.show ( i18n.tr("Could not register on %1…").arg((loginDomain || defaultDomain)) )
     }
 
-    matrix.register ( desiredUsername.toLowerCase(), loginTextField.text, (loginDomain || defaultDomain), "UbuntuPhone", registerSuccess, registerError )
+    matrix.register ( desiredUsername.toLowerCase(), loginTextField.text, (loginDomain || defaultDomain), root.deviceName, registerSuccess, registerError )
 }
 
 

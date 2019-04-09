@@ -65,7 +65,7 @@ Item {
     property var sendTypingNotification: true
 
     // Chat settings: Send with enter?
-    property var sendWithEnter: false
+    property var sendWithEnter: !mobileMode
 
     // Chat settings: Hide less important events?
     property var hideLessImportantEvents: true

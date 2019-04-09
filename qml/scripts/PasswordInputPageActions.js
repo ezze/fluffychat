@@ -15,5 +15,5 @@ function login () {
     }
 
     // Start the request
-    matrix.login ( matrix.username, passwordInput.text, matrix.server, "UbuntuPhone", null, error_callback )
+    matrix.login ( matrix.username, passwordInput.text, matrix.server, root.deviceName, null, error_callback )
 }
