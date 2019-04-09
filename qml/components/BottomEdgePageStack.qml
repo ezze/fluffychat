@@ -63,11 +63,11 @@ Item {
             NumberAnimation { easing.type: Easing.InOutQuad }
         }
 
-    /*    InverseMouseArea {
+        InverseMouseArea {
             anchors.fill: parent
             onClicked: internalStack.clear()
-            enabled: visible
-        }*/
+            enabled: d.isStackVisible
+        }
 
         Rectangle {
             anchors.fill: parent
