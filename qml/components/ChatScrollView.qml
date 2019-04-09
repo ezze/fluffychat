@@ -16,8 +16,6 @@ ListView {
 
     clip: true
     width: parent.width
-    height: parent.height - 2 * chatInput.height
-    anchors.bottom: chatInput.top
     verticalLayoutDirection: ListView.BottomToTop
     delegate: ListItem {
         id: message

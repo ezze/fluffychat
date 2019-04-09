@@ -201,6 +201,8 @@ Page {
 
     ChatScrollView {
         id: chatScrollView
+        anchors.top: header.bottom
+        anchors.bottom: chatInput.top
         onContentYChanged: if ( atYBeginning ) ChatPageActions.requestHistory ()
     }
 
