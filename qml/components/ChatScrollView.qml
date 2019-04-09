@@ -366,7 +366,7 @@ ListView {
                         // height calculation.
                         Component.onCompleted: {
                             if ( !eventModel.content_body ) eventModel.content_body = eventModel.content.body
-                            var maxWidth = message.width - avatar.width - units.gu(5)
+                            var maxWidth = Math.min(message.width,1.5*mainLayout.defaultPageColumnWidth) - avatar.width - units.gu(5)
                             if ( width > maxWidth ) width = maxWidth
                             if ( text === "" ) text = " "
                             if ( eventModel.content.msgtype === "m.emote" ) text = senderDisplayname + " " + text
