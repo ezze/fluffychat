@@ -1,12 +1,11 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
-import QtGraphicalEffects 1.0
 
-Rectangle {
+UbuntuShape {
 
     id: flyingButtonItem
     property var iconName: ""
-    property alias mouseArea: mouseArea
+    signal clicked()
     property var visibleState: false
 
     width: units.gu(6)
@@ -15,19 +14,18 @@ Rectangle {
     anchors.right: parent.right
     anchors.margins: width / 2
     anchors.rightMargin: -(scrollDownButton.width * 2)
-    color: theme.palette.normal.background
-    border.width: 1
-    border.color: mainLayout.mainFontColor
-    opacity: 0.9
-    radius: width
+    backgroundColor: mainLayout.mainBackgroundColor
+    aspect: UbuntuShape.DropShadow
+    radius: "large"
 
     z: 14
     MouseArea {
         id: mouseArea
-        onPressed: parent.color = "#888888"
-        onReleased: parent.color = theme.palette.normal.background
+        onPressed: parent.backgroundColor = "#888888"
+        onReleased: parent.backgroundColor = mainLayout.mainBackgroundColor
         anchors.fill: parent
         enabled: parent.visible
+        onClicked: parent.clicked()
     }
     Icon {
         name: iconName
@@ -36,7 +34,7 @@ Rectangle {
         anchors.topMargin: height / 2
         anchors.centerIn: parent
         z: 14
-        color: mainLayout.mainFontColor
+        color: theme.palette.normal.baseText
     }
 
     transitions: Transition {

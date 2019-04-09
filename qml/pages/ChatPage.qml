@@ -193,7 +193,7 @@ Page {
 
     FlyingButton {
         id: scrollDownButton
-        mouseArea.onClicked: chatScrollView.positionViewAtBeginning ()
+        onClicked: chatScrollView.positionViewAtBeginning ()
         iconName: "toolkit_chevron-down_4gu"
         anchors.bottomMargin: (width/2) + chatInput.height
         visibleState: !chatScrollView.atYEnd

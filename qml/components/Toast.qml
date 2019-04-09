@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 
-Rectangle {
+UbuntuShape {
 
     property var defaultTime: 8000
     property bool stateVisible: false
@@ -14,13 +14,16 @@ Rectangle {
     anchors.horizontalCenter: parent.horizontalCenter
     width: label.width + units.gu(2)
     height: label.height + units.gu(2)
-    color: Qt.rgba(0,0,0,0.75)
-    radius: units.gu(0.5)
+    backgroundColor: mainLayout.mainBackgroundColor
+    aspect: UbuntuShape.DropShadow
+    radius: "large"
     visible: false
     z: 30
 
     MouseArea {
         anchors.fill: parent
+        onPressed: parent.backgroundColor = "#888888"
+        onReleased: parent.backgroundColor = mainLayout.mainBackgroundColor
         onClicked: { toast.stateVisible = false }
         visible: toast.opacity
     }
@@ -75,7 +78,6 @@ Rectangle {
         //elide: Text.ElideMiddle
         anchors.centerIn: parent
         text: ""
-        color: "#FFFFFF"
         wrapMode: Text.Wrap
         onLinkActivated: Qt.openUrlExternally(link)
     }
