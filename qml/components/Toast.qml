@@ -30,15 +30,20 @@ UbuntuShape {
 
     states: [
     State { when: stateVisible;
-        PropertyChanges {   target: toast; opacity: 1.0;    }
+        PropertyChanges {   target: toast; opacity: 1.0; anchors.topMargin: units.gu(8);    }
     },
     State { when: !stateVisible;
-        PropertyChanges {   target: toast; opacity: 0.0;    }
+        PropertyChanges {   target: toast; opacity: 0.0; anchors.topMargin: 0;    }
     }
     ]
 
 
     transitions: Transition {
+        SpringAnimation {
+            spring: 2
+            damping: 0.2
+            properties: "anchors.topMargin"
+        }
         NumberAnimation { property: "opacity"; duration: 250}
     }
 
