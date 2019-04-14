@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-14 08:32+0000\n"
-"PO-Revision-Date: 2019-04-08 17:04+0000\n"
+"PO-Revision-Date: 2019-04-14 10:12+0000\n"
 "Last-Translator: Anne Onyme 017 <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
 "translations/fr/>\n"
@@ -32,10 +32,8 @@ msgid "Copied to the clipboard"
 msgstr "Copié dans le presse-papier"
 
 #: ../qml/pages/InfoPage.qml:11
-#, fuzzy
-#| msgid "Info about FluffyChat %1 on %2"
 msgid "FluffyChat %1 on %2"
-msgstr "Informations à propos de FluffyChat %1 sur %2"
+msgstr "FluffyChat %1 sur %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Become a patron"
