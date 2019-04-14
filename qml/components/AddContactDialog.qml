@@ -35,6 +35,7 @@ Component {
             color: "transparent"
             height: orLabel.height
             width: parent.width
+            visible: platform === platforms.UBPORTS
 
             Rectangle {
                 height: units.gu(0.2)
@@ -57,11 +58,13 @@ Component {
                 anchors.left: orLabel.right
                 anchors.leftMargin: units.gu(2)
                 anchors.verticalCenter: parent.verticalCenter
+                visible: platform === platforms.UBPORTS
             }
         }
         Button {
             text: i18n.tr("Import from addressbook")
             color: mainLayout.mainColor
+            visible: platform === platforms.UBPORTS
             onClicked: {
                 contactImport.requestContact()
                 PopupUtils.close(dialogue)

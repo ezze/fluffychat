@@ -20,6 +20,7 @@ Component {
             width: (parent.width - units.gu(1)) / 2
             text: i18n.tr("New profile picture")
             color: UbuntuColors.green
+            visible: platform === platforms.UBPORTS
             onClicked: {
                 var _matrix = matrix
                 var editFunction = function (responseText) {

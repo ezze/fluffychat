@@ -19,6 +19,7 @@ Component {
         Button {
             width: (parent.width - units.gu(1)) / 2
             text: i18n.tr("New chat picture")
+            visible: platform === platforms.UBPORTS
             color: UbuntuColors.green
             onClicked: {
                 var _matrix = matrix

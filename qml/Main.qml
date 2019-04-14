@@ -103,6 +103,15 @@ MainView {
         property var downloadUrl: null
         property var shareFunc: 0
     }
+    function download( filename, downloadUrl, shareFunc ) {
+        if ( platform === platforms.UBPORTS ) {
+            downloadDialog.filename = filename
+            downloadDialog.downloadUrl = downloadUrl
+            downloadDialog.shareFunc = shareFunc
+            downloadDialog.current = PopupUtils.open(downloadDialog)
+        }
+        else Qt.openUrlExternally( downloadUrl )
+    }
     Image {
         id: backgroundImage
         opacity: chatActive

@@ -321,27 +321,27 @@ Page {
             Action {
                 id: sendButton
                 iconName: "send"
-                visible: !stickerInput.visible && messageTextField.displayText !== ""
+                visible: platform === platforms.LINUX || (!stickerInput.visible && messageTextField.displayText !== "")
                 onTriggered: ChatPageActions.send ()
             },
             Action {
                 iconName: "stock_image"
-                visible: stickerInput.visible || messageTextField.displayText === ""
+                visible: platform !== platforms.LINUX && (stickerInput.visible || messageTextField.displayText === "")
                 onTriggered: ChatPageActions.sendPicture ()
             },
             Action {
                 iconName: "stock_video"
-                visible: stickerInput.visible
+                visible: platform !== platforms.LINUX && stickerInput.visible
                 onTriggered: ChatPageActions.sendVideo ()
             },
             Action {
                 iconName: "preferences-desktop-sounds-symbolic"
-                visible: stickerInput.visible
+                visible: platform !== platforms.LINUX && stickerInput.visible
                 onTriggered: ChatPageActions.sendAudio ()
             },
             Action {
                 iconName: "attachment"
-                visible: stickerInput.visible
+                visible: platform !== platforms.LINUX && stickerInput.visible
                 onTriggered: ChatPageActions.sendAll ()
             }
             ]

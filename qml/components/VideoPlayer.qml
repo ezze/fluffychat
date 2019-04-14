@@ -40,12 +40,7 @@ Rectangle {
             Action {
                 id: downloadAction
                 iconName: "document-save-as"
-                onTriggered: {
-                    downloadDialog.filename = mxc
-                    downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( mxc )
-                    downloadDialog.shareFunc = contentHub.shareVideo
-                    downloadDialog.current = PopupUtils.open(downloadDialog)
-                }
+                onTriggered: download ( mxc, MatrixNames.getLinkFromMxc ( mxc ), contentHub.shareVideo )
             }]
         }
     }

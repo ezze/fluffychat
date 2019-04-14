@@ -300,12 +300,7 @@ ListView {
                             anchors.verticalCenter: parent.verticalCenter
                             color: "white"
                             iconName: "document-save-as"
-                            onClicked: {
-                                downloadDialog.filename = eventModel.content_body
-                                downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( eventModel.content.url )
-                                downloadDialog.shareFunc = contentHub.shareAudio
-                                downloadDialog.current = PopupUtils.open(downloadDialog)
-                            }
+                            onClicked: download( eventModel.content_body, MatrixNames.getLinkFromMxc ( eventModel.content.url ), contentHub.shareAudio )
                             width: units.gu(4)
                         }
                     }
@@ -319,12 +314,7 @@ ListView {
                         id: downloadButton
                         color: mainLayout.brightMainColor
                         text: i18n.tr("Download: ") + eventModel.content.body
-                        onClicked: {
-                            downloadDialog.filename = eventModel.content_body
-                            downloadDialog.shareFunc = contentHub.shareAll
-                            downloadDialog.downloadUrl = MatrixNames.getLinkFromMxc ( eventModel.content.url )
-                            downloadDialog.current = PopupUtils.open(downloadDialog)
-                        }
+                        onClicked: download ( eventModel.content_body, contentHub.shareAll, MatrixNames.getLinkFromMxc ( eventModel.content.url ) )
                         height: visible ? units.gu(4) : 0
                         width: visible ? units.gu(26) : 0
                         anchors.left: parent.left
