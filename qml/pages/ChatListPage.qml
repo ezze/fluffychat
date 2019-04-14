@@ -32,6 +32,7 @@ Page {
     }
 
     property bool searching: false
+    onSearchingChanged: if (searching === false) searchField.text = ""
 
     header: PageHeader {
         id: header
