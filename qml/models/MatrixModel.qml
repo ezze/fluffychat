@@ -16,6 +16,7 @@ Item {
 
     readonly property var defaultTimeout: 30000
     readonly property var longPollingTimeout: 10000
+    readonly property var restartSyncTimeout: 1000
 
     property var waitingForSync: false
     property var lastSync: 0
@@ -420,7 +421,7 @@ Item {
         timer.start();
 
         // Send the request now
-        //if ( priority !== _PRIORITY.SYNC ) console.log("📨[%1]".arg(type), action)
+        //console.log("📨[%1]".arg(type), action)
         http.send( JSON.stringify( postData ) )
 
         return http
@@ -535,7 +536,7 @@ Item {
                 }
                 var timer = new Timer()
                 timer.stop ()
-                timer.interval = longPollingTimeout
+                timer.interval = restartSyncTimeout
                 timer.repeat = false
                 timer.triggered.connect(matrix.restartSync)
                 timer.start()
