@@ -177,7 +177,7 @@ Page {
                     fontSize: "large"
                     height: contentHeight
                     horizontalAlignment: Text.AlignHLeft
-                    text: i18n.tr("File transfer now possible using different types. Sharing files from other apps now possible. Fixed: Can not change chat name or description.")
+                    text: i18n.tr("Minor bug fixes and new translations.")
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                 }
