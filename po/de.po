@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 17:25+0000\n"
+"POT-Creation-Date: 2019-04-14 08:32+0000\n"
 "PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
@@ -19,25 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.6-dev\n"
 
-#: ../qml/Main.qml:25 ../qml/pages/ChatListPage.qml:38
-#: fluffychat.desktop.in.h:1
-msgid "FluffyChat"
-msgstr "FluffyChat"
-
-#: ../qml/Main.qml:114
+#: ../qml/Main.qml:128
 msgid "Are you sure?"
 msgstr "Bist du sicher?"
 
-#: ../qml/Main.qml:137
+#: ../qml/Main.qml:151
 msgid "You must agree to the privacy policy"
 msgstr "Du musst der Datenschutzvereinbarung zustimmen"
 
-#: ../qml/Main.qml:152
+#: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
 msgstr "In Zwischenablage kopiert"
 
 #: ../qml/pages/InfoPage.qml:11
-msgid "Info about FluffyChat %1 on %2"
+#, fuzzy
+#| msgid "Info about FluffyChat %1 on %2"
+msgid "FluffyChat %1 on %2"
 msgstr "Infos über FluffyChat %1 auf %2"
 
 #: ../qml/pages/InfoPage.qml:33
@@ -73,7 +70,7 @@ msgstr "Quellcode"
 msgid "License"
 msgstr "Lizenz"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:225
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:219
 msgid "Archived chats"
 msgstr "Archivierte Chats"
 
@@ -85,7 +82,7 @@ msgstr "Archivierte Chats durchsuchen ..."
 msgid "There are no archived chats"
 msgstr "Es gibt keine archivierten Chats"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:243
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:237
 msgid "Connected email addresses"
 msgstr "Verbundene E-Mail-Adressen"
 
@@ -189,7 +186,7 @@ msgstr "Ändere Homeserver"
 msgid "Change ID-server"
 msgstr "Ändere ID-Server"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:283
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:277
 msgid "About FluffyChat"
 msgstr "Über FluffyChat"
 
@@ -221,21 +218,25 @@ msgstr "Neues Konto erstellen"
 msgid "Sign in"
 msgstr "Einloggen"
 
-#: ../qml/pages/ChatListPage.qml:38
+#: ../qml/pages/ChatListPage.qml:39 fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
+
+#: ../qml/pages/ChatListPage.qml:39
 msgid "Share"
 msgstr "Teilen"
 
-#: ../qml/pages/ChatListPage.qml:101
+#: ../qml/pages/ChatListPage.qml:102
 msgid "Search for your chats…"
 msgstr "Durchsuche deine Chats …"
 
-#: ../qml/pages/ChatListPage.qml:122
+#: ../qml/pages/ChatListPage.qml:123
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 "Von unten hereinwischen, um einen neuen Chat zu starten oder um öffentliche "
 "Gruppen zu entdecken."
 
-#: ../qml/pages/ChatListPage.qml:152
+#: ../qml/pages/ChatListPage.qml:153
 msgid "Add chat"
 msgstr "Chat hinzufügen"
 
@@ -243,7 +244,7 @@ msgstr "Chat hinzufügen"
 msgid "Add Chat"
 msgstr "Chat hinzufügen"
 
-#: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:63
+#: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
 msgstr "Aus Adressbuch hinzufügen"
 
@@ -279,78 +280,78 @@ msgstr "Anzeigename:"
 msgid "Edit"
 msgstr "Ändern"
 
-#: ../qml/pages/SettingsPage.qml:130
+#: ../qml/pages/SettingsPage.qml:124
 msgid "Change main color"
 msgstr "Wähle eine Hauptfarbe"
 
-#: ../qml/pages/SettingsPage.qml:143
+#: ../qml/pages/SettingsPage.qml:137
 msgid "Change background"
 msgstr "Hintergrund ändern"
 
-#: ../qml/pages/SettingsPage.qml:179
+#: ../qml/pages/SettingsPage.qml:173
 msgid "Dark mode"
 msgstr "Nachtmodus"
 
-#: ../qml/pages/SettingsPage.qml:186
+#: ../qml/pages/SettingsPage.qml:180
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
-#: ../qml/pages/ChatSettingsPage.qml:163
+#: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-#: ../qml/pages/SettingsPage.qml:193
+#: ../qml/pages/SettingsPage.qml:187
 msgid "Chat settings:"
 msgstr "Chateinstellungen:"
 
-#: ../qml/pages/SettingsPage.qml:197
+#: ../qml/pages/SettingsPage.qml:191
 msgid "Send with enter"
 msgstr "Mit Enter senden"
 
-#: ../qml/pages/SettingsPage.qml:204
+#: ../qml/pages/SettingsPage.qml:198
 msgid "Display 'I am typing' when typing"
 msgstr "Zeige 'Ich schreibe', wenn ich schreibe"
 
-#: ../qml/pages/SettingsPage.qml:211
+#: ../qml/pages/SettingsPage.qml:205
 msgid "Hide less important events"
 msgstr "Verstecke weniger wichtige Ereignisse"
 
-#: ../qml/pages/SettingsPage.qml:218
+#: ../qml/pages/SettingsPage.qml:212
 msgid "Autoload animated images"
 msgstr "Animierte Bilder automatisch laden"
 
-#: ../qml/pages/SettingsPage.qml:232
+#: ../qml/pages/SettingsPage.qml:226
 msgid "Account settings:"
 msgstr "Kontoeinstellungen:"
 
-#: ../qml/pages/SettingsPage.qml:236 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:230 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr "Verbundene Handynummern"
 
-#: ../qml/pages/SettingsPage.qml:250 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:244 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Geräte"
 
-#: ../qml/pages/SettingsPage.qml:257
+#: ../qml/pages/SettingsPage.qml:251
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: ../qml/pages/SettingsPage.qml:263
+#: ../qml/pages/SettingsPage.qml:257
 msgid "Check out:"
 msgstr "Verlassen:"
 
-#: ../qml/pages/SettingsPage.qml:267
+#: ../qml/pages/SettingsPage.qml:261
 msgid "Disable account"
 msgstr "Konto deaktivieren"
 
-#: ../qml/pages/SettingsPage.qml:273 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:267 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Abmelden"
 
-#: ../qml/pages/SettingsPage.qml:279
+#: ../qml/pages/SettingsPage.qml:273
 msgid "More:"
 msgstr "Mehr:"
 
-#: ../qml/pages/CommunityPage.qml:103
+#: ../qml/pages/CommunityPage.qml:98
 msgid "No description found"
 msgstr "Keine Beschreibung gefunden"
 
@@ -493,19 +494,19 @@ msgstr "Keine Nachrichten in diesem Chat ..."
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "Antwort an <b>%1</b>: \"%2\""
 
-#: ../qml/pages/ChatPage.qml:236
+#: ../qml/pages/ChatPage.qml:238
 msgid "Accept invitation"
 msgstr "Einladung annehmen"
 
-#: ../qml/pages/ChatPage.qml:236
+#: ../qml/pages/ChatPage.qml:238
 msgid "Join"
 msgstr "Beitreten"
 
-#: ../qml/pages/ChatPage.qml:244
+#: ../qml/pages/ChatPage.qml:246
 msgid "You do not have posting permissions here"
 msgstr "Du kannst hier keine Nachrichten senden"
 
-#: ../qml/pages/ChatPage.qml:274
+#: ../qml/pages/ChatPage.qml:276
 msgid "Type something ..."
 msgstr "Schreibe etwas ..."
 
@@ -518,7 +519,7 @@ msgid "No phone numbers connected"
 msgstr "Keine Handynummern verbunden"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
-#: ../qml/pages/ChatSettingsPage.qml:169
+#: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Advanced settings"
 msgstr "Erweiterte Einstellungen"
 
@@ -603,31 +604,31 @@ msgstr "Beschreibung:"
 msgid "No chat description found…"
 msgstr "Keine Beschreibung gefunden …"
 
-#: ../qml/pages/ChatSettingsPage.qml:191
+#: ../qml/pages/ChatSettingsPage.qml:187
 msgid "Users in this chat (%1):"
 msgstr "Benutzer in diesem Chat (%1):"
 
-#: ../qml/pages/ChatSettingsPage.qml:215
+#: ../qml/pages/ChatSettingsPage.qml:211
 msgid "Search…"
 msgstr "Suche …"
 
-#: ../qml/pages/ChatSettingsPage.qml:235
+#: ../qml/pages/ChatSettingsPage.qml:228
 msgid "Invite friends"
 msgstr "Freunde einladen"
 
-#: ../qml/pages/ChatSettingsPage.qml:243
+#: ../qml/pages/ChatSettingsPage.qml:236
 msgid "Reload"
 msgstr "Neuladen"
 
-#: ../qml/pages/ChatSettingsPage.qml:260
+#: ../qml/pages/ChatSettingsPage.qml:253
 msgid "Enroll as member"
 msgstr "Zum Mitglied ernennen"
 
-#: ../qml/pages/ChatSettingsPage.qml:264
+#: ../qml/pages/ChatSettingsPage.qml:257
 msgid "Appoint to moderator"
 msgstr "Zum Moderator ernennen"
 
-#: ../qml/pages/ChatSettingsPage.qml:269
+#: ../qml/pages/ChatSettingsPage.qml:262
 msgid "Appoint to admin"
 msgstr "Zum Admin ernennen"
 
@@ -661,36 +662,36 @@ msgstr ""
 msgid "Push notifications are turned off…"
 msgstr "Push Benachrichtigungen sind deaktiviert …"
 
-#: ../qml/models/MatrixModel.qml:77
+#: ../qml/models/MatrixModel.qml:78
 msgid "USA"
 msgstr "DE"
 
-#: ../qml/models/MatrixModel.qml:78
+#: ../qml/models/MatrixModel.qml:79
 msgid "1"
 msgstr "49"
 
-#: ../qml/models/MatrixModel.qml:271
+#: ../qml/models/MatrixModel.qml:272
 msgid "You are not allowed to chat here."
 msgstr "Du hast keine Berechtigungen, um Nachrichten zu schreiben."
 
-#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:394 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection…"
 msgstr "😕 Keine Verbindung …"
 
-#: ../qml/models/MatrixModel.qml:443
+#: ../qml/models/MatrixModel.qml:444
 msgid "Upload error:"
 msgstr "Fehler beim hochladen:"
 
-#: ../qml/models/MatrixModel.qml:519
+#: ../qml/models/MatrixModel.qml:520
 msgid "No connection to the homeserver 😕"
 msgstr "Keine Verbindung zum Homeserver 😕"
 
-#: ../qml/models/MatrixModel.qml:526
+#: ../qml/models/MatrixModel.qml:527
 msgid "Your session has expired"
 msgstr "Deine Sitzung ist nicht länger gültig"
 
-#: ../qml/models/MatrixModel.qml:590
+#: ../qml/models/MatrixModel.qml:591
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -705,7 +706,7 @@ msgid "Copied to clipboard"
 msgstr "In Zwischenablage kopiert"
 
 #: ../qml/components/MemberListItem.qml:48
-#: ../qml/components/ChatScrollView.qml:51
+#: ../qml/components/ChatScrollView.qml:49
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr "Nach links oder rechts wischen für Aktionen. 😉"
 
@@ -747,7 +748,7 @@ msgstr "Bitte wiederholen"
 #: ../qml/components/AddAliasDialog.qml:27
 #: ../qml/components/EnterSMSTokenDialog.qml:28
 #: ../qml/components/ChangeDisplaynameDialog.qml:28
-#: ../qml/components/AddContactDialog.qml:71
+#: ../qml/components/AddContactDialog.qml:74
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
 #: ../qml/components/ChangeChatnameDialog.qml:49
 #: ../qml/components/AddEmailDialog.qml:28
@@ -770,16 +771,16 @@ msgstr "Profilbild ändern"
 msgid "New profile picture"
 msgstr "Profilbild ändern"
 
-#: ../qml/components/ChangeAvatarDialog.qml:39
-#: ../qml/components/ChangeChatAvatarDialog.qml:39
+#: ../qml/components/ChangeAvatarDialog.qml:40
+#: ../qml/components/ChangeChatAvatarDialog.qml:40
 msgid "Remove picture"
 msgstr "Bild entfernen"
 
-#: ../qml/components/ChangeAvatarDialog.qml:50
+#: ../qml/components/ChangeAvatarDialog.qml:51
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/BottomEdgePageStack.qml:92
 #: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangeChatAvatarDialog.qml:50
+#: ../qml/components/ChangeChatAvatarDialog.qml:51
 #: ../qml/components/ChangeChatnameDialog.qml:62
 msgid "Close"
 msgstr "Schließen"
@@ -850,7 +851,7 @@ msgstr "Bitte gib dein Passwort ein"
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
-#: ../qml/components/ChatScrollView.qml:93
+#: ../qml/components/ChatScrollView.qml:91
 msgid "Remove"
 msgstr "Entfernen"
 
@@ -944,35 +945,35 @@ msgstr "Zurücksetzen"
 msgid "Last active: %1"
 msgstr "Zuletzt gesehen: %1"
 
-#: ../qml/components/ChatScrollView.qml:57
+#: ../qml/components/ChatScrollView.qml:55
 msgid "Try to send again"
 msgstr "Nochmal versuchen zu senden"
 
-#: ../qml/components/ChatScrollView.qml:63
+#: ../qml/components/ChatScrollView.qml:61
 msgid "Reply"
 msgstr "Antworten"
 
-#: ../qml/components/ChatScrollView.qml:69
+#: ../qml/components/ChatScrollView.qml:67
 msgid "Copy text"
 msgstr "Text kopieren"
 
-#: ../qml/components/ChatScrollView.qml:75
+#: ../qml/components/ChatScrollView.qml:73
 msgid "Add to sticker collection"
 msgstr "Zur Stickersammlung hinzufügen"
 
-#: ../qml/components/ChatScrollView.qml:81
+#: ../qml/components/ChatScrollView.qml:79
 msgid "Forward"
 msgstr "Weiterleiten"
 
-#: ../qml/components/ChatScrollView.qml:252
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Load gif"
 msgstr "Gif laden"
 
-#: ../qml/components/ChatScrollView.qml:252
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Show image"
 msgstr "Bild anzeigen"
 
-#: ../qml/components/ChatScrollView.qml:323
+#: ../qml/components/ChatScrollView.qml:316
 msgid "Download: "
 msgstr "Herunterladen: "
 
@@ -1021,7 +1022,7 @@ msgstr "Neuen privaten Chat starten"
 msgid "Your username is: %1"
 msgstr "(Dein Nutzername ist: <b>%1</b>)"
 
-#: ../qml/components/AddContactDialog.qml:49
+#: ../qml/components/AddContactDialog.qml:50
 msgid "Or"
 msgstr "Oder"
 

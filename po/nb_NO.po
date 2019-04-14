@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 17:25+0000\n"
+"POT-Creation-Date: 2019-04-14 08:32+0000\n"
 "PO-Revision-Date: 2019-03-12 09:24+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -19,28 +19,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.5.1\n"
 
-#: ../qml/Main.qml:25 ../qml/pages/ChatListPage.qml:38
-#: fluffychat.desktop.in.h:1
-msgid "FluffyChat"
-msgstr "FluffyChat"
-
-#: ../qml/Main.qml:114
+#: ../qml/Main.qml:128
 msgid "Are you sure?"
 msgstr "Er du sikker?"
 
-#: ../qml/Main.qml:137
+#: ../qml/Main.qml:151
 #, fuzzy
 msgid "You must agree to the privacy policy"
 msgstr "Du må samtykke til personvernspraksisen"
 
-#: ../qml/Main.qml:152
+#: ../qml/Main.qml:166
 #, fuzzy
 msgid "Copied to the clipboard"
 msgstr "%1 har blitt bannlyst fra sludringen"
 
 #: ../qml/pages/InfoPage.qml:11
 #, fuzzy
-msgid "Info about FluffyChat %1 on %2"
+msgid "FluffyChat %1 on %2"
 msgstr "Info %1"
 
 #: ../qml/pages/InfoPage.qml:33
@@ -76,7 +71,7 @@ msgstr "Kildekode"
 msgid "License"
 msgstr "Lisens"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:225
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:219
 msgid "Archived chats"
 msgstr "Arkiverte sludringer"
 
@@ -89,7 +84,7 @@ msgstr "Søk etter sludringsnavn…"
 msgid "There are no archived chats"
 msgstr "Det finnes ingen arkiverte sludringer"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:243
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:237
 msgid "Connected email addresses"
 msgstr "Tilkoblede e-postadresser"
 
@@ -200,7 +195,7 @@ msgstr "Bruker hjemmetjeneren: "
 msgid "Change ID-server"
 msgstr "Endre ID-tjener"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:283
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:277
 msgid "About FluffyChat"
 msgstr "Om"
 
@@ -234,21 +229,25 @@ msgstr "Start ny sludring"
 msgid "Sign in"
 msgstr "Registrer deg"
 
-#: ../qml/pages/ChatListPage.qml:38
+#: ../qml/pages/ChatListPage.qml:39 fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
+
+#: ../qml/pages/ChatListPage.qml:39
 msgid "Share"
 msgstr "Del"
 
-#: ../qml/pages/ChatListPage.qml:101
+#: ../qml/pages/ChatListPage.qml:102
 #, fuzzy
 msgid "Search for your chats…"
 msgstr "Søk etter sludringsnavn…"
 
-#: ../qml/pages/ChatListPage.qml:122
+#: ../qml/pages/ChatListPage.qml:123
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 "Dra fra bunnen for å starte ny sludring eller oppdag offentlige grupper."
 
-#: ../qml/pages/ChatListPage.qml:152
+#: ../qml/pages/ChatListPage.qml:153
 #, fuzzy
 msgid "Add chat"
 msgstr "Rediger sludringsnavn"
@@ -258,7 +257,7 @@ msgstr "Rediger sludringsnavn"
 msgid "Add Chat"
 msgstr "Rediger sludringsnavn"
 
-#: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:63
+#: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
 msgstr "Importer fra adressebok"
 
@@ -295,83 +294,83 @@ msgstr "Visningsnavn:"
 msgid "Edit"
 msgstr "Rediger"
 
-#: ../qml/pages/SettingsPage.qml:130
+#: ../qml/pages/SettingsPage.qml:124
 #, fuzzy
 msgid "Change main color"
 msgstr "Velg en hovedfarge:"
 
-#: ../qml/pages/SettingsPage.qml:143
+#: ../qml/pages/SettingsPage.qml:137
 #, fuzzy
 msgid "Change background"
 msgstr "Sett slurdrebakgrunn"
 
-#: ../qml/pages/SettingsPage.qml:179
+#: ../qml/pages/SettingsPage.qml:173
 msgid "Dark mode"
 msgstr "Nattmodus"
 
-#: ../qml/pages/SettingsPage.qml:186
+#: ../qml/pages/SettingsPage.qml:180
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
-#: ../qml/pages/ChatSettingsPage.qml:163
+#: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
 msgstr "Merknader"
 
-#: ../qml/pages/SettingsPage.qml:193
+#: ../qml/pages/SettingsPage.qml:187
 #, fuzzy
 msgid "Chat settings:"
 msgstr "Sludringsinnstillinger:"
 
-#: ../qml/pages/SettingsPage.qml:197
+#: ../qml/pages/SettingsPage.qml:191
 msgid "Send with enter"
 msgstr ""
 
-#: ../qml/pages/SettingsPage.qml:204
+#: ../qml/pages/SettingsPage.qml:198
 #, fuzzy
 msgid "Display 'I am typing' when typing"
 msgstr "Vis \"Jeg skriver\" ved skriving"
 
-#: ../qml/pages/SettingsPage.qml:211
+#: ../qml/pages/SettingsPage.qml:205
 msgid "Hide less important events"
 msgstr "Skjul mindre viktige hendelser"
 
-#: ../qml/pages/SettingsPage.qml:218
+#: ../qml/pages/SettingsPage.qml:212
 msgid "Autoload animated images"
 msgstr "Automatisk innlasting av animerte bilder"
 
-#: ../qml/pages/SettingsPage.qml:232
+#: ../qml/pages/SettingsPage.qml:226
 msgid "Account settings:"
 msgstr "Kontoinnstillinger:"
 
-#: ../qml/pages/SettingsPage.qml:236 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:230 ../qml/pages/PhoneSettingsPage.qml:21
 #, fuzzy
 msgid "Connected phone numbers"
 msgstr "Tilknyttede telefonnummer"
 
-#: ../qml/pages/SettingsPage.qml:250 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:244 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Enheter"
 
-#: ../qml/pages/SettingsPage.qml:257
+#: ../qml/pages/SettingsPage.qml:251
 msgid "Change password"
 msgstr "Endre passord"
 
-#: ../qml/pages/SettingsPage.qml:263
+#: ../qml/pages/SettingsPage.qml:257
 msgid "Check out:"
 msgstr "Sjekk ut:"
 
-#: ../qml/pages/SettingsPage.qml:267
+#: ../qml/pages/SettingsPage.qml:261
 msgid "Disable account"
 msgstr "Skru av konto"
 
-#: ../qml/pages/SettingsPage.qml:273 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:267 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Logg ut"
 
-#: ../qml/pages/SettingsPage.qml:279
+#: ../qml/pages/SettingsPage.qml:273
 msgid "More:"
 msgstr "Mer:"
 
-#: ../qml/pages/CommunityPage.qml:103
+#: ../qml/pages/CommunityPage.qml:98
 msgid "No description found"
 msgstr "Fant ingen beskrivelse"
 
@@ -526,20 +525,20 @@ msgstr "Ingen meldinger i denne sludringen…"
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "Svar <b>%1</b>: \"%2\""
 
-#: ../qml/pages/ChatPage.qml:236
+#: ../qml/pages/ChatPage.qml:238
 msgid "Accept invitation"
 msgstr "Godta invitasjon"
 
-#: ../qml/pages/ChatPage.qml:236
+#: ../qml/pages/ChatPage.qml:238
 msgid "Join"
 msgstr "Ta del"
 
-#: ../qml/pages/ChatPage.qml:244
+#: ../qml/pages/ChatPage.qml:246
 #, fuzzy
 msgid "You do not have posting permissions here"
 msgstr "Du har ikke tilgang til å skrive i denne sludringen."
 
-#: ../qml/pages/ChatPage.qml:274
+#: ../qml/pages/ChatPage.qml:276
 msgid "Type something ..."
 msgstr "Skriv noe…"
 
@@ -552,7 +551,7 @@ msgid "No phone numbers connected"
 msgstr "Ingen tilknyttede telefonnummer"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
-#: ../qml/pages/ChatSettingsPage.qml:169
+#: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Advanced settings"
 msgstr "Avanserte innstillinger"
 
@@ -647,36 +646,36 @@ msgstr "Beskrivelse:"
 msgid "No chat description found…"
 msgstr "Fant ingen beskrivelse"
 
-#: ../qml/pages/ChatSettingsPage.qml:191
+#: ../qml/pages/ChatSettingsPage.qml:187
 msgid "Users in this chat (%1):"
 msgstr "Brukere i denne slurdringen (%1):"
 
-#: ../qml/pages/ChatSettingsPage.qml:215
+#: ../qml/pages/ChatSettingsPage.qml:211
 #, fuzzy
 #| msgid "Search..."
 msgid "Search…"
 msgstr "Søk…"
 
-#: ../qml/pages/ChatSettingsPage.qml:235
+#: ../qml/pages/ChatSettingsPage.qml:228
 #, fuzzy
 msgid "Invite friends"
 msgstr "Inviter venn"
 
-#: ../qml/pages/ChatSettingsPage.qml:243
+#: ../qml/pages/ChatSettingsPage.qml:236
 msgid "Reload"
 msgstr "Last inn igjen"
 
-#: ../qml/pages/ChatSettingsPage.qml:260
+#: ../qml/pages/ChatSettingsPage.qml:253
 #, fuzzy
 msgid "Enroll as member"
 msgstr "Utpek som medlem"
 
-#: ../qml/pages/ChatSettingsPage.qml:264
+#: ../qml/pages/ChatSettingsPage.qml:257
 #, fuzzy
 msgid "Appoint to moderator"
 msgstr "Utpek som moderator"
 
-#: ../qml/pages/ChatSettingsPage.qml:269
+#: ../qml/pages/ChatSettingsPage.qml:262
 #, fuzzy
 msgid "Appoint to admin"
 msgstr "Utpek som administrator"
@@ -712,43 +711,43 @@ msgstr "Logg inn på Ubuntu One for å motta push-merknader."
 msgid "Push notifications are turned off…"
 msgstr "Push-merknader er avskrudd…"
 
-#: ../qml/models/MatrixModel.qml:77
+#: ../qml/models/MatrixModel.qml:78
 #, fuzzy
 msgid "USA"
 msgstr "NO"
 
-#: ../qml/models/MatrixModel.qml:78
+#: ../qml/models/MatrixModel.qml:79
 #, fuzzy
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:271
+#: ../qml/models/MatrixModel.qml:272
 #, fuzzy
 msgid "You are not allowed to chat here."
 msgstr "Du tillates ikke å sludre her."
 
-#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:394 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 #, fuzzy
 msgid "😕 No connection…"
 msgstr "Ingen tilkobling til "
 
-#: ../qml/models/MatrixModel.qml:443
+#: ../qml/models/MatrixModel.qml:444
 msgid "Upload error:"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:519
+#: ../qml/models/MatrixModel.qml:520
 #, fuzzy
 msgid "No connection to the homeserver 😕"
 msgstr "Ingen tilkobling til hjemmetjeneren 😕"
 
-#: ../qml/models/MatrixModel.qml:526
+#: ../qml/models/MatrixModel.qml:527
 #, fuzzy
 #| msgid "Your session is no longer valid"
 msgid "Your session has expired"
 msgstr "Økten din er ikke lenger gyldig"
 
-#: ../qml/models/MatrixModel.qml:590
+#: ../qml/models/MatrixModel.qml:591
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -768,7 +767,7 @@ msgid "Copied to clipboard"
 msgstr "%1 har blitt bannlyst fra sludringen"
 
 #: ../qml/components/MemberListItem.qml:48
-#: ../qml/components/ChatScrollView.qml:51
+#: ../qml/components/ChatScrollView.qml:49
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr "Dra til venstre eller høyre for handlinger. 😉"
 
@@ -811,7 +810,7 @@ msgstr "Gjenta"
 #: ../qml/components/AddAliasDialog.qml:27
 #: ../qml/components/EnterSMSTokenDialog.qml:28
 #: ../qml/components/ChangeDisplaynameDialog.qml:28
-#: ../qml/components/AddContactDialog.qml:71
+#: ../qml/components/AddContactDialog.qml:74
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
 #: ../qml/components/ChangeChatnameDialog.qml:49
 #: ../qml/components/AddEmailDialog.qml:28
@@ -837,16 +836,16 @@ msgstr "Rediger profilbilde"
 msgid "New profile picture"
 msgstr "Rediger profilbilde"
 
-#: ../qml/components/ChangeAvatarDialog.qml:39
-#: ../qml/components/ChangeChatAvatarDialog.qml:39
+#: ../qml/components/ChangeAvatarDialog.qml:40
+#: ../qml/components/ChangeChatAvatarDialog.qml:40
 msgid "Remove picture"
 msgstr "Fjern bilde"
 
-#: ../qml/components/ChangeAvatarDialog.qml:50
+#: ../qml/components/ChangeAvatarDialog.qml:51
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/BottomEdgePageStack.qml:92
 #: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangeChatAvatarDialog.qml:50
+#: ../qml/components/ChangeChatAvatarDialog.qml:51
 #: ../qml/components/ChangeChatnameDialog.qml:62
 msgid "Close"
 msgstr "Lukk"
@@ -921,7 +920,7 @@ msgstr "Skriv inn passordet ditt"
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
-#: ../qml/components/ChatScrollView.qml:93
+#: ../qml/components/ChatScrollView.qml:91
 msgid "Remove"
 msgstr "Fjern"
 
@@ -1023,36 +1022,36 @@ msgstr "Tilbakestill"
 msgid "Last active: %1"
 msgstr "Sist sett: "
 
-#: ../qml/components/ChatScrollView.qml:57
+#: ../qml/components/ChatScrollView.qml:55
 #, fuzzy
 msgid "Try to send again"
 msgstr "Prøv å sende igjen"
 
-#: ../qml/components/ChatScrollView.qml:63
+#: ../qml/components/ChatScrollView.qml:61
 msgid "Reply"
 msgstr "Svar"
 
-#: ../qml/components/ChatScrollView.qml:69
+#: ../qml/components/ChatScrollView.qml:67
 msgid "Copy text"
 msgstr "Kopier tekst"
 
-#: ../qml/components/ChatScrollView.qml:75
+#: ../qml/components/ChatScrollView.qml:73
 msgid "Add to sticker collection"
 msgstr "Legg til i klistremerkesamling"
 
-#: ../qml/components/ChatScrollView.qml:81
+#: ../qml/components/ChatScrollView.qml:79
 msgid "Forward"
 msgstr "Videresend"
 
-#: ../qml/components/ChatScrollView.qml:252
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Load gif"
 msgstr "Last GIF"
 
-#: ../qml/components/ChatScrollView.qml:252
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Show image"
 msgstr "Vis bilde"
 
-#: ../qml/components/ChatScrollView.qml:323
+#: ../qml/components/ChatScrollView.qml:316
 #, fuzzy
 msgid "Download: "
 msgstr "Last ned: "
@@ -1106,7 +1105,7 @@ msgstr "Start privat sludring"
 msgid "Your username is: %1"
 msgstr "Ditt brukernavn er: %1"
 
-#: ../qml/components/AddContactDialog.qml:49
+#: ../qml/components/AddContactDialog.qml:50
 #, fuzzy
 msgid "Or"
 msgstr "Eller"

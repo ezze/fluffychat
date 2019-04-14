@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-05 17:25+0000\n"
+"POT-Creation-Date: 2019-04-14 08:32+0000\n"
 "PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
@@ -19,25 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.6-dev\n"
 
-#: ../qml/Main.qml:25 ../qml/pages/ChatListPage.qml:38
-#: fluffychat.desktop.in.h:1
-msgid "FluffyChat"
-msgstr "FluffyChat"
-
-#: ../qml/Main.qml:114
+#: ../qml/Main.qml:128
 msgid "Are you sure?"
 msgstr "Weet u het zeker?"
 
-#: ../qml/Main.qml:137
+#: ../qml/Main.qml:151
 msgid "You must agree to the privacy policy"
 msgstr "U moet akkoord gaan met het privacybeleid"
 
-#: ../qml/Main.qml:152
+#: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
 msgstr "Gekopieerd naar klembord"
 
 #: ../qml/pages/InfoPage.qml:11
-msgid "Info about FluffyChat %1 on %2"
+#, fuzzy
+#| msgid "Info about FluffyChat %1 on %2"
+msgid "FluffyChat %1 on %2"
 msgstr "Info over FluffyChat %1 op %2"
 
 #: ../qml/pages/InfoPage.qml:33
@@ -73,7 +70,7 @@ msgstr "Broncode"
 msgid "License"
 msgstr "Licentie"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:225
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:219
 msgid "Archived chats"
 msgstr "Gearchiveerde gesprekken"
 
@@ -85,7 +82,7 @@ msgstr "Zoek gearchiveerde gesprekken…"
 msgid "There are no archived chats"
 msgstr "Er zijn geen gearchiveerde gesprekken"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:243
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:237
 msgid "Connected email addresses"
 msgstr "Verbonden e-mailadressen"
 
@@ -189,7 +186,7 @@ msgstr "Thuisserver wijzigen"
 msgid "Change ID-server"
 msgstr "ID-server wijzigen"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:283
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:277
 msgid "About FluffyChat"
 msgstr "Over FluffyChat"
 
@@ -221,21 +218,25 @@ msgstr "Nieuwe account aanmaken"
 msgid "Sign in"
 msgstr "Aanmelden"
 
-#: ../qml/pages/ChatListPage.qml:38
+#: ../qml/pages/ChatListPage.qml:39 fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
+
+#: ../qml/pages/ChatListPage.qml:39
 msgid "Share"
 msgstr "Delen"
 
-#: ../qml/pages/ChatListPage.qml:101
+#: ../qml/pages/ChatListPage.qml:102
 msgid "Search for your chats…"
 msgstr "Zoek naar uw gesprekken…"
 
-#: ../qml/pages/ChatListPage.qml:122
+#: ../qml/pages/ChatListPage.qml:123
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 "Veeg van onderaf omhoog om een nieuw gesprek te beginnen of openbare groepen "
 "te ontdekken."
 
-#: ../qml/pages/ChatListPage.qml:152
+#: ../qml/pages/ChatListPage.qml:153
 msgid "Add chat"
 msgstr "Gesprek toevoegen"
 
@@ -243,7 +244,7 @@ msgstr "Gesprek toevoegen"
 msgid "Add Chat"
 msgstr "Gesprek toevoegen"
 
-#: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:63
+#: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
 msgstr "Importeren vanuit adresboek"
 
@@ -279,79 +280,79 @@ msgstr "Weergavenaam:"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: ../qml/pages/SettingsPage.qml:130
+#: ../qml/pages/SettingsPage.qml:124
 msgid "Change main color"
 msgstr "Hoofdkleur wijzigen"
 
-#: ../qml/pages/SettingsPage.qml:143
+#: ../qml/pages/SettingsPage.qml:137
 msgid "Change background"
 msgstr "Achtergrond wijzigen"
 
-#: ../qml/pages/SettingsPage.qml:179
+#: ../qml/pages/SettingsPage.qml:173
 msgid "Dark mode"
 msgstr "Donkere modus"
 
-#: ../qml/pages/SettingsPage.qml:186
+#: ../qml/pages/SettingsPage.qml:180
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
-#: ../qml/pages/ChatSettingsPage.qml:163
+#: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
 msgstr "Meldingen"
 
-#: ../qml/pages/SettingsPage.qml:193
+#: ../qml/pages/SettingsPage.qml:187
 msgid "Chat settings:"
 msgstr "Gespreksinstellingen:"
 
-#: ../qml/pages/SettingsPage.qml:197
+#: ../qml/pages/SettingsPage.qml:191
 msgid "Send with enter"
 msgstr "Versturen met enter"
 
-#: ../qml/pages/SettingsPage.qml:204
+#: ../qml/pages/SettingsPage.qml:198
 msgid "Display 'I am typing' when typing"
 msgstr "‘Ik typ’ tonen tijdens het typen"
 
-#: ../qml/pages/SettingsPage.qml:211
+#: ../qml/pages/SettingsPage.qml:205
 msgid "Hide less important events"
 msgstr "Minder belangrijke gebeurtenissen verbergen"
 
-#: ../qml/pages/SettingsPage.qml:218
+#: ../qml/pages/SettingsPage.qml:212
 msgid "Autoload animated images"
 msgstr "Bewegende afbeeldingen automatisch laden"
 
-#: ../qml/pages/SettingsPage.qml:232
+#: ../qml/pages/SettingsPage.qml:226
 msgid "Account settings:"
 msgstr "Accountinstellingen:"
 
-#: ../qml/pages/SettingsPage.qml:236 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:230 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr "Gekoppelde telefoonnummers"
 
-#: ../qml/pages/SettingsPage.qml:250 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:244 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Apparaten"
 
-#: ../qml/pages/SettingsPage.qml:257
+#: ../qml/pages/SettingsPage.qml:251
 msgid "Change password"
 msgstr "Wachtwoord wijzigen"
 
-#: ../qml/pages/SettingsPage.qml:263
+#: ../qml/pages/SettingsPage.qml:257
 #, fuzzy
 msgid "Check out:"
 msgstr "Afmelden:"
 
-#: ../qml/pages/SettingsPage.qml:267
+#: ../qml/pages/SettingsPage.qml:261
 msgid "Disable account"
 msgstr "Account uitschakelen"
 
-#: ../qml/pages/SettingsPage.qml:273 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:267 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Afmelden"
 
-#: ../qml/pages/SettingsPage.qml:279
+#: ../qml/pages/SettingsPage.qml:273
 msgid "More:"
 msgstr "Meer:"
 
-#: ../qml/pages/CommunityPage.qml:103
+#: ../qml/pages/CommunityPage.qml:98
 msgid "No description found"
 msgstr "Geen omschrijving gevonden"
 
@@ -435,25 +436,25 @@ msgstr ""
 "protocol, en is compatibel met alle Matrix-servers en Matrix-"
 "identiteitsservers. Alle communicatie met FluffyChat gebruikt een Matrix-"
 "server en de Matrix-identiteitsserver.<br>* De standaardserver in FluffyChat "
-"is https://ubports.chat, en de standaardidentiteitsserver is "
-"https://vector.im.<br>* FluffyChat zelf gebruikt geen server of externe "
-"dienst.<br>* Alle communicatie van enige betekenis tussen FluffyChat en een "
-"server gebeurt op een veilige manier, beschermd door transportversleuteling. "
-"Eind-tot-eind-versleuteling komt er ook aan.<br>* FluffyChat is niet "
-"verantwoordelijk voor de gegevensverwerking door een Matrix-server of Matrix-"
-"identiteitsserver.<br>* FluffyChat biedt de mogelijkheid om contacten te "
-"vinden aan de hand van hun telefoonnummers. Dit is echter geen vereiste voor "
-"normaal gebruik en alleen bedoeld voor extra gemak. Er worden nooit "
-"gebruikersgegevens geüpload zonder interactie van de gebruiker! De gebruiker "
-"kan er voor kiezen alle of sommige contacten te uploaden naar de "
-"identiteitsserver!<br><br><b>Pushmeldingen</b><br><br>* De door de gebruiker "
-"gekozen Matrix-server stuurt automatisch pushmeldingen naar de UBports-"
-"pushdienst. Deze meldingen worden versleuteld met het https-protocol tussen "
-"het apparaat en de Matrix-server, en verder door naar de officiële UBports-"
-"Matrix-gateway op https://push.ubports.com:5003/_matrix/push/r0/notify Deze "
-"server stuurt de melding door naar de UBports-pushdienst op https://"
-"push.ubports.com, waarna deze wordt doorgestuurd als pushmelding naar de "
-"apparaten van de gebruiker.<br>"
+"is https://ubports.chat, en de standaardidentiteitsserver is https://vector."
+"im.<br>* FluffyChat zelf gebruikt geen server of externe dienst.<br>* Alle "
+"communicatie van enige betekenis tussen FluffyChat en een server gebeurt op "
+"een veilige manier, beschermd door transportversleuteling. Eind-tot-eind-"
+"versleuteling komt er ook aan.<br>* FluffyChat is niet verantwoordelijk voor "
+"de gegevensverwerking door een Matrix-server of Matrix-identiteitsserver."
+"<br>* FluffyChat biedt de mogelijkheid om contacten te vinden aan de hand "
+"van hun telefoonnummers. Dit is echter geen vereiste voor normaal gebruik en "
+"alleen bedoeld voor extra gemak. Er worden nooit gebruikersgegevens geüpload "
+"zonder interactie van de gebruiker! De gebruiker kan er voor kiezen alle of "
+"sommige contacten te uploaden naar de identiteitsserver!"
+"<br><br><b>Pushmeldingen</b><br><br>* De door de gebruiker gekozen Matrix-"
+"server stuurt automatisch pushmeldingen naar de UBports-pushdienst. Deze "
+"meldingen worden versleuteld met het https-protocol tussen het apparaat en "
+"de Matrix-server, en verder door naar de officiële UBports-Matrix-gateway op "
+"https://push.ubports.com:5003/_matrix/push/r0/notify Deze server stuurt de "
+"melding door naar de UBports-pushdienst op https://push.ubports.com, waarna "
+"deze wordt doorgestuurd als pushmelding naar de apparaten van de gebruiker."
+"<br>"
 
 #: ../qml/pages/CountryPickerPage.qml:11
 msgid "Choose a country"
@@ -495,19 +496,19 @@ msgstr "Geen berichten in dit gesprek…"
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "Antwoorden op <b>1%1</b>2: “%2”"
 
-#: ../qml/pages/ChatPage.qml:236
+#: ../qml/pages/ChatPage.qml:238
 msgid "Accept invitation"
 msgstr "Uitnodiging aanvaarden"
 
-#: ../qml/pages/ChatPage.qml:236
+#: ../qml/pages/ChatPage.qml:238
 msgid "Join"
 msgstr "Deelnemen"
 
-#: ../qml/pages/ChatPage.qml:244
+#: ../qml/pages/ChatPage.qml:246
 msgid "You do not have posting permissions here"
 msgstr "U heeft geen toestemming om in dit gesprek te schrijven"
 
-#: ../qml/pages/ChatPage.qml:274
+#: ../qml/pages/ChatPage.qml:276
 msgid "Type something ..."
 msgstr "Typ iets…"
 
@@ -520,7 +521,7 @@ msgid "No phone numbers connected"
 msgstr "Geen telefoonnummers gekoppeld"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
-#: ../qml/pages/ChatSettingsPage.qml:169
+#: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Advanced settings"
 msgstr "Geavanceerde instellingen"
 
@@ -605,31 +606,31 @@ msgstr "Omschrijving:"
 msgid "No chat description found…"
 msgstr "Geen gespreksomschrijving gevonden…"
 
-#: ../qml/pages/ChatSettingsPage.qml:191
+#: ../qml/pages/ChatSettingsPage.qml:187
 msgid "Users in this chat (%1):"
 msgstr "Gebruikers in dit gesprek (%1):"
 
-#: ../qml/pages/ChatSettingsPage.qml:215
+#: ../qml/pages/ChatSettingsPage.qml:211
 msgid "Search…"
 msgstr "Zoeken…"
 
-#: ../qml/pages/ChatSettingsPage.qml:235
+#: ../qml/pages/ChatSettingsPage.qml:228
 msgid "Invite friends"
 msgstr "Nodig vrienden uit"
 
-#: ../qml/pages/ChatSettingsPage.qml:243
+#: ../qml/pages/ChatSettingsPage.qml:236
 msgid "Reload"
 msgstr "Herladen"
 
-#: ../qml/pages/ChatSettingsPage.qml:260
+#: ../qml/pages/ChatSettingsPage.qml:253
 msgid "Enroll as member"
 msgstr "Deelnemen als lid"
 
-#: ../qml/pages/ChatSettingsPage.qml:264
+#: ../qml/pages/ChatSettingsPage.qml:257
 msgid "Appoint to moderator"
 msgstr "Toewijzen aan moderator"
 
-#: ../qml/pages/ChatSettingsPage.qml:269
+#: ../qml/pages/ChatSettingsPage.qml:262
 msgid "Appoint to admin"
 msgstr "Toewijzen aan beheerder"
 
@@ -661,36 +662,36 @@ msgstr "Meld u aan op Ubuntu One om pushmeldingen te ontvangen."
 msgid "Push notifications are turned off…"
 msgstr "Pushmeldingen staan uit…"
 
-#: ../qml/models/MatrixModel.qml:77
+#: ../qml/models/MatrixModel.qml:78
 msgid "USA"
 msgstr "VS"
 
-#: ../qml/models/MatrixModel.qml:78
+#: ../qml/models/MatrixModel.qml:79
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:271
+#: ../qml/models/MatrixModel.qml:272
 msgid "You are not allowed to chat here."
 msgstr "U mag hier niet chatten."
 
-#: ../qml/models/MatrixModel.qml:393 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:394 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection…"
 msgstr "😕 Geen verbinding…"
 
-#: ../qml/models/MatrixModel.qml:443
+#: ../qml/models/MatrixModel.qml:444
 msgid "Upload error:"
 msgstr "Fout bij uploaden:"
 
-#: ../qml/models/MatrixModel.qml:519
+#: ../qml/models/MatrixModel.qml:520
 msgid "No connection to the homeserver 😕"
 msgstr "Geen verbinding met de thuisserver 😕"
 
-#: ../qml/models/MatrixModel.qml:526
+#: ../qml/models/MatrixModel.qml:527
 msgid "Your session has expired"
 msgstr "Uw sessie is verlopen"
 
-#: ../qml/models/MatrixModel.qml:590
+#: ../qml/models/MatrixModel.qml:591
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -705,7 +706,7 @@ msgid "Copied to clipboard"
 msgstr "Gekopieerd naar klembord"
 
 #: ../qml/components/MemberListItem.qml:48
-#: ../qml/components/ChatScrollView.qml:51
+#: ../qml/components/ChatScrollView.qml:49
 msgid "Swipe to the left or the right for actions. 😉"
 msgstr "Veeg naar links of naar rechts voor acties. 😉"
 
@@ -747,7 +748,7 @@ msgstr "Gelieve te herhalen"
 #: ../qml/components/AddAliasDialog.qml:27
 #: ../qml/components/EnterSMSTokenDialog.qml:28
 #: ../qml/components/ChangeDisplaynameDialog.qml:28
-#: ../qml/components/AddContactDialog.qml:71
+#: ../qml/components/AddContactDialog.qml:74
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:28
 #: ../qml/components/ChangeChatnameDialog.qml:49
 #: ../qml/components/AddEmailDialog.qml:28
@@ -770,16 +771,16 @@ msgstr "Profielfoto wijzigen"
 msgid "New profile picture"
 msgstr "Nieuwe profielfoto"
 
-#: ../qml/components/ChangeAvatarDialog.qml:39
-#: ../qml/components/ChangeChatAvatarDialog.qml:39
+#: ../qml/components/ChangeAvatarDialog.qml:40
+#: ../qml/components/ChangeChatAvatarDialog.qml:40
 msgid "Remove picture"
 msgstr "Afbeelding verwijderen"
 
-#: ../qml/components/ChangeAvatarDialog.qml:50
+#: ../qml/components/ChangeAvatarDialog.qml:51
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/BottomEdgePageStack.qml:92
 #: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangeChatAvatarDialog.qml:50
+#: ../qml/components/ChangeChatAvatarDialog.qml:51
 #: ../qml/components/ChangeChatnameDialog.qml:62
 msgid "Close"
 msgstr "Sluiten"
@@ -850,7 +851,7 @@ msgstr "Voer uw wachtwoord in"
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
-#: ../qml/components/ChatScrollView.qml:93
+#: ../qml/components/ChatScrollView.qml:91
 msgid "Remove"
 msgstr "Verwijderen"
 
@@ -944,35 +945,35 @@ msgstr "Opnieuw instellen"
 msgid "Last active: %1"
 msgstr "Laatst actief: %1"
 
-#: ../qml/components/ChatScrollView.qml:57
+#: ../qml/components/ChatScrollView.qml:55
 msgid "Try to send again"
 msgstr "Probeer nogmaals te verzenden"
 
-#: ../qml/components/ChatScrollView.qml:63
+#: ../qml/components/ChatScrollView.qml:61
 msgid "Reply"
 msgstr "Beantwoorden"
 
-#: ../qml/components/ChatScrollView.qml:69
+#: ../qml/components/ChatScrollView.qml:67
 msgid "Copy text"
 msgstr "Kopiëren"
 
-#: ../qml/components/ChatScrollView.qml:75
+#: ../qml/components/ChatScrollView.qml:73
 msgid "Add to sticker collection"
 msgstr "Toevoegen aan stickerverzameling"
 
-#: ../qml/components/ChatScrollView.qml:81
+#: ../qml/components/ChatScrollView.qml:79
 msgid "Forward"
 msgstr "Vooruit"
 
-#: ../qml/components/ChatScrollView.qml:252
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Load gif"
 msgstr "GIF laden"
 
-#: ../qml/components/ChatScrollView.qml:252
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Show image"
 msgstr "Afbeelding tonen"
 
-#: ../qml/components/ChatScrollView.qml:323
+#: ../qml/components/ChatScrollView.qml:316
 msgid "Download: "
 msgstr "Downloaden: "
 
@@ -1021,7 +1022,7 @@ msgstr "Privégesprek starten"
 msgid "Your username is: %1"
 msgstr "Uw gebruikersnaam is: %1"
 
-#: ../qml/components/AddContactDialog.qml:49
+#: ../qml/components/AddContactDialog.qml:50
 msgid "Or"
 msgstr "Of"
 
