@@ -130,6 +130,7 @@ Page {
                 property var name: ""
                 property var icon: "settings"
                 onClicked: backgroundImport.requestMedia ()
+                visible: platform === platforms.UBPORTS
                 height: layout.height
 
                 ListItemLayout {
