@@ -131,10 +131,12 @@ Item {
     }
 
     function shareTextIntern ( text ) {
+        console.log("Share text intern:", text)
         mainLayout.removePages( mainLayout.primaryPage )
         bottomEdgePageStack.clear ()
         contentHub.shareObject = {
-            items: [ contentItemComponent.createObject(contentHub, {"url" : "", "text": text}) ]
+            items: [ contentItemComponent.createObject(contentHub, {"url" : "", "text": text}) ],
+            contentType: ContentType.Text
         }
     }
 

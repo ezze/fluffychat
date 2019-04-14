@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 08:08+0000\n"
+"POT-Creation-Date: 2019-04-14 08:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:129
+#: ../qml/Main.qml:128
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/Main.qml:152
+#: ../qml/Main.qml:151
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:167
+#: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -1059,7 +1059,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ../qml/scripts/ChatPageActions.js:524
+#: ../qml/scripts/ChatPageActions.js:525
 msgid "Uploading..."
 msgstr ""
 
