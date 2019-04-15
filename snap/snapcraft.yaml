@@ -46,6 +46,7 @@ parts:
     stage: [ usr/share/applications/fluffychat.desktop ]
   olm:
     source: libs/olm
+    source-type: git
     plugin: cmake
     override-build: |
       cmake ../src -Bbuild -DOLM_TESTS=OFF -DBUILD_SHARED_LIBS=OFF && \
