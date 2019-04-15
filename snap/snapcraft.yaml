@@ -24,9 +24,9 @@ apps:
       - home
 
 parts:
-  source-type: git
   fluffychat:
     source: .
+    source-type: git
     plugin: cmake
     build-packages:
       - qtbase5-dev
