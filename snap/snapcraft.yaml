@@ -24,6 +24,7 @@ apps:
       - home
 
 parts:
+  source-type: git
   fluffychat:
     source: .
     plugin: cmake
