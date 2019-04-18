@@ -59,25 +59,25 @@ Page {
             SettingsListItem {
                 name: i18n.tr("Website")
                 icon: "external-link"
-                onClicked: Qt.openUrlExternally("https://christianpauly.github.io/fluffychat")
+                onClicked: Qt.openUrlExternally("https://christianpauly.gitlab.io/fluffychat-website")
             }
 
             SettingsListItem {
                 name: i18n.tr("Contributors")
                 icon: "contact-group"
-                onClicked: Qt.openUrlExternally("https://github.com/ChristianPauly/fluffychat/graphs/contributors")
+                onClicked: Qt.openUrlExternally("https://gitlab.com/ChristianPauly/fluffychat/graphs/master")
             }
 
             SettingsListItem {
                 name: i18n.tr("Source code")
                 icon: "text-xml-symbolic"
-                onClicked: Qt.openUrlExternally("https://github.com/ChristianPauly/fluffychat")
+                onClicked: Qt.openUrlExternally("https://gitlab.com/ChristianPauly/fluffychat")
             }
 
             SettingsListItem {
                 name: i18n.tr("License")
                 icon: "x-office-document-symbolic"
-                onClicked: Qt.openUrlExternally("https://github.com/ChristianPauly/fluffychat/blob/master/LICENSE")
+                onClicked: Qt.openUrlExternally("https://gitlab.com/ChristianPauly/fluffychat/blob/master/LICENSE")
             }
 
         }

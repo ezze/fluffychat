@@ -2,16 +2,16 @@
 
 <p align="center">
   <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="/docs/assets/images/downloadButton.jpg" /></a> <a href="https://snapcraft.io/fluffychat"><img alt="Get it from the Snap Store" style="height: 66.6px;" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg"></a><br>
-  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a> - <a href="https://hosted.weblate.org/projects/fluffychat/" target="new">Translate FluffyChat</a> - <a href="https://github.com/ChristianPauly/fluffychat/tree/master/docs" target="new">Translate the website</a> - <a href="https://christianpauly.github.io/fluffychat/faq.html" target="new">FAQ</a> - <a href="https://christianpauly.github.io/fluffychat/" target="new">Website</a>
+  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a> - <a href="https://hosted.weblate.org/projects/fluffychat/" target="new">Translate FluffyChat</a> - <a href="https://gitlab.com/ChristianPauly/fluffychat-website" target="new">Translate the website</a> - <a href="https://christianpauly.gitlab.io/fluffychat-website/faq.html" target="new">FAQ</a> - <a href="https://christianpauly.gitlab.io/fluffychat-website/" target="new">Website</a>
  </p>
 <br>
 <br>
 <p>
-  <img src="/docs/assets/images/screenshot20181026_144145721.png" width="19%" />
-  <img src="/docs/assets/images/screenshot20181026_144832172.png" width="19%" />
-  <img src="/docs/assets/images/screenshot20181026_144549035.png" width="19%" />
-  <img src="/docs/assets/images/screenshot20181026_144653603.png" width="19%" />
-  <img src="/docs/assets/images/screenshot20181026_144726947.png" width="19%" />
+  <img src="https://christianpauly.gitlab.io/fluffychat-website/assets/images/screenshot20181026_144145721.png" width="19%" />
+  <img src="https://christianpauly.gitlab.io/fluffychat-website/assets/images/screenshot20181026_144832172.png" width="19%" />
+  <img src="https://christianpauly.gitlab.io/fluffychat-website/assets/images/screenshot20181026_144549035.png" width="19%" />
+  <img src="https://christianpauly.gitlab.io/fluffychat-website/assets/images/screenshot20181026_144653603.png" width="19%" />
+  <img src="https://christianpauly.gitlab.io/fluffychat-website/assets/images/screenshot20181026_144726947.png" width="19%" />
 </p>
 
 # Features
@@ -43,13 +43,13 @@
 
 1. Close this repo:
 ```
-git clone --recurse-submodules https://github.com/ChristianPauly/fluffychat
+git clone --recurse-submodules https://gitlab.com/ChristianPauly/fluffychat
 cd fluffychat
 ```
 
 ##### Build Click for Ubuntu Touch
 
-2. Install clickable as described here: https://github.com/bhdouglass/clickable
+2. Install clickable as described here: https://gitlab.com/clickable/clickable
 
 3. Build with clickable
 ```
