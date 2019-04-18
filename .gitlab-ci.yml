@@ -1,0 +1,68 @@
+stages:
+  - build
+  - publish
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  DOCKER_DRIVER: overlay2
+
+click:armhf:
+  stage: build
+  image: clickable/ci-16.04-armhf
+  except:
+    - tags
+  script:
+    - clickable clean build-libs build click-build
+  artifacts:
+    paths:
+      - build/fluffychat/*.click
+    expire_in: 1 week
+
+
+click:publish:
+  stage: publish
+  image: clickable/ci-16.04-armhf
+  only:
+    - tags
+  script:
+    - clickable clean build-libs build click-build
+    - clickable publish "$CI_COMMIT_MESSAGE"
+  artifacts:
+    paths:
+      - build/fluffychat/*.click
+    expire_in: 1 week
+
+
+snap:amd64:
+  stage: build
+  image: ubuntu:18.04
+  except:
+    - tags
+  script:
+    - apt-get update -qy
+    - apt-get install -y snapcraft
+    - snapcraft --debug
+  artifacts:
+    paths:
+      - './*.snap'
+    when: on_success
+    expire_in: 1 week
+  
+snap:publish:
+  stage: publish
+  image: ubuntu:18.04
+  only:
+    - tags
+  script:
+    - apt-get update -qy
+    - apt-get install -y snapcraft 
+    - snapcraft
+    - echo $SNAPCRAFT_LOGIN_FILE | base64 --decode --ignore-garbage > snapcraft.login
+    - snapcraft login --with snapcraft.login
+    - snapcraft push *.snap
+    - snapcraft logout
+  artifacts:
+    paths:
+      - './*.snap'
+    when: on_success
+    expire_in: 1 week
