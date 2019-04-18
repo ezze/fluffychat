@@ -41,15 +41,15 @@
 
 #### How to build
 
-##### Build Click for Ubuntu Touch
-
-1. Install clickable as described here: https://github.com/bhdouglass/clickable
-
-2. Clone this repo:
+1. Close this repo:
 ```
-git clone https://github.com/ChristianPauly/fluffychat
+git clone --recurse-submodules https://github.com/ChristianPauly/fluffychat
 cd fluffychat
 ```
+
+##### Build Click for Ubuntu Touch
+
+2. Install clickable as described here: https://github.com/bhdouglass/clickable
 
 3. Build with clickable
 ```
@@ -59,13 +59,7 @@ clickable click-build
 
 ##### Build Snap for Desktop
 
-1. Install snapcraft as described here: https://snapcraft.io
-
-2. Close this repo:
-```
-git clone https://github.com/ChristianPauly/fluffychat
-cd fluffychat
-```
+2. Install snapcraft as described here: https://snapcraft.io
 
 3. Build with snapcraft and install
 ```
@@ -82,5 +76,7 @@ Regionetz is an ISP company from southern Germany and hosts the official server 
 * <a href="https://github.com/advocatux">Advocatux</a> has made the Spanish translation with great love and care. He always stands by my side and supports my work with great commitment.
 
 * Thanks to Mark for all his support and the chat background.
+
+* Thanks to Tim Sueberkrueb for the snap version
 
 * Also thanks to all translators and testers! With your help, fluffychat is now available in 5 languages.

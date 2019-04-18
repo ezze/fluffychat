@@ -4,7 +4,7 @@ version: script
 version-script: echo $(git rev-parse --short HEAD)
 summary: Open. Nonprofit. Cute ♥
 description: FluffyChat is a cute Matrix chat application
-grade: devel
+grade: stable
 confinement: strict
 
 apps:
@@ -26,6 +26,7 @@ apps:
 parts:
   fluffychat:
     source: .
+    source-type: git
     plugin: cmake
     build-packages:
       - qtbase5-dev
@@ -45,6 +46,7 @@ parts:
     stage: [ usr/share/applications/fluffychat.desktop ]
   olm:
     source: libs/olm
+    source-type: git
     plugin: cmake
     override-build: |
       cmake ../src -Bbuild -DOLM_TESTS=OFF -DBUILD_SHARED_LIBS=OFF && \
@@ -74,7 +76,7 @@ parts:
   ubports-repo:
     plugin: nil
     override-build: |
-      sudo apt install -y -q software-properties-common
+      sudo apt install -y -q software-properties-common wget
       wget -qO - http://repo.ubports.com/pubkey.gpg | sudo apt-key add -
       sudo apt-add-repository 'deb [arch=amd64] https://repo.ubports.com bionic main'
       sudo apt-get update
