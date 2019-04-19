@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 08:32+0000\n"
+"POT-Creation-Date: 2019-04-15 04:58+0000\n"
 "PO-Revision-Date: 2019-04-14 10:12+0000\n"
 "Last-Translator: Anne Onyme 017 <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
@@ -146,13 +146,8 @@ msgid "What's new in version %1?"
 msgstr "Quoi de neuf dans la version %1 ?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-msgid ""
-"File transfer now possible using different types. Sharing files from other "
-"apps now possible. Fixed: Can not change chat name or description."
+msgid "Minor bug fixes and new translations."
 msgstr ""
-"Le transfert de plusieurs types de fichiers est désormais possible. Le "
-"partage de fichiers à partir d'autres applications est également possible. "
-"Corrigé : impossible de modifier le nom ou la description de la discussion."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -1428,6 +1423,15 @@ msgstr "Identifiant « %1 » non trouvé sur %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Cet identifiant est déjà pris"
+
+#~ msgid ""
+#~ "File transfer now possible using different types. Sharing files from "
+#~ "other apps now possible. Fixed: Can not change chat name or description."
+#~ msgstr ""
+#~ "Le transfert de plusieurs types de fichiers est désormais possible. Le "
+#~ "partage de fichiers à partir d'autres applications est également "
+#~ "possible. Corrigé : impossible de modifier le nom ou la description de la "
+#~ "discussion."
 
 #, fuzzy
 #~| msgid ""

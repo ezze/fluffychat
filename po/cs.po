@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 08:32+0000\n"
+"POT-Creation-Date: 2019-04-15 04:58+0000\n"
 "PO-Revision-Date: 2019-04-14 10:12+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
@@ -144,12 +144,8 @@ msgid "What's new in version %1?"
 msgstr "Co je nového ve verzi %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-msgid ""
-"File transfer now possible using different types. Sharing files from other "
-"apps now possible. Fixed: Can not change chat name or description."
+msgid "Minor bug fixes and new translations."
 msgstr ""
-"Nyní je možný přenos různých typů souborů. Nyní je možné sdílet soubory z "
-"jiných aplikací. Oprava chyby: Nebylo možné změnit název nebo popis chatu."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -1411,6 +1407,13 @@ msgstr "Jméno uživatele '%1' nenalezeno v %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Toto uživatelské jméno již někdo používá"
+
+#~ msgid ""
+#~ "File transfer now possible using different types. Sharing files from "
+#~ "other apps now possible. Fixed: Can not change chat name or description."
+#~ msgstr ""
+#~ "Nyní je možný přenos různých typů souborů. Nyní je možné sdílet soubory z "
+#~ "jiných aplikací. Oprava chyby: Nebylo možné změnit název nebo popis chatu."
 
 #~ msgid ""
 #~ "Improved stability and performance, new translations, design changes, "

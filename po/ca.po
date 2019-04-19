@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 08:32+0000\n"
+"POT-Creation-Date: 2019-04-15 04:58+0000\n"
 "PO-Revision-Date: 2019-04-06 06:06+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
@@ -146,9 +146,7 @@ msgid "What's new in version %1?"
 msgstr "Quines novetats hi ha a la versió %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-msgid ""
-"File transfer now possible using different types. Sharing files from other "
-"apps now possible. Fixed: Can not change chat name or description."
+msgid "Minor bug fixes and new translations."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:218

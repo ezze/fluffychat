@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 08:32+0000\n"
+"POT-Creation-Date: 2019-04-15 04:58+0000\n"
 "PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -142,12 +142,8 @@ msgid "What's new in version %1?"
 msgstr "版本 %1 有什麼新功能？"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-msgid ""
-"File transfer now possible using different types. Sharing files from other "
-"apps now possible. Fixed: Can not change chat name or description."
+msgid "Minor bug fixes and new translations."
 msgstr ""
-"現在可以使用不同類型進行文件傳輸，現在可以與其他應用程式共用文件。 修復：無法"
-"更改聊天名稱或說明。"
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -1455,6 +1451,13 @@ msgstr "在 %2 上找不到用戶名稱'%1'"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "用戶名稱已被使用"
+
+#~ msgid ""
+#~ "File transfer now possible using different types. Sharing files from "
+#~ "other apps now possible. Fixed: Can not change chat name or description."
+#~ msgstr ""
+#~ "現在可以使用不同類型進行文件傳輸，現在可以與其他應用程式共用文件。 修復："
+#~ "無法更改聊天名稱或說明。"
 
 #~ msgid "You are that!"
 #~ msgstr "你就是那樣！"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 08:32+0000\n"
+"POT-Creation-Date: 2019-04-15 04:58+0000\n"
 "PO-Revision-Date: 2019-04-19 13:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -155,14 +155,8 @@ msgid "What's new in version %1?"
 msgstr "Hva er nytt i versjon %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-#, fuzzy
-msgid ""
-"File transfer now possible using different types. Sharing files from other "
-"apps now possible. Fixed: Can not change chat name or description."
+msgid "Minor bug fixes and new translations."
 msgstr ""
-"Filoverføringer er nå mulig ved bruk av forskjellige typer. Deling av filer "
-"fra andre programmer er nå mulig. Fikset: Kan ikke endre sludringsnavn eller "
-"beskrivelse."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -1555,6 +1549,15 @@ msgstr "Brukernavn \"%1\" ikke funnet på %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Brukernavn allerede i bruk"
+
+#, fuzzy
+#~ msgid ""
+#~ "File transfer now possible using different types. Sharing files from "
+#~ "other apps now possible. Fixed: Can not change chat name or description."
+#~ msgstr ""
+#~ "Filoverføringer er nå mulig ved bruk av forskjellige typer. Deling av "
+#~ "filer fra andre programmer er nå mulig. Fikset: Kan ikke endre "
+#~ "sludringsnavn eller beskrivelse."
 
 #, fuzzy
 #~ msgid ""

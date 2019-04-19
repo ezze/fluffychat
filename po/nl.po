@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 08:32+0000\n"
+"POT-Creation-Date: 2019-04-15 04:58+0000\n"
 "PO-Revision-Date: 2019-04-15 16:04+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
@@ -144,13 +144,8 @@ msgid "What's new in version %1?"
 msgstr "Wat is er nieuw in versie %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-msgid ""
-"File transfer now possible using different types. Sharing files from other "
-"apps now possible. Fixed: Can not change chat name or description."
+msgid "Minor bug fixes and new translations."
 msgstr ""
-"Bestandsoverdracht voor verschillende bestandstypes is nu mogelijk. "
-"Bestanden delen vanuit andere apps is nu mogelijk. Opgelost: kan "
-"gespreksnaam of -beschrijving niet wijzigen."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -1421,6 +1416,14 @@ msgstr "Gebruikersnaam ‘%1’ niet gevonden op %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Gebruikersnaam is al in gebruik"
+
+#~ msgid ""
+#~ "File transfer now possible using different types. Sharing files from "
+#~ "other apps now possible. Fixed: Can not change chat name or description."
+#~ msgstr ""
+#~ "Bestandsoverdracht voor verschillende bestandstypes is nu mogelijk. "
+#~ "Bestanden delen vanuit andere apps is nu mogelijk. Opgelost: kan "
+#~ "gespreksnaam of -beschrijving niet wijzigen."
 
 #~ msgid "Search country name..."
 #~ msgstr "Zoek landnaam..."
