@@ -27,6 +27,7 @@ click:publish:
   script:
     - clickable clean build-libs build click-build
     - clickable publish "$CI_COMMIT_MESSAGE"
+    - curl -X POST -d "status=$CI_COMMIT_MESSAGE&language=eng&visibility=public" --header "Authorization: Bearer $MASTODON_TOKEN" -sS $MASTODON_INSTANCE/api/v1/statuses
   artifacts:
     paths:
       - build/fluffychat/*.click
