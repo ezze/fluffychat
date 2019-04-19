@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-14 08:32+0000\n"
-"PO-Revision-Date: 2019-04-06 17:01+0000\n"
+"PO-Revision-Date: 2019-04-19 13:09+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -32,10 +32,8 @@ msgid "Copied to the clipboard"
 msgstr "Copiato negli appunti"
 
 #: ../qml/pages/InfoPage.qml:11
-#, fuzzy
-#| msgid "Info about FluffyChat %1 on %2"
 msgid "FluffyChat %1 on %2"
-msgstr "Informazioni su FluffyChat %1 su %2"
+msgstr "FluffyChat %1 su %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Become a patron"
