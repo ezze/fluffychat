@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-15 04:58+0000\n"
-"PO-Revision-Date: 2019-04-15 16:04+0000\n"
+"PO-Revision-Date: 2019-04-20 10:28+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.6\n"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -145,7 +145,7 @@ msgstr "¿Qué novedades hay en la versión %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
 msgid "Minor bug fixes and new translations."
-msgstr ""
+msgstr "Corrección de errores menores y nuevas traducciones."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
