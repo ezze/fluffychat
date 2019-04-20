@@ -86,6 +86,11 @@ Item {
         'history_visibility TEXT, ' +
         'join_rules TEXT, ' +
 
+        // Encryption infos
+        'encryption_algorithm TEXT, ' +
+        'encryption_rotation_period_ms INTEGER, ' +
+        'encryption_rotation_period_msgs INTEGER, ' +
+
         // Power levels
         'power_events_default INTEGER, ' +
         'power_state_default INTEGER, ' +
@@ -246,7 +251,7 @@ Item {
     function newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline, prevBatch ) {
         // Insert the chat into the database if not exists
         addQuery ("INSERT OR IGNORE INTO Chats " +
-        "VALUES(?, ?, '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ", [
+        "VALUES(?, ?, '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', '', 0, 0, 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ", [
         chat_id, membership
         ] )
 
@@ -353,6 +358,23 @@ Item {
             addQuery( "UPDATE Chats SET canonical_alias=? WHERE id=?",
             [ eventContent.content.alias || "",
             chat_id ])
+            break
+            // This event means, that the topic of a room has been changed, so
+            // it has to be changed in the database
+        case "m.room.encryption":
+            var query = "UPDATE Chats SET encryption_algorithm=?"
+            var queryArgs = [ eventContent.content.algorithm ]
+            if ( typeof eventContent.content.rotation_period_ms === "number" ) {
+                query += " encryption_rotation_period_ms=? "
+                queryArgs[queryArgs.length] = eventContent.content.rotation_period_ms
+            }
+            if ( typeof eventContent.content.rotation_period_msgs === "number" ) {
+                query += " encryption_rotation_period_msgs=? "
+                queryArgs[queryArgs.length] = eventContent.content.rotation_period_msgs
+            }
+            query += " WHERE id=?"
+            queryArgs[queryArgs.length] = chat_id
+            addQuery( query, queryArgs )
             break
             // This event means, that the topic of a room has been changed, so
             // it has to be changed in the database
