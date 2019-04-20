@@ -10,7 +10,7 @@ AdaptivePageLayout {
 
     id: mainLayout
     anchors.fill: parent
-    readonly property var defaultPageColumnWidth: units.gu(50)
+    readonly property var defaultPageColumnWidth: units.gu(40)
     readonly property var defaultMainColorH: 0.73
     property var mainFontColor: mainLayout.darkmode ? "#FFFFFF" : "#000000"
     property var mainBorderColor: mainLayout.darkmode ? "#333333" : "#CCCCCC"
@@ -53,7 +53,7 @@ AdaptivePageLayout {
         when: width >= 2*defaultPageColumnWidth && matrix.isLogged && mainLayout.updateInfosFinished === version
         // column #0
         PageColumn {
-            minimumWidth: 0.5*defaultPageColumnWidth
+            minimumWidth: 0.75*defaultPageColumnWidth
             maximumWidth: 1.5*defaultPageColumnWidth
             preferredWidth: defaultPageColumnWidth
         }
