@@ -212,13 +212,13 @@ Page {
                     onActiveFocusChanged: if ( activeFocus ) scrollView.flickableItem.contentY = scrollView.flickableItem.contentHeight - scrollView.height
                 }
             }
-            
+
             ListItem { height: 1 }  // Divider
 
             ListView {
                 id: memberList
                 width: parent.width
-                height: root.height - header.height - searchField.height - units.gu(8)
+                height: chatSettingsPage.height - header.height - searchField.height - units.gu(8)
                 delegate: MemberListItem { }
                 model: ListModel { id: model }
                 z: -1

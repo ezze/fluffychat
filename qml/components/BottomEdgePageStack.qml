@@ -46,7 +46,7 @@ Item {
     Item {
         id: mainContainer
 
-        width: d.isWide ? Math.min(parent.width - units.gu(12), mainLayout.defaultPageColumnWidth) : parent.width
+        width: d.isWide ? Math.min(parent.width - units.gu(12), mainLayout.defaultPageColumnWidth*1.5) : parent.width
         anchors {
             top: parent.top
             topMargin: d.isWide ? rootItem.height * 0.1 : 0

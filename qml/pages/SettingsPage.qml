@@ -136,6 +136,7 @@ Page {
                 ListItemLayout {
                     id: layout
                     title.text: i18n.tr("Change background")
+                    visible: platform === platforms.UBPORTS
                     Icon {
                         name: "image-x-generic-symbolic"
                         width: units.gu(3)
