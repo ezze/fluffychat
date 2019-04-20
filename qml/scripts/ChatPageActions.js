@@ -117,7 +117,7 @@ function sendTypingNotification ( typing ) {
 
 function init () {
     // Get infos about the chat
-    var res = storage.query ( "SELECT draft, topic, membership, unread, fully_read, notification_count, power_events_default, power_redact FROM Chats WHERE id=?", [ activeChat ])
+    var res = storage.query ( "SELECT draft, topic, membership, unread, fully_read, encryption_algorithm, notification_count, power_events_default, power_redact FROM Chats WHERE id=?", [ activeChat ])
     if ( res.rows.length === 0 ) return
     var room = res.rows[0]
     membership = room.membership
@@ -222,6 +222,42 @@ function init () {
         }
 
         contentHub.shareObject = null
+    }
+
+    // Is there e2e encryption? Then start the user device tracking for device
+    // lists that are not up to date
+    if ( room.encryption_algorithm !== "" ) {
+        var users = storage.query( "SELECT user.matrix_id " +
+        "FROM Contacts user, Memberships membership " +
+        "WHERE user.matrix_id=membership.matrix_id " +
+        "AND user.tracking_devices_uptodate=0 " +
+        "AND membership.chat_id=?",
+        [ chat_id ] )
+        if ( users.rows.length > 0 ) {
+            toast.show (i18n.tr("Initialize encryption..."))
+            var device_keys = []
+            for ( var i = 0; i < users.rows.length; i++ ) {
+                device_keys[users.rows[i].matrix_id] = []
+            }
+            var success_callback = function (res) {
+                console.log(JSON.stringify(res))
+                // If there are failures, then send a toast
+                for ( var failure in res.failures ) {
+                    toast.show(i18n.tr("Could not initialize encryption. One or more servers are not available..."))
+                    break
+                }
+                // For each user save each device in the database and
+                for ( var mxid in res.device_keys ) {
+                    for ( var device in res.device_keys[mxid] ) {
+                        storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?)",
+                        [ mxid, device, JSON.stringify(res.device_keys[mxid][device]) ] )
+                    }
+                    storage.query("UPDATE Contacts SET tracking_devices_uptodate=1 WHERE matrix_id=?",
+                    [ mxid ] )
+                }
+            }
+            matrix.post("/client/r0/keys/query", {device_keys: device_keys}, success_callback)
+        }
     }
 }
 
@@ -511,7 +547,7 @@ function sendAttachmentMessage (responseText, mimeType, fileName, size, activeCh
         mediaElem.info.thumbnail_info = {
             mimetype: mimeType,
             size: size
-         }
+        }
     }
     var now = new Date().getTime()
     var messageID = "" + now

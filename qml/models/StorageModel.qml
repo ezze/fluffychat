@@ -172,6 +172,13 @@ Item {
         'thumbnail_url TEXT, ' +
         'UNIQUE(url))')
 
+        // TABLE SCHEMA FOR USER DEVICES
+        query('CREATE TABLE IF NOT EXISTS Devices(' +
+        'matrix_id TEXT, ' +
+        'device_id TEXT, ' +
+        'keys_json TEXT, ' +
+        'UNIQUE(matrix_id, device_id))')
+
         if ( matrix.isLogged ) {
             storage.markSendingEventsAsError ()
         }
@@ -386,7 +393,7 @@ Item {
             "WHERE user.matrix_id=membership.matrix_id " +
             "AND membership.chat_id=?",
             [ chat_id ] )
-            
+
             break
 
             // This event means, that the topic of a room has been changed, so
