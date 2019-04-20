@@ -25,6 +25,8 @@ click:publish:
   only:
     - tags
   script:
+    - apt-get update -qy
+    - apt-get install -y curl
     - clickable clean build-libs build click-build
     - clickable publish "$CI_COMMIT_MESSAGE"
     - curl -X POST -d "status=$CI_COMMIT_MESSAGE&language=eng&visibility=public" --header "Authorization:Bearer $MASTODON_TOKEN" -sS $MASTODON_INSTANCE/api/v1/statuses
