@@ -145,9 +145,11 @@ Item {
 
         // TABLE SCHEMA FOR CONTACTS
         query('CREATE TABLE IF NOT EXISTS Contacts(' +
-        'medium TEXT, ' +       // The medium this contact is identified by
-        'address TEXT, ' +      // The email or phone number of this user if exists
-        'matrix_id TEXT, ' +    // The matrix id of this user
+        'medium TEXT, ' +                           // The medium this contact is identified by
+        'address TEXT, ' +                          // The email or phone number of this user if exists
+        'matrix_id TEXT, ' +                        // The matrix id of this user
+        'tracking_devices INTEGER ', +              // Weither the devices of this user are tracked
+        'tracking_devices_uptodate Integer ', +     // Weither the device tracking is up to date
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR CHAT ADDRESSES
@@ -359,9 +361,11 @@ Item {
             [ eventContent.content.alias || "",
             chat_id ])
             break
-            // This event means, that the topic of a room has been changed, so
-            // it has to be changed in the database
+            // This event means, that the room is now encrypted. The encryption algorithm
+            // needs to be saved an the client should start tracking the devices for all
+            // users in this room.
         case "m.room.encryption":
+            // Save the encryption status for this chat
             var query = "UPDATE Chats SET encryption_algorithm=?"
             var queryArgs = [ eventContent.content.algorithm ]
             if ( typeof eventContent.content.rotation_period_ms === "number" ) {
@@ -375,7 +379,16 @@ Item {
             query += " WHERE id=?"
             queryArgs[queryArgs.length] = chat_id
             addQuery( query, queryArgs )
+
+            // Mark users in the room for device tracking
+            addQuery ( "UPDATE Contacts user, Memberships membership " +
+            "SET user.tracking_devices=1 " +
+            "WHERE user.matrix_id=membership.matrix_id " +
+            "AND membership.chat_id=?",
+            [ chat_id ] )
+            
             break
+
             // This event means, that the topic of a room has been changed, so
             // it has to be changed in the database
         case "m.room.history_visibility":
