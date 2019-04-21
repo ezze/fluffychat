@@ -12,6 +12,7 @@ function init () {
     }
 
     if ( isTracking ) {
+        console.log("Is tracking")
         // Load the devices from the database
         var res = storage.query ( "SELECT * " +
         " FROM Devices WHERE matrix_id=?",
@@ -19,8 +20,10 @@ function init () {
         for ( var i = 0; i < res.rows.length; i++ ) {
             model.append( { device: res.rows[i] } )
         }
+        loading = false
     }
     else {
+        console.log("Is NOT tracking")
         // Request the devices from the server
         var device_keys = {}
         device_keys[matrix_id] = []

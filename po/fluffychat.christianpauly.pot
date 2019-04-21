@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-21 08:19+0000\n"
+"POT-Creation-Date: 2019-04-21 08:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -614,15 +614,6 @@ msgstr ""
 
 #: ../qml/pages/ChatAliasSettingsPage.qml:38
 msgid "Add chat address"
-msgstr ""
-
-#: ../qml/models/StorageModel.qml:578
-msgid "Initialize encryption..."
-msgstr ""
-
-#: ../qml/models/StorageModel.qml:586
-msgid ""
-"Could not initialize encryption. One or more servers are not available..."
 msgstr ""
 
 #: ../qml/models/PushModel.qml:52

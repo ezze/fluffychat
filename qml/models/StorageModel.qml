@@ -394,10 +394,13 @@ Item {
             addQuery( query, queryArgs )
 
             // Mark users in the room for device tracking
-            addQuery ( "UPDATE Contacts user, Memberships membership " +
-            "SET user.tracking_devices=1 " +
-            "WHERE user.matrix_id=membership.matrix_id " +
-            "AND membership.chat_id=?",
+            addQuery ( "UPDATE Users " +
+            "SET tracking_devices=1 " +
+            "WHERE EXISTS ( " +
+            "SELECT * " +
+            "FROM Memberships " +
+            "WHERE Memberships.matrix_id = Users.matrix_id " +
+            "AND Memberships.chat_id=?)",
             [ chat_id ] )
 
             break
@@ -468,7 +471,7 @@ Item {
             }
 
             // Update user database
-            var newUser = addQuery( "INSERT OR IGNORE INTO Users VALUES(?,?,?, '', '', 0)", [
+            var newUser = addQuery( "INSERT OR IGNORE INTO Users VALUES(?,?,?, '', '', 0, 0, 0 )", [
             state_key, insertDisplayname, insertAvatarUrl
             ] )
             var queryStr = "UPDATE Users SET matrix_id=?"
@@ -553,11 +556,13 @@ Item {
             if ( typeof eventContent.changed === "object" ) {
                 for ( var user in eventContent.changed ) {
                     addQuery ("UPDATE Users SET tracking_devices_uptodate=0 WHERE matrix_id=?", [ user ] )
+                    console.log("Start tracking user",user)
                 }
             }
             if ( typeof eventContent.left === "object" ) {
                 for ( var user in eventContent.left ) {
                     addQuery ("UPDATE Users SET tracking_devices=0 WHERE matrix_id=?", [ user ] )
+                    console.log("Stop tracking user",user)
                 }
             }
             break
@@ -575,15 +580,14 @@ Item {
         "WHERE tracking_devices=1 " +
         "AND tracking_devices_uptodate=0 ", [] )
         if ( users.rows.length > 0 ) {
-            toast.show (i18n.tr("Initialize encryption..."))
-            var device_keys = []
+            var device_keys = {}
             for ( var i = 0; i < users.rows.length; i++ ) {
+                console.log("Requesting keys from:",users.rows[i].matrix_id)
                 device_keys[users.rows[i].matrix_id] = []
             }
             var success_callback = function (res) {
                 // If there are failures, then send a toast
                 for ( var failure in res.failures ) {
-                    toast.show(i18n.tr("Could not initialize encryption. One or more servers are not available..."))
                     break
                 }
                 // For each user save each device in the database and
@@ -594,6 +598,7 @@ Item {
                     }
                     storage.query("UPDATE Users SET tracking_devices_uptodate=1 WHERE matrix_id=?",
                     [ mxid ] )
+                    console.log("Up-to-date devices user",mxid)
                 }
             }
             matrix.post("/client/r0/keys/query", {device_keys: device_keys}, success_callback)
