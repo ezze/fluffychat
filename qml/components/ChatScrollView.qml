@@ -314,7 +314,7 @@ ListView {
                         id: downloadButton
                         color: mainLayout.brightMainColor
                         text: i18n.tr("Download: ") + eventModel.content.body
-                        onClicked: download ( eventModel.content_body, contentHub.shareAll, MatrixNames.getLinkFromMxc ( eventModel.content.url ) )
+                        onClicked: download ( eventModel.content_body, MatrixNames.getLinkFromMxc ( eventModel.content.url ), contentHub.shareAll )
                         height: visible ? units.gu(4) : 0
                         width: visible ? units.gu(26) : 0
                         anchors.left: parent.left
