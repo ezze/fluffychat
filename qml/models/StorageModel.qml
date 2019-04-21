@@ -19,7 +19,7 @@ Item {
 
     id: storage
 
-    property var version: "0.3.8"
+    property var version: "0.4.0a"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -131,6 +131,8 @@ Item {
         'presence TEXT, ' +
         'currently_active INTEGER, ' +
         'last_active_ago INTEGER, ' +
+        'tracking_devices INTEGER, ' +              // Weither the devices of this user are tracked
+        'tracking_devices_uptodate INTEGER, ' +     // Weither the device tracking is up to date
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR MEMBERSHIPS
@@ -148,8 +150,6 @@ Item {
         'medium TEXT, ' +                           // The medium this contact is identified by
         'address TEXT, ' +                          // The email or phone number of this user if exists
         'matrix_id TEXT, ' +                        // The matrix id of this user
-        'tracking_devices INTEGER ', +              // Weither the devices of this user are tracked
-        'tracking_devices_uptodate Integer ', +     // Weither the device tracking is up to date
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR CHAT ADDRESSES
@@ -242,12 +242,18 @@ Item {
             db.transaction(
                 function(tx) {
                     while ( queryQueue.length > 0 ) {
-                        tx.executeSql ( queryQueue[0].query, queryQueue[0].param )
+                        try {
+                            tx.executeSql ( queryQueue[0].query, queryQueue[0].param )
+                        }
+                        catch (e) {
+                            console.error("❌[Error]",e,queryQueue[0].query, JSON.stringify(queryQueue[0].param))
+                        }
                         queryQueue.splice( 0, 1 )
                     }
                 }
             )
             if ( matrix.prevBatch === "" ) storage.syncInitialized ()
+            requestUserDevices ()
         }
         catch (e) {
             console.error("❌[Error]",e,query)
@@ -542,11 +548,56 @@ Item {
                 }
             }
             break
+
+        case "device_lists":
+            if ( typeof eventContent.changed === "object" ) {
+                for ( var user in eventContent.changed ) {
+                    addQuery ("UPDATE Users SET tracking_devices_uptodate=0 WHERE matrix_id=?", [ user ] )
+                }
+            }
+            if ( typeof eventContent.left === "object" ) {
+                for ( var user in eventContent.left ) {
+                    addQuery ("UPDATE Users SET tracking_devices=0 WHERE matrix_id=?", [ user ] )
+                }
+            }
+            break
         }
     }
 
     function markSendingEventsAsError () {
         storage.query ( "UPDATE Events SET status=-1 WHERE status=0" )
+    }
+
+
+    function requestUserDevices () {
+        var users = storage.query( "SELECT matrix_id " +
+        "FROM Users " +
+        "WHERE tracking_devices=1 " +
+        "AND tracking_devices_uptodate=0 ", [] )
+        if ( users.rows.length > 0 ) {
+            toast.show (i18n.tr("Initialize encryption..."))
+            var device_keys = []
+            for ( var i = 0; i < users.rows.length; i++ ) {
+                device_keys[users.rows[i].matrix_id] = []
+            }
+            var success_callback = function (res) {
+                // If there are failures, then send a toast
+                for ( var failure in res.failures ) {
+                    toast.show(i18n.tr("Could not initialize encryption. One or more servers are not available..."))
+                    break
+                }
+                // For each user save each device in the database and
+                for ( var mxid in res.device_keys ) {
+                    for ( var device_id in res.device_keys[mxid] ) {
+                        storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?)",
+                        [ mxid, device_id, JSON.stringify(res.device_keys[mxid][device_id]) ] )
+                    }
+                    storage.query("UPDATE Users SET tracking_devices_uptodate=1 WHERE matrix_id=?",
+                    [ mxid ] )
+                }
+            }
+            matrix.post("/client/r0/keys/query", {device_keys: device_keys}, success_callback)
+        }
     }
 
 }

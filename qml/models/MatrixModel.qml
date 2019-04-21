@@ -606,6 +606,12 @@ Item {
         if ( typeof sync.presence === "object" && typeof sync.presence.events === "object" ) {
             handlePresences ( sync.presence.events, newEventCB)
         }
+        if ( typeof sync.device_lists === "object" ) {
+            newEventCB ( "device_lists", sync.next_batch, "encryption", sync.device_lists )
+        }
+        if ( typeof sync.device_one_time_keys_count === "object" ) {
+            newEventCB ( "device_one_time_keys_count", sync.next_batch, "encryption", sync.device_lists )
+        }
     }
 
     // Handling the synchronization events starts with the rooms, which means
