@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-15 04:58+0000\n"
+"POT-Creation-Date: 2019-04-20 10:37+0000\n"
 "PO-Revision-Date: 2019-04-20 10:28+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
@@ -68,7 +68,7 @@ msgstr "Zdrojový kód"
 msgid "License"
 msgstr "Licence"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:219
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
 msgstr "Archivované chaty"
 
@@ -80,7 +80,7 @@ msgstr "Vyhledat archivované chaty..."
 msgid "There are no archived chats"
 msgstr "Žádné chaty archivovány"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:237
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
 msgstr "Připojené e-mailové adresy"
 
@@ -179,7 +179,7 @@ msgstr "Změnit homeserver"
 msgid "Change ID-server"
 msgstr "Změnit ID-server"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:277
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
 msgstr "O FluffyChat"
 
@@ -276,70 +276,70 @@ msgstr "Editovat"
 msgid "Change main color"
 msgstr "Změnit základní barvu"
 
-#: ../qml/pages/SettingsPage.qml:137
+#: ../qml/pages/SettingsPage.qml:138
 msgid "Change background"
 msgstr "Změnit pozadí"
 
-#: ../qml/pages/SettingsPage.qml:173
+#: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
 msgstr "Noční režim"
 
-#: ../qml/pages/SettingsPage.qml:180
+#: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
 msgstr "Oznámení"
 
-#: ../qml/pages/SettingsPage.qml:187
+#: ../qml/pages/SettingsPage.qml:189
 msgid "Chat settings:"
 msgstr "Nastavení chatu:"
 
-#: ../qml/pages/SettingsPage.qml:191
+#: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
 msgstr "Odeslat klávesou enter"
 
-#: ../qml/pages/SettingsPage.qml:198
+#: ../qml/pages/SettingsPage.qml:200
 msgid "Display 'I am typing' when typing"
 msgstr "Zobrazit 'právě píši' když píši"
 
-#: ../qml/pages/SettingsPage.qml:205
+#: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
 msgstr "Schovat méně důležité události"
 
-#: ../qml/pages/SettingsPage.qml:212
+#: ../qml/pages/SettingsPage.qml:214
 msgid "Autoload animated images"
 msgstr "Automaticky stahovat animované obrázky"
 
-#: ../qml/pages/SettingsPage.qml:226
+#: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
 msgstr "Nastavení účtu:"
 
-#: ../qml/pages/SettingsPage.qml:230 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr "Připojená telefonní čísla"
 
-#: ../qml/pages/SettingsPage.qml:244 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Zařízení"
 
-#: ../qml/pages/SettingsPage.qml:251
+#: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
 msgstr "Změnit heslo"
 
-#: ../qml/pages/SettingsPage.qml:257
+#: ../qml/pages/SettingsPage.qml:259
 msgid "Check out:"
 msgstr "Ověřit:"
 
-#: ../qml/pages/SettingsPage.qml:261
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
 msgstr "Deaktivovat účet"
 
-#: ../qml/pages/SettingsPage.qml:267 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Odhlášení"
 
-#: ../qml/pages/SettingsPage.qml:273
+#: ../qml/pages/SettingsPage.qml:275
 msgid "More:"
 msgstr "Více:"
 
