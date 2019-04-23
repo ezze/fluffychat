@@ -66,6 +66,7 @@ Page {
                 id: homeserverInput
                 placeholderText: defaultDomain
                 text: loginDomain
+                inputMethodHints: Qt.ImhNoPredictiveText
                 focus: true
             }
             Button {
@@ -84,6 +85,7 @@ Page {
                 id: identityserverInput
                 placeholderText: defaultIDServer
                 text: matrix.id_server === defaultIDServer ? "" : matrix.id_server
+                inputMethodHints: Qt.ImhNoPredictiveText
                 focus: true
             }
             Button {
@@ -133,6 +135,7 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 id: loginTextField
                 placeholderText: i18n.tr("Username or Matrix ID")
+                inputMethodHints: Qt.ImhNoPredictiveText
                 Keys.onReturnPressed: LoginPageActions.login()
                 width: elemWidth
                 onDisplayTextChanged: LoginPageActions.updateHomeServerByTextField ( displayText )
