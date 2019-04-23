@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-20 10:37+0000\n"
-"PO-Revision-Date: 2019-04-20 10:28+0000\n"
+"PO-Revision-Date: 2019-04-25 13:48+0000\n"
 "Last-Translator: Anne Onyme 017 <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
 "translations/fr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -41,7 +41,7 @@ msgstr "Devenir un mécène"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
-msgstr "Nous supporter avec Liberapay"
+msgstr "Nous soutenir avec Liberapay"
 
 #: ../qml/pages/InfoPage.qml:47
 msgid "Join the community"
@@ -78,7 +78,7 @@ msgstr "Chercher dans les discussions archivées..."
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
-msgstr "Il n'y a pas de discussions archivées"
+msgstr "Il n'y a aucune discussion archivée"
 
 #: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
@@ -162,9 +162,9 @@ msgid ""
 msgstr ""
 "FluffyChat est ouvert, à but non lucratif et adorable. Le développement et "
 "les serveurs sont financés en totalité par la communauté. Vous pouvez faire "
-"un don à ce projet sur <a href='https://www.patreon.com/bePatron?"
-"u=11123241'>Patreon</a> or <a href='https://liberapay.com/KrilleChritzelius/"
-"donate'>Liberapay</a>"
+"un don à ce projet sur <a href='https://www.patreon.com/"
+"bePatron?u=11123241'>Patreon</a> ou <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:248
 msgid "Continue"
@@ -204,7 +204,7 @@ msgstr "Numéro de téléphone (facultatif)"
 
 #: ../qml/pages/LoginPage.qml:135
 msgid "Username or Matrix ID"
-msgstr "Identifiant ou identifiant Matrix"
+msgstr "Nom d’utilisateur/trice ou identifiant Matrix"
 
 #: ../qml/pages/LoginPage.qml:173
 msgid "Create a new account"
@@ -242,7 +242,7 @@ msgstr "Ajouter une discussion"
 
 #: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
-msgstr "Importer à partir du carnet d'adresse"
+msgstr "Importer à partir du carnet d'adresses"
 
 #: ../qml/pages/CreateChatPage.qml:42
 msgid "Filter contacts"
