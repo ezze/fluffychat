@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-15 04:58+0000\n"
-"PO-Revision-Date: 2019-04-06 06:06+0000\n"
+"POT-Creation-Date: 2019-04-20 10:37+0000\n"
+"PO-Revision-Date: 2019-04-23 13:55+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -32,10 +32,8 @@ msgid "Copied to the clipboard"
 msgstr "S'ha copiat al porta-retalls"
 
 #: ../qml/pages/InfoPage.qml:11
-#, fuzzy
-#| msgid "Info about FluffyChat %1 on %2"
 msgid "FluffyChat %1 on %2"
-msgstr "Quant al FluffyChat %1 a %2"
+msgstr "FluffyChat %1 a %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Become a patron"
@@ -70,7 +68,7 @@ msgstr "Codi font"
 msgid "License"
 msgstr "Llicència"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:219
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
 msgstr "Xats arxivats"
 
@@ -82,7 +80,7 @@ msgstr "Cerca als xats arxivats…"
 msgid "There are no archived chats"
 msgstr "No hi ha cap xat arxivat"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:237
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
 msgstr "Adreces de correu connectades"
 
@@ -147,7 +145,7 @@ msgstr "Quines novetats hi ha a la versió %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
 msgid "Minor bug fixes and new translations."
-msgstr ""
+msgstr "Correcció d'errors menors i noves traduccions."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -181,7 +179,7 @@ msgstr "Canvia el servidor propi"
 msgid "Change ID-server"
 msgstr "Canvia el servidor d'identitas"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:277
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
 msgstr "Quant al FluffyChat"
 
@@ -279,70 +277,70 @@ msgstr "Edita"
 msgid "Change main color"
 msgstr "Canvia el color principal"
 
-#: ../qml/pages/SettingsPage.qml:137
+#: ../qml/pages/SettingsPage.qml:138
 msgid "Change background"
 msgstr "Canvia el fons"
 
-#: ../qml/pages/SettingsPage.qml:173
+#: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
 msgstr "Mode fosc"
 
-#: ../qml/pages/SettingsPage.qml:180
+#: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
 msgstr "Notificacions"
 
-#: ../qml/pages/SettingsPage.qml:187
+#: ../qml/pages/SettingsPage.qml:189
 msgid "Chat settings:"
 msgstr "Preferències del xat:"
 
-#: ../qml/pages/SettingsPage.qml:191
+#: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
-msgstr ""
+msgstr "Envia amb «Retorn»"
 
-#: ../qml/pages/SettingsPage.qml:198
+#: ../qml/pages/SettingsPage.qml:200
 msgid "Display 'I am typing' when typing"
 msgstr "Mostra «Estic escrivint» en escriure"
 
-#: ../qml/pages/SettingsPage.qml:205
+#: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
 msgstr "Amaga els esdeveniments menys importants"
 
-#: ../qml/pages/SettingsPage.qml:212
+#: ../qml/pages/SettingsPage.qml:214
 msgid "Autoload animated images"
 msgstr "Carrega automàticament les imtges"
 
-#: ../qml/pages/SettingsPage.qml:226
+#: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
 msgstr "Preferències del compte:"
 
-#: ../qml/pages/SettingsPage.qml:230 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr "Números de telèfon connectats"
 
-#: ../qml/pages/SettingsPage.qml:244 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Dispositius"
 
-#: ../qml/pages/SettingsPage.qml:251
+#: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
 msgstr "Canvia la contrasenya"
 
-#: ../qml/pages/SettingsPage.qml:257
+#: ../qml/pages/SettingsPage.qml:259
 msgid "Check out:"
 msgstr "Verifica:"
 
-#: ../qml/pages/SettingsPage.qml:261
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
 msgstr "Desactiva el compte"
 
-#: ../qml/pages/SettingsPage.qml:267 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Surt"
 
-#: ../qml/pages/SettingsPage.qml:273
+#: ../qml/pages/SettingsPage.qml:275
 msgid "More:"
 msgstr "Més:"
 
@@ -676,7 +674,7 @@ msgstr "😕 Sense connexió…"
 
 #: ../qml/models/MatrixModel.qml:444
 msgid "Upload error:"
-msgstr ""
+msgstr "Error de pujada:"
 
 #: ../qml/models/MatrixModel.qml:520
 msgid "No connection to the homeserver 😕"
