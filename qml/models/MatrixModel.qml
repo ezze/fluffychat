@@ -469,6 +469,9 @@ Item {
 
         if ( matrix.token === "" ) return
 
+        // Initialize the e2e encryption account
+        console.log(E2ee.getAccount (matrix.matrixid))
+
         // Start synchronizing
         initialized = true
         if ( matrix.prevBatch !== "" ) {

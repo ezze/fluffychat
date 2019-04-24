@@ -1,5 +1,6 @@
 #include <QDebug>
 #include <olm/olm.h>
+#include <QDataStream>
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -28,27 +29,46 @@ E2ee::~E2ee() {
 /** Creates a new Olm account and generates fingerprint and identity keys. These
 are returned in a json object for Qml use.
 **/
-QString E2ee::createAccount() {
+QString E2ee::getAccount(QString matrix_id) {
 
-    size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
+    // Check if there is already an existing persistent Olm account
+    QFile olmFile("olm.data");
+    if (olmFile.exists()) {
+        if (olmFile.open(QIODevice::ReadOnly)) {
+            QDataStream in(&olmFile);
+            in>>m_olmAccount;
+        }
+        qDebug() << "Restore old olm account";
+    }
+    else {  // If not, then create a new Olm account
+        size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
 
-    void * accountMemory = malloc( accountSize ); // Allocate the memory
+        void * accountMemory = malloc( accountSize ); // Allocate the memory
 
-    m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
+        m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
 
-    size_t randomSize = olm_create_account_random_length(m_olmAccount); // Get the random size for account creation
+        size_t randomSize = olm_create_account_random_length(m_olmAccount); // Get the random size for account creation
 
-    void * randomMemory = malloc( randomSize ); // Allocate the memory
+        void * randomMemory = malloc( randomSize ); // Allocate the memory
 
-    size_t resultOlmCreation = olm_create_account(m_olmAccount, randomMemory, randomSize); // Create the Olm account
+        size_t resultOlmCreation = olm_create_account(m_olmAccount, randomMemory, randomSize); // Create the Olm account
 
-    if (resultOlmCreation == olm_error()) {
-        return olm_account_last_error(m_olmAccount);
+        if (resultOlmCreation == olm_error()) {
+            return olm_account_last_error(m_olmAccount);
+        }
+
+        memset(randomMemory, 0, randomSize); // Set the allocated memory in ram to 0 everywhere
+
+        free(randomMemory);  // Free the memory
+
+        if(olmFile.open(QIODevice::WriteOnly)){
+            QDataStream out(&olmFile);
+            //out<<m_olmAccount;
+        }
+        qDebug() << "Create and save new olm account";
     }
 
-    memset(randomMemory, 0, randomSize); // Set the allocated memory in ram to 0 everywhere
-
-    free(randomMemory);  // Free the memory
+    olmFile.close();
 
     // Get the size for the output puffer for the identity key and save them in
     // the output buffer:
@@ -73,7 +93,6 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
     QString fileName = path.split("/").last();
 
     QByteArray data = file.readAll();
-    qDebug() << "Data size: " + QString::number(data.size());
     file.close();
 
     uploadUrl = uploadUrl + "?filename=" + fileName;
@@ -82,7 +101,6 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
     QUrl url(uploadUrl);
     QNetworkRequest request(url);
     QString mimeType = QMimeDatabase().mimeTypeForFile( path ).name();
-    qDebug() << mimeType;
     request.setRawHeader(QByteArray("Authorization"), token.toUtf8());
     request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
 
@@ -90,7 +108,7 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
     QNetworkReply* reply = manager.post(request, data);
     QEventLoop loop;
     connect(reply, SIGNAL(uploadProgress(qint64, qint64)),
-        this, SLOT(uploadProgressSlot(qint64, qint64)));
+    this, SLOT(uploadProgressSlot(qint64, qint64)));
     connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
     loop.exec();
 

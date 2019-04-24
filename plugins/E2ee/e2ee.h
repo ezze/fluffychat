@@ -22,7 +22,7 @@ public:
     E2ee();
     ~E2ee();
 
-    Q_INVOKABLE QString createAccount();
+    Q_INVOKABLE QString getAccount(QString matrix_id);
 
     Q_INVOKABLE bool uploadFile(QString path, QString url, QString token);
 
