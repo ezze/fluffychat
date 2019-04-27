@@ -13,6 +13,7 @@ AdaptivePageLayout {
     readonly property var defaultPageColumnWidth: units.gu(40)
     readonly property var defaultMainColorH: 0.73
     property var mainFontColor: mainLayout.darkmode ? "#FFFFFF" : "#000000"
+    property var secondaryFontColor: mainLayout.darkmode ? "#ABABAB" : "#565656"
     property var mainBorderColor: mainLayout.darkmode ? "#333333" : "#CCCCCC"
     property var mainDividerColor: mainLayout.darkmode ? UbuntuColors.slate : UbuntuColors.silk
     property var mainBackgroundColor: mainLayout.darkmode ? "#202020" : "white"
