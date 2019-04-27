@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-20 10:37+0000\n"
+"POT-Creation-Date: 2019-04-27 11:11+0000\n"
 "PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -109,7 +109,7 @@ msgstr "請設置一個比較強的密碼。要來重置密碼，您需要稍後
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "例如 夏季%salad$flattens?tOOthpaste"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:179
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
 msgstr "註冊"
 
@@ -189,23 +189,23 @@ msgstr "常見問題"
 msgid "Choose your homeserver"
 msgstr "選擇您的主頁伺服器"
 
-#: ../qml/pages/LoginPage.qml:82
+#: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
 msgstr "選擇您的身份伺服器"
 
-#: ../qml/pages/LoginPage.qml:126
+#: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
 msgstr "電話號碼（可選）"
 
-#: ../qml/pages/LoginPage.qml:135
+#: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
 msgstr "用戶名稱或 Matrix ID"
 
-#: ../qml/pages/LoginPage.qml:173
+#: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
 msgstr "建立一個新的帳戶"
 
-#: ../qml/pages/LoginPage.qml:179 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "登入"
 
@@ -950,15 +950,15 @@ msgstr "添加到剪貼簿"
 msgid "Forward"
 msgstr "向前"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Load gif"
 msgstr "加載 gif"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Show image"
 msgstr "顯示圖片"
 
-#: ../qml/components/ChatScrollView.qml:316
+#: ../qml/components/ChatScrollView.qml:315
 msgid "Download: "
 msgstr "下載: "
 

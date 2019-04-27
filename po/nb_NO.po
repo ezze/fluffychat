@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-20 10:37+0000\n"
+"POT-Creation-Date: 2019-04-27 11:11+0000\n"
 "PO-Revision-Date: 2019-04-19 13:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -115,7 +115,7 @@ msgstr "For å tilbakestille ditt passord, må du oppgi en e-postadresse senere"
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "f.eks sommer%salat$utflater?taNNpasta"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:179
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
 msgstr "Registrer deg"
 
@@ -205,25 +205,25 @@ msgstr "O-S-S"
 msgid "Choose your homeserver"
 msgstr "Velg din hjemmetjener"
 
-#: ../qml/pages/LoginPage.qml:82
+#: ../qml/pages/LoginPage.qml:83
 #, fuzzy
 msgid "Choose your identity server"
 msgstr "Velg din hjemmetjener"
 
-#: ../qml/pages/LoginPage.qml:126
+#: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
 msgstr "Telefonnummer (valgfritt)"
 
-#: ../qml/pages/LoginPage.qml:135
+#: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
 msgstr "Brukernavn eller Matrix ID"
 
-#: ../qml/pages/LoginPage.qml:173
+#: ../qml/pages/LoginPage.qml:176
 #, fuzzy
 msgid "Create a new account"
 msgstr "Start ny sludring"
 
-#: ../qml/pages/LoginPage.qml:179 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Registrer deg"
 
@@ -1041,15 +1041,15 @@ msgstr "Legg til i klistremerkesamling"
 msgid "Forward"
 msgstr "Videresend"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Load gif"
 msgstr "Last GIF"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Show image"
 msgstr "Vis bilde"
 
-#: ../qml/components/ChatScrollView.qml:316
+#: ../qml/components/ChatScrollView.qml:315
 #, fuzzy
 msgid "Download: "
 msgstr "Last ned: "

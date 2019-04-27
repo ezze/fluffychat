@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-20 10:37+0000\n"
+"POT-Creation-Date: 2019-04-27 11:11+0000\n"
 "PO-Revision-Date: 2019-04-23 14:09+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
@@ -109,7 +109,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "Z.B. Summer%salad$flattens?tOOthpaste"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:179
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
 msgstr "Registrieren"
 
@@ -191,23 +191,23 @@ msgstr "FAQ"
 msgid "Choose your homeserver"
 msgstr "Wähle deinen Homeserver"
 
-#: ../qml/pages/LoginPage.qml:82
+#: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
 msgstr "Wähle deinen Identity-Server"
 
-#: ../qml/pages/LoginPage.qml:126
+#: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
 msgstr "Handynummer (optional)"
 
-#: ../qml/pages/LoginPage.qml:135
+#: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
 msgstr "Benutzername oder Matrix ID"
 
-#: ../qml/pages/LoginPage.qml:173
+#: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
 msgstr "Neues Konto erstellen"
 
-#: ../qml/pages/LoginPage.qml:179 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Einloggen"
 
@@ -958,15 +958,15 @@ msgstr "Zur Stickersammlung hinzufügen"
 msgid "Forward"
 msgstr "Weiterleiten"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Load gif"
 msgstr "Gif laden"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Show image"
 msgstr "Bild anzeigen"
 
-#: ../qml/components/ChatScrollView.qml:316
+#: ../qml/components/ChatScrollView.qml:315
 msgid "Download: "
 msgstr "Herunterladen: "
 

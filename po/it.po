@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-20 10:37+0000\n"
+"POT-Creation-Date: 2019-04-27 11:11+0000\n"
 "PO-Revision-Date: 2019-04-25 13:48+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
@@ -109,7 +109,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "es. Estate%salad$appiattire?dENtifricio"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:179
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
 msgstr "Iscriviti"
 
@@ -191,23 +191,23 @@ msgstr "FAQ"
 msgid "Choose your homeserver"
 msgstr "Scegli il tuo homeserver"
 
-#: ../qml/pages/LoginPage.qml:82
+#: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
 msgstr "Scegli il tuo server di identificazione"
 
-#: ../qml/pages/LoginPage.qml:126
+#: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
 msgstr "Numero di telefono (opzionale)"
 
-#: ../qml/pages/LoginPage.qml:135
+#: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
 msgstr "Nome utente o ID Matrix"
 
-#: ../qml/pages/LoginPage.qml:173
+#: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
 msgstr "Crea un nuovo account"
 
-#: ../qml/pages/LoginPage.qml:179 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Accedi"
 
@@ -955,15 +955,15 @@ msgstr "Aggiungi alla raccolta degli adesivi"
 msgid "Forward"
 msgstr "Inoltra"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Load gif"
 msgstr "Carica gif"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Show image"
 msgstr "Mostra immagine"
 
-#: ../qml/components/ChatScrollView.qml:316
+#: ../qml/components/ChatScrollView.qml:315
 msgid "Download: "
 msgstr "Scarica: "
 
