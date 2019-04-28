@@ -79,4 +79,4 @@ Regionetz is an ISP company from southern Germany and hosts the official server 
 
 * Thanks to Tim Sueberkrueb for the snap version
 
-* Also thanks to all translators and testers! With your help, fluffychat is now available in 5 languages.
+* Also thanks to all translators and testers! With your help, fluffychat is now available in more than 12 languages.
