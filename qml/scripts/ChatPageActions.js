@@ -466,14 +466,14 @@ function removeEvent ( event_id ) {
 
 function markRead ( timestamp ) {
     for ( var i = 0; i < model.count; i++ ) {
-        if ( model.get(i).event.sender === matrix.matrixid &&
-        model.get(i).event.origin_server_ts <= timestamp &&
-        model.get(i).event.status > msg_status.SENT ) {
-            var tempEvent = model.get(i).event
-            tempEvent.status = msg_status.SEEN
-            model.set( i, { "event": tempEvent } )
+        var currentEvent = model.get(i).event
+        if ( currentEvent.sender !== matrix.matrixid ) continue
+        else if ( currentEvent.status === msg_status.SEEN ) break
+        else if ( currentEvent.origin_server_ts <= timestamp &&
+        currentEvent.status > msg_status.SENT ) {
+            currentEvent.status = msg_status.SEEN
+            model.set( i, { "event": currentEvent } )
         }
-        else if ( model.get(i).event.status === msg_status.SEEN ) break
     }
 }
 

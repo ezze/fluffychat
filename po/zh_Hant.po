@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-15 04:58+0000\n"
+"POT-Creation-Date: 2019-04-27 11:11+0000\n"
 "PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -70,7 +70,7 @@ msgstr "源碼"
 msgid "License"
 msgstr "許可證"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:219
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
 msgstr "存檔的聊天記錄"
 
@@ -82,7 +82,7 @@ msgstr "搜尋封存的聊天紀錄..."
 msgid "There are no archived chats"
 msgstr "沒有存檔的聊天記錄"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:237
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
 msgstr "已連接的電子郵件地址"
 
@@ -109,7 +109,7 @@ msgstr "請設置一個比較強的密碼。要來重置密碼，您需要稍後
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "例如 夏季%salad$flattens?tOOthpaste"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:179
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
 msgstr "註冊"
 
@@ -177,7 +177,7 @@ msgstr "更換主頁伺服器"
 msgid "Change ID-server"
 msgstr "更換身份伺服器"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:277
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
 msgstr "關於 FluffyChat"
 
@@ -189,23 +189,23 @@ msgstr "常見問題"
 msgid "Choose your homeserver"
 msgstr "選擇您的主頁伺服器"
 
-#: ../qml/pages/LoginPage.qml:82
+#: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
 msgstr "選擇您的身份伺服器"
 
-#: ../qml/pages/LoginPage.qml:126
+#: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
 msgstr "電話號碼（可選）"
 
-#: ../qml/pages/LoginPage.qml:135
+#: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
 msgstr "用戶名稱或 Matrix ID"
 
-#: ../qml/pages/LoginPage.qml:173
+#: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
 msgstr "建立一個新的帳戶"
 
-#: ../qml/pages/LoginPage.qml:179 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "登入"
 
@@ -273,70 +273,70 @@ msgstr "編輯"
 msgid "Change main color"
 msgstr "更改主題顏色"
 
-#: ../qml/pages/SettingsPage.qml:137
+#: ../qml/pages/SettingsPage.qml:138
 msgid "Change background"
 msgstr "更改背景"
 
-#: ../qml/pages/SettingsPage.qml:173
+#: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
 msgstr "黑暗模式"
 
-#: ../qml/pages/SettingsPage.qml:180
+#: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
 msgstr "通知"
 
-#: ../qml/pages/SettingsPage.qml:187
+#: ../qml/pages/SettingsPage.qml:189
 msgid "Chat settings:"
 msgstr "聊天設定："
 
-#: ../qml/pages/SettingsPage.qml:191
+#: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
 msgstr "用 Enter 來發送"
 
-#: ../qml/pages/SettingsPage.qml:198
+#: ../qml/pages/SettingsPage.qml:200
 msgid "Display 'I am typing' when typing"
 msgstr "鍵入時顯示“我正在打字”"
 
-#: ../qml/pages/SettingsPage.qml:205
+#: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
 msgstr "隱藏不太重要的事件"
 
-#: ../qml/pages/SettingsPage.qml:212
+#: ../qml/pages/SettingsPage.qml:214
 msgid "Autoload animated images"
 msgstr "自動載入動畫圖像"
 
-#: ../qml/pages/SettingsPage.qml:226
+#: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
 msgstr "帳號設定:"
 
-#: ../qml/pages/SettingsPage.qml:230 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr "已連接的電話號碼"
 
-#: ../qml/pages/SettingsPage.qml:244 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "裝置"
 
-#: ../qml/pages/SettingsPage.qml:251
+#: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
 msgstr "更改密碼"
 
-#: ../qml/pages/SettingsPage.qml:257
+#: ../qml/pages/SettingsPage.qml:259
 msgid "Check out:"
 msgstr "查看:"
 
-#: ../qml/pages/SettingsPage.qml:261
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
 msgstr "禁用帳戶"
 
-#: ../qml/pages/SettingsPage.qml:267 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "登出"
 
-#: ../qml/pages/SettingsPage.qml:273
+#: ../qml/pages/SettingsPage.qml:275
 msgid "More:"
 msgstr "更多:"
 
@@ -950,15 +950,15 @@ msgstr "添加到剪貼簿"
 msgid "Forward"
 msgstr "向前"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Load gif"
 msgstr "加載 gif"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Show image"
 msgstr "顯示圖片"
 
-#: ../qml/components/ChatScrollView.qml:316
+#: ../qml/components/ChatScrollView.qml:315
 msgid "Download: "
 msgstr "下載: "
 

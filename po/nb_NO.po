@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-15 04:58+0000\n"
+"POT-Creation-Date: 2019-04-27 11:11+0000\n"
 "PO-Revision-Date: 2019-04-19 13:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -71,7 +71,7 @@ msgstr "Kildekode"
 msgid "License"
 msgstr "Lisens"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:219
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
 msgstr "Arkiverte sludringer"
 
@@ -84,7 +84,7 @@ msgstr "Søk etter sludringsnavn…"
 msgid "There are no archived chats"
 msgstr "Det finnes ingen arkiverte sludringer"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:237
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
 msgstr "Tilkoblede e-postadresser"
 
@@ -115,7 +115,7 @@ msgstr "For å tilbakestille ditt passord, må du oppgi en e-postadresse senere"
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "f.eks sommer%salat$utflater?taNNpasta"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:179
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
 msgstr "Registrer deg"
 
@@ -193,7 +193,7 @@ msgstr "Bruker hjemmetjeneren: "
 msgid "Change ID-server"
 msgstr "Endre ID-tjener"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:277
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
 msgstr "Om"
 
@@ -205,25 +205,25 @@ msgstr "O-S-S"
 msgid "Choose your homeserver"
 msgstr "Velg din hjemmetjener"
 
-#: ../qml/pages/LoginPage.qml:82
+#: ../qml/pages/LoginPage.qml:83
 #, fuzzy
 msgid "Choose your identity server"
 msgstr "Velg din hjemmetjener"
 
-#: ../qml/pages/LoginPage.qml:126
+#: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
 msgstr "Telefonnummer (valgfritt)"
 
-#: ../qml/pages/LoginPage.qml:135
+#: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
 msgstr "Brukernavn eller Matrix ID"
 
-#: ../qml/pages/LoginPage.qml:173
+#: ../qml/pages/LoginPage.qml:176
 #, fuzzy
 msgid "Create a new account"
 msgstr "Start ny sludring"
 
-#: ../qml/pages/LoginPage.qml:179 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Registrer deg"
 
@@ -297,74 +297,74 @@ msgstr "Rediger"
 msgid "Change main color"
 msgstr "Velg en hovedfarge:"
 
-#: ../qml/pages/SettingsPage.qml:137
+#: ../qml/pages/SettingsPage.qml:138
 #, fuzzy
 msgid "Change background"
 msgstr "Sett slurdrebakgrunn"
 
-#: ../qml/pages/SettingsPage.qml:173
+#: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
 msgstr "Nattmodus"
 
-#: ../qml/pages/SettingsPage.qml:180
+#: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
 msgstr "Merknader"
 
-#: ../qml/pages/SettingsPage.qml:187
+#: ../qml/pages/SettingsPage.qml:189
 #, fuzzy
 msgid "Chat settings:"
 msgstr "Sludringsinnstillinger:"
 
-#: ../qml/pages/SettingsPage.qml:191
+#: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
 msgstr "Send med enter"
 
-#: ../qml/pages/SettingsPage.qml:198
+#: ../qml/pages/SettingsPage.qml:200
 #, fuzzy
 msgid "Display 'I am typing' when typing"
 msgstr "Vis \"Jeg skriver\" ved skriving"
 
-#: ../qml/pages/SettingsPage.qml:205
+#: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
 msgstr "Skjul mindre viktige hendelser"
 
-#: ../qml/pages/SettingsPage.qml:212
+#: ../qml/pages/SettingsPage.qml:214
 msgid "Autoload animated images"
 msgstr "Automatisk innlasting av animerte bilder"
 
-#: ../qml/pages/SettingsPage.qml:226
+#: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
 msgstr "Kontoinnstillinger:"
 
-#: ../qml/pages/SettingsPage.qml:230 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 #, fuzzy
 msgid "Connected phone numbers"
 msgstr "Tilknyttede telefonnummer"
 
-#: ../qml/pages/SettingsPage.qml:244 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Enheter"
 
-#: ../qml/pages/SettingsPage.qml:251
+#: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
 msgstr "Endre passord"
 
-#: ../qml/pages/SettingsPage.qml:257
+#: ../qml/pages/SettingsPage.qml:259
 msgid "Check out:"
 msgstr "Sjekk ut:"
 
-#: ../qml/pages/SettingsPage.qml:261
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
 msgstr "Skru av konto"
 
-#: ../qml/pages/SettingsPage.qml:267 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Logg ut"
 
-#: ../qml/pages/SettingsPage.qml:273
+#: ../qml/pages/SettingsPage.qml:275
 msgid "More:"
 msgstr "Mer:"
 
@@ -1041,15 +1041,15 @@ msgstr "Legg til i klistremerkesamling"
 msgid "Forward"
 msgstr "Videresend"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Load gif"
 msgstr "Last GIF"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Show image"
 msgstr "Vis bilde"
 
-#: ../qml/components/ChatScrollView.qml:316
+#: ../qml/components/ChatScrollView.qml:315
 #, fuzzy
 msgid "Download: "
 msgstr "Last ned: "

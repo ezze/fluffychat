@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-15 04:58+0000\n"
-"PO-Revision-Date: 2019-04-19 13:09+0000\n"
+"POT-Creation-Date: 2019-04-27 11:11+0000\n"
+"PO-Revision-Date: 2019-04-25 13:48+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -68,7 +68,7 @@ msgstr "Codice sorgente"
 msgid "License"
 msgstr "Licenza"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:219
+#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
 msgstr "Conversazioni archiviate"
 
@@ -80,7 +80,7 @@ msgstr "Cerca conversazioni archiviate..."
 msgid "There are no archived chats"
 msgstr "Non ci sono conversazioni archiviate"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:237
+#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
 msgstr "Indirizzi email collegati"
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "es. Estate%salad$appiattire?dENtifricio"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:179
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
 msgstr "Iscriviti"
 
@@ -145,7 +145,7 @@ msgstr "Cosa c'è di nuovo nella versione %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
 msgid "Minor bug fixes and new translations."
-msgstr ""
+msgstr "Risolti problemi minori e nuove traduzioni."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -179,7 +179,7 @@ msgstr "Cambia homeserver"
 msgid "Change ID-server"
 msgstr "Cambia ID-server"
 
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:277
+#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
 msgstr "A proposito di FluffyChat"
 
@@ -191,23 +191,23 @@ msgstr "FAQ"
 msgid "Choose your homeserver"
 msgstr "Scegli il tuo homeserver"
 
-#: ../qml/pages/LoginPage.qml:82
+#: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
 msgstr "Scegli il tuo server di identificazione"
 
-#: ../qml/pages/LoginPage.qml:126
+#: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
 msgstr "Numero di telefono (opzionale)"
 
-#: ../qml/pages/LoginPage.qml:135
+#: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
 msgstr "Nome utente o ID Matrix"
 
-#: ../qml/pages/LoginPage.qml:173
+#: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
 msgstr "Crea un nuovo account"
 
-#: ../qml/pages/LoginPage.qml:179 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Accedi"
 
@@ -277,70 +277,70 @@ msgstr "Modifica"
 msgid "Change main color"
 msgstr "Cambia colore principale"
 
-#: ../qml/pages/SettingsPage.qml:137
+#: ../qml/pages/SettingsPage.qml:138
 msgid "Change background"
 msgstr "Cambia sfondo"
 
-#: ../qml/pages/SettingsPage.qml:173
+#: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
 msgstr "Modalità notte"
 
-#: ../qml/pages/SettingsPage.qml:180
+#: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
 msgstr "Notifiche"
 
-#: ../qml/pages/SettingsPage.qml:187
+#: ../qml/pages/SettingsPage.qml:189
 msgid "Chat settings:"
 msgstr "Impostazioni della conversazione:"
 
-#: ../qml/pages/SettingsPage.qml:191
+#: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
 msgstr "Spedisci con tasto invio"
 
-#: ../qml/pages/SettingsPage.qml:198
+#: ../qml/pages/SettingsPage.qml:200
 msgid "Display 'I am typing' when typing"
 msgstr "Mostra \"Sto digitando\" quando digiti"
 
-#: ../qml/pages/SettingsPage.qml:205
+#: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
 msgstr "Nascondi eventi meno importanti"
 
-#: ../qml/pages/SettingsPage.qml:212
+#: ../qml/pages/SettingsPage.qml:214
 msgid "Autoload animated images"
 msgstr "Carica automaticamente immagini animate"
 
-#: ../qml/pages/SettingsPage.qml:226
+#: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
 msgstr "Impostazioni account:"
 
-#: ../qml/pages/SettingsPage.qml:230 ../qml/pages/PhoneSettingsPage.qml:21
+#: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
 msgstr "Numeri di telefono collegati"
 
-#: ../qml/pages/SettingsPage.qml:244 ../qml/pages/DevicesSettingsPage.qml:15
+#: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
 msgstr "Dispositivi"
 
-#: ../qml/pages/SettingsPage.qml:251
+#: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
 msgstr "Cambia password"
 
-#: ../qml/pages/SettingsPage.qml:257
+#: ../qml/pages/SettingsPage.qml:259
 msgid "Check out:"
 msgstr "Lasciare:"
 
-#: ../qml/pages/SettingsPage.qml:261
+#: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
 msgstr "Disabilita account"
 
-#: ../qml/pages/SettingsPage.qml:267 ../qml/components/LogoutDialog.qml:11
+#: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
 msgstr "Esci"
 
-#: ../qml/pages/SettingsPage.qml:273
+#: ../qml/pages/SettingsPage.qml:275
 msgid "More:"
 msgstr "Altro:"
 
@@ -955,15 +955,15 @@ msgstr "Aggiungi alla raccolta degli adesivi"
 msgid "Forward"
 msgstr "Inoltra"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Load gif"
 msgstr "Carica gif"
 
-#: ../qml/components/ChatScrollView.qml:250
+#: ../qml/components/ChatScrollView.qml:249
 msgid "Show image"
 msgstr "Mostra immagine"
 
-#: ../qml/components/ChatScrollView.qml:316
+#: ../qml/components/ChatScrollView.qml:315
 msgid "Download: "
 msgstr "Scarica: "
 

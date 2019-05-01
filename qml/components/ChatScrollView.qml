@@ -40,9 +40,9 @@ ListView {
         highlightColor: "#00000000"
 
         width: parent.width
-        //height: messageBubble.height + units.gu(1)
-        height: (isMediaEvent ? messageBubble.height + units.gu(1) :  // Media event height is calculated by the message bubble height
-        messageLabel.height + units.gu(2.75 + !isStateEvent*1.5))   // Text content is calculated by the label height for better performenace
+        height: messageBubble.height + units.gu(1)
+        //height: (isMediaEvent ? messageBubble.height + units.gu(1) :  // Media event height is calculated by the message bubble height
+        //messageLabel.height + units.gu(2.75 + !isStateEvent*1.5))   // Text content is calculated by the label height for better performenace
 
         color: "transparent"
 
@@ -118,7 +118,7 @@ ListView {
                 leftMargin: units.gu(1)
                 rightMargin: units.gu(1)
             }
-            width: isStateEvent ? units.gu(3) : units.gu(5)
+            width: units.gu(5.3)    // Should be equal to a one line message := toppadding(1) + bottompadding(1) + Label.Medium(1.8) + Label.Medium(1.5)
             active: !sameSender && !isStateEvent
             sourceComponent: Avatar {
                 id: avatarInstance
@@ -132,7 +132,7 @@ ListView {
         }
 
 
-        Rectangle {
+        UbuntuShape {
             id: messageBubble
             anchors.left: isLeftSideEvent && !isStateEvent ? avatar.right : undefined
             anchors.right: !isLeftSideEvent && !isStateEvent ? avatar.left : undefined
@@ -141,25 +141,24 @@ ListView {
             anchors.leftMargin: units.gu(1)
             anchors.rightMargin: units.gu(1)
             anchors.horizontalCenter: isStateEvent ? parent.horizontalCenter : undefined
-            border.color: mainLayout.mainBorderColor
-            border.width: isStateEvent
 
             opacity: isStateEvent ? 0.75 : 1
+            aspect: UbuntuShape.Flat
             z: 2
-            color: imageVisible ? "transparent" : bgcolor
+            backgroundColor: imageVisible ? "transparent" : bgcolor
 
-            Behavior on color {
+            Behavior on backgroundColor {
                 ColorAnimation { from: mainLayout.brighterMainColor; duration: 300 }
             }
 
-            radius: units.gu(2)
+            radius: "large"
             height: contentColumn.height + ( imageVisible ? units.gu(1) : (isStateEvent ? units.gu(1.5) : units.gu(2)) )
             width: contentColumn.width + ( imageVisible ? -1 : units.gu(2) )
 
             Rectangle {
-                width: units.gu(2)
+                width: units.gu(3)
                 height: width
-                color: messageBubble.color
+                color: messageBubble.backgroundColor
                 visible: !isStateEvent && !sameSender
                 anchors.left: !sent ? parent.left : undefined
                 anchors.right: sent ? parent.right : undefined
@@ -169,7 +168,7 @@ ListView {
             Rectangle {
                 id: mask
                 anchors.fill: parent
-                radius: parent.radius
+                radius: units.gu(1)
                 visible: false
             }
 
@@ -314,7 +313,7 @@ ListView {
                         id: downloadButton
                         color: mainLayout.brightMainColor
                         text: i18n.tr("Download: ") + eventModel.content.body
-                        onClicked: download ( eventModel.content_body, contentHub.shareAll, MatrixNames.getLinkFromMxc ( eventModel.content.url ) )
+                        onClicked: download ( eventModel.content_body, MatrixNames.getLinkFromMxc ( eventModel.content.url ), contentHub.shareAll )
                         height: visible ? units.gu(4) : 0
                         width: visible ? units.gu(26) : 0
                         anchors.left: parent.left
@@ -335,7 +334,7 @@ ListView {
                         (eventModel.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
                         eventModel.content_body || eventModel.content.body)
                         color: fontColor
-                        linkColor: mainLayout.brightMainColor
+                        linkColor: sent && eventModel.status === msg_status.SEEN ? mainLayout.brightMainColor : mainLayout.mainColor
                         Behavior on color {
                             ColorAnimation { from: mainLayout.mainColor; duration: 300 }
                         }
@@ -365,15 +364,16 @@ ListView {
                 }
 
 
-                Rectangle {
-                    color: imageVisible ? bgcolor : "#00000000"
+                UbuntuShape {
+                    backgroundColor: imageVisible ? bgcolor : "#00000000"
                     height: metaLabelRow.height + imageVisible*units.gu(0.5)
                     width: metaLabelRow.width + imageVisible*units.gu(0.5)
                     anchors.left: sent ? undefined : parent.left
                     anchors.leftMargin: !imageVisible*units.gu(1)
                     anchors.right: sent ? parent.right : undefined
                     anchors.rightMargin: imageVisible ? 0 : -units.gu(1)
-                    radius: width / 10
+                    aspect: UbuntuShape.Flat
+                    radius: "large"
 
                     Row {
                         id: metaLabelRow
@@ -391,8 +391,8 @@ ListView {
                                 : ( eventModel.content.msgtype === "m.audio" ? eventModel.content.body + " - " : ""))
                                 + MatrixNames.getChatTime ( eventModel.origin_server_ts )
                             }
-                            color: fontColor
-                            textSize: Label.XxSmall
+                            color: sent ? fontColor : mainLayout.secondaryFontColor
+                            textSize: Label.XSmall
                             visible: !isStateEvent
                             wrapMode: Text.NoWrap
                             textFormat: Text.StyledText
@@ -424,7 +424,7 @@ ListView {
                             (eventModel.status === msg_status.HISTORY ? "received" : "send"))))
                             + ".svg"
                             height: metaLabel.height
-                            color: eventModel.status === msg_status.SENT ? messageBubble.color :
+                            color: eventModel.status === msg_status.SENT ? messageBubble.backgroundColor :
                             (eventModel.status === msg_status.ERROR ? UbuntuColors.red : metaLabel.color)
                             width: height
                         }
