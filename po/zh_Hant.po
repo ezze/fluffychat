@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 11:11+0000\n"
+"POT-Creation-Date: 2019-05-04 06:35+0000\n"
 "PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -209,23 +209,23 @@ msgstr "建立一個新的帳戶"
 msgid "Sign in"
 msgstr "登入"
 
-#: ../qml/pages/ChatListPage.qml:39 fluffychat.desktop.in.h:1
+#: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr "FluffyChat"
 
-#: ../qml/pages/ChatListPage.qml:39
+#: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
 msgstr "分享"
 
-#: ../qml/pages/ChatListPage.qml:102
+#: ../qml/pages/ChatListPage.qml:104
 msgid "Search for your chats…"
 msgstr "搜尋您的聊天…"
 
-#: ../qml/pages/ChatListPage.qml:123
+#: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr "從底部向上滑動即可開始新的聊天或發現公共群組。"
 
-#: ../qml/pages/ChatListPage.qml:153
+#: ../qml/pages/ChatListPage.qml:155
 msgid "Add chat"
 msgstr "加入聊天"
 
