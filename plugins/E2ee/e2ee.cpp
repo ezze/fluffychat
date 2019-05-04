@@ -61,8 +61,9 @@ QString E2ee::createAccount(QString key) {
     size_t olmAccountPickleMaxLength = olm_pickle_account_length(m_olmAccount);
     size_t olmAccountPickleLength;
     char olmAccountPickle[olmAccountPickleMaxLength+1];
+
     memset(olmAccountPickle, '0', olmAccountPickleMaxLength+1);
-    if (olm_pickle_account(m_olmAccount, &key, key.length(), olmAccountPickle, olmAccountPickleMaxLength) == olm_error()) {
+    if (olm_pickle_account(m_olmAccount, key.toLocal8Bit().data(), key.length(), olmAccountPickle, olmAccountPickleMaxLength) == olm_error()) {
         return logError(olm_account_last_error(m_olmAccount));
     }
     olmAccountPickle[olmAccountPickleMaxLength] = '\0';
@@ -74,7 +75,7 @@ QString E2ee::createAccount(QString key) {
 /** Removes the Olm Account. Should be called on logout.
 **/
 void E2ee::restoreAccount(QString olmAccountStr, QString key) {
-    if (olm_unpickle_account(m_olmAccount, &key, key.length(), &olmAccountStr, olmAccountStr.length()) == olm_error()) {
+    if (olm_unpickle_account(m_olmAccount, key.toLocal8Bit().data(), key.length(), olmAccountStr.toLocal8Bit().data(), olmAccountStr.length()) == olm_error()) {
         logError(olm_account_last_error(m_olmAccount));
     }
 }
@@ -109,7 +110,7 @@ QString E2ee::signJsonString(QString jsonStr) {
     size_t signLength = olm_account_signature_length(m_olmAccount);
     char signedJsonStr[signLength+1];
     memset(signedJsonStr, '0', signLength+1);
-    olm_account_sign(m_olmAccount, &jsonStr, jsonStr.length(), signedJsonStr, signLength);
+    olm_account_sign(m_olmAccount, jsonStr.toLocal8Bit().data(), jsonStr.length(), signedJsonStr, signLength);
     signedJsonStr[signLength] = '\0';
     return QString::fromUtf8(signedJsonStr);
 }
