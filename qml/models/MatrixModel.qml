@@ -470,7 +470,10 @@ Item {
         if ( matrix.token === "" ) return
 
         // Initialize the e2e encryption account
-        console.log(E2ee.getAccount (matrix.matrixid))
+        var keys = E2ee.getAccount (matrix.matrixid)
+        console.log("Device keys:", keys)
+        console.log("Signed Device keys:", E2ee.signJsonString (keys))
+        //console.log("One Time Keys:", E2ee.getOneTimeKeys ())
 
         // Start synchronizing
         initialized = true

@@ -25,6 +25,7 @@ public:
     Q_INVOKABLE QString getAccount(QString matrix_id);
     Q_INVOKABLE void removeAccount();
     Q_INVOKABLE QString signJsonString(QString jsonStr);
+    Q_INVOKABLE QString getOneTimeKeys();
 
     Q_INVOKABLE bool uploadFile(QString path, QString url, QString token);
 

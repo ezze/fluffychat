@@ -70,7 +70,7 @@ QString E2ee::getAccount(QString matrix_id) {
         size_t resultOlmCreation = olm_create_account(m_olmAccount, randomMemory, randomSize); // Create the Olm account
 
         if (resultOlmCreation == olm_error()) {
-            return olm_account_last_error(m_olmAccount);
+            return logError(olm_account_last_error(m_olmAccount));
         }
 
         memset(randomMemory, 0, randomSize); // Set the allocated memory in ram to 0 everywhere
@@ -118,6 +118,18 @@ QString E2ee::signJsonString(QString jsonStr) {
     char signedJsonStr[signLength];
     olm_account_sign(m_olmAccount, &jsonStr, jsonStr.length(), signedJsonStr, signLength);
     return signedJsonStr;
+}
+
+
+/** Signs a json string
+**/
+QString E2ee::getOneTimeKeys() {
+    size_t keysLength = olm_account_one_time_keys_length(m_olmAccount);
+    char oneTimeKeys[keysLength];
+    if (olm_account_one_time_keys(m_olmAccount, oneTimeKeys, keysLength) == olm_error()) {
+        return logError(olm_account_last_error(m_olmAccount));
+    }
+    return oneTimeKeys;
 }
 
 
