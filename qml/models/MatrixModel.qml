@@ -484,6 +484,7 @@ Item {
         var keys = E2ee.getIdentityKeys ()
         console.log("Device keys:", keys)
         console.log("Signed Device keys:", E2ee.signJsonString (keys))
+        E2ee.generateOneTimeKeys()
         console.log("One Time Keys:", E2ee.getOneTimeKeys ())
 
         // Start synchronizing

@@ -27,8 +27,21 @@ public:
     Q_INVOKABLE QString getIdentityKeys();
     Q_INVOKABLE void removeAccount();
     Q_INVOKABLE QString signJsonString(QString jsonStr);
+
+    /** Returns the public parts of the unpublished one time keys for the account
+    **/
     Q_INVOKABLE QString getOneTimeKeys();
 
+    /** Marks all onetimekeys as published **/
+    Q_INVOKABLE void markKeysAsPublished();
+
+    /** Generate more one time keys and removes all old unpublished keys **/
+    Q_INVOKABLE void generateOneTimeKeys();
+
+    //Q_INVOKABLE QString createOutboundSession(QString identityKey, QString oneTimeKey);
+    //
+    /** Uploads an encrypted or unencrypted file.
+    **/
     Q_INVOKABLE bool uploadFile(QString path, QString url, QString token);
 
 public slots:

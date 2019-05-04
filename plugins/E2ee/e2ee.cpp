@@ -116,7 +116,7 @@ QString E2ee::signJsonString(QString jsonStr) {
 }
 
 
-/** Signs a json string
+/** Returns the public parts of the unpublished one time keys for the account
 **/
 QString E2ee::getOneTimeKeys() {
     size_t keysLength = olm_account_one_time_keys_length(m_olmAccount);
@@ -129,6 +129,20 @@ QString E2ee::getOneTimeKeys() {
     return QString::fromUtf8(oneTimeKeys);
 }
 
+
+void E2ee::markKeysAsPublished() {
+    olm_account_mark_keys_as_published(m_olmAccount);
+}
+
+
+void E2ee::generateOneTimeKeys() {
+    size_t maxNumber = olm_account_max_number_of_one_time_keys(m_olmAccount);
+    size_t randomLength = olm_account_generate_one_time_keys_random_length(m_olmAccount, maxNumber);
+    void * random = malloc( randomLength );
+    if (olm_account_generate_one_time_keys(m_olmAccount, maxNumber, random, randomLength) == olm_error()) {
+        logError(olm_account_last_error(m_olmAccount));
+    }
+}
 
 /** Uploads an encrypted or unencrypted file.
 **/
