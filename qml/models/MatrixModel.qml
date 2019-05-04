@@ -93,6 +93,7 @@ Item {
     onOnlineChanged: if ( online ) restartSync ()
 
     property string e2eeAccountPickle: ""
+    property int one_time_key_counts: 0
 
     // Save this properties in the settings
     Settings {
@@ -113,6 +114,7 @@ Item {
         property alias countryCode: matrix.countryCode
         property alias countryTel: matrix.countryTel
         property alias e2eeAccountPickle: matrix.e2eeAccountPickle
+        property alias one_time_key_counts: matrix.one_time_key_counts
     }
 
     signal newSync ( var sync )
@@ -294,7 +296,9 @@ Item {
 
 
     function reset () {
-        matrix.token = ""
+        E2ee.removeAccount()
+        matrix.token = matrix.e2eeAccountPickle = ""
+        matrix.one_time_key_counts = 0
         matrix.username = matrix.server = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = ""
     }
 
@@ -468,24 +472,68 @@ Item {
         sig.connect(f)
     }
 
+    function newE2eeAccount () {
+        var newAccount = E2ee.createAccount ( matrix.matrixid )
+        var keys = JSON.parse(E2ee.getIdentityKeys ())
+        var signedKeys = E2ee.signJsonString (keys)
+        E2ee.generateOneTimeKeys()
+        var oneTimeKeys = JSON.parse(E2ee.getOneTimeKeys ())
+        var signedOneTimeKeys = {}
+
+        for ( var key in oneTimeKeys.curve25519 ) {
+            signedOneTimeKeys["signed_curve25519:"+key] = { }
+            signedOneTimeKeys["signed_curve25519:"+key]["keys"] = oneTimeKeys.curve25519[key]
+            signedOneTimeKeys["signed_curve25519:"+key]["signatures"] = {}
+            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)] = {}
+            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)]["ed25519:%1".arg(matrix.deviceID)] = E2ee.signJsonString (oneTimeKeys.curve25519[key])
+        }
+
+        var requestData = {
+            "device_keys": {
+                "user_id": matrix.matrixid,
+                "device_id": matrix.deviceID,
+                "algorithms": supportedEncryptionAlgorithms,
+                "keys": {},
+                "signatures": {}
+            },
+            "one_time_keys": signedOneTimeKeys
+        }
+        for ( var algorithm in keys ) {
+            requestData["device_keys"]["keys"][algorithm+":"+matrix.deviceID] = keys[algorithm]
+        }
+        requestData["device_keys"]["signatures"][matrix.matrixid] = {}
+        requestData["device_keys"]["signatures"][matrix.matrixid]["ed25519:"+matrix.deviceID] = signedKeys
+
+        var success_callback = function (result) {
+            console.log("KEYS UPLOADED", JSON.stringify(result))
+            if ( typeof result.one_time_key_counts.signed_curve25519 === "number" ) {
+                matrix.one_time_key_counts = result.one_time_key_counts.signed_curve25519
+                E2ee.markKeysAsPublished()
+                matrix.e2eeAccountPickle = newAccount
+            }
+        }
+
+        console.log("UPLOADING KEYS: ", JSON.stringify(requestData))
+
+        matrix.post ("/client/r0/keys/upload", requestData, success_callback, function (error) {
+            console.log("ERROR UPLOADING KEYS:",JSON.stringify(error))
+        })
+    }
+
     function init () {
 
         if ( matrix.token === "" ) return
 
         // Initialize the e2e encryption account
         if ( matrix.e2eeAccountPickle === "" ) {
-            matrix.e2eeAccountPickle = E2ee.createAccount ( "1234" )
-            console.log("Create new olm account", matrix.e2eeAccountPickle)
+            newE2eeAccount ()
         }
         else {
-            console.log("Restore olm account", matrix.e2eeAccountPickle)
-            E2ee.restoreAccount ( matrix.e2eeAccountPickle, "1234" )
+            if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
+                console.error ( "❌[Error] Could not restore E2ee account" )
+                newE2eeAccount ()
+            }
         }
-        var keys = E2ee.getIdentityKeys ()
-        console.log("Device keys:", keys)
-        console.log("Signed Device keys:", E2ee.signJsonString (keys))
-        E2ee.generateOneTimeKeys()
-        console.log("One Time Keys:", E2ee.getOneTimeKeys ())
 
         // Start synchronizing
         initialized = true

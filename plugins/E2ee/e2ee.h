@@ -23,7 +23,7 @@ public:
     ~E2ee();
 
     Q_INVOKABLE QString createAccount(QString key);
-    Q_INVOKABLE void restoreAccount(QString olmAccountStr, QString key);
+    Q_INVOKABLE bool restoreAccount(QString olmAccountStr, QString key);
     Q_INVOKABLE QString getIdentityKeys();
     Q_INVOKABLE void removeAccount();
     Q_INVOKABLE QString signJsonString(QString jsonStr);
