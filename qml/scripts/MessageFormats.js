@@ -11,8 +11,8 @@ var linebreakRegex = /[\r\n]+/gm
 
 function formatText ( tempText ) {
     // HTML characters
-    tempText = tempText.split("<").join("&lt;")
-    .split(">").join("&gt;")
+    tempText = tempText.split("<").join("〈")
+    .split(">").join("〉")
 
     // Format markdown links
     tempText = tempText.replace(markdownLinkRegex, function(str) {
@@ -53,17 +53,17 @@ function formatText ( tempText ) {
 }
 
 function formatReply ( tempText ) {
-    if ( tempText.slice(0,9) === "&gt; &lt;" ) {
+    if ( tempText.slice(0,3) === "〉 〈" ) {
         var lines = tempText.split("\n")
-        var user = lines[0].split("&lt;")[1].split("&gt;")[0]
+        var user = lines[0].split("〈")[1].split("〉")[0]
         lines[0] = lines[0].replace( user, "<a href='fluffychat://%1'><font color='#888888'>%2:</font></a><br>".arg(user).arg(user))
-        lines[0] = lines[0].replace("&gt; ", "")
-        lines[0] = lines[0].replace("&gt;","<font color='#888888'>")
-        lines[0] = lines[0].replace("&lt;","")
+        lines[0] = lines[0].replace("〉 ", "")
+        lines[0] = lines[0].replace("〉","<font color='#888888'>")
+        lines[0] = lines[0].replace("〈","")
         lines[0] += "</font>"
         for ( var i = 1; i < lines.length; i++ ) {
-            if ( lines[i].slice(0,4) === "&gt;" ) {
-                lines[i] = lines[i].replace("&gt;", "<font color='#888888'>")
+            if ( lines[i].slice(0,1) === "〉" ) {
+                lines[i] = lines[i].replace("〉", "<font color='#888888'>")
                 lines[i] += "</font>"
             }
             else {

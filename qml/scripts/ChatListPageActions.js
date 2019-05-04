@@ -93,7 +93,7 @@ function newEvent ( type, chat_id, eventType, lastEvent ) {
         }
         tempRoom.eventsid = lastEvent.event_id
         tempRoom.origin_server_ts = lastEvent.origin_server_ts
-        tempRoom.content_body = body
+        tempRoom.content_body = MessageFormats.formatText(body)
         tempRoom.sender = lastEvent.sender
         tempRoom.content_json = JSON.stringify( lastEvent.content )
         tempRoom.type = lastEvent.type
