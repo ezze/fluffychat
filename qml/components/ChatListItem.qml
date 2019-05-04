@@ -24,7 +24,7 @@ ListItem {
 
     ListItemLayout {
         id: layout
-        width: parent.width - notificationBubble.width - highlightBubble.width
+        width: parent.width - Math.max(stampLabel.width,notificationBubble.width + highlightBubble.width + units.gu(0.5)) - units.gu(1)
         title.text: ChatListItemActions.calcTitle ()
         title.font.bold: true
         title.color: mainLayout.mainFontColor
