@@ -146,6 +146,82 @@ void E2ee::generateOneTimeKeys() {
     }
 }
 
+
+QString E2ee::lastAccountError() {
+    return QString::fromUtf8(olm_account_last_error(m_olmAccount));
+}
+
+
+QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QString key) {
+    // TODO: Implement this...
+    return "Not implemented";
+}
+
+
+QString E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
+    // TODO: Implement this...
+    return "Not implemented";
+}
+
+
+QString E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage, QString key){
+    // TODO: Implement this...
+    return "Not implemented";
+}
+
+
+void E2ee::setActiveSession(QString olmSessionStr){
+    // TODO: Implement this...
+}
+
+
+bool E2ee::matchesInboundSession(QString oneTimeKeyMessage){
+    // TODO: Implement this...
+    return false;
+}
+
+
+bool E2ee::matchesInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage){
+    // TODO: Implement this...
+    return false;
+}
+
+
+void E2ee::removeOneTimeKeys(){
+    // TODO: Implement this...
+}
+
+
+QString E2ee::encryptMessageType(){
+    // TODO: Implement this...
+    return "Not implemented";
+}
+
+
+QString E2ee::encrypt(QString plaintext){
+    // TODO: Implement this...
+    return "Not implemented";
+}
+
+
+QString E2ee::decrypt(QString message){
+    // TODO: Implement this...
+    return "Not implemented";
+}
+
+
+QString E2ee::sha256(QString input){
+    // TODO: Implement this...
+    return "Not implemented";
+}
+
+
+bool E2ee::ed25519Verify(QString key, QString message, QString signature){
+    // TODO: Implement this...
+    return false;
+}
+
+
 /** Uploads an encrypted or unencrypted file.
 **/
 bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
