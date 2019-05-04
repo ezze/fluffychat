@@ -384,18 +384,13 @@ ListView {
                         // display name of the sender of this message and the time.
                         Label {
                             id: metaLabel
-                            text: {
-                                // Show the senders displayname only if its not the user him-/herself.
-                                ((eventModel.sender !== matrix.matrixid) && senderDisplayname !== activeChatDisplayName ?
-                                ("<font color='" + MatrixNames.stringToDarkColor ( senderDisplayname ) + "'><b>" + senderDisplayname + "</b></font> ")
-                                : ( eventModel.content.msgtype === "m.audio" ? eventModel.content.body + " - " : ""))
-                                + MatrixNames.getChatTime ( eventModel.origin_server_ts )
-                            }
-                            color: sent ? fontColor : mainLayout.secondaryFontColor
+                            text: ( eventModel.content.msgtype === "m.audio" ? eventModel.content.body + " - " : "") + senderDisplayname
+                            color: mainLayout.darkmode ? MatrixNames.stringToColor ( senderDisplayname ) : MatrixNames.stringToDarkColor ( senderDisplayname )
+                            font.bold: true
                             textSize: Label.XSmall
-                            visible: !isStateEvent
+                            visible: eventModel.sender !== matrix.matrixid && senderDisplayname !== activeChatDisplayName && !isStateEvent
                             wrapMode: Text.NoWrap
-                            textFormat: Text.StyledText
+                            textFormat: Text.PlainText
 
                             // Check that the sender displayname is not too long
                             Component.onCompleted: {
@@ -403,8 +398,18 @@ ListView {
                                     senderDisplayname = senderDisplayname.substr(0,39)
                                 }
                             }
-
                         }
+
+                        Label {
+                            id: timeLabel
+                            visible: !isStateEvent
+                            text: MatrixNames.getChatTime ( eventModel.origin_server_ts )
+                            color: sent ? fontColor : mainLayout.secondaryFontColor
+                            textSize: metaLabel.textSize
+                            wrapMode: Text.NoWrap
+                            textFormat: Text.PlainText
+                        }
+
                         // When the message is just sending, then this activity indicator is visible
                         ActivityIndicator {
                             id: activity

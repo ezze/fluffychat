@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-04 08:05+0000\n"
+"POT-Creation-Date: 2019-05-04 06:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,23 +198,23 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:39 fluffychat.desktop.in.h:1
+#: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:39
+#: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:102
+#: ../qml/pages/ChatListPage.qml:104
 msgid "Search for your chats…"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:123
+#: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:153
+#: ../qml/pages/ChatListPage.qml:155
 msgid "Add chat"
 msgstr ""
 
@@ -422,15 +422,15 @@ msgstr ""
 msgid "Username copied to the clipboard"
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:69
+#: ../qml/pages/UserPage.qml:65
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:69
+#: ../qml/pages/UserPage.qml:65
 msgid "This is you."
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:87
+#: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
 msgstr ""
 
@@ -472,18 +472,6 @@ msgstr ""
 
 #: ../qml/pages/PhoneSettingsPage.qml:40
 msgid "No phone numbers connected"
-msgstr ""
-
-#: ../qml/pages/UserDevicesPage.qml:21
-msgid "Devices of %1"
-msgstr ""
-
-#: ../qml/pages/UserDevicesPage.qml:38 ../qml/pages/DiscoverPage.qml:67
-msgid "Loading…"
-msgstr ""
-
-#: ../qml/pages/UserDevicesPage.qml:38
-msgid "No devices found"
 msgstr ""
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
@@ -550,6 +538,10 @@ msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:44
 msgid "Search for chats or #aliases…"
+msgstr ""
+
+#: ../qml/pages/DiscoverPage.qml:67
+msgid "Loading…"
 msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:67
@@ -645,15 +637,15 @@ msgstr ""
 msgid "Upload error:"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:523
+#: ../qml/models/MatrixModel.qml:520
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:530
+#: ../qml/models/MatrixModel.qml:527
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:594
+#: ../qml/models/MatrixModel.qml:591
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

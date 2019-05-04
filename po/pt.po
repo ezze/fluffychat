@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 11:11+0000\n"
+"POT-Creation-Date: 2019-05-04 06:35+0000\n"
 "PO-Revision-Date: 2019-04-25 13:48+0000\n"
 "Last-Translator: Rui Mendes <xz9@protonmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/fluffychat/"
@@ -212,24 +212,24 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:39 fluffychat.desktop.in.h:1
+#: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:39
+#: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:102
+#: ../qml/pages/ChatListPage.qml:104
 #, fuzzy
 msgid "Search for your chats…"
 msgstr "Procurar nomes de conversa..."
 
-#: ../qml/pages/ChatListPage.qml:123
+#: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 
-#: ../qml/pages/ChatListPage.qml:153
+#: ../qml/pages/ChatListPage.qml:155
 #, fuzzy
 msgid "Add chat"
 msgstr "Conversas arquivadas"

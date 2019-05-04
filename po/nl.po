@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 11:11+0000\n"
+"POT-Creation-Date: 2019-05-04 06:35+0000\n"
 "PO-Revision-Date: 2019-04-20 10:28+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
@@ -212,25 +212,25 @@ msgstr "Nieuwe account aanmaken"
 msgid "Sign in"
 msgstr "Aanmelden"
 
-#: ../qml/pages/ChatListPage.qml:39 fluffychat.desktop.in.h:1
+#: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr "FluffyChat"
 
-#: ../qml/pages/ChatListPage.qml:39
+#: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
 msgstr "Delen"
 
-#: ../qml/pages/ChatListPage.qml:102
+#: ../qml/pages/ChatListPage.qml:104
 msgid "Search for your chats…"
 msgstr "Zoek naar uw gesprekken…"
 
-#: ../qml/pages/ChatListPage.qml:123
+#: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 "Veeg van onderaf omhoog om een nieuw gesprek te beginnen of openbare groepen "
 "te ontdekken."
 
-#: ../qml/pages/ChatListPage.qml:153
+#: ../qml/pages/ChatListPage.qml:155
 msgid "Add chat"
 msgstr "Gesprek toevoegen"
 

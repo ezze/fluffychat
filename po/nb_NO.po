@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-27 11:11+0000\n"
+"POT-Creation-Date: 2019-05-04 06:35+0000\n"
 "PO-Revision-Date: 2019-04-19 13:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -227,25 +227,25 @@ msgstr "Start ny sludring"
 msgid "Sign in"
 msgstr "Registrer deg"
 
-#: ../qml/pages/ChatListPage.qml:39 fluffychat.desktop.in.h:1
+#: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
 msgstr "FluffyChat"
 
-#: ../qml/pages/ChatListPage.qml:39
+#: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
 msgstr "Del"
 
-#: ../qml/pages/ChatListPage.qml:102
+#: ../qml/pages/ChatListPage.qml:104
 #, fuzzy
 msgid "Search for your chats…"
 msgstr "Søk etter sludringsnavn…"
 
-#: ../qml/pages/ChatListPage.qml:123
+#: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
 "Dra fra bunnen for å starte ny sludring eller oppdag offentlige grupper."
 
-#: ../qml/pages/ChatListPage.qml:153
+#: ../qml/pages/ChatListPage.qml:155
 #, fuzzy
 msgid "Add chat"
 msgstr "Rediger sludringsnavn"

@@ -71,7 +71,7 @@ function stringToColor ( str ) {
     var number = 0
     for( var i=0; i<str.length; i++ ) number += str.charCodeAt(i)
     number = (number % 10) / 10
-    return Qt.hsla( number, 0.6, 0.8, 1 )
+    return Qt.hsla( number, 1, 0.7, 1 )
 }
 
 
@@ -81,7 +81,7 @@ function stringToDarkColor ( str ) {
     var number = 0
     for( var i=0; i<str.length; i++ ) number += str.charCodeAt(i)
     number = (number % 10) / 10
-    return Qt.hsla( number, 0.8, 0.6, 1 )
+    return Qt.hsla( number, 1, 0.35, 1 )
 }
 
 
