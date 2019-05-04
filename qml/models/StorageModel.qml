@@ -376,7 +376,8 @@ Item {
             break
             // This event means, that the room is now encrypted. The encryption algorithm
             // needs to be saved an the client should start tracking the devices for all
-            // users in this room.
+            // users in this room. Once this settings is set, all later events are possible
+            // MITM attacks!
         case "m.room.encryption":
             // Save the encryption status for this chat
             var query = "UPDATE Chats SET encryption_algorithm=?"
@@ -389,7 +390,7 @@ Item {
                 query += " encryption_rotation_period_msgs=? "
                 queryArgs[queryArgs.length] = eventContent.content.rotation_period_msgs
             }
-            query += " WHERE id=?"
+            query += " WHERE id=? AND encryption_algorithm=''"
             queryArgs[queryArgs.length] = chat_id
             addQuery( query, queryArgs )
 
