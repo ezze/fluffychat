@@ -11,6 +11,7 @@
 #include <QtNetwork/QNetworkReply>
 #include <QUrl>
 #include <QCommandLineParser>
+#include <QStandardPaths>
 
 #include "e2ee.h"
 
@@ -26,6 +27,12 @@ E2ee::~E2ee() {
     }
 }
 
+
+QString logError (QString errorMsg) {
+    qDebug() << "🐞[E2EE] " + errorMsg;
+    return errorMsg;
+}
+
 /** Creates a new Olm account and generates fingerprint and identity keys. These
 are returned in a json object for Qml use.
 **/
@@ -33,17 +40,24 @@ QString E2ee::getAccount(QString matrix_id) {
 
     size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
 
-    // Check if there is already an existing persistent Olm account
-    QFile olmFile("olm.data");
-    if (olmFile.exists()) {
-        if (olmFile.open(QIODevice::ReadOnly)) {
-            char* input;
-            olmFile.read(input,0);
-            m_olmAccount = reinterpret_cast<OlmAccount*>(&input);
-        }
+
+    QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    qDebug() << appDataPath;
+    QFile olmFile(appDataPath + "/olm.data");
+
+    if (olmFile.exists()) { // Check if there is already an existing persistent Olm accoun
+
         qDebug() << "Restore old olm account";
+
+        if (olmFile.open(QIODevice::ReadOnly)) {
+            QByteArray blob = olmFile.readAll();
+            m_olmAccount = reinterpret_cast<OlmAccount*>(&blob);
+        }
+
     }
     else {  // If not, then create a new Olm account
+
+        qDebug() << "Create and save new olm account";
 
         void * accountMemory = malloc( accountSize ); // Allocate the memory
 
@@ -64,9 +78,13 @@ QString E2ee::getAccount(QString matrix_id) {
         free(randomMemory);  // Free the memory
 
         if(olmFile.open(QIODevice::WriteOnly)){
-            olmFile.write(reinterpret_cast<char*>(m_olmAccount), accountSize);
+            if(!olmFile.write(reinterpret_cast<char*>(m_olmAccount), accountSize)) {
+                return logError("Could not write to file");
+            }
         }
-        qDebug() << "Create and save new olm account";
+        else {
+            return logError("Could not open file");
+        }
     }
 
     olmFile.close();
@@ -80,6 +98,7 @@ QString E2ee::getAccount(QString matrix_id) {
 
     return identityKeys;
 }
+
 
 /** Uploads an encrypted or unencrypted file.
 **/

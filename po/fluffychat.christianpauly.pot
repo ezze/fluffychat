@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-04 08:51+0000\n"
+"POT-Creation-Date: 2019-05-04 10:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -422,15 +422,15 @@ msgstr ""
 msgid "Username copied to the clipboard"
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:65
+#: ../qml/pages/UserPage.qml:69
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:65
+#: ../qml/pages/UserPage.qml:69
 msgid "This is you."
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:83
+#: ../qml/pages/UserPage.qml:87
 msgid "Start new chat"
 msgstr ""
 
@@ -472,6 +472,18 @@ msgstr ""
 
 #: ../qml/pages/PhoneSettingsPage.qml:40
 msgid "No phone numbers connected"
+msgstr ""
+
+#: ../qml/pages/UserDevicesPage.qml:21
+msgid "Devices of %1"
+msgstr ""
+
+#: ../qml/pages/UserDevicesPage.qml:38 ../qml/pages/DiscoverPage.qml:67
+msgid "Loading…"
+msgstr ""
+
+#: ../qml/pages/UserDevicesPage.qml:38
+msgid "No devices found"
 msgstr ""
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
@@ -538,10 +550,6 @@ msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:44
 msgid "Search for chats or #aliases…"
-msgstr ""
-
-#: ../qml/pages/DiscoverPage.qml:67
-msgid "Loading…"
 msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:67
@@ -637,15 +645,15 @@ msgstr ""
 msgid "Upload error:"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:520
+#: ../qml/models/MatrixModel.qml:523
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:527
+#: ../qml/models/MatrixModel.qml:530
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:591
+#: ../qml/models/MatrixModel.qml:594
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
