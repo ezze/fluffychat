@@ -31,17 +31,19 @@ are returned in a json object for Qml use.
 **/
 QString E2ee::getAccount(QString matrix_id) {
 
+    size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
+
     // Check if there is already an existing persistent Olm account
     QFile olmFile("olm.data");
     if (olmFile.exists()) {
         if (olmFile.open(QIODevice::ReadOnly)) {
-            QDataStream in(&olmFile);
-            in>>m_olmAccount;
+            char* input;
+            olmFile.read(input,0);
+            m_olmAccount = reinterpret_cast<OlmAccount*>(&input);
         }
         qDebug() << "Restore old olm account";
     }
     else {  // If not, then create a new Olm account
-        size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
 
         void * accountMemory = malloc( accountSize ); // Allocate the memory
 
@@ -62,8 +64,7 @@ QString E2ee::getAccount(QString matrix_id) {
         free(randomMemory);  // Free the memory
 
         if(olmFile.open(QIODevice::WriteOnly)){
-            QDataStream out(&olmFile);
-            //out<<m_olmAccount;
+            olmFile.write(reinterpret_cast<char*>(m_olmAccount), accountSize);
         }
         qDebug() << "Create and save new olm account";
     }
