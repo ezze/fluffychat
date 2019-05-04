@@ -36,61 +36,51 @@ QString logError (QString errorMsg) {
 /** Creates a new Olm account and generates fingerprint and identity keys. These
 are returned in a json object for Qml use.
 **/
-QString E2ee::getAccount(QString matrix_id) {
+QString E2ee::createAccount(QString key) {
 
     size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
 
+    void * accountMemory = malloc( accountSize ); // Allocate the memory
 
-    QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    qDebug() << appDataPath + "/olm.data";
-    QFile olmFile(appDataPath + "/olm.data");
+    m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
 
-    if (olmFile.exists()) { // Check if there is already an existing persistent Olm accoun
+    size_t randomSize = olm_create_account_random_length(m_olmAccount); // Get the random size for account creation
 
-        qDebug() << "Restore old olm account";
+    void * randomMemory = malloc( randomSize ); // Allocate the memory
 
-        if (olmFile.open(QIODevice::ReadOnly)) {
-            QByteArray blob = olmFile.readAll();
-            m_olmAccount = reinterpret_cast<OlmAccount*>(&blob);
-        }
+    size_t resultOlmCreation = olm_create_account(m_olmAccount, randomMemory, randomSize); // Create the Olm account
 
-    }
-    else {  // If not, then create a new Olm account
-
-        qDebug() << "Create and save new olm account";
-
-        void * accountMemory = malloc( accountSize ); // Allocate the memory
-
-        m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
-
-        size_t randomSize = olm_create_account_random_length(m_olmAccount); // Get the random size for account creation
-
-        void * randomMemory = malloc( randomSize ); // Allocate the memory
-
-        size_t resultOlmCreation = olm_create_account(m_olmAccount, randomMemory, randomSize); // Create the Olm account
-
-        if (resultOlmCreation == olm_error()) {
-            return logError(olm_account_last_error(m_olmAccount));
-        }
-
-        memset(randomMemory, 0, randomSize); // Set the allocated memory in ram to 0 everywhere
-
-        free(randomMemory);  // Free the memory
-
-        if(olmFile.open(QIODevice::WriteOnly)){
-            if(!olmFile.write(reinterpret_cast<char*>(m_olmAccount), accountSize)) {
-                return logError("Could not write to file");
-            }
-        }
-        else {
-            return logError("Could not open file");
-        }
+    if (resultOlmCreation == olm_error()) {
+        return logError(olm_account_last_error(m_olmAccount));
     }
 
-    olmFile.close();
+    memset(randomMemory, 0, randomSize); // Set the allocated memory in ram to 0 everywhere
 
-    // Get the size for the output puffer for the identity key and save them in
-    // the output buffer:
+    free(randomMemory);  // Free the memory
+
+    size_t olmAccountPickleLength = olm_pickle_account_length(m_olmAccount);
+    char olmAccountPickle[olmAccountPickleLength];
+    memset(olmAccountPickle, 0, olmAccountPickleLength);
+    if (olm_pickle_account(m_olmAccount, &key, key.length(), olmAccountPickle, olmAccountPickleLength) == olm_error()) {
+        return logError(olm_account_last_error(m_olmAccount));
+    }
+
+    return olmAccountPickle;
+}
+
+
+/** Removes the Olm Account. Should be called on logout.
+**/
+void E2ee::restoreAccount(QString olmAccountStr, QString key) {
+    if (olm_pickle_account(m_olmAccount, &key, key.length(), &olmAccountStr, olmAccountStr.length()) == olm_error()) {
+        logError(olm_account_last_error(m_olmAccount));
+    }
+}
+
+
+/** Returns the identity keys
+**/
+QString E2ee::getIdentityKeys() {
     size_t identityKeysLength = olm_account_identity_keys_length(m_olmAccount);
     char identityKeys[identityKeysLength];
     memset(identityKeys, 0, identityKeysLength);
@@ -105,9 +95,7 @@ QString E2ee::getAccount(QString matrix_id) {
 /** Removes the Olm Account. Should be called on logout.
 **/
 void E2ee::removeAccount() {
-    QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    QFile olmFile(appDataPath + "/olm.data");
-    if(!olmFile.remove()) logError("Could not remove Olm file");
+    olm_clear_account(m_olmAccount);
 }
 
 
@@ -116,6 +104,7 @@ void E2ee::removeAccount() {
 QString E2ee::signJsonString(QString jsonStr) {
     size_t signLength = olm_account_signature_length(m_olmAccount);
     char signedJsonStr[signLength];
+    memset(signedJsonStr, 0, signLength);
     olm_account_sign(m_olmAccount, &jsonStr, jsonStr.length(), signedJsonStr, signLength);
     return signedJsonStr;
 }
@@ -126,6 +115,7 @@ QString E2ee::signJsonString(QString jsonStr) {
 QString E2ee::getOneTimeKeys() {
     size_t keysLength = olm_account_one_time_keys_length(m_olmAccount);
     char oneTimeKeys[keysLength];
+    memset(oneTimeKeys, 0, keysLength);
     if (olm_account_one_time_keys(m_olmAccount, oneTimeKeys, keysLength) == olm_error()) {
         return logError(olm_account_last_error(m_olmAccount));
     }

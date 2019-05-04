@@ -92,6 +92,8 @@ Item {
     property var online: true
     onOnlineChanged: if ( online ) restartSync ()
 
+    property string e2eeAccountPickle: ""
+
     // Save this properties in the settings
     Settings {
         property alias token: matrix.token
@@ -110,6 +112,7 @@ Item {
         property alias autoloadGifs: matrix.autoloadGifs
         property alias countryCode: matrix.countryCode
         property alias countryTel: matrix.countryTel
+        property alias e2eeAccountPickle: matrix.e2eeAccountPickle
     }
 
     signal newSync ( var sync )
@@ -470,10 +473,18 @@ Item {
         if ( matrix.token === "" ) return
 
         // Initialize the e2e encryption account
-        var keys = E2ee.getAccount (matrix.matrixid)
+        if ( matrix.e2eeAccountPickle === "" ) {
+            console.log("Create new olm account")
+            e2eeAccountPickle = E2ee.createAccount ( matrix.matrixid )
+        }
+        else {
+            console.log("Restore olm account", matrix.e2eeAccountPickle)
+            E2ee.restoreAccount ( e2eeAccountPickle, matrix.matrixid )
+        }
+        var keys = E2ee.getIdentityKeys ()
         console.log("Device keys:", keys)
         console.log("Signed Device keys:", E2ee.signJsonString (keys))
-        //console.log("One Time Keys:", E2ee.getOneTimeKeys ())
+        console.log("One Time Keys:", E2ee.getOneTimeKeys ())
 
         // Start synchronizing
         initialized = true
