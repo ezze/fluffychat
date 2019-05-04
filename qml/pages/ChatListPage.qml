@@ -6,6 +6,8 @@ import "../components"
 import "../scripts/EventDescription.js" as EventDescription
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/ChatListPageActions.js" as ChatListPageActions
+import "../scripts/MessageFormats.js" as MessageFormats
+
 
 Page {
     anchors.fill: parent
