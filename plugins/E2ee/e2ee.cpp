@@ -42,7 +42,7 @@ QString E2ee::getAccount(QString matrix_id) {
 
 
     QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    qDebug() << appDataPath;
+    qDebug() << appDataPath + "/olm.data";
     QFile olmFile(appDataPath + "/olm.data");
 
     if (olmFile.exists()) { // Check if there is already an existing persistent Olm accoun
@@ -96,7 +96,28 @@ QString E2ee::getAccount(QString matrix_id) {
     memset(identityKeys, 0, identityKeysLength);
     olm_account_identity_keys(m_olmAccount, identityKeys, identityKeysLength);
 
-    return identityKeys;
+    QString identityKeysStr = QString::fromUtf8(identityKeys).split("}")[0] + "}";
+
+    return identityKeysStr;
+}
+
+
+/** Removes the Olm Account. Should be called on logout.
+**/
+void E2ee::removeAccount() {
+    QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    QFile olmFile(appDataPath + "/olm.data");
+    if(!olmFile.remove()) logError("Could not remove Olm file");
+}
+
+
+/** Signs a json string
+**/
+QString E2ee::signJsonString(QString jsonStr) {
+    size_t signLength = olm_account_signature_length(m_olmAccount);
+    char signedJsonStr[signLength];
+    olm_account_sign(m_olmAccount, &jsonStr, jsonStr.length(), signedJsonStr, signLength);
+    return signedJsonStr;
 }
 
 

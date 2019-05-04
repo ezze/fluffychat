@@ -23,6 +23,8 @@ public:
     ~E2ee();
 
     Q_INVOKABLE QString getAccount(QString matrix_id);
+    Q_INVOKABLE void removeAccount();
+    Q_INVOKABLE QString signJsonString(QString jsonStr);
 
     Q_INVOKABLE bool uploadFile(QString path, QString url, QString token);
 
