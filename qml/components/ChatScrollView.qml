@@ -385,7 +385,7 @@ ListView {
                         Label {
                             id: metaLabel
                             text: ( eventModel.content.msgtype === "m.audio" ? eventModel.content.body + " - " : "") + senderDisplayname
-                            color: MatrixNames.stringToDarkColor ( senderDisplayname )
+                            color: mainLayout.darkmode ? MatrixNames.stringToColor ( senderDisplayname ) : MatrixNames.stringToDarkColor ( senderDisplayname )
                             font.bold: true
                             textSize: Label.XSmall
                             visible: eventModel.sender !== matrix.matrixid && senderDisplayname !== activeChatDisplayName && !isStateEvent
