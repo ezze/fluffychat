@@ -58,21 +58,23 @@ QString E2ee::createAccount(QString key) {
 
     free(randomMemory);  // Free the memory
 
-    size_t olmAccountPickleLength = olm_pickle_account_length(m_olmAccount);
-    char olmAccountPickle[olmAccountPickleLength];
-    memset(olmAccountPickle, 0, olmAccountPickleLength);
-    if (olm_pickle_account(m_olmAccount, &key, key.length(), olmAccountPickle, olmAccountPickleLength) == olm_error()) {
+    size_t olmAccountPickleMaxLength = olm_pickle_account_length(m_olmAccount);
+    size_t olmAccountPickleLength;
+    char olmAccountPickle[olmAccountPickleMaxLength+1];
+    memset(olmAccountPickle, '0', olmAccountPickleMaxLength+1);
+    if (olm_pickle_account(m_olmAccount, &key, key.length(), olmAccountPickle, olmAccountPickleMaxLength) == olm_error()) {
         return logError(olm_account_last_error(m_olmAccount));
     }
+    olmAccountPickle[olmAccountPickleMaxLength] = '\0';
 
-    return olmAccountPickle;
+    return QString::fromUtf8(olmAccountPickle);
 }
 
 
 /** Removes the Olm Account. Should be called on logout.
 **/
 void E2ee::restoreAccount(QString olmAccountStr, QString key) {
-    if (olm_pickle_account(m_olmAccount, &key, key.length(), &olmAccountStr, olmAccountStr.length()) == olm_error()) {
+    if (olm_unpickle_account(m_olmAccount, &key, key.length(), &olmAccountStr, olmAccountStr.length()) == olm_error()) {
         logError(olm_account_last_error(m_olmAccount));
     }
 }
@@ -82,13 +84,15 @@ void E2ee::restoreAccount(QString olmAccountStr, QString key) {
 **/
 QString E2ee::getIdentityKeys() {
     size_t identityKeysLength = olm_account_identity_keys_length(m_olmAccount);
-    char identityKeys[identityKeysLength];
-    memset(identityKeys, 0, identityKeysLength);
-    olm_account_identity_keys(m_olmAccount, identityKeys, identityKeysLength);
+    char identityKeys[identityKeysLength+1];
+    memset(identityKeys, '0', identityKeysLength+1);
+    if (olm_account_identity_keys(m_olmAccount, identityKeys, identityKeysLength) == olm_error()) {
+        return logError(olm_account_last_error(m_olmAccount));
+    }
 
-    QString identityKeysStr = QString::fromUtf8(identityKeys).split("}")[0] + "}";
+    identityKeys[identityKeysLength] = '\0';
 
-    return identityKeysStr;
+    return QString::fromUtf8(identityKeys);
 }
 
 
@@ -103,10 +107,11 @@ void E2ee::removeAccount() {
 **/
 QString E2ee::signJsonString(QString jsonStr) {
     size_t signLength = olm_account_signature_length(m_olmAccount);
-    char signedJsonStr[signLength];
-    memset(signedJsonStr, 0, signLength);
+    char signedJsonStr[signLength+1];
+    memset(signedJsonStr, '0', signLength+1);
     olm_account_sign(m_olmAccount, &jsonStr, jsonStr.length(), signedJsonStr, signLength);
-    return signedJsonStr;
+    signedJsonStr[signLength] = '\0';
+    return QString::fromUtf8(signedJsonStr);
 }
 
 
@@ -114,12 +119,13 @@ QString E2ee::signJsonString(QString jsonStr) {
 **/
 QString E2ee::getOneTimeKeys() {
     size_t keysLength = olm_account_one_time_keys_length(m_olmAccount);
-    char oneTimeKeys[keysLength];
-    memset(oneTimeKeys, 0, keysLength);
+    char oneTimeKeys[keysLength+1];
+    memset(oneTimeKeys, '0', keysLength+1);
     if (olm_account_one_time_keys(m_olmAccount, oneTimeKeys, keysLength) == olm_error()) {
         return logError(olm_account_last_error(m_olmAccount));
     }
-    return oneTimeKeys;
+    oneTimeKeys[keysLength] = '\0';
+    return QString::fromUtf8(oneTimeKeys);
 }
 
 

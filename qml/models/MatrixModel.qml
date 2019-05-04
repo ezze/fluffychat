@@ -475,11 +475,12 @@ Item {
         // Initialize the e2e encryption account
         if ( matrix.e2eeAccountPickle === "" ) {
             console.log("Create new olm account")
-            e2eeAccountPickle = E2ee.createAccount ( matrix.matrixid )
+            matrix.e2eeAccountPickle = E2ee.createAccount ( "1234" )
+            console.log("olm account", matrix.e2eeAccountPickle)
         }
         else {
             console.log("Restore olm account", matrix.e2eeAccountPickle)
-            E2ee.restoreAccount ( e2eeAccountPickle, matrix.matrixid )
+            E2ee.restoreAccount ( e2eeAccountPickle, "1234" )
         }
         var keys = E2ee.getIdentityKeys ()
         console.log("Device keys:", keys)
