@@ -520,6 +520,36 @@ Item {
         })
     }
 
+
+    function generateOneTimeKeys() {
+        E2ee.generateOneTimeKeys()
+        var oneTimeKeys = JSON.parse(E2ee.getOneTimeKeys ())
+        var signedOneTimeKeys = {}
+
+        for ( var key in oneTimeKeys.curve25519 ) {
+            signedOneTimeKeys["signed_curve25519:"+key] = { }
+            signedOneTimeKeys["signed_curve25519:"+key]["keys"] = oneTimeKeys.curve25519[key]
+            signedOneTimeKeys["signed_curve25519:"+key]["signatures"] = {}
+            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)] = {}
+            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)]["ed25519:%1".arg(matrix.deviceID)] = E2ee.signJsonString (oneTimeKeys.curve25519[key])
+        }
+        var requestData = {
+            "one_time_keys": signedOneTimeKeys
+        }
+        
+        var success_callback = function (result) {
+            console.log("KEYS UPLOADED", JSON.stringify(result))
+            if ( typeof result.one_time_key_counts.signed_curve25519 === "number" ) {
+                matrix.one_time_key_counts = result.one_time_key_counts.signed_curve25519
+                E2ee.markKeysAsPublished()
+            }
+        }
+
+        console.log("UPLOADING KEYS: ", JSON.stringify(requestData))
+
+        matrix.post ("/client/r0/keys/upload", requestData, success_callback)
+    }
+
     function init () {
 
         if ( matrix.token === "" ) return
@@ -676,6 +706,10 @@ Item {
             newEventCB ( "device_lists", sync.next_batch, "encryption", sync.device_lists )
         }
         if ( typeof sync.device_one_time_keys_count === "object" ) {
+            if ( typeof sync.device_one_time_keys_count.signed_curve25519 === "number" ) {
+                matrix.one_time_key_counts = sync.device_one_time_keys_count.signed_curve25519
+                if ( matrix.one_time_key_counts < 5 ) generateOneTimeKeys()
+            }
             newEventCB ( "device_one_time_keys_count", sync.next_batch, "encryption", sync.device_lists )
         }
     }
