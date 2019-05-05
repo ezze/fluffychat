@@ -29,13 +29,49 @@ Item {
 
     property var callback
 
-    function requestMedia(type, cb) {
+    ContentHub.ContentPeerModel {
+        id: model
+        contentType: ContentHub.ContentType.Pictures
+        handler: ContentHub.ContentHandler.Source
+    }
+
+    property alias activeTransfer: signalConnections.target
+
+    Connections {
+        id: signalConnections
+
+        onStateChanged: {
+            if (root.activeTransfer.state === ContentHub.ContentTransfer.Charged && root.activeTransfer.items.length > 0) {
+                root.mediaReceived(root.activeTransfer.items[0].url)
+                root.callback(root.activeTransfer.items[0].url)
+            }
+        }
+    }
+
+    function requestMedia(type, cb, app) {
         if ( type ) contentType = type
         if ( cb ) callback = cb
-        if (!root.importDialog) {
+        if ( app ) {
+            model.contentType = type
+            var peer = null
+            for (var i = 0; i < model.peers.length; ++i) {
+                var p = model.peers[i]
+                var s = p.appId
+                if (s.indexOf(app) != -1) {
+                    peer = p
+                }
+            }
+            if (peer != null) {
+                peer.contentType = type
+                peer.selectionType = ContentHub.ContentTransfer.Single
+                root.activeTransfer = peer.request()
+            }
+            else if (model.peers.length > 0 && root.importDialog === null ) {
+                root.importDialog = PopupUtils.open(contentHubDialog, root)
+            }
+        }
+        else if ( root.importDialog === null ){
             root.importDialog = PopupUtils.open(contentHubDialog, root)
-        } else {
-            console.warn("Import dialog already running")
         }
     }
 
