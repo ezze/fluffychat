@@ -1,5 +1,4 @@
 #include <QDebug>
-#include <olm/olm.h>
 #include <QDataStream>
 #include <QFile>
 #include <QMimeDatabase>
@@ -35,9 +34,45 @@ QString logError (QString errorMsg) {
     return errorMsg;
 }
 
-/** Creates a new Olm account and generates fingerprint and identity keys. These
-are returned in a json object for Qml use.
-**/
+
+bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
+
+    QFile file(path);
+
+    if(!(file.exists() && file.open(QIODevice::ReadOnly))) {
+        return false;
+    }
+
+    QString fileName = path.split("/").last();
+
+    QByteArray data = file.readAll();
+    file.close();
+
+    uploadUrl = uploadUrl + "?filename=" + fileName;
+    token = "Bearer " + token;
+
+    QUrl url(uploadUrl);
+    QNetworkRequest request(url);
+    QString mimeType = QMimeDatabase().mimeTypeForFile( path ).name();
+    request.setRawHeader(QByteArray("Authorization"), token.toUtf8());
+    request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
+
+    QNetworkAccessManager manager;
+    QNetworkReply* reply = manager.post(request, data);
+    QEventLoop loop;
+    connect(reply, SIGNAL(uploadProgress(qint64, qint64)),
+    this, SLOT(uploadProgressSlot(qint64, qint64)));
+    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
+
+    QByteArray response = reply->readAll();
+    QString dataReply(response);
+    uploadFinished(dataReply, mimeType, fileName, data.size());
+
+    return true;
+}
+
+
 QString E2ee::createAccount(QString key) {
 
     size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
@@ -73,8 +108,6 @@ QString E2ee::createAccount(QString key) {
 }
 
 
-/** Removes the Olm Account. Should be called on logout.
-**/
 bool E2ee::restoreAccount(QString olmAccountStr, QString key) {
     if (olm_unpickle_account(m_olmAccount, key.toLocal8Bit().data(), key.length(), olmAccountStr.toLocal8Bit().data(), olmAccountStr.length()) == olm_error()) {
         logError(olm_account_last_error(m_olmAccount));
@@ -84,8 +117,6 @@ bool E2ee::restoreAccount(QString olmAccountStr, QString key) {
 }
 
 
-/** Returns the identity keys
-**/
 QString E2ee::getIdentityKeys() {
     if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
 
@@ -102,8 +133,6 @@ QString E2ee::getIdentityKeys() {
 }
 
 
-/** Removes the Olm Account. Should be called on logout.
-**/
 void E2ee::removeAccount() {
     if (m_olmAccount == nullptr) return;
 
@@ -111,8 +140,6 @@ void E2ee::removeAccount() {
 }
 
 
-/** Signs a json string
-**/
 QString E2ee::signJsonString(QString jsonStr) {
     if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
 
@@ -125,8 +152,6 @@ QString E2ee::signJsonString(QString jsonStr) {
 }
 
 
-/** Returns the public parts of the unpublished one time keys for the account
-**/
 QString E2ee::getOneTimeKeys() {
     if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
 
@@ -403,46 +428,6 @@ bool E2ee::ed25519Verify(QString key, QString message, QString signature){
         return true;
     }
     return false;
-}
-
-
-/** Uploads an encrypted or unencrypted file.
-**/
-bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
-
-    QFile file(path);
-
-    if(!(file.exists() && file.open(QIODevice::ReadOnly))) {
-        return false;
-    }
-
-    QString fileName = path.split("/").last();
-
-    QByteArray data = file.readAll();
-    file.close();
-
-    uploadUrl = uploadUrl + "?filename=" + fileName;
-    token = "Bearer " + token;
-
-    QUrl url(uploadUrl);
-    QNetworkRequest request(url);
-    QString mimeType = QMimeDatabase().mimeTypeForFile( path ).name();
-    request.setRawHeader(QByteArray("Authorization"), token.toUtf8());
-    request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
-
-    QNetworkAccessManager manager;
-    QNetworkReply* reply = manager.post(request, data);
-    QEventLoop loop;
-    connect(reply, SIGNAL(uploadProgress(qint64, qint64)),
-    this, SLOT(uploadProgressSlot(qint64, qint64)));
-    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
-
-    QByteArray response = reply->readAll();
-    QString dataReply(response);
-    uploadFinished(dataReply, mimeType, fileName, data.size());
-
-    return true;
 }
 
 
