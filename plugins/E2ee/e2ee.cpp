@@ -17,12 +17,12 @@ E2ee::E2ee() {
 
 E2ee::~E2ee() {
     if (m_olmAccount) {
-        memset(m_olmAccount, 0, olm_account_size());
+        memset(m_olmAccount, '0', olm_account_size());
         free(m_olmAccount);
         m_olmAccount = nullptr;
     }
     if (m_activeSession) {
-        memset(m_activeSession, 0, olm_session_size());
+        memset(m_activeSession, '0', olm_session_size());
         free(m_activeSession);
         m_activeSession = nullptr;
     }
@@ -40,12 +40,13 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
     QFile file(path);
 
     if(!(file.exists() && file.open(QIODevice::ReadOnly))) {
+        logError("File does not exist or can not be opened")
         return false;
     }
 
     QString fileName = path.split("/").last();
 
-    QByteArray data = file.readAll();
+    QByteArray data = file.readAll();   // TODO: Encrypt file
     file.close();
 
     uploadUrl = uploadUrl + "?filename=" + fileName;
@@ -91,7 +92,7 @@ QString E2ee::createAccount(QString key) {
         return logError(olm_account_last_error(m_olmAccount));
     }
 
-    memset(randomMemory, 0, randomSize); // Set the allocated memory in ram to 0 everywhere
+    memset(randomMemory, '0', randomSize); // Set the allocated memory in ram to 0 everywhere
 
     free(randomMemory);  // Free the memory
 
