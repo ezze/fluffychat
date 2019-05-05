@@ -17,7 +17,7 @@ class E2ee: public QObject {
 
 private:
     OlmAccount* m_olmAccount;
-    OlmSession* activeSession;
+    OlmSession* m_activeSession;
 
 public:
     E2ee();

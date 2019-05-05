@@ -152,9 +152,28 @@ QString E2ee::lastAccountError() {
 }
 
 
+QString getSessionAndSessionID() {
+    QString id = "";        // TODO: Needs implementation
+    QString session = "";   // TODO: Needs implementation
+    return "{\"id\":" + id + ",\"session\":" + session + "}";
+}
+
+
 QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QString key) {
-    // TODO: Implement this...
-    return "Not implemented";
+    size_t randomLength = olm_create_outbound_session_random_length(m_activeSession);
+    void * random = malloc( randomLength );
+    if (olm_create_outbound_session(m_activeSession,
+        m_olmAccount,
+        identityKey.toLocal8Bit().data(),
+        identityKey.length(),
+        oneTimeKey.toLocal8Bit().data(),
+        oneTimeKey.length(),
+        random,
+        randomLength
+    ) == olm_error()) {
+        return logError(olm_session_last_error(m_activeSession));
+    }
+    return getSessionAndSessionID();
 }
 
 
