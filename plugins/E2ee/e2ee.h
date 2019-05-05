@@ -3,14 +3,6 @@
 
 #include <QObject>
 #include <olm/olm.h>
-#include <QJsonObject>
-#include <QFile>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkReply>
-#include <QUrl>
-#include <QCommandLineParser>
 
 class E2ee: public QObject {
     Q_OBJECT

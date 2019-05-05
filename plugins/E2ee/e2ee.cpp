@@ -2,16 +2,12 @@
 #include <olm/olm.h>
 #include <QDataStream>
 #include <QFile>
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QJsonDocument>
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QUrl>
 #include <QCommandLineParser>
-#include <QStandardPaths>
 
 #include "e2ee.h"
 
