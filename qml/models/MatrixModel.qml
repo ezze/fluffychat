@@ -474,8 +474,9 @@ Item {
 
     function newE2eeAccount () {
         var newAccount = E2ee.createAccount ( matrix.matrixid )
-        var keys = JSON.parse(E2ee.getIdentityKeys ())
-        var signedKeys = E2ee.signJsonString (keys)
+        var keysJsonStr = E2ee.getIdentityKeys ()
+        var keys = JSON.parse(keysJsonStr)
+        var signedKeys = E2ee.signJsonString (keysJsonStr)
         E2ee.generateOneTimeKeys()
         var oneTimeKeys = JSON.parse(E2ee.getOneTimeKeys ())
         var signedOneTimeKeys = {}
@@ -536,7 +537,7 @@ Item {
         var requestData = {
             "one_time_keys": signedOneTimeKeys
         }
-        
+
         var success_callback = function (result) {
             console.log("KEYS UPLOADED", JSON.stringify(result))
             if ( typeof result.one_time_key_counts.signed_curve25519 === "number" ) {
