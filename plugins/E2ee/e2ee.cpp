@@ -91,6 +91,8 @@ bool E2ee::restoreAccount(QString olmAccountStr, QString key) {
 /** Returns the identity keys
 **/
 QString E2ee::getIdentityKeys() {
+    if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
+
     size_t identityKeysLength = olm_account_identity_keys_length(m_olmAccount);
     char identityKeys[identityKeysLength+1];
     memset(identityKeys, '0', identityKeysLength+1);
@@ -107,6 +109,8 @@ QString E2ee::getIdentityKeys() {
 /** Removes the Olm Account. Should be called on logout.
 **/
 void E2ee::removeAccount() {
+    if (m_olmAccount == nullptr) return;
+
     olm_clear_account(m_olmAccount);
 }
 
@@ -114,6 +118,8 @@ void E2ee::removeAccount() {
 /** Signs a json string
 **/
 QString E2ee::signJsonString(QString jsonStr) {
+    if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
+
     size_t signLength = olm_account_signature_length(m_olmAccount);
     char signedJsonStr[signLength+1];
     memset(signedJsonStr, '0', signLength+1);
@@ -126,6 +132,8 @@ QString E2ee::signJsonString(QString jsonStr) {
 /** Returns the public parts of the unpublished one time keys for the account
 **/
 QString E2ee::getOneTimeKeys() {
+    if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
+
     size_t keysLength = olm_account_one_time_keys_length(m_olmAccount);
     char oneTimeKeys[keysLength+1];
     memset(oneTimeKeys, '0', keysLength+1);
@@ -138,11 +146,15 @@ QString E2ee::getOneTimeKeys() {
 
 
 void E2ee::markKeysAsPublished() {
+    if (m_olmAccount == nullptr) return;
+
     olm_account_mark_keys_as_published(m_olmAccount);
 }
 
 
 void E2ee::generateOneTimeKeys() {
+    if (m_olmAccount == nullptr) return;
+
     size_t maxNumber = olm_account_max_number_of_one_time_keys(m_olmAccount);
     size_t randomLength = olm_account_generate_one_time_keys_random_length(m_olmAccount, maxNumber);
     void * random = malloc( randomLength );
@@ -153,11 +165,15 @@ void E2ee::generateOneTimeKeys() {
 
 
 QString E2ee::lastAccountError() {
+    if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
+
     return QString::fromUtf8(olm_account_last_error(m_olmAccount));
 }
 
 
 QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QString key) {
+    if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
+
     size_t randomLength = olm_create_outbound_session_random_length(m_activeSession);
     void * random = malloc( randomLength );
     if (olm_create_outbound_session(m_activeSession,
@@ -176,6 +192,8 @@ QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QSt
 
 
 QString E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
+    if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
+
     if (olm_create_inbound_session(m_activeSession,
         m_olmAccount,
         oneTimeKeyMessage.toLocal8Bit().data(),
@@ -188,6 +206,8 @@ QString E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
 
 
 QString E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage, QString key){
+    if (m_olmAccount == nullptr) return logError("No m_olmAccount initialized!");
+
     if (olm_create_inbound_session_from(m_activeSession,
         m_olmAccount,
         identityKey.toLocal8Bit().data(),
@@ -201,7 +221,18 @@ QString E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeKeyMe
 }
 
 
+void E2ee::setActiveSession(QString olmSessionStr, QString key){
+    if (m_olmAccount == nullptr) return;
+
+    if (olm_unpickle_session(m_activeSession, key.toLocal8Bit().data(), key.length(), olmSessionStr.toLocal8Bit().data(), olmSessionStr.length()) == olm_error()) {
+        logError(olm_session_last_error(m_activeSession));
+    }
+}
+
+
 QString E2ee::getSessionAndSessionID(QString key) {
+    if (m_activeSession == nullptr) return logError("No m_activeSession initialized!");
+
     size_t idLength = olm_session_id_length(m_activeSession);
     char id[idLength+1];
     memset(id, '0', idLength+1);
@@ -223,14 +254,9 @@ QString E2ee::getSessionAndSessionID(QString key) {
 }
 
 
-void E2ee::setActiveSession(QString olmSessionStr, QString key){
-    if (olm_unpickle_session(m_activeSession, key.toLocal8Bit().data(), key.length(), olmSessionStr.toLocal8Bit().data(), olmSessionStr.length()) == olm_error()) {
-        logError(olm_session_last_error(m_activeSession));
-    }
-}
-
-
 bool E2ee::matchesInboundSession(QString oneTimeKeyMessage){
+    if (m_activeSession == nullptr) return false;
+
     size_t result = olm_matches_inbound_session(m_activeSession, oneTimeKeyMessage.toLocal8Bit().data(), oneTimeKeyMessage.length());
     if (result == olm_error()) {
         logError(olm_session_last_error(m_activeSession));
@@ -244,6 +270,8 @@ bool E2ee::matchesInboundSession(QString oneTimeKeyMessage){
 
 
 bool E2ee::matchesInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage){
+    if (m_activeSession == nullptr) return false;
+
     size_t result = olm_matches_inbound_session_from(m_activeSession, identityKey.toLocal8Bit().data(), identityKey.length(), oneTimeKeyMessage.toLocal8Bit().data(), oneTimeKeyMessage.length());
     if (result == olm_error()) {
         logError(olm_session_last_error(m_activeSession));
@@ -257,11 +285,15 @@ bool E2ee::matchesInboundSessionFrom(QString identityKey, QString oneTimeKeyMess
 
 
 void E2ee::removeOneTimeKeys(){
+    if (m_activeSession == nullptr) return;
+
     olm_remove_one_time_keys(m_olmAccount, m_activeSession);
 }
 
 
 QString E2ee::encryptMessageType(){
+    if (m_activeSession == nullptr) return logError("No m_activeSession initialized!");
+
     size_t result = olm_encrypt_message_type(m_activeSession);
     if (result == olm_error()) {
         return logError(olm_session_last_error(m_activeSession));
@@ -277,6 +309,8 @@ QString E2ee::encryptMessageType(){
 
 
 QString E2ee::encrypt(QString plaintext){
+    if (m_activeSession == nullptr) return logError("No m_activeSession initialized!");
+
     size_t randomLength = olm_encrypt_random_length(m_activeSession);
     void * random = malloc( randomLength );
 
@@ -303,6 +337,8 @@ QString E2ee::encrypt(QString plaintext){
 
 
 QString E2ee::decrypt(QString message){
+    if (m_activeSession == nullptr) return logError("No m_activeSession initialized!");
+
     size_t messageType = olm_encrypt_message_type(m_activeSession);
 
     size_t plaintextLength = olm_decrypt_max_plaintext_length(m_activeSession,
