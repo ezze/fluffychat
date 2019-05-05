@@ -17,6 +17,7 @@
 
 E2ee::E2ee() {
     m_olmAccount = nullptr;
+    m_activeSession = nullptr;
 }
 
 E2ee::~E2ee() {
@@ -24,6 +25,11 @@ E2ee::~E2ee() {
         memset(m_olmAccount, 0, olm_account_size());
         free(m_olmAccount);
         m_olmAccount = nullptr;
+    }
+    if (m_activeSession) {
+        memset(m_activeSession, 0, olm_session_size());
+        free(m_activeSession);
+        m_activeSession = nullptr;
     }
 }
 
@@ -59,7 +65,6 @@ QString E2ee::createAccount(QString key) {
     free(randomMemory);  // Free the memory
 
     size_t olmAccountPickleMaxLength = olm_pickle_account_length(m_olmAccount);
-    size_t olmAccountPickleLength;
     char olmAccountPickle[olmAccountPickleMaxLength+1];
 
     memset(olmAccountPickle, '0', olmAccountPickleMaxLength+1);
@@ -152,13 +157,6 @@ QString E2ee::lastAccountError() {
 }
 
 
-QString getSessionAndSessionID() {
-    QString id = "";        // TODO: Needs implementation
-    QString session = "";   // TODO: Needs implementation
-    return "{\"id\":" + id + ",\"session\":" + session + "}";
-}
-
-
 QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QString key) {
     size_t randomLength = olm_create_outbound_session_random_length(m_activeSession);
     void * random = malloc( randomLength );
@@ -173,70 +171,205 @@ QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QSt
     ) == olm_error()) {
         return logError(olm_session_last_error(m_activeSession));
     }
-    return getSessionAndSessionID();
+    return getSessionAndSessionID(key);
 }
 
 
 QString E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
-    // TODO: Implement this...
-    return "Not implemented";
+    if (olm_create_inbound_session(m_activeSession,
+        m_olmAccount,
+        oneTimeKeyMessage.toLocal8Bit().data(),
+        oneTimeKeyMessage.length()
+    ) == olm_error()) {
+        return logError(olm_session_last_error(m_activeSession));
+    }
+    return getSessionAndSessionID(key);
 }
 
 
 QString E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage, QString key){
-    // TODO: Implement this...
-    return "Not implemented";
+    if (olm_create_inbound_session_from(m_activeSession,
+        m_olmAccount,
+        identityKey.toLocal8Bit().data(),
+        identityKey.length(),
+        oneTimeKeyMessage.toLocal8Bit().data(),
+        oneTimeKeyMessage.length()
+    ) == olm_error()) {
+        return logError(olm_session_last_error(m_activeSession));
+    }
+    return getSessionAndSessionID(key);
 }
 
 
-void E2ee::setActiveSession(QString olmSessionStr){
-    // TODO: Implement this...
+QString E2ee::getSessionAndSessionID(QString key) {
+    size_t idLength = olm_session_id_length(m_activeSession);
+    char id[idLength+1];
+    memset(id, '0', idLength+1);
+    if (olm_session_id(m_activeSession, id, idLength) == olm_error()) {
+        return logError(olm_session_last_error(m_activeSession));
+    }
+    id[idLength] = '\0';
+
+    size_t sessionPickleMaxLength = olm_pickle_session_length(m_activeSession);
+    char sessionPickle[sessionPickleMaxLength+1];
+
+    memset(sessionPickle, '0', sessionPickleMaxLength+1);
+    if (olm_pickle_session(m_activeSession, key.toLocal8Bit().data(), key.length(), sessionPickle, sessionPickleMaxLength) == olm_error()) {
+        return logError(olm_session_last_error(m_activeSession));
+    }
+    sessionPickle[sessionPickleMaxLength] = '\0';
+
+    return "{\"id\":" + QString::fromUtf8(id) + ",\"session\":" + QString::fromUtf8(sessionPickle) + "}";
+}
+
+
+void E2ee::setActiveSession(QString olmSessionStr, QString key){
+    if (olm_unpickle_session(m_activeSession, key.toLocal8Bit().data(), key.length(), olmSessionStr.toLocal8Bit().data(), olmSessionStr.length()) == olm_error()) {
+        logError(olm_session_last_error(m_activeSession));
+    }
 }
 
 
 bool E2ee::matchesInboundSession(QString oneTimeKeyMessage){
-    // TODO: Implement this...
+    size_t result = olm_matches_inbound_session(m_activeSession, oneTimeKeyMessage.toLocal8Bit().data(), oneTimeKeyMessage.length());
+    if (result == olm_error()) {
+        logError(olm_session_last_error(m_activeSession));
+        return false;
+    }
+    else if (result == 1) {
+        return true;
+    }
     return false;
 }
 
 
 bool E2ee::matchesInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage){
-    // TODO: Implement this...
+    size_t result = olm_matches_inbound_session_from(m_activeSession, identityKey.toLocal8Bit().data(), identityKey.length(), oneTimeKeyMessage.toLocal8Bit().data(), oneTimeKeyMessage.length());
+    if (result == olm_error()) {
+        logError(olm_session_last_error(m_activeSession));
+        return false;
+    }
+    else if (result == 1) {
+        return true;
+    }
     return false;
 }
 
 
 void E2ee::removeOneTimeKeys(){
-    // TODO: Implement this...
+    olm_remove_one_time_keys(m_olmAccount, m_activeSession);
 }
 
 
 QString E2ee::encryptMessageType(){
-    // TODO: Implement this...
-    return "Not implemented";
+    size_t result = olm_encrypt_message_type(m_activeSession);
+    if (result == olm_error()) {
+        return logError(olm_session_last_error(m_activeSession));
+    }
+    else if (result == OLM_MESSAGE_TYPE_PRE_KEY) {
+        return "OLM_MESSAGE_TYPE_PRE_KEY";
+    }
+    else if (result == OLM_MESSAGE_TYPE_MESSAGE) {
+        return "OLM_MESSAGE_TYPE_MESSAGE";
+    }
+    return logError("UNKNOWN_RESULT");
 }
 
 
 QString E2ee::encrypt(QString plaintext){
-    // TODO: Implement this...
-    return "Not implemented";
+    size_t randomLength = olm_encrypt_random_length(m_activeSession);
+    void * random = malloc( randomLength );
+
+    size_t messageLength = olm_encrypt_message_length(m_activeSession, plaintext.length());
+    char message[messageLength+1];
+
+    memset(message, '0', messageLength+1);
+
+    if (olm_encrypt(m_activeSession,
+        plaintext.toLocal8Bit().data(),
+        plaintext.length(),
+        random,
+        randomLength,
+        message,
+        messageLength
+    ) == olm_error()) {
+        return logError(olm_session_last_error(m_activeSession));
+    }
+
+    message[messageLength] = '\0';
+
+    return QString::fromUtf8(message);
 }
 
 
 QString E2ee::decrypt(QString message){
-    // TODO: Implement this...
-    return "Not implemented";
+    size_t messageType = olm_encrypt_message_type(m_activeSession);
+
+    size_t plaintextLength = olm_decrypt_max_plaintext_length(m_activeSession,
+        messageType,
+        message.toLocal8Bit().data(),
+        message.length()
+    );
+    char plaintext[plaintextLength+1];
+
+    memset(plaintext, '0', plaintextLength+1);
+
+    if (olm_decrypt(m_activeSession,
+        messageType,
+        message.toLocal8Bit().data(),
+        message.length(),
+        plaintext,
+        plaintextLength
+    ) == olm_error()) {
+        return logError(olm_session_last_error(m_activeSession));
+    }
+
+    plaintext[plaintextLength] = '\0';
+
+    return QString::fromUtf8(plaintext);
 }
 
 
 QString E2ee::sha256(QString input){
-    // TODO: Implement this...
-    return "Not implemented";
+    size_t utilitySize = olm_utility_size();
+    void * utilityMemory = malloc( utilitySize );
+    OlmUtility * utility = olm_utility(utilityMemory);
+
+    size_t outputLength = olm_sha256_length(utility);
+    char output[outputLength+1];
+    memset(output, '0', outputLength+1);
+
+    olm_sha256(utility,
+        input.toLocal8Bit().data(),
+        input.length(),
+        output,
+        outputLength
+    );
+
+    olm_clear_utility(utility);
+    return QString::fromUtf8(output);
 }
 
 
 bool E2ee::ed25519Verify(QString key, QString message, QString signature){
-    // TODO: Implement this...
+    size_t utilitySize = olm_utility_size();
+    void * utilityMemory = malloc( utilitySize );
+    OlmUtility * utility = olm_utility(utilityMemory);
+
+    size_t result = olm_ed25519_verify(utility,
+        key.toLocal8Bit().data(),
+        key.length(),
+        message.toLocal8Bit().data(),
+        message.length(),
+        signature.toLocal8Bit().data(),
+        signature.length()
+    );
+
+    olm_clear_utility(utility);
+
+    if (result == 1) {
+        return true;
+    }
     return false;
 }
 

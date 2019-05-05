@@ -19,6 +19,8 @@ private:
     OlmAccount* m_olmAccount;
     OlmSession* m_activeSession;
 
+    QString getSessionAndSessionID(QString key);
+
 public:
     E2ee();
     ~E2ee();
@@ -71,7 +73,7 @@ public:
     Q_INVOKABLE QString createInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage, QString key);
 
     /** Sets the active session by the given string **/
-    Q_INVOKABLE void setActiveSession(QString olmSessionStr);
+    Q_INVOKABLE void setActiveSession(QString olmSessionStr, QString key);
 
     // Note: Functions below needs an active session!
 
