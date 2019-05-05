@@ -41,7 +41,7 @@ bool E2ee::check_m_olmAccount() {
 
 
 bool E2ee::check_m_activeSession() {
-    return m_activeSession == nullptr;
+    return check_m_olmAccount() && m_activeSession == nullptr;
 }
 
 
@@ -425,6 +425,7 @@ QString E2ee::sha256(QString input){
     );
 
     olm_clear_utility(utility);
+    utility = nullptr;
     return QString::fromUtf8(output);
 }
 
@@ -444,6 +445,7 @@ bool E2ee::ed25519Verify(QString key, QString message, QString signature){
     );
 
     olm_clear_utility(utility);
+    utility = nullptr;
 
     if (result == 1) {
         return true;
