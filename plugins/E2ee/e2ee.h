@@ -13,6 +13,9 @@ private:
 
     QString getSessionAndSessionID(QString key);
 
+    bool check_m_olmAccount();
+    bool check_m_activeSession();
+
 public:
     E2ee();
     ~E2ee();
