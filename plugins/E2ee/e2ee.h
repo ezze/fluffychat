@@ -73,6 +73,9 @@ public:
 
     // Note: Functions below needs an active session!
 
+    /** Removes the active session **/
+    Q_INVOKABLE void removeSession();
+
     /** Checks if the PRE_KEY message is for this in-bound session. This can happen
      * if multiple messages are sent to this account before this account sends a
      * message in reply. **/

@@ -50,7 +50,7 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
     QFile file(path);
 
     if(!(file.exists() && file.open(QIODevice::ReadOnly))) {
-        logError("File does not exist or can not be opened")
+        logError("File does not exist or can not be opened");
         return false;
     }
 
@@ -147,7 +147,10 @@ QString E2ee::getIdentityKeys() {
 void E2ee::removeAccount() {
     if (check_m_olmAccount()) return;
 
+    removeSession();
+
     olm_clear_account(m_olmAccount);
+    m_olmAccount = nullptr;
 }
 
 
@@ -259,6 +262,13 @@ void E2ee::setActiveSession(QString olmSessionStr, QString key){
     if (olm_unpickle_session(m_activeSession, key.toLocal8Bit().data(), key.length(), olmSessionStr.toLocal8Bit().data(), olmSessionStr.length()) == olm_error()) {
         logError(olm_session_last_error(m_activeSession));
     }
+}
+
+
+void E2ee::removeSession() {
+    if (check_m_activeSession()) return;
+    olm_clear_session(m_activeSession);
+    m_activeSession = nullptr;
 }
 
 
