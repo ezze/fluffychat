@@ -161,6 +161,10 @@ Item {
         mediaImport.requestMedia(ContentType.Pictures, callback)
     }
 
+    function importFromCamera (callback) {
+        mediaImport.requestMedia(ContentType.Pictures, callback, "camera_camera")
+    }
+
     function importAudio (callback) {
         mediaImport.requestMedia(ContentType.Music, callback)
     }
