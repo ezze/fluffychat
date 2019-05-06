@@ -325,8 +325,13 @@ Page {
                 onTriggered: ChatPageActions.send ()
             },
             Action {
-                iconName: "stock_image"
+                iconName: "camera-app-symbolic"
                 visible: platform !== platforms.LINUX && (stickerInput.visible || messageTextField.displayText === "")
+                onTriggered: ChatPageActions.sendFromCamera ()
+            },
+            Action {
+                iconName: "stock_image"
+                visible: platform !== platforms.LINUX && stickerInput.visible
                 onTriggered: ChatPageActions.sendPicture ()
             },
             Action {
