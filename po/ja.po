@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 08:29+0000\n"
+"POT-Creation-Date: 2019-05-06 08:31+0000\n"
 "PO-Revision-Date: 2019-05-06 08:29+0000\n"
 "Last-Translator: joboticon <joseph@liau.ca>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/fluffychat/"
@@ -100,7 +100,9 @@ msgstr "パスワードを設定してください"
 msgid ""
 "Please set a strong password. To reset your password, you will need to "
 "provide an e-mail address later"
-msgstr "強力なパスワードを設定してください。パスワードを再設定 するために後でメールアドレスを入力する必要があります"
+msgstr ""
+"強力なパスワードを設定してください。パスワードを再設定 するために後でメールア"
+"ドレスを入力する必要があります"
 
 #: ../qml/pages/PasswordCreationPage.qml:65
 #, javascript-format
@@ -119,7 +121,9 @@ msgstr "FluffyChatへようこそ"
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or a unique username to find friends."
-msgstr "友達とチャットし、コミュニティーに参加します。電話番号かユーザーネームで友達を見つけることができます。"
+msgstr ""
+"友達とチャットし、コミュニティーに参加します。電話番号かユーザーネームで友達"
+"を見つけることができます。"
 
 #: ../qml/pages/WalkthroughPage.qml:115
 msgid "Join the Matrix"
@@ -137,8 +141,10 @@ msgid "What's new in version %1?"
 msgstr "バージョン %1 の新機能"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-msgid "Minor bug fixes and new translations."
-msgstr "マイナーなバグ修正と翻訳。"
+msgid ""
+"Minor bug fixes, updated translations, new quick action button for taking a "
+"picture."
+msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -1369,6 +1375,9 @@ msgstr ""
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr ""
+
+#~ msgid "Minor bug fixes and new translations."
+#~ msgstr "マイナーなバグ修正と翻訳。"
 
 #, fuzzy
 #~ msgid "Create a new chat"

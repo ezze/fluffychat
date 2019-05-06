@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 08:29+0000\n"
+"POT-Creation-Date: 2019-05-06 08:31+0000\n"
 "PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -142,7 +142,9 @@ msgid "What's new in version %1?"
 msgstr "版本 %1 有什麼新功能？"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-msgid "Minor bug fixes and new translations."
+msgid ""
+"Minor bug fixes, updated translations, new quick action button for taking a "
+"picture."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:218

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 08:29+0000\n"
+"POT-Creation-Date: 2019-05-06 08:31+0000\n"
 "PO-Revision-Date: 2019-04-20 10:28+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
@@ -144,8 +144,10 @@ msgid "What's new in version %1?"
 msgstr "Co je nového ve verzi %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:180
-msgid "Minor bug fixes and new translations."
-msgstr "Oprava drobných chyb a nové překlady."
+msgid ""
+"Minor bug fixes, updated translations, new quick action button for taking a "
+"picture."
+msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
@@ -1407,6 +1409,9 @@ msgstr "Jméno uživatele '%1' nenalezeno v %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Toto uživatelské jméno již někdo používá"
+
+#~ msgid "Minor bug fixes and new translations."
+#~ msgstr "Oprava drobných chyb a nové překlady."
 
 #~ msgid ""
 #~ "File transfer now possible using different types. Sharing files from "
