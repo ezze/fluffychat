@@ -535,6 +535,10 @@ function sendPicture () {
     contentHub.importPicture(uploadAndSend)
 }
 
+function sendFromCamera () {
+    contentHub.importFromCamera(uploadAndSend)
+}
+
 function sendAudio () {
     contentHub.importAudio(uploadAndSend)
 }

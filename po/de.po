@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-04 06:35+0000\n"
-"PO-Revision-Date: 2019-04-23 14:09+0000\n"
+"POT-Creation-Date: 2019-05-05 08:29+0000\n"
+"PO-Revision-Date: 2019-05-05 07:10+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
@@ -29,7 +29,7 @@ msgstr "Du musst der Datenschutzvereinbarung zustimmen"
 
 #: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
-msgstr "In Zwischenablage kopiert"
+msgstr "In die Zwischenablage kopiert"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
@@ -818,7 +818,7 @@ msgstr "Vorgang abbrechen"
 msgid "Back"
 msgstr "Zurück"
 
-#: ../qml/components/ContactImport.qml:72
+#: ../qml/components/ContactImport.qml:73
 msgid "%1 contacts were found"
 msgstr "%1 Kontakte wurden gefunden"
 

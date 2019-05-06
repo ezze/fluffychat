@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-04 06:35+0000\n"
+"POT-Creation-Date: 2019-05-05 08:29+0000\n"
 "PO-Revision-Date: 2019-04-19 13:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -892,7 +892,7 @@ msgstr "Avbryt"
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../qml/components/ContactImport.qml:72
+#: ../qml/components/ContactImport.qml:73
 msgid "%1 contacts were found"
 msgstr "Fant %1 kontakter"
 

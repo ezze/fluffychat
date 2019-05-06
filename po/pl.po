@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-04 06:35+0000\n"
+"POT-Creation-Date: 2019-05-05 08:29+0000\n"
 "PO-Revision-Date: 2018-12-25 09:59+0000\n"
 "Last-Translator: Karol Kosek <krkkx@protonmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/fluffychat/"
@@ -805,7 +805,7 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../qml/components/ContactImport.qml:72
+#: ../qml/components/ContactImport.qml:73
 msgid "%1 contacts were found"
 msgstr ""
 
