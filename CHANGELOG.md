@@ -1,3 +1,9 @@
+What's new in FluffyChat 11.7
+-----------------------------
++ New quick action button for taking pictures from a chat
++ Updated translations
+- Minor bug fixes
+
 ### FluffyChat 11.1:
 + File transfer now possible using different types
 + Sharing files from other apps now possible
