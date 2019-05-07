@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 05:09+0000\n"
-"PO-Revision-Date: 2019-04-25 13:48+0000\n"
+"PO-Revision-Date: 2019-05-07 13:48+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -24,28 +24,20 @@ msgid "Unknown"
 msgstr "Sconosciuto"
 
 #: ../push/pushhelper.cpp:146
-#, fuzzy
-#| msgid "Delete message"
 msgid "New message"
-msgstr "Cancella messaggio"
+msgstr "Nuovo messaggio"
 
 #: ../push/pushhelper.cpp:156
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "New encrypted message"
-msgstr "Messaggio criptato"
+msgstr "Nuovo messaggio criptato"
 
 #: ../push/pushhelper.cpp:159
-#, fuzzy
-#| msgid "Show member change events"
 msgid "New member event"
-msgstr "Mostra gli eventi di cambio di membri"
+msgstr "Nuovo evento sui membri"
 
 #: ../push/pushhelper.cpp:165
-#, fuzzy
-#| msgid "You have been invited to this chat"
 msgid "You were invited to chat"
-msgstr "Sei stato invitato a questa conversazione"
+msgstr "Sei stato invitato alla conversazione"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -176,6 +168,8 @@ msgid ""
 "Minor bug fixes, updated translations, new quick action button for taking a "
 "picture."
 msgstr ""
+"Risolti problemi minori, traduzioni aggiornate, nuovo pulsante rapido per "
+"scattare una foto."
 
 #: ../qml/pages/WalkthroughPage.qml:218
 msgid "Community funded"
