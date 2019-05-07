@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-07 05:09+0000\n"
+"POT-Creation-Date: 2019-05-07 13:30+0000\n"
 "PO-Revision-Date: 2019-04-23 13:55+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
@@ -273,15 +273,15 @@ msgstr "Importa dels contactes"
 msgid "Filter contacts"
 msgstr "Filtra els contactes"
 
-#: ../qml/pages/CreateChatPage.qml:71
+#: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
 msgstr "Grup nou"
 
-#: ../qml/pages/CreateChatPage.qml:78
+#: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
 msgstr "Grups públics"
 
-#: ../qml/pages/CreateChatPage.qml:87
+#: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
 msgstr "Cliqueu el botó a dalt a la dreta per afegir contactes."
 
@@ -420,11 +420,11 @@ msgstr "Canvis dels membres d'un xat"
 msgid "Messages from bots"
 msgstr "Missatges de robots"
 
-#: ../qml/pages/InvitePage.qml:21
+#: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
 msgstr "Convida usuaris"
 
-#: ../qml/pages/InvitePage.qml:40
+#: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
 msgstr "Cerca p. ex. @usuari:servidor.abc"
 
@@ -1158,47 +1158,65 @@ msgid "Invite %1 to this chat?"
 msgstr "Convidar %1 al xat?"
 
 #: ../qml/scripts/StartChatDialog.js:8 ../qml/scripts/UserPageActions.js:49
-#: ../qml/scripts/CreateChatPageActions.js:41
+#: ../qml/scripts/CreateChatPageActions.js:45
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
 "Tingueu en compte que el FluffyChat només suporta el xifrat de transport per "
 "ara."
 
-#: ../qml/scripts/MatrixNames.js:30
+#: ../qml/scripts/MatrixNames.js:22
+#, fuzzy
+#| msgid "Filter contacts"
+msgid "Phone contacts:"
+msgstr "Filtra els contactes"
+
+#: ../qml/scripts/MatrixNames.js:23
+#, fuzzy
+#| msgid "Filter contacts"
+msgid "Email contacts:"
+msgstr "Filtra els contactes"
+
+#: ../qml/scripts/MatrixNames.js:24
+#, fuzzy
+#| msgid "Search for your chats…"
+msgid "Users from your chats:"
+msgstr "Cerca als meus xats…"
+
+#: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
 msgstr "✏ està escrivint…"
 
-#: ../qml/scripts/MatrixNames.js:31
+#: ../qml/scripts/MatrixNames.js:40
 msgid "✏ %1 is typing…"
 msgstr "✏ %1 està escrivint…"
 
-#: ../qml/scripts/MatrixNames.js:34
+#: ../qml/scripts/MatrixNames.js:43
 msgid "✏ %1 and %2 more are typing…"
 msgstr "✏ %1 i %2 més estan escrivint…"
 
-#: ../qml/scripts/MatrixNames.js:40
+#: ../qml/scripts/MatrixNames.js:49
 msgid "Members"
 msgstr "Membres"
 
-#: ../qml/scripts/MatrixNames.js:41
+#: ../qml/scripts/MatrixNames.js:50
 msgid "Moderators"
 msgstr "Moderadors"
 
-#: ../qml/scripts/MatrixNames.js:42
+#: ../qml/scripts/MatrixNames.js:51
 msgid "Admins"
 msgstr "Administradors"
 
-#: ../qml/scripts/MatrixNames.js:43
+#: ../qml/scripts/MatrixNames.js:52
 msgid "Owners"
 msgstr "Propietaris/àries"
 
-#: ../qml/scripts/MatrixNames.js:64
+#: ../qml/scripts/MatrixNames.js:73
 msgid "%1 is not a valid username"
 msgstr "%1 no és un nom d'usuari vàlid"
 
-#: ../qml/scripts/MatrixNames.js:91 ../qml/scripts/MatrixNames.js:104
-#: ../qml/scripts/MatrixNames.js:111
+#: ../qml/scripts/MatrixNames.js:100 ../qml/scripts/MatrixNames.js:113
+#: ../qml/scripts/MatrixNames.js:120
 msgid "Empty chat"
 msgstr "Xat buit"
 
@@ -1424,7 +1442,7 @@ msgstr "Afegit com adhesiu"
 msgid "Remove this message?"
 msgstr "Eliminar aquest missatge?"
 
-#: ../qml/scripts/CreateChatPageActions.js:50
+#: ../qml/scripts/CreateChatPageActions.js:54
 msgid "Do you want to create a new group now?"
 msgstr "Voleu crear un nou grup ara?"
 
