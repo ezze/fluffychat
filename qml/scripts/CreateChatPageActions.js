@@ -17,13 +17,17 @@ function updatePresence ( type, chat_id, eventType, eventContent ) {
 function update () {
     model.clear()
     var res = storage.query( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Users.presence, Users.last_active_ago, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
-    " ON Contacts.matrix_id=Users.matrix_id WHERE Users.matrix_id!=? ORDER BY Contacts.medium DESC, LOWER(Users.displayname || replace(Users.matrix_id,'@','')) LIMIT 1000", [
+    " ON Contacts.matrix_id=Users.matrix_id WHERE Users.matrix_id!=? ORDER BY Contacts.medium DESC, LOWER(Users.displayname) LIMIT 1000", [
     matrix.matrixid ] )
     for( var i = 0; i < res.rows.length; i++ ) {
         var user = res.rows[i]
+        var displayname = user.displayname
+        if ( displayname === "" || displayname === null ) {
+            displayname = MatrixNames.transformFromId(user.matrix_id)
+        }
         model.append({
             matrix_id: user.matrix_id,
-            name: user.displayname || MatrixNames.transformFromId(user.matrix_id),
+            name: displayname,
             avatar_url: user.avatar_url,
             medium: user.medium || "matrix",
             address: user.address || user.matrix_id,
@@ -31,6 +35,15 @@ function update () {
             presence: user.presence,
             temp: false
         })
+    }
+}
+
+
+function medium2Section ( medium ) {
+    switch ( medium ) {
+        case "msisdn": return i18n.tr("Phone contacts:")
+        case "email": return i18n.tr("Email contacts:")
+        case "matrix": return i18n.tr("Users from your chats:")
     }
 }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-07 12:26+0000\n"
+"POT-Creation-Date: 2019-05-07 13:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -252,15 +252,15 @@ msgstr ""
 msgid "Filter contacts"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:71
+#: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:78
+#: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
 msgstr ""
 
-#: ../qml/pages/CreateChatPage.qml:87
+#: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
 msgstr ""
 
@@ -1108,7 +1108,7 @@ msgid "Invite %1 to this chat?"
 msgstr ""
 
 #: ../qml/scripts/StartChatDialog.js:8 ../qml/scripts/UserPageActions.js:49
-#: ../qml/scripts/CreateChatPageActions.js:41
+#: ../qml/scripts/CreateChatPageActions.js:54
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
@@ -1367,7 +1367,19 @@ msgstr ""
 msgid "Remove this message?"
 msgstr ""
 
-#: ../qml/scripts/CreateChatPageActions.js:50
+#: ../qml/scripts/CreateChatPageActions.js:44
+msgid "Phone contacts:"
+msgstr ""
+
+#: ../qml/scripts/CreateChatPageActions.js:45
+msgid "Email contacts:"
+msgstr ""
+
+#: ../qml/scripts/CreateChatPageActions.js:46
+msgid "Users from your chats:"
+msgstr ""
+
+#: ../qml/scripts/CreateChatPageActions.js:63
 msgid "Do you want to create a new group now?"
 msgstr ""
 
