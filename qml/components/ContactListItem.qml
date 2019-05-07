@@ -29,7 +29,7 @@ ListItem {
 
     ListItemLayout {
         id: layout
-        title.text: name + " (%1)".arg(address)
+        title.text: name
         title.color: mainLayout.mainFontColor
         subtitle.text: presenceStr
         subtitle.color: mainLayout.mainFontColor

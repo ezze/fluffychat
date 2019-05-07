@@ -170,15 +170,11 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
 
 
     // Direct chat or not?
-    bool directChat = false;
+    QString icon = QString("contact");
     if (push.contains("room_name") && push["room_name"].toString() != sender) {
         body = sender + QString(": ") + body;
-        directChat = true;
+        icon = QString("contact-group");
     }
-
-    // Get the icon
-    QString icon = QString("contact-group");
-    if (directChat) icon = QString("contact");
 
     //The notification object to be passed to Postal
     QJsonObject notification{
