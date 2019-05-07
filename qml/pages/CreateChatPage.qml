@@ -62,7 +62,7 @@ Page {
         delegate: ContactListItem {}
         model: ListModel { id: model }
         section.property: "medium"
-        section.delegate: ListSeperator { text: PageActions.medium2Section(section) }
+        section.delegate: ListSeperator { text: MatrixNames.medium2Section(section) }
 
         header: Rectangle {
             width: chatListView.width

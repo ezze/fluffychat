@@ -39,15 +39,6 @@ function update () {
 }
 
 
-function medium2Section ( medium ) {
-    switch ( medium ) {
-        case "msisdn": return i18n.tr("Phone contacts:")
-        case "email": return i18n.tr("Email contacts:")
-        case "matrix": return i18n.tr("Users from your chats:")
-    }
-}
-
-
 function createNewGroup () {
 
     var createNewGroupSuccess = function ( response ) {

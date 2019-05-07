@@ -26,8 +26,6 @@ ListItem {
         id: layout
         title.text: name
         title.color: mainLayout.mainFontColor
-        subtitle.text: medium.replace("msisdn","📱").replace("email","✉").replace("matrix","💬") + " " + address
-        subtitle.color: "#888888"
 
         Avatar {
             name: layout.title.text

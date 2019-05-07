@@ -17,6 +17,15 @@ function transformFromId ( matrixid ) {
 }
 
 
+function medium2Section ( medium ) {
+    switch ( medium ) {
+        case "msisdn": return i18n.tr("Phone contacts:")
+        case "email": return i18n.tr("Email contacts:")
+        case "matrix": return i18n.tr("Users from your chats:")
+    }
+}
+
+
 // Just capitalize the first letter of a string
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
