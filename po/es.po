@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 13:30+0000\n"
-"PO-Revision-Date: 2019-05-07 13:48+0000\n"
+"PO-Revision-Date: 2019-05-08 13:04+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -1159,22 +1159,16 @@ msgstr ""
 "Tenga en cuenta que FluffyChat solo soporta cifrado de transporte por ahora."
 
 #: ../qml/scripts/MatrixNames.js:22
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Phone contacts:"
-msgstr "Filtrar contactos"
+msgstr "Contactos telefónicos:"
 
 #: ../qml/scripts/MatrixNames.js:23
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Email contacts:"
-msgstr "Filtrar contactos"
+msgstr "Contactos de correo electrónico:"
 
 #: ../qml/scripts/MatrixNames.js:24
-#, fuzzy
-#| msgid "Search for your chats…"
 msgid "Users from your chats:"
-msgstr "Busque sus chats…"
+msgstr "Usuarios de sus chats:"
 
 #: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
