@@ -151,14 +151,34 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
                 body = content["body"].toString();
             }
         }
-        if (push.contains("room_name") && push["room_name"].toString() != sender) {
-            body = sender + QString(": ") + body;
+    }
+    else if (type == QStringLiteral("m.room.encrypted")) {
+        body = QString(N_("New encrypted message"));
+    }
+    else if (type == QStringLiteral("m.room.member")) {
+        body = QString(N_("New member event"));
+        if (push.contains("user_is_target") && push["user_is_target"].toBool()) {
+            if (push.contains("content")) {
+                const QJsonObject content = push["content"].toObject();
+                if (content.contains("body")) {
+                    if (content.contains("membership") && content["membership"].toString() == QString("invite"))
+                    body = QString(N_("You were invited to chat"));
+                }
+            }
         }
     }
-    if (type == QStringLiteral("m.room.member")) {
-        QString body = QString(N_("New member event..."));
+
+
+    // Direct chat or not?
+    bool directChat = false;
+    if (push.contains("room_name") && push["room_name"].toString() != sender) {
+        body = sender + QString(": ") + body;
+        directChat = true;
     }
 
+    // Get the icon
+    QString icon = QString("contact-group");
+    if (directChat) icon = QString("contact");
 
     //The notification object to be passed to Postal
     QJsonObject notification{
@@ -169,7 +189,7 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
             {"popup", true},
             {"persist", true},
             {"actions", QJsonArray() << QString("fluffychat://%1").arg(id)},
-            {"icon", QString("contact")},
+            {"icon", icon},
         }},
         {"emblem-counter", QJsonObject{
             {"count", unread},
