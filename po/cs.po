@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 05:09+0000\n"
-"PO-Revision-Date: 2019-05-07 05:27+0000\n"
+"PO-Revision-Date: 2019-05-07 13:48+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -24,28 +24,20 @@ msgid "Unknown"
 msgstr "Neznámý"
 
 #: ../push/pushhelper.cpp:146
-#, fuzzy
-#| msgid "Delete message"
 msgid "New message"
-msgstr "Smazat zprávu"
+msgstr "Nová zpráva"
 
 #: ../push/pushhelper.cpp:156
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "New encrypted message"
-msgstr "Šifrovaná zpráva"
+msgstr "Nova šifrovaná zpráva"
 
 #: ../push/pushhelper.cpp:159
-#, fuzzy
-#| msgid "Show member change events"
 msgid "New member event"
-msgstr "Zobrazit události týkající se změn u účastníků"
+msgstr "Událost nového člena"
 
 #: ../push/pushhelper.cpp:165
-#, fuzzy
-#| msgid "You have been invited to this chat"
 msgid "You were invited to chat"
-msgstr "Byl pozván do tohoto chatu"
+msgstr "Byl jste pozván do chatu"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
