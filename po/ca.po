@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 08:31+0000\n"
+"POT-Creation-Date: 2019-05-07 05:09+0000\n"
 "PO-Revision-Date: 2019-04-23 13:55+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
@@ -18,6 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.7-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "Desconegut"
+
+#: ../push/pushhelper.cpp:146
+#, fuzzy
+#| msgid "No previous messages"
+msgid "New message"
+msgstr "Cap missatge anterior"
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "Encrypted message"
+msgid "New encrypted message"
+msgstr "Missatge encriptat"
+
+#: ../push/pushhelper.cpp:159
+msgid "New member event"
+msgstr ""
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+#| msgid "You have been invited to this chat"
+msgid "You were invited to chat"
+msgstr "Se us ha convidat a aquest xat"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -1098,10 +1124,6 @@ msgstr "Se l'ha expulsat"
 #: ../qml/scripts/ChatPageSettingsActions.js:91
 msgid "Was banned from the chat"
 msgstr "Blocat del xat"
-
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "Desconegut"
 
 #: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."

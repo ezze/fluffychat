@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 08:31+0000\n"
+"POT-Creation-Date: 2019-05-07 05:09+0000\n"
 "PO-Revision-Date: 2019-04-20 10:28+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
@@ -18,6 +18,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.6\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: ../push/pushhelper.cpp:146
+#, fuzzy
+#| msgid "No previous messages"
+msgid "New message"
+msgstr "Geen eerdere berichten"
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "Encrypted message"
+msgid "New encrypted message"
+msgstr "Versleuteld bericht"
+
+#: ../push/pushhelper.cpp:159
+#, fuzzy
+msgid "New member event"
+msgstr "Chat leden veranderen"
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+#| msgid "You have been invited to this chat"
+msgid "You were invited to chat"
+msgstr "U bent uitgenodigd in dit gesprek"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -1100,10 +1127,6 @@ msgstr "Heeft aangeklopt"
 msgid "Was banned from the chat"
 msgstr "Is uit het gesprek verbannen"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "Onbekend"
-
 #: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
 msgstr "Bezig met uploaden…"
@@ -1664,10 +1687,6 @@ msgstr "Gebruikersnaam is al in gebruik"
 #, fuzzy
 #~ msgid "New chat"
 #~ msgstr "Nieuwe contactpersoon"
-
-#, fuzzy
-#~ msgid "Show member change events"
-#~ msgstr "Chat leden veranderen"
 
 #~ msgid "Get more messages from the server ..."
 #~ msgstr "Krijg meer berichten van de server ..."

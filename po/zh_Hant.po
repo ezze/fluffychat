@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 08:31+0000\n"
+"POT-Creation-Date: 2019-05-07 05:09+0000\n"
 "PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -18,6 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.6-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "未知"
+
+#: ../push/pushhelper.cpp:146
+#, fuzzy
+#| msgid "No preview messages"
+msgid "New message"
+msgstr "沒有預覽訊息"
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "Encrypted message"
+msgid "New encrypted message"
+msgstr "已加密的消息"
+
+#: ../push/pushhelper.cpp:159
+#, fuzzy
+#| msgid "Show member change events"
+msgid "New member event"
+msgstr "顯示成員更改事件"
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+#| msgid "You have been invited to this chat"
+msgid "You were invited to chat"
+msgstr "您已受邀加入此聊天"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -1101,10 +1129,6 @@ msgstr "已經敲門了"
 msgid "Was banned from the chat"
 msgstr "被禁止參與聊天"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "未知"
-
 #: ../qml/scripts/ChatPageActions.js:524
 #, fuzzy
 msgid "Uploading..."
@@ -1700,9 +1724,6 @@ msgstr "用戶名稱已被使用"
 
 #~ msgid "New chat"
 #~ msgstr "新的聊天"
-
-#~ msgid "Show member change events"
-#~ msgstr "顯示成員更改事件"
 
 #~ msgid "Get more messages from the server ..."
 #~ msgstr "從伺服器獲取更多消息..."

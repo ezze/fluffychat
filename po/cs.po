@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 08:31+0000\n"
+"POT-Creation-Date: 2019-05-07 05:09+0000\n"
 "PO-Revision-Date: 2019-05-07 05:27+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
@@ -18,6 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.7-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "Neznámý"
+
+#: ../push/pushhelper.cpp:146
+#, fuzzy
+#| msgid "Delete message"
+msgid "New message"
+msgstr "Smazat zprávu"
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "Encrypted message"
+msgid "New encrypted message"
+msgstr "Šifrovaná zpráva"
+
+#: ../push/pushhelper.cpp:159
+#, fuzzy
+#| msgid "Show member change events"
+msgid "New member event"
+msgstr "Zobrazit události týkající se změn u účastníků"
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+#| msgid "You have been invited to this chat"
+msgid "You were invited to chat"
+msgstr "Byl pozván do tohoto chatu"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -1096,10 +1124,6 @@ msgstr "Požádal o vstup"
 msgid "Was banned from the chat"
 msgstr "Byl z chatu vyloučen"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "Neznámý"
-
 #: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
 msgstr "Načítám..."
@@ -1682,9 +1706,6 @@ msgstr "Toto uživatelské jméno již někdo používá"
 #~ msgid "New chat"
 #~ msgstr "Nový chat"
 
-#~ msgid "Show member change events"
-#~ msgstr "Zobrazit události týkající se změn u účastníků"
-
 #~ msgid "Get more messages from the server ..."
 #~ msgstr "Získat další zprávy ze serveru ..."
 
@@ -1693,9 +1714,6 @@ msgstr "Toto uživatelské jméno již někdo používá"
 
 #~ msgid "Log in"
 #~ msgstr "Přihlášení"
-
-#~ msgid "Delete message"
-#~ msgstr "Smazat zprávu"
 
 #~ msgid "Donate us a coffee"
 #~ msgstr "Přispěje nám na kávu"

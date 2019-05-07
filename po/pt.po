@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 08:31+0000\n"
+"POT-Creation-Date: 2019-05-07 05:09+0000\n"
 "PO-Revision-Date: 2019-04-25 13:48+0000\n"
 "Last-Translator: Rui Mendes <xz9@protonmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/fluffychat/"
@@ -18,6 +18,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.7-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr ""
+
+#: ../push/pushhelper.cpp:146
+#, fuzzy
+#| msgid "Encrypted message"
+msgid "New message"
+msgstr "Mensagem encriptada"
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "Encrypted message"
+msgid "New encrypted message"
+msgstr "Mensagem encriptada"
+
+#: ../push/pushhelper.cpp:159
+msgid "New member event"
+msgstr ""
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+msgid "You were invited to chat"
+msgstr "%1 saiu da conversa"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -1079,10 +1104,6 @@ msgstr ""
 
 #: ../qml/scripts/ChatPageSettingsActions.js:91
 msgid "Was banned from the chat"
-msgstr ""
-
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
 msgstr ""
 
 #: ../qml/scripts/ChatPageActions.js:524

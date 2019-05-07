@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 08:31+0000\n"
+"POT-Creation-Date: 2019-05-07 05:09+0000\n"
 "PO-Revision-Date: 2019-05-06 08:33+0000\n"
 "Last-Translator: Christian <christian-pauly@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
@@ -18,6 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.7-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: ../push/pushhelper.cpp:146
+#, fuzzy
+#| msgid "Delete message"
+msgid "New message"
+msgstr "Nachricht löschen"
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "Encrypted message"
+msgid "New encrypted message"
+msgstr "Verschlüsselte Nachricht"
+
+#: ../push/pushhelper.cpp:159
+#, fuzzy
+#| msgid "Show member change events"
+msgid "New member event"
+msgstr "Zeige Ereignisse zu Mitgliederwechsel"
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+#| msgid "You have been invited to this chat"
+msgid "You were invited to chat"
+msgstr "Du wurdest zu diesem Chat eingeladen"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -1103,10 +1131,6 @@ msgstr "Hat angeklopft"
 msgid "Was banned from the chat"
 msgstr "Wurde aus dem Chat verbannt"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "Unbekannt"
-
 #: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
 msgstr "Sende ..."
@@ -1708,9 +1732,6 @@ msgstr "Benutzername schon vergeben"
 #~ msgid "Complete History is world readable"
 #~ msgstr "Kompletter Verlauf ist weltweit lesbar"
 
-#~ msgid "Show member change events"
-#~ msgstr "Zeige Ereignisse zu Mitgliederwechsel"
-
 #~ msgid "Get more messages from the server ..."
 #~ msgstr "Hole mehr Nachrichten vom Server ..."
 
@@ -1719,9 +1740,6 @@ msgstr "Benutzername schon vergeben"
 
 #~ msgid "Log in"
 #~ msgstr "Anmelden"
-
-#~ msgid "Delete message"
-#~ msgstr "Nachricht löschen"
 
 #~ msgid "1 minute"
 #~ msgstr "1 Minute"

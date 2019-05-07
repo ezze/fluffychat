@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 08:31+0000\n"
+"POT-Creation-Date: 2019-05-07 05:09+0000\n"
 "PO-Revision-Date: 2019-04-25 13:48+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
@@ -18,6 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.7-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "Sconosciuto"
+
+#: ../push/pushhelper.cpp:146
+#, fuzzy
+#| msgid "Delete message"
+msgid "New message"
+msgstr "Cancella messaggio"
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "Encrypted message"
+msgid "New encrypted message"
+msgstr "Messaggio criptato"
+
+#: ../push/pushhelper.cpp:159
+#, fuzzy
+#| msgid "Show member change events"
+msgid "New member event"
+msgstr "Mostra gli eventi di cambio di membri"
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+#| msgid "You have been invited to this chat"
+msgid "You were invited to chat"
+msgstr "Sei stato invitato a questa conversazione"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -1098,10 +1126,6 @@ msgstr "Ha bussato"
 msgid "Was banned from the chat"
 msgstr "È stato bannato dalla conversazione"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "Sconosciuto"
-
 #: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
 msgstr "Caricamento..."
@@ -1687,9 +1711,6 @@ msgstr "Il nome utente è già stato preso"
 #~ msgid "New chat"
 #~ msgstr "Nuova conversazione"
 
-#~ msgid "Show member change events"
-#~ msgstr "Mostra gli eventi di cambio di membri"
-
 #~ msgid "Get more messages from the server ..."
 #~ msgstr "Scarica altri messaggi dal server..."
 
@@ -1698,9 +1719,6 @@ msgstr "Il nome utente è già stato preso"
 
 #~ msgid "Log in"
 #~ msgstr "Accedi"
-
-#~ msgid "Delete message"
-#~ msgstr "Cancella messaggio"
 
 #~ msgid "Donate us a coffee"
 #~ msgstr "Offrici un caffè"
