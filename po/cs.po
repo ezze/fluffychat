@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 13:30+0000\n"
-"PO-Revision-Date: 2019-05-07 13:48+0000\n"
+"PO-Revision-Date: 2019-05-08 13:04+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -1156,22 +1156,16 @@ msgstr ""
 "Upozorňujeme, že FluffyChat dosud podporuje pouze šifrovaný přenos zpráv."
 
 #: ../qml/scripts/MatrixNames.js:22
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Phone contacts:"
-msgstr "Filtrovat kontakty"
+msgstr "Telefonní kontakty:"
 
 #: ../qml/scripts/MatrixNames.js:23
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Email contacts:"
-msgstr "Filtrovat kontakty"
+msgstr "E-mailové kontakty:"
 
 #: ../qml/scripts/MatrixNames.js:24
-#, fuzzy
-#| msgid "Search for your chats…"
 msgid "Users from your chats:"
-msgstr "Vyhledat vaše chaty…"
+msgstr "Uživatelé z vašich chatlů:"
 
 #: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
