@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 13:30+0000\n"
-"PO-Revision-Date: 2019-05-07 13:48+0000\n"
+"PO-Revision-Date: 2019-05-08 13:04+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -1161,22 +1161,16 @@ msgstr ""
 "trasporto."
 
 #: ../qml/scripts/MatrixNames.js:22
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Phone contacts:"
-msgstr "Filtra contatti"
+msgstr "Contatti telefonici:"
 
 #: ../qml/scripts/MatrixNames.js:23
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Email contacts:"
-msgstr "Filtra contatti"
+msgstr "Contatti email:"
 
 #: ../qml/scripts/MatrixNames.js:24
-#, fuzzy
-#| msgid "Search for your chats…"
 msgid "Users from your chats:"
-msgstr "Cerca nelle tue conversazioni…"
+msgstr "Utenti dalle tue conversazioni:"
 
 #: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
