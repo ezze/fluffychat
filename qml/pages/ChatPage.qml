@@ -271,8 +271,7 @@ Page {
                 margins: units.gu(1)
             }
             property var hasText: false
-            autoSize: height <= chatPage.width / 2 - header.height - units.gu(2)
-            maximumLineCount: 0
+            autoSize: true
             placeholderText: i18n.tr("Type something ...")
             Keys.onReturnPressed: {
                 var send = matrix.sendWithEnter
