@@ -177,7 +177,7 @@ Page {
                     fontSize: "large"
                     height: contentHeight
                     horizontalAlignment: Text.AlignHLeft
-                    text: i18n.tr("Minor bug fixes, updated translations, new quick action button for taking a picture.")
+                    text: i18n.tr("Minor bug fixes and updated translations.")
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                 }
