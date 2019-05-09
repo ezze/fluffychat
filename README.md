@@ -41,7 +41,7 @@
 
 #### How to build
 
-1. Close this repo:
+1. Clone this repo:
 ```
 git clone --recurse-submodules https://gitlab.com/ChristianPauly/fluffychat
 cd fluffychat
