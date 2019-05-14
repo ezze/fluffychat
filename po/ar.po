@@ -8,25 +8,29 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 13:30+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-05-15 16:48+0000\n"
+"Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/fluffychat/"
+"translations/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
-msgstr ""
+msgstr "مجهول"
 
 #: ../push/pushhelper.cpp:146
 msgid "New message"
-msgstr ""
+msgstr "رسالة جديدة"
 
 #: ../push/pushhelper.cpp:156
 msgid "New encrypted message"
-msgstr ""
+msgstr "رسالة مشفرة جديدة"
 
 #: ../push/pushhelper.cpp:159
 msgid "New member event"
@@ -34,27 +38,27 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:165
 msgid "You were invited to chat"
-msgstr ""
+msgstr "لقد دعيت للدردشة"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
-msgstr ""
+msgstr "هل أنت متأكد؟"
 
 #: ../qml/Main.qml:151
 msgid "You must agree to the privacy policy"
-msgstr ""
+msgstr "يجب أن توافق على سياسة الخصوصية"
 
 #: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
-msgstr ""
+msgstr "تم نسخه إلى الحافظة"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
-msgstr ""
+msgstr "FluffyChat %1 على %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Become a patron"
-msgstr ""
+msgstr "أصبح راعيا"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
@@ -62,28 +66,28 @@ msgstr ""
 
 #: ../qml/pages/InfoPage.qml:47
 msgid "Join the community"
-msgstr ""
+msgstr "انضم إلى المجتمع"
 
 #: ../qml/pages/InfoPage.qml:53 ../qml/pages/LoginPage.qml:43
 #: ../qml/pages/PrivacyPolicyPage.qml:11
 msgid "Privacy Policy"
-msgstr ""
+msgstr "سياسة الخصوصية"
 
 #: ../qml/pages/InfoPage.qml:60
 msgid "Website"
-msgstr ""
+msgstr "موقع الويب"
 
 #: ../qml/pages/InfoPage.qml:66
 msgid "Contributors"
-msgstr ""
+msgstr "المساهمون"
 
 #: ../qml/pages/InfoPage.qml:72
 msgid "Source code"
-msgstr ""
+msgstr "الشفرة المصدرية"
 
 #: ../qml/pages/InfoPage.qml:78
 msgid "License"
-msgstr ""
+msgstr "الرخصة"
 
 #: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
@@ -103,7 +107,7 @@ msgstr ""
 
 #: ../qml/pages/EmailSettingsPage.qml:28
 msgid "Add email address"
-msgstr ""
+msgstr "إضافة عنوان بريد إلكتروني"
 
 #: ../qml/pages/EmailSettingsPage.qml:39
 msgid "No email addresses connected"
@@ -111,7 +115,7 @@ msgstr ""
 
 #: ../qml/pages/PasswordCreationPage.qml:19
 msgid "Please set a password"
-msgstr ""
+msgstr "يرجى تحديد كلمة سرية"
 
 #: ../qml/pages/PasswordCreationPage.qml:49
 msgid ""
@@ -126,11 +130,11 @@ msgstr ""
 
 #: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
-msgstr ""
+msgstr "إنشاء حساب"
 
 #: ../qml/pages/WalkthroughPage.qml:64
 msgid "Welcome to FluffyChat"
-msgstr ""
+msgstr "مرحبا بكم على FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
 msgid ""
@@ -151,7 +155,7 @@ msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:166
 msgid "What's new in version %1?"
-msgstr ""
+msgstr "ما الجديد في الإصدار%1؟"
 
 #: ../qml/pages/WalkthroughPage.qml:180
 msgid ""
@@ -173,7 +177,7 @@ msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:248
 msgid "Continue"
-msgstr ""
+msgstr "المواصلة"
 
 #: ../qml/pages/LoginPage.qml:20
 msgid "Homeserver %1"
@@ -189,11 +193,11 @@ msgstr ""
 
 #: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
-msgstr ""
+msgstr "عن Fluffychat"
 
 #: ../qml/pages/LoginPage.qml:53
 msgid "FAQ"
-msgstr ""
+msgstr "الأسئلة المتداولة"
 
 #: ../qml/pages/LoginPage.qml:64
 msgid "Choose your homeserver"
@@ -201,11 +205,11 @@ msgstr ""
 
 #: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
-msgstr ""
+msgstr "اختر خادم الهوية الخاص بك"
 
 #: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
-msgstr ""
+msgstr "رقم الهاتف (اختياري)"
 
 #: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
@@ -213,19 +217,19 @@ msgstr ""
 
 #: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
-msgstr ""
+msgstr "إنشاء حساب جديد"
 
 #: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 #: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
-msgstr ""
+msgstr "FluffyChat"
 
 #: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
-msgstr ""
+msgstr "مشاركة"
 
 #: ../qml/pages/ChatListPage.qml:104
 msgid "Search for your chats…"
@@ -237,15 +241,15 @@ msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:155
 msgid "Add chat"
-msgstr ""
+msgstr "إضافة دردشة"
 
 #: ../qml/pages/CreateChatPage.qml:15
 msgid "Add Chat"
-msgstr ""
+msgstr "إضافة دردشة"
 
 #: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
-msgstr ""
+msgstr "الاستيراد من دفتر العناوين"
 
 #: ../qml/pages/CreateChatPage.qml:42
 msgid "Filter contacts"
@@ -265,11 +269,11 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:28
 msgid "Settings"
-msgstr ""
+msgstr "الإعدادات"
 
 #: ../qml/pages/SettingsPage.qml:84 ../qml/components/ProfileRow.qml:40
 msgid "Username:"
-msgstr ""
+msgstr "اسم المستخدم:"
 
 #: ../qml/pages/SettingsPage.qml:99 ../qml/components/ProfileRow.qml:55
 msgid "Displayname:"
@@ -277,29 +281,29 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:114
 msgid "Edit"
-msgstr ""
+msgstr "تعديل"
 
 #: ../qml/pages/SettingsPage.qml:124
 msgid "Change main color"
-msgstr ""
+msgstr "تغيير اللون الرئيسي"
 
 #: ../qml/pages/SettingsPage.qml:138
 msgid "Change background"
-msgstr ""
+msgstr "تغيير الخلفية"
 
 #: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
-msgstr ""
+msgstr "الوضع الداكن"
 
 #: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
-msgstr ""
+msgstr "الإشعارات"
 
 #: ../qml/pages/SettingsPage.qml:189
 msgid "Chat settings:"
-msgstr ""
+msgstr "إعدادات الدردشة:"
 
 #: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
@@ -311,7 +315,7 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
-msgstr ""
+msgstr "إخفاء الأحداث الأقل أهمية"
 
 #: ../qml/pages/SettingsPage.qml:214
 msgid "Autoload animated images"
@@ -319,19 +323,19 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
-msgstr ""
+msgstr "إعدادات الحساب:"
 
 #: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
-msgstr ""
+msgstr "أرقام الهاتف المتصلة"
 
 #: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
-msgstr ""
+msgstr "الأجهزة"
 
 #: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
-msgstr ""
+msgstr "تغيير كلمة السر"
 
 #: ../qml/pages/SettingsPage.qml:259
 msgid "Check out:"
@@ -339,20 +343,20 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
-msgstr ""
+msgstr "تعطيل الحساب"
 
 #: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
-msgstr ""
+msgstr "الخروج"
 
 #: ../qml/pages/SettingsPage.qml:275
 msgid "More:"
-msgstr ""
+msgstr "المزيد:"
 
 #: ../qml/pages/CommunityPage.qml:98
 msgid "No description found"
-msgstr ""
+msgstr "بدون وصف"
 
 #: ../qml/pages/PasswordInputPage.qml:13
 msgid "Enter your password"
@@ -364,7 +368,7 @@ msgstr ""
 
 #: ../qml/pages/PasswordInputPage.qml:50
 msgid "Password..."
-msgstr ""
+msgstr "كلمة السر…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
@@ -400,7 +404,7 @@ msgstr ""
 
 #: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
-msgstr ""
+msgstr "دعوه مستخدمين"
 
 #: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
@@ -433,23 +437,23 @@ msgstr ""
 
 #: ../qml/pages/CountryPickerPage.qml:11
 msgid "Choose a country"
-msgstr ""
+msgstr "اختر بلدا"
 
 #: ../qml/pages/CountryPickerPage.qml:28
 msgid "Search for country by name…"
-msgstr ""
+msgstr "البحث عن البلد بالاسم…"
 
 #: ../qml/pages/UserPage.qml:34
 msgid "Username copied to the clipboard"
-msgstr ""
+msgstr "تم نسخ اسم المستخدم إلى الحافظة"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "Chats with this user:"
-msgstr ""
+msgstr "دردشات مع هذا المستخدم:"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "This is you."
-msgstr ""
+msgstr "هذا أنت."
 
 #: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
