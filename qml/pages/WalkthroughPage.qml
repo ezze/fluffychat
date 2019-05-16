@@ -170,7 +170,7 @@ Page {
 
                 Label {
                     id: bodyText
-                    readonly property string template1: i18n.tr("Minor bug fixes and updated translations.")
+                    readonly property string template1: i18n.tr("Minor bugfixes and updated translations.")
                     readonly property string template2: i18n.tr("Critical bug fixed.")
                     readonly property string template3: i18n.tr("Security bug fixed.")
                     readonly property string template4: i18n.tr("Updated translations. Thanks to all translators.")
@@ -232,7 +232,7 @@ Page {
                     }
                     fontSize: "large"
                     horizontalAlignment: Text.AlignHLeft
-                    text: i18n.tr("FluffyChat is open, nonprofit and cute. The development and servers is all community funded. You can donate to this project on <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>")
+                    text: i18n.tr("FluffyChat is open, nonprofit and cute. The development and servers is all community funded. Donate to this project on <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>")
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                     linkColor: mainLayout.brightMainColor
