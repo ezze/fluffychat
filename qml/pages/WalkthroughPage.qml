@@ -170,6 +170,10 @@ Page {
 
                 Label {
                     id: bodyText
+                    readonly property string template1: i18n.tr("Minor bug fixes and updated translations.")
+                    readonly property string template2: i18n.tr("Critical bug fixed.")
+                    readonly property string template3: i18n.tr("Security bug fixed.")
+                    readonly property string template4: i18n.tr("Updated translations. Thanks to all translators.")
                     anchors {
                         bottom: slide3Container.bottom
                         bottomMargin: units.gu(10)
@@ -177,7 +181,7 @@ Page {
                     fontSize: "large"
                     height: contentHeight
                     horizontalAlignment: Text.AlignHLeft
-                    text: i18n.tr("Minor bug fixes and updated translations.")
+                    text: template4
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                 }
