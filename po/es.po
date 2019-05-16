@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-16 05:55+0000\n"
-"PO-Revision-Date: 2019-05-08 13:04+0000\n"
+"PO-Revision-Date: 2019-05-16 06:21+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -164,22 +164,20 @@ msgid "What's new in version %1?"
 msgstr "¿Qué novedades hay en la versión %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
-#, fuzzy
-#| msgid "Minor bug fixes and new translations."
 msgid "Minor bug fixes and updated translations."
-msgstr "Corrección de errores menores y nuevas traducciones."
+msgstr "Corrección de errores menores y traducciones actualizadas."
 
 #: ../qml/pages/WalkthroughPage.qml:174
 msgid "Critical bug fixed."
-msgstr ""
+msgstr "Solucionado un error crítico."
 
 #: ../qml/pages/WalkthroughPage.qml:175
 msgid "Security bug fixed."
-msgstr ""
+msgstr "Solucionado un fallo de seguridad."
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
-msgstr ""
+msgstr "Traducciones actualizadas. Gracias a todos los traductores."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
