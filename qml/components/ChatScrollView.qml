@@ -184,8 +184,9 @@ ListView {
                 Loader {
                     id: image
                     active: !isStateEvent && (eventModel.content.msgtype === "m.image" || eventModel.type === "m.sticker")
-                    property bool hasThumbnail: active && eventModel.content.info && eventModel.content.info.thumbnail_url
-                    property bool isGif: active && eventModel.content.info && eventModel.content.info.mimetype && eventModel.content.info.mimetype === "image/gif"
+                    property bool hasInfo: typeof eventModel.content.info === "object"
+                    property bool hasThumbnail: active && hasInfo && typeof eventModel.content.info.thumbnail_url === "string"
+                    property bool isGif: active && hasInfo && typeof eventModel.content.info.mimetype === "string" && eventModel.content.info.mimetype === "image/gif"
                     property bool showGif: isGif && matrix.autoloadGifs
                     property bool showThumbnail: active && !showGif && (hasThumbnail || matrix.autoloadGifs)
                     property bool showButton: active && !showGif && !showThumbnail
