@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-16 06:04+0000\n"
-"PO-Revision-Date: 2019-05-13 13:48+0000\n"
+"PO-Revision-Date: 2019-05-16 09:53+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -179,19 +179,19 @@ msgstr "Hva er nytt i versjon %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
 msgid "Minor bug fixes and updated translations."
-msgstr ""
+msgstr "Små feilrettinger og oppdaterte oversettelser."
 
 #: ../qml/pages/WalkthroughPage.qml:174
 msgid "Critical bug fixed."
-msgstr ""
+msgstr "Kritisk feil fikset."
 
 #: ../qml/pages/WalkthroughPage.qml:175
 msgid "Security bug fixed."
-msgstr ""
+msgstr "Sikkerhetsfeil fikset."
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
-msgstr ""
+msgstr "Oppdaterte oversettelser. Takk til alle oversettere."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
