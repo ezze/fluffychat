@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-07 13:30+0000\n"
+"POT-Creation-Date: 2019-05-16 05:55+0000\n"
 "PO-Revision-Date: 2019-05-15 16:48+0000\n"
 "Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/fluffychat/"
@@ -157,17 +157,27 @@ msgstr ""
 msgid "What's new in version %1?"
 msgstr "ما الجديد في الإصدار%1؟"
 
-#: ../qml/pages/WalkthroughPage.qml:180
-msgid ""
-"Minor bug fixes, updated translations, new quick action button for taking a "
-"picture."
+#: ../qml/pages/WalkthroughPage.qml:173
+msgid "Minor bug fixes and updated translations."
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:218
+#: ../qml/pages/WalkthroughPage.qml:174
+msgid "Critical bug fixed."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:175
+msgid "Security bug fixed."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:176
+msgid "Updated translations. Thanks to all translators."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:231
+#: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -175,7 +185,7 @@ msgid ""
 "com/KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:248
+#: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
 msgstr "المواصلة"
 
@@ -487,7 +497,7 @@ msgstr ""
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-07 13:30+0000\n"
+"POT-Creation-Date: 2019-05-16 05:55+0000\n"
 "PO-Revision-Date: 2019-05-08 13:04+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
@@ -163,19 +163,29 @@ msgstr ""
 msgid "What's new in version %1?"
 msgstr "¿Qué novedades hay en la versión %1?"
 
-#: ../qml/pages/WalkthroughPage.qml:180
-msgid ""
-"Minor bug fixes, updated translations, new quick action button for taking a "
-"picture."
-msgstr ""
-"Corrección de errores menores, traducciones actualizadas y nuevo botón de "
-"acción rápida para hacer una foto."
+#: ../qml/pages/WalkthroughPage.qml:173
+#, fuzzy
+#| msgid "Minor bug fixes and new translations."
+msgid "Minor bug fixes and updated translations."
+msgstr "Corrección de errores menores y nuevas traducciones."
 
-#: ../qml/pages/WalkthroughPage.qml:218
+#: ../qml/pages/WalkthroughPage.qml:174
+msgid "Critical bug fixed."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:175
+msgid "Security bug fixed."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:176
+msgid "Updated translations. Thanks to all translators."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Financiado por la comunidad"
 
-#: ../qml/pages/WalkthroughPage.qml:231
+#: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -187,7 +197,7 @@ msgstr ""
 "en <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> o <a "
 "href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
-#: ../qml/pages/WalkthroughPage.qml:248
+#: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
 msgstr "Continuar"
 
@@ -523,7 +533,7 @@ msgstr "Unirse"
 msgid "You do not have posting permissions here"
 msgstr "No tiene permisos para publicar aquí"
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
 msgstr "Escriba algo ..."
 
@@ -1444,8 +1454,12 @@ msgstr "No se encontró el nombre de usuario «%1» en %2"
 msgid "Username is already taken"
 msgstr "El nombre de usuario ya está tomado"
 
-#~ msgid "Minor bug fixes and new translations."
-#~ msgstr "Corrección de errores menores y nuevas traducciones."
+#~ msgid ""
+#~ "Minor bug fixes, updated translations, new quick action button for taking "
+#~ "a picture."
+#~ msgstr ""
+#~ "Corrección de errores menores, traducciones actualizadas y nuevo botón de "
+#~ "acción rápida para hacer una foto."
 
 #~ msgid ""
 #~ "File transfer now possible using different types. Sharing files from "

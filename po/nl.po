@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-07 13:30+0000\n"
+"POT-Creation-Date: 2019-05-16 05:55+0000\n"
 "PO-Revision-Date: 2019-04-20 10:28+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
@@ -170,17 +170,30 @@ msgstr ""
 msgid "What's new in version %1?"
 msgstr "Wat is er nieuw in versie %1?"
 
-#: ../qml/pages/WalkthroughPage.qml:180
-msgid ""
-"Minor bug fixes, updated translations, new quick action button for taking a "
-"picture."
+#: ../qml/pages/WalkthroughPage.qml:173
+#, fuzzy
+#| msgid "Minor bug fixes and new translations."
+msgid "Minor bug fixes and updated translations."
+msgstr ""
+"Er zijn enkele kleine problemen opgelost, en er zijn nieuwe vertalingen."
+
+#: ../qml/pages/WalkthroughPage.qml:174
+msgid "Critical bug fixed."
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:218
+#: ../qml/pages/WalkthroughPage.qml:175
+msgid "Security bug fixed."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:176
+msgid "Updated translations. Thanks to all translators."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Bekostigd door de gemeenschap"
 
-#: ../qml/pages/WalkthroughPage.qml:231
+#: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -192,7 +205,7 @@ msgstr ""
 "href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> of <a "
 "href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
-#: ../qml/pages/WalkthroughPage.qml:248
+#: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
 msgstr "Doorgaan"
 
@@ -530,7 +543,7 @@ msgstr "Deelnemen"
 msgid "You do not have posting permissions here"
 msgstr "U heeft geen toestemming om in dit gesprek te schrijven"
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
 msgstr "Typ iets…"
 
@@ -1459,10 +1472,6 @@ msgstr "Gebruikersnaam ‘%1’ niet gevonden op %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Gebruikersnaam is al in gebruik"
-
-#~ msgid "Minor bug fixes and new translations."
-#~ msgstr ""
-#~ "Er zijn enkele kleine problemen opgelost, en er zijn nieuwe vertalingen."
 
 #~ msgid ""
 #~ "File transfer now possible using different types. Sharing files from "
