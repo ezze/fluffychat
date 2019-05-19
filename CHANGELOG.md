@@ -1,3 +1,8 @@
+What's new in FluffyChat 11.9
+-----------------------------
++ New translations - thanks to all translators
+- Minor bug fixes
+
 What's new in FluffyChat 11.7
 -----------------------------
 + New quick action button for taking pictures from a chat

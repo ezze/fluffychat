@@ -181,7 +181,7 @@ Page {
                     fontSize: "large"
                     height: contentHeight
                     horizontalAlignment: Text.AlignHLeft
-                    text: template4
+                    text: template1
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                 }
