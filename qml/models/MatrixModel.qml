@@ -555,28 +555,28 @@ Item {
         console.log("init...")
         if ( matrix.token === "" ) return
 
-        // Initialize the e2e encryption account
-        if ( matrix.e2eeAccountPickle === "" ) {
-            console.log("New e2ee account...")
-            newE2eeAccount ()
-        }
-        else {
-            console.log("Restore e2ee...", matrix.e2eeAccountPickle)
-            if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
-                console.error ( "❌[Error] Could not restore E2ee account" )
-                newE2eeAccount ()
-            }
-        }
-
         // Start synchronizing
         initialized = true
         if ( matrix.prevBatch !== "" ) {
             console.log("👷[Init] Init the matrix synchronization")
+
+            // Initialize the e2e encryption account
+            if ( matrix.e2eeAccountPickle === "" ) {
+                console.log("New e2ee account...")
+                newE2eeAccount ()
+            }
+            else {
+                console.log("Restore e2ee...", matrix.e2eeAccountPickle)
+                if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
+                    console.error ( "❌[Error] Could not restore E2ee account" )
+                    newE2eeAccount ()
+                }
+            }
             waitForSync ()
             return sync ( 1 )
         }
 
-        console.log("👷[Init] Request the first matrix synchronizaton")
+        console.log("👷[Init] Request the first matrix synchronizaton prevBatch='%1'".arg(matrix.prevBatch))
 
         var onFristSyncResponse = function ( response ) {
             if ( matrix.waitingForSync ) waitingForAnswer--
