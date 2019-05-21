@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 08:29+0000\n"
-"PO-Revision-Date: 2019-05-05 07:10+0000\n"
-"Last-Translator: Christian <christian-pauly@posteo.de>\n"
+"POT-Creation-Date: 2019-05-16 06:04+0000\n"
+"PO-Revision-Date: 2019-05-18 20:09+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
 "Language: de\n"
@@ -18,6 +18,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.7-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: ../push/pushhelper.cpp:146
+msgid "New message"
+msgstr "Neue Nachricht"
+
+#: ../push/pushhelper.cpp:156
+msgid "New encrypted message"
+msgstr "Neue verschlüsselte Nachricht"
+
+#: ../push/pushhelper.cpp:159
+msgid "New member event"
+msgstr "Neues Mitgliederereignis"
+
+#: ../push/pushhelper.cpp:165
+msgid "You were invited to chat"
+msgstr "Du wurdest zu einem Chat eingeladen"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -101,8 +121,8 @@ msgid ""
 "Please set a strong password. To reset your password, you will need to "
 "provide an e-mail address later"
 msgstr ""
-"Bitte wähle ein sicheres Passwort. Um dein Passwort zurückzusetzen musst du "
-"später eine E-mail-Adresse hinzufügen."
+"Bitte geben Sie ein sicheres Passwort ein. Um Ihr Passwort zurückzusetzen, "
+"müssen Sie später eine E-Mail-Adresse angeben"
 
 #: ../qml/pages/PasswordCreationPage.qml:65
 #, javascript-format
@@ -143,15 +163,27 @@ msgstr ""
 msgid "What's new in version %1?"
 msgstr "Was gibt's neues in Version %1?"
 
-#: ../qml/pages/WalkthroughPage.qml:180
-msgid "Minor bug fixes and new translations."
+#: ../qml/pages/WalkthroughPage.qml:173
+msgid "Minor bug fixes and updated translations."
 msgstr "Ein paar Fehlerbehebungen und neue Übersetzungen."
 
-#: ../qml/pages/WalkthroughPage.qml:218
+#: ../qml/pages/WalkthroughPage.qml:174
+msgid "Critical bug fixed."
+msgstr "Ein kritischer Fehler wurde behoben."
+
+#: ../qml/pages/WalkthroughPage.qml:175
+msgid "Security bug fixed."
+msgstr "Sicherheitslücken wurden geschlossen."
+
+#: ../qml/pages/WalkthroughPage.qml:176
+msgid "Updated translations. Thanks to all translators."
+msgstr "Übersetzungen aktualisiert. Danke an alle Übersetzer."
+
+#: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Finanziert durch die Gemeinschaft"
 
-#: ../qml/pages/WalkthroughPage.qml:231
+#: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -163,7 +195,7 @@ msgstr ""
 "href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> und <a "
 "href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
-#: ../qml/pages/WalkthroughPage.qml:248
+#: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
 msgstr "Fortfahren"
 
@@ -245,15 +277,15 @@ msgstr "Aus Adressbuch hinzufügen"
 msgid "Filter contacts"
 msgstr "Kontakte filtern"
 
-#: ../qml/pages/CreateChatPage.qml:71
+#: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
 msgstr "Neue Gruppe"
 
-#: ../qml/pages/CreateChatPage.qml:78
+#: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
 msgstr "Öffentliche Gruppen"
 
-#: ../qml/pages/CreateChatPage.qml:87
+#: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
 msgstr "Klicke oben-rechts auf den Button, um Kontakte hinzuzufügen."
 
@@ -392,11 +424,11 @@ msgstr "Chat-Mitglieder ändern sich"
 msgid "Messages from bots"
 msgstr "Nachrichten von Bots"
 
-#: ../qml/pages/InvitePage.qml:21
+#: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
 msgstr "Benutzer einladen"
 
-#: ../qml/pages/InvitePage.qml:40
+#: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
 msgstr "Suche z.B. nach @nutzername:server.abc"
 
@@ -499,7 +531,7 @@ msgstr "Beitreten"
 msgid "You do not have posting permissions here"
 msgstr "Du kannst hier keine Nachrichten senden"
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
 msgstr "Schreibe etwas ..."
 
@@ -958,15 +990,15 @@ msgstr "Zur Stickersammlung hinzufügen"
 msgid "Forward"
 msgstr "Weiterleiten"
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Load gif"
 msgstr "Gif laden"
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Show image"
 msgstr "Bild anzeigen"
 
-#: ../qml/components/ChatScrollView.qml:315
+#: ../qml/components/ChatScrollView.qml:316
 msgid "Download: "
 msgstr "Herunterladen: "
 
@@ -1099,10 +1131,6 @@ msgstr "Hat angeklopft"
 msgid "Was banned from the chat"
 msgstr "Wurde aus dem Chat verbannt"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "Unbekannt"
-
 #: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
 msgstr "Sende ..."
@@ -1136,47 +1164,59 @@ msgid "Invite %1 to this chat?"
 msgstr "%1 in diesen Chat einladen?"
 
 #: ../qml/scripts/StartChatDialog.js:8 ../qml/scripts/UserPageActions.js:49
-#: ../qml/scripts/CreateChatPageActions.js:41
+#: ../qml/scripts/CreateChatPageActions.js:45
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
 "Beachte bitte, dass FluffyChat bis jetzt nur Transportverschlüsselung "
 "unterstützt."
 
-#: ../qml/scripts/MatrixNames.js:30
+#: ../qml/scripts/MatrixNames.js:22
+msgid "Phone contacts:"
+msgstr "Telefon-Kontakte:"
+
+#: ../qml/scripts/MatrixNames.js:23
+msgid "Email contacts:"
+msgstr "E-Mail-Kontakte:"
+
+#: ../qml/scripts/MatrixNames.js:24
+msgid "Users from your chats:"
+msgstr "Benutzer aus deinen Chats:"
+
+#: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
 msgstr "✏ schreibt …"
 
-#: ../qml/scripts/MatrixNames.js:31
+#: ../qml/scripts/MatrixNames.js:40
 msgid "✏ %1 is typing…"
 msgstr "✏ %1 schreibt …"
 
-#: ../qml/scripts/MatrixNames.js:34
+#: ../qml/scripts/MatrixNames.js:43
 msgid "✏ %1 and %2 more are typing…"
 msgstr "✏ %1 und %2 weitere schreiben …"
 
-#: ../qml/scripts/MatrixNames.js:40
+#: ../qml/scripts/MatrixNames.js:49
 msgid "Members"
 msgstr "Mitglieder"
 
-#: ../qml/scripts/MatrixNames.js:41
+#: ../qml/scripts/MatrixNames.js:50
 msgid "Moderators"
 msgstr "Moderatoren"
 
-#: ../qml/scripts/MatrixNames.js:42
+#: ../qml/scripts/MatrixNames.js:51
 msgid "Admins"
 msgstr "Administratoren"
 
-#: ../qml/scripts/MatrixNames.js:43
+#: ../qml/scripts/MatrixNames.js:52
 msgid "Owners"
 msgstr "Besitzer"
 
-#: ../qml/scripts/MatrixNames.js:64
+#: ../qml/scripts/MatrixNames.js:73
 msgid "%1 is not a valid username"
 msgstr "%1 ist kein gültiger Nutzername"
 
-#: ../qml/scripts/MatrixNames.js:91 ../qml/scripts/MatrixNames.js:104
-#: ../qml/scripts/MatrixNames.js:111
+#: ../qml/scripts/MatrixNames.js:100 ../qml/scripts/MatrixNames.js:113
+#: ../qml/scripts/MatrixNames.js:120
 msgid "Empty chat"
 msgstr "Leerer Chat"
 
@@ -1402,7 +1442,7 @@ msgstr "Als Sticker hinzugefügt"
 msgid "Remove this message?"
 msgstr "Diese Nachricht entfernen?"
 
-#: ../qml/scripts/CreateChatPageActions.js:50
+#: ../qml/scripts/CreateChatPageActions.js:54
 msgid "Do you want to create a new group now?"
 msgstr "Möchtest du jetzt eine neue Gruppe erstellen?"
 
@@ -1417,6 +1457,13 @@ msgstr "Nutzername \"%1\" nicht gefunden auf %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Benutzername schon vergeben"
+
+#~ msgid ""
+#~ "Minor bug fixes, updated translations, new quick action button for taking "
+#~ "a picture."
+#~ msgstr ""
+#~ "Kleinere Fehlerbehebungen, aktualisierte Übersetzungen, neuer Button um "
+#~ "in einem Chat direkt ein Foto zu machen."
 
 #~ msgid ""
 #~ "File transfer now possible using different types. Sharing files from "
@@ -1701,9 +1748,6 @@ msgstr "Benutzername schon vergeben"
 #~ msgid "Complete History is world readable"
 #~ msgstr "Kompletter Verlauf ist weltweit lesbar"
 
-#~ msgid "Show member change events"
-#~ msgstr "Zeige Ereignisse zu Mitgliederwechsel"
-
 #~ msgid "Get more messages from the server ..."
 #~ msgstr "Hole mehr Nachrichten vom Server ..."
 
@@ -1712,9 +1756,6 @@ msgstr "Benutzername schon vergeben"
 
 #~ msgid "Log in"
 #~ msgstr "Anmelden"
-
-#~ msgid "Delete message"
-#~ msgstr "Nachricht löschen"
 
 #~ msgid "1 minute"
 #~ msgstr "1 Minute"

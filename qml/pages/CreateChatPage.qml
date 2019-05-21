@@ -61,6 +61,8 @@ Page {
         anchors.top: header.bottom
         delegate: ContactListItem {}
         model: ListModel { id: model }
+        section.property: "medium"
+        section.delegate: ListSeperator { text: MatrixNames.medium2Section(section) }
 
         header: Rectangle {
             width: chatListView.width
@@ -92,6 +94,7 @@ Page {
         horizontalAlignment: Text.AlignHCenter
         elide: Text.ElideMiddle
         wrapMode: Text.Wrap
+        visible: model.count === 0
         z: -1
     }
 

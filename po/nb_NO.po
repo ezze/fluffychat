@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 08:29+0000\n"
-"PO-Revision-Date: 2019-04-19 13:10+0000\n"
+"POT-Creation-Date: 2019-05-16 06:04+0000\n"
+"PO-Revision-Date: 2019-05-16 09:53+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -17,7 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.7-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "Ukjent"
+
+#: ../push/pushhelper.cpp:146
+msgid "New message"
+msgstr "Ny melding"
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+msgid "New encrypted message"
+msgstr "Slett melding"
+
+#: ../push/pushhelper.cpp:159
+#, fuzzy
+msgid "New member event"
+msgstr "Endring av sludringsmedlemmer"
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+#| msgid "You have been invited to this chat"
+msgid "You were invited to chat"
+msgstr "Du har blitt invitert til denne sludringen"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -102,13 +126,12 @@ msgid "Please set a password"
 msgstr "Skriv inn passordet ditt"
 
 #: ../qml/pages/PasswordCreationPage.qml:49
-#, fuzzy
-#| msgid ""
-#| "To reset your password, you will need to provide an e-mail address later"
 msgid ""
 "Please set a strong password. To reset your password, you will need to "
 "provide an e-mail address later"
-msgstr "For å tilbakestille ditt passord, må du oppgi en e-postadresse senere"
+msgstr ""
+"Sett et sterkt passord. For å tilbakestille ditt passord, må du oppgi en e-"
+"postadresse senere"
 
 #: ../qml/pages/PasswordCreationPage.qml:65
 #, javascript-format
@@ -154,15 +177,27 @@ msgstr ""
 msgid "What's new in version %1?"
 msgstr "Hva er nytt i versjon %1?"
 
-#: ../qml/pages/WalkthroughPage.qml:180
-msgid "Minor bug fixes and new translations."
-msgstr ""
+#: ../qml/pages/WalkthroughPage.qml:173
+msgid "Minor bug fixes and updated translations."
+msgstr "Små feilrettinger og oppdaterte oversettelser."
 
-#: ../qml/pages/WalkthroughPage.qml:218
+#: ../qml/pages/WalkthroughPage.qml:174
+msgid "Critical bug fixed."
+msgstr "Kritisk feil fikset."
+
+#: ../qml/pages/WalkthroughPage.qml:175
+msgid "Security bug fixed."
+msgstr "Sikkerhetsfeil fikset."
+
+#: ../qml/pages/WalkthroughPage.qml:176
+msgid "Updated translations. Thanks to all translators."
+msgstr "Oppdaterte oversettelser. Takk til alle oversettere."
+
+#: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Dugnadsfinansiering"
 
-#: ../qml/pages/WalkthroughPage.qml:231
+#: ../qml/pages/WalkthroughPage.qml:235
 #, fuzzy
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
@@ -175,7 +210,7 @@ msgstr ""
 "patreon.com/bePatron?u=11123241'>Patreon</a> eller <a href='https://"
 "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
-#: ../qml/pages/WalkthroughPage.qml:248
+#: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
 msgstr "Fortsett"
 
@@ -264,15 +299,15 @@ msgstr "Importer fra adressebok"
 msgid "Filter contacts"
 msgstr "Ny kontakt"
 
-#: ../qml/pages/CreateChatPage.qml:71
+#: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
 msgstr "Ny gruppe"
 
-#: ../qml/pages/CreateChatPage.qml:78
+#: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
 msgstr "Offentlige grupper"
 
-#: ../qml/pages/CreateChatPage.qml:87
+#: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
 msgstr "Klikk på knappen øverst til høyre for å legge til kontakter."
 
@@ -387,10 +422,8 @@ msgid "Password..."
 msgstr "Passord"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
-#, fuzzy
-#| msgid "Enable notifications"
 msgid "Receive notifications for…"
-msgstr "Skru på merknader"
+msgstr "Skru på merknader for…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
 #, fuzzy
@@ -410,7 +443,7 @@ msgstr "Inneholder mitt visningsnavn"
 #, fuzzy
 #| msgid "Contains my user name"
 msgid "Mention my user name"
-msgstr "Inneholder mitt brukernavn"
+msgstr "Nevner mitt brukernavn"
 
 #: ../qml/pages/NotificationSettingsPage.qml:69
 msgid "Invitations for me"
@@ -425,12 +458,12 @@ msgstr "Endring av sludringsmedlemmer"
 msgid "Messages from bots"
 msgstr "Meldinger fra bot-er"
 
-#: ../qml/pages/InvitePage.qml:21
+#: ../qml/pages/InvitePage.qml:23
 #, fuzzy
 msgid "Invite users"
 msgstr "Kun inviterte brukere"
 
-#: ../qml/pages/InvitePage.qml:40
+#: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
 msgstr "Søk etter eksempelvis @brukernavn:tjener.abc"
 
@@ -536,7 +569,7 @@ msgstr "Ta del"
 msgid "You do not have posting permissions here"
 msgstr "Du har ikke tilgang til å skrive i denne sludringen."
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
 msgstr "Skriv noe…"
 
@@ -606,10 +639,8 @@ msgid "Don't notify"
 msgstr "Ikke send merknad"
 
 #: ../qml/pages/DiscoverPage.qml:24
-#, fuzzy
-#| msgid "Group name"
 msgid "Groups on %1"
-msgstr "Gruppenavn"
+msgstr "Gruppenavn på %1"
 
 #: ../qml/pages/DiscoverPage.qml:24
 msgid "and matrix.org"
@@ -649,8 +680,6 @@ msgid "Users in this chat (%1):"
 msgstr "Brukere i denne slurdringen (%1):"
 
 #: ../qml/pages/ChatSettingsPage.qml:211
-#, fuzzy
-#| msgid "Search..."
 msgid "Search…"
 msgstr "Søk…"
 
@@ -740,10 +769,8 @@ msgid "No connection to the homeserver 😕"
 msgstr "Ingen tilkobling til hjemmetjeneren 😕"
 
 #: ../qml/models/MatrixModel.qml:527
-#, fuzzy
-#| msgid "Your session is no longer valid"
 msgid "Your session has expired"
-msgstr "Økten din er ikke lenger gyldig"
+msgstr "Økten din har utløpt"
 
 #: ../qml/models/MatrixModel.qml:591
 #, fuzzy
@@ -829,10 +856,8 @@ msgid "Edit profile picture"
 msgstr "Rediger profilbilde"
 
 #: ../qml/components/ChangeAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit profile picture"
 msgid "New profile picture"
-msgstr "Rediger profilbilde"
+msgstr "Nytt profilbilde"
 
 #: ../qml/components/ChangeAvatarDialog.qml:40
 #: ../qml/components/ChangeChatAvatarDialog.qml:40
@@ -940,8 +965,6 @@ msgid "Please log out to change your country"
 msgstr "Logg ut for å endre ditt land"
 
 #: ../qml/components/AddPhoneDialog.qml:26
-#, fuzzy
-#| msgid "Phone number..."
 msgid "Phone number…"
 msgstr "Telefonnummer…"
 
@@ -1041,15 +1064,15 @@ msgstr "Legg til i klistremerkesamling"
 msgid "Forward"
 msgstr "Videresend"
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Load gif"
 msgstr "Last GIF"
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Show image"
 msgstr "Vis bilde"
 
-#: ../qml/components/ChatScrollView.qml:315
+#: ../qml/components/ChatScrollView.qml:316
 #, fuzzy
 msgid "Download: "
 msgstr "Last ned: "
@@ -1113,10 +1136,8 @@ msgid "Edit chat picture"
 msgstr "Rediger sludringsbilde"
 
 #: ../qml/components/ChangeChatAvatarDialog.qml:21
-#, fuzzy
-#| msgid "Edit chat picture"
 msgid "New chat picture"
-msgstr "Rediger sludringsbilde"
+msgstr "Nytt sludringsbilde"
 
 #: ../qml/components/ChangeChatnameDialog.qml:12
 #, fuzzy
@@ -1196,10 +1217,6 @@ msgstr "Har banket på"
 msgid "Was banned from the chat"
 msgstr "Ble bannlyst fra sludringen"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "Ukjent"
-
 #: ../qml/scripts/ChatPageActions.js:524
 #, fuzzy
 msgid "Uploading..."
@@ -1235,51 +1252,66 @@ msgid "Invite %1 to this chat?"
 msgstr "Inviter %1 til denne sludringen?"
 
 #: ../qml/scripts/StartChatDialog.js:8 ../qml/scripts/UserPageActions.js:49
-#: ../qml/scripts/CreateChatPageActions.js:41
+#: ../qml/scripts/CreateChatPageActions.js:45
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr "Merk deg at FluffyChat ikke støtter transportkryptering enda."
 
-#: ../qml/scripts/MatrixNames.js:30
+#: ../qml/scripts/MatrixNames.js:22
+#, fuzzy
+msgid "Phone contacts:"
+msgstr "Ny kontakt"
+
+#: ../qml/scripts/MatrixNames.js:23
+#, fuzzy
+msgid "Email contacts:"
+msgstr "Ny kontakt"
+
+#: ../qml/scripts/MatrixNames.js:24
+#, fuzzy
+msgid "Users from your chats:"
+msgstr "Søk etter sludringsnavn…"
+
+#: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
 msgstr ""
 "✏ Du kjenner blott blodets hvisken og benpipernes bøn fra det ubevisste "
 "sjeleliv…"
 
-#: ../qml/scripts/MatrixNames.js:31
+#: ../qml/scripts/MatrixNames.js:40
 msgid "✏ %1 is typing…"
 msgstr ""
 "✏ Du kjenner blott blodets hvisken og benpipernes bøn fra %1s ubevisste "
 "sjeleliv…"
 
-#: ../qml/scripts/MatrixNames.js:34
+#: ../qml/scripts/MatrixNames.js:43
 msgid "✏ %1 and %2 more are typing…"
 msgstr ""
 "✏ Du kjenner blott blodets hvisken og benpipernes bøn fra de ubevisste %1 og "
 "%2s sjeleliv, og flere til…"
 
-#: ../qml/scripts/MatrixNames.js:40
+#: ../qml/scripts/MatrixNames.js:49
 msgid "Members"
 msgstr "Medlemmer"
 
-#: ../qml/scripts/MatrixNames.js:41
+#: ../qml/scripts/MatrixNames.js:50
 msgid "Moderators"
 msgstr "Moderatorer"
 
-#: ../qml/scripts/MatrixNames.js:42
+#: ../qml/scripts/MatrixNames.js:51
 msgid "Admins"
 msgstr "Administratorer"
 
-#: ../qml/scripts/MatrixNames.js:43
+#: ../qml/scripts/MatrixNames.js:52
 msgid "Owners"
 msgstr "Eiere"
 
-#: ../qml/scripts/MatrixNames.js:64
+#: ../qml/scripts/MatrixNames.js:73
 msgid "%1 is not a valid username"
 msgstr "%1 er ikke et gyldig brukernavn"
 
-#: ../qml/scripts/MatrixNames.js:91 ../qml/scripts/MatrixNames.js:104
-#: ../qml/scripts/MatrixNames.js:111
+#: ../qml/scripts/MatrixNames.js:100 ../qml/scripts/MatrixNames.js:113
+#: ../qml/scripts/MatrixNames.js:120
 msgid "Empty chat"
 msgstr "Tom sludring"
 
@@ -1532,15 +1564,13 @@ msgstr "Lagt til som klistremerke"
 msgid "Remove this message?"
 msgstr "Fjern denne meldingen?"
 
-#: ../qml/scripts/CreateChatPageActions.js:50
+#: ../qml/scripts/CreateChatPageActions.js:54
 msgid "Do you want to create a new group now?"
 msgstr "Ønsker du å opprette en ny gruppe nå?"
 
 #: ../qml/scripts/LoginPageActions.js:54
-#, fuzzy
-#| msgid "Username '%1' not found on %2"
 msgid "Server %1 not found"
-msgstr "Brukernavn \"%1\" ikke funnet på %2"
+msgstr "Fant ikke tjeneren %1"
 
 #: ../qml/scripts/LoginPageActions.js:56
 msgid "Username '%1' not found on %2"
@@ -1549,6 +1579,13 @@ msgstr "Brukernavn \"%1\" ikke funnet på %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "Brukernavn allerede i bruk"
+
+#~ msgid ""
+#~ "Minor bug fixes, updated translations, new quick action button for taking "
+#~ "a picture."
+#~ msgstr ""
+#~ "Små feilrettinger, oppdaterte oversettelser, ny hurtighandlingsknapp for "
+#~ "å knipse bilde."
 
 #, fuzzy
 #~ msgid ""
@@ -1845,10 +1882,6 @@ msgstr "Brukernavn allerede i bruk"
 #~ msgid "New chat"
 #~ msgstr "Ny kontakt"
 
-#, fuzzy
-#~ msgid "Show member change events"
-#~ msgstr "Endring av sludringsmedlemmer"
-
 #~ msgid "Get more messages from the server ..."
 #~ msgstr "Hent flere meldinger fra tjeneren…"
 
@@ -1858,9 +1891,6 @@ msgstr "Brukernavn allerede i bruk"
 
 #~ msgid "Log in"
 #~ msgstr "Logg inn"
-
-#~ msgid "Delete message"
-#~ msgstr "Slett melding"
 
 #~ msgid "Donate us a coffee"
 #~ msgstr "Spander kaffe"

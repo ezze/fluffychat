@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 08:29+0000\n"
+"POT-Creation-Date: 2019-05-16 06:04+0000\n"
 "PO-Revision-Date: 2019-04-06 17:01+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -18,6 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.6-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "未知"
+
+#: ../push/pushhelper.cpp:146
+#, fuzzy
+#| msgid "No preview messages"
+msgid "New message"
+msgstr "沒有預覽訊息"
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "Encrypted message"
+msgid "New encrypted message"
+msgstr "已加密的消息"
+
+#: ../push/pushhelper.cpp:159
+#, fuzzy
+#| msgid "Show member change events"
+msgid "New member event"
+msgstr "顯示成員更改事件"
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+#| msgid "You have been invited to this chat"
+msgid "You were invited to chat"
+msgstr "您已受邀加入此聊天"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -141,15 +169,27 @@ msgstr ""
 msgid "What's new in version %1?"
 msgstr "版本 %1 有什麼新功能？"
 
-#: ../qml/pages/WalkthroughPage.qml:180
-msgid "Minor bug fixes and new translations."
+#: ../qml/pages/WalkthroughPage.qml:173
+msgid "Minor bug fixes and updated translations."
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:218
+#: ../qml/pages/WalkthroughPage.qml:174
+msgid "Critical bug fixed."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:175
+msgid "Security bug fixed."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:176
+msgid "Updated translations. Thanks to all translators."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "社區贊助"
 
-#: ../qml/pages/WalkthroughPage.qml:231
+#: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -161,7 +201,7 @@ msgstr ""
 "<a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>在這個"
 "項目來贊助"
 
-#: ../qml/pages/WalkthroughPage.qml:248
+#: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
 msgstr "繼續"
 
@@ -241,15 +281,15 @@ msgstr "從聯絡人導入"
 msgid "Filter contacts"
 msgstr "過濾聯絡人"
 
-#: ../qml/pages/CreateChatPage.qml:71
+#: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
 msgstr "新的群組"
 
-#: ../qml/pages/CreateChatPage.qml:78
+#: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
 msgstr "公開群組"
 
-#: ../qml/pages/CreateChatPage.qml:87
+#: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
 msgstr "點擊右上角的按鈕添加聯絡人。"
 
@@ -388,11 +428,11 @@ msgstr "聊天成員更改"
 msgid "Messages from bots"
 msgstr "來自機器人的訊息"
 
-#: ../qml/pages/InvitePage.qml:21
+#: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
 msgstr "邀請用戶"
 
-#: ../qml/pages/InvitePage.qml:40
+#: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
 msgstr "搜尋 例如：@username:server.abc"
 
@@ -488,7 +528,7 @@ msgstr "加入"
 msgid "You do not have posting permissions here"
 msgstr "您沒有此處發佈的權限"
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
 msgstr "正在輸入一些東西 ..."
 
@@ -950,15 +990,15 @@ msgstr "添加到剪貼簿"
 msgid "Forward"
 msgstr "向前"
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Load gif"
 msgstr "加載 gif"
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Show image"
 msgstr "顯示圖片"
 
-#: ../qml/components/ChatScrollView.qml:315
+#: ../qml/components/ChatScrollView.qml:316
 msgid "Download: "
 msgstr "下載: "
 
@@ -1099,10 +1139,6 @@ msgstr "已經敲門了"
 msgid "Was banned from the chat"
 msgstr "被禁止參與聊天"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "未知"
-
 #: ../qml/scripts/ChatPageActions.js:524
 #, fuzzy
 msgid "Uploading..."
@@ -1140,51 +1176,69 @@ msgid "Invite %1 to this chat?"
 msgstr "禁止從這個聊天？"
 
 #: ../qml/scripts/StartChatDialog.js:8 ../qml/scripts/UserPageActions.js:49
-#: ../qml/scripts/CreateChatPageActions.js:41
+#: ../qml/scripts/CreateChatPageActions.js:45
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr "請注意，FluffyChat 僅支援傳輸加密。"
 
-#: ../qml/scripts/MatrixNames.js:30
+#: ../qml/scripts/MatrixNames.js:22
+#, fuzzy
+#| msgid "Filter contacts"
+msgid "Phone contacts:"
+msgstr "過濾聯絡人"
+
+#: ../qml/scripts/MatrixNames.js:23
+#, fuzzy
+#| msgid "Filter contacts"
+msgid "Email contacts:"
+msgstr "過濾聯絡人"
+
+#: ../qml/scripts/MatrixNames.js:24
+#, fuzzy
+#| msgid "Search for your chats…"
+msgid "Users from your chats:"
+msgstr "搜尋您的聊天…"
+
+#: ../qml/scripts/MatrixNames.js:39
 #, fuzzy
 #| msgid "⌨️ is typing…"
 msgid "✏ is typing…"
 msgstr "⌨️ 在打字…"
 
-#: ../qml/scripts/MatrixNames.js:31
+#: ../qml/scripts/MatrixNames.js:40
 #, fuzzy
 #| msgid "⌨️ %1 is typing…"
 msgid "✏ %1 is typing…"
 msgstr "⌨️ %1 正在打字…"
 
-#: ../qml/scripts/MatrixNames.js:34
+#: ../qml/scripts/MatrixNames.js:43
 #, fuzzy
 #| msgid "⌨️ %1 and %2 more are typing…"
 msgid "✏ %1 and %2 more are typing…"
 msgstr "⌨️ %1 和 %2 正在打字…"
 
-#: ../qml/scripts/MatrixNames.js:40
+#: ../qml/scripts/MatrixNames.js:49
 msgid "Members"
 msgstr "成員"
 
-#: ../qml/scripts/MatrixNames.js:41
+#: ../qml/scripts/MatrixNames.js:50
 msgid "Moderators"
 msgstr "版主"
 
-#: ../qml/scripts/MatrixNames.js:42
+#: ../qml/scripts/MatrixNames.js:51
 msgid "Admins"
 msgstr "管理員"
 
-#: ../qml/scripts/MatrixNames.js:43
+#: ../qml/scripts/MatrixNames.js:52
 msgid "Owners"
 msgstr "擁有者"
 
-#: ../qml/scripts/MatrixNames.js:64
+#: ../qml/scripts/MatrixNames.js:73
 msgid "%1 is not a valid username"
 msgstr "%1 不是有效的用戶名"
 
-#: ../qml/scripts/MatrixNames.js:91 ../qml/scripts/MatrixNames.js:104
-#: ../qml/scripts/MatrixNames.js:111
+#: ../qml/scripts/MatrixNames.js:100 ../qml/scripts/MatrixNames.js:113
+#: ../qml/scripts/MatrixNames.js:120
 msgid "Empty chat"
 msgstr "清空聊天"
 
@@ -1436,7 +1490,7 @@ msgstr "加入為貼紙"
 msgid "Remove this message?"
 msgstr "移除這個訊息？"
 
-#: ../qml/scripts/CreateChatPageActions.js:50
+#: ../qml/scripts/CreateChatPageActions.js:54
 msgid "Do you want to create a new group now?"
 msgstr "你想現在建立一個新的群組嗎？"
 
@@ -1698,9 +1752,6 @@ msgstr "用戶名稱已被使用"
 
 #~ msgid "New chat"
 #~ msgstr "新的聊天"
-
-#~ msgid "Show member change events"
-#~ msgstr "顯示成員更改事件"
 
 #~ msgid "Get more messages from the server ..."
 #~ msgstr "從伺服器獲取更多消息..."

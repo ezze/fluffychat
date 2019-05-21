@@ -9,5 +9,6 @@ ListItem {
         id: layout
         title.text: text
         title.font.bold: true
+        title.color: mainLayout.mainFontColor
     }
 }

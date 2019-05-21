@@ -3,7 +3,7 @@
 
 function init () {
     var res = storage.query ( "SELECT Users.matrix_id, Users.displayname, Users.avatar_url, Contacts.medium, Contacts.address FROM Users LEFT JOIN Contacts " +
-    " ON Contacts.matrix_id=Users.matrix_id ORDER BY Contacts.medium DESC LIMIT 1000" )
+    " ON Contacts.matrix_id=Users.matrix_id ORDER BY Contacts.medium DESC, LOWER(Users.displayname) LIMIT 1000" )
     for( var i = 0; i < res.rows.length; i++ ) {
         var user = res.rows[i]
         if ( activeChatMembers[user.matrix_id] !== undefined ) continue

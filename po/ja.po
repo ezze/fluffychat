@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 08:29+0000\n"
-"PO-Revision-Date: 2018-12-21 15:52+0100\n"
-"Last-Translator: M.Sugahara <equaaqua@hotmail.com>\n"
+"POT-Creation-Date: 2019-05-16 06:04+0000\n"
+"PO-Revision-Date: 2019-05-06 08:29+0000\n"
+"Last-Translator: joboticon <joseph@liau.ca>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ja/>\n"
 "Language: ja\n"
@@ -17,7 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Weblate 3.7-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr ""
+
+#: ../push/pushhelper.cpp:146
+msgid "New message"
+msgstr ""
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "%1 redacted a message"
+msgid "New encrypted message"
+msgstr "%1 がメッセージを編集しました"
+
+#: ../push/pushhelper.cpp:159
+msgid "New member event"
+msgstr ""
+
+#: ../push/pushhelper.cpp:165
+#, fuzzy
+#| msgid "%1 created the chat"
+msgid "You were invited to chat"
+msgstr "%1 がチャットを作成しました"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -25,105 +49,109 @@ msgstr "よろしいですか？"
 
 #: ../qml/Main.qml:151
 msgid "You must agree to the privacy policy"
-msgstr ""
+msgstr "プライバシーポリシーへの同意が必要です"
 
 #: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
-msgstr ""
+msgstr "クリップボードにコピーしました"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
-msgstr ""
+msgstr "FluffyChat %2 に %1"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Become a patron"
-msgstr ""
+msgstr "後援者になる"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
-msgstr ""
+msgstr "Liberapay で寄付をする"
 
 #: ../qml/pages/InfoPage.qml:47
 msgid "Join the community"
-msgstr ""
+msgstr "コミュニティーに参加"
 
 #: ../qml/pages/InfoPage.qml:53 ../qml/pages/LoginPage.qml:43
 #: ../qml/pages/PrivacyPolicyPage.qml:11
 msgid "Privacy Policy"
-msgstr ""
+msgstr "プライバシーポリシー"
 
 #: ../qml/pages/InfoPage.qml:60
 msgid "Website"
-msgstr ""
+msgstr "ウェブサイト"
 
 #: ../qml/pages/InfoPage.qml:66
 msgid "Contributors"
-msgstr ""
+msgstr "投稿者"
 
 #: ../qml/pages/InfoPage.qml:72
 msgid "Source code"
-msgstr ""
+msgstr "ソースコード"
 
 #: ../qml/pages/InfoPage.qml:78
 msgid "License"
-msgstr ""
+msgstr "ライセンス"
 
 #: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
-msgstr ""
+msgstr "アーカイブ化したチャット"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
 msgid "Search archived chats..."
-msgstr ""
+msgstr "アーカイブ化したチャットを検索..."
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
-msgstr ""
+msgstr "アーカイブ化したチャットがありません"
 
 #: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
-msgstr ""
+msgstr "接続したメールアドレス"
 
 #: ../qml/pages/EmailSettingsPage.qml:28
 msgid "Add email address"
-msgstr ""
+msgstr "メールアドレスを追加する"
 
 #: ../qml/pages/EmailSettingsPage.qml:39
 msgid "No email addresses connected"
-msgstr ""
+msgstr "メールアドレスが接続されていません"
 
 #: ../qml/pages/PasswordCreationPage.qml:19
 msgid "Please set a password"
-msgstr ""
+msgstr "パスワードを設定してください"
 
 #: ../qml/pages/PasswordCreationPage.qml:49
 msgid ""
 "Please set a strong password. To reset your password, you will need to "
 "provide an e-mail address later"
 msgstr ""
+"強力なパスワードを設定してください。パスワードを再設定 するために後でメールア"
+"ドレスを入力する必要があります"
 
 #: ../qml/pages/PasswordCreationPage.qml:65
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
-msgstr ""
+msgstr "例えば　Summer%salad$flattens?tOOthpaste"
 
 #: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
-msgstr ""
+msgstr "登録"
 
 #: ../qml/pages/WalkthroughPage.qml:64
 msgid "Welcome to FluffyChat"
-msgstr ""
+msgstr "FluffyChatへようこそ"
 
 #: ../qml/pages/WalkthroughPage.qml:78
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or a unique username to find friends."
 msgstr ""
+"友達とチャットし、コミュニティーに参加します。電話番号かユーザーネームで友達"
+"を見つけることができます。"
 
 #: ../qml/pages/WalkthroughPage.qml:115
 msgid "Join the Matrix"
-msgstr ""
+msgstr "マトリックスに参加"
 
 #: ../qml/pages/WalkthroughPage.qml:129
 msgid ""
@@ -134,17 +162,31 @@ msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:166
 msgid "What's new in version %1?"
+msgstr "バージョン %1 の新機能"
+
+#: ../qml/pages/WalkthroughPage.qml:173
+#, fuzzy
+#| msgid "Minor bug fixes and new translations."
+msgid "Minor bug fixes and updated translations."
+msgstr "マイナーなバグ修正と翻訳。"
+
+#: ../qml/pages/WalkthroughPage.qml:174
+msgid "Critical bug fixed."
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:180
-msgid "Minor bug fixes and new translations."
+#: ../qml/pages/WalkthroughPage.qml:175
+msgid "Security bug fixed."
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:218
+#: ../qml/pages/WalkthroughPage.qml:176
+msgid "Updated translations. Thanks to all translators."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
-msgstr ""
+msgstr "コミュニティーの資金"
 
-#: ../qml/pages/WalkthroughPage.qml:231
+#: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -152,65 +194,65 @@ msgid ""
 "com/KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 
-#: ../qml/pages/WalkthroughPage.qml:248
+#: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
-msgstr ""
+msgstr "続く"
 
 #: ../qml/pages/LoginPage.qml:20
 msgid "Homeserver %1"
-msgstr ""
+msgstr "ホームサーバー %1"
 
 #: ../qml/pages/LoginPage.qml:28
 msgid "Change homeserver"
-msgstr ""
+msgstr "ホームサーバーを変更する"
 
 #: ../qml/pages/LoginPage.qml:33
 msgid "Change ID-server"
-msgstr ""
+msgstr "IDサーバーを変更する"
 
 #: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
-msgstr ""
+msgstr "FluffyChatについて"
 
 #: ../qml/pages/LoginPage.qml:53
 msgid "FAQ"
-msgstr ""
+msgstr "よくある質問"
 
 #: ../qml/pages/LoginPage.qml:64
 msgid "Choose your homeserver"
-msgstr ""
+msgstr "ホームサーバーを選択する"
 
 #: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
-msgstr ""
+msgstr "IDサーバーを選択する"
 
 #: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
-msgstr ""
+msgstr "電話番号（任意）"
 
 #: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
-msgstr ""
+msgstr "ユーザーネームかマトリックスID"
 
 #: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
-msgstr ""
+msgstr "アカウント登録"
 
 #: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
-msgstr ""
+msgstr "ログイン"
 
 #: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
-msgstr ""
+msgstr "FluffyChat"
 
 #: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
-msgstr ""
+msgstr "共有"
 
 #: ../qml/pages/ChatListPage.qml:104
 msgid "Search for your chats…"
-msgstr ""
+msgstr "チャット検索…"
 
 #: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
@@ -218,75 +260,73 @@ msgstr ""
 
 #: ../qml/pages/ChatListPage.qml:155
 msgid "Add chat"
-msgstr ""
+msgstr "チャットを追加する"
 
 #: ../qml/pages/CreateChatPage.qml:15
 msgid "Add Chat"
-msgstr ""
+msgstr "チャットを追加する"
 
 #: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
-msgstr ""
+msgstr "アドレス帳からインポート"
 
 #: ../qml/pages/CreateChatPage.qml:42
 msgid "Filter contacts"
-msgstr ""
+msgstr "連絡先にフィルター"
 
-#: ../qml/pages/CreateChatPage.qml:71
+#: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
-msgstr ""
+msgstr "新グループ"
 
-#: ../qml/pages/CreateChatPage.qml:78
-#, fuzzy
-#| msgid "Public"
+#: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
-msgstr "公共"
+msgstr "公共グループ"
 
-#: ../qml/pages/CreateChatPage.qml:87
+#: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
-msgstr ""
+msgstr "連絡先を追加するために右上のボトンをクリック。"
 
 #: ../qml/pages/SettingsPage.qml:28
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: ../qml/pages/SettingsPage.qml:84 ../qml/components/ProfileRow.qml:40
 msgid "Username:"
-msgstr ""
+msgstr "ユーザーネーム："
 
 #: ../qml/pages/SettingsPage.qml:99 ../qml/components/ProfileRow.qml:55
 msgid "Displayname:"
-msgstr ""
+msgstr "表示名："
 
 #: ../qml/pages/SettingsPage.qml:114
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 #: ../qml/pages/SettingsPage.qml:124
 msgid "Change main color"
-msgstr ""
+msgstr "メイン色を変更する"
 
 #: ../qml/pages/SettingsPage.qml:138
 msgid "Change background"
-msgstr ""
+msgstr "背景を変更する"
 
 #: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
-msgstr ""
+msgstr "ダークモード"
 
 #: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: ../qml/pages/SettingsPage.qml:189
 msgid "Chat settings:"
-msgstr ""
+msgstr "チャット設定："
 
 #: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
-msgstr ""
+msgstr "入力キーで送信"
 
 #: ../qml/pages/SettingsPage.qml:200
 msgid "Display 'I am typing' when typing"
@@ -302,36 +342,36 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
-msgstr ""
+msgstr "アカウント設定："
 
 #: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
-msgstr ""
+msgstr "接続した電話番号"
 
 #: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
-msgstr ""
+msgstr "デバイス"
 
 #: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
-msgstr ""
+msgstr "パスワードを変更する"
 
 #: ../qml/pages/SettingsPage.qml:259
 msgid "Check out:"
-msgstr ""
+msgstr "チェクアウト："
 
 #: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
-msgstr ""
+msgstr "アカウントを無効にする"
 
 #: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
-msgstr ""
+msgstr "ログアウト"
 
 #: ../qml/pages/SettingsPage.qml:275
 msgid "More:"
-msgstr ""
+msgstr "もっと："
 
 #: ../qml/pages/CommunityPage.qml:98
 msgid "No description found"
@@ -339,15 +379,15 @@ msgstr ""
 
 #: ../qml/pages/PasswordInputPage.qml:13
 msgid "Enter your password"
-msgstr ""
+msgstr "パースワードを入力してください"
 
 #: ../qml/pages/PasswordInputPage.qml:41
 msgid "Please enter your password for: <b>%1</b>"
-msgstr ""
+msgstr "<b>%1</b>のパスワードを入力してください"
 
 #: ../qml/pages/PasswordInputPage.qml:50
 msgid "Password..."
-msgstr ""
+msgstr "パスワード..."
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
@@ -379,15 +419,15 @@ msgstr ""
 
 #: ../qml/pages/NotificationSettingsPage.qml:89
 msgid "Messages from bots"
-msgstr ""
+msgstr "ボットのメッセージ"
 
-#: ../qml/pages/InvitePage.qml:21
+#: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
-msgstr ""
+msgstr "ユーザーを招待する"
 
-#: ../qml/pages/InvitePage.qml:40
+#: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
-msgstr ""
+msgstr "例えば　@username:server.abc を検索する"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:29
 msgid ""
@@ -416,15 +456,15 @@ msgstr ""
 
 #: ../qml/pages/CountryPickerPage.qml:11
 msgid "Choose a country"
-msgstr ""
+msgstr "国選択"
 
 #: ../qml/pages/CountryPickerPage.qml:28
 msgid "Search for country by name…"
-msgstr ""
+msgstr "国の名前で検索する…"
 
 #: ../qml/pages/UserPage.qml:34
 msgid "Username copied to the clipboard"
-msgstr ""
+msgstr "ユーザーネームをクリップボードにコピーしました"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "Chats with this user:"
@@ -432,19 +472,19 @@ msgstr ""
 
 #: ../qml/pages/UserPage.qml:65
 msgid "This is you."
-msgstr ""
+msgstr "あなたです。"
 
 #: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
-msgstr ""
+msgstr "新チャットを始める"
 
 #: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
-msgstr ""
+msgstr "未知のチャット"
 
 #: ../qml/pages/ChatPage.qml:112
 msgid "Chat info"
-msgstr ""
+msgstr "チャット情報"
 
 #: ../qml/pages/ChatPage.qml:137
 msgid "No messages in this chat ..."
@@ -466,7 +506,7 @@ msgstr ""
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
 msgstr ""
 
@@ -879,9 +919,8 @@ msgid "Validation code"
 msgstr ""
 
 #: ../qml/components/ChatListItem.qml:96
-#, fuzzy
 msgid "Leave this chat"
-msgstr "チャットが作成されました"
+msgstr "このチャットから退出"
 
 #: ../qml/components/ColorDialog.qml:11
 msgid "Change the main color"
@@ -919,15 +958,15 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Load gif"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Show image"
 msgstr ""
 
-#: ../qml/components/ChatScrollView.qml:315
+#: ../qml/components/ChatScrollView.qml:316
 msgid "Download: "
 msgstr ""
 
@@ -969,9 +1008,8 @@ msgid "Enter the full @username"
 msgstr ""
 
 #: ../qml/components/AddContactDialog.qml:23
-#, fuzzy
 msgid "Start private chat"
-msgstr "チャットが作成されました"
+msgstr "プライベートチャットを始める"
 
 #: ../qml/components/AddContactDialog.qml:31
 msgid "Your username is: %1"
@@ -994,9 +1032,8 @@ msgid "Chat settings and details"
 msgstr ""
 
 #: ../qml/components/ChangeChatnameDialog.qml:21
-#, fuzzy
 msgid "Change chat avatar"
-msgstr "%1 がチャットの画像を変更しました"
+msgstr "チャットの画像を変更する"
 
 #: ../qml/components/ChangeChatnameDialog.qml:30
 msgid "No chat name yet"
@@ -1060,10 +1097,6 @@ msgstr ""
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr ""
-
 #: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
 msgstr ""
@@ -1081,9 +1114,8 @@ msgid "Have you confirmed your email address?"
 msgstr ""
 
 #: ../qml/scripts/InviteListItemActions.js:9
-#, fuzzy
 msgid "%1 has been invited"
-msgstr "%1 が %2 を招待しました"
+msgstr "%1 が 招待されました"
 
 #: ../qml/scripts/InviteListItemActions.js:11
 msgid "An error occured. Maybe the username %1 is wrong?"
@@ -1095,52 +1127,67 @@ msgid "%1 is banned from the chat."
 msgstr "%1 がブロックされました"
 
 #: ../qml/scripts/InviteListItemActions.js:16
-#, fuzzy
 msgid "Invite %1 to this chat?"
-msgstr "チャットが作成されました"
+msgstr "%1をこのチャットに招待しますか？"
 
 #: ../qml/scripts/StartChatDialog.js:8 ../qml/scripts/UserPageActions.js:49
-#: ../qml/scripts/CreateChatPageActions.js:41
+#: ../qml/scripts/CreateChatPageActions.js:45
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:30
+#: ../qml/scripts/MatrixNames.js:22
 #, fuzzy
+#| msgid "Filter contacts"
+msgid "Phone contacts:"
+msgstr "連絡先にフィルター"
+
+#: ../qml/scripts/MatrixNames.js:23
+#, fuzzy
+#| msgid "Filter contacts"
+msgid "Email contacts:"
+msgstr "連絡先にフィルター"
+
+#: ../qml/scripts/MatrixNames.js:24
+#, fuzzy
+#| msgid "Search for your chats…"
+msgid "Users from your chats:"
+msgstr "チャット検索…"
+
+#: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
 msgstr "⌨️ タイピングしています…"
 
-#: ../qml/scripts/MatrixNames.js:31
-#, fuzzy
+#: ../qml/scripts/MatrixNames.js:40
 msgid "✏ %1 is typing…"
-msgstr "⌨️ タイピングしています…"
+msgstr "⌨️ %1がタイピングしています…"
 
-#: ../qml/scripts/MatrixNames.js:34
+#: ../qml/scripts/MatrixNames.js:43
 msgid "✏ %1 and %2 more are typing…"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:40
+#: ../qml/scripts/MatrixNames.js:49
 msgid "Members"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:41
+#: ../qml/scripts/MatrixNames.js:50
 msgid "Moderators"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:42
+#: ../qml/scripts/MatrixNames.js:51
 msgid "Admins"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:43
+#: ../qml/scripts/MatrixNames.js:52
 msgid "Owners"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:64
+#: ../qml/scripts/MatrixNames.js:73
 msgid "%1 is not a valid username"
 msgstr ""
 
-#: ../qml/scripts/MatrixNames.js:91 ../qml/scripts/MatrixNames.js:104
-#: ../qml/scripts/MatrixNames.js:111
+#: ../qml/scripts/MatrixNames.js:100 ../qml/scripts/MatrixNames.js:113
+#: ../qml/scripts/MatrixNames.js:120
 msgid "Empty chat"
 msgstr ""
 
@@ -1184,9 +1231,8 @@ msgid "%1 has a new avatar"
 msgstr "%1 がチャットの画像を変更しました"
 
 #: ../qml/scripts/EventDescription.js:20
-#, fuzzy
 msgid "%1 changed the displayname to %2"
-msgstr "%1 がチャットネームを<b>%2</b>に変更しました"
+msgstr "%1 がチャットネームを%2に変更しました"
 
 #: ../qml/scripts/EventDescription.js:24
 msgid "%1 accepted the invitation"
@@ -1206,7 +1252,6 @@ msgid "%1 invited %2"
 msgstr "%1 が %2 を招待しました"
 
 #: ../qml/scripts/EventDescription.js:36
-#, fuzzy
 msgid "%1 pardoned %2"
 msgstr "%1 が %2 を招待しました"
 
@@ -1215,46 +1260,38 @@ msgid "%1 declined the invitation"
 msgstr ""
 
 #: ../qml/scripts/EventDescription.js:42
-#, fuzzy
 msgid "%1 left the chat"
 msgstr "%1 が退出しました"
 
 #: ../qml/scripts/EventDescription.js:44
-#, fuzzy
 msgid "%1 kicked %2"
-msgstr "%1 が %2 を招待しました"
+msgstr "%1 が %2 を追い出しました"
 
 #: ../qml/scripts/EventDescription.js:47
-#, fuzzy
 msgid "%1 banned %2 from the chat"
-msgstr "%1 がブロックされました"
+msgstr "%1 が %2 をブロックしました"
 
 #: ../qml/scripts/EventDescription.js:50
 msgid "and more member changes"
 msgstr ""
 
 #: ../qml/scripts/EventDescription.js:54
-#, fuzzy
 msgid "%1 created the chat"
-msgstr "%1 が退出しました"
+msgstr "%1 がチャットを作成しました"
 
 #: ../qml/scripts/EventDescription.js:57
-#, fuzzy
 msgid "%1 changed the chat name to: «%2»"
-msgstr "%1 がチャットネームを<b>%2</b>に変更しました"
+msgstr "%1 がチャットネームを«%2»に変更しました"
 
 #: ../qml/scripts/EventDescription.js:60
-#, fuzzy
 msgid "%1 changed the chat topic to: «%2»"
-msgstr "%1 がチャットのトピックを<b>%2</b>に変更しました"
+msgstr "%1 がチャットのトピックを«%2»に変更しました"
 
 #: ../qml/scripts/EventDescription.js:63
-#, fuzzy
 msgid "%1 changed the chat avatar"
 msgstr "%1 がチャットの画像を変更しました"
 
 #: ../qml/scripts/EventDescription.js:66
-#, fuzzy
 msgid "%1 redacted a message"
 msgstr "%1 がメッセージを編集しました"
 
@@ -1270,7 +1307,6 @@ msgid "Encrypted message"
 msgstr ""
 
 #: ../qml/scripts/EventDescription.js:75
-#, fuzzy
 msgid "%1 sent a sticker"
 msgstr "%1 がスタンプを送信しました"
 
@@ -1287,19 +1323,16 @@ msgid "%1 set the guest access to: «%2»"
 msgstr ""
 
 #: ../qml/scripts/EventDescription.js:87
-#, fuzzy
 msgid "%1 changed the chat aliases"
-msgstr "%1 がチャットの画像を変更しました"
+msgstr "%1 がチャットの エイリアス を変更しました"
 
 #: ../qml/scripts/EventDescription.js:93
-#, fuzzy
 msgid "%1 changed the main chat alias to: «%2»"
-msgstr "%1 がチャットネームを<b>%2</b>に変更しました"
+msgstr "%1 がメインチャットの エイリアス を«%2»に変更しました"
 
 #: ../qml/scripts/EventDescription.js:96
-#, fuzzy
 msgid "%1 changed the chat permissions"
-msgstr "%1 がチャットの画像を変更しました"
+msgstr "%1 がチャットの許可を変更しました"
 
 #: ../qml/scripts/EventDescription.js:106
 msgid "Only invited users"
@@ -1346,9 +1379,8 @@ msgid "You have been invited to this chat"
 msgstr ""
 
 #: ../qml/scripts/ChatListItemActions.js:30
-#, fuzzy
 msgid "You have left this chat"
-msgstr "チャットが作成されました"
+msgstr "あなたはこのチャットから退出しました"
 
 #: ../qml/scripts/ChatListItemActions.js:37
 msgid "You: "
@@ -1359,9 +1391,8 @@ msgid "No previous messages"
 msgstr ""
 
 #: ../qml/scripts/ChatListItemActions.js:63
-#, fuzzy
 msgid "Do you want to leave this chat?"
-msgstr "チャットが作成されました"
+msgstr "このチャットから退出しますか？"
 
 #: ../qml/scripts/ChatEventActions.js:25
 msgid "Add to sticker collection?"
@@ -1379,7 +1410,7 @@ msgstr ""
 msgid "Remove this message?"
 msgstr ""
 
-#: ../qml/scripts/CreateChatPageActions.js:50
+#: ../qml/scripts/CreateChatPageActions.js:54
 msgid "Do you want to create a new group now?"
 msgstr ""
 

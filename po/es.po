@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 08:29+0000\n"
-"PO-Revision-Date: 2019-04-20 10:28+0000\n"
+"POT-Creation-Date: 2019-05-16 06:04+0000\n"
+"PO-Revision-Date: 2019-05-16 06:21+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/es/>\n"
@@ -17,7 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6\n"
+"X-Generator: Weblate 3.7-dev\n"
+
+#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: ../push/pushhelper.cpp:146
+msgid "New message"
+msgstr "Nuevo mensaje"
+
+#: ../push/pushhelper.cpp:156
+msgid "New encrypted message"
+msgstr "Nuevo mensaje cifrado"
+
+#: ../push/pushhelper.cpp:159
+msgid "New member event"
+msgstr "Evento de nuevo miembro"
+
+#: ../push/pushhelper.cpp:165
+msgid "You were invited to chat"
+msgstr "Ha sido invitado a chatear"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -143,15 +163,27 @@ msgstr ""
 msgid "What's new in version %1?"
 msgstr "¿Qué novedades hay en la versión %1?"
 
-#: ../qml/pages/WalkthroughPage.qml:180
-msgid "Minor bug fixes and new translations."
-msgstr "Corrección de errores menores y nuevas traducciones."
+#: ../qml/pages/WalkthroughPage.qml:173
+msgid "Minor bug fixes and updated translations."
+msgstr "Corrección de errores menores y traducciones actualizadas."
 
-#: ../qml/pages/WalkthroughPage.qml:218
+#: ../qml/pages/WalkthroughPage.qml:174
+msgid "Critical bug fixed."
+msgstr "Solucionado un error crítico."
+
+#: ../qml/pages/WalkthroughPage.qml:175
+msgid "Security bug fixed."
+msgstr "Solucionado un fallo de seguridad."
+
+#: ../qml/pages/WalkthroughPage.qml:176
+msgid "Updated translations. Thanks to all translators."
+msgstr "Traducciones actualizadas. Gracias a todos los traductores."
+
+#: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Financiado por la comunidad"
 
-#: ../qml/pages/WalkthroughPage.qml:231
+#: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. You can donate to this project on <a href='https://www."
@@ -163,7 +195,7 @@ msgstr ""
 "en <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> o <a "
 "href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
-#: ../qml/pages/WalkthroughPage.qml:248
+#: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
 msgstr "Continuar"
 
@@ -244,15 +276,15 @@ msgstr "Importar desde la agenda de direcciones"
 msgid "Filter contacts"
 msgstr "Filtrar contactos"
 
-#: ../qml/pages/CreateChatPage.qml:71
+#: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
 msgstr "Nuevo grupo"
 
-#: ../qml/pages/CreateChatPage.qml:78
+#: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
 msgstr "Grupos públicos"
 
-#: ../qml/pages/CreateChatPage.qml:87
+#: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
 msgstr "Pulse en el botón superior de la derecha para añadir contactos."
 
@@ -391,11 +423,11 @@ msgstr "Cambios de miembros del chat"
 msgid "Messages from bots"
 msgstr "Mensajes de «bots»"
 
-#: ../qml/pages/InvitePage.qml:21
+#: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
 msgstr "Invitar usuarios"
 
-#: ../qml/pages/InvitePage.qml:40
+#: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
 msgstr "Buscar p. ej. @nombredeusuario:servidor.abc"
 
@@ -499,7 +531,7 @@ msgstr "Unirse"
 msgid "You do not have posting permissions here"
 msgstr "No tiene permisos para publicar aquí"
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
 msgstr "Escriba algo ..."
 
@@ -954,15 +986,15 @@ msgstr "Añadir a la colección de pegatinas"
 msgid "Forward"
 msgstr "Reenviar"
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Load gif"
 msgstr "Cargar gif"
 
-#: ../qml/components/ChatScrollView.qml:249
+#: ../qml/components/ChatScrollView.qml:250
 msgid "Show image"
 msgstr "Mostrar imagen"
 
-#: ../qml/components/ChatScrollView.qml:315
+#: ../qml/components/ChatScrollView.qml:316
 msgid "Download: "
 msgstr "Descargar: "
 
@@ -1095,10 +1127,6 @@ msgstr "Ha llamado a la puerta"
 msgid "Was banned from the chat"
 msgstr "Ha sido vetado en el chat"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:92
-msgid "Unknown"
-msgstr "Desconocido"
-
 #: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
 msgstr "Subiendo…"
@@ -1132,46 +1160,58 @@ msgid "Invite %1 to this chat?"
 msgstr "¿Invitar a %1 a este chat?"
 
 #: ../qml/scripts/StartChatDialog.js:8 ../qml/scripts/UserPageActions.js:49
-#: ../qml/scripts/CreateChatPageActions.js:41
+#: ../qml/scripts/CreateChatPageActions.js:45
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
 "Tenga en cuenta que FluffyChat solo soporta cifrado de transporte por ahora."
 
-#: ../qml/scripts/MatrixNames.js:30
+#: ../qml/scripts/MatrixNames.js:22
+msgid "Phone contacts:"
+msgstr "Contactos telefónicos:"
+
+#: ../qml/scripts/MatrixNames.js:23
+msgid "Email contacts:"
+msgstr "Contactos de correo electrónico:"
+
+#: ../qml/scripts/MatrixNames.js:24
+msgid "Users from your chats:"
+msgstr "Usuarios de sus chats:"
+
+#: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
 msgstr "✏ está escribiendo…"
 
-#: ../qml/scripts/MatrixNames.js:31
+#: ../qml/scripts/MatrixNames.js:40
 msgid "✏ %1 is typing…"
 msgstr "✏ %1 está escribiendo…"
 
-#: ../qml/scripts/MatrixNames.js:34
+#: ../qml/scripts/MatrixNames.js:43
 msgid "✏ %1 and %2 more are typing…"
 msgstr "✏ %1 y %2 más están escribiendo…"
 
-#: ../qml/scripts/MatrixNames.js:40
+#: ../qml/scripts/MatrixNames.js:49
 msgid "Members"
 msgstr "Miembros"
 
-#: ../qml/scripts/MatrixNames.js:41
+#: ../qml/scripts/MatrixNames.js:50
 msgid "Moderators"
 msgstr "Moderadores"
 
-#: ../qml/scripts/MatrixNames.js:42
+#: ../qml/scripts/MatrixNames.js:51
 msgid "Admins"
 msgstr "Administradores"
 
-#: ../qml/scripts/MatrixNames.js:43
+#: ../qml/scripts/MatrixNames.js:52
 msgid "Owners"
 msgstr "Propietarios"
 
-#: ../qml/scripts/MatrixNames.js:64
+#: ../qml/scripts/MatrixNames.js:73
 msgid "%1 is not a valid username"
 msgstr "%1 no es un nombre de usuario válido"
 
-#: ../qml/scripts/MatrixNames.js:91 ../qml/scripts/MatrixNames.js:104
-#: ../qml/scripts/MatrixNames.js:111
+#: ../qml/scripts/MatrixNames.js:100 ../qml/scripts/MatrixNames.js:113
+#: ../qml/scripts/MatrixNames.js:120
 msgid "Empty chat"
 msgstr "Chat vacío"
 
@@ -1396,7 +1436,7 @@ msgstr "Añadida como pegatina"
 msgid "Remove this message?"
 msgstr "¿Eliminar este mensaje?"
 
-#: ../qml/scripts/CreateChatPageActions.js:50
+#: ../qml/scripts/CreateChatPageActions.js:54
 msgid "Do you want to create a new group now?"
 msgstr "¿Quiere crear un nuevo grupo ahora?"
 
@@ -1411,6 +1451,13 @@ msgstr "No se encontró el nombre de usuario «%1» en %2"
 #: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
 msgid "Username is already taken"
 msgstr "El nombre de usuario ya está tomado"
+
+#~ msgid ""
+#~ "Minor bug fixes, updated translations, new quick action button for taking "
+#~ "a picture."
+#~ msgstr ""
+#~ "Corrección de errores menores, traducciones actualizadas y nuevo botón de "
+#~ "acción rápida para hacer una foto."
 
 #~ msgid ""
 #~ "File transfer now possible using different types. Sharing files from "
@@ -1680,9 +1727,6 @@ msgstr "El nombre de usuario ya está tomado"
 #~ msgid "New chat"
 #~ msgstr "Nuevo chat"
 
-#~ msgid "Show member change events"
-#~ msgstr "Mostrar los eventos de los cambios de los miembros"
-
 #~ msgid "Get more messages from the server ..."
 #~ msgstr "Obtener más mensajes del servidor ..."
 
@@ -1691,9 +1735,6 @@ msgstr "El nombre de usuario ya está tomado"
 
 #~ msgid "Log in"
 #~ msgstr "Iniciar sesión"
-
-#~ msgid "Delete message"
-#~ msgstr "Borrar mensaje"
 
 #~ msgid "Donate us a coffee"
 #~ msgstr "Invítenos a un café"
