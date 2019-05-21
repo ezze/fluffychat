@@ -552,7 +552,6 @@ Item {
     }
 
     function init () {
-        console.log("init...")
         if ( matrix.token === "" ) return
 
         // Start synchronizing
@@ -562,11 +561,9 @@ Item {
 
             // Initialize the e2e encryption account
             if ( matrix.e2eeAccountPickle === "" ) {
-                console.log("New e2ee account...")
                 newE2eeAccount ()
             }
             else {
-                console.log("Restore e2ee...", matrix.e2eeAccountPickle)
                 if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
                     console.error ( "❌[Error] Could not restore E2ee account" )
                     newE2eeAccount ()
