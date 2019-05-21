@@ -204,6 +204,7 @@ Item {
         query('DELETE FROM Addresses')
         query('DELETE FROM ThirdPIDs')
         query('DELETE FROM Media')
+        query('DELETE FROM Devices')
     }
 
 
@@ -216,6 +217,7 @@ Item {
         query('DROP TABLE IF EXISTS Addresses')
         query('DROP TABLE IF EXISTS ThirdPIDs')
         query('DROP TABLE IF EXISTS Media')
+        query('DROP TABLE IF EXISTS Devices')
     }
 
     property var queryQueue: []

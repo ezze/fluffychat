@@ -476,7 +476,7 @@ Item {
         var newAccount = E2ee.createAccount ( matrix.matrixid )
         var keysJsonStr = E2ee.getIdentityKeys ()
         var keys = JSON.parse(keysJsonStr)
-        var signedKeys = E2ee.signJsonString (keysJsonStr)
+        var signedKeys = E2ee.signJsonString (keys["ed25519"])
         E2ee.generateOneTimeKeys()
         var oneTimeKeys = JSON.parse(E2ee.getOneTimeKeys ())
         var signedOneTimeKeys = {}
@@ -514,7 +514,7 @@ Item {
             }
         }
 
-        console.log("UPLOADING KEYS: ", JSON.stringify(requestData))
+        console.log("UPLOADING KEYS: ")
 
         matrix.post ("/client/r0/keys/upload", requestData, success_callback, function (error) {
             console.log("ERROR UPLOADING KEYS:",JSON.stringify(error))
