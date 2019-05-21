@@ -120,6 +120,12 @@ QString E2ee::createAccount(QString key) {
 
 
 bool E2ee::restoreAccount(QString olmAccountStr, QString key) {
+    size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
+
+    void * accountMemory = malloc( accountSize ); // Allocate the memory
+
+    m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
+    
     if (olm_unpickle_account(m_olmAccount, key.toLocal8Bit().data(), key.length(), olmAccountStr.toLocal8Bit().data(), olmAccountStr.length()) == olm_error()) {
         logError(olm_account_last_error(m_olmAccount));
         return false;
