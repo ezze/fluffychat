@@ -19,7 +19,7 @@ Item {
 
     id: storage
 
-    property var version: "0.4.0a"
+    property var version: "0.4.0"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -177,6 +177,7 @@ Item {
         'matrix_id TEXT, ' +
         'device_id TEXT, ' +
         'keys_json TEXT, ' +
+        'verified INTEGER, ' +
         'UNIQUE(matrix_id, device_id))')
 
         if ( matrix.isLogged ) {
@@ -596,8 +597,8 @@ Item {
                 // For each user save each device in the database and
                 for ( var mxid in res.device_keys ) {
                     for ( var device_id in res.device_keys[mxid] ) {
-                        storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?)",
-                        [ mxid, device_id, JSON.stringify(res.device_keys[mxid][device_id]) ] )
+                        storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?)",
+                        [ mxid, device_id, JSON.stringify(res.device_keys[mxid][device_id]), device_id===matrix.deviceID ] )
                     }
                     storage.query("UPDATE Users SET tracking_devices_uptodate=1 WHERE matrix_id=?",
                     [ mxid ] )

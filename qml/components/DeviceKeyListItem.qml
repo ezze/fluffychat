@@ -16,11 +16,13 @@ ListItem {
         id: layout
         width: parent.width
         title.text: device.device_id
+        title.font.bold: device.device_id === matrix.deviceID
         Icon {
             width: units.gu(4)
             height: units.gu(4)
             SlotsLayout.position: SlotsLayout.Leading
             name: "phone-smartphone-symbolic"
+            color: device.verified ? "green" : "red"
         }
     }
 
