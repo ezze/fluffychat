@@ -41,7 +41,7 @@ bool E2ee::check_m_olmAccount() {
 
 
 bool E2ee::check_m_activeSession() {
-    return check_m_olmAccount() && m_activeSession == nullptr;
+    return check_m_olmAccount() || m_activeSession == nullptr;
 }
 
 

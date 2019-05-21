@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-16 06:04+0000\n"
+"POT-Creation-Date: 2019-05-21 08:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,15 +37,15 @@ msgstr ""
 msgid "You were invited to chat"
 msgstr ""
 
-#: ../qml/Main.qml:128
+#: ../qml/Main.qml:129
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/Main.qml:151
+#: ../qml/Main.qml:152
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:166
+#: ../qml/Main.qml:167
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -155,7 +155,7 @@ msgid "What's new in version %1?"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:173
-msgid "Minor bug fixes and updated translations."
+msgid "Minor bugfixes and updated translations."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:174
@@ -177,9 +177,9 @@ msgstr ""
 #: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
-"community funded. You can donate to this project on <a href='https://www."
-"patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay."
-"com/KrilleChritzelius/donate'>Liberapay</a>"
+"community funded. Donate to this project on <a href='https://www.patreon.com/"
+"bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:252
@@ -454,15 +454,15 @@ msgstr ""
 msgid "Username copied to the clipboard"
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:65
+#: ../qml/pages/UserPage.qml:69
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:65
+#: ../qml/pages/UserPage.qml:69
 msgid "This is you."
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:83
+#: ../qml/pages/UserPage.qml:87
 msgid "Start new chat"
 msgstr ""
 
@@ -504,6 +504,18 @@ msgstr ""
 
 #: ../qml/pages/PhoneSettingsPage.qml:40
 msgid "No phone numbers connected"
+msgstr ""
+
+#: ../qml/pages/UserDevicesPage.qml:21
+msgid "Devices of %1"
+msgstr ""
+
+#: ../qml/pages/UserDevicesPage.qml:38 ../qml/pages/DiscoverPage.qml:67
+msgid "Loading…"
+msgstr ""
+
+#: ../qml/pages/UserDevicesPage.qml:38
+msgid "No devices found"
 msgstr ""
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
@@ -570,10 +582,6 @@ msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:44
 msgid "Search for chats or #aliases…"
-msgstr ""
-
-#: ../qml/pages/DiscoverPage.qml:67
-msgid "Loading…"
 msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:67
@@ -656,28 +664,28 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:272
+#: ../qml/models/MatrixModel.qml:277
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:394 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:444
+#: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:520
+#: ../qml/models/MatrixModel.qml:619
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:527
+#: ../qml/models/MatrixModel.qml:626
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:591
+#: ../qml/models/MatrixModel.qml:690
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

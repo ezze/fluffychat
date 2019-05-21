@@ -296,10 +296,10 @@ Item {
 
 
     function reset () {
+        console.log("resetting...")
         E2ee.removeAccount()
-        matrix.token = matrix.e2eeAccountPickle = ""
         matrix.one_time_key_counts = 0
-        matrix.username = matrix.server = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = ""
+        matrix.token = matrix.e2eeAccountPickle = matrix.username = matrix.server = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = ""
     }
 
 
@@ -552,14 +552,16 @@ Item {
     }
 
     function init () {
-
+        console.log("init...")
         if ( matrix.token === "" ) return
 
         // Initialize the e2e encryption account
         if ( matrix.e2eeAccountPickle === "" ) {
+            console.log("New e2ee account...")
             newE2eeAccount ()
         }
         else {
+            console.log("Restore e2ee...", matrix.e2eeAccountPickle)
             if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
                 console.error ( "❌[Error] Could not restore E2ee account" )
                 newE2eeAccount ()
