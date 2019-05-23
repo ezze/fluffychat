@@ -1,3 +1,11 @@
+What's new in FluffyChat 11.10
+----------------------------
++ Improved performance on app start
+- Fixed two design bugs
+
+#matrix #ubuntutouch
+
+
 What's new in FluffyChat 11.9
 -----------------------------
 + New translations - thanks to all translators
