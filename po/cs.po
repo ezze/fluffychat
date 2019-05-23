@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-23 19:18+0000\n"
-"PO-Revision-Date: 2019-05-16 09:53+0000\n"
+"PO-Revision-Date: 2019-05-29 05:48+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -164,8 +164,6 @@ msgid "What's new in version %1?"
 msgstr "Co je nového ve verzi %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
-#, fuzzy
-#| msgid "Minor bug fixes and updated translations."
 msgid "Minor bugfixes and updated translations."
 msgstr "Oprava drobných chyb a aktualizace překladů."
 
@@ -186,12 +184,6 @@ msgid "Community funded"
 msgstr "Financováno komunitou"
 
 #: ../qml/pages/WalkthroughPage.qml:235
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers is "
-#| "all community funded. You can donate to this project on <a href='https://"
-#| "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. Donate to this project on <a href='https://www.patreon.com/"
@@ -199,9 +191,9 @@ msgid ""
 "KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat je otevřený, neziskový a fajn. Vývoj a servery jsou finančně "
-"podporovány komunitou. Pro zaslání Vašeho finančního příspěvku projektu "
-"použijte <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> "
-"nebo <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
+"podporovány komunitou. Zašlete Váš finanční příspěvek projektu přes <a "
+"href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> nebo <a "
+"href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
