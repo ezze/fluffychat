@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-16 06:04+0000\n"
+"POT-Creation-Date: 2019-05-23 19:18+0000\n"
 "PO-Revision-Date: 2018-12-25 09:59+0000\n"
 "Last-Translator: Karol Kosek <krkkx@protonmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/fluffychat/"
@@ -166,7 +166,7 @@ msgid "What's new in version %1?"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:173
-msgid "Minor bug fixes and updated translations."
+msgid "Minor bugfixes and updated translations."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:174
@@ -188,9 +188,9 @@ msgstr ""
 #: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
-"community funded. You can donate to this project on <a href='https://www."
-"patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay."
-"com/KrilleChritzelius/donate'>Liberapay</a>"
+"community funded. Donate to this project on <a href='https://www.patreon.com/"
+"bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:252
@@ -611,11 +611,11 @@ msgstr ""
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:128
+#: ../qml/pages/ChatSettingsPage.qml:139
 msgid "Description:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:136
+#: ../qml/pages/ChatSettingsPage.qml:139
 msgid "No chat description found…"
 msgstr ""
 
