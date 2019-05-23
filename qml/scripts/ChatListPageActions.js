@@ -9,9 +9,6 @@ function loadFromDatabase () {
     " FROM Chats rooms LEFT JOIN Events events " +
     " ON rooms.id=events.chat_id " +
     " WHERE rooms.membership!='leave' " +
-    " AND (events.origin_server_ts IN (" +
-    " SELECT MAX(origin_server_ts) FROM Events WHERE chat_id=rooms.id " +
-    ") OR rooms.membership='invite')" +
     " GROUP BY rooms.id " +
     " ORDER BY origin_server_ts DESC " )
     // We now write the rooms in the column
