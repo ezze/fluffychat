@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-23 19:18+0000\n"
-"PO-Revision-Date: 2019-05-16 09:53+0000\n"
+"PO-Revision-Date: 2019-05-29 05:48+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -28,39 +28,33 @@ msgid "New message"
 msgstr "Ny melding"
 
 #: ../push/pushhelper.cpp:156
-#, fuzzy
 msgid "New encrypted message"
-msgstr "Slett melding"
+msgstr "Ny kryptert melding"
 
 #: ../push/pushhelper.cpp:159
 #, fuzzy
 msgid "New member event"
-msgstr "Endring av sludringsmedlemmer"
+msgstr "Nytt medlemstiltak"
 
 #: ../push/pushhelper.cpp:165
-#, fuzzy
-#| msgid "You have been invited to this chat"
 msgid "You were invited to chat"
-msgstr "Du har blitt invitert til denne sludringen"
+msgstr "Du ble invitert til sludring"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
 msgstr "Er du sikker?"
 
 #: ../qml/Main.qml:151
-#, fuzzy
 msgid "You must agree to the privacy policy"
 msgstr "Du må samtykke til personvernspraksisen"
 
 #: ../qml/Main.qml:166
-#, fuzzy
 msgid "Copied to the clipboard"
-msgstr "%1 har blitt bannlyst fra sludringen"
+msgstr "Kopier til utklippstavle"
 
 #: ../qml/pages/InfoPage.qml:11
-#, fuzzy
 msgid "FluffyChat %1 on %2"
-msgstr "Info %1"
+msgstr "FluffyChat %1 på %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Become a patron"
@@ -102,7 +96,7 @@ msgstr "Arkiverte sludringer"
 #: ../qml/pages/ArchivedChatsPage.qml:44
 #, fuzzy
 msgid "Search archived chats..."
-msgstr "Søk etter sludringsnavn…"
+msgstr "Søk i arkiverte sludringer…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -147,10 +141,6 @@ msgid "Welcome to FluffyChat"
 msgstr "Velkommen til FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
-#, fuzzy
-#| msgid ""
-#| "Chat with your friends and join the community. You can use your phone "
-#| "number or an unique username to find friends."
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or a unique username to find friends."
@@ -159,9 +149,8 @@ msgstr ""
 "telefonnummer eller et unikt brukernavn for å finne venner."
 
 #: ../qml/pages/WalkthroughPage.qml:115
-#, fuzzy
 msgid "Join the Matrix"
-msgstr "Ukjent sludring"
+msgstr "Gå inn i Matrix"
 
 #: ../qml/pages/WalkthroughPage.qml:129
 msgid ""
@@ -178,8 +167,6 @@ msgid "What's new in version %1?"
 msgstr "Hva er nytt i versjon %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
-#, fuzzy
-#| msgid "Minor bug fixes and updated translations."
 msgid "Minor bugfixes and updated translations."
 msgstr "Små feilrettinger og oppdaterte oversettelser."
 
@@ -217,14 +204,12 @@ msgid "Continue"
 msgstr "Fortsett"
 
 #: ../qml/pages/LoginPage.qml:20
-#, fuzzy
 msgid "Homeserver %1"
-msgstr "Bruker hjemmetjeneren: "
+msgstr "Hjemmetjener %1"
 
 #: ../qml/pages/LoginPage.qml:28
-#, fuzzy
 msgid "Change homeserver"
-msgstr "Bruker hjemmetjeneren: "
+msgstr "Endre hjemmetjener"
 
 #: ../qml/pages/LoginPage.qml:33
 msgid "Change ID-server"
@@ -243,9 +228,8 @@ msgid "Choose your homeserver"
 msgstr "Velg din hjemmetjener"
 
 #: ../qml/pages/LoginPage.qml:83
-#, fuzzy
 msgid "Choose your identity server"
-msgstr "Velg din hjemmetjener"
+msgstr "Velg din identitetstjener"
 
 #: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
@@ -256,9 +240,8 @@ msgid "Username or Matrix ID"
 msgstr "Brukernavn eller Matrix ID"
 
 #: ../qml/pages/LoginPage.qml:176
-#, fuzzy
 msgid "Create a new account"
-msgstr "Start ny sludring"
+msgstr "Opprett ny konto"
 
 #: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
@@ -275,7 +258,7 @@ msgstr "Del"
 #: ../qml/pages/ChatListPage.qml:104
 #, fuzzy
 msgid "Search for your chats…"
-msgstr "Søk etter sludringsnavn…"
+msgstr "Søk etter dine sludringer…"
 
 #: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
@@ -283,23 +266,20 @@ msgstr ""
 "Dra fra bunnen for å starte ny sludring eller oppdag offentlige grupper."
 
 #: ../qml/pages/ChatListPage.qml:155
-#, fuzzy
 msgid "Add chat"
-msgstr "Rediger sludringsnavn"
+msgstr "Legg til sludring"
 
 #: ../qml/pages/CreateChatPage.qml:15
-#, fuzzy
 msgid "Add Chat"
-msgstr "Rediger sludringsnavn"
+msgstr "Legg til sludring"
 
 #: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
 msgstr "Importer fra adressebok"
 
 #: ../qml/pages/CreateChatPage.qml:42
-#, fuzzy
 msgid "Filter contacts"
-msgstr "Ny kontakt"
+msgstr "Filtrer kontakter"
 
 #: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
@@ -330,14 +310,12 @@ msgid "Edit"
 msgstr "Rediger"
 
 #: ../qml/pages/SettingsPage.qml:124
-#, fuzzy
 msgid "Change main color"
-msgstr "Velg en hovedfarge:"
+msgstr "Endre hovedfarge"
 
 #: ../qml/pages/SettingsPage.qml:138
-#, fuzzy
 msgid "Change background"
-msgstr "Sett slurdrebakgrunn"
+msgstr "Endre bakgrunn"
 
 #: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
@@ -421,7 +399,7 @@ msgstr "Skriv inn passordet ditt for: <b>%1</b>"
 #: ../qml/pages/PasswordInputPage.qml:50
 #, fuzzy
 msgid "Password..."
-msgstr "Passord"
+msgstr "Passord…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
@@ -461,9 +439,8 @@ msgid "Messages from bots"
 msgstr "Meldinger fra bot-er"
 
 #: ../qml/pages/InvitePage.qml:23
-#, fuzzy
 msgid "Invite users"
-msgstr "Kun inviterte brukere"
+msgstr "Inviter brukere"
 
 #: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
@@ -520,9 +497,8 @@ msgid "Choose a country"
 msgstr "Velg et land"
 
 #: ../qml/pages/CountryPickerPage.qml:28
-#, fuzzy
 msgid "Search for country by name…"
-msgstr "Søk etter sludringsnavn…"
+msgstr "Søk etter land, etter navn…"
 
 #: ../qml/pages/UserPage.qml:34
 #, fuzzy
@@ -672,10 +648,8 @@ msgid "Description:"
 msgstr "Beskrivelse:"
 
 #: ../qml/pages/ChatSettingsPage.qml:139
-#, fuzzy
-#| msgid "No description found"
 msgid "No chat description found…"
-msgstr "Fant ingen beskrivelse"
+msgstr "Fant ingen sludringsbeskrivelse…"
 
 #: ../qml/pages/ChatSettingsPage.qml:187
 msgid "Users in this chat (%1):"
@@ -851,7 +825,7 @@ msgstr "Endre"
 #: ../qml/components/ChangePasswordDialog.qml:48
 #, fuzzy
 msgid "Password has been changed"
-msgstr "Sludretilgangene har blitt endret"
+msgstr "Passordet er endret"
 
 #: ../qml/components/ChangeAvatarDialog.qml:11
 msgid "Edit profile picture"
@@ -905,8 +879,6 @@ msgid "Download"
 msgstr "Last ned"
 
 #: ../qml/components/WaitDialog.qml:11
-#, fuzzy
-#| msgid "Loading... Please wait!"
 msgid "Loading… Please wait."
 msgstr "Laster inn… Vent."
 
@@ -1260,14 +1232,13 @@ msgid ""
 msgstr "Merk deg at FluffyChat ikke støtter transportkryptering enda."
 
 #: ../qml/scripts/MatrixNames.js:22
-#, fuzzy
 msgid "Phone contacts:"
-msgstr "Ny kontakt"
+msgstr "Telefonkontakter:"
 
 #: ../qml/scripts/MatrixNames.js:23
 #, fuzzy
 msgid "Email contacts:"
-msgstr "Ny kontakt"
+msgstr "E-postkontakter:"
 
 #: ../qml/scripts/MatrixNames.js:24
 #, fuzzy
