@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-23 19:18+0000\n"
-"PO-Revision-Date: 2019-05-19 08:48+0000\n"
+"PO-Revision-Date: 2019-05-29 05:48+0000\n"
 "Last-Translator: Anne Onyme 017 <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
 "translations/fr/>\n"
@@ -166,8 +166,6 @@ msgid "What's new in version %1?"
 msgstr "Quoi de neuf dans la version %1 ?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
-#, fuzzy
-#| msgid "Minor bug fixes and updated translations."
 msgid "Minor bugfixes and updated translations."
 msgstr "Corrections mineures de problèmes et traductions mises à jour."
 
@@ -188,12 +186,6 @@ msgid "Community funded"
 msgstr "Financé par la communauté"
 
 #: ../qml/pages/WalkthroughPage.qml:235
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers is "
-#| "all community funded. You can donate to this project on <a href='https://"
-#| "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. Donate to this project on <a href='https://www.patreon.com/"
@@ -201,10 +193,9 @@ msgid ""
 "KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat est ouvert, à but non lucratif et adorable. Le développement et "
-"les serveurs sont financés en totalité par la communauté. Vous pouvez faire "
-"un don à ce projet sur <a href='https://www.patreon.com/bePatron?"
-"u=11123241'>Patreon</a> ou <a href='https://liberapay.com/KrilleChritzelius/"
-"donate'>Liberapay</a>"
+"les serveurs sont financés en totalité par la communauté. Faites un don à ce "
+"projet sur <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> "
+"ou <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
