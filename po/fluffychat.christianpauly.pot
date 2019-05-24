@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-21 10:10+0000\n"
+"POT-Creation-Date: 2019-05-24 07:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -466,35 +466,35 @@ msgstr ""
 msgid "Start new chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:55 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:112
+#: ../qml/pages/ChatPage.qml:113
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:137
+#: ../qml/pages/ChatPage.qml:138
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:160
+#: ../qml/pages/ChatPage.qml:161
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:238
+#: ../qml/pages/ChatPage.qml:239
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:238
+#: ../qml/pages/ChatPage.qml:239
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:246
+#: ../qml/pages/ChatPage.qml:247
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:275
+#: ../qml/pages/ChatPage.qml:276
 msgid "Type something ..."
 msgstr ""
 
@@ -524,39 +524,47 @@ msgid "Advanced settings"
 msgstr ""
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
-msgid "Access"
+msgid "End-to-end encryption"
 msgstr ""
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
+msgid "(Experimental) Enable encryption"
+msgstr ""
+
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:59
+msgid "Access"
+msgstr ""
+
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:64
 msgid "Users can be invited"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:60
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:72
 msgid "Chat is public accessible"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:68
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:80
 msgid "Guest users are allowed"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:75
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:87
 #: ../qml/pages/ChatAliasSettingsPage.qml:31
 msgid "Public chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:82
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:94
 msgid "History visibility"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:87
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:99
 msgid "History is visible from invitation"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:94
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:106
 msgid "Members can access full chat history"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:101
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:113
 msgid "Anyone can access full chat history"
 msgstr ""
 
@@ -1093,12 +1101,16 @@ msgstr ""
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/scripts/ChatPageActions.js:524
+#: ../qml/scripts/ChatPageActions.js:525
 msgid "Uploading..."
 msgstr ""
 
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
+msgstr ""
+
+#: ../qml/scripts/ChatAdvancedSettingsPageActions.js:98
+msgid "This can not be undone!"
 msgstr ""
 
 #: ../qml/scripts/DefaultLayoutActions.js:29

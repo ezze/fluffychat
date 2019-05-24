@@ -121,6 +121,7 @@ function init () {
     if ( res.rows.length === 0 ) return
     var room = res.rows[0]
     membership = room.membership
+    encryptionAlgorithm = room.encryption_algorithm
     messageTextField.text = ""
     if ( room.draft !== "" && room.draft !== null ) messageTextField.text = room.draft
 

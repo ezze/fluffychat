@@ -27,6 +27,7 @@ Page {
     property var requesting: false
     property var initialized: -1
     property var count: chatScrollView.count
+    property var encryptionAlgorithm: "";
     property alias model: chatScrollView.model
 
     anchors.fill: parent

@@ -44,6 +44,18 @@ Page {
             width: chatPrivacySettingsPage.width
 
             ListSeperator {
+                text: i18n.tr("End-to-end encryption")
+            }
+
+            SettingsListItem {
+                id: initEncryption
+                name: i18n.tr("(Experimental) Enable encryption")
+                icon: "lock"
+                onClicked: PageActions.initEncryption()
+                visible: encryptionAlgorithm !== "" && canSendMessages
+            }
+
+            ListSeperator {
                 text: i18n.tr("Access")
             }
 
