@@ -476,7 +476,6 @@ Item {
         var newAccount = E2ee.createAccount ( matrix.matrixid )
         var keysJsonStr = E2ee.getIdentityKeys ()
         var keys = JSON.parse(keysJsonStr)
-        var signedKeys = E2ee.signJsonString (keys["ed25519"])
         E2ee.generateOneTimeKeys()
         var oneTimeKeys = JSON.parse(E2ee.getOneTimeKeys ())
         var signedOneTimeKeys = {}
@@ -494,16 +493,17 @@ Item {
                 "user_id": matrix.matrixid,
                 "device_id": matrix.deviceID,
                 "algorithms": supportedEncryptionAlgorithms,
-                "keys": {},
-                "signatures": {}
+                "keys": {}
             },
             "one_time_keys": signedOneTimeKeys
         }
         for ( var algorithm in keys ) {
             requestData["device_keys"]["keys"][algorithm+":"+matrix.deviceID] = keys[algorithm]
         }
+        var canonicalJson = JSON.stringify(requestData["device_keys"])
+        requestData["device_keys"]["signatures"] = {}
         requestData["device_keys"]["signatures"][matrix.matrixid] = {}
-        requestData["device_keys"]["signatures"][matrix.matrixid]["ed25519:"+matrix.deviceID] = signedKeys
+        requestData["device_keys"]["signatures"][matrix.matrixid]["ed25519:"+matrix.deviceID] = E2ee.signJsonString (canonicalJson)
 
         var success_callback = function (result) {
             console.log("KEYS UPLOADED", JSON.stringify(result))
@@ -514,7 +514,7 @@ Item {
             }
         }
 
-        console.log("UPLOADING KEYS: ")
+        console.log("UPLOADING KEYS: ", JSON.stringify(requestData["device_keys"]))
 
         matrix.post ("/client/r0/keys/upload", requestData, success_callback, function (error) {
             console.log("ERROR UPLOADING KEYS:",JSON.stringify(error))
