@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-16 06:04+0000\n"
+"POT-Creation-Date: 2019-05-23 19:18+0000\n"
 "PO-Revision-Date: 2019-05-18 20:09+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
@@ -164,7 +164,9 @@ msgid "What's new in version %1?"
 msgstr "Was gibt's neues in Version %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
-msgid "Minor bug fixes and updated translations."
+#, fuzzy
+#| msgid "Minor bug fixes and updated translations."
+msgid "Minor bugfixes and updated translations."
 msgstr "Ein paar Fehlerbehebungen und neue Übersetzungen."
 
 #: ../qml/pages/WalkthroughPage.qml:174
@@ -184,11 +186,17 @@ msgid "Community funded"
 msgstr "Finanziert durch die Gemeinschaft"
 
 #: ../qml/pages/WalkthroughPage.qml:235
+#, fuzzy
+#| msgid ""
+#| "FluffyChat is open, nonprofit and cute. The development and servers is "
+#| "all community funded. You can donate to this project on <a href='https://"
+#| "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
+#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
-"community funded. You can donate to this project on <a href='https://www."
-"patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay."
-"com/KrilleChritzelius/donate'>Liberapay</a>"
+"community funded. Donate to this project on <a href='https://www.patreon.com/"
+"bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat ist offen, unkommerziell und süß. Die Entwicklung und Server sind "
 "alle Spendenbasiert. Du kannst für dieses Projekt spenden auf <a "
@@ -621,11 +629,11 @@ msgstr "Keine Chats gefunden"
 msgid "Edit chat name"
 msgstr "Chatnamen ändern"
 
-#: ../qml/pages/ChatSettingsPage.qml:128
+#: ../qml/pages/ChatSettingsPage.qml:139
 msgid "Description:"
 msgstr "Beschreibung:"
 
-#: ../qml/pages/ChatSettingsPage.qml:136
+#: ../qml/pages/ChatSettingsPage.qml:139
 msgid "No chat description found…"
 msgstr "Keine Beschreibung gefunden …"
 

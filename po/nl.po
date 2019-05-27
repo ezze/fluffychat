@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-16 06:04+0000\n"
+"POT-Creation-Date: 2019-05-23 19:18+0000\n"
 "PO-Revision-Date: 2019-04-20 10:28+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
@@ -173,7 +173,7 @@ msgstr "Wat is er nieuw in versie %1?"
 #: ../qml/pages/WalkthroughPage.qml:173
 #, fuzzy
 #| msgid "Minor bug fixes and new translations."
-msgid "Minor bug fixes and updated translations."
+msgid "Minor bugfixes and updated translations."
 msgstr ""
 "Er zijn enkele kleine problemen opgelost, en er zijn nieuwe vertalingen."
 
@@ -194,11 +194,17 @@ msgid "Community funded"
 msgstr "Bekostigd door de gemeenschap"
 
 #: ../qml/pages/WalkthroughPage.qml:235
+#, fuzzy
+#| msgid ""
+#| "FluffyChat is open, nonprofit and cute. The development and servers is "
+#| "all community funded. You can donate to this project on <a href='https://"
+#| "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
+#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
-"community funded. You can donate to this project on <a href='https://www."
-"patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay."
-"com/KrilleChritzelius/donate'>Liberapay</a>"
+"community funded. Donate to this project on <a href='https://www.patreon.com/"
+"bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat is open, non-profit en schattig. De ontwikkeling en servers "
 "worden bekostigd door de gemeenschap. U kunt aan dit project doneren op <a "
@@ -633,11 +639,11 @@ msgstr "Geen gesprekken gevonden"
 msgid "Edit chat name"
 msgstr "Gespreksnaam bewerken"
 
-#: ../qml/pages/ChatSettingsPage.qml:128
+#: ../qml/pages/ChatSettingsPage.qml:139
 msgid "Description:"
 msgstr "Omschrijving:"
 
-#: ../qml/pages/ChatSettingsPage.qml:136
+#: ../qml/pages/ChatSettingsPage.qml:139
 msgid "No chat description found…"
 msgstr "Geen gespreksomschrijving gevonden…"
 

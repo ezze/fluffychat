@@ -83,67 +83,67 @@ Page {
                 visible: profileRow.visible
             }
 
-            Row {
-                id: profileRow
+
+
+            Rectangle {
+                color: theme.palette.normal.background
                 width: parent.width
                 height: parent.width / 2
-                spacing: units.gu(2)
                 visible: hasAvatar || description !== ""
 
-                property var avatar_url: ""
+                Row {
+                    id: profileRow
+                    anchors.fill: parent
+                    spacing: units.gu(2)
 
-                Rectangle {
-                    height: parent.height
-                    width: 1
-                    color: "#00000000"
-                }
+                    property var avatar_url: ""
 
-                Avatar {
-                    id: avatarImage
-                    name: activeChatDisplayName
-                    height: parent.height - units.gu(3)
-                    width: height
-                    mxc: ""
-                    onClickFunction: function () {
-                        imageViewer.show ( mxc )
+                    Rectangle {
+                        height: parent.height
+                        width: 1
+                        color: "#00000000"
                     }
-                    Button {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.bottom: parent.bottom
-                        width: parent.width / 2
-                        visible: canChangeAvatar
-                        opacity: 0.75
-                        color: "#000000"
-                        iconName: "camera-app-symbolic"
-                        onClicked: PopupUtils.open(changeChatAvatarDialog)
-                    }
-                    Component.onCompleted: MatrixNames.getAvatarUrl ( activeChat, function ( avatar_url ) { mxc = avatar_url } )
-                }
 
-                Column {
-                    id: descColumn
+                    Avatar {
+                        id: avatarImage
+                        name: activeChatDisplayName
+                        height: parent.height - units.gu(3)
+                        width: height
+                        mxc: ""
+                        z: 1
+                        onClickFunction: function () {
+                            imageViewer.show ( mxc )
+                        }
+                        Button {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.bottom: parent.bottom
+                            width: parent.width / 2
+                            visible: canChangeAvatar
+                            opacity: 0.75
+                            color: "#000000"
+                            iconName: "camera-app-symbolic"
+                            onClicked: PopupUtils.open(changeChatAvatarDialog)
+                        }
+                        Component.onCompleted: MatrixNames.getAvatarUrl ( activeChat, function ( avatar_url ) { mxc = avatar_url } )
+                    }
+
+                    ScrollView {
+                        id: descScrollView
                     width: parent.height - units.gu(3)
-                    anchors.verticalCenter: parent.verticalCenter
-                    Label {
-                        text: i18n.tr("Description:")
-                        width: parent.width
-                        wrapMode: Text.Wrap
-                        font.bold: true
-                    }
-                    Label {
-                        width: parent.width
-                        wrapMode: Text.Wrap
-                        text: description !== "" ? description : i18n.tr("No chat description found…")
-                        linkColor: mainLayout.brightMainColor
-                        textFormat: Text.StyledText
-                        onLinkActivated: contentHub.openUrlExternally ( link )
-                    }
-                    Label {
-                        text: " "
-                        width: parent.width
+                    height: parent.height
+
+                    contentItem: Label {
+                            width: descScrollView.width
+                            verticalAlignment: Text.AlignVCenter
+                            wrapMode: Text.Wrap
+                            text: "<b>" + i18n.tr("Description:") + "</b><br/>" + (description !== "" ? description : i18n.tr("No chat description found…")) + "<br/>"
+                            linkColor: mainLayout.brightMainColor
+                            textFormat: Text.StyledText
+                            onLinkActivated: contentHub.openUrlExternally ( link )
+                            onTextChanged: if (height < descScrollView.height) height = descScrollView.height
+                        }
                     }
                 }
-
             }
 
             Rectangle {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-24 07:02+0000\n"
+"POT-Creation-Date: 2019-05-23 19:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,15 +37,15 @@ msgstr ""
 msgid "You were invited to chat"
 msgstr ""
 
-#: ../qml/Main.qml:129
+#: ../qml/Main.qml:128
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/Main.qml:152
+#: ../qml/Main.qml:151
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:167
+#: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -454,47 +454,47 @@ msgstr ""
 msgid "Username copied to the clipboard"
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:69
+#: ../qml/pages/UserPage.qml:65
 msgid "Chats with this user:"
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:69
+#: ../qml/pages/UserPage.qml:65
 msgid "This is you."
 msgstr ""
 
-#: ../qml/pages/UserPage.qml:87
+#: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:55 ../qml/components/SimpleChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:113
+#: ../qml/pages/ChatPage.qml:112
 msgid "Chat info"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:138
+#: ../qml/pages/ChatPage.qml:137
 msgid "No messages in this chat ..."
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:161
+#: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:239
+#: ../qml/pages/ChatPage.qml:238
 msgid "Accept invitation"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:239
+#: ../qml/pages/ChatPage.qml:238
 msgid "Join"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:247
+#: ../qml/pages/ChatPage.qml:246
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
 msgstr ""
 
@@ -506,65 +506,45 @@ msgstr ""
 msgid "No phone numbers connected"
 msgstr ""
 
-#: ../qml/pages/UserDevicesPage.qml:21
-msgid "Devices of %1"
-msgstr ""
-
-#: ../qml/pages/UserDevicesPage.qml:38 ../qml/pages/DiscoverPage.qml:67
-msgid "Loading…"
-msgstr ""
-
-#: ../qml/pages/UserDevicesPage.qml:38
-msgid "No devices found"
-msgstr ""
-
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
 #: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Advanced settings"
 msgstr ""
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
-msgid "End-to-end encryption"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:52
-msgid "(Experimental) Enable encryption"
-msgstr ""
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:64
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:52
 msgid "Users can be invited"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:72
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:60
 msgid "Chat is public accessible"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:80
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:68
 msgid "Guest users are allowed"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:87
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:75
 #: ../qml/pages/ChatAliasSettingsPage.qml:31
 msgid "Public chat addresses"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:94
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:82
 msgid "History visibility"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:99
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:87
 msgid "History is visible from invitation"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:106
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:94
 msgid "Members can access full chat history"
 msgstr ""
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:113
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:101
 msgid "Anyone can access full chat history"
 msgstr ""
 
@@ -593,6 +573,10 @@ msgid "Search for chats or #aliases…"
 msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:67
+msgid "Loading…"
+msgstr ""
+
+#: ../qml/pages/DiscoverPage.qml:67
 msgid "No chats found"
 msgstr ""
 
@@ -600,11 +584,11 @@ msgstr ""
 msgid "Edit chat name"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:128
+#: ../qml/pages/ChatSettingsPage.qml:139
 msgid "Description:"
 msgstr ""
 
-#: ../qml/pages/ChatSettingsPage.qml:136
+#: ../qml/pages/ChatSettingsPage.qml:139
 msgid "No chat description found…"
 msgstr ""
 
@@ -672,28 +656,28 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:277
+#: ../qml/models/MatrixModel.qml:272
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:394 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
 msgid "😕 No connection…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:451
+#: ../qml/models/MatrixModel.qml:444
 msgid "Upload error:"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:616
+#: ../qml/models/MatrixModel.qml:520
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:623
+#: ../qml/models/MatrixModel.qml:527
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:687
+#: ../qml/models/MatrixModel.qml:591
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1101,16 +1085,12 @@ msgstr ""
 msgid "Was banned from the chat"
 msgstr ""
 
-#: ../qml/scripts/ChatPageActions.js:525
+#: ../qml/scripts/ChatPageActions.js:524
 msgid "Uploading..."
 msgstr ""
 
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
-msgstr ""
-
-#: ../qml/scripts/ChatAdvancedSettingsPageActions.js:98
-msgid "This can not be undone!"
 msgstr ""
 
 #: ../qml/scripts/DefaultLayoutActions.js:29
