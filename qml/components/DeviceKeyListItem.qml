@@ -15,7 +15,7 @@ ListItem {
     ListItemLayout {
         id: layout
         width: parent.width
-        title.text: device.device_id
+        title.text: JSON.parse(device.keys_json).unsigned.device_display_name || device.device_id
         title.font.bold: device.device_id === matrix.deviceID
         Icon {
             width: units.gu(4)
@@ -23,6 +23,13 @@ ListItem {
             SlotsLayout.position: SlotsLayout.Leading
             name: "phone-smartphone-symbolic"
             color: device.verified ? "green" : "red"
+        }
+    }
+
+    onClicked: {
+        if ( isTracking ) {
+            userDevicesPage.activeDevice = device
+            PopupUtils.open(deviceKeyDialog)
         }
     }
 

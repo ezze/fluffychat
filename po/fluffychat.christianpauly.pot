@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-27 09:02+0000\n"
+"POT-Creation-Date: 2019-05-30 13:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -506,15 +506,15 @@ msgstr ""
 msgid "No phone numbers connected"
 msgstr ""
 
-#: ../qml/pages/UserDevicesPage.qml:21
+#: ../qml/pages/UserDevicesPage.qml:25
 msgid "Devices of %1"
 msgstr ""
 
-#: ../qml/pages/UserDevicesPage.qml:38 ../qml/pages/DiscoverPage.qml:67
+#: ../qml/pages/UserDevicesPage.qml:44 ../qml/pages/DiscoverPage.qml:67
 msgid "Loading…"
 msgstr ""
 
-#: ../qml/pages/UserDevicesPage.qml:38
+#: ../qml/pages/UserDevicesPage.qml:44
 msgid "No devices found"
 msgstr ""
 
@@ -704,6 +704,32 @@ msgstr ""
 msgid "Copied to clipboard"
 msgstr ""
 
+#: ../qml/components/DeviceKeyDialog.qml:27
+msgid "Verify"
+msgstr ""
+
+#: ../qml/components/DeviceKeyDialog.qml:36
+msgid "Revoke verification"
+msgstr ""
+
+#: ../qml/components/DeviceKeyDialog.qml:45
+msgid "Block device"
+msgstr ""
+
+#: ../qml/components/DeviceKeyDialog.qml:54
+msgid "Unblock device"
+msgstr ""
+
+#: ../qml/components/DeviceKeyDialog.qml:64
+#: ../qml/components/ChangeAvatarDialog.qml:51
+#: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/BottomEdgePageStack.qml:92
+#: ../qml/components/ColorDialog.qml:38
+#: ../qml/components/ChangeChatAvatarDialog.qml:51
+#: ../qml/components/ChangeChatnameDialog.qml:62
+msgid "Close"
+msgstr ""
+
 #: ../qml/components/MemberListItem.qml:48
 #: ../qml/components/ChatScrollView.qml:49
 msgid "Swipe to the left or the right for actions. 😉"
@@ -773,15 +799,6 @@ msgstr ""
 #: ../qml/components/ChangeAvatarDialog.qml:40
 #: ../qml/components/ChangeChatAvatarDialog.qml:40
 msgid "Remove picture"
-msgstr ""
-
-#: ../qml/components/ChangeAvatarDialog.qml:51
-#: ../qml/components/TargetInfoDialog.qml:48
-#: ../qml/components/BottomEdgePageStack.qml:92
-#: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangeChatAvatarDialog.qml:51
-#: ../qml/components/ChangeChatnameDialog.qml:62
-msgid "Close"
 msgstr ""
 
 #: ../qml/components/TargetInfoDialog.qml:11

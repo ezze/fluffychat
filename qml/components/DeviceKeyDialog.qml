@@ -2,14 +2,14 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import "../scripts/UserDevicesPageActions.js" as PageActions
 
 Component {
     id: dialog
 
     Dialog {
         id: dialogue
-        property var device
-        title: i18n.tr("Unknown device")
+        title: JSON.parse(activeDevice.keys_json).unsigned.device_display_name || device.device_id
         Rectangle {
             height: units.gu(0.2)
             width: parent.width
@@ -17,27 +17,46 @@ Component {
         }
 
         Label {
-            text: device.keys
+            width: parent.width
+            text: PageActions.getDisplayPublicKey ()
+            font.bold: true
+            wrapMode: Text.WrapAnywhere
         }
 
         Button {
             text: i18n.tr("Verify")
-            visible: !device.verified
+            visible: !activeDevice.verified
             color: UbuntuColors.green
+            onClicked: {
+                PageActions.verify()
+                PopupUtils.close(dialogue)
+            }
         }
         Button {
             text: i18n.tr("Revoke verification")
-            visible: device.verified
+            visible: activeDevice.verified
             color: UbuntuColors.red
+            onClicked: {
+                PageActions.revoke()
+                PopupUtils.close(dialogue)
+            }
         }
         Button {
             text: i18n.tr("Block device")
-            visible: !device.blocked
+            visible: !activeDevice.blocked
             color: UbuntuColors.red
+            onClicked: {
+                PageActions.block()
+                PopupUtils.close(dialogue)
+            }
         }
         Button {
             text: i18n.tr("Unblock device")
-            visible: device.verified
+            visible: activeDevice.blocked
+            onClicked: {
+                PageActions.unblock()
+                PopupUtils.close(dialogue)
+            }
         }
 
         Button {

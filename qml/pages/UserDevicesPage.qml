@@ -13,6 +13,10 @@ Page {
     property var matrix_id: activeUser
     property bool loading: true
     property bool isTracking: false
+    property var activeDevice: {}
+    signal reload
+
+    onReload: PageActions.init()
 
     Component.onCompleted: PageActions.init ()
 
@@ -22,6 +26,8 @@ Page {
     }
 
     ListModel { id: model }
+
+    DeviceKeyDialog { id: deviceKeyDialog }
 
     ListView {
         id: chatListView
