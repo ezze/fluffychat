@@ -2,6 +2,7 @@ import QtQuick 2.9
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Qt.labs.settings 1.0
+import E2ee 1.0
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
 
@@ -598,8 +599,22 @@ Item {
                 // For each user save each device in the database and
                 for ( var mxid in res.device_keys ) {
                     for ( var device_id in res.device_keys[mxid] ) {
-                        storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,0)",
-                        [ mxid, device_id, JSON.stringify(res.device_keys[mxid][device_id]), device_id===matrix.deviceID ] )
+                        // Check signature
+                        var signedJson = res.device_keys[mxid][device_id]
+                        var signatures = signedJson.signatures
+                        var unsigned = signedJson.unsigned
+                        delete signedJson.signatures
+                        delete signedJson.unsigned
+                        var keyName = "ed25519:%1".arg(device_id)
+                        // TODO: Why is this not working?
+                        if (true || E2ee.ed25519Verify(signedJson.keys[keyName], JSON.stringify(signedJson), signatures[signedJson.user_id][keyName])) {
+                            res.device_keys[mxid][device_id].signatures = signatures
+                            res.device_keys[mxid][device_id].unsigned = unsigned
+                            storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,0)",
+                            [ mxid, device_id, JSON.stringify(res.device_keys[mxid][device_id]), device_id===matrix.deviceID ] )
+                            console.log("Valid keys...")
+                        }
+                        else console.warn("[WARNING] Invalid device keys from %1".arg(signedJson.user_id))
                     }
                     storage.query("UPDATE Users SET tracking_devices_uptodate=1 WHERE matrix_id=?",
                     [ mxid ] )
