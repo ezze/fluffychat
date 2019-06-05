@@ -1,6 +1,8 @@
 # Qt
 *.user
 *.qmlc
+*.kde4
+..gitignore.kate-swp
 
 # Clickable
 build
