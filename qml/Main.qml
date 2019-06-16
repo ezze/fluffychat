@@ -39,7 +39,7 @@ MainView {
 
     This config variables are readonly!
     */
-    readonly property var defaultDomain: "ubports.chat"
+    readonly property var defaultDomain: "matrix.org"
     readonly property var defaultIDServer: "vector.im"
     readonly property var version: "11.11"
     readonly property var downloadPath: "/home/phablet/.local/share/ubuntu-download-manager/fluffychat.christianpauly/Downloads/"
