@@ -30,7 +30,7 @@ Page {
                 "<b>Matrix client</b><br>" +
                 "<br>" +
                 "* FluffyChat is a Matrix protocol client and is compatible with all Matrix servers and Matrix identity servers. All communications conducted while using FluffyChat use a Matrix server and the Matrix identity server.<br>" +
-                "* The default server in FluffyChat is https://ubports.chat and the default identity server is https://vector.im.<br>" +
+                "* The default server in FluffyChat is https://matrix.org and the default identity server is https://vector.im.<br>" +
                 "* FluffyChat doesn't operate any server or remote service.<br>" +
                 "* All communication of substantive content between FluffyChat and any server is done in secure way, using transport encryption to protect it. End-to-end encryption will follow.<br>" +
                 "* FluffyChat is not responsible for the data processing carried out by any Matrix server or Matrix identity server.<br>" +
