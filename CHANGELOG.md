@@ -1,3 +1,10 @@
+What's new in FluffyChat 11.12
+----------------------------
+- Change default Homeserver to matrix.org
+
+#matrix #ubuntutouch
+
+
 What's new in FluffyChat 11.11
 ----------------------------
 + New translations - thanks to all translators
