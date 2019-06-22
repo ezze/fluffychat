@@ -7,12 +7,23 @@
 #include <QtNetwork/QNetworkReply>
 #include <QUrl>
 #include <QCommandLineParser>
+#include <QByteArray> 
 
+#include "e2eeSeed.h"
 #include "e2ee.h"
 
-E2ee::E2ee() {
-    m_olmAccount = nullptr;
-    m_activeSession = nullptr;
+E2ee::E2ee() : isSessionActive(false), isAccountInitialized(false) {
+
+    size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
+    void * accountMemory = malloc( accountSize ); // Allocate the memory
+    m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
+
+    size_t sessionSize = olm_session_size(); // Get the memory size that is at least necessary for account init
+    m_activeSession = static_cast<OlmSession *>(malloc(sessionSize)); // Allocate the memory
+
+    size_t outboundGroupSessionSize = olm_outbound_group_session_size();
+    void * outboundGroupSessionMemory = malloc(outboundGroupSessionSize);
+    m_activeOutboundGroupSession = olm_outbound_group_session(outboundGroupSessionMemory);
 }
 
 E2ee::~E2ee() {
@@ -36,12 +47,12 @@ QString logError (QString errorMsg) {
 
 
 bool E2ee::check_m_olmAccount() {
-    return m_olmAccount == nullptr;
+    return isAccountInitialized;
 }
 
 
 bool E2ee::check_m_activeSession() {
-    return check_m_olmAccount() || m_activeSession == nullptr;
+    return check_m_olmAccount() && isSessionActive;
 }
 
 
@@ -86,25 +97,15 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
 
 QString E2ee::createAccount(QString key) {
 
-    size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
-
-    void * accountMemory = malloc( accountSize ); // Allocate the memory
-
-    m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
-
     size_t randomSize = olm_create_account_random_length(m_olmAccount); // Get the random size for account creation
 
-    void * randomMemory = malloc( randomSize ); // Allocate the memory
+    E2eeSeed seed(randomSize);
 
-    size_t resultOlmCreation = olm_create_account(m_olmAccount, randomMemory, randomSize); // Create the Olm account
+    size_t resultOlmCreation = olm_create_account(m_olmAccount, seed.random(), randomSize); // Create the Olm account
 
     if (resultOlmCreation == olm_error()) {
         return logError(olm_account_last_error(m_olmAccount));
     }
-
-    memset(randomMemory, '0', randomSize); // Set the allocated memory in ram to 0 everywhere
-
-    free(randomMemory);  // Free the memory
 
     size_t olmAccountPickleMaxLength = olm_pickle_account_length(m_olmAccount);
     char olmAccountPickle[olmAccountPickleMaxLength+1];
@@ -120,12 +121,6 @@ QString E2ee::createAccount(QString key) {
 
 
 bool E2ee::restoreAccount(QString olmAccountStr, QString key) {
-    size_t accountSize = olm_account_size(); // Get the memory size that is at least necessary for account init
-
-    void * accountMemory = malloc( accountSize ); // Allocate the memory
-
-    m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
-    
     if (olm_unpickle_account(m_olmAccount, key.toLocal8Bit().data(), key.length(), olmAccountStr.toLocal8Bit().data(), olmAccountStr.length()) == olm_error()) {
         logError(olm_account_last_error(m_olmAccount));
         return false;
@@ -156,7 +151,7 @@ void E2ee::removeAccount() {
     removeSession();
 
     olm_clear_account(m_olmAccount);
-    m_olmAccount = nullptr;
+    isAccountInitialized = false;
 }
 
 
@@ -198,8 +193,9 @@ void E2ee::generateOneTimeKeys() {
 
     size_t maxNumber = olm_account_max_number_of_one_time_keys(m_olmAccount);
     size_t randomLength = olm_account_generate_one_time_keys_random_length(m_olmAccount, maxNumber);
-    void * random = malloc( randomLength );
-    if (olm_account_generate_one_time_keys(m_olmAccount, maxNumber, random, randomLength) == olm_error()) {
+    E2eeSeed seed(randomLength);
+
+    if (olm_account_generate_one_time_keys(m_olmAccount, maxNumber, seed.random(), randomLength) == olm_error()) {
         logError(olm_account_last_error(m_olmAccount));
     }
 }
@@ -216,14 +212,16 @@ QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QSt
     if (check_m_olmAccount()) return logError("No m_olmAccount initialized!");
 
     size_t randomLength = olm_create_outbound_session_random_length(m_activeSession);
-    void * random = malloc( randomLength );
+
+    E2eeSeed seed(randomLength);
+
     if (olm_create_outbound_session(m_activeSession,
         m_olmAccount,
         identityKey.toLocal8Bit().data(),
         identityKey.length(),
         oneTimeKey.toLocal8Bit().data(),
         oneTimeKey.length(),
-        random,
+        seed.random(),
         randomLength
     ) == olm_error()) {
         return logError(olm_session_last_error(m_activeSession));
@@ -274,7 +272,7 @@ void E2ee::setActiveSession(QString olmSessionStr, QString key){
 void E2ee::removeSession() {
     if (check_m_activeSession()) return;
     olm_clear_session(m_activeSession);
-    m_activeSession = nullptr;
+    isSessionActive = false;
 }
 
 
@@ -360,7 +358,7 @@ QString E2ee::encrypt(QString plaintext){
     if (check_m_activeSession()) return logError("No m_activeSession initialized!");
 
     size_t randomLength = olm_encrypt_random_length(m_activeSession);
-    void * random = malloc( randomLength );
+    E2eeSeed seed(randomLength);
 
     size_t messageLength = olm_encrypt_message_length(m_activeSession, plaintext.length());
     char message[messageLength+1];
@@ -370,7 +368,7 @@ QString E2ee::encrypt(QString plaintext){
     if (olm_encrypt(m_activeSession,
         plaintext.toLocal8Bit().data(),
         plaintext.length(),
-        random,
+        seed.random(),
         randomLength,
         message,
         messageLength
@@ -431,7 +429,9 @@ QString E2ee::sha256(QString input){
     );
 
     olm_clear_utility(utility);
+    free(utilityMemory);
     utility = nullptr;
+
     return QString::fromUtf8(output);
 }
 
@@ -451,6 +451,7 @@ bool E2ee::ed25519Verify(QString key, QString message, QString signature){
     );
 
     olm_clear_utility(utility);
+    free(utilityMemory);
     utility = nullptr;
 
     if (result == 1) {
@@ -462,4 +463,33 @@ bool E2ee::ed25519Verify(QString key, QString message, QString signature){
 
 void E2ee::uploadProgressSlot(qint64 bytesSent, qint64 bytesTotal) {
     uploadProgress(bytesSent, bytesTotal);
+}
+
+
+QString E2ee::createOutboundGroupSession(QString key)
+{
+    E2eeSeed megolmKeySeed(olm_init_outbound_group_session_random_length(this->m_activeOutboundGroupSession));
+
+    size_t error = olm_init_outbound_group_session(this->m_activeOutboundGroupSession,
+                                                   megolmKeySeed.random(),
+                                                   megolmKeySeed.length());
+    if (error) {
+        logError("olm_init_outbound_group_session failed");
+        return "";
+    }
+
+    size_t pickleLength = olm_pickle_outbound_group_session_length(this->m_activeOutboundGroupSession);
+
+    QByteArray pickle(pickleLength, '\0');
+
+    error = olm_pickle_outbound_group_session(this->m_activeOutboundGroupSession,
+                                              key.toLocal8Bit().data(), key.length(),
+                                              pickle.data(), pickleLength);
+
+    if (error) {
+        logError("olm_pickle_outbound_group_session failed");
+        return "";
+    }
+
+    return QString(pickle);
 }

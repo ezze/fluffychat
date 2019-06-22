@@ -11,11 +11,16 @@ private:
     OlmAccount* m_olmAccount;
     OlmSession* m_activeSession;
 
+    bool isSessionActive;
+    bool isAccountInitialized;
+
     QString getSessionAndSessionID(QString key);
 
     bool check_m_olmAccount();
     bool check_m_activeSession();
 
+    OlmOutboundGroupSession *m_activeOutboundGroupSession;
+         
 public:
     E2ee();
     ~E2ee();
@@ -108,6 +113,10 @@ public:
 
     /** Calculates the SHA-256 hash of the input and encodes it as base64.  **/
     Q_INVOKABLE bool ed25519Verify(QString key, QString message, QString signature);
+
+    /** Creates a new out-bound megolm session for sending events/messages in a room.
+     *  Returns the base64 encoded pickle for the OlmGroupSession. **/
+    Q_INVOKABLE QString createOutboundGroupSession(QString key);
 
 
 public slots:
