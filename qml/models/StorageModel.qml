@@ -20,7 +20,7 @@ Item {
 
     id: storage
 
-    property var version: "0.4.1"
+    property var version: "0.5.0"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -91,6 +91,8 @@ Item {
         'encryption_algorithm TEXT, ' +
         'encryption_rotation_period_ms INTEGER, ' +
         'encryption_rotation_period_msgs INTEGER, ' +
+        'encryption_pickle TEXT, ' +
+        'encryption_session_id TEXT, ' +
 
         // Power levels
         'power_events_default INTEGER, ' +
@@ -280,7 +282,7 @@ Item {
     function newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline, prevBatch ) {
         // Insert the chat into the database if not exists
         addQuery ("INSERT OR IGNORE INTO Chats " +
-        "VALUES(?, ?, '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', '', 0, 0, 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ", [
+        "VALUES(?, ?, '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', '', 0, 0, '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ", [
         chat_id, membership
         ] )
 
