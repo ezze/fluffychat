@@ -182,6 +182,15 @@ Item {
         'blocked INTEGER, ' +
         'UNIQUE(matrix_id, device_id))')
 
+        // TABLE SCHEMA FOR OLM SESSIONS
+        query('CREATE TABLE IF NOT EXISTS OlmSessions(' +
+        'session_id TEXT, ' +
+        'device_id TEXT, ' +
+        'user TEXT, ' +
+        'sender_key TEXT, ' +
+        'pickle TEXT, ' +
+        'UNIQUE(session_id))')
+
         if ( matrix.isLogged ) {
             storage.markSendingEventsAsError ()
         }
