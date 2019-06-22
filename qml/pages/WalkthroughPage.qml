@@ -181,7 +181,7 @@ Page {
                     fontSize: "large"
                     height: contentHeight
                     horizontalAlignment: Text.AlignHLeft
-                    text: template1
+                    text: "Changed default Homeserver to matrix.org"
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                 }

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:18+0000\n"
-"PO-Revision-Date: 2019-04-23 13:55+0000\n"
+"POT-Creation-Date: 2019-06-16 18:20+0000\n"
+"PO-Revision-Date: 2019-06-05 17:55+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ca/>\n"
@@ -24,26 +24,20 @@ msgid "Unknown"
 msgstr "Desconegut"
 
 #: ../push/pushhelper.cpp:146
-#, fuzzy
-#| msgid "No previous messages"
 msgid "New message"
-msgstr "Cap missatge anterior"
+msgstr "Nous missatges"
 
 #: ../push/pushhelper.cpp:156
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "New encrypted message"
-msgstr "Missatge encriptat"
+msgstr "Missatge encriptat nou"
 
 #: ../push/pushhelper.cpp:159
 msgid "New member event"
-msgstr ""
+msgstr "Nou esdeveniment de membre"
 
 #: ../push/pushhelper.cpp:165
-#, fuzzy
-#| msgid "You have been invited to this chat"
 msgid "You were invited to chat"
-msgstr "Se us ha convidat a aquest xat"
+msgstr "Se us ha convidat al xat"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -170,34 +164,26 @@ msgid "What's new in version %1?"
 msgstr "Quines novetats hi ha a la versió %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
-#, fuzzy
-#| msgid "Minor bug fixes and new translations."
 msgid "Minor bugfixes and updated translations."
-msgstr "Correcció d'errors menors i noves traduccions."
+msgstr "Correcció d'errors menors i actualització de traduccions."
 
 #: ../qml/pages/WalkthroughPage.qml:174
 msgid "Critical bug fixed."
-msgstr ""
+msgstr "Error crític corregit."
 
 #: ../qml/pages/WalkthroughPage.qml:175
 msgid "Security bug fixed."
-msgstr ""
+msgstr "Error de seguretat corregit."
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
-msgstr ""
+msgstr "Traduccions actualitzades. Gràcies a tothom."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Finançat per la comunitat"
 
 #: ../qml/pages/WalkthroughPage.qml:235
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers is "
-#| "all community funded. You can donate to this project on <a href='https://"
-#| "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. Donate to this project on <a href='https://www.patreon.com/"
@@ -205,9 +191,9 @@ msgid ""
 "KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 "El FluffyChat és obert, sense ànim de lucre i bufó. Tant el desenvolupament "
-"com els servidors es financen la comunitat. Podeu fer donacions a aquest "
-"projecte amb <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</"
-"a> o <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
+"com els servidors es financen la comunitat. Doneu a aquest projecte amb <a "
+"href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> o <a "
+"href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
@@ -447,12 +433,36 @@ msgid "Search e.g. @username:server.abc"
 msgstr "Cerca p. ex. @usuari:servidor.abc"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:29
+#, fuzzy
+#| msgid ""
+#| "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client "
+#| "and is compatible with all Matrix servers and Matrix identity servers. "
+#| "All communications conducted while using FluffyChat use a Matrix server "
+#| "and the Matrix identity server.<br>* The default server in FluffyChat is "
+#| "https://ubports.chat and the default identity server is https://vector.im."
+#| "<br>* FluffyChat doesn't operate any server or remote service.<br>* All "
+#| "communication of substantive content between FluffyChat and any server is "
+#| "done in secure way, using transport encryption to protect it. End-to-end "
+#| "encryption will follow.<br>* FluffyChat is not responsible for the data "
+#| "processing carried out by any Matrix server or Matrix identity server."
+#| "<br>* FluffyChat offers the option to use phone numbers to find contacts. "
+#| "This is not a requirement of normal operation and is intended only as a "
+#| "convenience. No contact details are uploaded without user interaction! "
+#| "The user can choose to upload all or some or no contacts to the identity "
+#| "server!<br><br><b>Push Notifications</b><br><br>* The Matrix server "
+#| "selected by the user will automatically send push notifications to the "
+#| "UBports push service. These notifications are encrypted with the https "
+#| "protocol between the device and the Matrix server and on to the official "
+#| "UBports Matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/"
+#| "notify This server forwards the notification to UBports push service at "
+#| "https://push.ubports.com and then sends this on as a push notification to "
+#| "the user's device(s).<br>"
 msgid ""
 "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
 "is compatible with all Matrix servers and Matrix identity servers. All "
 "communications conducted while using FluffyChat use a Matrix server and the "
 "Matrix identity server.<br>* The default server in FluffyChat is https://"
-"ubports.chat and the default identity server is https://vector.im.<br>* "
+"matrix.org and the default identity server is https://vector.im.<br>* "
 "FluffyChat doesn't operate any server or remote service.<br>* All "
 "communication of substantive content between FluffyChat and any server is "
 "done in secure way, using transport encryption to protect it. End-to-end "
@@ -1184,22 +1194,16 @@ msgstr ""
 "ara."
 
 #: ../qml/scripts/MatrixNames.js:22
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Phone contacts:"
-msgstr "Filtra els contactes"
+msgstr "Contactes al telèfon:"
 
 #: ../qml/scripts/MatrixNames.js:23
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Email contacts:"
-msgstr "Filtra els contactes"
+msgstr "Contactes a l'email:"
 
 #: ../qml/scripts/MatrixNames.js:24
-#, fuzzy
-#| msgid "Search for your chats…"
 msgid "Users from your chats:"
-msgstr "Cerca als meus xats…"
+msgstr "Usuaris dels vostres xats:"
 
 #: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"

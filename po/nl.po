@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-23 19:18+0000\n"
-"PO-Revision-Date: 2019-04-20 10:28+0000\n"
+"POT-Creation-Date: 2019-06-16 18:20+0000\n"
+"PO-Revision-Date: 2019-06-05 17:55+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/fluffychat/"
 "translations/nl/>\n"
@@ -17,34 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr "Onbekend"
 
 #: ../push/pushhelper.cpp:146
-#, fuzzy
-#| msgid "No previous messages"
 msgid "New message"
-msgstr "Geen eerdere berichten"
+msgstr "Nieuw bericht"
 
 #: ../push/pushhelper.cpp:156
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "New encrypted message"
-msgstr "Versleuteld bericht"
+msgstr "Nieuw versleuteld bericht"
 
 #: ../push/pushhelper.cpp:159
-#, fuzzy
 msgid "New member event"
-msgstr "Chat leden veranderen"
+msgstr "Nieuwe deelnemersgebeurtenis"
 
 #: ../push/pushhelper.cpp:165
-#, fuzzy
-#| msgid "You have been invited to this chat"
 msgid "You were invited to chat"
-msgstr "U bent uitgenodigd in dit gesprek"
+msgstr "U bent uitgenodigd voor een gesprek"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -171,35 +164,27 @@ msgid "What's new in version %1?"
 msgstr "Wat is er nieuw in versie %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
-#, fuzzy
-#| msgid "Minor bug fixes and new translations."
 msgid "Minor bugfixes and updated translations."
 msgstr ""
 "Er zijn enkele kleine problemen opgelost, en er zijn nieuwe vertalingen."
 
 #: ../qml/pages/WalkthroughPage.qml:174
 msgid "Critical bug fixed."
-msgstr ""
+msgstr "Kritiek probleem opgelost."
 
 #: ../qml/pages/WalkthroughPage.qml:175
 msgid "Security bug fixed."
-msgstr ""
+msgstr "Beveiligingsfout opgelost."
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
-msgstr ""
+msgstr "Vertalingen bijgewerkt. Dank aan alle vertalers."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Bekostigd door de gemeenschap"
 
 #: ../qml/pages/WalkthroughPage.qml:235
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers is "
-#| "all community funded. You can donate to this project on <a href='https://"
-#| "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. Donate to this project on <a href='https://www.patreon.com/"
@@ -450,12 +435,36 @@ msgid "Search e.g. @username:server.abc"
 msgstr "Zoek bv. @gebruikersnaam:server.abc"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:29
+#, fuzzy
+#| msgid ""
+#| "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client "
+#| "and is compatible with all Matrix servers and Matrix identity servers. "
+#| "All communications conducted while using FluffyChat use a Matrix server "
+#| "and the Matrix identity server.<br>* The default server in FluffyChat is "
+#| "https://ubports.chat and the default identity server is https://vector.im."
+#| "<br>* FluffyChat doesn't operate any server or remote service.<br>* All "
+#| "communication of substantive content between FluffyChat and any server is "
+#| "done in secure way, using transport encryption to protect it. End-to-end "
+#| "encryption will follow.<br>* FluffyChat is not responsible for the data "
+#| "processing carried out by any Matrix server or Matrix identity server."
+#| "<br>* FluffyChat offers the option to use phone numbers to find contacts. "
+#| "This is not a requirement of normal operation and is intended only as a "
+#| "convenience. No contact details are uploaded without user interaction! "
+#| "The user can choose to upload all or some or no contacts to the identity "
+#| "server!<br><br><b>Push Notifications</b><br><br>* The Matrix server "
+#| "selected by the user will automatically send push notifications to the "
+#| "UBports push service. These notifications are encrypted with the https "
+#| "protocol between the device and the Matrix server and on to the official "
+#| "UBports Matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/"
+#| "notify This server forwards the notification to UBports push service at "
+#| "https://push.ubports.com and then sends this on as a push notification to "
+#| "the user's device(s).<br>"
 msgid ""
 "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
 "is compatible with all Matrix servers and Matrix identity servers. All "
 "communications conducted while using FluffyChat use a Matrix server and the "
 "Matrix identity server.<br>* The default server in FluffyChat is https://"
-"ubports.chat and the default identity server is https://vector.im.<br>* "
+"matrix.org and the default identity server is https://vector.im.<br>* "
 "FluffyChat doesn't operate any server or remote service.<br>* All "
 "communication of substantive content between FluffyChat and any server is "
 "done in secure way, using transport encryption to protect it. End-to-end "
@@ -1187,22 +1196,16 @@ msgstr ""
 "ondersteunt."
 
 #: ../qml/scripts/MatrixNames.js:22
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Phone contacts:"
-msgstr "Contacten filteren"
+msgstr "Telefooncontacten:"
 
 #: ../qml/scripts/MatrixNames.js:23
-#, fuzzy
-#| msgid "Filter contacts"
 msgid "Email contacts:"
-msgstr "Contacten filteren"
+msgstr "E-mailcontacten:"
 
 #: ../qml/scripts/MatrixNames.js:24
-#, fuzzy
-#| msgid "Search for your chats…"
 msgid "Users from your chats:"
-msgstr "Zoek naar uw gesprekken…"
+msgstr "Gebruikers van uw gesprekken:"
 
 #: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
