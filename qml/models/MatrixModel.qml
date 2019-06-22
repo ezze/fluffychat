@@ -817,6 +817,8 @@ Item {
             if(!( typeof event.type === "String" && event.type === "m.room.encrypted") || validateEvent(event, "m.room.encrypted")) return
             console.log("[DEBUG] Event is encrypted")
 
+            var decrypted = null
+
             // Get device key
             var device_key
             for ( var key in event.content.ciphertext) {
@@ -848,7 +850,7 @@ Item {
 
                 storage.query ( "INSERT OR REPLACE INTO OlmSessions VALUES(?,?,?,?)",
                 [ device_key, event.content.sender_key, newOlmSessionPickle ])
-                var decrypted = e2ee.decrypt ( event.content.ciphertext[device_key].body )
+                decrypted = e2ee.decrypt ( event.content.ciphertext[device_key].body )
                 onsole.log("[DEBUG] Message decrypted", decrypted)
             }
             else {
@@ -856,13 +858,35 @@ Item {
                 var olmSessionRow = res.rows[0]
                 e2ee.setActiveSession ( olmSessionRow.pickle, matrix.matrixid )
                 console.log("[DEBUG] Olm session set")
-                var decrypted = e2ee.decrypt ( event.content.ciphertext[device_key].body )
+                decrypted = e2ee.decrypt ( event.content.ciphertext[device_key].body )
                 if ( decrypted === "" && event.content.ciphertext[device_key].type === 0 ) {
                     console.log("[DEBUG] Decrypting was not successful. Try to create a new session...")
                     // TODO: Create a new session
                     return
                 }
                 console.log("[DEBUG] Message decrypted", decrypted)
+            }
+
+            if (decrypted != null) {
+                try {
+                    var payload = JSON.parse(decrypted)
+                }
+                catch (e) {
+                    console.log("[ERROR] Message was decrypted but json parse was impossible")
+                    return
+                }
+                if ( supportedEncryptionAlgorithms.indexOf(payload.algorithm) === -1 ) {
+                    console.log("[ERROR] Unsupported algorithm")
+                    return
+                }
+                console.log("[DEBUG] Save MegOlm session")
+                var megolmPickle = "" // TODO: Create megolm session and pickle
+                storage.query( "UPDATE Chats SET encryption_pickle=?, encryption_session_id=? WHERE id=?", [
+                    megolmPickle,
+                    payload.session_id,
+                    payload.room_id
+                ] )
+
             }
         }
     }

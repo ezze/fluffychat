@@ -20,7 +20,7 @@ Item {
 
     id: storage
 
-    property var version: "0.5.0"
+    property var version: "0.5.0a"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -189,7 +189,7 @@ Item {
         'device_key TEXT, ' +
         'sender_key TEXT, ' +
         'pickle TEXT, ' +
-        'UNIQUE(session_id))')
+        'UNIQUE(device_key))')
 
         if ( matrix.isLogged ) {
             storage.markSendingEventsAsError ()
