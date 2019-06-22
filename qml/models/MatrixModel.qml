@@ -472,85 +472,6 @@ Item {
         sig.connect(f)
     }
 
-    function newE2eeAccount () {
-        var newAccount = E2ee.createAccount ( matrix.matrixid )
-        var keysJsonStr = E2ee.getIdentityKeys ()
-        var keys = JSON.parse(keysJsonStr)
-        E2ee.generateOneTimeKeys()
-        var oneTimeKeys = JSON.parse(E2ee.getOneTimeKeys ())
-        var signedOneTimeKeys = {}
-
-        for ( var key in oneTimeKeys.curve25519 ) {
-            signedOneTimeKeys["signed_curve25519:"+key] = { }
-            signedOneTimeKeys["signed_curve25519:"+key]["keys"] = oneTimeKeys.curve25519[key]
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"] = {}
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)] = {}
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)]["ed25519:%1".arg(matrix.deviceID)] = E2ee.signJsonString (oneTimeKeys.curve25519[key])
-        }
-
-        var requestData = {
-            "device_keys": {
-                "user_id": matrix.matrixid,
-                "device_id": matrix.deviceID,
-                "algorithms": supportedEncryptionAlgorithms,
-                "keys": {}
-            },
-            "one_time_keys": signedOneTimeKeys
-        }
-        for ( var algorithm in keys ) {
-            requestData["device_keys"]["keys"][algorithm+":"+matrix.deviceID] = keys[algorithm]
-        }
-        var canonicalJson = JSON.stringify(requestData["device_keys"])
-        requestData["device_keys"]["signatures"] = {}
-        requestData["device_keys"]["signatures"][matrix.matrixid] = {}
-        requestData["device_keys"]["signatures"][matrix.matrixid]["ed25519:"+matrix.deviceID] = E2ee.signJsonString (canonicalJson)
-
-        var success_callback = function (result) {
-            console.log("KEYS UPLOADED", JSON.stringify(result))
-            if ( typeof result.one_time_key_counts.signed_curve25519 === "number" ) {
-                matrix.one_time_key_counts = result.one_time_key_counts.signed_curve25519
-                E2ee.markKeysAsPublished()
-                matrix.e2eeAccountPickle = newAccount
-            }
-        }
-
-        console.log("UPLOADING KEYS: ", JSON.stringify(requestData["device_keys"]))
-
-        matrix.post ("/client/r0/keys/upload", requestData, success_callback, function (error) {
-            console.log("ERROR UPLOADING KEYS:",JSON.stringify(error))
-        })
-    }
-
-
-    function generateOneTimeKeys() {
-        E2ee.generateOneTimeKeys()
-        var oneTimeKeys = JSON.parse(E2ee.getOneTimeKeys ())
-        var signedOneTimeKeys = {}
-
-        for ( var key in oneTimeKeys.curve25519 ) {
-            signedOneTimeKeys["signed_curve25519:"+key] = { }
-            signedOneTimeKeys["signed_curve25519:"+key]["keys"] = oneTimeKeys.curve25519[key]
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"] = {}
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)] = {}
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)]["ed25519:%1".arg(matrix.deviceID)] = E2ee.signJsonString (oneTimeKeys.curve25519[key])
-        }
-        var requestData = {
-            "one_time_keys": signedOneTimeKeys
-        }
-
-        var success_callback = function (result) {
-            console.log("KEYS UPLOADED", JSON.stringify(result))
-            if ( typeof result.one_time_key_counts.signed_curve25519 === "number" ) {
-                matrix.one_time_key_counts = result.one_time_key_counts.signed_curve25519
-                E2ee.markKeysAsPublished()
-            }
-        }
-
-        console.log("UPLOADING KEYS: ", JSON.stringify(requestData))
-
-        matrix.post ("/client/r0/keys/upload", requestData, success_callback)
-    }
-
     function init () {
         if ( matrix.token === "" ) return
 
@@ -561,12 +482,12 @@ Item {
 
             // Initialize the e2e encryption account
             if ( matrix.e2eeAccountPickle === "" ) {
-                newE2eeAccount ()
+                e2eeModel.newE2eeAccount ()
             }
             else {
                 if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
                     console.error ( "❌[Error] Could not restore E2ee account" )
-                    newE2eeAccount ()
+                    e2eeModel.newE2eeAccount ()
                 }
             }
             waitForSync ()
@@ -708,7 +629,7 @@ Item {
         if ( typeof sync.device_one_time_keys_count === "object" ) {
             if ( typeof sync.device_one_time_keys_count.signed_curve25519 === "number" ) {
                 matrix.one_time_key_counts = sync.device_one_time_keys_count.signed_curve25519
-                if ( matrix.one_time_key_counts < 5 ) generateOneTimeKeys()
+                if ( matrix.one_time_key_counts < 5 ) e2eeModel.generateOneTimeKeys()
             }
             newEventCB ( "device_one_time_keys_count", sync.next_batch, "encryption", sync.device_lists )
         }
@@ -816,9 +737,7 @@ Item {
             // Make sure, this event is encrypted
             if(!( typeof event.type === "String" && event.type === "m.room.encrypted") || validateEvent(event, "m.room.encrypted")) return
             console.log("[DEBUG] Event is encrypted")
-
-            var decrypted = null
-
+            
             // Get device key
             var device_key
             for ( var key in event.content.ciphertext) {
@@ -826,68 +745,20 @@ Item {
                 break
             }
 
-            // Check if there is a olm session for this message
-            console.log("[DEBUG] Check if there is a olm session")
-            var res = storage.query ( "SELECT * FROM OlmSessions WHERE sender_key=? ORDER BY session_id", [ event.content.sender_key ] )
-
-            if ( res.rows.length === 0 ) {
-                console.log("[DEBUG] No olm session found")
-
-                var newOlmSessionPickle
-                if ( event.content.ciphertext[device_key].type === 0 ) {
-                    newOlmSessionPickle = E2ee.createInboundSessionFrom(
-                        event.content.sender_key,
-                        event.content.ciphertext[device_key].body,
-                        matrix.matrixid
-                    )
-                }
-                else {
-                    newOlmSessionPickle = E2ee.createInboundSession(
-                        event.content.ciphertext[device_key].body,
-                        matrix.matrixid
-                    )
-                }
-
-                storage.query ( "INSERT OR REPLACE INTO OlmSessions VALUES(?,?,?,?)",
-                [ device_key, event.content.sender_key, newOlmSessionPickle ])
-                decrypted = e2ee.decrypt ( event.content.ciphertext[device_key].body )
-                onsole.log("[DEBUG] Message decrypted", decrypted)
+            var payload = e2eeModel.decrypt(event)
+            
+            if ( supportedEncryptionAlgorithms.indexOf(payload.algorithm) === -1 ) {
+                console.log("[ERROR] Unsupported algorithm")
+                return
             }
-            else {
-                console.log("[DEBUG] Existing olm session found")
-                var olmSessionRow = res.rows[0]
-                e2ee.setActiveSession ( olmSessionRow.pickle, matrix.matrixid )
-                console.log("[DEBUG] Olm session set")
-                decrypted = e2ee.decrypt ( event.content.ciphertext[device_key].body )
-                if ( decrypted === "" && event.content.ciphertext[device_key].type === 0 ) {
-                    console.log("[DEBUG] Decrypting was not successful. Try to create a new session...")
-                    // TODO: Create a new session
-                    return
-                }
-                console.log("[DEBUG] Message decrypted", decrypted)
-            }
+            console.log("[DEBUG] Save MegOlm session")
+            var megolmInPickle = E2ee.createInboundGroupSession(payload.session_key)
+            storage.query( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
+                payload.room_id,
+                device_key,
+                megolmInPickle
+            ] )
 
-            if (decrypted != null) {
-                try {
-                    var payload = JSON.parse(decrypted)
-                }
-                catch (e) {
-                    console.log("[ERROR] Message was decrypted but json parse was impossible")
-                    return
-                }
-                if ( supportedEncryptionAlgorithms.indexOf(payload.algorithm) === -1 ) {
-                    console.log("[ERROR] Unsupported algorithm")
-                    return
-                }
-                console.log("[DEBUG] Save MegOlm session")
-                var megolmPickle = "" // TODO: Create megolm session and pickle
-                storage.query( "UPDATE Chats SET encryption_pickle=?, encryption_session_id=? WHERE id=?", [
-                    megolmPickle,
-                    payload.session_id,
-                    payload.room_id
-                ] )
-
-            }
         }
     }
 

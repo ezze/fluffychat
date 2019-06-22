@@ -20,7 +20,7 @@ Item {
 
     id: storage
 
-    property var version: "0.5.0a"
+    property var version: "0.5.1"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -91,8 +91,7 @@ Item {
         'encryption_algorithm TEXT, ' +
         'encryption_rotation_period_ms INTEGER, ' +
         'encryption_rotation_period_msgs INTEGER, ' +
-        'encryption_pickle TEXT, ' +
-        'encryption_session_id TEXT, ' +
+        'encryption_outbound_pickle TEXT, ' +
 
         // Power levels
         'power_events_default INTEGER, ' +
@@ -191,6 +190,13 @@ Item {
         'pickle TEXT, ' +
         'UNIQUE(device_key))')
 
+        // TABLE SCHEMA FOR OLM SESSIONS
+        query('CREATE TABLE IF NOT EXISTS InboundMegolmSessions(' +
+        'room_id TEXT, ' +
+        'device_id TEXT, ' +
+        'pickle TEXT, ' +
+        'UNIQUE(room_id, device_key))')
+
         if ( matrix.isLogged ) {
             storage.markSendingEventsAsError ()
         }
@@ -280,7 +286,7 @@ Item {
     function newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline, prevBatch ) {
         // Insert the chat into the database if not exists
         addQuery ("INSERT OR IGNORE INTO Chats " +
-        "VALUES(?, ?, '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', '', 0, 0, '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ", [
+        "VALUES(?, ?, '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', '', 0, 0, '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ", [
         chat_id, membership
         ] )
 
@@ -609,16 +615,7 @@ Item {
                 for ( var mxid in res.device_keys ) {
                     for ( var device_id in res.device_keys[mxid] ) {
                         // Check signature
-                        var signedJson = res.device_keys[mxid][device_id]
-                        var signatures = signedJson.signatures
-                        var unsigned = signedJson.unsigned
-                        delete signedJson.signatures
-                        delete signedJson.unsigned
-                        var keyName = "ed25519:%1".arg(device_id)
-                        // TODO: Why is this not working?
-                        if (true || E2ee.ed25519Verify(signedJson.keys[keyName], JSON.stringify(signedJson), signatures[signedJson.user_id][keyName])) {
-                            res.device_keys[mxid][device_id].signatures = signatures
-                            res.device_keys[mxid][device_id].unsigned = unsigned
+                        if (e2eeModel.checkJsonSignature(signedJson.keys[keyName], signedJson)) {
                             storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,0)",
                             [ mxid, device_id, JSON.stringify(res.device_keys[mxid][device_id]), device_id===matrix.deviceID ] )
                             console.log("Valid keys...")

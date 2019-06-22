@@ -141,6 +141,7 @@ MainView {
     id, defined here.
     */
     StorageModel { id: storage }
+    E2eeModel { id: e2eeModel }
     MatrixModel {
         id: matrix
         onReqError: toast.show ( error )
