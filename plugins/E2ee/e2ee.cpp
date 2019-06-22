@@ -24,6 +24,10 @@ E2ee::E2ee() : isSessionActive(false), isAccountInitialized(false) {
     size_t outboundGroupSessionSize = olm_outbound_group_session_size();
     void * outboundGroupSessionMemory = malloc(outboundGroupSessionSize);
     m_activeOutboundGroupSession = olm_outbound_group_session(outboundGroupSessionMemory);
+
+    size_t inboundGroupSessionSize = olm_inbound_group_session_size();
+    void * inboundGroupSessionMemory = malloc(inboundGroupSessionSize);
+    m_activeInboundGroupSession = olm_inbound_group_session(inboundGroupSessionMemory);
 }
 
 E2ee::~E2ee() {
@@ -470,6 +474,8 @@ QString E2ee::createOutboundGroupSession(QString key)
 {
     E2eeSeed megolmKeySeed(olm_init_outbound_group_session_random_length(this->m_activeOutboundGroupSession));
 
+    olm_clear_outbound_group_session(this->m_activeOutboundGroupSession);
+
     size_t error = olm_init_outbound_group_session(this->m_activeOutboundGroupSession,
                                                    megolmKeySeed.random(),
                                                    megolmKeySeed.length());
@@ -493,3 +499,134 @@ QString E2ee::createOutboundGroupSession(QString key)
 
     return QString(pickle);
 }
+
+
+QString E2ee::getOutboundGroupSessionKey() const {
+    size_t keyLength = olm_outbound_group_session_key_length(this->m_activeOutboundGroupSession);
+    QByteArray key(keyLength, '\0');
+    size_t error = olm_outbound_group_session_key(this->m_activeOutboundGroupSession,
+                                                  reinterpret_cast<uint8_t *>(key.data()),
+                                                  keyLength);
+
+    if (error) {
+        logError("olm_outbound_group_session_key failed");
+        return "";
+    }
+
+    return QString(key);
+}
+
+
+QString E2ee::getOutboundGroupSessionId() const {
+    size_t idLength = olm_outbound_group_session_id_length(this->m_activeOutboundGroupSession);
+    QByteArray id(idLength, '\0');
+    size_t error = olm_outbound_group_session_id(this->m_activeOutboundGroupSession,
+                                                 reinterpret_cast<uint8_t *>(id.data()),
+                                                 idLength);
+
+    if (error) {
+        logError("olm_outbound_group_session_id failed");
+        return "";
+    }
+
+    return QString(id);
+}
+
+
+bool E2ee::restoreOutboundGroupSession(QString pickle, QString key) {
+    olm_clear_outbound_group_session(this->m_activeOutboundGroupSession);
+    size_t error = olm_unpickle_outbound_group_session(this->m_activeOutboundGroupSession,
+                                                       key.toLocal8Bit().data(), key.length(),
+                                                       pickle.toLocal8Bit().data(), pickle.length());
+    if (error) {
+        logError("olm_unpickle_outbound_group_session failed");
+        return false;
+    }
+
+    return true;
+}
+
+
+QString E2ee::encryptGroupMessage(QString plaintext) const {
+    size_t cipherLength = olm_group_encrypt_message_length(this->m_activeOutboundGroupSession,
+                                                           plaintext.length());
+
+    QByteArray cipherText(cipherLength, '\0');
+
+    olm_group_encrypt(this->m_activeOutboundGroupSession,
+                      reinterpret_cast<uint8_t *>(plaintext.toLocal8Bit().data()),
+                      plaintext.length(),
+                      reinterpret_cast<uint8_t *>(cipherText.data()),
+                      cipherLength);
+
+    return QString(cipherText);
+}
+
+
+QString E2ee::createInboundGroupSession(QString sessionKey, QString pickleKey) {
+    olm_clear_inbound_group_session(this->m_activeInboundGroupSession);
+
+    size_t error = olm_init_inbound_group_session(this->m_activeInboundGroupSession,
+                                                  reinterpret_cast<uint8_t *>(sessionKey.toLocal8Bit().data()),
+                                                  sessionKey.length());
+
+    if (error) {
+        logError("olm_init_inbound_group_session failed");
+        return "";
+    }
+
+    size_t pickleLength = olm_pickle_inbound_group_session_length(this->m_activeInboundGroupSession);
+
+    QByteArray pickle(pickleLength, '\0');
+
+    error = olm_pickle_inbound_group_session(this->m_activeInboundGroupSession,
+                                             pickleKey.toLocal8Bit().data(), pickleKey.length(),
+                                             pickle.data(), pickle.length());
+
+    if (error) {
+        logError("olm_pickle_inbound_group_session failed");
+        return "";
+    }
+
+    return QString(pickle);
+}
+
+
+bool E2ee::restoreInboundGroupSession(QString pickle, QString key) {
+    olm_clear_inbound_group_session(this->m_activeInboundGroupSession);
+    size_t error = olm_unpickle_inbound_group_session(this->m_activeInboundGroupSession,
+                                                      key.toLocal8Bit().data(), key.length(),
+                                                      pickle.toLocal8Bit().data(), pickle.length());
+    if (error) {
+        logError("olm_unpickle_inbound_group_session failed");
+        return false;
+    }
+
+    return true;
+}
+
+
+QString E2ee::decryptGroupMessage(QString cipherText) const {
+    size_t plaintextMaxLength = olm_group_decrypt_max_plaintext_length(
+                                    this->m_activeInboundGroupSession,
+                                    reinterpret_cast<uint8_t *>(cipherText.toLocal8Bit().data()),
+                                    cipherText.length());
+
+    uint32_t messageIndex;
+    QByteArray plaintext(plaintextMaxLength, '\0');
+
+    size_t error =  olm_group_decrypt(this->m_activeInboundGroupSession,
+                                      reinterpret_cast<uint8_t *>(cipherText.toLocal8Bit().data()),
+                                      cipherText.length(),
+                                      reinterpret_cast<uint8_t *>(plaintext.data()),
+                                      plaintextMaxLength,
+                                      &messageIndex);
+
+    if (error) {
+        logError("olm_group_decrypt  failed");
+        return"";
+    }
+
+    return QString(plaintext.data());
+}
+
