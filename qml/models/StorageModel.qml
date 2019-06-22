@@ -186,7 +186,7 @@ Item {
 
         // TABLE SCHEMA FOR OLM SESSIONS
         query('CREATE TABLE IF NOT EXISTS OlmSessions(' +
-        'device_id TEXT, ' +
+        'device_key TEXT, ' +
         'sender_key TEXT, ' +
         'pickle TEXT, ' +
         'UNIQUE(session_id))')
