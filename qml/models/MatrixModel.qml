@@ -830,11 +830,22 @@ Item {
 
             if ( res.rows.length === 0 ) {
                 console.log("[DEBUG] No olm session found")
-                var newOlmSessionPickle = E2ee.createInboundSessionFrom(
-                    event.content.sender_key,
-                    event.content.ciphertext[device_key].body,
-                    matrix.matrixid
-                )
+
+                var newOlmSessionPickle
+                if ( event.content.ciphertext[device_key].type === 0 ) {
+                    newOlmSessionPickle = E2ee.createInboundSessionFrom(
+                        event.content.sender_key,
+                        event.content.ciphertext[device_key].body,
+                        matrix.matrixid
+                    )
+                }
+                else {
+                    newOlmSessionPickle = E2ee.createInboundSession(
+                        event.content.ciphertext[device_key].body,
+                        matrix.matrixid
+                    )
+                }
+
                 storage.query ( "INSERT OR REPLACE INTO OlmSessions VALUES(?,?,?,?)",
                 [ device_key, event.content.sender_key, newOlmSessionPickle ])
                 var decrypted = e2ee.decrypt ( event.content.ciphertext[device_key].body )
