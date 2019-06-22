@@ -97,7 +97,7 @@ Item {
 
 
     // Checks the signature of a signed json object.
-    function checkJsonSignature(key, signedJson, signature) {
+    function checkJsonSignature(key, signedJson, signature, device_id) {
         var signatures = signedJson.signatures
         var unsigned = signedJson.unsigned
         delete signedJson.signatures
@@ -252,9 +252,9 @@ Item {
     function encryptMegolmMessage (content, room_id, callback) {
         console.log("[DEBUG] Try to send a olm message to %1.".arg(room_id))
         var res = storage.query ( "SELECT encryption_outbound_pickle FROM Chats WHERE id=?", [ room_id ] )
-        
+
         if (res.length === 0) return
-            
+
         if (res[0].encryption_outbound_pickle !== "") {
             console.log("[DEBUG] Found existing megolm session!")
             E2ee.restoreOutboundGroupSession(res[0].encryption_outbound_pickle)

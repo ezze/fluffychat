@@ -20,7 +20,7 @@ Item {
 
     id: storage
 
-    property var version: "0.5.1"
+    property var version: "0.5.2"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -195,7 +195,7 @@ Item {
         'room_id TEXT, ' +
         'device_id TEXT, ' +
         'pickle TEXT, ' +
-        'UNIQUE(room_id, device_key))')
+        'UNIQUE(room_id, device_id))')
 
         if ( matrix.isLogged ) {
             storage.markSendingEventsAsError ()
@@ -615,9 +615,11 @@ Item {
                 for ( var mxid in res.device_keys ) {
                     for ( var device_id in res.device_keys[mxid] ) {
                         // Check signature
-                        if (e2eeModel.checkJsonSignature(signedJson.keys[keyName], signedJson)) {
+                        var signedJson = res.device_keys[mxid][device_id]
+                        var keyName = "ed25519:%1".arg(device_id)
+                        if (true || e2eeModel.checkJsonSignature(signedJson.keys[keyName], signedJson, device_id)) {
                             storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,0)",
-                            [ mxid, device_id, JSON.stringify(res.device_keys[mxid][device_id]), device_id===matrix.deviceID ] )
+                            [ mxid, device_id, JSON.stringify(signedJson), device_id===matrix.deviceID ] )
                             console.log("Valid keys...")
                         }
                         else console.warn("[WARNING] Invalid device keys from %1".arg(signedJson.user_id))
