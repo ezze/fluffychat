@@ -712,6 +712,9 @@ Item {
             }
             newEventCB ( "device_one_time_keys_count", sync.next_batch, "encryption", sync.device_lists )
         }
+        if ( typeof sync.to_device === "object" && typeof sync.to_device.events === "object"  ) {
+            handleToDeviceEvents( sync.to_device.events, newEventCB )
+        }
     }
 
     // Handling the synchronization events starts with the rooms, which means
@@ -798,6 +801,57 @@ Item {
                 if ( ownTyping !== -1 ) user_ids.splice( ownTyping, 1 )
                 // Call the signal
                 newEventCB ( events[ i ].type, id, "ephemeral", user_ids )
+            }
+        }
+    }
+
+
+    // Handle events, which are sent only to this device
+    function handleToDeviceEvents ( events, newEventCB ) {
+        if (events.length) console.log("[DEBUG] Got %1 to_device events".arg(events.length))
+        for ( var i = 0; i < events.length; i++ ) {
+            console.log("[DEBUG] Handle frist to_device event")
+            var event = events[i]
+
+            // Make sure, this event is encrypted
+            if(!( typeof event.type === "String" && event.type === "m.room.encrypted") || validateEvent(event, "m.room.encrypted")) return
+            console.log("[DEBUG] Event is encrypted")
+
+            // Get device key
+            var device_key
+            for ( var key in event.content.ciphertext) {
+                device_key = key
+                break
+            }
+
+            // Check if there is a olm session for this message
+            console.log("[DEBUG] Check if there is a olm session")
+            var res = storage.query ( "SELECT * FROM OlmSessions WHERE sender_key=? ORDER BY session_id", [ event.content.sender_key ] )
+
+            if ( res.rows.length === 0 ) {
+                console.log("[DEBUG] No olm session found")
+                var newOlmSessionPickle = E2ee.createInboundSessionFrom(
+                    event.content.sender_key,
+                    event.content.ciphertext[device_key].body,
+                    matrix.matrixid
+                )
+                storage.query ( "INSERT OR REPLACE INTO OlmSessions VALUES(?,?,?,?)",
+                [ device_key, event.content.sender_key, newOlmSessionPickle ])
+                var decrypted = e2ee.decrypt ( event.content.ciphertext[device_key].body )
+                onsole.log("[DEBUG] Message decrypted", decrypted)
+            }
+            else {
+                console.log("[DEBUG] Existing olm session found")
+                var olmSessionRow = res.rows[0]
+                e2ee.setActiveSession ( olmSessionRow.pickle, matrix.matrixid )
+                console.log("[DEBUG] Olm session set")
+                var decrypted = e2ee.decrypt ( event.content.ciphertext[device_key].body )
+                if ( decrypted === "" && event.content.ciphertext[device_key].type === 0 ) {
+                    console.log("[DEBUG] Decrypting was not successful. Try to create a new session...")
+                    // TODO: Create a new session
+                    return
+                }
+                console.log("[DEBUG] Message decrypted", decrypted)
             }
         }
     }
