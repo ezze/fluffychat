@@ -273,7 +273,7 @@ Page {
             }
             property var hasText: false
             autoSize: true
-            placeholderText: encryptionAlgorithm === "" 
+            placeholderText: encryptionAlgorithm === ""
                 ? i18n.tr("Unencrypted message...")
                 : i18n.tr("Encrypted message...")
             Keys.onReturnPressed: {

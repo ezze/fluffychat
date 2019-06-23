@@ -245,15 +245,30 @@ Item {
     }
 
 
-    // TODO: Move into room model!
-    function sendMessage ( messageID, data, chat_id, success_callback, error_callback ) {
+    function sendMessage ( messageID, data, chat_id, algorithm, success_callback, error_callback ) {
+        if (algorithm) {
+            var success_callback = function (encrypted) {
+                var data = {
+                    "algorithm": "m.megolm.v1.aes-sha2",
+                    "ciphertext": encrypted,
+                    "device_id": matrix.deviceID,
+                    "sender_key": E2ee.getOutboundGroupSessionKey(),
+                    "session_id": E2ee.getOutboundGroupSessionId()
+                }
+                sendMessage ( messageID, data, chat_id, algorithm, success_callback, error_callback )
+            }
+            e2eeModel.encryptMegolmMessage(data, chat_id, success_callback)
+        }
+
         var newMessageID = ""
         if ( !online ) {
             storage.query ( "UPDATE Events SET status=-1 WHERE id=?", [ messageID ] )
             return error_callback ( "ERROR" )
         }
 
-        var msgtype = data.msgtype === "m.sticker" ? data.msgtype : "m.room.message"
+        var msgtype = "m.room.message"
+        if (data.msgtype === "m.sticker") msgtype = data.msgtype
+        else if ( data.algorithm ) msgtype = "m.room.encrypted"
 
         var sendCallback = function ( response ) {
             userMetrics.sentMessages++

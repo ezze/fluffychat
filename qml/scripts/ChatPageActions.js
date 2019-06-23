@@ -86,7 +86,7 @@ function send ( message ) {
     matrix.newEvent( type, activeChat, "timeline", fakeEvent )
     storage.save ()
 
-    matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
+    matrix.sendMessage ( messageID, data, activeChat, encryptionAlgorithm, function ( response ) {
         messageSent ( messageID, response )
     }, function ( error ) {
         if ( error === "DELETE" ) removeEvent ( messageID )
