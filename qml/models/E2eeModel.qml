@@ -229,14 +229,17 @@ Item {
         }
  
         var device_key_list = []
-        for (var i = 0; i < res.rows.lenth; i++) {
-            device_key_list[i] = JSON.parse(res.rows[i].keys_json)[Curve25519]
+        for (var i = 0; i < res.rows.length; i++) {
+            var keys = JSON.parse(res.rows[i].keys_json)
+            var keyName = "curve25519:%1".arg(keys.device_id)
+            device_key_list[i] = keys.keys[keyName]
         }
+        console.log("[DEBUG] Found %1 device keys in the database".arg(device_key_list.length))
         
         var olmQueryStr = "SELECT * FROM OlmSessions WHERE device_key=?"
         for (var i = 1; i < device_key_list.length; i++)
-            queryStr += " OR device_key=?"
-        res = storage.query ( olmQueryStr, device_key_list )
+            olmQueryStr += " OR device_key=?"
+            res = storage.query ( olmQueryStr, device_key_list )
             
         var data = {
             "one_time_keys": {}
@@ -254,6 +257,7 @@ Item {
         
         
         var success_callback = function (resp) {
+            console.log("[DEBUG] KeysClaim Response:", JSON.stringify(resp))
             var data = { "messages": {} }
             for ( var user_id in resp.one_time_keys ) {
                 var keysObj = resp.one_time_keys[keys.user_id][device_id]
@@ -279,6 +283,7 @@ Item {
             matrix.put("/client/r0/sendToDevice/m.to_device/%1".arg(txnid), data, callback)
         }
 
+        console.log("[DEBUG] KeysClaim Request:", JSON.stringify(data))
         matrix.post("/client/r0/keys/claim", data, success_callback)
     }
     
