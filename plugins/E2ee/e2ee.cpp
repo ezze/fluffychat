@@ -103,7 +103,7 @@ bool E2ee::uploadFile(QString path, QString uploadUrl, QString token) {
 QString E2ee::createAccount(QString key) {
 
     size_t randomSize = olm_create_account_random_length(m_olmAccount); // Get the random size for account creation
-
+    m_isAccountInitialized = false;
     E2eeSeed seed(randomSize);
 
     size_t resultOlmCreation = olm_create_account(m_olmAccount, seed.random(), randomSize); // Create the Olm account
@@ -121,11 +121,14 @@ QString E2ee::createAccount(QString key) {
     }
     olmAccountPickle[olmAccountPickleMaxLength] = '\0';
 
+    m_isAccountInitialized = true;
+
     return QString::fromUtf8(olmAccountPickle);
 }
 
 
 bool E2ee::restoreAccount(QString olmAccountStr, QString key) {
+    m_isAccountInitialized = false;
     if (olm_unpickle_account(m_olmAccount, key.toLocal8Bit().data(), key.length(), olmAccountStr.toLocal8Bit().data(), olmAccountStr.length()) == olm_error()) {
         logError(olm_account_last_error(m_olmAccount));
         return false;
@@ -145,6 +148,8 @@ QString E2ee::getIdentityKeys() {
     }
 
     identityKeys[identityKeysLength] = '\0';
+
+    m_isAccountInitialized = true;
 
     return QString::fromUtf8(identityKeys);
 }
@@ -220,6 +225,8 @@ QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QSt
 
     E2eeSeed seed(randomLength);
 
+    m_isSessionActive = false;
+
     if (olm_create_outbound_session(m_activeSession,
         m_olmAccount,
         identityKey.toLocal8Bit().data(),
@@ -231,12 +238,17 @@ QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QSt
     ) == olm_error()) {
         return logError(olm_session_last_error(m_activeSession));
     }
+
+    m_isSessionActive = true;
+
     return getSessionAndSessionID(key);
 }
 
 
 QString E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
     if (!isAccountInitialized()) return logError("No m_olmAccount initialized!");
+
+    m_isSessionActive = false;
 
     if (olm_create_inbound_session(m_activeSession,
         m_olmAccount,
@@ -245,11 +257,17 @@ QString E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
     ) == olm_error()) {
         return logError(olm_session_last_error(m_activeSession));
     }
+
+    m_isSessionActive = true;
+
     return getSessionAndSessionID(key);
 }
 
 
 QString E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage, QString key){
+
+    m_isSessionActive = false;
+
     if (!isAccountInitialized()) return logError("No m_olmAccount initialized!");
 
     if (olm_create_inbound_session_from(m_activeSession,
@@ -261,6 +279,9 @@ QString E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeKeyMe
     ) == olm_error()) {
         return logError(olm_session_last_error(m_activeSession));
     }
+
+    m_isSessionActive = true;
+
     return getSessionAndSessionID(key);
 }
 
