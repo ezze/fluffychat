@@ -133,6 +133,7 @@ bool E2ee::restoreAccount(QString olmAccountStr, QString key) {
         logError(olm_account_last_error(m_olmAccount));
         return false;
     }
+    m_isAccountInitialized = true;
     return true;
 }
 
