@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-23 08:53+0000\n"
+"POT-Creation-Date: 2019-06-23 09:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -994,8 +994,12 @@ msgstr ""
 msgid "You do not have posting permissions here"
 msgstr ""
 
-#: ../qml/pages/ChatPage.qml:276
-msgid "Type something ..."
+#: ../qml/pages/ChatPage.qml:277
+msgid "Unencrypted message..."
+msgstr ""
+
+#: ../qml/pages/ChatPage.qml:278
+msgid "Encrypted message..."
 msgstr ""
 
 #: ../qml/pages/InfoPage.qml:11
