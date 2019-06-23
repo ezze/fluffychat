@@ -11,13 +11,13 @@ private:
     OlmAccount* m_olmAccount;
     OlmSession* m_activeSession;
 
-    bool isSessionActive;
-    bool isAccountInitialized;
+    bool m_isSessionActive;
+    bool m_isAccountInitialized;
 
     QString getSessionAndSessionID(QString key);
 
-    bool check_m_olmAccount();
-    bool check_m_activeSession();
+    bool isAccountInitialized();
+    bool isSessionActive();
 
     OlmOutboundGroupSession * m_activeOutboundGroupSession;
     OlmInboundGroupSession *  m_activeInboundGroupSession;
