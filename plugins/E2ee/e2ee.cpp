@@ -44,11 +44,8 @@ E2ee::~E2ee() {
 }
 
 
-QString logError (QString errorMsg, size_t errorCode = 0) {
+QString logError (QString errorMsg) {
     QString logMsg = "🐞[E2EE] "+ errorMsg;
-    if (errorCode) {
-        logMsg +=  "; errorCode: " + QString::number(errorCode);
-    }
     qDebug() << logMsg;
     return "";
 }
@@ -483,8 +480,8 @@ QString E2ee::createOutboundGroupSession(QString key)
     size_t error = olm_init_outbound_group_session(this->m_activeOutboundGroupSession,
                                                    megolmKeySeed.random(),
                                                    megolmKeySeed.length());
-    if (error) {
-        logError("olm_init_outbound_group_session failed", error);
+    if (error == olm_error()) {
+        logError(QString("olm_init_outbound_group_session failed with: ")+QString(olm_outbound_group_session_last_error(this->m_activeOutboundGroupSession)));
         return "";
     }
 
@@ -496,8 +493,8 @@ QString E2ee::createOutboundGroupSession(QString key)
                                               key.toLocal8Bit().data(), key.length(),
                                               pickle.data(), pickleLength);
 
-    if (error) {
-        logError("olm_pickle_outbound_group_session failed", error);
+    if (error == olm_error()) {
+        logError(QString("olm_pickle_outbound_group_session failed with: ")+QString(olm_outbound_group_session_last_error(this->m_activeOutboundGroupSession)));
         return "";
     }
 
@@ -512,8 +509,8 @@ QString E2ee::getOutboundGroupSessionKey() const {
                                                   reinterpret_cast<uint8_t *>(key.data()),
                                                   keyLength);
 
-    if (error) {
-        logError("olm_outbound_group_session_key failed", error);
+    if (error == olm_error()) {
+        logError(QString("olm_outbound_group_session_key failed with: ")+QString(olm_outbound_group_session_last_error(this->m_activeOutboundGroupSession)));
         return "";
     }
 
@@ -528,8 +525,8 @@ QString E2ee::getOutboundGroupSessionId() const {
                                                  reinterpret_cast<uint8_t *>(id.data()),
                                                  idLength);
 
-    if (error) {
-        logError("olm_outbound_group_session_id failed", error);
+    if (error == olm_error()) {
+        logError(QString("olm_outbound_group_session_id failed with: ")+QString(olm_outbound_group_session_last_error(this->m_activeOutboundGroupSession)));
         return "";
     }
 
@@ -542,8 +539,8 @@ bool E2ee::restoreOutboundGroupSession(QString pickle, QString key) {
     size_t error = olm_unpickle_outbound_group_session(this->m_activeOutboundGroupSession,
                                                        key.toLocal8Bit().data(), key.length(),
                                                        pickle.toLocal8Bit().data(), pickle.length());
-    if (error) {
-        logError("olm_unpickle_outbound_group_session failed", error);
+    if (error == olm_error()) {
+        logError(QString("olm_unpickle_outbound_group_session failed with: ")+QString(olm_outbound_group_session_last_error(this->m_activeOutboundGroupSession)));
         return false;
     }
 
@@ -574,8 +571,8 @@ QString E2ee::createInboundGroupSession(QString sessionKey, QString pickleKey) {
                                                   reinterpret_cast<uint8_t *>(sessionKey.toLocal8Bit().data()),
                                                   sessionKey.length());
 
-    if (error) {
-        logError("olm_init_inbound_group_session failed", error);
+    if (error == olm_error()) {
+        logError(QString("olm_init_inbound_group_session failed with:")+QString(olm_inbound_group_session_last_error(this->m_activeInboundGroupSession)));
         return "";
     }
 
@@ -587,8 +584,8 @@ QString E2ee::createInboundGroupSession(QString sessionKey, QString pickleKey) {
                                              pickleKey.toLocal8Bit().data(), pickleKey.length(),
                                              pickle.data(), pickle.length());
 
-    if (error) {
-        logError("olm_pickle_inbound_group_session failed", error);
+    if (error == olm_error()) {
+        logError(QString("olm_pickle_inbound_group_session failed with: ")+QString(olm_inbound_group_session_last_error(this->m_activeInboundGroupSession)));
         return "";
     }
 
@@ -601,8 +598,8 @@ bool E2ee::restoreInboundGroupSession(QString pickle, QString key) {
     size_t error = olm_unpickle_inbound_group_session(this->m_activeInboundGroupSession,
                                                       key.toLocal8Bit().data(), key.length(),
                                                       pickle.toLocal8Bit().data(), pickle.length());
-    if (error) {
-        logError("olm_unpickle_inbound_group_session failed", error);
+    if (error == olm_error()) {
+        logError(QString("olm_unpickle_inbound_group_session failed with: ")+QString(olm_inbound_group_session_last_error(this->m_activeInboundGroupSession)));
         return false;
     }
 
@@ -626,8 +623,8 @@ QString E2ee::decryptGroupMessage(QString cipherText) const {
                                       plaintextMaxLength,
                                       &messageIndex);
 
-    if (error) {
-        logError("olm_group_decrypt failed", error);
+    if (error == olm_error()) {
+        logError(QString("olm_group_decrypt failed with: ")+QString(olm_inbound_group_session_last_error(this->m_activeInboundGroupSession)));
         return"";
     }
 
