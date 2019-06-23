@@ -46,7 +46,6 @@ function startPrivateChat () {
     var successCallback = function (res) {
         bottomEdgePageStack.pop ()
         mainLayout.toChat ( res.room_id )
-        toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
     }
 
     matrix.post( "/client/r0/createRoom", data, successCallback, null, 2 )

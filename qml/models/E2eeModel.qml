@@ -306,8 +306,8 @@ Item {
                 "session_key": inBoundKey
             }
             console.log("[DEBUG] New megolm session created with ID: %1 and Key: %2".arg(olmContent.session_id).arg(olmContent.session_key))
-            
-            var device_id_row = storage.query( "SELECT device_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.chat_id=? AND Devices.blocked=0  GROUP BY Devices.device_id", [ room_id ] )
+
+            var device_id_row = storage.query( "SELECT Devices.device_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.chat_id=? AND Devices.blocked=0  GROUP BY Devices.device_id", [ room_id ] )
             console.log("[DEBUG] Found %1 devices in this room".arg(device_id_row.rows.length))
             var devicesList = []
             for (var i = 0; i < device_id_row.rows.length; i++)
