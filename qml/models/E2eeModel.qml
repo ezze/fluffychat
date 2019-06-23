@@ -216,70 +216,40 @@ Item {
 
     // Encrypts a message payload depending on the algorithm
     function sendOlmMessage ( content, device_id_list, callback  ) {
-        console.log("[DEBUG] Try to send a olm message to %1 devices.".arg(device_id_list.length))
-        if (device_id_list.length === 0) return
-        var queryStr = "SELECT * FROM Devices WHERE device_id=?"
-        for (var i = 1; i < device_id_list.length; i++)
-            queryStr += " OR device_id=?"
-        var res = storage.query ( queryStr, device_id_list )
-
-        if ( res.rows.length === 0 ) {
-            console.log("[ERROR] Unknown device...")
-            return null
-        }
- 
-        var device_key_list = []
-        for (var i = 0; i < res.rows.length; i++) {
-            var keys = JSON.parse(res.rows[i].keys_json)
-            var keyName = "curve25519:%1".arg(keys.device_id)
-            device_key_list[i] = keys.keys[keyName]
-        }
-        console.log("[DEBUG] Found %1 device keys in the database".arg(device_key_list.length))
-        
-        var olmQueryStr = "SELECT * FROM OlmSessions WHERE device_key=?"
-        for (var i = 1; i < device_key_list.length; i++)
-            olmQueryStr += " OR device_key=?"
-            res = storage.query ( olmQueryStr, device_key_list )
+        console.log("[DEBUG] Try to send a olm message")
             
         var data = {
-            "one_time_keys": {}
+            "one_time_keys": device_id_list
         }
-        
-        for (var i = 0; i < res.rows.lenth; i++) {
-            var device_id = res.rows[i].device_id
-            var keys = JSON.parse(res[i].keys_json)
-            var identityKeyName = "curve25519:%1".arg(device_id)
-            var identityKey = keys.keys[identityKeyName]
-            
-            data.one_time_keys[keys.user_id] = {}
-            data.one_time_keys[keys.user_id][device_id] = "signed_curve25519"
-        }
-        
-        
+ 
         var success_callback = function (resp) {
             console.log("[DEBUG] KeysClaim Response:", JSON.stringify(resp))
             var data = { "messages": {} }
             for ( var user_id in resp.one_time_keys ) {
-                var keysObj = resp.one_time_keys[keys.user_id][device_id]
-                var oneTimeKey
-                for (item in keysObj) {
-                    oneTimeKey = keysObj[item].key
-                }
-                e2ee.createOutboundSession(identityKey, oneTimeKey, matrix.matrixid)
-                var keys = JSON.parse(e2ee.getIdentityKeys())
                 data.messages[user_id] = {}
-                data.messages[user_id][device_id] = {
-                    "algorithm": "m.olm.v1.curve25519-aes-sha2",
-                    "ciphertext": {},
-                    "sender_key": keys[Curve25519]
-                }
-                data.messages[user_id][device_id].ciphertext[identityKey] = {
-                    "body": e2ee.encrypt(JSON.stringify(content)),
-                    "type": 0
+                for ( var device_id in resp.one_time_keys[user_id] ) {
+                    var keysObj = resp.one_time_keys[user_id][device_id]
+                    var oneTimeKey
+                    for ( var item in keysObj ) {
+                        oneTimeKey = keysObj[item].key
+                    }
+                    E2ee.createOutboundSession(identityKey, oneTimeKey, matrix.matrixid)
+                    var keys = JSON.parse(E2ee.getIdentityKeys())
+
+                    data.messages[user_id][device_id] = {
+                        "algorithm": "m.olm.v1.curve25519-aes-sha2",
+                        "ciphertext": {},
+                        "sender_key": keys[Curve25519]
+                    }
+                    data.messages[user_id][device_id].ciphertext[identityKey] = {
+                        "body": E2ee.encrypt(JSON.stringify(content)),
+                        "type": 0
+                    }
                 }
             }
 
             var txnid = new Date().getTime()
+            console.log("[DEBUG] Send to devices:", JSON.stringify(data))
             matrix.put("/client/r0/sendToDevice/m.to_device/%1".arg(txnid), data, callback)
         }
 
@@ -312,13 +282,19 @@ Item {
             }
             console.log("[DEBUG] New megolm session created with ID: %1 and Key: %2".arg(olmContent.session_id).arg(olmContent.session_key))
 
-            var device_id_row = storage.query( "SELECT Devices.device_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.chat_id=? AND Devices.blocked=0  GROUP BY Devices.device_id", [ room_id ] )
+            var device_id_row = storage.query( "SELECT Devices.device_id, Memberships.matrix_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.chat_id=? AND Devices.blocked=0  GROUP BY Devices.device_id", [ room_id ] )
             console.log("[DEBUG] Found %1 devices in this room".arg(device_id_row.rows.length))
-            var devicesList = []
-            for (var i = 0; i < device_id_row.rows.length; i++)
-                devicesList[i] = device_id_row.rows[i].device_id
+            var devicesList = {}
+            for (var i = 0; i < device_id_row.rows.length; i++) {
+                var row = device_id_row.rows[i]
+                if (!devicesList[row.matrix_id]) {
+                    devicesList[row.matrix_id] = {}
+                }
+                devicesList[row.matrix_id][row.device_id] = "signed_curve25519"
+            }
+                
 
-            console.log("[DEBUG] devicesList has %1 entries".arg(devicesList.length))
+            console.log("[DEBUG] devicesList ", JSON.stringify(devicesList))
 
             var success_callback = function () {
                 console.log("[DEBUG] Store InboundMegolmSession")
