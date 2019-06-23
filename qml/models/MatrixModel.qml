@@ -247,7 +247,7 @@ Item {
 
     function sendMessage ( messageID, data, chat_id, algorithm, success_callback, error_callback ) {
         if (algorithm) {
-            var success_callback = function (encrypted) {
+            var encryption_success_callback = function (encrypted) {
                 var data = {
                     "algorithm": "m.megolm.v1.aes-sha2",
                     "ciphertext": encrypted,
@@ -255,9 +255,9 @@ Item {
                     "sender_key": E2ee.getOutboundGroupSessionKey(),
                     "session_id": E2ee.getOutboundGroupSessionId()
                 }
-                sendMessage ( messageID, data, chat_id, algorithm, success_callback, error_callback )
+                sendMessage ( messageID, data, chat_id, null, success_callback, error_callback )
             }
-            e2eeModel.encryptMegolmMessage(data, chat_id, success_callback)
+            e2eeModel.encryptMegolmMessage(data, chat_id, encryption_success_callback)
         }
 
         var newMessageID = ""

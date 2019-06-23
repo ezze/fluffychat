@@ -216,16 +216,28 @@ Item {
 
     // Encrypts a message payload depending on the algorithm
     function sendOlmMessage ( content, device_id_list, callback  ) {
-        console.log("[DEBUG] Try to send a olm message to %1.".arg(device_id))
-        var queryStr = "SELECT * FROM OlmSessions WHERE device_id=?"
+        console.log("[DEBUG] Try to send a olm message to %1 devices.".arg(device_id_list.length))
+        if (device_id_list.length === 0) return
+        var queryStr = "SELECT * FROM Devices WHERE device_id=?"
         for (var i = 1; i < device_id_list.length; i++)
             queryStr += " OR device_id=?"
         var res = storage.query ( queryStr, device_id_list )
+
         if ( res.rows.length === 0 ) {
             console.log("[ERROR] Unknown device...")
             return null
         }
+ 
+        var device_key_list = []
+        for (var i = 0; i < res.rows.lenth; i++) {
+            device_key_list[i] = JSON.parse(res.rows[i].keys_json)[Curve25519]
+        }
         
+        var olmQueryStr = "SELECT * FROM OlmSessions WHERE device_key=?"
+        for (var i = 1; i < device_key_list.length; i++)
+            queryStr += " OR device_key=?"
+        res = storage.query ( olmQueryStr, device_key_list )
+            
         var data = {
             "one_time_keys": {}
         }
@@ -272,12 +284,12 @@ Item {
     
     // Encrypt megolm message
     function encryptMegolmMessage (content, room_id, callback) {
-        console.log("[DEBUG] Try to send a olm message to %1.".arg(room_id))
+        console.log("[DEBUG] Try to send a megolm message to %1.".arg(room_id))
         var res = storage.query ( "SELECT encryption_outbound_pickle FROM Chats WHERE id=?", [ room_id ] )
 
         if (res.length === 0) return
 
-        if (res[0].encryption_outbound_pickle !== "") {
+        if (res.rows[0].encryption_outbound_pickle !== "") {
             console.log("[DEBUG] Found existing megolm session!")
             E2ee.restoreOutboundGroupSession(res[0].encryption_outbound_pickle)
             callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
@@ -286,25 +298,30 @@ Item {
             console.log("[DEBUG] No megolm session found! Try to create a new one...")
             var newPickle = E2ee.createOutboundGroupSession(matrix.matrixid)
             var inBoundKey = E2ee.getOutboundGroupSessionKey()
-            var megolmInPickle = E2ee.createInboundGroupSession(inBoundKey)
+            var megolmInPickle = E2ee.createInboundGroupSession(inBoundKey, matrix.matrixid)
             var olmContent = {
                 "algorithm": "m.olm.v1.curve25519-aes-sha2",
                 "room_id": room_id,
                 "session_id": E2ee.getOutboundGroupSessionId(),
                 "session_key": inBoundKey
             }
-            var device_id_row = storage.query( "SELECT device_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.room_id=? AND Devices.blocked=0  GROUP BY Devices.device_id" )
+            console.log("[DEBUG] New megolm session created with ID: %1 and Key: %2".arg(olmContent.session_id).arg(olmContent.session_key))
+            
+            var device_id_row = storage.query( "SELECT device_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.chat_id=? AND Devices.blocked=0  GROUP BY Devices.device_id", [ room_id ] )
+            console.log("[DEBUG] Found %1 devices in this room".arg(device_id_row.rows.length))
             var devicesList = []
             for (var i = 0; i < device_id_row.rows.length; i++)
                 devicesList[i] = device_id_row.rows[i].device_id
-            
+
+            console.log("[DEBUG] devicesList has %1 entries".arg(devicesList.length))
+
             var success_callback = function () {
+                console.log("[DEBUG] Store InboundMegolmSession")
                 storage.query( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
                     payload.room_id,
                     device_key,
                     megolmInPickle
                 ] )
-                E2ee.restoreOutboundGroupSession(res[0].encryption_outbound_pickle)
                 callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
             }
             sendOlmMessage(olmContent, devicesList, success_callback)
