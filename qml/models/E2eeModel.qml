@@ -215,7 +215,7 @@ Item {
     }
 
     // Encrypts a message payload depending on the algorithm
-    function sendOlmMessage ( content, device_id_list, callback  ) {
+    function sendOlmMessage ( content, device_id_list, identityKeys, callback  ) {
         console.log("[DEBUG] Try to send a olm message")
             
         var data = {
@@ -233,15 +233,16 @@ Item {
                     for ( var item in keysObj ) {
                         oneTimeKey = keysObj[item].key
                     }
-                    E2ee.createOutboundSession(identityKey, oneTimeKey, matrix.matrixid)
-                    var keys = JSON.parse(E2ee.getIdentityKeys())
+                    console.log("[DEBUG] Create outbound session")
+                    //E2ee.createOutboundSession(identityKeys[device_id], oneTimeKey, matrix.matrixid)
+                    //var keys = JSON.parse(E2ee.getIdentityKeys())
 
                     data.messages[user_id][device_id] = {
                         "algorithm": "m.olm.v1.curve25519-aes-sha2",
                         "ciphertext": {},
-                        "sender_key": keys[Curve25519]
+                        "sender_key": "1234"//keys[curve25519]
                     }
-                    data.messages[user_id][device_id].ciphertext[identityKey] = {
+                    data.messages[user_id][device_id].ciphertext[identityKeys[device_id]] = {
                         "body": E2ee.encrypt(JSON.stringify(content)),
                         "type": 0
                     }
@@ -261,19 +262,20 @@ Item {
     function encryptMegolmMessage (content, room_id, callback) {
         console.log("[DEBUG] Try to send a megolm message to %1.".arg(room_id))
         var res = storage.query ( "SELECT encryption_outbound_pickle FROM Chats WHERE id=?", [ room_id ] )
+        var megolmInPickle
 
         if (res.length === 0) return
 
         if (res.rows[0].encryption_outbound_pickle !== "") {
             console.log("[DEBUG] Found existing megolm session!")
-            E2ee.restoreOutboundGroupSession(res[0].encryption_outbound_pickle)
+            E2ee.restoreOutboundGroupSession(res.rows[0].encryption_outbound_pickle, matrix.matrixid)
             callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
         }
         else {
             console.log("[DEBUG] No megolm session found! Try to create a new one...")
             var newPickle = E2ee.createOutboundGroupSession(matrix.matrixid)
             var inBoundKey = E2ee.getOutboundGroupSessionKey()
-            var megolmInPickle = E2ee.createInboundGroupSession(inBoundKey, matrix.matrixid)
+            megolmInPickle = E2ee.createInboundGroupSession(inBoundKey, matrix.matrixid)
             var olmContent = {
                 "algorithm": "m.olm.v1.curve25519-aes-sha2",
                 "room_id": room_id,
@@ -282,14 +284,18 @@ Item {
             }
             console.log("[DEBUG] New megolm session created with ID: %1 and Key: %2".arg(olmContent.session_id).arg(olmContent.session_key))
 
-            var device_id_row = storage.query( "SELECT Devices.device_id, Memberships.matrix_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.chat_id=? AND Devices.blocked=0  GROUP BY Devices.device_id", [ room_id ] )
+            var device_id_row = storage.query( "SELECT Devices.device_id, Devices.keys_json, Memberships.matrix_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.chat_id=? AND Devices.blocked=0  GROUP BY Devices.device_id", [ room_id ] )
             console.log("[DEBUG] Found %1 devices in this room".arg(device_id_row.rows.length))
             var devicesList = {}
+            var identityKeys = {}
             for (var i = 0; i < device_id_row.rows.length; i++) {
                 var row = device_id_row.rows[i]
+                var keys = JSON.parse(row.keys_json)
+                var keyName = "curve25519:%1".arg(row.device_id)
                 if (!devicesList[row.matrix_id]) {
                     devicesList[row.matrix_id] = {}
                 }
+                identityKeys[row.device_id] = keys.keys[keyName]
                 devicesList[row.matrix_id][row.device_id] = "signed_curve25519"
             }
                 
@@ -299,13 +305,17 @@ Item {
             var success_callback = function () {
                 console.log("[DEBUG] Store InboundMegolmSession")
                 storage.query( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
-                    payload.room_id,
-                    device_key,
+                    room_id,
+                    matrix.device_id,
                     megolmInPickle
+                ] )
+                storage.query( "UPDATE Chats SET encryption_outbound_pickle=? WHERE id=?", [
+                    megolmInPickle,
+                    room_id
                 ] )
                 callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
             }
-            sendOlmMessage(olmContent, devicesList, success_callback)
+            sendOlmMessage(olmContent, devicesList, identityKeys, success_callback)
         }
     }
 
