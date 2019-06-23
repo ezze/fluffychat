@@ -234,8 +234,8 @@ Item {
                         oneTimeKey = keysObj[item].key
                     }
                     console.log("[DEBUG] Create outbound session")
-                    //E2ee.createOutboundSession(identityKeys[device_id], oneTimeKey, matrix.matrixid)
-                    //var keys = JSON.parse(E2ee.getIdentityKeys())
+                    E2ee.createOutboundSession(identityKeys[device_id], oneTimeKey, matrix.matrixid)
+                    var keys = JSON.parse(E2ee.getIdentityKeys())
 
                     data.messages[user_id][device_id] = {
                         "algorithm": "m.olm.v1.curve25519-aes-sha2",
