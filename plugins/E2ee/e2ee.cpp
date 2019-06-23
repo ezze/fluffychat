@@ -44,8 +44,12 @@ E2ee::~E2ee() {
 }
 
 
-QString logError (QString errorMsg) {
-    qDebug() << "🐞[E2EE] " + errorMsg;
+QString logError (QString errorMsg, size_t errorCode = 0) {
+    QString logMsg = "🐞[E2EE] "+ errorMsg;
+    if (errorCode) {
+        logMsg +=  "; errorCode: " + QString::number(errorCode);
+    }
+    qDebug() << logMsg;
     return "";
 }
 
@@ -480,7 +484,7 @@ QString E2ee::createOutboundGroupSession(QString key)
                                                    megolmKeySeed.random(),
                                                    megolmKeySeed.length());
     if (error) {
-        logError("olm_init_outbound_group_session failed");
+        logError(QString("olm_init_outbound_group_session failed"), error);
         return "";
     }
 
