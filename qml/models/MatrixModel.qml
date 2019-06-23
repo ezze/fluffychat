@@ -731,34 +731,11 @@ Item {
     function handleToDeviceEvents ( events, newEventCB ) {
         if (events.length) console.log("[DEBUG] Got %1 to_device events".arg(events.length))
         for ( var i = 0; i < events.length; i++ ) {
-            console.log("[DEBUG] Handle frist to_device event")
-            var event = events[i]
-
+            console.log("[DEBUG] Handle %1 to_device event".arg(i))
             // Make sure, this event is encrypted
-            if(!( typeof event.type === "String" && event.type === "m.room.encrypted") || validateEvent(event, "m.room.encrypted")) return
+            if(!( typeof events[ i ].type === "String" && events[ i ].type === "m.room.encrypted") || validateEvent(events[ i ], "m.room.encrypted")) return
             console.log("[DEBUG] Event is encrypted")
-            
-            // Get device key
-            var device_key
-            for ( var key in event.content.ciphertext) {
-                device_key = key
-                break
-            }
-
-            var payload = e2eeModel.decrypt(event)
-            
-            if ( supportedEncryptionAlgorithms.indexOf(payload.algorithm) === -1 ) {
-                console.log("[ERROR] Unsupported algorithm")
-                return
-            }
-            console.log("[DEBUG] Save MegOlm session")
-            var megolmInPickle = E2ee.createInboundGroupSession(payload.session_key)
-            storage.query( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
-                payload.room_id,
-                device_key,
-                megolmInPickle
-            ] )
-
+            newEventCB ( events[ i ].type, events[ i ].sender, "to_device", events[ i ] )
         }
     }
 

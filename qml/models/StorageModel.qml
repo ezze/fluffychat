@@ -311,6 +311,9 @@ Item {
             var status = msg_status.RECEIVED
             if ( typeof eventContent.status === "number" ) status = eventContent.status
             else if ( eventType === "history" ) status = msg_status.HISTORY
+                
+            if ( type === "m.room.encrypted" )
+                eventContent.content = e2eeModel.decrypt(eventContent)
 
             // Format the text for the app
             if( typeof eventContent.content.body === "string" ) {
@@ -586,6 +589,30 @@ Item {
                     console.log("Stop tracking user",user)
                 }
             }
+            break
+        case "to_device":
+            console.log("[DEBUG] Handle to_device event")
+            
+            // Get device key
+            var device_key
+            for ( var key in eventContent.content.ciphertext) {
+                device_key = key
+                break
+            }
+
+            var payload = e2eeModel.decrypt(eventContent)
+            
+            if ( supportedEncryptionAlgorithms.indexOf(payload.algorithm) === -1 ) {
+                console.log("[ERROR] Unsupported algorithm")
+                return
+            }
+            console.log("[DEBUG] Save MegOlm session")
+            var megolmInPickle = E2ee.createInboundGroupSession(payload.session_key)
+            addQuery( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
+                payload.room_id,
+                device_key,
+                megolmInPickle
+            ] )
             break
         }
     }

@@ -215,35 +215,57 @@ Item {
     }
 
     // Encrypts a message payload depending on the algorithm
-    function encryptOlmMessage ( content, device_id, callback  ) {
+    function sendOlmMessage ( content, device_id_list, callback  ) {
         console.log("[DEBUG] Try to send a olm message to %1.".arg(device_id))
-        var res = storage.query ( "SELECT * FROM OlmSessions WHERE device_id=?", [ device_id ] )
+        var queryStr = "SELECT * FROM OlmSessions WHERE device_id=?"
+        for (var i = 1; i < device_id_list.length; i++)
+            queryStr += " OR device_id=?"
+        var res = storage.query ( queryStr, device_id_list )
         if ( res.rows.length === 0 ) {
             console.log("[ERROR] Unknown device...")
             return null
         }
         
-        var success_callback = function (resp) {
-            var keys = JSON.parse(res[0])
-            var identityKeyName = "curve25519:%1".arg(device_id)
-            var identityKey = keys.keys[identityKeyName]
-            
-            var keysObj = resp.one_time_keys[keys.user_id][device_id]
-            var oneTimeKey
-            for (item in keysObj) {
-                oneTimeKey = keysObj[item].key
-            }
-
-            e2ee.createOutboundSession(identityKey, oneTimeKey, matrix.matrixid)
-
-            callback ( e2ee.encrypt(JSON.stringify(content)) )
-        }
-        
         var data = {
             "one_time_keys": {}
         }
-        data.one_time_keys[keys.user_id] = {}
-        data.one_time_keys[keys.user_id][device_id] = "signed_curve25519"
+        
+        for (var i = 0; i < res.rows.lenth; i++) {
+            var device_id = res.rows[i].device_id
+            var keys = JSON.parse(res[i].keys_json)
+            var identityKeyName = "curve25519:%1".arg(device_id)
+            var identityKey = keys.keys[identityKeyName]
+            
+            data.one_time_keys[keys.user_id] = {}
+            data.one_time_keys[keys.user_id][device_id] = "signed_curve25519"
+        }
+        
+        
+        var success_callback = function (resp) {
+            var data = { "messages": {} }
+            for ( var user_id in resp.one_time_keys ) {
+                var keysObj = resp.one_time_keys[keys.user_id][device_id]
+                var oneTimeKey
+                for (item in keysObj) {
+                    oneTimeKey = keysObj[item].key
+                }
+                e2ee.createOutboundSession(identityKey, oneTimeKey, matrix.matrixid)
+                var keys = JSON.parse(e2ee.getIdentityKeys())
+                data.messages[user_id] = {}
+                data.messages[user_id][device_id] = {
+                    "algorithm": "m.olm.v1.curve25519-aes-sha2",
+                    "ciphertext": {},
+                    "sender_key": keys[Curve25519]
+                }
+                data.messages[user_id][device_id].ciphertext[identityKey] = {
+                    "body": e2ee.encrypt(JSON.stringify(content)),
+                    "type": 0
+                }
+            }
+
+            var txnid = new Date().getTime()
+            matrix.put("/client/r0/sendToDevice/m.to_device/%1".arg(txnid), data, callback)
+        }
 
         matrix.post("/client/r0/keys/claim", data, success_callback)
     }
@@ -265,12 +287,27 @@ Item {
             var newPickle = E2ee.createOutboundGroupSession(matrix.matrixid)
             var inBoundKey = E2ee.getOutboundGroupSessionKey()
             var megolmInPickle = E2ee.createInboundGroupSession(inBoundKey)
-            storage.query( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
-                payload.room_id,
-                device_key,
-                megolmInPickle
-            ] )
-            // TODO: Send inBoundKey to ALL devices!
+            var olmContent = {
+                "algorithm": "m.olm.v1.curve25519-aes-sha2",
+                "room_id": room_id,
+                "session_id": E2ee.getOutboundGroupSessionId(),
+                "session_key": inBoundKey
+            }
+            var device_id_row = storage.query( "SELECT device_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.room_id=? AND Devices.blocked=0  GROUP BY Devices.device_id" )
+            var devicesList = []
+            for (var i = 0; i < device_id_row.rows.length; i++)
+                devicesList[i] = device_id_row.rows[i].device_id
+            
+            var success_callback = function () {
+                storage.query( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
+                    payload.room_id,
+                    device_key,
+                    megolmInPickle
+                ] )
+                E2ee.restoreOutboundGroupSession(res[0].encryption_outbound_pickle)
+                callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
+            }
+            sendOlmMessage(olmContent, devicesList, success_callback)
         }
     }
 
