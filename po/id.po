@@ -8,139 +8,147 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-16 18:20+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-07-02 13:01+0000\n"
+"Last-Translator: ditokp <ditokpl@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/fluffychat/"
+"translations/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
-msgstr ""
+msgstr "Tidak dikenal"
 
 #: ../push/pushhelper.cpp:146
 msgid "New message"
-msgstr ""
+msgstr "Pesan baru"
 
 #: ../push/pushhelper.cpp:156
 msgid "New encrypted message"
-msgstr ""
+msgstr "Pesan baru terenkripsi"
 
 #: ../push/pushhelper.cpp:159
 msgid "New member event"
-msgstr ""
+msgstr "Acara anggota baru"
 
 #: ../push/pushhelper.cpp:165
 msgid "You were invited to chat"
-msgstr ""
+msgstr "Anda diundang ke chat"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
-msgstr ""
+msgstr "Apa Anda yakin?"
 
 #: ../qml/Main.qml:151
 msgid "You must agree to the privacy policy"
-msgstr ""
+msgstr "Anda harus setuju dengan kebijakan privasi"
 
 #: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
-msgstr ""
+msgstr "Disalin ke papan klip"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
-msgstr ""
+msgstr "FluffyChat %1 di %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Become a patron"
-msgstr ""
+msgstr "Menjadi patron"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
-msgstr ""
+msgstr "Dukung di Liberapay"
 
 #: ../qml/pages/InfoPage.qml:47
 msgid "Join the community"
-msgstr ""
+msgstr "Bergabung dengan komunitas"
 
 #: ../qml/pages/InfoPage.qml:53 ../qml/pages/LoginPage.qml:43
 #: ../qml/pages/PrivacyPolicyPage.qml:11
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Kebijakan Privasi"
 
 #: ../qml/pages/InfoPage.qml:60
 msgid "Website"
-msgstr ""
+msgstr "Situs Web"
 
 #: ../qml/pages/InfoPage.qml:66
 msgid "Contributors"
-msgstr ""
+msgstr "Kontributor"
 
 #: ../qml/pages/InfoPage.qml:72
 msgid "Source code"
-msgstr ""
+msgstr "Kode sumber"
 
 #: ../qml/pages/InfoPage.qml:78
 msgid "License"
-msgstr ""
+msgstr "Lisensi"
 
 #: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
-msgstr ""
+msgstr "Chat yang diarsipkan"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
 msgid "Search archived chats..."
-msgstr ""
+msgstr "Cari chat yang diarsipkan..."
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
-msgstr ""
+msgstr "Tidak ada chat yang diarsipkan"
 
 #: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
-msgstr ""
+msgstr "Alamat surel yang tersambung"
 
 #: ../qml/pages/EmailSettingsPage.qml:28
 msgid "Add email address"
-msgstr ""
+msgstr "Tambahkan alamat surel"
 
 #: ../qml/pages/EmailSettingsPage.qml:39
 msgid "No email addresses connected"
-msgstr ""
+msgstr "Tidak ada alamat surel yang tersambung"
 
 #: ../qml/pages/PasswordCreationPage.qml:19
 msgid "Please set a password"
-msgstr ""
+msgstr "Mohon atur kata sandi"
 
 #: ../qml/pages/PasswordCreationPage.qml:49
 msgid ""
 "Please set a strong password. To reset your password, you will need to "
 "provide an e-mail address later"
 msgstr ""
+"Mohon atur kata sandi yang kuat. Untuk mereset kata sandi Anda, Anda harus "
+"memberikan alamat surel nanti"
 
 #: ../qml/pages/PasswordCreationPage.qml:65
-#, javascript-format
+#, fuzzy, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
-msgstr ""
+msgstr "misalnya Musim panas%salad$flattens?tOOthpaste"
 
 #: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
 msgid "Sign up"
-msgstr ""
+msgstr "Daftar"
 
 #: ../qml/pages/WalkthroughPage.qml:64
 msgid "Welcome to FluffyChat"
-msgstr ""
+msgstr "Selamat Datang di FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or a unique username to find friends."
 msgstr ""
+"Chat dengan teman Anda dan bergabunglah dengan komunitas. Anda bisa "
+"menggunakan nomor ponsel Anda atau nama pengguna yang unik untuk mencari "
+"teman."
 
 #: ../qml/pages/WalkthroughPage.qml:115
 msgid "Join the Matrix"
-msgstr ""
+msgstr "Bergabung dengan Matrix"
 
 #: ../qml/pages/WalkthroughPage.qml:129
 msgid ""
@@ -148,30 +156,33 @@ msgid ""
 "uMatriks. You can also join IRC channels, participate in XMPP chats and "
 "bridge Telegram groups."
 msgstr ""
+"FluffyChat kompatibel dengan aplikasi pesan singkat lain seperti Riot, "
+"Fractal atau uMatriks. Anda juga dapat bergabung dengan saluran IRC, "
+"berpartisipasi dalam obrolan XMPP dan menjembatani grup Telegram."
 
 #: ../qml/pages/WalkthroughPage.qml:166
 msgid "What's new in version %1?"
-msgstr ""
+msgstr "Apa yang baru di versi %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
 msgid "Minor bugfixes and updated translations."
-msgstr ""
+msgstr "Perbaikan bug kecil dan memperbaharui terjemahan."
 
 #: ../qml/pages/WalkthroughPage.qml:174
 msgid "Critical bug fixed."
-msgstr ""
+msgstr "Perbaikan bug yang gawat."
 
 #: ../qml/pages/WalkthroughPage.qml:175
 msgid "Security bug fixed."
-msgstr ""
+msgstr "Perbaikan bug keamanan."
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
-msgstr ""
+msgstr "Memperbaharui terjemahan. Terima kasih untuk semua penerjemah."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
-msgstr ""
+msgstr "Didanai komunitas"
 
 #: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
@@ -180,241 +191,248 @@ msgid ""
 "bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/"
 "KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
+"FluffyChat adalah terbuka, nonprofit dan imut. Pengembangan dan server "
+"semuanya didanai oleh komunitas. Donasi pada proyek ini di <a "
+"href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> atau<a "
+"href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
-msgstr ""
+msgstr "Lanjutkan"
 
 #: ../qml/pages/LoginPage.qml:20
 msgid "Homeserver %1"
-msgstr ""
+msgstr "Homeserver %1"
 
 #: ../qml/pages/LoginPage.qml:28
 msgid "Change homeserver"
-msgstr ""
+msgstr "Ubah homeserver"
 
 #: ../qml/pages/LoginPage.qml:33
 msgid "Change ID-server"
-msgstr ""
+msgstr "Ubah ID-server"
 
 #: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
-msgstr ""
+msgstr "Tentang FluffyChat"
 
 #: ../qml/pages/LoginPage.qml:53
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #: ../qml/pages/LoginPage.qml:64
 msgid "Choose your homeserver"
-msgstr ""
+msgstr "Pilih homeserver Anda"
 
 #: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
-msgstr ""
+msgstr "Pilih identitas server Anda"
 
 #: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
-msgstr ""
+msgstr "Nomor ponsel (opsional)"
 
 #: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
-msgstr ""
+msgstr "Nama pengguna atau ID Matrix"
 
 #: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
-msgstr ""
+msgstr "Buat akun baru"
 
 #: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
-msgstr ""
+msgstr "Masuk"
 
 #: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
-msgstr ""
+msgstr "FluffyChat"
 
 #: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
-msgstr ""
+msgstr "Bagikan"
 
 #: ../qml/pages/ChatListPage.qml:104
 msgid "Search for your chats…"
-msgstr ""
+msgstr "Cari obrolan Anda…"
 
 #: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
+"Geser keatas dari bawah untuk memulai obrolan baru atau temukan grup publik."
 
 #: ../qml/pages/ChatListPage.qml:155
 msgid "Add chat"
-msgstr ""
+msgstr "Tambahkan obrolan"
 
 #: ../qml/pages/CreateChatPage.qml:15
 msgid "Add Chat"
-msgstr ""
+msgstr "Tambahkan Obrolan"
 
 #: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
-msgstr ""
+msgstr "Impor dari buku alamat"
 
 #: ../qml/pages/CreateChatPage.qml:42
 msgid "Filter contacts"
-msgstr ""
+msgstr "Filter kontak"
 
 #: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
-msgstr ""
+msgstr "Grup baru"
 
 #: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
-msgstr ""
+msgstr "Grup publik"
 
 #: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
-msgstr ""
+msgstr "Klik tombol di pojok kanan untuk menambahkan kontak."
 
 #: ../qml/pages/SettingsPage.qml:28
 msgid "Settings"
-msgstr ""
+msgstr "Pengaturan"
 
 #: ../qml/pages/SettingsPage.qml:84 ../qml/components/ProfileRow.qml:40
 msgid "Username:"
-msgstr ""
+msgstr "Nama pengguna:"
 
 #: ../qml/pages/SettingsPage.qml:99 ../qml/components/ProfileRow.qml:55
 msgid "Displayname:"
-msgstr ""
+msgstr "Nama yang ditampilkan:"
 
 #: ../qml/pages/SettingsPage.qml:114
 msgid "Edit"
-msgstr ""
+msgstr "Sunting"
 
 #: ../qml/pages/SettingsPage.qml:124
 msgid "Change main color"
-msgstr ""
+msgstr "Ubah warna utama"
 
 #: ../qml/pages/SettingsPage.qml:138
 msgid "Change background"
-msgstr ""
+msgstr "Ubah latar belakang"
 
 #: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
-msgstr ""
+msgstr "Mode gelap"
 
 #: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
-msgstr ""
+msgstr "Notifikasi"
 
 #: ../qml/pages/SettingsPage.qml:189
 msgid "Chat settings:"
-msgstr ""
+msgstr "Pengaturan obrolan:"
 
 #: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
-msgstr ""
+msgstr "Kirim dengan enter"
 
 #: ../qml/pages/SettingsPage.qml:200
 msgid "Display 'I am typing' when typing"
-msgstr ""
+msgstr "Tampilkan 'Sedang mengetik' saat mengetik"
 
 #: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
-msgstr ""
+msgstr "Sembunyikan acara yang kurang penting"
 
 #: ../qml/pages/SettingsPage.qml:214
 msgid "Autoload animated images"
-msgstr ""
+msgstr "Otomatis memuat gambar beranimasi"
 
 #: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
-msgstr ""
+msgstr "Pengaturan akun:"
 
 #: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
-msgstr ""
+msgstr "Nomor ponsel yang terhubung"
 
 #: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
-msgstr ""
+msgstr "Perangkat"
 
 #: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
-msgstr ""
+msgstr "Ubah kata sandi"
 
 #: ../qml/pages/SettingsPage.qml:259
+#, fuzzy
 msgid "Check out:"
-msgstr ""
+msgstr "Periksa:"
 
 #: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
-msgstr ""
+msgstr "Nonaktifkan akun"
 
 #: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
-msgstr ""
+msgstr "Keluar"
 
 #: ../qml/pages/SettingsPage.qml:275
+#, fuzzy
 msgid "More:"
-msgstr ""
+msgstr "Lebih:"
 
 #: ../qml/pages/CommunityPage.qml:98
 msgid "No description found"
-msgstr ""
+msgstr "Tidak ada deskripsi yang ditemukan"
 
 #: ../qml/pages/PasswordInputPage.qml:13
 msgid "Enter your password"
-msgstr ""
+msgstr "Masukkan kata sandi Anda"
 
 #: ../qml/pages/PasswordInputPage.qml:41
 msgid "Please enter your password for: <b>%1</b>"
-msgstr ""
+msgstr "Mohon masukkan kata sandi Anda untuk: <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
 msgid "Password..."
-msgstr ""
+msgstr "Kata sandi..."
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
-msgstr ""
+msgstr "Terima notifikasi untuk…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
 msgid "Common messages"
-msgstr ""
+msgstr "Pesan umum"
 
 #: ../qml/pages/NotificationSettingsPage.qml:39
 msgid "Messages from single chats"
-msgstr ""
+msgstr "Pesan dari obrolan tunggal"
 
 #: ../qml/pages/NotificationSettingsPage.qml:49
 msgid "Mention my display name"
-msgstr ""
+msgstr "Mention nama tampilan saya"
 
 #: ../qml/pages/NotificationSettingsPage.qml:59
 msgid "Mention my user name"
-msgstr ""
+msgstr "Mention nama pengguna saya"
 
 #: ../qml/pages/NotificationSettingsPage.qml:69
 msgid "Invitations for me"
-msgstr ""
+msgstr "Undangan untuk saya"
 
 #: ../qml/pages/NotificationSettingsPage.qml:79
 msgid "Chat member changes"
-msgstr ""
+msgstr "Anggota obrolan berubah"
 
 #: ../qml/pages/NotificationSettingsPage.qml:89
 msgid "Messages from bots"
-msgstr ""
+msgstr "Pesan dari bot"
 
 #: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
-msgstr ""
+msgstr "Undang pengguna"
 
 #: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
-msgstr ""
+msgstr "Cari misalnya @namapengguna:server.abc"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:29
 msgid ""
@@ -443,121 +461,121 @@ msgstr ""
 
 #: ../qml/pages/CountryPickerPage.qml:11
 msgid "Choose a country"
-msgstr ""
+msgstr "Pilih negara"
 
 #: ../qml/pages/CountryPickerPage.qml:28
 msgid "Search for country by name…"
-msgstr ""
+msgstr "Cari negara berdasarkan nama…"
 
 #: ../qml/pages/UserPage.qml:34
 msgid "Username copied to the clipboard"
-msgstr ""
+msgstr "Nama pengguna disalin ke papan klip"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "Chats with this user:"
-msgstr ""
+msgstr "Obrolan dengan pengguna ini:"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "This is you."
-msgstr ""
+msgstr "Ini Anda."
 
 #: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
-msgstr ""
+msgstr "Mulai obrolan baru"
 
 #: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
-msgstr ""
+msgstr "Obrolan tidak dikenal"
 
 #: ../qml/pages/ChatPage.qml:112
 msgid "Chat info"
-msgstr ""
+msgstr "Info obrolan"
 
 #: ../qml/pages/ChatPage.qml:137
 msgid "No messages in this chat ..."
-msgstr ""
+msgstr "Tidak ada pesan di obrolan ini ..."
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
-msgstr ""
+msgstr "Balas ke <b>%1</b>: \"%2\""
 
 #: ../qml/pages/ChatPage.qml:238
 msgid "Accept invitation"
-msgstr ""
+msgstr "Menerima undangan"
 
 #: ../qml/pages/ChatPage.qml:238
 msgid "Join"
-msgstr ""
+msgstr "Bergabung"
 
 #: ../qml/pages/ChatPage.qml:246
 msgid "You do not have posting permissions here"
-msgstr ""
+msgstr "Anda tidak punya izin memposting disini"
 
 #: ../qml/pages/ChatPage.qml:275
 msgid "Type something ..."
-msgstr ""
+msgstr "Ketik sesuatu ..."
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
-msgstr ""
+msgstr "Tambahkan nomor ponsel"
 
 #: ../qml/pages/PhoneSettingsPage.qml:40
 msgid "No phone numbers connected"
-msgstr ""
+msgstr "Tidak ada nomor ponsel yang terhubung"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
 #: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Advanced settings"
-msgstr ""
+msgstr "Pengaturan lanjutan"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "Access"
-msgstr ""
+msgstr "Akses"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
 msgid "Users can be invited"
-msgstr ""
+msgstr "Pengguna bisa diundang"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:60
 msgid "Chat is public accessible"
-msgstr ""
+msgstr "Obrolan dapat diakses oleh umum"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:68
 msgid "Guest users are allowed"
-msgstr ""
+msgstr "Pengguna tamu diizinkan"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:75
 #: ../qml/pages/ChatAliasSettingsPage.qml:31
 msgid "Public chat addresses"
-msgstr ""
+msgstr "Alamat obrolan publik"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:82
 msgid "History visibility"
-msgstr ""
+msgstr "Visibilitas riwayat"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:87
 msgid "History is visible from invitation"
-msgstr ""
+msgstr "Riwayat dapat dilihat dari undangan"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:94
 msgid "Members can access full chat history"
-msgstr ""
+msgstr "Anggota dapat mengakses riwayat obrolan secara lengkap"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:101
 msgid "Anyone can access full chat history"
-msgstr ""
+msgstr "Semua orang dapat mengakses riwayat obrolan secara lengkap"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:33
 msgid "Notify"
-msgstr ""
+msgstr "Memberitahukan"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:48
 msgid "Only if mentioned"
-msgstr ""
+msgstr "Hanya jika di mention"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:63
 msgid "Don't notify"
-msgstr ""
+msgstr "Jangan beritahukan"
 
 #: ../qml/pages/DiscoverPage.qml:24
 msgid "Groups on %1"
