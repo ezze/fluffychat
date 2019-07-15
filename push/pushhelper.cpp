@@ -124,12 +124,16 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
 
     // First try the sender displayname otherwise fallback
     // to the full length username type string thingy
+    QString senderMxid = QString("");
+    if (push.contains("sender") && !push["sender"].toString().isEmpty()) {
+        senderMxid = push["sender"].toString();
+    }
     QString sender = QString("");
     if (push.contains("sender_display_name")) {
         sender = push["sender_display_name"].toString();
     }
     else if (push.contains("sender") && !push["sender"].toString().isEmpty()) {
-        sender = push["sender"].toString();
+        sender = senderMxid;
     }
 
 
@@ -202,7 +206,7 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
                     icon = QString("https://matrix.org/_matrix/media/r0/thumbnail/") + avatar_url + QString("?width=32&height=32&method=scale");
                 }
                 else {
-                    if(query.exec("SELECT Users.avatar_url FROM Users, Memberships  WHERE Memberships.matrix_id=Users.matrix_id  AND Memberships.chat_id='" + id + "'  AND (Memberships.membership='join' OR Memberships.membership='invite')  AND Memberships.matrix_id!='" + id + "' ")) {
+                    if(query.exec("SELECT Users.avatar_url FROM Users, Memberships  WHERE Memberships.matrix_id=Users.matrix_id  AND Memberships.chat_id='" + id + "'  AND (Memberships.membership='join' OR Memberships.membership='invite')  AND Memberships.matrix_id='" + senderMxid + "' ")) {
                         query.first();
                         QString avatar_url = query.value(query.record().indexOf("avatar_url")).toString();
                         if (avatar_url != QString("")) {
