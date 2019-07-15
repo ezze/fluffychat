@@ -7,6 +7,10 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QStringList>
+#include <QStandardPaths>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlRecord>
 
 
 PushHelper::PushHelper(const QString appId, const QString infile, const QString outfile, QObject *parent) : QObject(parent),
@@ -174,6 +178,45 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &pushMessage, QStr
     if (push.contains("room_name") && push["room_name"].toString() != sender) {
         body = sender + QString(": ") + body;
         icon = QString("contact-group");
+    }
+
+    QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    appDataPath = appDataPath.replace("push","fluffychat.christianpauly") + "/Databases/";
+    QDir directory(appDataPath);
+    QStringList files = directory.entryList(QStringList() << "*.sqlite",QDir::Files);
+    if (files.length() > 0) {
+        QString path = appDataPath + files[0];
+        QString tempPath = appDataPath + QString("temp.sqlite");
+        QFile databaseFile(path);
+        databaseFile.copy(tempPath);
+        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+        db.setDatabaseName(tempPath);
+        if (db.open()) {
+            QSqlQuery query(db);
+            if(query.exec("SELECT avatar_url FROM Chats WHERE id='" + id + "'")) {
+                query.first();
+                QString avatar_url = query.value(query.record().indexOf("avatar_url")).toString();
+                if (avatar_url != QString("")) {
+                    avatar_url = avatar_url.replace("mxc://","");
+                    QStringList parts = avatar_url.split('/');
+                    icon = QString("https://matrix.org/_matrix/media/r0/thumbnail/") + avatar_url + QString("?width=32&height=32&method=scale");
+                }
+                else {
+                    if(query.exec("SELECT Users.avatar_url FROM Users, Memberships  WHERE Memberships.matrix_id=Users.matrix_id  AND Memberships.chat_id='" + id + "'  AND (Memberships.membership='join' OR Memberships.membership='invite')  AND Memberships.matrix_id!='" + id + "' ")) {
+                        query.first();
+                        QString avatar_url = query.value(query.record().indexOf("avatar_url")).toString();
+                        if (avatar_url != QString("")) {
+                            avatar_url = avatar_url.replace("mxc://","");
+                            QStringList parts = avatar_url.split('/');
+                            icon = QString("https://matrix.org/_matrix/media/r0/thumbnail/") + avatar_url + QString("?width=32&height=32&method=scale");
+                        }
+                    }
+                }
+           }
+            db.close();
+        }
+        QFile tempFile(tempPath);
+        tempFile.remove();
     }
 
     //The notification object to be passed to Postal

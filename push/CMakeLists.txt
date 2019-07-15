@@ -10,7 +10,7 @@ set(SOURCES
 
 add_executable(push ${SOURCES} )
 
-qt5_use_modules(push Widgets Core Network DBus )
+qt5_use_modules(push Widgets Core Network DBus Sql )
 
 install(FILES push-apparmor.json DESTINATION /push)
 install(FILES push-helper.json DESTINATION /push)
