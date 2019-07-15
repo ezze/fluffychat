@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-16 18:20+0000\n"
+"POT-Creation-Date: 2019-07-14 12:30+0000\n"
 "PO-Revision-Date: 2019-07-02 13:01+0000\n"
 "Last-Translator: ditokp <ditokpl@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/fluffychat/"
@@ -19,25 +19,424 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.8-dev\n"
 
-#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:137 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr "Tidak dikenal"
 
-#: ../push/pushhelper.cpp:146
+#: ../push/pushhelper.cpp:150
 msgid "New message"
 msgstr "Pesan baru"
 
-#: ../push/pushhelper.cpp:156
+#: ../push/pushhelper.cpp:160
 msgid "New encrypted message"
 msgstr "Pesan baru terenkripsi"
 
-#: ../push/pushhelper.cpp:159
+#: ../push/pushhelper.cpp:163
 msgid "New member event"
 msgstr "Acara anggota baru"
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:169
 msgid "You were invited to chat"
 msgstr "Anda diundang ke chat"
+
+#: ../qml/components/AddContactDialog.qml:12
+msgid "Add new contact"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:20
+msgid "Enter the full @username"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:23
+msgid "Start private chat"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:31
+msgid "Your username is: %1"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:50
+msgid "Or"
+msgstr ""
+
+#: ../qml/components/AddContactDialog.qml:65 ../qml/pages/CreateChatPage.qml:22
+msgid "Import from addressbook"
+msgstr "Impor dari buku alamat"
+
+#: ../qml/components/AddContactDialog.qml:74
+#: ../qml/components/EnterFirstSMSTokenDialog.qml:28
+#: ../qml/components/AddEmailDialog.qml:28
+#: ../qml/components/EnterSMSTokenDialog.qml:28
+#: ../qml/components/RemoveDeviceDialog.qml:43
+#: ../qml/components/ChangeDisplaynameDialog.qml:28
+#: ../qml/components/ConfirmDialog.qml:22
+#: ../qml/components/DownloadDialog.qml:26
+#: ../qml/components/DisableAccountDialog.qml:42
+#: ../qml/components/AddPhoneDialog.qml:38
+#: ../qml/components/AddAliasDialog.qml:27
+#: ../qml/components/ChangeChatnameDialog.qml:49
+#: ../qml/components/ChangePasswordDialog.qml:38
+#: ../qml/components/LogoutDialog.qml:35
+msgid "Cancel"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:49
+#: ../qml/components/MemberListItem.qml:48
+msgid "Swipe to the left or the right for actions. 😉"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:55
+msgid "Try to send again"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:61
+msgid "Reply"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:67
+msgid "Copy text"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:73
+msgid "Add to sticker collection"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:79
+msgid "Forward"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:91
+#: ../qml/components/RemoveDeviceDialog.qml:48
+#: ../qml/components/DisableAccountDialog.qml:47
+msgid "Remove"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:250
+msgid "Load gif"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:250
+msgid "Show image"
+msgstr ""
+
+#: ../qml/components/ChatScrollView.qml:316
+msgid "Download: "
+msgstr ""
+
+#: ../qml/components/SimpleChatListItem.qml:28 ../qml/pages/ChatPage.qml:54
+msgid "Unknown chat"
+msgstr "Obrolan tidak dikenal"
+
+#: ../qml/components/EnterFirstSMSTokenDialog.qml:11
+#: ../qml/components/EnterSMSTokenDialog.qml:11
+msgid "Please enter the validation code"
+msgstr ""
+
+#: ../qml/components/EnterFirstSMSTokenDialog.qml:19
+#: ../qml/components/EnterSMSTokenDialog.qml:19
+msgid "Validation code"
+msgstr ""
+
+#: ../qml/components/EnterFirstSMSTokenDialog.qml:36
+#: ../qml/components/AddEmailDialog.qml:33
+#: ../qml/components/EnterSMSTokenDialog.qml:33
+#: ../qml/components/AddPhoneDialog.qml:44
+msgid "Connect"
+msgstr ""
+
+#: ../qml/components/DeviceListItem.qml:26
+#: ../qml/components/TargetListItem.qml:24
+msgid "This device"
+msgstr ""
+
+#: ../qml/components/DeviceListItem.qml:27
+msgid "Last seen: "
+msgstr ""
+
+#: ../qml/components/PhoneListItem.qml:31
+msgid "Remove this phone number?"
+msgstr ""
+
+#: ../qml/components/AddEmailDialog.qml:12
+msgid "Connect new email address"
+msgstr ""
+
+#: ../qml/components/AddEmailDialog.qml:20
+msgid "youremail@example.edu"
+msgstr ""
+
+#: ../qml/components/LockedScreen.qml:33
+msgid ""
+"Please restart the app or if necessary restart the device to complete the "
+"update!"
+msgstr ""
+
+#: ../qml/components/RemoveDeviceDialog.qml:12
+msgid "Remove the device"
+msgstr ""
+
+#: ../qml/components/RemoveDeviceDialog.qml:16
+msgid "<b>Device ID</b>: %1"
+msgstr ""
+
+#: ../qml/components/RemoveDeviceDialog.qml:20
+msgid "<b>Last IP</b>: %4"
+msgstr ""
+
+#: ../qml/components/RemoveDeviceDialog.qml:25
+msgid "Are you sure, that you want to remove this device?"
+msgstr ""
+
+#: ../qml/components/RemoveDeviceDialog.qml:34
+msgid "Please enter your password"
+msgstr ""
+
+#: ../qml/components/BottomEdgePageStack.qml:92
+msgid "Back"
+msgstr ""
+
+#: ../qml/components/BottomEdgePageStack.qml:92
+#: ../qml/components/ColorDialog.qml:38
+#: ../qml/components/ChangeChatAvatarDialog.qml:51
+#: ../qml/components/TargetInfoDialog.qml:48
+#: ../qml/components/ChangeAvatarDialog.qml:51
+#: ../qml/components/ChangeChatnameDialog.qml:62
+msgid "Close"
+msgstr ""
+
+#: ../qml/components/ChatListItem.qml:96
+msgid "Leave this chat"
+msgstr ""
+
+#: ../qml/components/MemberListItem.qml:86
+msgid "Ban from this chat?"
+msgstr ""
+
+#: ../qml/components/MemberListItem.qml:94
+msgid "Cancel banishment?"
+msgstr ""
+
+#: ../qml/components/MemberListItem.qml:102
+msgid "Kick from this chat?"
+msgstr ""
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:11
+msgid "Change your display name"
+msgstr ""
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:19
+msgid "Enter your new nickname"
+msgstr ""
+
+#: ../qml/components/ChangeDisplaynameDialog.qml:33
+#: ../qml/components/AddAliasDialog.qml:32
+#: ../qml/components/ChangeChatnameDialog.qml:54
+msgid "Save"
+msgstr ""
+
+#: ../qml/components/ConfirmDialog.qml:27
+msgid "Yes"
+msgstr ""
+
+#: ../qml/components/DownloadDialog.qml:11
+msgid "Download"
+msgstr ""
+
+#: ../qml/components/EmailListItem.qml:31
+msgid "Remove this email address?"
+msgstr ""
+
+#: ../qml/components/DisableAccountDialog.qml:11
+msgid "Remove my account"
+msgstr ""
+
+#: ../qml/components/DisableAccountDialog.qml:25
+msgid ""
+"Are you sure that you want to remove your account? This can not be undone."
+msgstr ""
+
+#: ../qml/components/DisableAccountDialog.qml:33
+#: ../qml/components/ChangePasswordDialog.qml:19
+msgid "Enter your old password"
+msgstr ""
+
+#: ../qml/components/ColorDialog.qml:11
+msgid "Change the main color"
+msgstr ""
+
+#: ../qml/components/ColorDialog.qml:24
+msgid "Hue: %1"
+msgstr ""
+
+#: ../qml/components/ColorDialog.qml:33
+msgid "Reset"
+msgstr ""
+
+#: ../qml/components/StickerInput.qml:56
+msgid "Delete sticker"
+msgstr ""
+
+#: ../qml/components/WaitDialog.qml:11
+msgid "Loading… Please wait."
+msgstr ""
+
+#: ../qml/components/WaitDialog.qml:36
+msgid "Cancel process"
+msgstr ""
+
+#: ../qml/components/ChangeChatAvatarDialog.qml:11
+msgid "Edit chat picture"
+msgstr ""
+
+#: ../qml/components/ChangeChatAvatarDialog.qml:21
+msgid "New chat picture"
+msgstr ""
+
+#: ../qml/components/ChangeChatAvatarDialog.qml:40
+#: ../qml/components/ChangeAvatarDialog.qml:40
+msgid "Remove picture"
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:12
+msgid "Connect new phone number"
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:12
+msgid "…"
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:22
+msgid "Please log out to change your country"
+msgstr ""
+
+#: ../qml/components/AddPhoneDialog.qml:26
+msgid "Phone number…"
+msgstr ""
+
+#: ../qml/components/TargetInfoDialog.qml:11
+msgid "Target details"
+msgstr ""
+
+#: ../qml/components/TargetInfoDialog.qml:25
+msgid "<b>Device name</b>: %2"
+msgstr ""
+
+#: ../qml/components/TargetInfoDialog.qml:29
+msgid "<b>App</b>: %2"
+msgstr ""
+
+#: ../qml/components/TargetInfoDialog.qml:33
+msgid "<b>Kind</b>: %2"
+msgstr ""
+
+#: ../qml/components/TargetInfoDialog.qml:37
+msgid "<b>Language</b>: %2"
+msgstr ""
+
+#: ../qml/components/TargetInfoDialog.qml:41
+msgid "<b>Gateway</b>: %2"
+msgstr ""
+
+#: ../qml/components/ContactImport.qml:73
+msgid "%1 contacts were found"
+msgstr ""
+
+#: ../qml/components/ChangeAvatarDialog.qml:11
+msgid "Edit profile picture"
+msgstr ""
+
+#: ../qml/components/ChangeAvatarDialog.qml:21
+msgid "New profile picture"
+msgstr ""
+
+#: ../qml/components/AddAliasDialog.qml:11
+msgid "Add new chat address"
+msgstr ""
+
+#: ../qml/components/AddAliasDialog.qml:19
+msgid "#chatname:%1"
+msgstr ""
+
+#: ../qml/components/ChangeChatnameDialog.qml:12
+msgid "Chat settings and details"
+msgstr ""
+
+#: ../qml/components/ChangeChatnameDialog.qml:21
+msgid "Change chat avatar"
+msgstr ""
+
+#: ../qml/components/ChangeChatnameDialog.qml:30
+msgid "No chat name yet"
+msgstr ""
+
+#: ../qml/components/ChangeChatnameDialog.qml:37
+msgid "No description yet"
+msgstr ""
+
+#: ../qml/components/ProfileRow.qml:40 ../qml/pages/SettingsPage.qml:84
+msgid "Username:"
+msgstr "Nama pengguna:"
+
+#: ../qml/components/ProfileRow.qml:55 ../qml/pages/SettingsPage.qml:99
+msgid "Displayname:"
+msgstr "Nama yang ditampilkan:"
+
+#: ../qml/components/ProfileRow.qml:70
+msgid "Online:"
+msgstr ""
+
+#: ../qml/components/ProfileRow.qml:70
+msgid "Offline"
+msgstr ""
+
+#: ../qml/components/ProfileRow.qml:78
+msgid "Currently active"
+msgstr ""
+
+#: ../qml/components/ProfileRow.qml:78
+msgid "Last seen: %1"
+msgstr ""
+
+#: ../qml/components/ContactListItem.qml:19
+msgid "Last active: %1"
+msgstr ""
+
+#: ../qml/components/ChangePasswordDialog.qml:11
+msgid "Change your password"
+msgstr ""
+
+#: ../qml/components/ChangePasswordDialog.qml:25
+msgid "Enter your new password"
+msgstr ""
+
+#: ../qml/components/ChangePasswordDialog.qml:30
+msgid "Please repeat"
+msgstr ""
+
+#: ../qml/components/ChangePasswordDialog.qml:43
+msgid "Change"
+msgstr ""
+
+#: ../qml/components/ChangePasswordDialog.qml:48
+msgid "Password has been changed"
+msgstr ""
+
+#: ../qml/components/AddressesListItem.qml:15
+msgid "Canonical alias"
+msgstr ""
+
+#: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
+#: ../qml/pages/SettingsPage.qml:269
+msgid "Log out"
+msgstr "Keluar"
+
+#: ../qml/components/LogoutDialog.qml:25
+msgid "Are you sure you want to log out?"
+msgstr ""
+
+#: ../qml/components/UsernameListItem.qml:12
+msgid "Full username:"
+msgstr ""
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -50,6 +449,252 @@ msgstr "Anda harus setuju dengan kebijakan privasi"
 #: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
 msgstr "Disalin ke papan klip"
+
+#: ../qml/pages/SettingsPage.qml:28
+msgid "Settings"
+msgstr "Pengaturan"
+
+#: ../qml/pages/SettingsPage.qml:114
+msgid "Edit"
+msgstr "Sunting"
+
+#: ../qml/pages/SettingsPage.qml:124
+msgid "Change main color"
+msgstr "Ubah warna utama"
+
+#: ../qml/pages/SettingsPage.qml:138
+msgid "Change background"
+msgstr "Ubah latar belakang"
+
+#: ../qml/pages/SettingsPage.qml:175
+msgid "Dark mode"
+msgstr "Mode gelap"
+
+#: ../qml/pages/SettingsPage.qml:182 ../qml/pages/ChatSettingsPage.qml:159
+#: ../qml/pages/NotificationChatSettingsPage.qml:22
+msgid "Notifications"
+msgstr "Notifikasi"
+
+#: ../qml/pages/SettingsPage.qml:189
+msgid "Chat settings:"
+msgstr "Pengaturan obrolan:"
+
+#: ../qml/pages/SettingsPage.qml:193
+msgid "Send with enter"
+msgstr "Kirim dengan enter"
+
+#: ../qml/pages/SettingsPage.qml:200
+msgid "Display 'I am typing' when typing"
+msgstr "Tampilkan 'Sedang mengetik' saat mengetik"
+
+#: ../qml/pages/SettingsPage.qml:207
+msgid "Hide less important events"
+msgstr "Sembunyikan acara yang kurang penting"
+
+#: ../qml/pages/SettingsPage.qml:214
+msgid "Autoload animated images"
+msgstr "Otomatis memuat gambar beranimasi"
+
+#: ../qml/pages/SettingsPage.qml:221 ../qml/pages/ArchivedChatsPage.qml:28
+msgid "Archived chats"
+msgstr "Chat yang diarsipkan"
+
+#: ../qml/pages/SettingsPage.qml:228
+msgid "Account settings:"
+msgstr "Pengaturan akun:"
+
+#: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
+msgid "Connected phone numbers"
+msgstr "Nomor ponsel yang terhubung"
+
+#: ../qml/pages/SettingsPage.qml:239 ../qml/pages/EmailSettingsPage.qml:21
+msgid "Connected email addresses"
+msgstr "Alamat surel yang tersambung"
+
+#: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
+msgid "Devices"
+msgstr "Perangkat"
+
+#: ../qml/pages/SettingsPage.qml:253
+msgid "Change password"
+msgstr "Ubah kata sandi"
+
+#: ../qml/pages/SettingsPage.qml:259
+#, fuzzy
+msgid "Check out:"
+msgstr "Periksa:"
+
+#: ../qml/pages/SettingsPage.qml:263
+msgid "Disable account"
+msgstr "Nonaktifkan akun"
+
+#: ../qml/pages/SettingsPage.qml:275
+#, fuzzy
+msgid "More:"
+msgstr "Lebih:"
+
+#: ../qml/pages/SettingsPage.qml:279 ../qml/pages/LoginPage.qml:38
+msgid "About FluffyChat"
+msgstr "Tentang FluffyChat"
+
+#: ../qml/pages/ChatSettingsPage.qml:63
+msgid "Edit chat name"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:139
+msgid "Description:"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:139
+msgid "No chat description found…"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:165
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:35
+msgid "Advanced settings"
+msgstr "Pengaturan lanjutan"
+
+#: ../qml/pages/ChatSettingsPage.qml:187
+msgid "Users in this chat (%1):"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:211
+msgid "Search…"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:228
+msgid "Invite friends"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:236
+msgid "Reload"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:253
+msgid "Enroll as member"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:257
+msgid "Appoint to moderator"
+msgstr ""
+
+#: ../qml/pages/ChatSettingsPage.qml:262
+msgid "Appoint to admin"
+msgstr ""
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:33
+msgid "Notify"
+msgstr "Memberitahukan"
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:48
+msgid "Only if mentioned"
+msgstr "Hanya jika di mention"
+
+#: ../qml/pages/NotificationChatSettingsPage.qml:63
+msgid "Don't notify"
+msgstr "Jangan beritahukan"
+
+#: ../qml/pages/PrivacyPolicyPage.qml:11 ../qml/pages/LoginPage.qml:43
+#: ../qml/pages/InfoPage.qml:53
+msgid "Privacy Policy"
+msgstr "Kebijakan Privasi"
+
+#: ../qml/pages/PrivacyPolicyPage.qml:29
+msgid ""
+"<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
+"is compatible with all Matrix servers and Matrix identity servers. All "
+"communications conducted while using FluffyChat use a Matrix server and the "
+"Matrix identity server.<br>* The default server in FluffyChat is https://"
+"matrix.org and the default identity server is https://vector.im.<br>* "
+"FluffyChat doesn't operate any server or remote service.<br>* All "
+"communication of substantive content between FluffyChat and any server is "
+"done in secure way, using transport encryption to protect it. End-to-end "
+"encryption will follow.<br>* FluffyChat is not responsible for the data "
+"processing carried out by any Matrix server or Matrix identity server.<br>* "
+"FluffyChat offers the option to use phone numbers to find contacts. This is "
+"not a requirement of normal operation and is intended only as a convenience. "
+"No contact details are uploaded without user interaction! The user can "
+"choose to upload all or some or no contacts to the identity server!"
+"<br><br><b>Push Notifications</b><br><br>* The Matrix server selected by the "
+"user will automatically send push notifications to the UBports push service. "
+"These notifications are encrypted with the https protocol between the device "
+"and the Matrix server and on to the official UBports Matrix gateway at "
+"https://push.ubports.com:5003/_matrix/push/r0/notify This server forwards "
+"the notification to UBports push service at https://push.ubports.com and "
+"then sends this on as a push notification to the user's device(s).<br>"
+msgstr ""
+
+#: ../qml/pages/ChatPage.qml:112
+msgid "Chat info"
+msgstr "Info obrolan"
+
+#: ../qml/pages/ChatPage.qml:137
+msgid "No messages in this chat ..."
+msgstr "Tidak ada pesan di obrolan ini ..."
+
+#: ../qml/pages/ChatPage.qml:160
+msgid "Reply to <b>%1</b>: \"%2\""
+msgstr "Balas ke <b>%1</b>: \"%2\""
+
+#: ../qml/pages/ChatPage.qml:238
+msgid "Accept invitation"
+msgstr "Menerima undangan"
+
+#: ../qml/pages/ChatPage.qml:238
+msgid "Join"
+msgstr "Bergabung"
+
+#: ../qml/pages/ChatPage.qml:246
+msgid "You do not have posting permissions here"
+msgstr "Anda tidak punya izin memposting disini"
+
+#: ../qml/pages/ChatPage.qml:275
+msgid "Type something ..."
+msgstr "Ketik sesuatu ..."
+
+#: ../qml/pages/LoginPage.qml:20
+msgid "Homeserver %1"
+msgstr "Homeserver %1"
+
+#: ../qml/pages/LoginPage.qml:28
+msgid "Change homeserver"
+msgstr "Ubah homeserver"
+
+#: ../qml/pages/LoginPage.qml:33
+msgid "Change ID-server"
+msgstr "Ubah ID-server"
+
+#: ../qml/pages/LoginPage.qml:53
+msgid "FAQ"
+msgstr "FAQ"
+
+#: ../qml/pages/LoginPage.qml:64
+msgid "Choose your homeserver"
+msgstr "Pilih homeserver Anda"
+
+#: ../qml/pages/LoginPage.qml:83
+msgid "Choose your identity server"
+msgstr "Pilih identitas server Anda"
+
+#: ../qml/pages/LoginPage.qml:128
+msgid "Phone number (optional)"
+msgstr "Nomor ponsel (opsional)"
+
+#: ../qml/pages/LoginPage.qml:137
+msgid "Username or Matrix ID"
+msgstr "Nama pengguna atau ID Matrix"
+
+#: ../qml/pages/LoginPage.qml:176
+msgid "Create a new account"
+msgstr "Buat akun baru"
+
+#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordCreationPage.qml:86
+msgid "Sign up"
+msgstr "Daftar"
+
+#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
+msgid "Sign in"
+msgstr "Masuk"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
@@ -67,11 +712,6 @@ msgstr "Dukung di Liberapay"
 msgid "Join the community"
 msgstr "Bergabung dengan komunitas"
 
-#: ../qml/pages/InfoPage.qml:53 ../qml/pages/LoginPage.qml:43
-#: ../qml/pages/PrivacyPolicyPage.qml:11
-msgid "Privacy Policy"
-msgstr "Kebijakan Privasi"
-
 #: ../qml/pages/InfoPage.qml:60
 msgid "Website"
 msgstr "Situs Web"
@@ -88,21 +728,49 @@ msgstr "Kode sumber"
 msgid "License"
 msgstr "Lisensi"
 
-#: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
-msgid "Archived chats"
-msgstr "Chat yang diarsipkan"
+#: ../qml/pages/CommunityPage.qml:98
+msgid "No description found"
+msgstr "Tidak ada deskripsi yang ditemukan"
 
-#: ../qml/pages/ArchivedChatsPage.qml:44
-msgid "Search archived chats..."
-msgstr "Cari chat yang diarsipkan..."
+#: ../qml/pages/CountryPickerPage.qml:11
+msgid "Choose a country"
+msgstr "Pilih negara"
 
-#: ../qml/pages/ArchivedChatsPage.qml:52
-msgid "There are no archived chats"
-msgstr "Tidak ada chat yang diarsipkan"
+#: ../qml/pages/CountryPickerPage.qml:28
+msgid "Search for country by name…"
+msgstr "Cari negara berdasarkan nama…"
 
-#: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
-msgid "Connected email addresses"
-msgstr "Alamat surel yang tersambung"
+#: ../qml/pages/NotificationSettingsPage.qml:13
+msgid "Receive notifications for…"
+msgstr "Terima notifikasi untuk…"
+
+#: ../qml/pages/NotificationSettingsPage.qml:29
+msgid "Common messages"
+msgstr "Pesan umum"
+
+#: ../qml/pages/NotificationSettingsPage.qml:39
+msgid "Messages from single chats"
+msgstr "Pesan dari obrolan tunggal"
+
+#: ../qml/pages/NotificationSettingsPage.qml:49
+msgid "Mention my display name"
+msgstr "Mention nama tampilan saya"
+
+#: ../qml/pages/NotificationSettingsPage.qml:59
+msgid "Mention my user name"
+msgstr "Mention nama pengguna saya"
+
+#: ../qml/pages/NotificationSettingsPage.qml:69
+msgid "Invitations for me"
+msgstr "Undangan untuk saya"
+
+#: ../qml/pages/NotificationSettingsPage.qml:79
+msgid "Chat member changes"
+msgstr "Anggota obrolan berubah"
+
+#: ../qml/pages/NotificationSettingsPage.qml:89
+msgid "Messages from bots"
+msgstr "Pesan dari bot"
 
 #: ../qml/pages/EmailSettingsPage.qml:28
 msgid "Add email address"
@@ -111,6 +779,31 @@ msgstr "Tambahkan alamat surel"
 #: ../qml/pages/EmailSettingsPage.qml:39
 msgid "No email addresses connected"
 msgstr "Tidak ada alamat surel yang tersambung"
+
+#: ../qml/pages/ChatAliasSettingsPage.qml:31
+#: ../qml/pages/ChatAdvancedSettingsPage.qml:75
+msgid "Public chat addresses"
+msgstr "Alamat obrolan publik"
+
+#: ../qml/pages/ChatAliasSettingsPage.qml:38
+msgid "Add chat address"
+msgstr ""
+
+#: ../qml/pages/NotificationTargetSettingsPage.qml:15
+msgid "Notification settings"
+msgstr ""
+
+#: ../qml/pages/NotificationTargetSettingsPage.qml:29
+msgid "Enable notifications"
+msgstr ""
+
+#: ../qml/pages/NotificationTargetSettingsPage.qml:40
+msgid "Advanced notification settings"
+msgstr ""
+
+#: ../qml/pages/NotificationTargetSettingsPage.qml:59
+msgid "Devices that receive push notifications:"
+msgstr ""
 
 #: ../qml/pages/PasswordCreationPage.qml:19
 msgid "Please set a password"
@@ -129,9 +822,82 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "misalnya Musim panas%salad$flattens?tOOthpaste"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
-msgid "Sign up"
-msgstr "Daftar"
+#: ../qml/pages/DiscoverPage.qml:24
+msgid "Groups on %1"
+msgstr ""
+
+#: ../qml/pages/DiscoverPage.qml:24
+msgid "and matrix.org"
+msgstr ""
+
+#: ../qml/pages/DiscoverPage.qml:44
+msgid "Search for chats or #aliases…"
+msgstr ""
+
+#: ../qml/pages/DiscoverPage.qml:67
+msgid "Loading…"
+msgstr ""
+
+#: ../qml/pages/DiscoverPage.qml:67
+msgid "No chats found"
+msgstr ""
+
+#: ../qml/pages/PasswordInputPage.qml:13
+msgid "Enter your password"
+msgstr "Masukkan kata sandi Anda"
+
+#: ../qml/pages/PasswordInputPage.qml:41
+msgid "Please enter your password for: <b>%1</b>"
+msgstr "Mohon masukkan kata sandi Anda untuk: <b>%1</b>"
+
+#: ../qml/pages/PasswordInputPage.qml:50
+msgid "Password..."
+msgstr "Kata sandi..."
+
+#: ../qml/pages/InvitePage.qml:23
+msgid "Invite users"
+msgstr "Undang pengguna"
+
+#: ../qml/pages/InvitePage.qml:72
+msgid "Search e.g. @username:server.abc"
+msgstr "Cari misalnya @namapengguna:server.abc"
+
+#: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
+msgid "FluffyChat"
+msgstr "FluffyChat"
+
+#: ../qml/pages/ChatListPage.qml:41
+msgid "Share"
+msgstr "Bagikan"
+
+#: ../qml/pages/ChatListPage.qml:104
+msgid "Search for your chats…"
+msgstr "Cari obrolan Anda…"
+
+#: ../qml/pages/ChatListPage.qml:125
+msgid "Swipe up from the bottom to start a new chat or discover public groups."
+msgstr ""
+"Geser keatas dari bawah untuk memulai obrolan baru atau temukan grup publik."
+
+#: ../qml/pages/ChatListPage.qml:155
+msgid "Add chat"
+msgstr "Tambahkan obrolan"
+
+#: ../qml/pages/PhoneSettingsPage.qml:28
+msgid "Add phone number"
+msgstr "Tambahkan nomor ponsel"
+
+#: ../qml/pages/PhoneSettingsPage.qml:40
+msgid "No phone numbers connected"
+msgstr "Tidak ada nomor ponsel yang terhubung"
+
+#: ../qml/pages/ArchivedChatsPage.qml:44
+msgid "Search archived chats..."
+msgstr "Cari chat yang diarsipkan..."
+
+#: ../qml/pages/ArchivedChatsPage.qml:52
+msgid "There are no archived chats"
+msgstr "Tidak ada chat yang diarsipkan"
 
 #: ../qml/pages/WalkthroughPage.qml:64
 msgid "Welcome to FluffyChat"
@@ -192,341 +958,13 @@ msgid ""
 "KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat adalah terbuka, nonprofit dan imut. Pengembangan dan server "
-"semuanya didanai oleh komunitas. Donasi pada proyek ini di <a "
-"href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> atau<a "
-"href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
+"semuanya didanai oleh komunitas. Donasi pada proyek ini di <a href='https://"
+"www.patreon.com/bePatron?u=11123241'>Patreon</a> atau<a href='https://"
+"liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
 msgstr "Lanjutkan"
-
-#: ../qml/pages/LoginPage.qml:20
-msgid "Homeserver %1"
-msgstr "Homeserver %1"
-
-#: ../qml/pages/LoginPage.qml:28
-msgid "Change homeserver"
-msgstr "Ubah homeserver"
-
-#: ../qml/pages/LoginPage.qml:33
-msgid "Change ID-server"
-msgstr "Ubah ID-server"
-
-#: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
-msgid "About FluffyChat"
-msgstr "Tentang FluffyChat"
-
-#: ../qml/pages/LoginPage.qml:53
-msgid "FAQ"
-msgstr "FAQ"
-
-#: ../qml/pages/LoginPage.qml:64
-msgid "Choose your homeserver"
-msgstr "Pilih homeserver Anda"
-
-#: ../qml/pages/LoginPage.qml:83
-msgid "Choose your identity server"
-msgstr "Pilih identitas server Anda"
-
-#: ../qml/pages/LoginPage.qml:128
-msgid "Phone number (optional)"
-msgstr "Nomor ponsel (opsional)"
-
-#: ../qml/pages/LoginPage.qml:137
-msgid "Username or Matrix ID"
-msgstr "Nama pengguna atau ID Matrix"
-
-#: ../qml/pages/LoginPage.qml:176
-msgid "Create a new account"
-msgstr "Buat akun baru"
-
-#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
-msgid "Sign in"
-msgstr "Masuk"
-
-#: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
-msgid "FluffyChat"
-msgstr "FluffyChat"
-
-#: ../qml/pages/ChatListPage.qml:41
-msgid "Share"
-msgstr "Bagikan"
-
-#: ../qml/pages/ChatListPage.qml:104
-msgid "Search for your chats…"
-msgstr "Cari obrolan Anda…"
-
-#: ../qml/pages/ChatListPage.qml:125
-msgid "Swipe up from the bottom to start a new chat or discover public groups."
-msgstr ""
-"Geser keatas dari bawah untuk memulai obrolan baru atau temukan grup publik."
-
-#: ../qml/pages/ChatListPage.qml:155
-msgid "Add chat"
-msgstr "Tambahkan obrolan"
-
-#: ../qml/pages/CreateChatPage.qml:15
-msgid "Add Chat"
-msgstr "Tambahkan Obrolan"
-
-#: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
-msgid "Import from addressbook"
-msgstr "Impor dari buku alamat"
-
-#: ../qml/pages/CreateChatPage.qml:42
-msgid "Filter contacts"
-msgstr "Filter kontak"
-
-#: ../qml/pages/CreateChatPage.qml:73
-msgid "New group"
-msgstr "Grup baru"
-
-#: ../qml/pages/CreateChatPage.qml:80
-msgid "Public groups"
-msgstr "Grup publik"
-
-#: ../qml/pages/CreateChatPage.qml:89
-msgid "Click on the top right button to add contacts."
-msgstr "Klik tombol di pojok kanan untuk menambahkan kontak."
-
-#: ../qml/pages/SettingsPage.qml:28
-msgid "Settings"
-msgstr "Pengaturan"
-
-#: ../qml/pages/SettingsPage.qml:84 ../qml/components/ProfileRow.qml:40
-msgid "Username:"
-msgstr "Nama pengguna:"
-
-#: ../qml/pages/SettingsPage.qml:99 ../qml/components/ProfileRow.qml:55
-msgid "Displayname:"
-msgstr "Nama yang ditampilkan:"
-
-#: ../qml/pages/SettingsPage.qml:114
-msgid "Edit"
-msgstr "Sunting"
-
-#: ../qml/pages/SettingsPage.qml:124
-msgid "Change main color"
-msgstr "Ubah warna utama"
-
-#: ../qml/pages/SettingsPage.qml:138
-msgid "Change background"
-msgstr "Ubah latar belakang"
-
-#: ../qml/pages/SettingsPage.qml:175
-msgid "Dark mode"
-msgstr "Mode gelap"
-
-#: ../qml/pages/SettingsPage.qml:182
-#: ../qml/pages/NotificationChatSettingsPage.qml:22
-#: ../qml/pages/ChatSettingsPage.qml:159
-msgid "Notifications"
-msgstr "Notifikasi"
-
-#: ../qml/pages/SettingsPage.qml:189
-msgid "Chat settings:"
-msgstr "Pengaturan obrolan:"
-
-#: ../qml/pages/SettingsPage.qml:193
-msgid "Send with enter"
-msgstr "Kirim dengan enter"
-
-#: ../qml/pages/SettingsPage.qml:200
-msgid "Display 'I am typing' when typing"
-msgstr "Tampilkan 'Sedang mengetik' saat mengetik"
-
-#: ../qml/pages/SettingsPage.qml:207
-msgid "Hide less important events"
-msgstr "Sembunyikan acara yang kurang penting"
-
-#: ../qml/pages/SettingsPage.qml:214
-msgid "Autoload animated images"
-msgstr "Otomatis memuat gambar beranimasi"
-
-#: ../qml/pages/SettingsPage.qml:228
-msgid "Account settings:"
-msgstr "Pengaturan akun:"
-
-#: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
-msgid "Connected phone numbers"
-msgstr "Nomor ponsel yang terhubung"
-
-#: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
-msgid "Devices"
-msgstr "Perangkat"
-
-#: ../qml/pages/SettingsPage.qml:253
-msgid "Change password"
-msgstr "Ubah kata sandi"
-
-#: ../qml/pages/SettingsPage.qml:259
-#, fuzzy
-msgid "Check out:"
-msgstr "Periksa:"
-
-#: ../qml/pages/SettingsPage.qml:263
-msgid "Disable account"
-msgstr "Nonaktifkan akun"
-
-#: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
-#: ../qml/components/LogoutDialog.qml:40
-msgid "Log out"
-msgstr "Keluar"
-
-#: ../qml/pages/SettingsPage.qml:275
-#, fuzzy
-msgid "More:"
-msgstr "Lebih:"
-
-#: ../qml/pages/CommunityPage.qml:98
-msgid "No description found"
-msgstr "Tidak ada deskripsi yang ditemukan"
-
-#: ../qml/pages/PasswordInputPage.qml:13
-msgid "Enter your password"
-msgstr "Masukkan kata sandi Anda"
-
-#: ../qml/pages/PasswordInputPage.qml:41
-msgid "Please enter your password for: <b>%1</b>"
-msgstr "Mohon masukkan kata sandi Anda untuk: <b>%1</b>"
-
-#: ../qml/pages/PasswordInputPage.qml:50
-msgid "Password..."
-msgstr "Kata sandi..."
-
-#: ../qml/pages/NotificationSettingsPage.qml:13
-msgid "Receive notifications for…"
-msgstr "Terima notifikasi untuk…"
-
-#: ../qml/pages/NotificationSettingsPage.qml:29
-msgid "Common messages"
-msgstr "Pesan umum"
-
-#: ../qml/pages/NotificationSettingsPage.qml:39
-msgid "Messages from single chats"
-msgstr "Pesan dari obrolan tunggal"
-
-#: ../qml/pages/NotificationSettingsPage.qml:49
-msgid "Mention my display name"
-msgstr "Mention nama tampilan saya"
-
-#: ../qml/pages/NotificationSettingsPage.qml:59
-msgid "Mention my user name"
-msgstr "Mention nama pengguna saya"
-
-#: ../qml/pages/NotificationSettingsPage.qml:69
-msgid "Invitations for me"
-msgstr "Undangan untuk saya"
-
-#: ../qml/pages/NotificationSettingsPage.qml:79
-msgid "Chat member changes"
-msgstr "Anggota obrolan berubah"
-
-#: ../qml/pages/NotificationSettingsPage.qml:89
-msgid "Messages from bots"
-msgstr "Pesan dari bot"
-
-#: ../qml/pages/InvitePage.qml:23
-msgid "Invite users"
-msgstr "Undang pengguna"
-
-#: ../qml/pages/InvitePage.qml:72
-msgid "Search e.g. @username:server.abc"
-msgstr "Cari misalnya @namapengguna:server.abc"
-
-#: ../qml/pages/PrivacyPolicyPage.qml:29
-msgid ""
-"<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
-"is compatible with all Matrix servers and Matrix identity servers. All "
-"communications conducted while using FluffyChat use a Matrix server and the "
-"Matrix identity server.<br>* The default server in FluffyChat is https://"
-"matrix.org and the default identity server is https://vector.im.<br>* "
-"FluffyChat doesn't operate any server or remote service.<br>* All "
-"communication of substantive content between FluffyChat and any server is "
-"done in secure way, using transport encryption to protect it. End-to-end "
-"encryption will follow.<br>* FluffyChat is not responsible for the data "
-"processing carried out by any Matrix server or Matrix identity server.<br>* "
-"FluffyChat offers the option to use phone numbers to find contacts. This is "
-"not a requirement of normal operation and is intended only as a convenience. "
-"No contact details are uploaded without user interaction! The user can "
-"choose to upload all or some or no contacts to the identity server!"
-"<br><br><b>Push Notifications</b><br><br>* The Matrix server selected by the "
-"user will automatically send push notifications to the UBports push service. "
-"These notifications are encrypted with the https protocol between the device "
-"and the Matrix server and on to the official UBports Matrix gateway at "
-"https://push.ubports.com:5003/_matrix/push/r0/notify This server forwards "
-"the notification to UBports push service at https://push.ubports.com and "
-"then sends this on as a push notification to the user's device(s).<br>"
-msgstr ""
-
-#: ../qml/pages/CountryPickerPage.qml:11
-msgid "Choose a country"
-msgstr "Pilih negara"
-
-#: ../qml/pages/CountryPickerPage.qml:28
-msgid "Search for country by name…"
-msgstr "Cari negara berdasarkan nama…"
-
-#: ../qml/pages/UserPage.qml:34
-msgid "Username copied to the clipboard"
-msgstr "Nama pengguna disalin ke papan klip"
-
-#: ../qml/pages/UserPage.qml:65
-msgid "Chats with this user:"
-msgstr "Obrolan dengan pengguna ini:"
-
-#: ../qml/pages/UserPage.qml:65
-msgid "This is you."
-msgstr "Ini Anda."
-
-#: ../qml/pages/UserPage.qml:83
-msgid "Start new chat"
-msgstr "Mulai obrolan baru"
-
-#: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
-msgid "Unknown chat"
-msgstr "Obrolan tidak dikenal"
-
-#: ../qml/pages/ChatPage.qml:112
-msgid "Chat info"
-msgstr "Info obrolan"
-
-#: ../qml/pages/ChatPage.qml:137
-msgid "No messages in this chat ..."
-msgstr "Tidak ada pesan di obrolan ini ..."
-
-#: ../qml/pages/ChatPage.qml:160
-msgid "Reply to <b>%1</b>: \"%2\""
-msgstr "Balas ke <b>%1</b>: \"%2\""
-
-#: ../qml/pages/ChatPage.qml:238
-msgid "Accept invitation"
-msgstr "Menerima undangan"
-
-#: ../qml/pages/ChatPage.qml:238
-msgid "Join"
-msgstr "Bergabung"
-
-#: ../qml/pages/ChatPage.qml:246
-msgid "You do not have posting permissions here"
-msgstr "Anda tidak punya izin memposting disini"
-
-#: ../qml/pages/ChatPage.qml:275
-msgid "Type something ..."
-msgstr "Ketik sesuatu ..."
-
-#: ../qml/pages/PhoneSettingsPage.qml:28
-msgid "Add phone number"
-msgstr "Tambahkan nomor ponsel"
-
-#: ../qml/pages/PhoneSettingsPage.qml:40
-msgid "No phone numbers connected"
-msgstr "Tidak ada nomor ponsel yang terhubung"
-
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:35
-#: ../qml/pages/ChatSettingsPage.qml:165
-msgid "Advanced settings"
-msgstr "Pengaturan lanjutan"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "Access"
@@ -544,11 +982,6 @@ msgstr "Obrolan dapat diakses oleh umum"
 msgid "Guest users are allowed"
 msgstr "Pengguna tamu diizinkan"
 
-#: ../qml/pages/ChatAdvancedSettingsPage.qml:75
-#: ../qml/pages/ChatAliasSettingsPage.qml:31
-msgid "Public chat addresses"
-msgstr "Alamat obrolan publik"
-
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:82
 msgid "History visibility"
 msgstr "Visibilitas riwayat"
@@ -565,104 +998,44 @@ msgstr "Anggota dapat mengakses riwayat obrolan secara lengkap"
 msgid "Anyone can access full chat history"
 msgstr "Semua orang dapat mengakses riwayat obrolan secara lengkap"
 
-#: ../qml/pages/NotificationChatSettingsPage.qml:33
-msgid "Notify"
-msgstr "Memberitahukan"
+#: ../qml/pages/UserPage.qml:34
+msgid "Username copied to the clipboard"
+msgstr "Nama pengguna disalin ke papan klip"
 
-#: ../qml/pages/NotificationChatSettingsPage.qml:48
-msgid "Only if mentioned"
-msgstr "Hanya jika di mention"
+#: ../qml/pages/UserPage.qml:65
+msgid "Chats with this user:"
+msgstr "Obrolan dengan pengguna ini:"
 
-#: ../qml/pages/NotificationChatSettingsPage.qml:63
-msgid "Don't notify"
-msgstr "Jangan beritahukan"
+#: ../qml/pages/UserPage.qml:65
+msgid "This is you."
+msgstr "Ini Anda."
 
-#: ../qml/pages/DiscoverPage.qml:24
-msgid "Groups on %1"
-msgstr ""
+#: ../qml/pages/UserPage.qml:83
+msgid "Start new chat"
+msgstr "Mulai obrolan baru"
 
-#: ../qml/pages/DiscoverPage.qml:24
-msgid "and matrix.org"
-msgstr ""
+#: ../qml/pages/CreateChatPage.qml:15
+msgid "Add Chat"
+msgstr "Tambahkan Obrolan"
 
-#: ../qml/pages/DiscoverPage.qml:44
-msgid "Search for chats or #aliases…"
-msgstr ""
+#: ../qml/pages/CreateChatPage.qml:42
+msgid "Filter contacts"
+msgstr "Filter kontak"
 
-#: ../qml/pages/DiscoverPage.qml:67
-msgid "Loading…"
-msgstr ""
+#: ../qml/pages/CreateChatPage.qml:73
+msgid "New group"
+msgstr "Grup baru"
 
-#: ../qml/pages/DiscoverPage.qml:67
-msgid "No chats found"
-msgstr ""
+#: ../qml/pages/CreateChatPage.qml:80
+msgid "Public groups"
+msgstr "Grup publik"
 
-#: ../qml/pages/ChatSettingsPage.qml:63
-msgid "Edit chat name"
-msgstr ""
+#: ../qml/pages/CreateChatPage.qml:89
+msgid "Click on the top right button to add contacts."
+msgstr "Klik tombol di pojok kanan untuk menambahkan kontak."
 
-#: ../qml/pages/ChatSettingsPage.qml:139
-msgid "Description:"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:139
-msgid "No chat description found…"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:187
-msgid "Users in this chat (%1):"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:211
-msgid "Search…"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:228
-msgid "Invite friends"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:236
-msgid "Reload"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:253
-msgid "Enroll as member"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:257
-msgid "Appoint to moderator"
-msgstr ""
-
-#: ../qml/pages/ChatSettingsPage.qml:262
-msgid "Appoint to admin"
-msgstr ""
-
-#: ../qml/pages/NotificationTargetSettingsPage.qml:15
-msgid "Notification settings"
-msgstr ""
-
-#: ../qml/pages/NotificationTargetSettingsPage.qml:29
-msgid "Enable notifications"
-msgstr ""
-
-#: ../qml/pages/NotificationTargetSettingsPage.qml:40
-msgid "Advanced notification settings"
-msgstr ""
-
-#: ../qml/pages/NotificationTargetSettingsPage.qml:59
-msgid "Devices that receive push notifications:"
-msgstr ""
-
-#: ../qml/pages/ChatAliasSettingsPage.qml:38
-msgid "Add chat address"
-msgstr ""
-
-#: ../qml/models/PushModel.qml:52
-msgid "Please log in to Ubuntu One to receive push notifications."
-msgstr ""
-
-#: ../qml/models/PushModel.qml:77
-msgid "Push notifications are turned off…"
+#: ../qml/models/ContentHubModel.qml:83
+msgid "Copied to clipboard"
 msgstr ""
 
 #: ../qml/models/MatrixModel.qml:78
@@ -701,437 +1074,12 @@ msgid ""
 "fluffychat/issues/new. Error details: %1"
 msgstr ""
 
-#: ../qml/models/ContentHubModel.qml:83
-msgid "Copied to clipboard"
+#: ../qml/models/PushModel.qml:52
+msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:48
-#: ../qml/components/ChatScrollView.qml:49
-msgid "Swipe to the left or the right for actions. 😉"
-msgstr ""
-
-#: ../qml/components/MemberListItem.qml:86
-msgid "Ban from this chat?"
-msgstr ""
-
-#: ../qml/components/MemberListItem.qml:94
-msgid "Cancel banishment?"
-msgstr ""
-
-#: ../qml/components/MemberListItem.qml:102
-msgid "Kick from this chat?"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:11
-msgid "Change your password"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:19
-#: ../qml/components/DisableAccountDialog.qml:33
-msgid "Enter your old password"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:25
-msgid "Enter your new password"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:30
-msgid "Please repeat"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:38
-#: ../qml/components/DownloadDialog.qml:26
-#: ../qml/components/RemoveDeviceDialog.qml:43
-#: ../qml/components/AddPhoneDialog.qml:38
-#: ../qml/components/DisableAccountDialog.qml:42
-#: ../qml/components/ConfirmDialog.qml:22 ../qml/components/LogoutDialog.qml:35
-#: ../qml/components/AddAliasDialog.qml:27
-#: ../qml/components/EnterSMSTokenDialog.qml:28
-#: ../qml/components/ChangeDisplaynameDialog.qml:28
-#: ../qml/components/AddContactDialog.qml:74
-#: ../qml/components/EnterFirstSMSTokenDialog.qml:28
-#: ../qml/components/ChangeChatnameDialog.qml:49
-#: ../qml/components/AddEmailDialog.qml:28
-msgid "Cancel"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:43
-msgid "Change"
-msgstr ""
-
-#: ../qml/components/ChangePasswordDialog.qml:48
-msgid "Password has been changed"
-msgstr ""
-
-#: ../qml/components/ChangeAvatarDialog.qml:11
-msgid "Edit profile picture"
-msgstr ""
-
-#: ../qml/components/ChangeAvatarDialog.qml:21
-msgid "New profile picture"
-msgstr ""
-
-#: ../qml/components/ChangeAvatarDialog.qml:40
-#: ../qml/components/ChangeChatAvatarDialog.qml:40
-msgid "Remove picture"
-msgstr ""
-
-#: ../qml/components/ChangeAvatarDialog.qml:51
-#: ../qml/components/TargetInfoDialog.qml:48
-#: ../qml/components/BottomEdgePageStack.qml:92
-#: ../qml/components/ColorDialog.qml:38
-#: ../qml/components/ChangeChatAvatarDialog.qml:51
-#: ../qml/components/ChangeChatnameDialog.qml:62
-msgid "Close"
-msgstr ""
-
-#: ../qml/components/TargetInfoDialog.qml:11
-msgid "Target details"
-msgstr ""
-
-#: ../qml/components/TargetInfoDialog.qml:25
-msgid "<b>Device name</b>: %2"
-msgstr ""
-
-#: ../qml/components/TargetInfoDialog.qml:29
-msgid "<b>App</b>: %2"
-msgstr ""
-
-#: ../qml/components/TargetInfoDialog.qml:33
-msgid "<b>Kind</b>: %2"
-msgstr ""
-
-#: ../qml/components/TargetInfoDialog.qml:37
-msgid "<b>Language</b>: %2"
-msgstr ""
-
-#: ../qml/components/TargetInfoDialog.qml:41
-msgid "<b>Gateway</b>: %2"
-msgstr ""
-
-#: ../qml/components/DownloadDialog.qml:11
-msgid "Download"
-msgstr ""
-
-#: ../qml/components/WaitDialog.qml:11
-msgid "Loading… Please wait."
-msgstr ""
-
-#: ../qml/components/WaitDialog.qml:36
-msgid "Cancel process"
-msgstr ""
-
-#: ../qml/components/BottomEdgePageStack.qml:92
-msgid "Back"
-msgstr ""
-
-#: ../qml/components/ContactImport.qml:73
-msgid "%1 contacts were found"
-msgstr ""
-
-#: ../qml/components/RemoveDeviceDialog.qml:12
-msgid "Remove the device"
-msgstr ""
-
-#: ../qml/components/RemoveDeviceDialog.qml:16
-msgid "<b>Device ID</b>: %1"
-msgstr ""
-
-#: ../qml/components/RemoveDeviceDialog.qml:20
-msgid "<b>Last IP</b>: %4"
-msgstr ""
-
-#: ../qml/components/RemoveDeviceDialog.qml:25
-msgid "Are you sure, that you want to remove this device?"
-msgstr ""
-
-#: ../qml/components/RemoveDeviceDialog.qml:34
-msgid "Please enter your password"
-msgstr ""
-
-#: ../qml/components/RemoveDeviceDialog.qml:48
-#: ../qml/components/DisableAccountDialog.qml:47
-#: ../qml/components/ChatScrollView.qml:91
-msgid "Remove"
-msgstr ""
-
-#: ../qml/components/PhoneListItem.qml:31
-msgid "Remove this phone number?"
-msgstr ""
-
-#: ../qml/components/AddPhoneDialog.qml:12
-msgid "Connect new phone number"
-msgstr ""
-
-#: ../qml/components/AddPhoneDialog.qml:12
-msgid "…"
-msgstr ""
-
-#: ../qml/components/AddPhoneDialog.qml:22
-msgid "Please log out to change your country"
-msgstr ""
-
-#: ../qml/components/AddPhoneDialog.qml:26
-msgid "Phone number…"
-msgstr ""
-
-#: ../qml/components/AddPhoneDialog.qml:44
-#: ../qml/components/EnterSMSTokenDialog.qml:33
-#: ../qml/components/EnterFirstSMSTokenDialog.qml:36
-#: ../qml/components/AddEmailDialog.qml:33
-msgid "Connect"
-msgstr ""
-
-#: ../qml/components/DisableAccountDialog.qml:11
-msgid "Remove my account"
-msgstr ""
-
-#: ../qml/components/DisableAccountDialog.qml:25
-msgid ""
-"Are you sure that you want to remove your account? This can not be undone."
-msgstr ""
-
-#: ../qml/components/ConfirmDialog.qml:27
-msgid "Yes"
-msgstr ""
-
-#: ../qml/components/LogoutDialog.qml:25
-msgid "Are you sure you want to log out?"
-msgstr ""
-
-#: ../qml/components/AddAliasDialog.qml:11
-msgid "Add new chat address"
-msgstr ""
-
-#: ../qml/components/AddAliasDialog.qml:19
-msgid "#chatname:%1"
-msgstr ""
-
-#: ../qml/components/AddAliasDialog.qml:32
-#: ../qml/components/ChangeDisplaynameDialog.qml:33
-#: ../qml/components/ChangeChatnameDialog.qml:54
-msgid "Save"
-msgstr ""
-
-#: ../qml/components/EnterSMSTokenDialog.qml:11
-#: ../qml/components/EnterFirstSMSTokenDialog.qml:11
-msgid "Please enter the validation code"
-msgstr ""
-
-#: ../qml/components/EnterSMSTokenDialog.qml:19
-#: ../qml/components/EnterFirstSMSTokenDialog.qml:19
-msgid "Validation code"
-msgstr ""
-
-#: ../qml/components/ChatListItem.qml:96
-msgid "Leave this chat"
-msgstr ""
-
-#: ../qml/components/ColorDialog.qml:11
-msgid "Change the main color"
-msgstr ""
-
-#: ../qml/components/ColorDialog.qml:24
-msgid "Hue: %1"
-msgstr ""
-
-#: ../qml/components/ColorDialog.qml:33
-msgid "Reset"
-msgstr ""
-
-#: ../qml/components/ContactListItem.qml:19
-msgid "Last active: %1"
-msgstr ""
-
-#: ../qml/components/ChatScrollView.qml:55
-msgid "Try to send again"
-msgstr ""
-
-#: ../qml/components/ChatScrollView.qml:61
-msgid "Reply"
-msgstr ""
-
-#: ../qml/components/ChatScrollView.qml:67
-msgid "Copy text"
-msgstr ""
-
-#: ../qml/components/ChatScrollView.qml:73
-msgid "Add to sticker collection"
-msgstr ""
-
-#: ../qml/components/ChatScrollView.qml:79
-msgid "Forward"
-msgstr ""
-
-#: ../qml/components/ChatScrollView.qml:250
-msgid "Load gif"
-msgstr ""
-
-#: ../qml/components/ChatScrollView.qml:250
-msgid "Show image"
-msgstr ""
-
-#: ../qml/components/ChatScrollView.qml:316
-msgid "Download: "
-msgstr ""
-
-#: ../qml/components/TargetListItem.qml:24
-#: ../qml/components/DeviceListItem.qml:26
-msgid "This device"
-msgstr ""
-
-#: ../qml/components/StickerInput.qml:56
-msgid "Delete sticker"
-msgstr ""
-
-#: ../qml/components/UsernameListItem.qml:12
-msgid "Full username:"
-msgstr ""
-
-#: ../qml/components/EmailListItem.qml:31
-msgid "Remove this email address?"
-msgstr ""
-
-#: ../qml/components/AddressesListItem.qml:15
-msgid "Canonical alias"
-msgstr ""
-
-#: ../qml/components/ChangeDisplaynameDialog.qml:11
-msgid "Change your display name"
-msgstr ""
-
-#: ../qml/components/ChangeDisplaynameDialog.qml:19
-msgid "Enter your new nickname"
-msgstr ""
-
-#: ../qml/components/AddContactDialog.qml:12
-msgid "Add new contact"
-msgstr ""
-
-#: ../qml/components/AddContactDialog.qml:20
-msgid "Enter the full @username"
-msgstr ""
-
-#: ../qml/components/AddContactDialog.qml:23
-msgid "Start private chat"
-msgstr ""
-
-#: ../qml/components/AddContactDialog.qml:31
-msgid "Your username is: %1"
-msgstr ""
-
-#: ../qml/components/AddContactDialog.qml:50
-msgid "Or"
-msgstr ""
-
-#: ../qml/components/ChangeChatAvatarDialog.qml:11
-msgid "Edit chat picture"
-msgstr ""
-
-#: ../qml/components/ChangeChatAvatarDialog.qml:21
-msgid "New chat picture"
-msgstr ""
-
-#: ../qml/components/ChangeChatnameDialog.qml:12
-msgid "Chat settings and details"
-msgstr ""
-
-#: ../qml/components/ChangeChatnameDialog.qml:21
-msgid "Change chat avatar"
-msgstr ""
-
-#: ../qml/components/ChangeChatnameDialog.qml:30
-msgid "No chat name yet"
-msgstr ""
-
-#: ../qml/components/ChangeChatnameDialog.qml:37
-msgid "No description yet"
-msgstr ""
-
-#: ../qml/components/DeviceListItem.qml:27
-msgid "Last seen: "
-msgstr ""
-
-#: ../qml/components/AddEmailDialog.qml:12
-msgid "Connect new email address"
-msgstr ""
-
-#: ../qml/components/AddEmailDialog.qml:20
-msgid "youremail@example.edu"
-msgstr ""
-
-#: ../qml/components/LockedScreen.qml:33
-msgid ""
-"Please restart the app or if necessary restart the device to complete the "
-"update!"
-msgstr ""
-
-#: ../qml/components/ProfileRow.qml:70
-msgid "Online:"
-msgstr ""
-
-#: ../qml/components/ProfileRow.qml:70
-msgid "Offline"
-msgstr ""
-
-#: ../qml/components/ProfileRow.qml:78
-msgid "Currently active"
-msgstr ""
-
-#: ../qml/components/ProfileRow.qml:78
-msgid "Last seen: %1"
-msgstr ""
-
-#: ../qml/scripts/ChatPageSettingsActions.js:87
-msgid "Member"
-msgstr ""
-
-#: ../qml/scripts/ChatPageSettingsActions.js:88
-msgid "Was invited"
-msgstr ""
-
-#: ../qml/scripts/ChatPageSettingsActions.js:89
-msgid "Has left the chat"
-msgstr ""
-
-#: ../qml/scripts/ChatPageSettingsActions.js:90
-msgid "Has knocked"
-msgstr ""
-
-#: ../qml/scripts/ChatPageSettingsActions.js:91
-msgid "Was banned from the chat"
-msgstr ""
-
-#: ../qml/scripts/ChatPageActions.js:524
-msgid "Uploading..."
-msgstr ""
-
-#: ../qml/scripts/SettingsPageActions.js:31
-msgid "Background removed"
-msgstr ""
-
-#: ../qml/scripts/DefaultLayoutActions.js:29
-msgid "Do you want to join this chat?"
-msgstr ""
-
-#: ../qml/scripts/AddEmailDialogActions.js:9
-msgid "Have you confirmed your email address?"
-msgstr ""
-
-#: ../qml/scripts/InviteListItemActions.js:9
-msgid "%1 has been invited"
-msgstr ""
-
-#: ../qml/scripts/InviteListItemActions.js:11
-msgid "An error occured. Maybe the username %1 is wrong?"
-msgstr ""
-
-#: ../qml/scripts/InviteListItemActions.js:12
-msgid "%1 is banned from the chat."
-msgstr ""
-
-#: ../qml/scripts/InviteListItemActions.js:16
-msgid "Invite %1 to this chat?"
+#: ../qml/models/PushModel.qml:77
+msgid "Push notifications are turned off…"
 msgstr ""
 
 #: ../qml/scripts/StartChatDialog.js:8 ../qml/scripts/UserPageActions.js:49
@@ -1189,6 +1137,58 @@ msgstr ""
 msgid "Empty chat"
 msgstr ""
 
+#: ../qml/scripts/ChatPageSettingsActions.js:87
+msgid "Member"
+msgstr ""
+
+#: ../qml/scripts/ChatPageSettingsActions.js:88
+msgid "Was invited"
+msgstr ""
+
+#: ../qml/scripts/ChatPageSettingsActions.js:89
+msgid "Has left the chat"
+msgstr ""
+
+#: ../qml/scripts/ChatPageSettingsActions.js:90
+msgid "Has knocked"
+msgstr ""
+
+#: ../qml/scripts/ChatPageSettingsActions.js:91
+msgid "Was banned from the chat"
+msgstr ""
+
+#: ../qml/scripts/ChatPageActions.js:524
+msgid "Uploading..."
+msgstr ""
+
+#: ../qml/scripts/LoginPageActions.js:54
+msgid "Server %1 not found"
+msgstr ""
+
+#: ../qml/scripts/LoginPageActions.js:56
+msgid "Username '%1' not found on %2"
+msgstr ""
+
+#: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
+msgid "Username is already taken"
+msgstr ""
+
+#: ../qml/scripts/InviteListItemActions.js:9
+msgid "%1 has been invited"
+msgstr ""
+
+#: ../qml/scripts/InviteListItemActions.js:11
+msgid "An error occured. Maybe the username %1 is wrong?"
+msgstr ""
+
+#: ../qml/scripts/InviteListItemActions.js:12
+msgid "%1 is banned from the chat."
+msgstr ""
+
+#: ../qml/scripts/InviteListItemActions.js:16
+msgid "Invite %1 to this chat?"
+msgstr ""
+
 #: ../qml/scripts/PasswordCreationPageActions.js:29
 msgid "Username already taken"
 msgstr ""
@@ -1205,14 +1205,6 @@ msgstr ""
 
 #: ../qml/scripts/PasswordCreationPageActions.js:32
 msgid "Could not register on %1…"
-msgstr ""
-
-#: ../qml/scripts/PasswordInputPageActions.js:10
-msgid "Invalid username or password"
-msgstr ""
-
-#: ../qml/scripts/PasswordInputPageActions.js:13
-msgid "No connection to "
 msgstr ""
 
 #: ../qml/scripts/EventDescription.js:7
@@ -1390,6 +1382,10 @@ msgstr ""
 msgid "Do you want to leave this chat?"
 msgstr ""
 
+#: ../qml/scripts/AddEmailDialogActions.js:9
+msgid "Have you confirmed your email address?"
+msgstr ""
+
 #: ../qml/scripts/ChatEventActions.js:25
 msgid "Add to sticker collection?"
 msgstr ""
@@ -1406,18 +1402,22 @@ msgstr ""
 msgid "Remove this message?"
 msgstr ""
 
+#: ../qml/scripts/PasswordInputPageActions.js:10
+msgid "Invalid username or password"
+msgstr ""
+
+#: ../qml/scripts/PasswordInputPageActions.js:13
+msgid "No connection to "
+msgstr ""
+
 #: ../qml/scripts/CreateChatPageActions.js:54
 msgid "Do you want to create a new group now?"
 msgstr ""
 
-#: ../qml/scripts/LoginPageActions.js:54
-msgid "Server %1 not found"
+#: ../qml/scripts/SettingsPageActions.js:31
+msgid "Background removed"
 msgstr ""
 
-#: ../qml/scripts/LoginPageActions.js:56
-msgid "Username '%1' not found on %2"
-msgstr ""
-
-#: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
-msgid "Username is already taken"
+#: ../qml/scripts/DefaultLayoutActions.js:29
+msgid "Do you want to join this chat?"
 msgstr ""
