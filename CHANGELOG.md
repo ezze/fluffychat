@@ -1,24 +1,21 @@
+What's new in FluffyChat 11.13
+----------------------------
++ Push Notifications are now showing the avatar
++ Added opacity to the scroll down button
++ Updated translations
+
 What's new in FluffyChat 11.12
 ----------------------------
 - Change default Homeserver to matrix.org
-
-#matrix #ubuntutouch
-
 
 What's new in FluffyChat 11.11
 ----------------------------
 + New translations - thanks to all translators
 
-#matrix #ubuntutouch
-
-
 What's new in FluffyChat 11.10
 ----------------------------
 + Improved performance on app start
 - Fixed two design bugs
-
-#matrix #ubuntutouch
-
 
 What's new in FluffyChat 11.9
 -----------------------------
