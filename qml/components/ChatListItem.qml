@@ -70,7 +70,7 @@ ListItem {
         Label {
             id: unreadLabel
             anchors.centerIn: parent
-            text: room.notification_count || "+1"
+            text: room.notification_count || "1+"
             textSize: Label.Small
             color: newNotifictaions ? UbuntuColors.porcelain : mainLayout.mainFontColor
         }
