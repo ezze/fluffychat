@@ -1,3 +1,8 @@
+What's new in FluffyChat 11.14
+----------------------------
++ Change '+1' hint in chat list to '1+' with Special thanks to Wayneoutthere
++ Rebuild because of outdated packages for the snap version
+
 What's new in FluffyChat 11.13
 ----------------------------
 + Push Notifications are now showing the avatar
