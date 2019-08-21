@@ -181,7 +181,7 @@ Page {
                     fontSize: "large"
                     height: contentHeight
                     horizontalAlignment: Text.AlignHLeft
-                    text: i18n.tr("+ Push Notifications are now showing the avatar\n+ Added opacity to the scroll down button\n+ Updated translations")
+                    text: i18n.tr("Update libcups2")
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                 }
