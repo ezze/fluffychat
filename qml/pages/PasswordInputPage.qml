@@ -47,7 +47,7 @@ Page {
 
             TextField {
                 id: passwordInput
-                placeholderText: i18n.tr("Password...")
+                placeholderText: i18n.tr("Password…")
                 anchors.horizontalCenter: parent.horizontalCenter
                 echoMode: TextInput.Password
                 width: Math.min( parent.width - units.gu(4), units.gu(50))

@@ -134,7 +134,7 @@ Page {
 
 
     Label {
-        text: i18n.tr('No messages in this chat ...')
+        text: i18n.tr('No messages in this chat …')
         anchors.centerIn: parent
         visible: count === 0
     }
@@ -272,7 +272,7 @@ Page {
             }
             property var hasText: false
             autoSize: true
-            placeholderText: i18n.tr("Type something ...")
+            placeholderText: i18n.tr("Type something …")
             Keys.onReturnPressed: {
                 var send = matrix.sendWithEnter
                 if ( event.modifiers === Qt.ShiftModifier ) send = !send

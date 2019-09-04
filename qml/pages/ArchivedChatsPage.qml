@@ -41,7 +41,7 @@ Page {
             width: parent.width - units.gu(2)
             anchors.centerIn: parent
             inputMethodHints: Qt.ImhNoPredictiveText
-            placeholderText: i18n.tr("Search archived chats...")
+            placeholderText: i18n.tr("Search archived chats…")
         }
     }
 
