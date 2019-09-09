@@ -181,7 +181,7 @@ Page {
                     fontSize: "large"
                     height: contentHeight
                     horizontalAlignment: Text.AlignHLeft
-                    text: i18n.tr("Update libcups2")
+                    text: template1
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                 }

@@ -1,3 +1,10 @@
+What's new in FluffyChat 11.16
+----------------------------
++ Updated translations, thanks to translators
++ Display emojis in bigger font
+- Fix sharing bug
+- Fix wrong url at login faq
+
 What's new in FluffyChat 11.14
 ----------------------------
 + Change '+1' hint in chat list to '1+' with Special thanks to Wayneoutthere
