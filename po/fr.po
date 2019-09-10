@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-09 17:51+0000\n"
-"PO-Revision-Date: 2019-06-18 22:02+0000\n"
+"PO-Revision-Date: 2019-09-11 11:19+0000\n"
 "Last-Translator: Anne Onyme 017 <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
 "translations/fr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
@@ -93,10 +93,8 @@ msgid "Archived chats"
 msgstr "Discussions archivées"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-#, fuzzy
-#| msgid "Search archived chats..."
 msgid "Search archived chats…"
-msgstr "Chercher dans les discussions archivées..."
+msgstr "Chercher dans les discussions archivées…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -185,7 +183,7 @@ msgstr "Traductions mises à jour. Merci à tous les traducteurs/trices."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Update libcups2"
-msgstr ""
+msgstr "Mettre à jour libcups2"
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -397,10 +395,8 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr "Veuillez saisir votre mot de passe pour : <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
-#, fuzzy
-#| msgid "Password..."
 msgid "Password…"
-msgstr "Mot de passe..."
+msgstr "Mot de passe…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
@@ -525,10 +521,8 @@ msgid "Chat info"
 msgstr "Informations sur la discussion"
 
 #: ../qml/pages/ChatPage.qml:137
-#, fuzzy
-#| msgid "No messages in this chat ..."
 msgid "No messages in this chat …"
-msgstr "Aucun message dans cette discussion..."
+msgstr "Aucun message dans cette discussion…"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
@@ -547,10 +541,8 @@ msgid "You do not have posting permissions here"
 msgstr "Vous n'avez pas l'autorisation de poster ici"
 
 #: ../qml/pages/ChatPage.qml:275
-#, fuzzy
-#| msgid "Type something ..."
 msgid "Type something …"
-msgstr "Écrivez quelque chose..."
+msgstr "Écrivez quelque chose…"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
