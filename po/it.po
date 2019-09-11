@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-09 17:51+0000\n"
-"PO-Revision-Date: 2019-09-06 12:25+0000\n"
+"PO-Revision-Date: 2019-09-12 15:23+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -93,10 +93,8 @@ msgid "Archived chats"
 msgstr "Conversazioni archiviate"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-#, fuzzy
-#| msgid "Search archived chats..."
 msgid "Search archived chats…"
-msgstr "Cerca conversazioni archiviate..."
+msgstr "Cerca nelle conversazioni archiviate…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -183,7 +181,7 @@ msgstr "Traduzioni aggiornate. Grazie a tutti i traduttori."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Update libcups2"
-msgstr ""
+msgstr "Aggiorna libcups2"
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -395,10 +393,8 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr "Per favore inserisci la tua password per: <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
-#, fuzzy
-#| msgid "Password..."
 msgid "Password…"
-msgstr "Password..."
+msgstr "Password…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
@@ -519,10 +515,8 @@ msgid "Chat info"
 msgstr "Informazioni sulla conversazione"
 
 #: ../qml/pages/ChatPage.qml:137
-#, fuzzy
-#| msgid "No messages in this chat ..."
 msgid "No messages in this chat …"
-msgstr "Nessun messaggio in questa conversazione..."
+msgstr "Nessun messaggio in questa conversazione…"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
@@ -541,10 +535,8 @@ msgid "You do not have posting permissions here"
 msgstr "Non hai il permesso di pubblicare qui"
 
 #: ../qml/pages/ChatPage.qml:275
-#, fuzzy
-#| msgid "Type something ..."
 msgid "Type something …"
-msgstr "Digita qualcosa..."
+msgstr "Digita qualcosa…"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
