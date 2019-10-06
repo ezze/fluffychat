@@ -12,10 +12,11 @@ click:armhf:
   except:
     - tags
   script:
-    - clickable clean build-libs build click-build
+    - clickable build-libs
+    - clickable build
   artifacts:
     paths:
-      - build/fluffychat/*.click
+      - build/arm-linux-gnueabihf/app/*.click
     expire_in: 1 week
 
 
@@ -25,11 +26,12 @@ click:publish:
   only:
     - tags
   script:
-    - clickable clean build-libs build click-build
+    - clickable build-libs
+    - clickable build
     - clickable publish "$CI_COMMIT_MESSAGE"
   artifacts:
     paths:
-      - build/fluffychat/*.click
+      - build/arm-linux-gnueabihf/app/*.click
     expire_in: 1 week
 
 
