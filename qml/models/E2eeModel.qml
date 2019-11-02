@@ -5,7 +5,23 @@ Item {
 
     id: e2eeModel
 
+    // Initialize the e2e encryption account
+    function init () {
+        if ( matrix.e2eeAccountPickle === "" ) {
+            console.error ( "🔐[E2EE] Create new OLM account" )
+            e2eeModel.newE2eeAccount ()
+        }
+        else {
+            console.log("🔐[E2EE] Restore account")
+            if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
+                console.error ( "❌[Error] Could not restore E2ee account" )
+                e2eeModel.newE2eeAccount ()
+            }
+        }
+    }
+
     function newE2eeAccount () {
+        console.log("New E2ee Account")
         var newAccount = E2ee.createAccount ( matrix.matrixid )
         var keysJsonStr = E2ee.getIdentityKeys ()
         var keys = JSON.parse(keysJsonStr)

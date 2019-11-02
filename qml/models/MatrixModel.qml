@@ -163,6 +163,7 @@ Item {
             matrix.username = (response.user_id.substr(1)).split(":")[0]
             matrix.matrixid = response.user_id
             matrix.token = response.access_token
+            e2eeModel.init()
             if ( callback ) callback ( response )
         }
 
@@ -494,22 +495,10 @@ Item {
     function init () {
         if ( matrix.token === "" ) return
 
-        // Initialize the e2e encryption account
-        if ( matrix.e2eeAccountPickle === "" ) {
-            console.error ( "🔐[E2EE] Create new OLM account" )
-            e2eeModel.newE2eeAccount ()
-        }
-        else {
-            console.log("🔐[E2EE] Restore account")
-            if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
-                console.error ( "❌[Error] Could not restore E2ee account" )
-                e2eeModel.newE2eeAccount ()
-            }
-        }
-
         // Start synchronizing
         initialized = true
         if ( matrix.prevBatch !== "" ) {
+            e2eeModel.init()
             console.log("👷[Init] Init the matrix synchronization")
             waitForSync ()
             return sync ( 1 )
