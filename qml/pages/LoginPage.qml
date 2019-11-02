@@ -51,7 +51,7 @@ Page {
             Action {
                 iconName: "help"
                 text: i18n.tr("FAQ")
-                onTriggered: Qt.openUrlExternally("https://christianpauly.github.io/fluffychat/faq.html")
+                onTriggered: Qt.openUrlExternally("https://christianpauly.gitlab.io/fluffychat-website/en/faq.html")
             }
             ]
         }

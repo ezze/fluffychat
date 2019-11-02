@@ -92,6 +92,7 @@ Item {
         }
         else {
             mainLayout.removePages( mainLayout.primaryPage )
+            activeChat = null
             contentHub.shareObject = transfer
         }
     }

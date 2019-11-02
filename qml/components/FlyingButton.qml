@@ -17,6 +17,7 @@ UbuntuShape {
     backgroundColor: mainLayout.mainBackgroundColor
     aspect: UbuntuShape.DropShadow
     radius: "large"
+    opacity: 0.75
 
     z: 14
     MouseArea {

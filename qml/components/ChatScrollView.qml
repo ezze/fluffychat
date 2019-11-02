@@ -341,10 +341,12 @@ ListView {
                         }
                         wrapMode: Text.Wrap
                         textFormat: Text.StyledText
-                        textSize: isStateEvent ? Label.XSmall :
-                        (eventModel.content.msgtype === "m.fluffychat.whisper" ? Label.XxSmall :
-                        (eventModel.content.msgtype === "m.fluffychat.roar" ? Label.XLarge : Label.Medium))
-
+                        textSize: {
+                            if (isStateEvent) return Label.XSmall
+                            if (eventModel.content.msgtype === "m.fluffychat.whisper") return Label.XxSmall
+                            if (eventModel.content.msgtype === "m.fluffychat.roar" || MessageFormats.emojiRegex.test(text)) return Label.XLarge
+                            return Label.Medium
+                        }
                         font.italic: eventModel.content.msgtype === "m.emote"
                         anchors.left: parent.left
                         anchors.topMargin: isStateEvent ? units.gu(0.5) : units.gu(1)

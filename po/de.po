@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-16 18:20+0000\n"
-"PO-Revision-Date: 2019-06-18 22:01+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"POT-Creation-Date: 2019-09-09 17:51+0000\n"
+"PO-Revision-Date: 2019-10-24 13:53+0000\n"
+"Last-Translator: Martin Stadtmüller <martin.stadtmueller@voith.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
 "Language: de\n"
@@ -17,25 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.9.1-dev\n"
 
-#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: ../push/pushhelper.cpp:146
+#: ../push/pushhelper.cpp:154
 msgid "New message"
 msgstr "Neue Nachricht"
 
-#: ../push/pushhelper.cpp:156
+#: ../push/pushhelper.cpp:164
 msgid "New encrypted message"
 msgstr "Neue verschlüsselte Nachricht"
 
-#: ../push/pushhelper.cpp:159
+#: ../push/pushhelper.cpp:167
 msgid "New member event"
 msgstr "Neues Mitgliederereignis"
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:173
 msgid "You were invited to chat"
 msgstr "Du wurdest zu einem Chat eingeladen"
 
@@ -93,8 +93,8 @@ msgid "Archived chats"
 msgstr "Archivierte Chats"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-msgid "Search archived chats..."
-msgstr "Archivierte Chats durchsuchen ..."
+msgid "Search archived chats…"
+msgstr "Archivierte Chats durchsuchen …"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -178,6 +178,10 @@ msgstr "Sicherheitslücken wurden geschlossen."
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
 msgstr "Übersetzungen aktualisiert. Danke an alle Übersetzer."
+
+#: ../qml/pages/WalkthroughPage.qml:184
+msgid "Update libcups2"
+msgstr "Libcups2 aktualisieren"
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -389,8 +393,8 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr "Bitte gib dein Passwort ein für: <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
-msgid "Password..."
-msgstr "Passwort ..."
+msgid "Password…"
+msgstr "Passwort …"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
@@ -512,8 +516,8 @@ msgid "Chat info"
 msgstr "Chat-Informationen"
 
 #: ../qml/pages/ChatPage.qml:137
-msgid "No messages in this chat ..."
-msgstr "Keine Nachrichten in diesem Chat ..."
+msgid "No messages in this chat …"
+msgstr "Keine Nachrichten in diesem Chat …"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
@@ -532,8 +536,8 @@ msgid "You do not have posting permissions here"
 msgstr "Du kannst hier keine Nachrichten senden"
 
 #: ../qml/pages/ChatPage.qml:275
-msgid "Type something ..."
-msgstr "Schreibe etwas ..."
+msgid "Type something …"
+msgstr "Schreibe etwas …"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"

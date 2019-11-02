@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-16 18:20+0000\n"
-"PO-Revision-Date: 2019-06-18 22:01+0000\n"
+"POT-Creation-Date: 2019-09-09 17:51+0000\n"
+"PO-Revision-Date: 2019-09-09 19:12+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -17,25 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.9-dev\n"
 
-#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: ../push/pushhelper.cpp:146
+#: ../push/pushhelper.cpp:154
 msgid "New message"
 msgstr "Nová zpráva"
 
-#: ../push/pushhelper.cpp:156
+#: ../push/pushhelper.cpp:164
 msgid "New encrypted message"
 msgstr "Nova šifrovaná zpráva"
 
-#: ../push/pushhelper.cpp:159
+#: ../push/pushhelper.cpp:167
 msgid "New member event"
 msgstr "Událost nového člena"
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:173
 msgid "You were invited to chat"
 msgstr "Byl jste pozván do chatu"
 
@@ -93,8 +93,8 @@ msgid "Archived chats"
 msgstr "Archivované chaty"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-msgid "Search archived chats..."
-msgstr "Vyhledat archivované chaty..."
+msgid "Search archived chats…"
+msgstr "Vyhledat archivované chaty…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -178,6 +178,10 @@ msgstr "Oprava bezpečnostní chyby."
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
 msgstr "Aktualizované překlady. Naše díky všem překladatelům."
+
+#: ../qml/pages/WalkthroughPage.qml:184
+msgid "Update libcups2"
+msgstr "Aktualizovat libcups2"
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -388,7 +392,7 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr "Zadejte Vaše heslo pro: <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
-msgid "Password..."
+msgid "Password…"
 msgstr "Heslo…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
@@ -470,10 +474,10 @@ msgstr ""
 "na server identit!<br><br><b> Push Oznámení</ b><br<br>* Matrix server "
 "používaný uživatelem zašle automaticky push notifikace na UBports push "
 "službu. Tato oznámení jsou šifrována pomocí protokolu https při přenosu od "
-"matrix serveru k oficiální bráně matrix ubports na adrese "
-"https://push.ubports.com:5003/_matrix/push/r0/notify, která předává oznámení "
-"službě UBports push na adrese https://push.ubports.com a zasílá tyto zprávy "
-"jako upozornění na zařízení uživatele.<br>"
+"matrix serveru k oficiální bráně matrix ubports na adrese https://push."
+"ubports.com:5003/_matrix/push/r0/notify, která předává oznámení službě "
+"UBports push na adrese https://push.ubports.com a zasílá tyto zprávy jako "
+"upozornění na zařízení uživatele.<br>"
 
 #: ../qml/pages/CountryPickerPage.qml:11
 msgid "Choose a country"
@@ -508,8 +512,8 @@ msgid "Chat info"
 msgstr "Informace o chatovací místnosti"
 
 #: ../qml/pages/ChatPage.qml:137
-msgid "No messages in this chat ..."
-msgstr "Žádné zprávy v této místnosti …"
+msgid "No messages in this chat …"
+msgstr "Žádné zprávy v této místnosti…"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
@@ -528,7 +532,7 @@ msgid "You do not have posting permissions here"
 msgstr "Nemáte zde oprávněni k zasílání zpráv"
 
 #: ../qml/pages/ChatPage.qml:275
-msgid "Type something ..."
+msgid "Type something …"
 msgstr "Napište něco …"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28

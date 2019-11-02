@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-16 18:20+0000\n"
-"PO-Revision-Date: 2019-05-17 10:12+0000\n"
+"POT-Creation-Date: 2019-09-09 17:51+0000\n"
+"PO-Revision-Date: 2019-09-12 15:23+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -17,25 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
-#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr "Sconosciuto"
 
-#: ../push/pushhelper.cpp:146
+#: ../push/pushhelper.cpp:154
 msgid "New message"
 msgstr "Nuovo messaggio"
 
-#: ../push/pushhelper.cpp:156
+#: ../push/pushhelper.cpp:164
 msgid "New encrypted message"
 msgstr "Nuovo messaggio criptato"
 
-#: ../push/pushhelper.cpp:159
+#: ../push/pushhelper.cpp:167
 msgid "New member event"
 msgstr "Nuovo evento sui membri"
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:173
 msgid "You were invited to chat"
 msgstr "Sei stato invitato alla conversazione"
 
@@ -93,8 +93,8 @@ msgid "Archived chats"
 msgstr "Conversazioni archiviate"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-msgid "Search archived chats..."
-msgstr "Cerca conversazioni archiviate..."
+msgid "Search archived chats…"
+msgstr "Cerca nelle conversazioni archiviate…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -164,8 +164,6 @@ msgid "What's new in version %1?"
 msgstr "Cosa c'è di nuovo nella versione %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
-#, fuzzy
-#| msgid "Minor bug fixes and updated translations."
 msgid "Minor bugfixes and updated translations."
 msgstr "Risolti problemi minori e aggiornate traduzioni."
 
@@ -181,17 +179,15 @@ msgstr "Risolto problema di sicurezza."
 msgid "Updated translations. Thanks to all translators."
 msgstr "Traduzioni aggiornate. Grazie a tutti i traduttori."
 
+#: ../qml/pages/WalkthroughPage.qml:184
+msgid "Update libcups2"
+msgstr "Aggiorna libcups2"
+
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Finanziato dalla comunità"
 
 #: ../qml/pages/WalkthroughPage.qml:235
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers is "
-#| "all community funded. You can donate to this project on <a href='https://"
-#| "www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. Donate to this project on <a href='https://www.patreon.com/"
@@ -199,9 +195,9 @@ msgid ""
 "KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat è libero, no-profit e carino. Lo sviluppo ed i server sono tutti "
-"finanziati dalla comunità. Puoi donare al progetto su <a href='https://www."
-"patreon.com/bePatron?u=11123241'>Patreon</a> o <a href='https://liberapay."
-"com/KrilleChritzelius/donate'>Liberapay</a>"
+"finanziati dalla comunità. Dona al progetto su <a href='https://www.patreon."
+"com/bePatron?u=11123241'>Patreon</a> o <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
@@ -397,8 +393,8 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr "Per favore inserisci la tua password per: <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
-msgid "Password..."
-msgstr "Password..."
+msgid "Password…"
+msgstr "Password…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
@@ -441,30 +437,6 @@ msgid "Search e.g. @username:server.abc"
 msgstr "Cerca es. @username:server.abc"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:29
-#, fuzzy
-#| msgid ""
-#| "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client "
-#| "and is compatible with all Matrix servers and Matrix identity servers. "
-#| "All communications conducted while using FluffyChat use a Matrix server "
-#| "and the Matrix identity server.<br>* The default server in FluffyChat is "
-#| "https://ubports.chat and the default identity server is https://vector.im."
-#| "<br>* FluffyChat doesn't operate any server or remote service.<br>* All "
-#| "communication of substantive content between FluffyChat and any server is "
-#| "done in secure way, using transport encryption to protect it. End-to-end "
-#| "encryption will follow.<br>* FluffyChat is not responsible for the data "
-#| "processing carried out by any Matrix server or Matrix identity server."
-#| "<br>* FluffyChat offers the option to use phone numbers to find contacts. "
-#| "This is not a requirement of normal operation and is intended only as a "
-#| "convenience. No contact details are uploaded without user interaction! "
-#| "The user can choose to upload all or some or no contacts to the identity "
-#| "server!<br><br><b>Push Notifications</b><br><br>* The Matrix server "
-#| "selected by the user will automatically send push notifications to the "
-#| "UBports push service. These notifications are encrypted with the https "
-#| "protocol between the device and the Matrix server and on to the official "
-#| "UBports Matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/"
-#| "notify This server forwards the notification to UBports push service at "
-#| "https://push.ubports.com and then sends this on as a push notification to "
-#| "the user's device(s).<br>"
 msgid ""
 "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
 "is compatible with all Matrix servers and Matrix identity servers. All "
@@ -492,7 +464,7 @@ msgstr ""
 "matrix ed è compatibile con tutti i server matrix e i server di "
 "identificazione matrix. Tutte le comunicazioni fatte dall'utente mentre usa "
 "fluffychat sono fatte tra il server matrix e il server di identificazione "
-"matrix.<br>* Il server di default è https://ubports.chat e il server di "
+"matrix.<br>* Il server di default è https://matrix.org e il server di "
 "identificazione di default è https://vector.im.<br>* Fluffychat non opera "
 "nessun server o servizio.<br>* Tutte le comunicazioni tra fluffychat e "
 "qualsiasi server sono fatte in maniera sicura, usando la cifratura per "
@@ -543,8 +515,8 @@ msgid "Chat info"
 msgstr "Informazioni sulla conversazione"
 
 #: ../qml/pages/ChatPage.qml:137
-msgid "No messages in this chat ..."
-msgstr "Nessun messaggio in questa conversazione..."
+msgid "No messages in this chat …"
+msgstr "Nessun messaggio in questa conversazione…"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
@@ -563,8 +535,8 @@ msgid "You do not have posting permissions here"
 msgstr "Non hai il permesso di pubblicare qui"
 
 #: ../qml/pages/ChatPage.qml:275
-msgid "Type something ..."
-msgstr "Digita qualcosa..."
+msgid "Type something …"
+msgstr "Digita qualcosa…"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"

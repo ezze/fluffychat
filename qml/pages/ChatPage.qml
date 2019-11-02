@@ -135,7 +135,7 @@ Page {
 
 
     Label {
-        text: i18n.tr('No messages in this chat ...')
+        text: i18n.tr('No messages in this chat …')
         anchors.centerIn: parent
         visible: count === 0
     }

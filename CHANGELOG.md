@@ -1,24 +1,38 @@
+What's new in FluffyChat 11.17
+----------------------------
++ Fix the no-message bug in UserMetrics thanks to joboticon
+- Update some libs
+
+What's new in FluffyChat 11.16
+----------------------------
++ Updated translations, thanks to translators
++ Display emojis in bigger font
+- Fix sharing bug
+- Fix wrong url at login faq
+
+What's new in FluffyChat 11.14
+----------------------------
++ Change '+1' hint in chat list to '1+' with Special thanks to Wayneoutthere
++ Rebuild because of outdated packages for the snap version
+
+What's new in FluffyChat 11.13
+----------------------------
++ Push Notifications are now showing the avatar
++ Added opacity to the scroll down button
++ Updated translations
+
 What's new in FluffyChat 11.12
 ----------------------------
 - Change default Homeserver to matrix.org
-
-#matrix #ubuntutouch
-
 
 What's new in FluffyChat 11.11
 ----------------------------
 + New translations - thanks to all translators
 
-#matrix #ubuntutouch
-
-
 What's new in FluffyChat 11.10
 ----------------------------
 + Improved performance on app start
 - Fixed two design bugs
-
-#matrix #ubuntutouch
-
 
 What's new in FluffyChat 11.9
 -----------------------------

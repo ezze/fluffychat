@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-16 18:20+0000\n"
+"POT-Creation-Date: 2019-09-09 17:51+0000\n"
 "PO-Revision-Date: 2019-05-06 08:29+0000\n"
 "Last-Translator: joboticon <joseph@liau.ca>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/fluffychat/"
@@ -19,25 +19,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.7-dev\n"
 
-#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr ""
 
-#: ../push/pushhelper.cpp:146
+#: ../push/pushhelper.cpp:154
 msgid "New message"
 msgstr ""
 
-#: ../push/pushhelper.cpp:156
+#: ../push/pushhelper.cpp:164
 #, fuzzy
 #| msgid "%1 redacted a message"
 msgid "New encrypted message"
 msgstr "%1 がメッセージを編集しました"
 
-#: ../push/pushhelper.cpp:159
+#: ../push/pushhelper.cpp:167
 msgid "New member event"
 msgstr ""
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:173
 #, fuzzy
 #| msgid "%1 created the chat"
 msgid "You were invited to chat"
@@ -97,7 +97,9 @@ msgid "Archived chats"
 msgstr "アーカイブ化したチャット"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-msgid "Search archived chats..."
+#, fuzzy
+#| msgid "Search archived chats..."
+msgid "Search archived chats…"
 msgstr "アーカイブ化したチャットを検索..."
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
@@ -180,6 +182,10 @@ msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:184
+msgid "Update libcups2"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:222
@@ -386,7 +392,9 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr "<b>%1</b>のパスワードを入力してください"
 
 #: ../qml/pages/PasswordInputPage.qml:50
-msgid "Password..."
+#, fuzzy
+#| msgid "Password..."
+msgid "Password…"
 msgstr "パスワード..."
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
@@ -487,8 +495,10 @@ msgid "Chat info"
 msgstr "チャット情報"
 
 #: ../qml/pages/ChatPage.qml:137
-msgid "No messages in this chat ..."
-msgstr ""
+#, fuzzy
+#| msgid "Leave this chat"
+msgid "No messages in this chat …"
+msgstr "このチャットから退出"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
@@ -507,7 +517,7 @@ msgid "You do not have posting permissions here"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:275
-msgid "Type something ..."
+msgid "Type something …"
 msgstr ""
 
 #: ../qml/pages/PhoneSettingsPage.qml:28

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-16 18:20+0000\n"
+"POT-Creation-Date: 2019-09-09 17:51+0000\n"
 "PO-Revision-Date: 2019-05-15 16:48+0000\n"
 "Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/fluffychat/"
@@ -20,23 +20,23 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 3.7-dev\n"
 
-#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr "مجهول"
 
-#: ../push/pushhelper.cpp:146
+#: ../push/pushhelper.cpp:154
 msgid "New message"
 msgstr "رسالة جديدة"
 
-#: ../push/pushhelper.cpp:156
+#: ../push/pushhelper.cpp:164
 msgid "New encrypted message"
 msgstr "رسالة مشفرة جديدة"
 
-#: ../push/pushhelper.cpp:159
+#: ../push/pushhelper.cpp:167
 msgid "New member event"
 msgstr ""
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:173
 msgid "You were invited to chat"
 msgstr "لقد دعيت للدردشة"
 
@@ -94,7 +94,7 @@ msgid "Archived chats"
 msgstr ""
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-msgid "Search archived chats..."
+msgid "Search archived chats…"
 msgstr ""
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
@@ -171,6 +171,10 @@ msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:184
+msgid "Update libcups2"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:222
@@ -377,7 +381,9 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr ""
 
 #: ../qml/pages/PasswordInputPage.qml:50
-msgid "Password..."
+#, fuzzy
+#| msgid "Password..."
+msgid "Password…"
 msgstr "كلمة السر…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
@@ -478,7 +484,7 @@ msgid "Chat info"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:137
-msgid "No messages in this chat ..."
+msgid "No messages in this chat …"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:160
@@ -498,7 +504,7 @@ msgid "You do not have posting permissions here"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:275
-msgid "Type something ..."
+msgid "Type something …"
 msgstr ""
 
 #: ../qml/pages/PhoneSettingsPage.qml:28

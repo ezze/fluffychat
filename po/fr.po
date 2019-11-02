@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-16 18:20+0000\n"
-"PO-Revision-Date: 2019-06-18 22:02+0000\n"
+"POT-Creation-Date: 2019-09-09 17:51+0000\n"
+"PO-Revision-Date: 2019-09-11 11:19+0000\n"
 "Last-Translator: Anne Onyme 017 <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
 "translations/fr/>\n"
@@ -17,25 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 3.9-dev\n"
 
-#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: ../push/pushhelper.cpp:146
+#: ../push/pushhelper.cpp:154
 msgid "New message"
 msgstr "Nouveau message"
 
-#: ../push/pushhelper.cpp:156
+#: ../push/pushhelper.cpp:164
 msgid "New encrypted message"
 msgstr "Nouveau message chiffré"
 
-#: ../push/pushhelper.cpp:159
+#: ../push/pushhelper.cpp:167
 msgid "New member event"
 msgstr "Nouvel événement d'un membre"
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:173
 msgid "You were invited to chat"
 msgstr "Vous avez été invité(e) à discuter"
 
@@ -93,8 +93,8 @@ msgid "Archived chats"
 msgstr "Discussions archivées"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-msgid "Search archived chats..."
-msgstr "Chercher dans les discussions archivées..."
+msgid "Search archived chats…"
+msgstr "Chercher dans les discussions archivées…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -180,6 +180,10 @@ msgstr "Problème de sécurité résolu."
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
 msgstr "Traductions mises à jour. Merci à tous les traducteurs/trices."
+
+#: ../qml/pages/WalkthroughPage.qml:184
+msgid "Update libcups2"
+msgstr "Mettre à jour libcups2"
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -391,8 +395,8 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr "Veuillez saisir votre mot de passe pour : <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
-msgid "Password..."
-msgstr "Mot de passe..."
+msgid "Password…"
+msgstr "Mot de passe…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
@@ -461,27 +465,27 @@ msgstr ""
 "Le <br><b>client Matrix</b><br><br>* FluffyChat est un client qui utilise le "
 "protocole Matrix et est compatible avec tous les serveurs Matrix et les "
 "serveurs d'identités Matrix. Toutes les communications tenues en utilisant "
-"FluffyChat utilisent un serveur Matrix et un serveur d'identités Matrix.<br>*"
-" Le serveur par défaut de FluffyChat est https://matrix.org et le serveur "
-"d'identités par défaut est https://vector.im.<br>* FluffyChat n'opère pas de "
-"serveur ou de service à distance.<br>* Toute communication de contenu "
-"substantiel entre FluffyChat et un serveur est sécurisée en utilisant un "
-"chiffrement lors du transport pour la protéger. Le chiffrement de bout-en-"
-"bout viendra prochainement.<br>* FluffyChat n'est pas responsable du "
-"traitement des données effectué par un serveur Matrix ou un serveur "
+"FluffyChat utilisent un serveur Matrix et un serveur d'identités Matrix."
+"<br>* Le serveur par défaut de FluffyChat est https://matrix.org et le "
+"serveur d'identités par défaut est https://vector.im.<br>* FluffyChat "
+"n'opère pas de serveur ou de service à distance.<br>* Toute communication de "
+"contenu substantiel entre FluffyChat et un serveur est sécurisée en "
+"utilisant un chiffrement lors du transport pour la protéger. Le chiffrement "
+"de bout-en-bout viendra prochainement.<br>* FluffyChat n'est pas responsable "
+"du traitement des données effectué par un serveur Matrix ou un serveur "
 "d'identités Matrix.<br>* FluffyChat offre la possibilité d'utiliser des "
 "numéros de téléphone pour trouver des contacts. Ce n'est pas une obligation "
 "pour une utilisation normale mais l'implémentation se révèle pratique. Aucun "
 "détail des contacts n'est téléversé sans une interaction d'un utilisateur ou "
 "d'une utilisatrice ! Ils peuvent choisir de téléverser tous ou certains ou "
-"pas de contacts au serveur d'identités !<br><br><b>Notifications</b><br><br>*"
-" Le serveur Matrix sélectionné par l'utilisateur ou l'utilisatrice enverra "
-"automatiquement des notifications au service de notifications d'UBports. Ces "
-"notifications sont chiffrées avec le protocole HTTPS entre l'appareil, le "
-"serveur Matrix et la passerelle Matrix officielle d'UBports sur "
-"https://push.ubports.com:5003/_matrix/push/r0/notify Ce serveur transfère la "
-"notification au serveur de notifications d'UBports sur https://"
-"push.ubports.com puis envoi le tout sous forme de notifications aux "
+"pas de contacts au serveur d'identités !<br><br><b>Notifications</"
+"b><br><br>* Le serveur Matrix sélectionné par l'utilisateur ou "
+"l'utilisatrice enverra automatiquement des notifications au service de "
+"notifications d'UBports. Ces notifications sont chiffrées avec le protocole "
+"HTTPS entre l'appareil, le serveur Matrix et la passerelle Matrix officielle "
+"d'UBports sur https://push.ubports.com:5003/_matrix/push/r0/notify Ce "
+"serveur transfère la notification au serveur de notifications d'UBports sur "
+"https://push.ubports.com puis envoi le tout sous forme de notifications aux "
 "appareils des utilisateurs et utilisatrices.<br>"
 
 #: ../qml/pages/CountryPickerPage.qml:11
@@ -517,8 +521,8 @@ msgid "Chat info"
 msgstr "Informations sur la discussion"
 
 #: ../qml/pages/ChatPage.qml:137
-msgid "No messages in this chat ..."
-msgstr "Aucun message dans cette discussion..."
+msgid "No messages in this chat …"
+msgstr "Aucun message dans cette discussion…"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
@@ -537,8 +541,8 @@ msgid "You do not have posting permissions here"
 msgstr "Vous n'avez pas l'autorisation de poster ici"
 
 #: ../qml/pages/ChatPage.qml:275
-msgid "Type something ..."
-msgstr "Écrivez quelque chose..."
+msgid "Type something …"
+msgstr "Écrivez quelque chose…"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"

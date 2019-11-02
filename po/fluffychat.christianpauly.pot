@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-23 14:26+0000\n"
+"POT-Creation-Date: 2019-09-09 17:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../push/pushhelper.cpp:133 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
 msgstr ""
 
-#: ../push/pushhelper.cpp:146
+#: ../push/pushhelper.cpp:154
 msgid "New message"
 msgstr ""
 
-#: ../push/pushhelper.cpp:156
+#: ../push/pushhelper.cpp:164
 msgid "New encrypted message"
 msgstr ""
 
-#: ../push/pushhelper.cpp:159
+#: ../push/pushhelper.cpp:167
 msgid "New member event"
 msgstr ""
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:173
 msgid "You were invited to chat"
 msgstr ""
 
@@ -93,8 +93,8 @@ msgstr ""
 msgid "Please log in to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../qml/models/PushModel.qml:77
-msgid "Push notifications are turned off…"
+#: ../qml/pages/ArchivedChatsPage.qml:44
+msgid "Search archived chats…"
 msgstr ""
 
 #: ../qml/components/ChangePasswordDialog.qml:11
@@ -182,8 +182,12 @@ msgstr ""
 msgid "Ban from this chat?"
 msgstr ""
 
-#: ../qml/components/MemberListItem.qml:94
-msgid "Cancel banishment?"
+#: ../qml/pages/WalkthroughPage.qml:184
+msgid "Update libcups2"
+msgstr ""
+
+#: ../qml/pages/WalkthroughPage.qml:222
+msgid "Community funded"
 msgstr ""
 
 #: ../qml/components/MemberListItem.qml:102
@@ -333,8 +337,24 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: ../qml/components/LogoutDialog.qml:25
-msgid "Are you sure you want to log out?"
+#: ../qml/pages/SettingsPage.qml:275
+msgid "More:"
+msgstr ""
+
+#: ../qml/pages/CommunityPage.qml:98
+msgid "No description found"
+msgstr ""
+
+#: ../qml/pages/PasswordInputPage.qml:13
+msgid "Enter your password"
+msgstr ""
+
+#: ../qml/pages/PasswordInputPage.qml:41
+msgid "Please enter your password for: <b>%1</b>"
+msgstr ""
+
+#: ../qml/pages/PasswordInputPage.qml:50
+msgid "Password…"
 msgstr ""
 
 #: ../qml/components/AddEmailDialog.qml:12
@@ -418,9 +438,8 @@ msgstr ""
 msgid "Download: "
 msgstr ""
 
-#: ../qml/components/EnterSMSTokenDialog.qml:11
-#: ../qml/components/EnterFirstSMSTokenDialog.qml:11
-msgid "Please enter the validation code"
+#: ../qml/pages/ChatPage.qml:137
+msgid "No messages in this chat …"
 msgstr ""
 
 #: ../qml/components/EnterSMSTokenDialog.qml:19
@@ -440,8 +459,8 @@ msgstr ""
 msgid "Please log out to change your country"
 msgstr ""
 
-#: ../qml/components/AddPhoneDialog.qml:26
-msgid "Phone number…"
+#: ../qml/pages/ChatPage.qml:275
+msgid "Type something …"
 msgstr ""
 
 #: ../qml/components/UsernameListItem.qml:12
