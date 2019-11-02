@@ -31,10 +31,8 @@ Item {
 
         for ( var key in oneTimeKeys.curve25519 ) {
             signedOneTimeKeys["signed_curve25519:"+key] = { }
-            signedOneTimeKeys["signed_curve25519:"+key]["keys"] = oneTimeKeys.curve25519[key]
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"] = {}
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)] = {}
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)]["ed25519:%1".arg(matrix.deviceID)] = E2ee.signJsonString (oneTimeKeys.curve25519[key])
+            signedOneTimeKeys["signed_curve25519:"+key]["key"] = oneTimeKeys.curve25519[key]
+            signedOneTimeKeys["signed_curve25519:"+key] = signJson(signedOneTimeKeys["signed_curve25519:"+key])
         }
 
         var requestData = {
@@ -76,9 +74,7 @@ Item {
         for ( var key in oneTimeKeys.curve25519 ) {
             signedOneTimeKeys["signed_curve25519:"+key] = { }
             signedOneTimeKeys["signed_curve25519:"+key]["keys"] = oneTimeKeys.curve25519[key]
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"] = {}
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)] = {}
-            signedOneTimeKeys["signed_curve25519:"+key]["signatures"]["%1".arg(matrix.matrixid)]["ed25519:%1".arg(matrix.deviceID)] = E2ee.signJsonString (oneTimeKeys.curve25519[key])
+            signedOneTimeKeys["signed_curve25519:"+key] = signJson(signedOneTimeKeys["signed_curve25519:"+key])
         }
         var requestData = {
             "one_time_keys": signedOneTimeKeys
