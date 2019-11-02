@@ -19,7 +19,7 @@ E2ee::E2ee() : m_isSessionActive(false), m_isAccountInitialized(false) {
     m_olmAccount = olm_account(accountMemory); // Initialise the olmAccount object
 
     size_t sessionSize = olm_session_size(); // Get the memory size that is at least necessary for account init
-    m_activeSession = static_cast<OlmSession *>(malloc(sessionSize)); // Allocate the memory
+    m_activeSession = olm_session(malloc(sessionSize)); // Allocate the memory
 
     size_t outboundGroupSessionSize = olm_outbound_group_session_size();
     void * outboundGroupSessionMemory = malloc(outboundGroupSessionSize);
@@ -221,7 +221,7 @@ QString E2ee::lastAccountError() {
 
 QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QString key) {
     if (!isAccountInitialized()) return logError("No m_olmAccount initialized!");
-
+    
     size_t randomLength = olm_create_outbound_session_random_length(m_activeSession);
 
     E2eeSeed seed(randomLength);
