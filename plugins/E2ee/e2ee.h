@@ -2,6 +2,7 @@
 #define E2EE_H
 
 #include <QObject>
+#include <QJsonObject>
 #include <olm/olm.h>
 
 class E2ee: public QObject {
@@ -22,6 +23,8 @@ private:
     OlmOutboundGroupSession * m_activeOutboundGroupSession;
     OlmInboundGroupSession *  m_activeInboundGroupSession;
          
+    QJsonObject stringToJsonObject(const QByteArray &jsonString) const;
+
 public:
     E2ee();
     ~E2ee();
@@ -110,7 +113,7 @@ public:
     Q_INVOKABLE QString decrypt(QString message);
 
     /** Calculates the SHA-256 hash of the input and encodes it as base64. **/
-    Q_INVOKABLE QString sha256(QString input);
+    Q_INVOKABLE QJsonObject sha256(QString input);
 
     /** Calculates the SHA-256 hash of the input and encodes it as base64.  **/
     Q_INVOKABLE bool ed25519Verify(QString key, QString message, QString signature);

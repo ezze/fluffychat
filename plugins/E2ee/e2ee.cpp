@@ -8,6 +8,8 @@
 #include <QUrl>
 #include <QCommandLineParser>
 #include <QByteArray> 
+#include <QJsonObject> 
+#include <QJsonDocument> 
 
 #include "e2eeSeed.h"
 #include "e2ee.h"
@@ -439,7 +441,7 @@ QString E2ee::decrypt(QString message){
 }
 
 
-QString E2ee::sha256(QString input){
+QJsonObject E2ee::sha256(QString input){
     size_t utilitySize = olm_utility_size();
     void * utilityMemory = malloc( utilitySize );
     OlmUtility * utility = olm_utility(utilityMemory);
@@ -459,9 +461,14 @@ QString E2ee::sha256(QString input){
     free(utilityMemory);
     utility = nullptr;
 
-    return QString::fromUtf8(output);
+    return stringToJsonObject(QByteArray(output, outputLength));
 }
 
+QJsonObject E2ee::stringToJsonObject(const QByteArray &jsonString) const
+{
+    QJsonDocument doc = QJsonDocument::fromJson(jsonString);
+    return doc.object();
+}
 
 bool E2ee::ed25519Verify(QString key, QString message, QString signature){
     size_t utilitySize = olm_utility_size();
