@@ -316,7 +316,7 @@ Item {
                 eventContent.content = e2eeModel.decrypt(eventContent)
 
             // Format the text for the app
-            if( typeof eventContent.content.body === "string" ) {
+            if( eventContent.content.body instanceof String ) {
                 eventContent.content_body = MessageFormats.formatText ( eventContent.content.body )
             }
             else eventContent.content_body = null
