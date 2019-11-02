@@ -647,7 +647,7 @@ Item {
                         // Check signature
                         var signedJson = res.device_keys[mxid][device_id]
                         var keyName = "ed25519:%1".arg(device_id)
-                        if (true || e2eeModel.checkJsonSignature(signedJson.keys[keyName], signedJson, device_id)) {
+                        if (e2eeModel.checkJsonSignature(signedJson.keys[keyName], signedJson, mxid, device_id)) {
                             storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,0)",
                             [ mxid, device_id, JSON.stringify(signedJson), device_id===matrix.deviceID ] )
                             console.log("Found new device %1 of %2".arg(device_id).arg(mxid))

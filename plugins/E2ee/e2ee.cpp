@@ -477,11 +477,17 @@ bool E2ee::ed25519Verify(QString key, QString message, QString signature){
         signature.length()
     );
 
+    const char * lastError = olm_utility_last_error(utility);
+
+qDebug() << lastError;
+
     olm_clear_utility(utility);
     free(utilityMemory);
     utility = nullptr;
 
-    if (result == 1) {
+
+
+    if (lastError != "BAD_MESSAGE_MAC" || lastError != "INVALID BASE64") {
         return true;
     }
     return false;

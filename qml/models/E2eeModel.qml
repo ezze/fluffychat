@@ -120,14 +120,16 @@ Item {
     }
 
     // Checks the signature of a signed json object.
-    function checkJsonSignature(key, signedJson, signature, device_id) {
+    function checkJsonSignature(key, signedJson, user_id, device_id) {
         var signatures = signedJson.signatures
+        if (signatures[user_id] === undefined) return false
         var unsigned = signedJson.unsigned
         delete signedJson.signatures
         delete signedJson.unsigned
         var keyName = "ed25519:%1".arg(device_id)
+        if (signatures[user_id][keyName] === undefined) return false
         // TODO: Why is this not working?
-        return E2ee.ed25519Verify(key, orderedStringify(signedJson), signatures[signedJson.user_id][keyName])
+        return E2ee.ed25519Verify(key, orderedStringify(signedJson), signatures[user_id][keyName])
     }
 
 

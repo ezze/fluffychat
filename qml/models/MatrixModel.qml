@@ -741,12 +741,7 @@ Item {
     function handleToDeviceEvents ( events, newEventCB ) {
         if (events.length) console.log("[DEBUG] Got %1 to_device events".arg(events.length))
         for ( var i = 0; i < events.length; i++ ) {
-            console.log("[DEBUG] Handle %1 to_device event".arg(i))
-            // Make sure, this event is encrypted
-            if(!( typeof events[ i ].type === "String" && events[ i ].type === "m.room.encrypted") || validateEvent(events[ i ], "m.room.encrypted")) {
-                console.log("[WARNING] to_device event was not encrypted!")
-                return
-            }
+            console.log("[DEBUG] Handle to_device event No. %1".arg(i))
             newEventCB ( events[ i ].type, events[ i ].sender, "to_device", events[ i ] )
         }
     }
