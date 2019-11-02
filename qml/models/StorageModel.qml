@@ -315,14 +315,17 @@ Item {
             if ( type === "m.room.encrypted" )
                 eventContent.content = e2eeModel.decrypt(eventContent)
 
+            if (eventContent.content === null)
+                eventContent.content = {"body": "Could not decrypt..."}
+
             // Format the text for the app
-            if( eventContent.content.body instanceof String ) {
+            if( eventContent.content != null && eventContent.content.body instanceof String ) {
                 eventContent.content_body = MessageFormats.formatText ( eventContent.content.body )
             }
             else eventContent.content_body = null
 
             // Make unsigned part of the content
-            if ( typeof eventContent.content.unsigned === "undefined" && typeof eventContent.unsigned !== "undefined" ) {
+            if ( eventContent.content.unsigned === undefined && eventContent.unsigned !== undefined ) {
                 eventContent.content.unsigned = eventContent.unsigned
             }
 
@@ -578,15 +581,15 @@ Item {
 
         case "device_lists":
             if ( typeof eventContent.changed === "object" ) {
-                for ( var user in eventContent.changed ) {
-                    addQuery ("UPDATE Users SET tracking_devices_uptodate=0 WHERE matrix_id=?", [ user ] )
-                    console.log("Start tracking user",user)
+                for (var i = 0; i < eventContent.changed.length; i++) {
+                    addQuery ("UPDATE Users SET tracking_devices_uptodate=0 WHERE matrix_id=?", [ eventContent.changed[i] ] )
+                    console.log("Start tracking user",eventContent.changed[i])
                 }
             }
             if ( typeof eventContent.left === "object" ) {
-                for ( var user in eventContent.left ) {
-                    addQuery ("UPDATE Users SET tracking_devices=0 WHERE matrix_id=?", [ user ] )
-                    console.log("Stop tracking user",user)
+                for (var i = 0; i < eventContent.left.length; i++) {
+                    addQuery ("UPDATE Users SET tracking_devices=0 WHERE matrix_id=?", [ eventContent.left[i] ] )
+                    console.log("Stop tracking user",eventContent.left[i])
                 }
             }
             break
