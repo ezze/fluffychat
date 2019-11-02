@@ -494,21 +494,23 @@ Item {
     function init () {
         if ( matrix.token === "" ) return
 
+        // Initialize the e2e encryption account
+        if ( matrix.e2eeAccountPickle === "" ) {
+            console.error ( "🔐[E2EE] Create new OLM account" )
+            e2eeModel.newE2eeAccount ()
+        }
+        else {
+            console.log("🔐[E2EE] Restore account")
+            if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
+                console.error ( "❌[Error] Could not restore E2ee account" )
+                e2eeModel.newE2eeAccount ()
+            }
+        }
+
         // Start synchronizing
         initialized = true
         if ( matrix.prevBatch !== "" ) {
             console.log("👷[Init] Init the matrix synchronization")
-
-            // Initialize the e2e encryption account
-            if ( matrix.e2eeAccountPickle === "" ) {
-                e2eeModel.newE2eeAccount ()
-            }
-            else {
-                if ( E2ee.restoreAccount ( matrix.e2eeAccountPickle, matrix.matrixid ) === false ) {
-                    console.error ( "❌[Error] Could not restore E2ee account" )
-                    e2eeModel.newE2eeAccount ()
-                }
-            }
             waitForSync ()
             return sync ( 1 )
         }
@@ -752,8 +754,10 @@ Item {
         for ( var i = 0; i < events.length; i++ ) {
             console.log("[DEBUG] Handle %1 to_device event".arg(i))
             // Make sure, this event is encrypted
-            if(!( typeof events[ i ].type === "String" && events[ i ].type === "m.room.encrypted") || validateEvent(events[ i ], "m.room.encrypted")) return
-            console.log("[DEBUG] Event is encrypted")
+            if(!( typeof events[ i ].type === "String" && events[ i ].type === "m.room.encrypted") || validateEvent(events[ i ], "m.room.encrypted")) {
+                console.log("[WARNING] to_device event was not encrypted!")
+                return
+            }
             newEventCB ( events[ i ].type, events[ i ].sender, "to_device", events[ i ] )
         }
     }

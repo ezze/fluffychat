@@ -650,7 +650,7 @@ Item {
                         if (true || e2eeModel.checkJsonSignature(signedJson.keys[keyName], signedJson, device_id)) {
                             storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,0)",
                             [ mxid, device_id, JSON.stringify(signedJson), device_id===matrix.deviceID ] )
-                            console.log("Valid keys...")
+                            console.log("Found new device %1 of %2".arg(device_id).arg(mxid))
                         }
                         else console.warn("[WARNING] Invalid device keys from %1".arg(signedJson.user_id))
                     }
