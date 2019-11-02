@@ -96,21 +96,28 @@ Item {
 
         matrix.post ("/client/r0/keys/upload", requestData, success_callback)
     }
+
+    // FIXME: Ugly way to get a sorted JSON string
+    // https://stackoverflow.com/questions/16167581/sort-object-properties-and-json-stringify/53593328#53593328
+    function orderedStringify(obj) {
+        var allKeys = [];
+        JSON.stringify(obj, function (k, v) { allKeys.push(k); return v; });
+        return JSON.stringify(obj, allKeys.sort()); 
+    }
     
     // Signs a json object with the device's fingerprint key.
     function signJson (jsonObj) {
         var unsigned = jsonObj.unsigned
         delete jsonObj.signatures
         delete jsonObj.unsigned
-        var canonicalJson = JSON.stringify(jsonObj)
+        var canonicalJson = orderedStringify(jsonObj)
         jsonObj.signatures = {}
         jsonObj.signatures[matrix.matrixid] = {}
         jsonObj.signatures[matrix.matrixid]["ed25519:"+matrix.deviceID] = E2ee.signJsonString (canonicalJson)
         if (unsigned) jsonObj.unsigned = unsigned
-    
+
         return jsonObj
     }
-
 
     // Checks the signature of a signed json object.
     function checkJsonSignature(key, signedJson, signature, device_id) {
@@ -120,7 +127,7 @@ Item {
         delete signedJson.unsigned
         var keyName = "ed25519:%1".arg(device_id)
         // TODO: Why is this not working?
-        return E2ee.ed25519Verify(key, JSON.stringify(signedJson), signatures[signedJson.user_id][keyName])
+        return E2ee.ed25519Verify(key, orderedStringify(signedJson), signatures[signedJson.user_id][keyName])
     }
 
 
