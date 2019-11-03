@@ -118,10 +118,11 @@ QString E2ee::createAccount(QString key) {
     char olmAccountPickle[olmAccountPickleMaxLength+1];
 
     memset(olmAccountPickle, '0', olmAccountPickleMaxLength+1); // TODO: Do we need this?
-    if (olm_pickle_account(m_olmAccount, key.toLocal8Bit().data(), key.length(), olmAccountPickle, olmAccountPickleMaxLength) == olm_error()) {
+    size_t length = olm_pickle_account(m_olmAccount, key.toLocal8Bit().data(), key.length(), olmAccountPickle, olmAccountPickleMaxLength);
+    if (length == olm_error()) {
         return logError(olm_account_last_error(m_olmAccount));
     }
-    olmAccountPickle[olmAccountPickleMaxLength] = '\0';
+    olmAccountPickle[length] = '\0';
 
     m_isAccountInitialized = true;
 
@@ -340,11 +341,13 @@ QJsonObject E2ee::getSessionAndSessionID(QString key) {
     char sessionPickle[sessionPickleMaxLength+1];
 
     memset(sessionPickle, '0', sessionPickleMaxLength+1);
-    if (olm_pickle_session(m_activeSession, key.toLocal8Bit().data(), key.length(), sessionPickle, sessionPickleMaxLength) == olm_error()) {
+    size_t length = olm_pickle_session(m_activeSession, key.toLocal8Bit().data(), key.length(), sessionPickle, sessionPickleMaxLength);
+
+    if (length == olm_error()) {
         logError(olm_session_last_error(m_activeSession));
         return QJsonObject{};
     }
-    sessionPickle[sessionPickleMaxLength] = '\0';
+    sessionPickle[length] = '\0';
 
     return QJsonObject{
         { "id", QString::fromUtf8(id) },
