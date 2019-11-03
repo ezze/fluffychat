@@ -181,7 +181,7 @@ Page {
                     fontSize: "large"
                     height: contentHeight
                     horizontalAlignment: Text.AlignHLeft
-                    text: template1
+                    text: i18n.tr("Add experimental support for end-to-end encryption.")
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                 }
@@ -232,7 +232,7 @@ Page {
                     }
                     fontSize: "large"
                     horizontalAlignment: Text.AlignHLeft
-                    text: i18n.tr("FluffyChat is open, nonprofit and cute. The development and servers is all community funded. Donate to this project on <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>")
+                    text: i18n.tr("FluffyChat is open, nonprofit and cute. The development and servers is all community funded. Donate to this project on <a href='https://ko-fi.com/krille'>Ko-fi</a> or <a href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>")
                     width: units.gu(36)
                     wrapMode: Text.WordWrap
                     linkColor: mainLayout.brightMainColor
