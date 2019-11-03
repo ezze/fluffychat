@@ -224,7 +224,9 @@ Item {
                 console.log("[DEBUG] Megolm session found")
                 E2ee.restoreInboundGroupSession(res.rows[0].pickle, matrix.matrixid)
                 decrypted = E2ee.decryptGroupMessage( event.content.ciphertext )
-                console.log("[DEBUG] Message decrypted", decrypted)
+                for (var key in decrypted) event[key] = decrypted[key]
+                decrypted = event
+                console.log("[DEBUG] Message decrypted", JSON.stringify(decrypted))
             }
             else console.log("[DEBUG] No matching Inbound Group Session found...")
         }
@@ -258,7 +260,7 @@ Item {
                     data.messages[user_id][device_id] = {
                         "algorithm": "m.olm.v1.curve25519-aes-sha2",
                         "ciphertext": {},
-                        "sender_key": "1234"//keys[curve25519]
+                        "sender_key": keys[curve25519]
                     }
                     data.messages[user_id][device_id].ciphertext[identityKeys[device_id]] = {
                         "body": E2ee.encrypt(JSON.stringify(content)),
@@ -285,7 +287,7 @@ Item {
         if (res.length === 0) return
 
         if (res.rows[0].encryption_outbound_pickle !== "") {
-            console.log("[DEBUG] Found existing megolm session!")
+            console.log("[DEBUG] Found existing megolm session!", res.rows[0].encryption_outbound_pickle)
             E2ee.restoreOutboundGroupSession(res.rows[0].encryption_outbound_pickle, matrix.matrixid)
             callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
         }
