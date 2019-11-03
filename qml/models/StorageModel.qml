@@ -595,7 +595,7 @@ Item {
             break
         case "to_device":
             console.log("[DEBUG] Handle to_device event")
-            
+
             // Get device key
             var device_key
             for ( var key in eventContent.content.ciphertext) {
