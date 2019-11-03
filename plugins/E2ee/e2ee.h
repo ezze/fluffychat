@@ -107,7 +107,7 @@ public:
 
     /** Encrypts a message using the session. Returns the encrypted base64
      * string. **/
-    Q_INVOKABLE QJsonObject encrypt(QString plaintext);
+    Q_INVOKABLE QString encrypt(QString plaintext);
 
     /** Decrypts a message using the session. Returns the plaintext. **/
     Q_INVOKABLE QJsonObject decrypt(QString message);
@@ -132,7 +132,7 @@ public:
     Q_INVOKABLE bool restoreOutboundGroupSession(QString pickle, QString key);
 
     /** Encrypts group message. */
-    Q_INVOKABLE QJsonObject encryptGroupMessage(QString plaintext) const;
+    Q_INVOKABLE QString encryptGroupMessage(QString plaintext) const;
 
     /** Creates a new in-bound megolm session (for receiving events/messages from a room)
      *  from Megolm session key.

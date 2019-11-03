@@ -407,11 +407,10 @@ QString E2ee::encryptMessageType(){
 }
 
 
-QJsonObject E2ee::encrypt(QString plaintext){
+QString E2ee::encrypt(QString plaintext){
     if (!isSessionActive())
     {
-        logError("No m_activeSession initialized!");
-        return QJsonObject{};
+        return logError("No m_activeSession initialized!");
     }
 
     size_t randomLength = olm_encrypt_random_length(m_activeSession);
@@ -430,13 +429,12 @@ QJsonObject E2ee::encrypt(QString plaintext){
         message,
         messageLength
     ) == olm_error()) {
-        logError(olm_session_last_error(m_activeSession));
-        return QJsonObject{};
+        return logError(olm_session_last_error(m_activeSession));
     }
 
     message[messageLength] = '\0';
 
-    return stringToJsonObject(QByteArray(message, messageLength));
+    return QString(message);
 }
 
 
@@ -632,7 +630,7 @@ bool E2ee::restoreOutboundGroupSession(QString pickle, QString key) {
 }
 
 
-QJsonObject E2ee::encryptGroupMessage(QString plaintext) const {
+QString E2ee::encryptGroupMessage(QString plaintext) const {
     size_t cipherLength = olm_group_encrypt_message_length(this->m_activeOutboundGroupSession,
                                                            plaintext.length());
 
@@ -646,12 +644,11 @@ QJsonObject E2ee::encryptGroupMessage(QString plaintext) const {
 
     if (length == olm_error())
     {
-        logError("olm_group_encrypt dailed with: " + QString(olm_outbound_group_session_last_error(this->m_activeOutboundGroupSession)));
-        return QJsonObject{};
+        return logError("olm_group_encrypt dailed with: " + QString(olm_outbound_group_session_last_error(this->m_activeOutboundGroupSession)));
     }
 
     cipherText.resize(length);
-    return stringToJsonObject(cipherText);
+    return QString(cipherText);
 }
 
 
