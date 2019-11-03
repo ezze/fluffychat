@@ -110,7 +110,7 @@ public:
     Q_INVOKABLE QString encrypt(QString plaintext);
 
     /** Decrypts a message using the session. Returns the plaintext. **/
-    Q_INVOKABLE QString decrypt(QString message);
+    Q_INVOKABLE QJsonObject decrypt(QString message);
 
     /** Calculates the SHA-256 hash of the input and encodes it as base64. **/
     Q_INVOKABLE QJsonObject sha256(QString input);

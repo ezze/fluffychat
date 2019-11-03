@@ -435,8 +435,12 @@ QString E2ee::encrypt(QString plaintext){
 }
 
 
-QString E2ee::decrypt(QString message){
-    if (!isSessionActive()) return logError("No m_activeSession initialized!");
+QJsonObject E2ee::decrypt(QString message){
+    if (!isSessionActive())
+    {
+        logError("No m_activeSession initialized!");
+        return QJsonObject{};
+    }
 
     size_t messageType = olm_encrypt_message_type(m_activeSession);
 
@@ -456,12 +460,13 @@ QString E2ee::decrypt(QString message){
         plaintext,
         plaintextLength
     ) == olm_error()) {
-        return logError(olm_session_last_error(m_activeSession));
+        logError(olm_session_last_error(m_activeSession));
+        return QJsonObject{};
     }
 
     plaintext[plaintextLength] = '\0';
 
-    return QString::fromUtf8(plaintext);
+    return stringToJsonObject(QByteArray(plaintext, plaintextLength));
 }
 
 
