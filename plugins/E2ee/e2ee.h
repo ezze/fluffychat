@@ -107,7 +107,7 @@ public:
 
     /** Encrypts a message using the session. Returns the encrypted base64
      * string. **/
-    Q_INVOKABLE QString encrypt(QString plaintext);
+    Q_INVOKABLE QJsonObject encrypt(QString plaintext);
 
     /** Decrypts a message using the session. Returns the plaintext. **/
     Q_INVOKABLE QJsonObject decrypt(QString message);

@@ -407,8 +407,12 @@ QString E2ee::encryptMessageType(){
 }
 
 
-QString E2ee::encrypt(QString plaintext){
-    if (!isSessionActive()) return logError("No m_activeSession initialized!");
+QJsonObject E2ee::encrypt(QString plaintext){
+    if (!isSessionActive())
+    {
+        logError("No m_activeSession initialized!");
+        return QJsonObject{};
+    }
 
     size_t randomLength = olm_encrypt_random_length(m_activeSession);
     E2eeSeed seed(randomLength);
@@ -426,12 +430,13 @@ QString E2ee::encrypt(QString plaintext){
         message,
         messageLength
     ) == olm_error()) {
-        return logError(olm_session_last_error(m_activeSession));
+        logError(olm_session_last_error(m_activeSession));
+        return QJsonObject{};
     }
 
     message[messageLength] = '\0';
 
-    return QString::fromUtf8(message);
+    return stringToJsonObject(QByteArray(message, messageLength));
 }
 
 
@@ -464,8 +469,6 @@ QJsonObject E2ee::decrypt(QString message){
         return QJsonObject{};
     }
 
-    plaintext[plaintextLength] = '\0';
-
     return stringToJsonObject(QByteArray(plaintext, plaintextLength));
 }
 
@@ -496,7 +499,18 @@ QJsonObject E2ee::sha256(QString input){
 QJsonObject E2ee::stringToJsonObject(const QByteArray &jsonString) const
 {
     QJsonDocument doc = QJsonDocument::fromJson(jsonString);
-    return doc.object();
+    if (doc.isObject())
+    {
+        logError("[Debug] creating QJsonObject from QJsonDocument:");
+        logError(doc.toJson());
+        return doc.object();
+    }
+    else
+    {
+        logError("failed to create object from json document:");
+        logError(doc.toJson());
+        return QJsonObject{};
+    }
 }
 
 bool E2ee::ed25519Verify(QString key, QString message, QString signature){
