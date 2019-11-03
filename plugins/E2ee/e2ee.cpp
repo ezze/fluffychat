@@ -449,22 +449,24 @@ QJsonObject E2ee::decrypt(QString message){
 
     size_t messageType = olm_encrypt_message_type(m_activeSession);
 
-    size_t plaintextLength = olm_decrypt_max_plaintext_length(m_activeSession,
+    size_t plaintextMaxLength = olm_decrypt_max_plaintext_length(m_activeSession,
         messageType,
         message.toLocal8Bit().data(),
         message.length()
     );
-    char plaintext[plaintextLength+1];
+    char plaintext[plaintextMaxLength+1];
 
-    memset(plaintext, '0', plaintextLength+1);
+    memset(plaintext, '0', plaintextMaxLength+1);
 
-    if (olm_decrypt(m_activeSession,
+    size_t plaintextLength = olm_decrypt(m_activeSession,
         messageType,
         message.toLocal8Bit().data(),
         message.length(),
         plaintext,
-        plaintextLength
-    ) == olm_error()) {
+        plaintextMaxLength);
+
+    if (plaintextLength == olm_error())
+    {
         logError(olm_session_last_error(m_activeSession));
         return QJsonObject{};
     }
@@ -499,6 +501,12 @@ QJsonObject E2ee::sha256(QString input){
 QJsonObject E2ee::stringToJsonObject(const QByteArray &jsonString) const
 {
     QJsonDocument doc = QJsonDocument::fromJson(jsonString);
+    if (doc.isNull())
+    {
+        logError("Failed to create QJsonDocument from json string:");
+        logError(jsonString);
+        return QJsonObject{};
+    }
     if (doc.isObject())
     {
         logError("[Debug] creating QJsonObject from QJsonDocument:");
