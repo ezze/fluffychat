@@ -15,7 +15,7 @@ private:
     bool m_isSessionActive;
     bool m_isAccountInitialized;
 
-    QString getSessionAndSessionID(QString key);
+    QJsonObject getSessionAndSessionID(QString key);
 
     bool isAccountInitialized();
     bool isSessionActive();
@@ -69,15 +69,15 @@ public:
     /** Creates a new out-bound session for sending messages to a given identity_key
      * and one_time_key. Returns a json object with the session ID and the base64
      * encoded OlmSession. **/
-    Q_INVOKABLE QString createOutboundSession(QString identityKey, QString oneTimeKey, QString key);
+    Q_INVOKABLE QJsonObject createOutboundSession(QString identityKey, QString oneTimeKey, QString key);
 
     /** Create a new in-bound session for sending/receiving messages from an
      * incoming PRE_KEY message. **/
-    Q_INVOKABLE QString createInboundSession(QString oneTimeKeyMessage, QString key);
+    Q_INVOKABLE QJsonObject createInboundSession(QString oneTimeKeyMessage, QString key);
 
     /** Create a new in-bound session for sending/receiving messages from an
      * incoming PRE_KEY message. **/
-    Q_INVOKABLE QString createInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage, QString key);
+    Q_INVOKABLE QJsonObject createInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage, QString key);
 
     /** Sets the active session by the given string **/
     Q_INVOKABLE void setActiveSession(QString olmSessionStr, QString key);

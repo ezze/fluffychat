@@ -221,8 +221,12 @@ QString E2ee::lastAccountError() {
 }
 
 
-QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QString key) {
-    if (!isAccountInitialized()) return logError("No m_olmAccount initialized!");
+QJsonObject E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QString key) {
+    if (!isAccountInitialized())
+    {
+        logError("No m_olmAccount initialized!");
+        return QJsonObject{};
+    }
     
     size_t randomLength = olm_create_outbound_session_random_length(m_activeSession);
 
@@ -239,7 +243,8 @@ QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QSt
         seed.random(),
         randomLength
     ) == olm_error()) {
-        return logError(olm_session_last_error(m_activeSession));
+        logError(olm_session_last_error(m_activeSession));
+        return QJsonObject{};
     }
 
     m_isSessionActive = true;
@@ -248,8 +253,12 @@ QString E2ee::createOutboundSession(QString identityKey, QString oneTimeKey, QSt
 }
 
 
-QString E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
-    if (!isAccountInitialized()) return logError("No m_olmAccount initialized!");
+QJsonObject E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
+    if (!isAccountInitialized())
+    {
+        logError("No m_olmAccount initialized!");
+        return QJsonObject{};
+    }
 
     m_isSessionActive = false;
 
@@ -258,7 +267,8 @@ QString E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
         oneTimeKeyMessage.toLocal8Bit().data(),
         oneTimeKeyMessage.length()
     ) == olm_error()) {
-        return logError(olm_session_last_error(m_activeSession));
+        logError(olm_session_last_error(m_activeSession));
+        return QJsonObject{};
     }
 
     m_isSessionActive = true;
@@ -267,11 +277,15 @@ QString E2ee::createInboundSession(QString oneTimeKeyMessage, QString key){
 }
 
 
-QString E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage, QString key){
+QJsonObject E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeKeyMessage, QString key){
 
     m_isSessionActive = false;
 
-    if (!isAccountInitialized()) return logError("No m_olmAccount initialized!");
+    if (!isAccountInitialized())
+    {
+        logError("No m_olmAccount initialized!");
+        return QJsonObject{};
+    }
 
     if (olm_create_inbound_session_from(m_activeSession,
         m_olmAccount,
@@ -280,7 +294,8 @@ QString E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeKeyMe
         oneTimeKeyMessage.toLocal8Bit().data(),
         oneTimeKeyMessage.length()
     ) == olm_error()) {
-        return logError(olm_session_last_error(m_activeSession));
+        logError(olm_session_last_error(m_activeSession));
+        return QJsonObject{};
     }
 
     m_isSessionActive = true;
@@ -305,14 +320,19 @@ void E2ee::removeSession() {
 }
 
 
-QString E2ee::getSessionAndSessionID(QString key) {
-    if (!isSessionActive()) return logError("No m_activeSession initialized!");
+QJsonObject E2ee::getSessionAndSessionID(QString key) {
+    if (!isSessionActive())
+    {
+        logError("No m_activeSession initialized!");
+        return QJsonObject{};
+    }
 
     size_t idLength = olm_session_id_length(m_activeSession);
     char id[idLength+1];
     memset(id, '0', idLength+1);
     if (olm_session_id(m_activeSession, id, idLength) == olm_error()) {
-        return logError(olm_session_last_error(m_activeSession));
+        logError(olm_session_last_error(m_activeSession));
+        return QJsonObject{};
     }
     id[idLength] = '\0';
 
@@ -321,11 +341,15 @@ QString E2ee::getSessionAndSessionID(QString key) {
 
     memset(sessionPickle, '0', sessionPickleMaxLength+1);
     if (olm_pickle_session(m_activeSession, key.toLocal8Bit().data(), key.length(), sessionPickle, sessionPickleMaxLength) == olm_error()) {
-        return logError(olm_session_last_error(m_activeSession));
+        logError(olm_session_last_error(m_activeSession));
+        return QJsonObject{};
     }
     sessionPickle[sessionPickleMaxLength] = '\0';
 
-    return "{\"id\":" + QString::fromUtf8(id) + ",\"session\":" + QString::fromUtf8(sessionPickle) + "}";
+    return QJsonObject{
+        { "id", QString::fromUtf8(id) },
+        { "session", QString::fromUtf8(sessionPickle) }
+    };
 }
 
 
