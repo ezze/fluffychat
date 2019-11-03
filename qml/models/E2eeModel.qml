@@ -217,11 +217,12 @@ Item {
             } 
             if (isCurrent && decrypted == null) decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
         }
-        else if (event.content.algorithm === "m.megolm.v1-aes-sha2") {
+        else if (event.content.algorithm === "m.megolm.v1.aes-sha2") {
+            console.log("Try to decrypt group message")
             var res = storage.query ( "SELECT * FROM InboundMegolmSessions WHERE session_id=?", [ event.content.session_id ] )
             if ( res.rows.length > 0 ) {
                 console.log("[DEBUG] Megolm session found")
-                E2ee.restoreInboundGroupSession(res[0].pickle, matrix.matrixid)
+                E2ee.restoreInboundGroupSession(res.rows[0].pickle, matrix.matrixid)
                 decrypted = E2ee.decryptGroupMessage( event.content.ciphertext )
                 console.log("[DEBUG] Message decrypted", decrypted)
             }

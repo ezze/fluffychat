@@ -625,6 +625,9 @@ Item {
 
     function handleSync ( sync, newChatCB, newEventCB ) {
         if ( typeof sync !== "object" ) return
+        if ( typeof sync.to_device === "object" && typeof sync.to_device.events === "object"  ) {
+            handleToDeviceEvents( sync.to_device.events, newEventCB )
+        }
         if ( typeof sync.rooms === "object" ) {
             if ( typeof sync.rooms.join === "object" ) handleRooms ( sync.rooms.join, "join", newChatCB, newEventCB )
             if ( typeof sync.rooms.leave === "object" ) handleRooms ( sync.rooms.leave, "leave", newChatCB, newEventCB )
@@ -642,9 +645,6 @@ Item {
                 if ( matrix.one_time_key_counts < 5 ) e2eeModel.generateOneTimeKeys()
             }
             newEventCB ( "device_one_time_keys_count", sync.next_batch, "encryption", sync.device_lists )
-        }
-        if ( typeof sync.to_device === "object" && typeof sync.to_device.events === "object"  ) {
-            handleToDeviceEvents( sync.to_device.events, newEventCB )
         }
     }
 
@@ -755,6 +755,11 @@ Item {
     function handleRoomEvents ( roomid, events, type, newEventCB ) {
         // We go through the events array
         for ( var i = 0; i < events.length; i++ ) {
+            if (events[i].type === "m.room.encrypted") {
+                events[i] = e2eeModel.decrypt(events[i])
+                if (events[i] === null) continue
+                console.log(JSON.stringify(events[ i ]), events[i].type)
+            }
             if ( validateEvent ( events[i], type ) ) newEventCB ( events[i].type, roomid, type, events[i] )
         }
     }

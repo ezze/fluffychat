@@ -20,7 +20,7 @@ Item {
 
     id: storage
 
-    property var version: "0.5.3"
+    property var version: "0.5.4"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -316,9 +316,6 @@ Item {
             if ( typeof eventContent.status === "number" ) status = eventContent.status
             else if ( eventType === "history" ) status = msg_status.HISTORY
                 
-            if ( type === "m.room.encrypted" )
-                eventContent.content = e2eeModel.decrypt(eventContent)
-
             if (eventContent.content === null)
                 eventContent.content = {"body": "Could not decrypt..."}
 
@@ -607,7 +604,7 @@ Item {
                 return
             }
             console.log("[DEBUG] Save MegOlm session")
-            var megolmInPickle = E2ee.createInboundGroupSession(payload.session_key)
+            var megolmInPickle = E2ee.createInboundGroupSession(payload.session_key, matrix.matrixid)
             addQuery( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
                 payload.room_id,
                 payload.session_id,
