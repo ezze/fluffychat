@@ -20,7 +20,7 @@ Item {
 
     id: storage
 
-    property var version: "0.5.2"
+    property var version: "0.5.3"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -193,9 +193,9 @@ Item {
         // TABLE SCHEMA FOR OLM SESSIONS
         query('CREATE TABLE IF NOT EXISTS InboundMegolmSessions(' +
         'room_id TEXT, ' +
-        'device_id TEXT, ' +
+        'session_id TEXT, ' +
         'pickle TEXT, ' +
-        'UNIQUE(room_id, device_id))')
+        'UNIQUE(room_id, session_id))')
 
         if ( matrix.isLogged ) {
             storage.markSendingEventsAsError ()
@@ -223,6 +223,8 @@ Item {
         query('DELETE FROM ThirdPIDs')
         query('DELETE FROM Media')
         query('DELETE FROM Devices')
+        query('DELETE FROM OlmSessions')
+        query('DELETE FROM InboundMegolmSessions')
     }
 
 
@@ -236,6 +238,8 @@ Item {
         query('DROP TABLE IF EXISTS ThirdPIDs')
         query('DROP TABLE IF EXISTS Media')
         query('DROP TABLE IF EXISTS Devices')
+        query('DROP TABLE IF EXISTS OlmSessions')
+        query('DROP TABLE IF EXISTS InboundMegolmSessions')
     }
 
     property var queryQueue: []
@@ -593,17 +597,10 @@ Item {
                 }
             }
             break
-        case "to_device":
-            console.log("[DEBUG] Handle to_device event")
+        case "m.room_key":
+            console.log("[DEBUG] Handle m.room_key message")
 
-            // Get device key
-            var device_key
-            for ( var key in eventContent.content.ciphertext) {
-                device_key = key
-                break
-            }
-
-            var payload = e2eeModel.decrypt(eventContent)
+            var payload = eventContent.content
             
             if ( supportedEncryptionAlgorithms.indexOf(payload.algorithm) === -1 ) {
                 console.log("[ERROR] Unsupported algorithm")
@@ -613,7 +610,7 @@ Item {
             var megolmInPickle = E2ee.createInboundGroupSession(payload.session_key)
             addQuery( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
                 payload.room_id,
-                device_key,
+                payload.session_id,
                 megolmInPickle
             ] )
             break
@@ -633,10 +630,10 @@ Item {
         if ( users.rows.length > 0 ) {
             var device_keys = {}
             for ( var i = 0; i < users.rows.length; i++ ) {
-                console.log("Requesting keys from:",users.rows[i].matrix_id)
                 device_keys[users.rows[i].matrix_id] = []
             }
             var success_callback = function (res) {
+                if (res.device_keys === undefined) return
                 // If there are failures, then send a toast
                 for ( var failure in res.failures ) {
                     break
@@ -650,13 +647,11 @@ Item {
                         if (e2eeModel.checkJsonSignature(signedJson.keys[keyName], signedJson, mxid, device_id)) {
                             storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,0)",
                             [ mxid, device_id, JSON.stringify(signedJson), device_id===matrix.deviceID ] )
-                            console.log("Found new device %1 of %2".arg(device_id).arg(mxid))
                         }
                         else console.warn("[WARNING] Invalid device keys from %1".arg(signedJson.user_id))
                     }
                     storage.query("UPDATE Users SET tracking_devices_uptodate=1 WHERE matrix_id=?",
                     [ mxid ] )
-                    console.log("Up-to-date devices user",mxid)
                 }
             }
             matrix.post("/client/r0/keys/query", {device_keys: device_keys}, success_callback)

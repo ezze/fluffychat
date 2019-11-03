@@ -138,6 +138,7 @@ Item {
             console.log("[DEBUG] Event is encrypted")
 
             var keysJsonStr = E2ee.getIdentityKeys ()
+            if (keysJsonStr === "") return null
             var keys = JSON.parse(keysJsonStr)
 
             // Get device key
@@ -154,16 +155,11 @@ Item {
             }
 
             var isPreKey = event.content.ciphertext[device_key].type === 0
+            console.log("Its a prekey message...")
  
             var isCurrent = false
             console.log("[DEBUG] Check if the current session is the session")
-            if ( isPreKey ) {
-                isCurrent = E2ee.matchesInboundSessionFrom(
-                    event.content.sender_key, 
-                    event.content.ciphertext[device_key].body
-                )
-            }
-            else {
+            if ( !isPreKey ) {
                 isCurrent = E2ee.matchesInboundSession(
                     event.content.ciphertext[device_key].body
                 )
@@ -195,13 +191,13 @@ Item {
                     }
 
                     storage.query ( "INSERT OR REPLACE INTO OlmSessions VALUES(?,?,?)",
-                    [ device_key, event.content.sender_key, newOlmSessionPickle ])
+                    [ device_key, event.content.sender_key, newOlmSessionPickle.session ])
                     decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
-                    console.log("[DEBUG] Message decrypted", decrypted)
+                    console.log("[DEBUG] Message decrypted", JSON.stringify(decrypted))
                 }
                 else {
-                    console.log("[DEBUG] Existing olm session found")
                     var olmSessionRow = res.rows[0]
+                    console.log("[DEBUG] Existing olm session found", olmSessionRow.pickle)
                     E2ee.setActiveSession ( olmSessionRow.pickle, matrix.matrixid )
                     console.log("[DEBUG] Olm session set")
                     decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
@@ -213,28 +209,25 @@ Item {
                             matrix.matrixid
                         )
                         storage.query ( "INSERT OR REPLACE INTO OlmSessions VALUES(?,?,?)",
-                        [ device_key, event.content.sender_key, newOlmSessionPickle ])
+                        [ device_key, event.content.sender_key, newOlmSessionPickle.session ])
                         decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
                     }
                     console.log("[DEBUG] Message decrypted", decrypted)
                 }
             } 
+            if (isCurrent && decrypted == null) decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
         }
         else if (event.content.algorithm === "m.megolm.v1-aes-sha2") {
-            var res = storage.query ( "SELECT * FROM InboundMegolmSessions WHERE room_id=? AND device_id=?", [ event.room_id, event.content.device_id ] )
+            var res = storage.query ( "SELECT * FROM InboundMegolmSessions WHERE session_id=?", [ event.content.session_id ] )
             if ( res.rows.length > 0 ) {
                 console.log("[DEBUG] Megolm session found")
                 E2ee.restoreInboundGroupSession(res[0].pickle, matrix.matrixid)
                 decrypted = E2ee.decryptGroupMessage( event.content.ciphertext )
                 console.log("[DEBUG] Message decrypted", decrypted)
             }
-            console.log("[DEBUG] No matching Inbound Group Session found...")
+            else console.log("[DEBUG] No matching Inbound Group Session found...")
         }
 
-        if (isCurrent && decrypted == null) decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
-        if (decrypted != null) {
-            decrypted = JSON.parse(decrypted)
-        }
         return decrypted
     }
 

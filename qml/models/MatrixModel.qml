@@ -741,10 +741,10 @@ Item {
     function handleToDeviceEvents ( events, newEventCB ) {
         if (events.length) console.log("[DEBUG] Got %1 to_device events".arg(events.length))
         for ( var i = 0; i < events.length; i++ ) {
-            console.log("[DEBUG] Handle to_device event No. %1", JSON.stringify(events[i]))
-            if(events[i].type === "m.room.encrypted") {
-                events[ i ].content = e2eeModel.decrypt(events[ i ])
-                console.log("[Decrypted]", events[ i ].content)
+            if (events[i].type === "m.room.encrypted") {
+                events[ i ] = e2eeModel.decrypt(events[ i ])
+                if (events[i] === null) continue
+                console.log(JSON.stringify(events[ i ]), events[i].type)
             }
             newEventCB ( events[ i ].type, events[ i ].sender, "to_device", events[ i ] )
         }
@@ -756,7 +756,6 @@ Item {
         // We go through the events array
         for ( var i = 0; i < events.length; i++ ) {
             if ( validateEvent ( events[i], type ) ) newEventCB ( events[i].type, roomid, type, events[i] )
-            else console.warn( "💤[Invalid] Ignoring invalid event:", JSON.stringify(events[i]) )
         }
     }
 
