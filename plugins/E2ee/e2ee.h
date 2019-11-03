@@ -132,7 +132,7 @@ public:
     Q_INVOKABLE bool restoreOutboundGroupSession(QString pickle, QString key);
 
     /** Encrypts group message. */
-    Q_INVOKABLE QString encryptGroupMessage(QString plaintext) const;
+    Q_INVOKABLE QJsonObject encryptGroupMessage(QString plaintext) const;
 
     /** Creates a new in-bound megolm session (for receiving events/messages from a room)
      *  from Megolm session key.
@@ -143,7 +143,7 @@ public:
     Q_INVOKABLE bool restoreInboundGroupSession(QString pickle, QString key);
 
     /** Decrypts group message. */
-    Q_INVOKABLE QString decryptGroupMessage(QString cipherText) const;
+    Q_INVOKABLE QJsonObject decryptGroupMessage(QString cipherText) const;
 
 public slots:
     void uploadProgressSlot(qint64 bytesSent, qint64 bytesTotal);

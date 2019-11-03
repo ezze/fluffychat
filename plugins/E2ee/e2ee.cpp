@@ -632,19 +632,26 @@ bool E2ee::restoreOutboundGroupSession(QString pickle, QString key) {
 }
 
 
-QString E2ee::encryptGroupMessage(QString plaintext) const {
+QJsonObject E2ee::encryptGroupMessage(QString plaintext) const {
     size_t cipherLength = olm_group_encrypt_message_length(this->m_activeOutboundGroupSession,
                                                            plaintext.length());
 
     QByteArray cipherText(cipherLength, '\0');
 
-    olm_group_encrypt(this->m_activeOutboundGroupSession,
+    size_t length = olm_group_encrypt(this->m_activeOutboundGroupSession,
                       reinterpret_cast<uint8_t *>(plaintext.toLocal8Bit().data()),
                       plaintext.length(),
                       reinterpret_cast<uint8_t *>(cipherText.data()),
                       cipherLength);
 
-    return QString(cipherText);
+    if (length == olm_error())
+    {
+        logError("olm_group_encrypt dailed with: " + QString(olm_outbound_group_session_last_error(this->m_activeOutboundGroupSession)));
+        return QJsonObject{};
+    }
+
+    cipherText.resize(length);
+    return stringToJsonObject(cipherText);
 }
 
 
@@ -691,7 +698,7 @@ bool E2ee::restoreInboundGroupSession(QString pickle, QString key) {
 }
 
 
-QString E2ee::decryptGroupMessage(QString cipherText) const {
+QJsonObject E2ee::decryptGroupMessage(QString cipherText) const {
     size_t plaintextMaxLength = olm_group_decrypt_max_plaintext_length(
                                     this->m_activeInboundGroupSession,
                                     reinterpret_cast<uint8_t *>(cipherText.toLocal8Bit().data()),
@@ -700,18 +707,19 @@ QString E2ee::decryptGroupMessage(QString cipherText) const {
     uint32_t messageIndex;
     QByteArray plaintext(plaintextMaxLength, '\0');
 
-    size_t error =  olm_group_decrypt(this->m_activeInboundGroupSession,
+    size_t length = olm_group_decrypt(this->m_activeInboundGroupSession,
                                       reinterpret_cast<uint8_t *>(cipherText.toLocal8Bit().data()),
                                       cipherText.length(),
                                       reinterpret_cast<uint8_t *>(plaintext.data()),
                                       plaintextMaxLength,
                                       &messageIndex);
 
-    if (error == olm_error()) {
+    if (length == olm_error()) {
         logError(QString("olm_group_decrypt failed with: ")+QString(olm_inbound_group_session_last_error(this->m_activeInboundGroupSession)));
-        return"";
+        return QJsonObject{};
     }
 
-    return QString(plaintext.data());
+    plaintext.resize(length);
+    return stringToJsonObject(plaintext);
 }
 
