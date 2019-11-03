@@ -248,7 +248,7 @@ Item {
             var ciphertext = {}
             for ( var user_id in resp.one_time_keys ) {
                 for ( var device_id in resp.one_time_keys[user_id] ) {
-                    
+
                 }
             }
             for ( var user_id in resp.one_time_keys ) {
@@ -277,7 +277,7 @@ Item {
 
             var txnid = new Date().getTime()
             console.log("[DEBUG] Send to devices:", JSON.stringify(data))
-            matrix.put("/client/r0/sendToDevice/m.to_device/%1".arg(txnid), data, callback)
+            matrix.put("/client/r0/sendToDevice/m.room.encrypted/%1".arg(txnid), data, callback)
         }
 
         console.log("[DEBUG] KeysClaim Request:", JSON.stringify(data))
@@ -286,6 +286,11 @@ Item {
     
     // Encrypt megolm message
     function encryptMegolmMessage (content, room_id, callback) {
+        content = {
+            "room_id": room_id,
+            "content": content,
+            "type": "m.room.message"
+        }
         console.log("[DEBUG] Try to send a megolm message to %1.".arg(room_id))
         var res = storage.query ( "SELECT encryption_outbound_pickle FROM Chats WHERE id=?", [ room_id ] )
         var megolmInPickle
@@ -303,10 +308,13 @@ Item {
             var inBoundKey = E2ee.getOutboundGroupSessionKey()
             megolmInPickle = E2ee.createInboundGroupSession(inBoundKey, matrix.matrixid)
             var olmContent = {
-                "algorithm": "m.megolm.v1.aes-sha2",
-                "room_id": room_id,
-                "session_id": E2ee.getOutboundGroupSessionId(),
-                "session_key": inBoundKey
+                "content": {
+                    "algorithm": "m.megolm.v1.aes-sha2",
+                    "room_id": room_id,
+                    "session_id": E2ee.getOutboundGroupSessionId(),
+                    "session_key": inBoundKey
+                },
+                "type": "m.room_key"
             }
             console.log("[DEBUG] New megolm session created with ID: %1 and Key: %2".arg(olmContent.session_id).arg(olmContent.session_key))
 
