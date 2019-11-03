@@ -739,13 +739,10 @@ Item {
 
     // Handle events, which are sent only to this device
     function handleToDeviceEvents ( events, newEventCB ) {
-        if (events.length) console.log("[DEBUG] Got %1 to_device events".arg(events.length))
         for ( var i = 0; i < events.length; i++ ) {
-            console.log(JSON.stringify(events[i]))
             if (events[i].type === "m.room.encrypted") {
                 events[ i ] = e2eeModel.decrypt(events[ i ])
                 if (events[i] === null) continue
-                console.log(JSON.stringify(events[ i ]), events[i].type)
             }
             newEventCB ( events[ i ].type, events[ i ].sender, "to_device", events[ i ] )
         }
