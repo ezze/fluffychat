@@ -135,7 +135,7 @@ Item {
         var decrypted = null
 
         if (event.content.algorithm === "m.olm.v1.curve25519-aes-sha2") {
-            console.log("[DEBUG] Event is encrypted")
+            console.log("[DEBUG] Event is encrypted", JSON.stringify(event))
 
             var keysJsonStr = E2ee.getIdentityKeys ()
             if (keysJsonStr === "") return null
@@ -245,6 +245,12 @@ Item {
         var success_callback = function (resp) {
             console.log("[DEBUG] KeysClaim Response:", JSON.stringify(resp))
             var data = { "messages": {} }
+            var ciphertext = {}
+            for ( var user_id in resp.one_time_keys ) {
+                for ( var device_id in resp.one_time_keys[user_id] ) {
+                    
+                }
+            }
             for ( var user_id in resp.one_time_keys ) {
                 data.messages[user_id] = {}
                 for ( var device_id in resp.one_time_keys[user_id] ) {
@@ -260,7 +266,7 @@ Item {
                     data.messages[user_id][device_id] = {
                         "algorithm": "m.olm.v1.curve25519-aes-sha2",
                         "ciphertext": {},
-                        "sender_key": keys[curve25519]
+                        "sender_key": keys["curve25519"]
                     }
                     data.messages[user_id][device_id].ciphertext[identityKeys[device_id]] = {
                         "body": E2ee.encrypt(JSON.stringify(content)),
@@ -286,7 +292,7 @@ Item {
 
         if (res.length === 0) return
 
-        if (res.rows[0].encryption_outbound_pickle !== "") {
+        if (res.rows[0].encryption_outbound_pickle !== "" && false) {
             console.log("[DEBUG] Found existing megolm session!", res.rows[0].encryption_outbound_pickle)
             E2ee.restoreOutboundGroupSession(res.rows[0].encryption_outbound_pickle, matrix.matrixid)
             callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
@@ -297,7 +303,7 @@ Item {
             var inBoundKey = E2ee.getOutboundGroupSessionKey()
             megolmInPickle = E2ee.createInboundGroupSession(inBoundKey, matrix.matrixid)
             var olmContent = {
-                "algorithm": "m.olm.v1.curve25519-aes-sha2",
+                "algorithm": "m.megolm.v1.aes-sha2",
                 "room_id": room_id,
                 "session_id": E2ee.getOutboundGroupSessionId(),
                 "session_key": inBoundKey
