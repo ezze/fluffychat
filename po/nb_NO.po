@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-09 17:51+0000\n"
-"PO-Revision-Date: 2019-05-29 05:48+0000\n"
+"PO-Revision-Date: 2019-11-11 22:04+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
@@ -730,7 +730,7 @@ msgstr "Avanserte merkadsinnstillinger"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:59
 msgid "Devices that receive push notifications:"
-msgstr "Enheter som mottar push-merknader."
+msgstr "Enheter som mottar push-merknader:"
 
 #: ../qml/pages/ChatAliasSettingsPage.qml:38
 msgid "Add chat address"
