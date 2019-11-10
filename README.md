@@ -52,9 +52,15 @@ cd fluffychat
 2. Install clickable as described here: https://gitlab.com/clickable/clickable
 
 3. Build with clickable
+  * armhf
 ```
-clickable build-libs
-clickable click-build
+clickable build-libs --arch armhf # only needed once
+clickable build --arch armhf
+```
+  * arm64
+```
+clickable build-libs --arch arm64 # only needed once
+clickable build --arch arm64
 ```
 
 ##### Build Snap for Desktop
