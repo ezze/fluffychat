@@ -20,6 +20,34 @@ click:armhf:
     expire_in: 1 week
 
 
+click:arm64:
+  stage: build
+  image: clickable/ci-16.04-arm64
+  except:
+    - tags
+  script:
+    - clickable build-libs --arch arm64
+    - clickable build --arch arm64
+  artifacts:
+    paths:
+      - build/aarch64-linux-gnu/app/*.click
+    expire_in: 1 week
+
+
+click:amd64:
+  stage: build
+  image: clickable/ci-16.04-amd64
+  except:
+    - tags
+  script:
+    - clickable build-libs --arch amd64
+    - clickable build --arch amd64
+  artifacts:
+    paths:
+      - build/x86_64-linux-gnu/app/*.click
+    expire_in: 1 week
+
+
 click:publish:
   stage: publish
   image: clickable/ci-16.04-armhf
