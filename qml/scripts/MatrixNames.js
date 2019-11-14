@@ -197,7 +197,7 @@ function getThumbnailLinkFromMxc ( mxc, width, height ) {
     height = Math.round(height)
     if ( mxc === undefined || mxc === "" ) return ""
     if ( matrix.online ) {
-        return "https://" + matrix.server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width * units.gu(1)  + "&height=" + height * units.gu(1)  + "&method=scale"
+        return "https://" + matrix.server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width * units.gu(1)  + "&height=" + height * units.gu(1)  + "&method=crop"
     }
     else {
         return downloadPath + mxc.split("/")[3]
