@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-09 17:51+0000\n"
-"PO-Revision-Date: 2019-04-25 13:48+0000\n"
-"Last-Translator: Rui Mendes <xz9@protonmail.com>\n"
+"PO-Revision-Date: 2019-11-16 16:04+0000\n"
+"Last-Translator: Theeiss <azaz9a@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/fluffychat/"
 "translations/pt/>\n"
 "Language: pt\n"
@@ -17,32 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: ../push/pushhelper.cpp:154
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "New message"
-msgstr "Mensagem encriptada"
+msgstr "Nova mensagem"
 
 #: ../push/pushhelper.cpp:164
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "New encrypted message"
-msgstr "Mensagem encriptada"
+msgstr "Nova mensagem encriptada"
 
 #: ../push/pushhelper.cpp:167
 msgid "New member event"
-msgstr ""
+msgstr "Novo evento membro"
 
 #: ../push/pushhelper.cpp:173
-#, fuzzy
 msgid "You were invited to chat"
-msgstr "%1 saiu da conversa"
+msgstr "Você foi convidado para a conversa"
 
 #: ../qml/Main.qml:128
 msgid "Are you sure?"
@@ -54,11 +49,11 @@ msgstr "Tem de concordar com a política de privacidade"
 
 #: ../qml/Main.qml:166
 msgid "Copied to the clipboard"
-msgstr ""
+msgstr "Copiado para a area de transferência"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
-msgstr ""
+msgstr "FluffyChat %1 em %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Become a patron"
@@ -98,10 +93,8 @@ msgid "Archived chats"
 msgstr "Conversas arquivadas"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-#, fuzzy
-#| msgid "Search archived chats..."
 msgid "Search archived chats…"
-msgstr "Procurar conversas arquivadas..."
+msgstr "Procurar conversas arquivadas…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -128,6 +121,8 @@ msgid ""
 "Please set a strong password. To reset your password, you will need to "
 "provide an e-mail address later"
 msgstr ""
+"Por favor informe uma senha forte. Para alterar sua senha, você precisará "
+"fornecer um endereço de e-mail abaixo"
 
 #: ../qml/pages/PasswordCreationPage.qml:65
 #, javascript-format
@@ -171,27 +166,27 @@ msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:166
 msgid "What's new in version %1?"
-msgstr ""
+msgstr "O que há de novo na versão %1?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
 msgid "Minor bugfixes and updated translations."
-msgstr ""
+msgstr "Pequenas correções de bugs e traduções atualizadas."
 
 #: ../qml/pages/WalkthroughPage.qml:174
 msgid "Critical bug fixed."
-msgstr ""
+msgstr "Correção de bug crítico."
 
 #: ../qml/pages/WalkthroughPage.qml:175
 msgid "Security bug fixed."
-msgstr ""
+msgstr "Correção de falha de segurança."
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
-msgstr ""
+msgstr "Traduções atualizadas. Obrigado a todos os tradutores."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Update libcups2"
-msgstr ""
+msgstr "Atualizada libcups2"
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -204,6 +199,10 @@ msgid ""
 "bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/"
 "KrilleChritzelius/donate'>Liberapay</a>"
 msgstr ""
+"FluffyChat é aberto, sem fins lucrativos e fofo. O desenvolvimento e "
+"servidores é todo criado pela comunidade. Faça uma doação para este projeto "
+"em <a href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> ou <a "
+"href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 #, fuzzy
@@ -213,55 +212,55 @@ msgstr "Contribuidores"
 
 #: ../qml/pages/LoginPage.qml:20
 msgid "Homeserver %1"
-msgstr ""
+msgstr "Servidor local %1"
 
 #: ../qml/pages/LoginPage.qml:28
 msgid "Change homeserver"
-msgstr ""
+msgstr "Alterar servidor local"
 
 #: ../qml/pages/LoginPage.qml:33
 msgid "Change ID-server"
-msgstr ""
+msgstr "Alterar ID do servidor"
 
 #: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
-msgstr ""
+msgstr "Sobre FluffyChat"
 
 #: ../qml/pages/LoginPage.qml:53
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #: ../qml/pages/LoginPage.qml:64
 msgid "Choose your homeserver"
-msgstr ""
+msgstr "Escolha seu servidor local"
 
 #: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
-msgstr ""
+msgstr "Escolhe a identidade de seu servidor"
 
 #: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
-msgstr ""
+msgstr "Número de telefone (opcional)"
 
 #: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
-msgstr ""
+msgstr "Apelido ou Matrix ID"
 
 #: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
-msgstr ""
+msgstr "Criar uma nova conta"
 
 #: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
-msgstr ""
+msgstr "Entrar"
 
 #: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
-msgstr ""
+msgstr "FluffyChat"
 
 #: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
-msgstr ""
+msgstr "Compartilhar"
 
 #: ../qml/pages/ChatListPage.qml:104
 #, fuzzy
@@ -271,6 +270,8 @@ msgstr "Procurar nomes de conversa..."
 #: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
+"Arraste de baixo para cima para iniciar uma nova conversa ou descobrir "
+"grupos públicos."
 
 #: ../qml/pages/ChatListPage.qml:155
 #, fuzzy
@@ -289,11 +290,11 @@ msgstr "Adicionar endereço de email"
 
 #: ../qml/pages/CreateChatPage.qml:42
 msgid "Filter contacts"
-msgstr ""
+msgstr "Filtrar contatos"
 
 #: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
-msgstr ""
+msgstr "Novo grupo"
 
 #: ../qml/pages/CreateChatPage.qml:80
 #, fuzzy
@@ -303,15 +304,15 @@ msgstr "Público"
 
 #: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
-msgstr ""
+msgstr "Clique no botão superior direito para adicionar contatos."
 
 #: ../qml/pages/SettingsPage.qml:28
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #: ../qml/pages/SettingsPage.qml:84 ../qml/components/ProfileRow.qml:40
 msgid "Username:"
-msgstr ""
+msgstr "Apelido:"
 
 #: ../qml/pages/SettingsPage.qml:99 ../qml/components/ProfileRow.qml:55
 msgid "Displayname:"
@@ -319,61 +320,61 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:114
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: ../qml/pages/SettingsPage.qml:124
 msgid "Change main color"
-msgstr ""
+msgstr "Alterar a cor principal"
 
 #: ../qml/pages/SettingsPage.qml:138
 msgid "Change background"
-msgstr ""
+msgstr "Alterar plano de fundo"
 
 #: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
-msgstr ""
+msgstr "Modo noturno"
 
 #: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
-msgstr ""
+msgstr "Notificações"
 
 #: ../qml/pages/SettingsPage.qml:189
 msgid "Chat settings:"
-msgstr ""
+msgstr "Configurações da conversa:"
 
 #: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
-msgstr ""
+msgstr "Enviar com \"Enter\""
 
 #: ../qml/pages/SettingsPage.qml:200
 msgid "Display 'I am typing' when typing"
-msgstr ""
+msgstr "Exibir \"Estou digitando\" enquanto digito"
 
 #: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
-msgstr ""
+msgstr "Ocultar eventos de pequena importância"
 
 #: ../qml/pages/SettingsPage.qml:214
 msgid "Autoload animated images"
-msgstr ""
+msgstr "Carregar automaticamente imagens animadas"
 
 #: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
-msgstr ""
+msgstr "Configurações da conta:"
 
 #: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
-msgstr ""
+msgstr "Números de telefone conectados"
 
 #: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
-msgstr ""
+msgstr "Dispositivos"
 
 #: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
-msgstr ""
+msgstr "Alterar senha"
 
 #: ../qml/pages/SettingsPage.qml:259
 msgid "Check out:"
@@ -381,72 +382,72 @@ msgstr ""
 
 #: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
-msgstr ""
+msgstr "Desativar conta"
 
 #: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
-msgstr ""
+msgstr "Sair"
 
 #: ../qml/pages/SettingsPage.qml:275
 msgid "More:"
-msgstr ""
+msgstr "Mais:"
 
 #: ../qml/pages/CommunityPage.qml:98
 msgid "No description found"
-msgstr ""
+msgstr "Nenhuma descrição encontrada"
 
 #: ../qml/pages/PasswordInputPage.qml:13
 msgid "Enter your password"
-msgstr ""
+msgstr "Insira sua senha"
 
 #: ../qml/pages/PasswordInputPage.qml:41
 msgid "Please enter your password for: <b>%1</b>"
-msgstr ""
+msgstr "Por favor insira a sua senha para:<b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
 msgid "Password…"
-msgstr ""
+msgstr "Senha…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
-msgstr ""
+msgstr "Receber notificações para…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
 msgid "Common messages"
-msgstr ""
+msgstr "Mensagens comuns"
 
 #: ../qml/pages/NotificationSettingsPage.qml:39
 msgid "Messages from single chats"
-msgstr ""
+msgstr "Mensagens de conversas privadas"
 
 #: ../qml/pages/NotificationSettingsPage.qml:49
 msgid "Mention my display name"
-msgstr ""
+msgstr "Mencionar meu nome de exibição"
 
 #: ../qml/pages/NotificationSettingsPage.qml:59
 msgid "Mention my user name"
-msgstr ""
+msgstr "Mencionar meu nome de usuário"
 
 #: ../qml/pages/NotificationSettingsPage.qml:69
 msgid "Invitations for me"
-msgstr ""
+msgstr "Convites para mim"
 
 #: ../qml/pages/NotificationSettingsPage.qml:79
 msgid "Chat member changes"
-msgstr ""
+msgstr "Mudanças nos membros da conversa"
 
 #: ../qml/pages/NotificationSettingsPage.qml:89
 msgid "Messages from bots"
-msgstr ""
+msgstr "Mensagens de robôs"
 
 #: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
-msgstr ""
+msgstr "Convidar usuários"
 
 #: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
-msgstr ""
+msgstr "Pesquisar ex: @username:server.abc"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:29
 msgid ""
@@ -472,10 +473,28 @@ msgid ""
 "the notification to UBports push service at https://push.ubports.com and "
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
+"<br><b>Matrix client</b><br><br>* FluffyChat é um cliente de protocolo "
+"Matrix e é compatível com todo os servidores Matrix e servidores de "
+"identidade Matrix. Todas as comunicações feitas usando FluffyChat usam um "
+"servidor Matrix e um servidor de identidade Matrix.<br>* O servidor padrão "
+"no FluffyChat é https://matrix.org e o servidor de identidade padrão é "
+"https://vector.im.<br>* FluffyChat não opera nenhum servidor ou serviço "
+"remoto.<br>* FluffyChat oferece a opção de utilizar o número de telefone "
+"para encontrar contatos. Isto não é um requisito para a operação normal e é "
+"entendido apenas como uma conveniência. Nenhum detalhes dos contatos são "
+"salvos sem interação do usuário! O usuário pode escolher salvar todos, "
+"alguns ou nenhum contato no servidor de identidade!<br><br><b>Notificações "
+"Push</b><br><br>* O servidor Matrix selecionado pelo usuário irá enviar "
+"automaticamente notificações push para o serviço push UBports. Estas "
+"notificações são encriptadas com protocolo https entre o dispositivo e o "
+"servidor Matrix e enviadas para gateway oficial Matrix do UBports em "
+"https://push.ubports.com:5003/_matrix/push/r0/notify. Este servidor envia a "
+"notificação para o serviço push UBports em https://push.ubports.com e então "
+"envia como uma notificação push para o(s) dispositivo(s) do usuário.<br>"
 
 #: ../qml/pages/CountryPickerPage.qml:11
 msgid "Choose a country"
-msgstr ""
+msgstr "Escolha um país"
 
 #: ../qml/pages/CountryPickerPage.qml:28
 #, fuzzy
@@ -484,31 +503,31 @@ msgstr "Procurar nomes de conversa..."
 
 #: ../qml/pages/UserPage.qml:34
 msgid "Username copied to the clipboard"
-msgstr ""
+msgstr "Apelido copiado para a área de transferência"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "Chats with this user:"
-msgstr ""
+msgstr "Conversas com este usuário:"
 
 #: ../qml/pages/UserPage.qml:65
 msgid "This is you."
-msgstr ""
+msgstr "Este é você."
 
 #: ../qml/pages/UserPage.qml:83
 msgid "Start new chat"
-msgstr ""
+msgstr "Iniciar nova conversa"
 
 #: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
-msgstr ""
+msgstr "Conversa desconhecida"
 
 #: ../qml/pages/ChatPage.qml:112
 msgid "Chat info"
-msgstr ""
+msgstr "Informações da conversa"
 
 #: ../qml/pages/ChatPage.qml:137
 msgid "No messages in this chat …"
-msgstr ""
+msgstr "Nenhuma mensagem nesta conversa…"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
