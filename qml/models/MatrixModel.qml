@@ -251,11 +251,12 @@ Item {
             console.log("[DEBUG] Send Message with algorithm", algorithm)
             var encryption_success_callback = function (encrypted) {
                 console.log("[DEBUG] Message has been encrypted:", encrypted)
+                var keys = JSON.parse(E2ee.getIdentityKeys())
                 var data = {
                     "algorithm": "m.megolm.v1.aes-sha2",
                     "ciphertext": encrypted,
                     "device_id": matrix.deviceID,
-                    "sender_key": E2ee.getOutboundGroupSessionKey(),
+                    "sender_key": keys["curve25519"],
                     "session_id": E2ee.getOutboundGroupSessionId()
                 }
                 console.log("[DEBUG] Send data:", JSON.stringify(data))

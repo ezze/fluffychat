@@ -135,7 +135,7 @@ Item {
         var decrypted = null
 
         if (event.content.algorithm === "m.olm.v1.curve25519-aes-sha2") {
-            console.log("[DEBUG] Event is encrypted with olm")
+            console.log("[DEBUG] Event is encrypted with olm", JSON.stringify(event))
 
             var keysJsonStr = E2ee.getIdentityKeys ()
             if (keysJsonStr === "") return null
@@ -184,9 +184,9 @@ Item {
                             matrix.matrixid
                         )
                     }
-                    else return
+                    else return null
                     print("newOlmSessionPickle",JSON.stringify(newOlmSessionPickle))
-                    if (newOlmSessionPickle.session === undefined) return
+                    if (newOlmSessionPickle.session === undefined) return null
 
                     storage.query ( "INSERT OR REPLACE INTO OlmSessions VALUES(?,?,?)",
                     [ device_key, event.content.sender_key, newOlmSessionPickle.session ])
