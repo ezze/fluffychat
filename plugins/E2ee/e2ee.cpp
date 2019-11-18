@@ -298,6 +298,9 @@ QJsonObject E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeK
         logError(olm_session_last_error(m_activeSession));
         return QJsonObject{};
     }
+    else {
+        olm_remove_one_time_keys(m_olmAccount, m_activeSession);
+    }
 
     m_isSessionActive = true;
 
@@ -306,10 +309,16 @@ QJsonObject E2ee::createInboundSessionFrom(QString identityKey, QString oneTimeK
 
 
 void E2ee::setActiveSession(QString olmSessionStr, QString key){
-    if (!isAccountInitialized()) return;
+    if (!isAccountInitialized()) {
+        logError("No Account initialized!");
+        return;
+    }
 
     if (olm_unpickle_session(m_activeSession, key.toLocal8Bit().data(), key.length(), olmSessionStr.toLocal8Bit().data(), olmSessionStr.length()) == olm_error()) {
         logError(olm_session_last_error(m_activeSession));
+    }
+    else {
+        m_isSessionActive = true;
     }
 }
 
@@ -362,6 +371,9 @@ bool E2ee::matchesInboundSession(QString oneTimeKeyMessage){
     size_t result = olm_matches_inbound_session(m_activeSession, oneTimeKeyMessage.toLocal8Bit().data(), oneTimeKeyMessage.length());
     if (result == olm_error()) {
         logError(olm_session_last_error(m_activeSession));
+        return false;
+    }
+    else if(olm_session_last_error(m_activeSession) == "BAD_MESSAGE_FORMAT") {
         return false;
     }
     else if (result == 1) {

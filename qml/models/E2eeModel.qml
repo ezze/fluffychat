@@ -155,11 +155,11 @@ Item {
             }
 
             var isPreKey = event.content.ciphertext[device_key].type === 0
-            console.log("[DEBUG] Its a prekey message")
+            if (isPreKey) console.log("[DEBUG] Its a prekey message because type ===",event.content.ciphertext[device_key].type)
  
             var isCurrent = false
-            console.log("[DEBUG] Check if the current session is the session")
-            if ( !isPreKey ) {
+            if ( false && isPreKey ) {  // Currently bugged!
+                console.log("[DEBUG] Check if the current session is the session")
                 isCurrent = E2ee.matchesInboundSession(
                     event.content.ciphertext[device_key].body
                 )
@@ -170,30 +170,28 @@ Item {
                 console.log("[DEBUG] Check if there is a olm session in database")
                 
                 
-                var res = storage.query ( "SELECT * FROM OlmSessions WHERE device_key=?", [ event.content.sender_key ] )
+                var res = storage.query ( "SELECT * FROM OlmSessions WHERE sender_key=?", [ event.content.sender_key ] )
 
                 if ( res.rows.length === 0 ) {
-                    console.log("[DEBUG] No olm session found")
+                    console.log("[DEBUG] No olm session found in database")
 
                     var newOlmSessionPickle
                     if ( isPreKey ) {
+                        print("[DEBUG] Create Inbound Session From!")
                         newOlmSessionPickle = E2ee.createInboundSessionFrom(
                             event.content.sender_key,
                             event.content.ciphertext[device_key].body,
                             matrix.matrixid
                         )
                     }
-                    else {
-                        newOlmSessionPickle = E2ee.createInboundSession(
-                            event.content.ciphertext[device_key].body,
-                            matrix.matrixid
-                        )
-                    }
+                    else return
+                    print("newOlmSessionPickle",JSON.stringify(newOlmSessionPickle))
+                    if (newOlmSessionPickle.session === undefined) return
 
                     storage.query ( "INSERT OR REPLACE INTO OlmSessions VALUES(?,?,?)",
                     [ device_key, event.content.sender_key, newOlmSessionPickle.session ])
                     decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
-                    console.log("[DEBUG] Message decrypted")
+                    console.log("[DEBUG] OLM Message decrypted", JSON.stringify(decrypted))
                 }
                 else {
                     var olmSessionRow = res.rows[0]
@@ -212,7 +210,7 @@ Item {
                         [ device_key, event.content.sender_key, newOlmSessionPickle.session ])
                         decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
                     }
-                    console.log("[DEBUG] Message decrypted")
+                    console.log("[DEBUG] OLM Message decrypted", JSON.stringify(decrypted))
                 }
             } 
             if (isCurrent && decrypted == null) decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
@@ -316,7 +314,7 @@ Item {
                 },
                 "type": "m.room_key"
             }
-            console.log("[DEBUG] New megolm session created with ID: %1 and Key: %2".arg(olmContent.session_id).arg(olmContent.session_key))
+            console.log("[DEBUG] New megolm session created with ID: %1 and Key: %2".arg(olmContent.content.session_id).arg(olmContent.content.session_key))
 
             var device_id_row = storage.query( "SELECT Devices.device_id, Devices.keys_json, Memberships.matrix_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.chat_id=? AND Devices.blocked=0  GROUP BY Devices.device_id", [ room_id ] )
             console.log("[DEBUG] Found %1 devices in this room".arg(device_id_row.rows.length))

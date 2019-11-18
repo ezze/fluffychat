@@ -247,8 +247,8 @@ Item {
 
 
     function sendMessage ( messageID, data, chat_id, algorithm, success_callback, error_callback ) {
-        console.log("[DEBUG] Send Message with algorithm", algorithm)
         if (algorithm) {
+            console.log("[DEBUG] Send Message with algorithm", algorithm)
             var encryption_success_callback = function (encrypted) {
                 console.log("[DEBUG] Message has been encrypted:", encrypted)
                 var data = {
