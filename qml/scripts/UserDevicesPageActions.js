@@ -36,6 +36,17 @@ function init () {
     }
 }
 
+function initChat () {
+    model.clear()
+    var res = storage.query ( "SELECT Devices.* " +
+        " FROM Devices, Memberships WHERE Memberships.matrix_id=Devices.matrix_id AND Memberships.chat_id=? GROUP BY Devices.device_id ORDER BY Devices.matrix_id",
+        [ activeChat ])
+        for ( var i = 0; i < res.rows.length; i++ ) {
+            model.append( { device: res.rows[i], user: res.rows[i].matrix_id } )
+        }
+        loading = false
+}
+
 function getDisplayPublicKey (activeDevice) {
     var publicKey = JSON.parse(activeDevice.keys_json).keys["ed25519:%1".arg(activeDevice.device_id)]
     for (var i =4; i < publicKey.length; i=i+5) publicKey = publicKey.substr(0,i) + " " + publicKey.substr(i, publicKey.length-1)
@@ -84,4 +95,11 @@ function switchDevice (activeDevice) {
         console.log(JSON.stringify(res))
     }
     return activeDevice
+}
+
+function initEncryption () {
+    var init = function () {
+        matrix.put("/client/r0/rooms/%1/state/m.room.encryption".arg(activeChat), {"algorithm":"m.megolm.v1.aes-sha2"}, function () { initEncryption.visible=false }, null, 2)
+    }
+    showConfirmDialog (i18n.tr("This can not be undone!"), init)
 }

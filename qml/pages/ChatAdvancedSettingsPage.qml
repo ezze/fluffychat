@@ -47,12 +47,12 @@ Page {
                 text: i18n.tr("End-to-end encryption")
             }
 
-            SettingsListItem {
+            SettingsListLink {
                 id: initEncryption
-                name: i18n.tr("(Experimental) Enable encryption")
+                name: i18n.tr("Encryption settings")
                 icon: "lock"
-                onClicked: PageActions.initEncryption()
-                visible: encryptionAlgorithm !== "" && canSendMessages
+                page: "ChatDevicesPage"
+                sourcePage: chatPrivacySettingsPage
             }
 
             ListSeperator {

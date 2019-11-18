@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-18 10:00+0000\n"
+"POT-Creation-Date: 2019-11-18 10:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -609,6 +609,7 @@ msgid "End-to-end encryption"
 msgstr ""
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
+#: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
 msgstr ""
 
@@ -685,7 +686,8 @@ msgstr ""
 msgid "Search for chats or #aliases…"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:67 ../qml/pages/UserDevicesPage.qml:42
+#: ../qml/pages/DiscoverPage.qml:67 ../qml/pages/ChatDevicesPage.qml:45
+#: ../qml/pages/UserDevicesPage.qml:42
 msgid "Loading…"
 msgstr ""
 
@@ -832,6 +834,14 @@ msgstr ""
 msgid "Add chat address"
 msgstr ""
 
+#: ../qml/pages/ChatDevicesPage.qml:17
+msgid "Encryption settings"
+msgstr ""
+
+#: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
+msgid "No devices found"
+msgstr ""
+
 #: ../qml/pages/SettingsPage.qml:28
 msgid "Settings"
 msgstr ""
@@ -926,10 +936,6 @@ msgstr ""
 
 #: ../qml/pages/UserDevicesPage.qml:25
 msgid "Devices of %1"
-msgstr ""
-
-#: ../qml/pages/UserDevicesPage.qml:42
-msgid "No devices found"
 msgstr ""
 
 #: ../qml/pages/EmailSettingsPage.qml:28
@@ -1355,10 +1361,6 @@ msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
 msgstr ""
 
-#: ../qml/scripts/ChatAdvancedSettingsPageActions.js:98
-msgid "This can not be undone!"
-msgstr ""
-
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
 msgstr ""
@@ -1430,4 +1432,8 @@ msgstr ""
 
 #: ../qml/scripts/AddEmailDialogActions.js:9
 msgid "Have you confirmed your email address?"
+msgstr ""
+
+#: ../qml/scripts/UserDevicesPageActions.js:104
+msgid "This can not be undone!"
 msgstr ""

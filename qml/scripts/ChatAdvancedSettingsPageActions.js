@@ -89,11 +89,3 @@ function switchWorldHistoryAccess ( isChecked ) {
     if ( isChecked ) matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.history_visibility/", { "history_visibility": "world_readable" } )
     else matrix.put("/client/r0/rooms/" + activeChat + "/state/m.room.history_visibility/", { "history_visibility": "shared" } )
 }
-
-
-function initEncryption () {
-    var init = function () {
-        matrix.put("/client/r0/rooms/%1/state/m.room.encryption".arg(activeChat), {"algorithm":"m.megolm.v1.aes-sha2"}, function () { initEncryption.visible=false }, null, 2)
-    }
-    showConfirmDialog (i18n.tr("This can not be undone!"), init)
-}
