@@ -4,6 +4,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
+import "../scripts/UserDevicesPageActions.js" as PageActions
 
 ListItem {
     id: deviceListItem
@@ -12,24 +13,26 @@ ListItem {
 
     height: layout.height
 
+    property var deviceItem: device
+
+    property var keys: JSON.parse(deviceItem.keys_json)
+
     ListItemLayout {
         id: layout
         width: parent.width
-        title.text: JSON.parse(device.keys_json).unsigned.device_display_name || device.device_id
-        title.font.bold: device.device_id === matrix.deviceID
-        Icon {
-            width: units.gu(4)
-            height: units.gu(4)
-            SlotsLayout.position: SlotsLayout.Leading
-            name: "phone-smartphone-symbolic"
-            color: device.verified ? "green" : "red"
-        }
-    }
-
-    onClicked: {
-        if ( isTracking ) {
-            userDevicesPage.activeDevice = device
-            PopupUtils.open(deviceKeyDialog)
+        title.text: keys.unsigned && keys.unsigned.device_display_name || deviceItem.device_id
+        title.color: PageActions.getColor(deviceItem)
+        title.font.bold: deviceItem.device_id === matrix.deviceID
+        summary.text: PageActions.getDisplayPublicKey(deviceItem)
+        Switch {
+            id: checkBox
+            SlotsLayout.position: SlotsLayout.Trailing
+            enabled: false
+            Component.onCompleted: {
+                checked = deviceItem.verified && !deviceItem.blocked
+                enabled = true
+            }
+            onCheckedChanged: if ( enabled ) deviceItem = PageActions.switchDevice(deviceItem)
         }
     }
 

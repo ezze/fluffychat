@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-03 16:11+0000\n"
+"POT-Creation-Date: 2019-11-18 10:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,7 +147,6 @@ msgstr ""
 #: ../qml/components/BottomEdgePageStack.qml:92
 #: ../qml/components/TargetInfoDialog.qml:48
 #: ../qml/components/ChangeChatnameDialog.qml:62
-#: ../qml/components/DeviceKeyDialog.qml:64
 msgid "Close"
 msgstr ""
 
@@ -428,22 +427,6 @@ msgid ""
 "update!"
 msgstr ""
 
-#: ../qml/components/DeviceKeyDialog.qml:27
-msgid "Verify"
-msgstr ""
-
-#: ../qml/components/DeviceKeyDialog.qml:36
-msgid "Revoke verification"
-msgstr ""
-
-#: ../qml/components/DeviceKeyDialog.qml:45
-msgid "Block device"
-msgstr ""
-
-#: ../qml/components/DeviceKeyDialog.qml:54
-msgid "Unblock device"
-msgstr ""
-
 #: ../qml/components/LogoutDialog.qml:11 ../qml/components/LogoutDialog.qml:40
 #: ../qml/pages/SettingsPage.qml:269
 msgid "Log out"
@@ -702,7 +685,7 @@ msgstr ""
 msgid "Search for chats or #aliases…"
 msgstr ""
 
-#: ../qml/pages/DiscoverPage.qml:67 ../qml/pages/UserDevicesPage.qml:44
+#: ../qml/pages/DiscoverPage.qml:67 ../qml/pages/UserDevicesPage.qml:42
 msgid "Loading…"
 msgstr ""
 
@@ -945,7 +928,7 @@ msgstr ""
 msgid "Devices of %1"
 msgstr ""
 
-#: ../qml/pages/UserDevicesPage.qml:44
+#: ../qml/pages/UserDevicesPage.qml:42
 msgid "No devices found"
 msgstr ""
 
@@ -962,7 +945,7 @@ msgid "FluffyChat %1 on %2"
 msgstr ""
 
 #: ../qml/pages/InfoPage.qml:33
-msgid "Become a patron"
+msgid "Buy a coffee for me"
 msgstr ""
 
 #: ../qml/pages/InfoPage.qml:40
@@ -1030,6 +1013,10 @@ msgstr ""
 msgid "Updated translations. Thanks to all translators."
 msgstr ""
 
+#: ../qml/pages/WalkthroughPage.qml:184
+msgid "Add experimental support for end-to-end encryption."
+msgstr ""
+
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr ""
@@ -1037,9 +1024,9 @@ msgstr ""
 #: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
-"community funded. Donate to this project on <a href='https://www.patreon.com/"
-"bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay.com/"
-"KrilleChritzelius/donate'>Liberapay</a>"
+"community funded. Donate to this project on <a href='https://ko-fi.com/"
+"krille'>Ko-fi</a> or <a href='https://liberapay.com/KrilleChritzelius/"
+"donate'>Liberapay</a>"
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:252

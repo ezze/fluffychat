@@ -27,8 +27,6 @@ Page {
 
     ListModel { id: model }
 
-    DeviceKeyDialog { id: deviceKeyDialog }
-
     ListView {
         id: chatListView
         width: parent.width

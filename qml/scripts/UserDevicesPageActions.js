@@ -36,30 +36,52 @@ function init () {
     }
 }
 
-function getDisplayPublicKey () {
+function getDisplayPublicKey (activeDevice) {
     var publicKey = JSON.parse(activeDevice.keys_json).keys["ed25519:%1".arg(activeDevice.device_id)]
     for (var i =4; i < publicKey.length; i=i+5) publicKey = publicKey.substr(0,i) + " " + publicKey.substr(i, publicKey.length-1)
     return publicKey
 }
 
-function verify () {
+function verify (activeDevice) {
     console.log("Verify now!")
     storage.query("UPDATE Devices SET verified=1 WHERE device_id=?", [activeDevice.device_id])
     reload()
 }
 
-function revoke () {
+function revoke (activeDevice) {
     storage.query("UPDATE Devices SET verified=0 WHERE device_id=?", [activeDevice.device_id])
     reload()
 }
 
-function block () {
+function block (activeDevice) {
     revoke()
     storage.query("UPDATE Devices SET blocked=1 WHERE device_id=?", [activeDevice.device_id])
     reload()
 }
 
-function unblock () {
+function unblock (activeDevice) {
     storage.query("UPDATE Devices SET blocked=0 WHERE device_id=?", [activeDevice.device_id])
     reload()
+}
+
+function getColor (activeDevice) {
+    if(activeDevice.verified) return "green";
+    if(activeDevice.blocked) return "red";
+    return "black";
+}
+
+function switchDevice (activeDevice) {
+    print(activeDevice.device_id)
+    if(activeDevice.verified) {
+        activeDevice.verified = false
+        activeDevice.blocked = true
+        storage.query("UPDATE Devices SET blocked=1, verified=0 WHERE device_id=?", [activeDevice.device_id])
+    }
+    else {
+        activeDevice.verified = true
+        activeDevice.blocked = false
+        var res = storage.query("UPDATE Devices SET blocked=0, verified=1 WHERE device_id=?", [activeDevice.device_id])
+        console.log(JSON.stringify(res))
+    }
+    return activeDevice
 }
