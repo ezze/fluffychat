@@ -54,7 +54,6 @@ function getDisplayPublicKey (activeDevice) {
 }
 
 function verify (activeDevice) {
-    console.log("Verify now!")
     storage.query("UPDATE Devices SET verified=1 WHERE device_id=?", [activeDevice.device_id])
     reload()
 }
@@ -82,7 +81,6 @@ function getColor (activeDevice) {
 }
 
 function switchDevice (activeDevice) {
-    print(activeDevice.device_id)
     if(activeDevice.verified) {
         activeDevice.verified = false
         activeDevice.blocked = true
@@ -91,8 +89,7 @@ function switchDevice (activeDevice) {
     else {
         activeDevice.verified = true
         activeDevice.blocked = false
-        var res = storage.query("UPDATE Devices SET blocked=0, verified=1 WHERE device_id=?", [activeDevice.device_id])
-        console.log(JSON.stringify(res))
+        storage.query("UPDATE Devices SET blocked=0, verified=1 WHERE device_id=?", [activeDevice.device_id])
     }
     return activeDevice
 }
