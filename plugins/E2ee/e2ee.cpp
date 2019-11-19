@@ -586,14 +586,16 @@ QString E2ee::createOutboundGroupSession(QString key)
 
     QByteArray pickle(pickleLength, '\0');
 
-    error = olm_pickle_outbound_group_session(this->m_activeOutboundGroupSession,
+    size_t length = olm_pickle_outbound_group_session(this->m_activeOutboundGroupSession,
                                               key.toLocal8Bit().data(), key.length(),
                                               pickle.data(), pickleLength);
 
-    if (error == olm_error()) {
+    if (length == olm_error()) {
         logError(QString("olm_pickle_outbound_group_session failed with: ")+QString(olm_outbound_group_session_last_error(this->m_activeOutboundGroupSession)));
         return "";
     }
+
+    pickle.resize(length);
 
     return QString(pickle);
 }
