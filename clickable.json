@@ -1,13 +1,17 @@
 {
+    "clickable_minimum_required": "6.4",
     "template": "cmake",
-    "build_dir": "build/fluffychat",
     "libraries": {
-        "olm": {
-            "template": "custom",
-            "build": "cmake ../../../libs/olm -Bbuild -DOLM_TESTS=OFF -DBUILD_SHARED_LIBS=OFF && cmake --build build",
-            "src_dir": "libs/olm",
-            "prebuild": "git submodule update --init --recursive"
-        }
+      "olm": {
+        "template": "cmake",
+        "build_args": [
+          "-Bbuild",
+          "-DOLM_TESTS=OFF",
+          "-DBUILD_SHARED_LIBS=OFF"
+        ],
+        "prebuild": "git submodule update --init --recursive"
+      }
     },
     "kill": "qmlscene"
-}
+  }
+  
