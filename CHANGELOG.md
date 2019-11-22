@@ -1,3 +1,9 @@
+What's new in FluffyChat 11.18
+----------------------------
++ New translations - thanks to all translators
+- Fix images resolution
+- Update some libs
+
 What's new in FluffyChat 11.17
 ----------------------------
 + Fix the no-message bug in UserMetrics thanks to joboticon
