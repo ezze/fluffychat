@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-09 17:51+0000\n"
-"PO-Revision-Date: 2019-11-11 22:04+0000\n"
+"PO-Revision-Date: 2019-12-03 00:05+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -184,7 +184,7 @@ msgstr "Oppdaterte oversettelser. Takk til alle oversettere."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Update libcups2"
-msgstr ""
+msgstr "Oppdater libcups2"
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -451,30 +451,6 @@ msgid "Search e.g. @username:server.abc"
 msgstr "Søk etter eksempelvis @brukernavn:tjener.abc"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:29
-#, fuzzy
-#| msgid ""
-#| "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client "
-#| "and is compatible with all Matrix servers and Matrix identity servers. "
-#| "All communications conducted while using FluffyChat use a Matrix server "
-#| "and the Matrix identity server.<br>* The default server in FluffyChat is "
-#| "https://ubports.chat and the default identity server is https://vector.im."
-#| "<br>* FluffyChat doesn't operate any server or remote service.<br>* All "
-#| "communication of substantive content between FluffyChat and any server is "
-#| "done in secure way, using transport encryption to protect it. End-to-end "
-#| "encryption will follow.<br>* FluffyChat is not responsible for the data "
-#| "processing carried out by any Matrix server or Matrix identity server."
-#| "<br>* FluffyChat offers the option to use phone numbers to find contacts. "
-#| "This is not a requirement of normal operation and is intended only as a "
-#| "convenience. No contact details are uploaded without user interaction! "
-#| "The user can choose to upload all or some or no contacts to the identity "
-#| "server!<br><br><b>Push Notifications</b><br><br>* The Matrix server "
-#| "selected by the user will automatically send push notifications to the "
-#| "UBports push service. These notifications are encrypted with the https "
-#| "protocol between the device and the Matrix server and on to the official "
-#| "UBports Matrix gateway at https://push.ubports.com:5003/_matrix/push/r0/"
-#| "notify This server forwards the notification to UBports push service at "
-#| "https://push.ubports.com and then sends this on as a push notification to "
-#| "the user's device(s).<br>"
 msgid ""
 "<br><b>Matrix client</b><br><br>* FluffyChat is a Matrix protocol client and "
 "is compatible with all Matrix servers and Matrix identity servers. All "
@@ -502,7 +478,7 @@ msgstr ""
 "protokollen, og er kompatibel med alle Matrix-tjenere og -identitetstjenere. "
 "All kommunikasjon som skjer med FluffyChat, bruker en Matrix-tjener, og en "
 "Matrix-identitetstjener.<br>* Forvalgt tjener i FluffyChat er https://"
-"ubports.chat og forvalgt identitetstjener er https://vector.im.<br>* "
+"matrix.org og forvalgt identitetstjener er https://vector.im.<br>* "
 "FluffyChat driver ingen egen tjener eller fjerntjeneste.<br>* All "
 "kommunikasjon av viktig innhold mellom FluffyChat og noen annen tjener skjer "
 "på sikker måte, med transportkryptering som beskyttelse. Ende-til-ende -"
@@ -555,8 +531,6 @@ msgid "Chat info"
 msgstr "Slurdingsinfo"
 
 #: ../qml/pages/ChatPage.qml:137
-#, fuzzy
-#| msgid "No messages in this chat ..."
 msgid "No messages in this chat …"
 msgstr "Ingen meldinger i denne sludringen…"
 
@@ -578,8 +552,6 @@ msgid "You do not have posting permissions here"
 msgstr "Du har ikke tilgang til å skrive i denne sludringen."
 
 #: ../qml/pages/ChatPage.qml:275
-#, fuzzy
-#| msgid "Type something ..."
 msgid "Type something …"
 msgstr "Skriv noe…"
 
@@ -662,14 +634,12 @@ msgid "Search for chats or #aliases…"
 msgstr "Søk etter sludringsnavn…"
 
 #: ../qml/pages/DiscoverPage.qml:67
-#, fuzzy
 msgid "Loading…"
-msgstr "Synkroniserer… Vent."
+msgstr "Laster inn…"
 
 #: ../qml/pages/DiscoverPage.qml:67
-#, fuzzy
 msgid "No chats found"
-msgstr "Fant ingen beskrivelse"
+msgstr "Fant ingen sludringer"
 
 #: ../qml/pages/ChatSettingsPage.qml:63
 msgid "Edit chat name"
@@ -692,9 +662,8 @@ msgid "Search…"
 msgstr "Søk…"
 
 #: ../qml/pages/ChatSettingsPage.qml:228
-#, fuzzy
 msgid "Invite friends"
-msgstr "Inviter venn"
+msgstr "Inviter venner"
 
 #: ../qml/pages/ChatSettingsPage.qml:236
 msgid "Reload"
@@ -716,9 +685,8 @@ msgid "Appoint to admin"
 msgstr "Utpek som administrator"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:15
-#, fuzzy
 msgid "Notification settings"
-msgstr "Merknadsmål"
+msgstr "Merknadsinnstillinger"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:29
 msgid "Enable notifications"
@@ -763,9 +731,8 @@ msgstr "Du tillates ikke å sludre her."
 
 #: ../qml/models/MatrixModel.qml:394 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:100
-#, fuzzy
 msgid "😕 No connection…"
-msgstr "Ingen tilkobling til "
+msgstr "😕 Ingen tilkobling…"
 
 #: ../qml/models/MatrixModel.qml:444
 msgid "Upload error:"
@@ -792,12 +759,11 @@ msgid ""
 "fluffychat/issues/new. Error details: %1"
 msgstr ""
 "😰 Kritisk feil. Tilkoblingen til tjeneren gikk ned. Innrapporter feil på: "
-"https://github.com/ChristianPauly/fluffychat/issues/new"
+"https://github.com/ChristianPauly/fluffychat/issues/new Feilmelding: %1"
 
 #: ../qml/models/ContentHubModel.qml:83
-#, fuzzy
 msgid "Copied to clipboard"
-msgstr "%1 har blitt bannlyst fra sludringen"
+msgstr "Kopiert til utklippstavle"
 
 #: ../qml/components/MemberListItem.qml:48
 #: ../qml/components/ChatScrollView.qml:49
@@ -805,9 +771,8 @@ msgid "Swipe to the left or the right for actions. 😉"
 msgstr "Dra til venstre eller høyre for handlinger. 😉"
 
 #: ../qml/components/MemberListItem.qml:86
-#, fuzzy
 msgid "Ban from this chat?"
-msgstr "Ble bannlyst fra sludringen"
+msgstr "Bannlys fra denne sludringen?"
 
 #: ../qml/components/MemberListItem.qml:94
 msgid "Cancel banishment?"
@@ -1047,7 +1012,7 @@ msgstr "Tilbakestill"
 #: ../qml/components/ContactListItem.qml:19
 #, fuzzy
 msgid "Last active: %1"
-msgstr "Sist sett: "
+msgstr "Sist sett:  %1"
 
 #: ../qml/components/ChatScrollView.qml:55
 #, fuzzy
@@ -1098,9 +1063,8 @@ msgid "Full username:"
 msgstr "Brukernavn"
 
 #: ../qml/components/EmailListItem.qml:31
-#, fuzzy
 msgid "Remove this email address?"
-msgstr "Fjern enheten"
+msgstr "Fjern denne e-postadressen?"
 
 #: ../qml/components/AddressesListItem.qml:15
 msgid "Canonical alias"
@@ -1226,7 +1190,7 @@ msgstr "Ble bannlyst fra sludringen"
 #: ../qml/scripts/ChatPageActions.js:524
 #, fuzzy
 msgid "Uploading..."
-msgstr "Synkroniserer… Vent."
+msgstr "Laster opp…"
 
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
@@ -1249,9 +1213,8 @@ msgid "An error occured. Maybe the username %1 is wrong?"
 msgstr "En feil inntraff. Kanskje brukernavnet %1 er galt?"
 
 #: ../qml/scripts/InviteListItemActions.js:12
-#, fuzzy
 msgid "%1 is banned from the chat."
-msgstr "Ble bannlyst fra sludringen"
+msgstr "%1 ble bannlyst fra sludringen"
 
 #: ../qml/scripts/InviteListItemActions.js:16
 msgid "Invite %1 to this chat?"
