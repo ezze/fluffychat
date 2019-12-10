@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-10 08:58+0000\n"
+"POT-Creation-Date: 2019-12-10 09:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1030,7 +1030,7 @@ msgid "You are not allowed to chat here."
 msgstr ""
 
 #: ../qml/models/MatrixModel.qml:394 ../qml/scripts/LoginPageActions.js:59
-#: ../qml/scripts/LoginPageActions.js:100
+#: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr ""
 
@@ -1108,7 +1108,8 @@ msgstr ""
 msgid "Username '%1' not found on %2"
 msgstr ""
 
-#: ../qml/scripts/LoginPageActions.js:97 ../qml/scripts/LoginPageActions.js:99
+#: ../qml/scripts/LoginPageActions.js:100
+#: ../qml/scripts/LoginPageActions.js:102
 msgid "Username is already taken"
 msgstr ""
 
