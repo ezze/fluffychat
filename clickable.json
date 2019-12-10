@@ -1,17 +1,16 @@
 {
-    "clickable_minimum_required": "6.4",
-    "template": "cmake",
-    "libraries": {
+  "clickable_minimum_required": "6.2.1",
+  "template": "cmake",
+  "libraries": {
       "olm": {
-        "template": "cmake",
-        "build_args": [
-          "-Bbuild",
-          "-DOLM_TESTS=OFF",
-          "-DBUILD_SHARED_LIBS=OFF"
-        ],
-        "prebuild": "git submodule update --init --recursive"
+          "template": "cmake",
+          "build_args": [
+      "-Bbuild",
+      "-DOLM_TESTS=OFF",
+      "-DBUILD_SHARED_LIBS=OFF"
+    ],
+          "prebuild": "git submodule update --init --recursive"
       }
-    },
-    "kill": "qmlscene"
-  }
-  
+  },
+  "kill": "qmlscene"
+}
