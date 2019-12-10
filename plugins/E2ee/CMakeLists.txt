@@ -20,7 +20,9 @@ execute_process(
 )
 
 #Find Olm
-set(Olm_DIR "${CMAKE_BINARY_DIR}/../olm/${ARCH_TRIPLET}/build")
+find_path(Olm_DIR OlmConfig.cmake
+	  PATHS "$ENV{olm_LIB_INSTALL_DIR}/lib/cmake/Olm"
+	        "$ENV{olm_LIB_INSTALL_DIR}/lib/$ENV{ARCH_TRIPLET}/cmake/Olm")
 find_package(Olm)
 get_property(OLM_INCLUDES TARGET Olm::Olm PROPERTY INTERFACE_INCLUDE_DIRECTORIES)
 get_property(OLM_LIBS TARGET Olm::Olm PROPERTY IMPORTED_LOCATION_RELEASE)
