@@ -1,7 +1,8 @@
 // File: StartChat.js
 // Description: Helper function to start a chat from a dialog.
 
-function startChat ( dialogue ) {
+function startChat ( dialogue, matrixID ) {
+    if (matrixID == null) matrixID = activeUser
 
     var successCallback = function (res) {
         if ( res.room_id ) mainLayout.toChat ( res.room_id )
@@ -9,7 +10,7 @@ function startChat ( dialogue ) {
     }
 
     var data = {
-        "invite": [ activeUser ],
+        "invite": [ matrixID ],
         "is_direct": true,
         "preset": "trusted_private_chat"
     }
