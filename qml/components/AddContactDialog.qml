@@ -23,7 +23,7 @@ Component {
             text: i18n.tr("Start private chat")
             color: UbuntuColors.green
             onClicked: {
-                StartChatDialog.startChat ( dialogue )
+                StartChatDialog.startChat ( dialogue, matrixidTextField.text )
                 bottomEdge.collapse ()
             }
         }
