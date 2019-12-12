@@ -1,3 +1,8 @@
+What's new in FluffyChat 11.20
+----------------------------
++ New translations - thanks to all translators
+- Fix start new direct chat
+
 What's new in FluffyChat 11.19
 ----------------------------
 + New translations - thanks to all translators
