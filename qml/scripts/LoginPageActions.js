@@ -57,6 +57,9 @@ function login () {
         }, function ( response ) {
             if ( response.errcode === "M_USER_IN_USE" ) mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("../pages/PasswordInputPage.qml") )
             else if ( response.error === "CONNERROR" ) toast.show (i18n.tr("😕 No connection…"))
+            // Registration is disabled so the app can't check if the user exists. Just assume that
+            // the user exists and go to password page.
+            else if ( response.errcode === "M_FORBIDDEN" ) mainLayout.addPageToCurrentColumn ( loginPage, Qt.resolvedUrl("../pages/PasswordInputPage.qml") )
             else toast.show ( response.error )
         }, 2)
     }
