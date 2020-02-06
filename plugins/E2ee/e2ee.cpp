@@ -289,6 +289,10 @@ QJsonObject E2ee::createInboundSession(QString oneTimeKeyMessage, QString key)
         logError(olm_session_last_error(m_activeSession));
         return QJsonObject{};
     }
+    else
+    {
+        olm_remove_one_time_keys(m_olmAccount, m_activeSession);
+    }
 
     m_isSessionActive = true;
 
@@ -555,8 +559,6 @@ QJsonObject E2ee::stringToJsonObject(const QByteArray &jsonString) const
     }
     if (doc.isObject())
     {
-        logError("[Debug] creating QJsonObject from QJsonDocument:");
-        logError(doc.toJson());
         return doc.object();
     }
     else

@@ -180,6 +180,7 @@ Item {
                     var newOlmSessionPickle
                     if ( isPreKey ) {
                         print("[DEBUG] Create Inbound Session From!", event.content.sender_key, device_key)
+                        E2ee.removeSession();
                         newOlmSessionPickle = E2ee.createInboundSession(
                             event.content.ciphertext[device_key].body,
                             matrix.matrixid
@@ -246,11 +247,6 @@ Item {
             var data = { "messages": {} }
             var ciphertext = {}
             for ( var user_id in resp.one_time_keys ) {
-                for ( var device_id in resp.one_time_keys[user_id] ) {
-
-                }
-            }
-            for ( var user_id in resp.one_time_keys ) {
                 data.messages[user_id] = {}
                 for ( var device_id in resp.one_time_keys[user_id] ) {
                     var keysObj = resp.one_time_keys[user_id][device_id]
@@ -258,7 +254,8 @@ Item {
                     for ( var item in keysObj ) {
                         oneTimeKey = keysObj[item].key
                     }
-                    console.log("[DEBUG] Create outbound session")
+                    console.log("[DEBUG] Create outbound session with device " + device_id + " oneTimeKey " + oneTimeKey + " and identity key " + identityKeys[device_id])
+                    E2ee.removeSession();
                     E2ee.createOutboundSession(identityKeys[device_id], oneTimeKey, matrix.matrixid)
                     var keys = JSON.parse(E2ee.getIdentityKeys())
 
@@ -290,19 +287,16 @@ Item {
             "content": content,
             "type": "m.room.message"
         }
-        console.log("[DEBUG] Try to send a megolm message to %1.".arg(room_id))
         var res = storage.query ( "SELECT encryption_outbound_pickle FROM Chats WHERE id=?", [ room_id ] )
         var megolmInPickle
 
         if (res.length === 0) return
 
         if (res.rows[0].encryption_outbound_pickle !== "") {
-            console.log("[DEBUG] Found existing megolm session!", res.rows[0].encryption_outbound_pickle)
             E2ee.restoreOutboundGroupSession(res.rows[0].encryption_outbound_pickle, matrix.matrixid)
             callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
         }
         else {
-            console.log("[DEBUG] No megolm session found! Try to create a new one...")
             var newPickle = E2ee.createOutboundGroupSession(matrix.matrixid)
             var inBoundKey = E2ee.getOutboundGroupSessionKey()
             var sessionId = E2ee.getOutboundGroupSessionId()
@@ -316,7 +310,6 @@ Item {
                 },
                 "type": "m.room_key"
             }
-            console.log("[DEBUG] New megolm session created with ID: %1 and Key: %2".arg(olmContent.content.session_id).arg(olmContent.content.session_key))
 
             var device_id_row = storage.query( "SELECT Devices.device_id, Devices.keys_json, Memberships.matrix_id FROM Devices, Memberships WHERE Devices.matrix_id=Memberships.matrix_id AND Memberships.chat_id=? AND Devices.blocked=0  GROUP BY Devices.device_id", [ room_id ] )
             console.log("[DEBUG] Found %1 devices in this room".arg(device_id_row.rows.length))
@@ -324,6 +317,7 @@ Item {
             var identityKeys = {}
             for (var i = 0; i < device_id_row.rows.length; i++) {
                 var row = device_id_row.rows[i]
+                if (row.device_id === matrix.deviceID) continue
                 var keys = JSON.parse(row.keys_json)
                 var keyName = "curve25519:%1".arg(row.device_id)
                 if (!devicesList[row.matrix_id]) {
@@ -332,9 +326,8 @@ Item {
                 identityKeys[row.device_id] = keys.keys[keyName]
                 devicesList[row.matrix_id][row.device_id] = "signed_curve25519"
             }
-                
 
-            console.log("[DEBUG] devicesList ", JSON.stringify(devicesList))
+            console.log("[DEBUG] devicesList identityKeys ", JSON.stringify(identityKeys))
 
             var success_callback = function () {
                 console.log("[DEBUG] Store InboundMegolmSession with session_id:", sessionId)
