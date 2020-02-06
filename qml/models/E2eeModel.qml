@@ -179,9 +179,8 @@ Item {
 
                     var newOlmSessionPickle
                     if ( isPreKey ) {
-                        print("[DEBUG] Create Inbound Session From!")
-                        newOlmSessionPickle = E2ee.createInboundSessionFrom(
-                            event.content.sender_key,
+                        print("[DEBUG] Create Inbound Session From!", event.content.sender_key, device_key)
+                        newOlmSessionPickle = E2ee.createInboundSession(
                             event.content.ciphertext[device_key].body,
                             matrix.matrixid
                         )
