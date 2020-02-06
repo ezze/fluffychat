@@ -333,7 +333,7 @@ ListView {
                         id: messageLabel
                         text: isStateEvent ? EventDescription.getDisplay ( event ) + " - " + MatrixNames.getChatTime ( eventModel.origin_server_ts ) :
                         (eventModel.type === "m.room.encrypted" ? EventDescription.getDisplay ( event ) :
-                        eventModel.content_body || eventModel.content.body)
+                        MessageFormats.formatText ( eventModel.content_body || eventModel.content.body ))
                         color: fontColor
                         linkColor: sent && eventModel.status === msg_status.SEEN ? mainLayout.brightMainColor : mainLayout.mainColor
                         Behavior on color {

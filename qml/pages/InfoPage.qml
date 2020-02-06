@@ -30,10 +30,10 @@ Page {
             }
 
             SettingsListItem {
-                name: i18n.tr("Become a patron")
+                name: i18n.tr("Buy a coffee for me")
                 icon: "like"
                 iconColor: UbuntuColors.red
-                onClicked: Qt.openUrlExternally("https://www.patreon.com/krillechritzelius")
+                onClicked: Qt.openUrlExternally("https://ko-fi.com/krille")
             }
 
             SettingsListItem {
