@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-10 09:16+0000\n"
-"PO-Revision-Date: 2019-12-03 00:05+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2020-01-09 12:21+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ca/>\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 3.10.1-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
@@ -570,8 +570,6 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr "Introduïu la vostra contrasenya per: <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
-#, fuzzy
-#| msgid "Password..."
 msgid "Password…"
 msgstr "Contrasenya…"
 
@@ -629,8 +627,6 @@ msgid "Chat info"
 msgstr "Informació del xat"
 
 #: ../qml/pages/ChatPage.qml:137
-#, fuzzy
-#| msgid "No messages in this chat ..."
 msgid "No messages in this chat …"
 msgstr "Cap missatge a aquest xat…"
 
@@ -651,8 +647,6 @@ msgid "You do not have posting permissions here"
 msgstr "No teniu permís per publicar aquí"
 
 #: ../qml/pages/ChatPage.qml:275
-#, fuzzy
-#| msgid "Type something ..."
 msgid "Type something …"
 msgstr "Escriviu quelcom…"
 
@@ -847,8 +841,6 @@ msgid "Add chat address"
 msgstr "Afegeix adreça de xat"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-#, fuzzy
-#| msgid "Search archived chats..."
 msgid "Search archived chats…"
 msgstr "Cerca als xats arxivats…"
 

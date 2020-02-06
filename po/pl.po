@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-10 09:16+0000\n"
-"PO-Revision-Date: 2019-08-01 05:14+0000\n"
+"PO-Revision-Date: 2020-01-26 20:21+0000\n"
 "Last-Translator: Katarzyna Twardowska <katarina.twardowska@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/fluffychat/"
 "translations/pl/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
@@ -572,10 +572,8 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr "Wprowadź hasło dla: <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
-#, fuzzy
-#| msgid "Password..."
 msgid "Password…"
-msgstr "Hasło..."
+msgstr "Hasło…"
 
 #: ../qml/pages/PasswordInputPage.qml:66 ../qml/pages/LoginPage.qml:182
 msgid "Sign in"
@@ -631,10 +629,8 @@ msgid "Chat info"
 msgstr "Informacje o konwersacji"
 
 #: ../qml/pages/ChatPage.qml:137
-#, fuzzy
-#| msgid "No messages in this chat ..."
 msgid "No messages in this chat …"
-msgstr "Brak wiadomości w konwersacji..."
+msgstr "Brak wiadomości w konwersacji…"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
@@ -653,10 +649,8 @@ msgid "You do not have posting permissions here"
 msgstr "Nie masz uprawnień do publikowania"
 
 #: ../qml/pages/ChatPage.qml:275
-#, fuzzy
-#| msgid "Type something ..."
 msgid "Type something …"
-msgstr "Napisz coś..."
+msgstr "Napisz coś…"
 
 #: ../qml/pages/PasswordCreationPage.qml:19
 msgid "Please set a password"
@@ -850,10 +844,8 @@ msgid "Add chat address"
 msgstr "Dodaj adres konwersacji"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
-#, fuzzy
-#| msgid "Search archived chats..."
 msgid "Search archived chats…"
-msgstr "Szukaj w zarchiwizowanych konwersacjach..."
+msgstr "Szukaj w zarchiwizowanych konwersacjach…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -943,7 +935,7 @@ msgstr "wzmiance mojej nazwy wyświetlanej"
 
 #: ../qml/pages/NotificationSettingsPage.qml:59
 msgid "Mention my user name"
-msgstr "wzmiance mojej nazwy użytkownika"
+msgstr "Wzmianki mojej nazwy użytkownika"
 
 #: ../qml/pages/NotificationSettingsPage.qml:69
 msgid "Invitations for me"
@@ -1039,7 +1031,7 @@ msgstr "Widoczność historii"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:87
 msgid "History is visible from invitation"
-msgstr "historia jest dostępna od chwili zaproszenia"
+msgstr "Historia jest dostępna od chwili zaproszenia"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:94
 msgid "Members can access full chat history"
