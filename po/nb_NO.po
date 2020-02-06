@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 09:53+0000\n"
-"PO-Revision-Date: 2019-12-03 00:05+0000\n"
+"PO-Revision-Date: 2020-02-06 14:37+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
@@ -61,7 +61,7 @@ msgstr "Merknadsinnstillinger"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
-msgstr ""
+msgstr "(Eksperimentelt) Skru på kryptering"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
@@ -79,8 +79,9 @@ msgid "FluffyChat %1 on %2"
 msgstr "FluffyChat %1 på %2"
 
 #: ../qml/pages/InfoPage.qml:33
+#, fuzzy
 msgid "Buy a coffee for me"
-msgstr ""
+msgstr "Spander kaffe"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
@@ -206,7 +207,7 @@ msgstr "Oppdaterte oversettelser. Takk til alle oversettere."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Add experimental support for end-to-end encryption."
-msgstr ""
+msgstr "Tillagt eksperimentell støtte for ende-til-ende-kryptering."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -604,7 +605,7 @@ msgstr "Avanserte innstillinger"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "End-to-end encryption"
-msgstr ""
+msgstr "Ende-til-ende-kryptering"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
@@ -1551,7 +1552,7 @@ msgstr "Ønsker du å forlate denne sludringen?"
 
 #: ../qml/scripts/UserDevicesPageActions.js:101
 msgid "This can not be undone!"
-msgstr ""
+msgstr "Dette kan ikke angres!"
 
 #: ../qml/scripts/ChatEventActions.js:25
 msgid "Add to sticker collection?"
