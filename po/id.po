@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 09:53+0000\n"
+"POT-Creation-Date: 2020-02-06 14:31+0000\n"
 "PO-Revision-Date: 2019-07-02 13:01+0000\n"
 "Last-Translator: ditokp <ditokpl@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/fluffychat/"
@@ -205,7 +205,7 @@ msgid "Updated translations. Thanks to all translators."
 msgstr "Memperbaharui terjemahan. Terima kasih untuk semua penerjemah."
 
 #: ../qml/pages/WalkthroughPage.qml:184
-msgid "Add experimental support for end-to-end encryption."
+msgid "Experimental release of end-to-end encryption."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:222
