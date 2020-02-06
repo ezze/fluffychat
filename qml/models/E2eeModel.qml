@@ -104,10 +104,12 @@ Item {
     // Signs a json object with the device's fingerprint key.
     function signJson (jsonObj) {
         var unsigned = jsonObj.unsigned
+        var signatures = jsonObj.signatures
         delete jsonObj.signatures
         delete jsonObj.unsigned
         var canonicalJson = orderedStringify(jsonObj)
-        jsonObj.signatures = {}
+        if (signatures) jsonObj.signatures = signatures
+        else jsonObj.signatures = {}
         jsonObj.signatures[matrix.matrixid] = {}
         jsonObj.signatures[matrix.matrixid]["ed25519:"+matrix.deviceID] = E2ee.signJsonString (canonicalJson)
         if (unsigned) jsonObj.unsigned = unsigned
@@ -216,7 +218,7 @@ Item {
             if (isCurrent && decrypted == null) decrypted = E2ee.decrypt ( event.content.ciphertext[device_key].body )
         }
         else if (event.content.algorithm === "m.megolm.v1.aes-sha2") {
-            console.log("Try to decrypt group message")
+            console.log("Try to decrypt group message with session:", event.content.session_id)
             var res = storage.query ( "SELECT * FROM InboundMegolmSessions WHERE session_id=?", [ event.content.session_id ] )
             if ( res.rows.length > 0 ) {
                 console.log("[DEBUG] Megolm session found")
@@ -304,6 +306,7 @@ Item {
             console.log("[DEBUG] No megolm session found! Try to create a new one...")
             var newPickle = E2ee.createOutboundGroupSession(matrix.matrixid)
             var inBoundKey = E2ee.getOutboundGroupSessionKey()
+            var sessionId = E2ee.getOutboundGroupSessionId()
             megolmInPickle = E2ee.createInboundGroupSession(inBoundKey, matrix.matrixid)
             var olmContent = {
                 "content": {
@@ -335,14 +338,14 @@ Item {
             console.log("[DEBUG] devicesList ", JSON.stringify(devicesList))
 
             var success_callback = function () {
-                console.log("[DEBUG] Store InboundMegolmSession")
+                console.log("[DEBUG] Store InboundMegolmSession with session_id:", sessionId)
                 storage.query( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
                     room_id,
-                    matrix.device_id,
+                    sessionId,
                     megolmInPickle
                 ] )
                 storage.query( "UPDATE Chats SET encryption_outbound_pickle=? WHERE id=?", [
-                    megolmInPickle,
+                    newPickle,
                     room_id
                 ] )
                 callback (E2ee.encryptGroupMessage(JSON.stringify(content)))

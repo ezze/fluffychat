@@ -603,7 +603,7 @@ Item {
                 console.log("[ERROR] Unsupported algorithm")
                 return
             }
-            console.log("[DEBUG] Save MegOlm session")
+            console.log("[DEBUG] Save MegOlm session with session_id:", payload.session_id)
             var megolmInPickle = E2ee.createInboundGroupSession(payload.session_key, matrix.matrixid)
             addQuery( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
                 payload.room_id,
