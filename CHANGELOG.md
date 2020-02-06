@@ -1,3 +1,8 @@
+What's new in FluffyChat 12.0
+----------------------------
++ New translations - thanks to all translators
++ Experimental release of E2EE
+
 What's new in FluffyChat 11.20
 ----------------------------
 + New translations - thanks to all translators
