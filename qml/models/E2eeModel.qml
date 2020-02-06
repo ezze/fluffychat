@@ -257,6 +257,8 @@ Item {
                     console.log("[DEBUG] Create outbound session with device " + device_id + " oneTimeKey " + oneTimeKey + " and identity key " + identityKeys[device_id])
                     E2ee.removeSession();
                     E2ee.createOutboundSession(identityKeys[device_id], oneTimeKey, matrix.matrixid)
+                    var encrypted = E2ee.encrypt(JSON.stringify(content))
+
                     var keys = JSON.parse(E2ee.getIdentityKeys())
 
                     data.messages[user_id][device_id] = {
@@ -265,7 +267,7 @@ Item {
                         "sender_key": keys["curve25519"]
                     }
                     data.messages[user_id][device_id].ciphertext[identityKeys[device_id]] = {
-                        "body": E2ee.encrypt(JSON.stringify(content)),
+                        "body": encrypted,
                         "type": 0
                     }
                 }

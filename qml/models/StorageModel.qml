@@ -583,6 +583,7 @@ Item {
         case "device_lists":
             if ( typeof eventContent.changed === "object" ) {
                 for (var i = 0; i < eventContent.changed.length; i++) {
+                    addQuery ("UPDATE Chats SET encryption_outbound_pickle='' WHERE EXISTS (SELECT * FROM Chats,Memberships WHERE Memberships.chat_id=Chats.id AND Memberships.matrix_id=?)", [ eventContent.changed[i] ] )
                     addQuery ("UPDATE Users SET tracking_devices_uptodate=0 WHERE matrix_id=?", [ eventContent.changed[i] ] )
                     console.log("Start tracking user",eventContent.changed[i])
                 }
