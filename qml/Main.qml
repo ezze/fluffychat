@@ -45,6 +45,7 @@ MainView {
     readonly property var downloadPath: "/home/phablet/.local/share/ubuntu-download-manager/fluffychat.christianpauly/Downloads/"
     readonly property var msg_status: { "SENDING": 0, "SENT": 1, "RECEIVED": 2, "SEEN": 3, "HISTORY": 4, "ERROR": -1 }
     readonly property var platforms: { "UBPORTS": "Ubuntu Touch", "LINUX": "Linux" }
+    readonly property var supportedEncryptionAlgorithms: [ "m.olm.v1.curve25519-aes-sha2", "m.megolm.v1-aes-sha2", "m.megolm.v1.aes-sha2" ]
 
     /* =============================== GLOBAL VARIABLES ===============================
 
@@ -140,6 +141,7 @@ MainView {
     id, defined here.
     */
     StorageModel { id: storage }
+    E2eeModel { id: e2eeModel }
     MatrixModel {
         id: matrix
         onReqError: toast.show ( error )

@@ -2,6 +2,7 @@ import QtQuick 2.9
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Qt.labs.settings 1.0
+import E2ee 1.0
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
 
@@ -19,7 +20,7 @@ Item {
 
     id: storage
 
-    property var version: "0.3.8"
+    property var version: "0.5.4"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -86,6 +87,12 @@ Item {
         'history_visibility TEXT, ' +
         'join_rules TEXT, ' +
 
+        // Encryption infos
+        'encryption_algorithm TEXT, ' +
+        'encryption_rotation_period_ms INTEGER, ' +
+        'encryption_rotation_period_msgs INTEGER, ' +
+        'encryption_outbound_pickle TEXT, ' +
+
         // Power levels
         'power_events_default INTEGER, ' +
         'power_state_default INTEGER, ' +
@@ -126,6 +133,8 @@ Item {
         'presence TEXT, ' +
         'currently_active INTEGER, ' +
         'last_active_ago INTEGER, ' +
+        'tracking_devices INTEGER, ' +              // Weither the devices of this user are tracked
+        'tracking_devices_uptodate INTEGER, ' +     // Weither the device tracking is up to date
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR MEMBERSHIPS
@@ -140,9 +149,9 @@ Item {
 
         // TABLE SCHEMA FOR CONTACTS
         query('CREATE TABLE IF NOT EXISTS Contacts(' +
-        'medium TEXT, ' +       // The medium this contact is identified by
-        'address TEXT, ' +      // The email or phone number of this user if exists
-        'matrix_id TEXT, ' +    // The matrix id of this user
+        'medium TEXT, ' +                           // The medium this contact is identified by
+        'address TEXT, ' +                          // The email or phone number of this user if exists
+        'matrix_id TEXT, ' +                        // The matrix id of this user
         'UNIQUE(matrix_id))')
 
         // TABLE SCHEMA FOR CHAT ADDRESSES
@@ -164,6 +173,29 @@ Item {
         'name TEXT, ' +
         'thumbnail_url TEXT, ' +
         'UNIQUE(url))')
+
+        // TABLE SCHEMA FOR USER DEVICES
+        query('CREATE TABLE IF NOT EXISTS Devices(' +
+        'matrix_id TEXT, ' +
+        'device_id TEXT, ' +
+        'keys_json TEXT, ' +
+        'verified INTEGER, ' +
+        'blocked INTEGER, ' +
+        'UNIQUE(matrix_id, device_id))')
+
+        // TABLE SCHEMA FOR OLM SESSIONS
+        query('CREATE TABLE IF NOT EXISTS OlmSessions(' +
+        'device_key TEXT, ' +
+        'sender_key TEXT, ' +
+        'pickle TEXT, ' +
+        'UNIQUE(device_key))')
+
+        // TABLE SCHEMA FOR OLM SESSIONS
+        query('CREATE TABLE IF NOT EXISTS InboundMegolmSessions(' +
+        'room_id TEXT, ' +
+        'session_id TEXT, ' +
+        'pickle TEXT, ' +
+        'UNIQUE(room_id, session_id))')
 
         if ( matrix.isLogged ) {
             storage.markSendingEventsAsError ()
@@ -190,6 +222,9 @@ Item {
         query('DELETE FROM Addresses')
         query('DELETE FROM ThirdPIDs')
         query('DELETE FROM Media')
+        query('DELETE FROM Devices')
+        query('DELETE FROM OlmSessions')
+        query('DELETE FROM InboundMegolmSessions')
     }
 
 
@@ -202,6 +237,9 @@ Item {
         query('DROP TABLE IF EXISTS Addresses')
         query('DROP TABLE IF EXISTS ThirdPIDs')
         query('DROP TABLE IF EXISTS Media')
+        query('DROP TABLE IF EXISTS Devices')
+        query('DROP TABLE IF EXISTS OlmSessions')
+        query('DROP TABLE IF EXISTS InboundMegolmSessions')
     }
 
     property var queryQueue: []
@@ -228,12 +266,18 @@ Item {
             db.transaction(
                 function(tx) {
                     while ( queryQueue.length > 0 ) {
-                        tx.executeSql ( queryQueue[0].query, queryQueue[0].param )
+                        try {
+                            tx.executeSql ( queryQueue[0].query, queryQueue[0].param )
+                        }
+                        catch (e) {
+                            console.error("❌[Error]",e,queryQueue[0].query, JSON.stringify(queryQueue[0].param))
+                        }
                         queryQueue.splice( 0, 1 )
                     }
                 }
             )
             if ( matrix.prevBatch === "" ) storage.syncInitialized ()
+            requestUserDevices ()
         }
         catch (e) {
             console.error("❌[Error]",e,query)
@@ -246,7 +290,7 @@ Item {
     function newChatUpdate ( chat_id, membership, notification_count, highlight_count, limitedTimeline, prevBatch ) {
         // Insert the chat into the database if not exists
         addQuery ("INSERT OR IGNORE INTO Chats " +
-        "VALUES(?, ?, '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ", [
+        "VALUES(?, ?, '', 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', '', 0, 0, '', 0, 50, 50, 0, 50, 50, 0, 50, 100, 50, 50, 50, 100) ", [
         chat_id, membership
         ] )
 
@@ -271,15 +315,18 @@ Item {
             var status = msg_status.RECEIVED
             if ( typeof eventContent.status === "number" ) status = eventContent.status
             else if ( eventType === "history" ) status = msg_status.HISTORY
+                
+            if (eventContent.content === null)
+                eventContent.content = {"body": "Could not decrypt..."}
 
             // Format the text for the app
-            if( typeof eventContent.content.body === "string" ) {
+            if( eventContent.content != null && eventContent.content.body instanceof String ) {
                 eventContent.content_body = MessageFormats.formatText ( eventContent.content.body )
             }
             else eventContent.content_body = null
 
             // Make unsigned part of the content
-            if ( typeof eventContent.content.unsigned === "undefined" && typeof eventContent.unsigned !== "undefined" ) {
+            if ( eventContent.content.unsigned === undefined && eventContent.unsigned !== undefined ) {
                 eventContent.content.unsigned = eventContent.unsigned
             }
 
@@ -354,6 +401,38 @@ Item {
             [ eventContent.content.alias || "",
             chat_id ])
             break
+            // This event means, that the room is now encrypted. The encryption algorithm
+            // needs to be saved an the client should start tracking the devices for all
+            // users in this room. Once this settings is set, all later events are possible
+            // MITM attacks!
+        case "m.room.encryption":
+            // Save the encryption status for this chat
+            var query = "UPDATE Chats SET encryption_algorithm=?"
+            var queryArgs = [ eventContent.content.algorithm ]
+            if ( typeof eventContent.content.rotation_period_ms === "number" ) {
+                query += " encryption_rotation_period_ms=? "
+                queryArgs[queryArgs.length] = eventContent.content.rotation_period_ms
+            }
+            if ( typeof eventContent.content.rotation_period_msgs === "number" ) {
+                query += " encryption_rotation_period_msgs=? "
+                queryArgs[queryArgs.length] = eventContent.content.rotation_period_msgs
+            }
+            query += " WHERE id=? AND encryption_algorithm=''"
+            queryArgs[queryArgs.length] = chat_id
+            addQuery( query, queryArgs )
+
+            // Mark users in the room for device tracking
+            addQuery ( "UPDATE Users " +
+            "SET tracking_devices=1 " +
+            "WHERE EXISTS ( " +
+            "SELECT * " +
+            "FROM Memberships " +
+            "WHERE Memberships.matrix_id = Users.matrix_id " +
+            "AND Memberships.chat_id=?)",
+            [ chat_id ] )
+
+            break
+
             // This event means, that the topic of a room has been changed, so
             // it has to be changed in the database
         case "m.room.history_visibility":
@@ -420,7 +499,7 @@ Item {
             }
 
             // Update user database
-            var newUser = addQuery( "INSERT OR IGNORE INTO Users VALUES(?,?,?, '', '', 0)", [
+            var newUser = addQuery( "INSERT OR IGNORE INTO Users VALUES(?,?,?, '', '', 0, 0, 0 )", [
             state_key, insertDisplayname, insertAvatarUrl
             ] )
             var queryStr = "UPDATE Users SET matrix_id=?"
@@ -500,11 +579,80 @@ Item {
                 }
             }
             break
+
+        case "device_lists":
+            if ( typeof eventContent.changed === "object" ) {
+                for (var i = 0; i < eventContent.changed.length; i++) {
+                    addQuery ("UPDATE Users SET tracking_devices_uptodate=0 WHERE matrix_id=?", [ eventContent.changed[i] ] )
+                    console.log("Start tracking user",eventContent.changed[i])
+                }
+            }
+            if ( typeof eventContent.left === "object" ) {
+                for (var i = 0; i < eventContent.left.length; i++) {
+                    addQuery ("UPDATE Users SET tracking_devices=0 WHERE matrix_id=?", [ eventContent.left[i] ] )
+                    console.log("Stop tracking user",eventContent.left[i])
+                }
+            }
+            break
+        case "m.room_key":
+            console.log("[DEBUG] Handle m.room_key message")
+
+            var payload = eventContent.content
+            
+            if ( supportedEncryptionAlgorithms.indexOf(payload.algorithm) === -1 ) {
+                console.log("[ERROR] Unsupported algorithm")
+                return
+            }
+            console.log("[DEBUG] Save MegOlm session with session_id:", payload.session_id)
+            var megolmInPickle = E2ee.createInboundGroupSession(payload.session_key, matrix.matrixid)
+            addQuery( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
+                payload.room_id,
+                payload.session_id,
+                megolmInPickle
+            ] )
+            break
         }
     }
 
     function markSendingEventsAsError () {
         storage.query ( "UPDATE Events SET status=-1 WHERE status=0" )
+    }
+
+
+    function requestUserDevices () {
+        var users = storage.query( "SELECT matrix_id " +
+        "FROM Users " +
+        "WHERE tracking_devices=1 " +
+        "AND tracking_devices_uptodate=0 ", [] )
+        if ( users.rows.length > 0 ) {
+            var device_keys = {}
+            for ( var i = 0; i < users.rows.length; i++ ) {
+                device_keys[users.rows[i].matrix_id] = []
+            }
+            var success_callback = function (res) {
+                if (res.device_keys === undefined) return
+                // If there are failures, then send a toast
+                for ( var failure in res.failures ) {
+                    break
+                }
+                // For each user save each device in the database and
+                for ( var mxid in res.device_keys ) {
+                    for ( var device_id in res.device_keys[mxid] ) {
+                        // Check signature
+                        var signedJson = res.device_keys[mxid][device_id]
+                        var keyName = "ed25519:%1".arg(device_id)
+                        if (e2eeModel.checkJsonSignature(signedJson.keys[keyName], signedJson, mxid, device_id)) {
+                            storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,0)",
+                            [ mxid, device_id, JSON.stringify(signedJson), device_id===matrix.deviceID ] )
+                        }
+                        else console.warn("[WARNING] Invalid device keys from %1".arg(signedJson.user_id))
+                    }
+                    storage.query("UPDATE Users SET tracking_devices_uptodate=1 WHERE matrix_id=?",
+                    [ mxid ] )
+                }
+            }
+            matrix.post("/client/r0/keys/query", {device_keys: device_keys}, success_callback)
+        }
     }
 
 }

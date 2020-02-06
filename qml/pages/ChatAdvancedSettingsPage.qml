@@ -44,6 +44,18 @@ Page {
             width: chatPrivacySettingsPage.width
 
             ListSeperator {
+                text: i18n.tr("End-to-end encryption")
+            }
+
+            SettingsListLink {
+                id: initEncryption
+                name: i18n.tr("Encryption settings")
+                icon: "lock"
+                page: "ChatDevicesPage"
+                sourcePage: chatPrivacySettingsPage
+            }
+
+            ListSeperator {
                 text: i18n.tr("Access")
             }
 

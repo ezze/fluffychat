@@ -86,7 +86,7 @@ function send ( message ) {
     matrix.newEvent( type, activeChat, "timeline", fakeEvent )
     storage.save ()
 
-    matrix.sendMessage ( messageID, data, activeChat, function ( response ) {
+    matrix.sendMessage ( messageID, data, activeChat, encryptionAlgorithm, function ( response ) {
         messageSent ( messageID, response )
     }, function ( error ) {
         if ( error === "DELETE" ) removeEvent ( messageID )
@@ -117,10 +117,11 @@ function sendTypingNotification ( typing ) {
 
 function init () {
     // Get infos about the chat
-    var res = storage.query ( "SELECT draft, topic, membership, unread, fully_read, notification_count, power_events_default, power_redact FROM Chats WHERE id=?", [ activeChat ])
+    var res = storage.query ( "SELECT draft, topic, membership, unread, fully_read, encryption_algorithm, notification_count, power_events_default, power_redact FROM Chats WHERE id=?", [ activeChat ])
     if ( res.rows.length === 0 ) return
     var room = res.rows[0]
     membership = room.membership
+    encryptionAlgorithm = room.encryption_algorithm
     messageTextField.text = ""
     if ( room.draft !== "" && room.draft !== null ) messageTextField.text = room.draft
 
@@ -511,7 +512,7 @@ function sendAttachmentMessage (responseText, mimeType, fileName, size, activeCh
         mediaElem.info.thumbnail_info = {
             mimetype: mimeType,
             size: size
-         }
+        }
     }
     var now = new Date().getTime()
     var messageID = "" + now

@@ -92,6 +92,9 @@ Item {
     property var online: true
     onOnlineChanged: if ( online ) restartSync ()
 
+    property string e2eeAccountPickle: ""
+    property int one_time_key_counts: 0
+
     // Save this properties in the settings
     Settings {
         property alias token: matrix.token
@@ -110,6 +113,8 @@ Item {
         property alias autoloadGifs: matrix.autoloadGifs
         property alias countryCode: matrix.countryCode
         property alias countryTel: matrix.countryTel
+        property alias e2eeAccountPickle: matrix.e2eeAccountPickle
+        property alias one_time_key_counts: matrix.one_time_key_counts
     }
 
     signal newSync ( var sync )
@@ -158,6 +163,7 @@ Item {
             matrix.username = (response.user_id.substr(1)).split(":")[0]
             matrix.matrixid = response.user_id
             matrix.token = response.access_token
+            e2eeModel.init()
             if ( callback ) callback ( response )
         }
 
@@ -240,15 +246,35 @@ Item {
     }
 
 
-    // TODO: Move into room model!
-    function sendMessage ( messageID, data, chat_id, success_callback, error_callback ) {
+    function sendMessage ( messageID, data, chat_id, algorithm, success_callback, error_callback ) {
+        if (algorithm) {
+            console.log("[DEBUG] Send Message with algorithm", algorithm)
+            var encryption_success_callback = function (encrypted) {
+                console.log("[DEBUG] Message has been encrypted:", encrypted)
+                var keys = JSON.parse(E2ee.getIdentityKeys())
+                var data = {
+                    "algorithm": "m.megolm.v1.aes-sha2",
+                    "ciphertext": encrypted,
+                    "device_id": matrix.deviceID,
+                    "sender_key": keys["curve25519"],
+                    "session_id": E2ee.getOutboundGroupSessionId()
+                }
+                console.log("[DEBUG] Send data:", JSON.stringify(data))
+                sendMessage ( messageID, data, chat_id, null, success_callback, error_callback )
+            }
+            e2eeModel.encryptMegolmMessage(data, chat_id, encryption_success_callback)
+            return
+        }
+
         var newMessageID = ""
         if ( !online ) {
             storage.query ( "UPDATE Events SET status=-1 WHERE id=?", [ messageID ] )
             return error_callback ( "ERROR" )
         }
 
-        var msgtype = data.msgtype === "m.sticker" ? data.msgtype : "m.room.message"
+        var msgtype = "m.room.message"
+        if (data.msgtype === "m.sticker") msgtype = data.msgtype
+        else if ( data.algorithm ) msgtype = "m.room.encrypted"
 
         var sendCallback = function ( response ) {
             userMetrics.sentMessages++
@@ -291,8 +317,10 @@ Item {
 
 
     function reset () {
-        matrix.token = ""
-        matrix.username = matrix.server = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = ""
+        console.log("resetting...")
+        E2ee.removeAccount()
+        matrix.one_time_key_counts = 0
+        matrix.token = matrix.e2eeAccountPickle = matrix.username = matrix.server = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = ""
     }
 
 
@@ -466,18 +494,18 @@ Item {
     }
 
     function init () {
-
         if ( matrix.token === "" ) return
 
         // Start synchronizing
         initialized = true
         if ( matrix.prevBatch !== "" ) {
+            e2eeModel.init()
             console.log("👷[Init] Init the matrix synchronization")
             waitForSync ()
             return sync ( 1 )
         }
 
-        console.log("👷[Init] Request the first matrix synchronizaton")
+        console.log("👷[Init] Request the first matrix synchronizaton prevBatch='%1'".arg(matrix.prevBatch))
 
         var onFristSyncResponse = function ( response ) {
             if ( matrix.waitingForSync ) waitingForAnswer--
@@ -598,6 +626,9 @@ Item {
 
     function handleSync ( sync, newChatCB, newEventCB ) {
         if ( typeof sync !== "object" ) return
+        if ( typeof sync.to_device === "object" && typeof sync.to_device.events === "object"  ) {
+            handleToDeviceEvents( sync.to_device.events, newEventCB )
+        }
         if ( typeof sync.rooms === "object" ) {
             if ( typeof sync.rooms.join === "object" ) handleRooms ( sync.rooms.join, "join", newChatCB, newEventCB )
             if ( typeof sync.rooms.leave === "object" ) handleRooms ( sync.rooms.leave, "leave", newChatCB, newEventCB )
@@ -605,6 +636,16 @@ Item {
         }
         if ( typeof sync.presence === "object" && typeof sync.presence.events === "object" ) {
             handlePresences ( sync.presence.events, newEventCB)
+        }
+        if ( typeof sync.device_lists === "object" ) {
+            newEventCB ( "device_lists", sync.next_batch, "encryption", sync.device_lists )
+        }
+        if ( typeof sync.device_one_time_keys_count === "object" ) {
+            if ( typeof sync.device_one_time_keys_count.signed_curve25519 === "number" ) {
+                matrix.one_time_key_counts = sync.device_one_time_keys_count.signed_curve25519
+                if ( matrix.one_time_key_counts < 5 ) e2eeModel.generateOneTimeKeys()
+            }
+            newEventCB ( "device_one_time_keys_count", sync.next_batch, "encryption", sync.device_lists )
         }
     }
 
@@ -697,12 +738,28 @@ Item {
     }
 
 
+    // Handle events, which are sent only to this device
+    function handleToDeviceEvents ( events, newEventCB ) {
+        for ( var i = 0; i < events.length; i++ ) {
+            if (events[i].type === "m.room.encrypted") {
+                events[ i ] = e2eeModel.decrypt(events[ i ])
+                if (events[i] === null) continue
+            }
+            newEventCB ( events[ i ].type, events[ i ].sender, "to_device", events[ i ] )
+        }
+    }
+
+
     // Handle room events
     function handleRoomEvents ( roomid, events, type, newEventCB ) {
         // We go through the events array
         for ( var i = 0; i < events.length; i++ ) {
+            if (events[i].type === "m.room.encrypted") {
+                events[i] = e2eeModel.decrypt(events[i])
+                if (events[i] === null) continue
+                console.log(JSON.stringify(events[ i ]), events[i].type)
+            }
             if ( validateEvent ( events[i], type ) ) newEventCB ( events[i].type, roomid, type, events[i] )
-            else console.warn( "💤[Invalid] Ignoring invalid event:", JSON.stringify(events[i]) )
         }
     }
 

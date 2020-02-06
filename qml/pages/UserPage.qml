@@ -33,6 +33,10 @@ Page {
                     contentHub.toClipboard ( matrix_id )
                     toast.show( i18n.tr("Username copied to the clipboard") )
                 }
+            },
+            Action {
+                iconName: "phone-smartphone-symbolic"
+                onTriggered: bottomEdgePageStack.push(Qt.resolvedUrl("UserDevicesPage.qml", {"matrix_id": matrix_id}))
             }
             ]
         }

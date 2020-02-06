@@ -42,7 +42,6 @@ function update () {
 function createNewGroup () {
 
     var createNewGroupSuccess = function ( response ) {
-        toast.show ( i18n.tr("Please notice that FluffyChat does only support transport encryption yet."))
         mainLayout.toChatInvitePage ( response.room_id )
     }
 
