@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 09:53+0000\n"
-"PO-Revision-Date: 2019-09-09 19:12+0000\n"
+"PO-Revision-Date: 2020-02-06 14:37+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/fluffychat/"
 "translations/cs/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
@@ -53,14 +53,12 @@ msgstr "Zkopírováno do schránky"
 
 #: ../qml/pages/ChatDevicesPage.qml:17
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
-#, fuzzy
-#| msgid "Notification settings"
 msgid "Encryption settings"
-msgstr "Nastavení oznámení"
+msgstr "Nastavení šifrování"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
-msgstr ""
+msgstr "(ve vývoji) Povolit šifrování"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
@@ -68,10 +66,8 @@ msgid "Loading…"
 msgstr "Načítám…"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
-#, fuzzy
-#| msgid "No chats found"
 msgid "No devices found"
-msgstr "Nenalezen žádný chat"
+msgstr "Nenalezeno žádné zařízení"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
@@ -79,7 +75,7 @@ msgstr "FluffyChat %1 na %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Buy a coffee for me"
-msgstr ""
+msgstr "Kupte mi šálek kávy"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
@@ -203,19 +199,13 @@ msgstr "Aktualizované překlady. Naše díky všem překladatelům."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Add experimental support for end-to-end encryption."
-msgstr ""
+msgstr "Zavést experimentální podporu E-2-E šifrování."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Financováno komunitou"
 
 #: ../qml/pages/WalkthroughPage.qml:235
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers is "
-#| "all community funded. Donate to this project on <a href='https://www."
-#| "patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. Donate to this project on <a href='https://ko-fi.com/"
@@ -224,8 +214,8 @@ msgid ""
 msgstr ""
 "FluffyChat je otevřený, neziskový a fajn. Vývoj a servery jsou finančně "
 "podporovány komunitou. Zašlete Váš finanční příspěvek projektu přes <a "
-"href='https://www.patreon.com/bePatron?u=11123241'>Patreon</a> nebo <a "
-"href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
+"href='https://ko-fi.com/krille'>Ko-fi</a> nebo <a href='https://liberapay."
+"com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
@@ -560,16 +550,12 @@ msgid "You do not have posting permissions here"
 msgstr "Nemáte zde oprávněni k zasílání zpráv"
 
 #: ../qml/pages/ChatPage.qml:277
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "Unencrypted message..."
-msgstr "Šifrovaná zpráva"
+msgstr "Nešifrovaná zpráva..."
 
 #: ../qml/pages/ChatPage.qml:278
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "Encrypted message..."
-msgstr "Šifrovaná zpráva"
+msgstr "Šifrovaná zpráva..."
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
@@ -580,10 +566,8 @@ msgid "No phone numbers connected"
 msgstr "Žádné telefonní číslo není připojeno"
 
 #: ../qml/pages/UserDevicesPage.qml:25
-#, fuzzy
-#| msgid "Devices"
 msgid "Devices of %1"
-msgstr "Zařízení"
+msgstr "Zařízení z %1"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
 #: ../qml/pages/ChatSettingsPage.qml:165
@@ -592,7 +576,7 @@ msgstr "Pokročilé nastavení"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "End-to-end encryption"
-msgstr ""
+msgstr "E-2-E šifrování"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
@@ -1463,7 +1447,7 @@ msgstr "Chcete opustit tento chat?"
 
 #: ../qml/scripts/UserDevicesPageActions.js:101
 msgid "This can not be undone!"
-msgstr ""
+msgstr "Nelze vzít zpět!"
 
 #: ../qml/scripts/ChatEventActions.js:25
 msgid "Add to sticker collection?"
