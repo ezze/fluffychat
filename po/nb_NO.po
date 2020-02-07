@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 14:31+0000\n"
-"PO-Revision-Date: 2020-02-06 14:37+0000\n"
+"PO-Revision-Date: 2020-02-08 17:50+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "fluffychat/translations/nb_NO/>\n"
@@ -54,10 +54,8 @@ msgstr "Kopier til utklippstavle"
 
 #: ../qml/pages/ChatDevicesPage.qml:17
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
-#, fuzzy
-#| msgid "Notification settings"
 msgid "Encryption settings"
-msgstr "Merknadsinnstillinger"
+msgstr "Krypteringsinnstillinger"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
@@ -69,10 +67,8 @@ msgid "Loading…"
 msgstr "Laster inn…"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
-#, fuzzy
-#| msgid "No chats found"
 msgid "No devices found"
-msgstr "Fant ingen sludringer"
+msgstr "Fant ingen enheter"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
@@ -206,10 +202,8 @@ msgid "Updated translations. Thanks to all translators."
 msgstr "Oppdaterte oversettelser. Takk til alle oversettere."
 
 #: ../qml/pages/WalkthroughPage.qml:184
-#, fuzzy
-#| msgid "Add experimental support for end-to-end encryption."
 msgid "Experimental release of end-to-end encryption."
-msgstr "Tillagt eksperimentell støtte for ende-til-ende-kryptering."
+msgstr "Eksperimentell støtte for ende-til-ende-kryptering."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
