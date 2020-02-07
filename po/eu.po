@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 14:31+0000\n"
-"PO-Revision-Date: 2020-02-06 09:59+0000\n"
+"PO-Revision-Date: 2020-02-08 17:50+0000\n"
 "Last-Translator: aitzol berasategi <aitzol@disroot.org>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/fluffychat/"
 "translations/eu/>\n"
@@ -41,53 +41,49 @@ msgstr "Berriketara gonbidatua izan zara"
 
 #: ../qml/Main.qml:129
 msgid "Are you sure?"
-msgstr ""
+msgstr "Ziur?"
 
 #: ../qml/Main.qml:153
 msgid "You must agree to the privacy policy"
-msgstr ""
+msgstr "Pribatutasun politika onartu behar duzu"
 
 #: ../qml/Main.qml:168
 msgid "Copied to the clipboard"
-msgstr ""
+msgstr "Arbelean kopiatua"
 
 #: ../qml/pages/ChatDevicesPage.qml:17
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
-#, fuzzy
-#| msgid "Notification settings"
 msgid "Encryption settings"
-msgstr "Jakinarazpenen ezarpenak"
+msgstr "Enkriptatze ezarpenak"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
-msgstr ""
+msgstr "(Esperimentala) Enkriptatzea gaitu"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "Loading…"
-msgstr ""
+msgstr "Kargatzen…"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
-#, fuzzy
-#| msgid "No description found"
 msgid "No devices found"
-msgstr "Ez da deskribapenik aurkitu"
+msgstr "Ez da gailurik aurkitu"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
-msgstr ""
+msgstr "FluffyChat %1  %2-en"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Buy a coffee for me"
-msgstr ""
+msgstr "Kafetxo batetara gonbida nazazu"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
-msgstr ""
+msgstr "Liberapay-en babestu"
 
 #: ../qml/pages/InfoPage.qml:47
 msgid "Join the community"
-msgstr ""
+msgstr "Komunitatera batu"
 
 #: ../qml/pages/InfoPage.qml:53 ../qml/pages/LoginPage.qml:43
 #: ../qml/pages/PrivacyPolicyPage.qml:11
@@ -96,19 +92,19 @@ msgstr "Pribatutasun politika"
 
 #: ../qml/pages/InfoPage.qml:60
 msgid "Website"
-msgstr ""
+msgstr "Web gunea"
 
 #: ../qml/pages/InfoPage.qml:66
 msgid "Contributors"
-msgstr ""
+msgstr "Laguntzaileak"
 
 #: ../qml/pages/InfoPage.qml:72
 msgid "Source code"
-msgstr ""
+msgstr "Iturburu kodea"
 
 #: ../qml/pages/InfoPage.qml:78
 msgid "License"
-msgstr ""
+msgstr "Lizentzia"
 
 #: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
@@ -116,11 +112,11 @@ msgstr "Gordetako berriketak"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
 msgid "Search archived chats…"
-msgstr ""
+msgstr "Bilatu artxibaturiko berriketak…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
-msgstr ""
+msgstr "Ez dago artxibaturiko berriketarik"
 
 #: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
@@ -203,7 +199,7 @@ msgstr "Itzulpenak eguneraturik. Eskerrikasko itzultzaileei."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Experimental release of end-to-end encryption."
-msgstr ""
+msgstr "Muturretik-muturrerako enkriptatzearen argitaratze esperimentala"
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -229,19 +225,19 @@ msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
-msgstr ""
+msgstr "Jarraitu"
 
 #: ../qml/pages/LoginPage.qml:20
 msgid "Homeserver %1"
-msgstr ""
+msgstr "%1 Zerbitzaria («homeserver»)"
 
 #: ../qml/pages/LoginPage.qml:28
 msgid "Change homeserver"
-msgstr ""
+msgstr "Zerbitzaria («homeserver») aldatu"
 
 #: ../qml/pages/LoginPage.qml:33
 msgid "Change ID-server"
-msgstr ""
+msgstr "ID-zerbitzaria aldatu"
 
 #: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
@@ -249,27 +245,27 @@ msgstr "FluffiChat-i buruz"
 
 #: ../qml/pages/LoginPage.qml:53
 msgid "FAQ"
-msgstr ""
+msgstr "Ohiko galderak"
 
 #: ../qml/pages/LoginPage.qml:64
 msgid "Choose your homeserver"
-msgstr ""
+msgstr "Hautatu zure zerbitzaria («homeserver»)"
 
 #: ../qml/pages/LoginPage.qml:83
 msgid "Choose your identity server"
-msgstr ""
+msgstr "Hautatu zure ID zerbitzaria"
 
 #: ../qml/pages/LoginPage.qml:128
 msgid "Phone number (optional)"
-msgstr ""
+msgstr "Telefono zenbakia (aukerakoa)"
 
 #: ../qml/pages/LoginPage.qml:137
 msgid "Username or Matrix ID"
-msgstr ""
+msgstr "Erabiltzaile izena edo Matrix ID-a"
 
 #: ../qml/pages/LoginPage.qml:176
 msgid "Create a new account"
-msgstr ""
+msgstr "Kontu berria sortu"
 
 #: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
@@ -277,27 +273,29 @@ msgstr "Saioa hasi"
 
 #: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
-msgstr ""
+msgstr "FluffyChat"
 
 #: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
-msgstr ""
+msgstr "Partekatu"
 
 #: ../qml/pages/ChatListPage.qml:104
 msgid "Search for your chats…"
-msgstr ""
+msgstr "Bilatu zure berriketak…"
 
 #: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
+"Irristatu behetik-gora berriketa berri bat hasteko edo talde publikoak "
+"aurkitzeko."
 
 #: ../qml/pages/ChatListPage.qml:155
 msgid "Add chat"
-msgstr ""
+msgstr "Berriketa gehitu"
 
 #: ../qml/pages/CreateChatPage.qml:15
 msgid "Add Chat"
-msgstr ""
+msgstr "Berriketa gehitu"
 
 #: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
@@ -305,19 +303,19 @@ msgstr "Helbide-liburutik inportatu"
 
 #: ../qml/pages/CreateChatPage.qml:42
 msgid "Filter contacts"
-msgstr ""
+msgstr "Kontaktuak iragazi"
 
 #: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
-msgstr ""
+msgstr "Talde berria"
 
 #: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
-msgstr ""
+msgstr "Talde publikoak"
 
 #: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
-msgstr ""
+msgstr "Klikatu goiko eskuineko botoia kontaktuak gehitzeko."
 
 #: ../qml/pages/SettingsPage.qml:28
 msgid "Settings"
@@ -429,39 +427,39 @@ msgstr ""
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
 msgid "Common messages"
-msgstr ""
+msgstr "Mezu arruntak"
 
 #: ../qml/pages/NotificationSettingsPage.qml:39
 msgid "Messages from single chats"
-msgstr ""
+msgstr "Banakako berriketetako mezuak"
 
 #: ../qml/pages/NotificationSettingsPage.qml:49
 msgid "Mention my display name"
-msgstr ""
+msgstr "Nere pantaila izena aipatu"
 
 #: ../qml/pages/NotificationSettingsPage.qml:59
 msgid "Mention my user name"
-msgstr ""
+msgstr "Nere erabiltzaile izena aipatu"
 
 #: ../qml/pages/NotificationSettingsPage.qml:69
 msgid "Invitations for me"
-msgstr ""
+msgstr "Neretzako gonbidapenak"
 
 #: ../qml/pages/NotificationSettingsPage.qml:79
 msgid "Chat member changes"
-msgstr ""
+msgstr "Berriketako kidearen aldaketak"
 
 #: ../qml/pages/NotificationSettingsPage.qml:89
 msgid "Messages from bots"
-msgstr ""
+msgstr "Bot mezuak"
 
 #: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
-msgstr ""
+msgstr "Erabiltzaileak gonbidatu"
 
 #: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
-msgstr ""
+msgstr "Adibidez bilatu @erabiltzaile:zerbitzari.eus"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:29
 msgid ""
@@ -490,27 +488,27 @@ msgstr ""
 
 #: ../qml/pages/CountryPickerPage.qml:11
 msgid "Choose a country"
-msgstr ""
+msgstr "Hautatu herrialdea"
 
 #: ../qml/pages/CountryPickerPage.qml:28
 msgid "Search for country by name…"
-msgstr ""
+msgstr "Bilatu herrialdea izenez…"
 
 #: ../qml/pages/UserPage.qml:34
 msgid "Username copied to the clipboard"
-msgstr ""
+msgstr "Erabiltzaile izena arbelean kopiatua"
 
 #: ../qml/pages/UserPage.qml:69
 msgid "Chats with this user:"
-msgstr ""
+msgstr "Egin berriketan erabiltzaile honekin:"
 
 #: ../qml/pages/UserPage.qml:69
 msgid "This is you."
-msgstr ""
+msgstr "Hau da zure erabiltzailea."
 
 #: ../qml/pages/UserPage.qml:87
 msgid "Start new chat"
-msgstr ""
+msgstr "Hasi berriketa berria"
 
 #: ../qml/pages/ChatPage.qml:55 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
@@ -555,11 +553,11 @@ msgstr "Enkriptaturiko mezu berria"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
-msgstr ""
+msgstr "Telefono zenbakia gehitu"
 
 #: ../qml/pages/PhoneSettingsPage.qml:40
 msgid "No phone numbers connected"
-msgstr ""
+msgstr "Ez dago telefono zenbakirik konektaturik"
 
 #: ../qml/pages/UserDevicesPage.qml:25
 #, fuzzy
@@ -574,44 +572,44 @@ msgstr "Ezarpen aurreratuak"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "End-to-end encryption"
-msgstr ""
+msgstr "Muturretik-muturrerako enkriptatzea"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
-msgstr ""
+msgstr "Sarbidea"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:64
 msgid "Users can be invited"
-msgstr ""
+msgstr "Erabiltzaileak gonbidatuak izan daitezke"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:72
 msgid "Chat is public accessible"
-msgstr ""
+msgstr "Sarbide publiko duen berriketa"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:80
 msgid "Guest users are allowed"
-msgstr ""
+msgstr "Gonbidatuak onartzen dira"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:87
 #: ../qml/pages/ChatAliasSettingsPage.qml:31
 msgid "Public chat addresses"
-msgstr ""
+msgstr "Berriketa publikoen helbideak"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:94
 msgid "History visibility"
-msgstr ""
+msgstr "Historia ikusgaitasuna"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:99
 msgid "History is visible from invitation"
-msgstr ""
+msgstr "Historia ikusgarria da gonbidapenetik"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:106
 msgid "Members can access full chat history"
-msgstr ""
+msgstr "Kideak berriketa historia guztira sar daitezke"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:113
 msgid "Anyone can access full chat history"
-msgstr ""
+msgstr "Edonor sar daiteke berriketa historia osora"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:33
 msgid "Notify"
@@ -627,19 +625,19 @@ msgstr "Ez jakinarazi"
 
 #: ../qml/pages/DiscoverPage.qml:24
 msgid "Groups on %1"
-msgstr ""
+msgstr "Taldeak %1-en"
 
 #: ../qml/pages/DiscoverPage.qml:24
 msgid "and matrix.org"
-msgstr ""
+msgstr "eta matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:44
 msgid "Search for chats or #aliases…"
-msgstr ""
+msgstr "Bilatu berriketak edo #alias-ak…"
 
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "No chats found"
-msgstr ""
+msgstr "Ez da berriketarik aurkitu"
 
 #: ../qml/pages/ChatSettingsPage.qml:63
 msgid "Edit chat name"
@@ -699,44 +697,44 @@ msgstr "Jakinarazpenak jasotzen dituzten gailuak:"
 
 #: ../qml/pages/ChatAliasSettingsPage.qml:38
 msgid "Add chat address"
-msgstr ""
+msgstr "Berriketa helbidea gehitu"
 
 #: ../qml/models/PushModel.qml:52
 msgid "Please log in to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "Mesedez hasi saioa Ubuntu One-en jakinarazpenak jasotzeko."
 
 #: ../qml/models/PushModel.qml:77
 msgid "Push notifications are turned off…"
-msgstr ""
+msgstr "Jakinarazpenak desgaiturik daude…"
 
 #: ../qml/models/MatrixModel.qml:78
 msgid "USA"
-msgstr ""
+msgstr "EEBB"
 
 #: ../qml/models/MatrixModel.qml:79
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: ../qml/models/MatrixModel.qml:298
 msgid "You are not allowed to chat here."
-msgstr ""
+msgstr "Ez duzu baimenik berriketa honetan sartzeko."
 
 #: ../qml/models/MatrixModel.qml:422 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
-msgstr ""
+msgstr "😕 Konexiorik ez…"
 
 #: ../qml/models/MatrixModel.qml:472
 msgid "Upload error:"
-msgstr ""
+msgstr "Igoera akatsa:"
 
 #: ../qml/models/MatrixModel.qml:548
 msgid "No connection to the homeserver 😕"
-msgstr ""
+msgstr "Konexiorik ez zerbitzariarenkin 😕"
 
 #: ../qml/models/MatrixModel.qml:555
 msgid "Your session has expired"
-msgstr ""
+msgstr "Sure saioa iraungi egin da"
 
 #: ../qml/models/MatrixModel.qml:619
 msgid ""
@@ -744,10 +742,13 @@ msgid ""
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
 "fluffychat/issues/new. Error details: %1"
 msgstr ""
+"😰 Akats larri bat gertatu da! Barkatu, konexioa eten egin da "
+"zerbitzariarekin! Mesedez, eman arazoaren berri https://github.com/"
+"ChristianPauly/fluffychat/issues/new helbidean. Akatsaren xehetasunak: %1"
 
 #: ../qml/models/ContentHubModel.qml:83
 msgid "Copied to clipboard"
-msgstr ""
+msgstr "Arbelean kopiatua"
 
 #: ../qml/components/MemberListItem.qml:48
 #: ../qml/components/ChatScrollView.qml:49
