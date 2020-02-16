@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 14:31+0000\n"
-"PO-Revision-Date: 2020-01-17 01:21+0000\n"
+"PO-Revision-Date: 2020-02-17 13:50+0000\n"
 "Last-Translator: Golubev Alexander <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ru/>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.10.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.11-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
@@ -54,14 +54,12 @@ msgstr "Скопировано в буфер обмена"
 
 #: ../qml/pages/ChatDevicesPage.qml:17
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
-#, fuzzy
-#| msgid "Notification settings"
 msgid "Encryption settings"
-msgstr "Настройки уведомлений"
+msgstr "Настройки шифрования"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
-msgstr ""
+msgstr "(Экспериментально) Включить шифрование"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
@@ -69,10 +67,8 @@ msgid "Loading…"
 msgstr "Загрузка…"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
-#, fuzzy
-#| msgid "No chats found"
 msgid "No devices found"
-msgstr "Беседы не найдены"
+msgstr "Устройства не найдены"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
@@ -80,7 +76,7 @@ msgstr "FluffyChat %1 на %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Buy a coffee for me"
-msgstr ""
+msgstr "Купить мне кофе"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
@@ -204,19 +200,13 @@ msgstr "Обновлены переводы. Спасибо всем перев�
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Experimental release of end-to-end encryption."
-msgstr ""
+msgstr "Экспериментальная реализация сквозного шифрования."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Финансируется сообществом"
 
 #: ../qml/pages/WalkthroughPage.qml:235
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers is "
-#| "all community funded. Donate to this project on <a href='https://www."
-#| "patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. Donate to this project on <a href='https://ko-fi.com/"
@@ -224,8 +214,8 @@ msgid ""
 "donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat — открытый и некоммерческий проект. Разработка и сервера "
-"спонсируются сообществом. Пожертвуйте проекту на <a href='https://www."
-"patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://liberapay."
+"спонсируются сообществом. Пожертвуйте проекту на <a href='https://liberapay."
+"com/KrilleChritzelius/donate'>Ko-fi</a> или на <a href='https://liberapay."
 "com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
@@ -544,16 +534,12 @@ msgid "You do not have posting permissions here"
 msgstr "У Вас нет прав для отправки сообщений"
 
 #: ../qml/pages/ChatPage.qml:277
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "Unencrypted message..."
-msgstr "Зашифрованное сообщение"
+msgstr "Незашифрованное сообщение…"
 
 #: ../qml/pages/ChatPage.qml:278
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "Encrypted message..."
-msgstr "Зашифрованное сообщение"
+msgstr "Зашифрованное сообщение…"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
@@ -576,7 +562,7 @@ msgstr "Расширенные настройки"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "End-to-end encryption"
-msgstr ""
+msgstr "Сквозное гифрование"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
@@ -1455,7 +1441,7 @@ msgstr "Вы хотите покинуть эту беседу?"
 
 #: ../qml/scripts/UserDevicesPageActions.js:101
 msgid "This can not be undone!"
-msgstr ""
+msgstr "Это действие не может быть отменено!"
 
 #: ../qml/scripts/ChatEventActions.js:25
 msgid "Add to sticker collection?"
