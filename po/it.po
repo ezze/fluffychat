@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 14:31+0000\n"
-"PO-Revision-Date: 2019-09-12 15:23+0000\n"
+"PO-Revision-Date: 2020-03-04 10:33+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/it/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
@@ -53,14 +53,12 @@ msgstr "Copiato negli appunti"
 
 #: ../qml/pages/ChatDevicesPage.qml:17
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
-#, fuzzy
-#| msgid "Notification settings"
 msgid "Encryption settings"
-msgstr "Impostazioni delle notifiche"
+msgstr "Impostazioni crittografia"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
-msgstr ""
+msgstr "(Sperimentale) Abilita crittografia"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
@@ -68,10 +66,8 @@ msgid "Loading…"
 msgstr "Caricamento…"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
-#, fuzzy
-#| msgid "No chats found"
 msgid "No devices found"
-msgstr "Nessuna conversazione trovata"
+msgstr "Nessun dispositivo trovato"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
@@ -79,7 +75,7 @@ msgstr "FluffyChat %1 su %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Buy a coffee for me"
-msgstr ""
+msgstr "Offrimi un caffè"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
@@ -203,19 +199,13 @@ msgstr "Traduzioni aggiornate. Grazie a tutti i traduttori."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Experimental release of end-to-end encryption."
-msgstr ""
+msgstr "Versione sperimentale di crittografia end-to-end."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
 msgstr "Finanziato dalla comunità"
 
 #: ../qml/pages/WalkthroughPage.qml:235
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers is "
-#| "all community funded. Donate to this project on <a href='https://www."
-#| "patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. Donate to this project on <a href='https://ko-fi.com/"
@@ -223,9 +213,9 @@ msgid ""
 "donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat è libero, no-profit e carino. Lo sviluppo ed i server sono tutti "
-"finanziati dalla comunità. Dona al progetto su <a href='https://www.patreon."
-"com/bePatron?u=11123241'>Patreon</a> o <a href='https://liberapay.com/"
-"KrilleChritzelius/donate'>Liberapay</a>"
+"finanziati dalla comunità. Dona al progetto su <a href='https://ko-fi.com/"
+"krille'>Ko-fi</a> or <a href='https://liberapay.com/KrilleChritzelius/"
+"donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
@@ -563,16 +553,12 @@ msgid "You do not have posting permissions here"
 msgstr "Non hai il permesso di pubblicare qui"
 
 #: ../qml/pages/ChatPage.qml:277
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "Unencrypted message..."
-msgstr "Messaggio criptato"
+msgstr "Messaggio non criptato..."
 
 #: ../qml/pages/ChatPage.qml:278
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "Encrypted message..."
-msgstr "Messaggio criptato"
+msgstr "Messaggio criptato..."
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
@@ -583,10 +569,8 @@ msgid "No phone numbers connected"
 msgstr "Nessun numero di telefono collegato"
 
 #: ../qml/pages/UserDevicesPage.qml:25
-#, fuzzy
-#| msgid "Devices"
 msgid "Devices of %1"
-msgstr "Dispositivi"
+msgstr "Dispositivi di %1"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
 #: ../qml/pages/ChatSettingsPage.qml:165
@@ -595,7 +579,7 @@ msgstr "Impostazioni avanzate"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "End-to-end encryption"
-msgstr ""
+msgstr "Crittografia end-to-end"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
@@ -1470,7 +1454,7 @@ msgstr "Sei sicuro di voler lasciare questa conversazione?"
 
 #: ../qml/scripts/UserDevicesPageActions.js:101
 msgid "This can not be undone!"
-msgstr ""
+msgstr "Questo non può essere annullato!"
 
 #: ../qml/scripts/ChatEventActions.js:25
 msgid "Add to sticker collection?"
