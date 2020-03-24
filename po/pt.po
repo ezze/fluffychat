@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 14:31+0000\n"
-"PO-Revision-Date: 2019-11-16 16:04+0000\n"
-"Last-Translator: Theeiss <azaz9a@gmail.com>\n"
+"PO-Revision-Date: 2020-03-25 14:46+0000\n"
+"Last-Translator: mondstern <hello@mondstern.tk>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/fluffychat/"
 "translations/pt/>\n"
 "Language: pt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
 msgid "Unknown"
@@ -60,12 +60,12 @@ msgstr "Configurações da conta:"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
-msgstr ""
+msgstr "(Experimental) Habilitar a encriptação"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "Loading…"
-msgstr ""
+msgstr "A carregar…"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #, fuzzy
@@ -79,7 +79,7 @@ msgstr "FluffyChat %1 em %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Buy a coffee for me"
-msgstr ""
+msgstr "Compre um café para mim"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
@@ -208,11 +208,11 @@ msgstr "Traduções atualizadas. Obrigado a todos os tradutores."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Experimental release of end-to-end encryption."
-msgstr ""
+msgstr "Liberação experimental de criptografia de ponta a ponta."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
-msgstr ""
+msgstr "financiado pela Comunidade"
 
 #: ../qml/pages/WalkthroughPage.qml:235
 #, fuzzy
@@ -563,15 +563,15 @@ msgstr ""
 
 #: ../qml/pages/ChatPage.qml:239
 msgid "Accept invitation"
-msgstr ""
+msgstr "Aceitar convite"
 
 #: ../qml/pages/ChatPage.qml:239
 msgid "Join"
-msgstr ""
+msgstr "Junte-se a"
 
 #: ../qml/pages/ChatPage.qml:247
 msgid "You do not have posting permissions here"
-msgstr ""
+msgstr "Você não tem permissões de lançamento aqui"
 
 #: ../qml/pages/ChatPage.qml:277
 #, fuzzy
@@ -587,11 +587,11 @@ msgstr "Mensagem encriptada"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
-msgstr ""
+msgstr "Adicionar número de telefone"
 
 #: ../qml/pages/PhoneSettingsPage.qml:40
 msgid "No phone numbers connected"
-msgstr ""
+msgstr "Sem números de telefone ligados"
 
 #: ../qml/pages/UserDevicesPage.qml:25
 #, fuzzy
@@ -602,60 +602,60 @@ msgstr "Dispositivos"
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
 #: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Advanced settings"
-msgstr ""
+msgstr "Configurações avançadas"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "End-to-end encryption"
-msgstr ""
+msgstr "Encriptação de ponta a ponta"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
-msgstr ""
+msgstr "Acesse"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:64
 msgid "Users can be invited"
-msgstr ""
+msgstr "Os utilizadores podem ser convidados"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:72
 msgid "Chat is public accessible"
-msgstr ""
+msgstr "O chat é acessível ao público"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:80
 msgid "Guest users are allowed"
-msgstr ""
+msgstr "Usuários convidados são permitidos"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:87
 #: ../qml/pages/ChatAliasSettingsPage.qml:31
 msgid "Public chat addresses"
-msgstr ""
+msgstr "Endereços de chat público"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:94
 msgid "History visibility"
-msgstr ""
+msgstr "Visibilidade histórica"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:99
 msgid "History is visible from invitation"
-msgstr ""
+msgstr "A história é visível a partir do convite"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:106
 msgid "Members can access full chat history"
-msgstr ""
+msgstr "Os membros podem aceder ao histórico completo do chat"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:113
 msgid "Anyone can access full chat history"
-msgstr ""
+msgstr "Qualquer pessoa pode aceder ao histórico completo do chat"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:33
 msgid "Notify"
-msgstr ""
+msgstr "Notifique"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:48
 msgid "Only if mentioned"
-msgstr ""
+msgstr "Apenas se mencionado"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:63
 msgid "Don't notify"
-msgstr ""
+msgstr "Não notifique"
 
 #: ../qml/pages/DiscoverPage.qml:24
 msgid "Groups on %1"
@@ -663,7 +663,7 @@ msgstr ""
 
 #: ../qml/pages/DiscoverPage.qml:24
 msgid "and matrix.org"
-msgstr ""
+msgstr "e matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:44
 #, fuzzy
@@ -672,19 +672,19 @@ msgstr "Procurar nomes de conversa..."
 
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "No chats found"
-msgstr ""
+msgstr "Não foram encontrados chats"
 
 #: ../qml/pages/ChatSettingsPage.qml:63
 msgid "Edit chat name"
-msgstr ""
+msgstr "Editar nome do bate-papo"
 
 #: ../qml/pages/ChatSettingsPage.qml:139
 msgid "Description:"
-msgstr ""
+msgstr "Descrição:"
 
 #: ../qml/pages/ChatSettingsPage.qml:139
 msgid "No chat description found…"
-msgstr ""
+msgstr "Não foi encontrada nenhuma descrição do chat…"
 
 #: ../qml/pages/ChatSettingsPage.qml:187
 msgid "Users in this chat (%1):"
@@ -692,55 +692,55 @@ msgstr ""
 
 #: ../qml/pages/ChatSettingsPage.qml:211
 msgid "Search…"
-msgstr ""
+msgstr "Procurar…"
 
 #: ../qml/pages/ChatSettingsPage.qml:228
 msgid "Invite friends"
-msgstr ""
+msgstr "Convidar amigos"
 
 #: ../qml/pages/ChatSettingsPage.qml:236
 msgid "Reload"
-msgstr ""
+msgstr "Recarregar"
 
 #: ../qml/pages/ChatSettingsPage.qml:253
 msgid "Enroll as member"
-msgstr ""
+msgstr "Inscrição como membro"
 
 #: ../qml/pages/ChatSettingsPage.qml:257
 msgid "Appoint to moderator"
-msgstr ""
+msgstr "Nomear para moderador"
 
 #: ../qml/pages/ChatSettingsPage.qml:262
 msgid "Appoint to admin"
-msgstr ""
+msgstr "Nomear para administrar"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:15
 msgid "Notification settings"
-msgstr ""
+msgstr "Configurações de notificação"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:29
 msgid "Enable notifications"
-msgstr ""
+msgstr "Habilitar notificações"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:40
 msgid "Advanced notification settings"
-msgstr ""
+msgstr "Configurações avançadas de notificação"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:59
 msgid "Devices that receive push notifications:"
-msgstr ""
+msgstr "Dispositivos que recebem notificações push:"
 
 #: ../qml/pages/ChatAliasSettingsPage.qml:38
 msgid "Add chat address"
-msgstr ""
+msgstr "Adicionar endereço de chat"
 
 #: ../qml/models/PushModel.qml:52
 msgid "Please log in to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "Por favor, faça login no Ubuntu One para receber notificações push."
 
 #: ../qml/models/PushModel.qml:77
 msgid "Push notifications are turned off…"
-msgstr ""
+msgstr "As notificações de pressão estão desligadas…"
 
 #: ../qml/models/MatrixModel.qml:78
 msgid "USA"
@@ -752,7 +752,7 @@ msgstr "1"
 
 #: ../qml/models/MatrixModel.qml:298
 msgid "You are not allowed to chat here."
-msgstr ""
+msgstr "Não estás autorizado a conversar aqui."
 
 #: ../qml/models/MatrixModel.qml:422 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
@@ -763,15 +763,15 @@ msgstr "😕 Sem conexão..."
 
 #: ../qml/models/MatrixModel.qml:472
 msgid "Upload error:"
-msgstr ""
+msgstr "Erros de Upload:"
 
 #: ../qml/models/MatrixModel.qml:548
 msgid "No connection to the homeserver 😕"
-msgstr ""
+msgstr "Sem conexão com o homeerver"
 
 #: ../qml/models/MatrixModel.qml:555
 msgid "Your session has expired"
-msgstr ""
+msgstr "A sua sessão expirou"
 
 #: ../qml/models/MatrixModel.qml:619
 msgid ""
@@ -779,6 +779,9 @@ msgid ""
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
 "fluffychat/issues/new. Error details: %1"
 msgstr ""
+"😰 Ocorreu um erro crítico! Desculpe, a conexão com o servidor terminou! Por "
+"favor reporte este erro em: https://github.com/ChristianPauly/fluffychat/"
+"issues/new. Detalhes do erro: %1"
 
 #: ../qml/models/ContentHubModel.qml:83
 msgid "Copied to clipboard"
