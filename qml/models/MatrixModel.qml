@@ -106,7 +106,6 @@ Item {
         property alias deviceID: matrix.deviceID
         property alias deviceName: matrix.deviceName
         property alias matrixVersions: matrix.matrixVersions
-        property alias lazy_load_members: matrix.lazy_load_members
         property alias sendTypingNotification: matrix.sendTypingNotification
         property alias sendWithEnter: matrix.sendWithEnter
         property alias hideLessImportantEvents: matrix.hideLessImportantEvents
@@ -320,7 +319,7 @@ Item {
         console.log("resetting...")
         E2ee.removeAccount()
         matrix.one_time_key_counts = 0
-        matrix.token = matrix.e2eeAccountPickle = matrix.username = matrix.server = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = matrix.lazy_load_members = ""
+        matrix.token = matrix.e2eeAccountPickle = matrix.username = matrix.server = matrix.deviceID = matrix.deviceName = matrix.prevBatch = matrix.matrixVersions = matrix.matrixid = ""
     }
 
 
@@ -517,11 +516,8 @@ Item {
         var onVersionsResponse = function ( matrixVersions ) {
             console.log("👷[Init] Supported Matrix versions:", JSON.stringify(matrixVersions))
             matrix.matrixVersions = matrixVersions.versions
-            if ( "unstable_features" in matrixVersions && "m.lazy_load_members" in matrixVersions["unstable_features"] ) {
-                matrix.lazy_load_members = matrixVersions["unstable_features"]["m.lazy_load_members"] ? "true" : "false"
-            }
             // Start the first synchronization
-            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members)}, onFristSyncResponse, init, _PRIORITY.HIGH )
+            matrix.get( "/client/r0/sync", { filter: "{\"room\":{\"include_leave\":true,\"state\":{\"lazy_load_members\":true}}}"}, onFristSyncResponse, init, _PRIORITY.HIGH )
         }
 
         // Discover which features the server does support
@@ -533,7 +529,7 @@ Item {
     function sync ( timeout ) {
         if ( !isLogged || abortSync ) return
 
-        var data = { "since": matrix.prevBatch, filter: "{\"room\":{\"state\":{\"lazy_load_members\":%1}}}".arg(matrix.lazy_load_members) }
+        var data = { "since": matrix.prevBatch, filter: "{\"room\":{\"state\":{\"lazy_load_members\":true}}}" }
 
         if ( !timeout ) data.timeout = longPollingTimeout
 
