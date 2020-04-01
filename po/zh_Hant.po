@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 14:31+0000\n"
+"POT-Creation-Date: 2020-04-01 06:01+0000\n"
 "PO-Revision-Date: 2019-12-03 00:05+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.10-dev\n"
 
-#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
 msgstr "未知"
 
@@ -745,28 +745,28 @@ msgstr "美國"
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:298
+#: ../qml/models/MatrixModel.qml:297
 msgid "You are not allowed to chat here."
 msgstr "你不能在這裡聊天。"
 
-#: ../qml/models/MatrixModel.qml:422 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:421 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕沒有連接…"
 
-#: ../qml/models/MatrixModel.qml:472
+#: ../qml/models/MatrixModel.qml:471
 msgid "Upload error:"
 msgstr "上傳錯誤："
 
-#: ../qml/models/MatrixModel.qml:548
+#: ../qml/models/MatrixModel.qml:544
 msgid "No connection to the homeserver 😕"
 msgstr "沒有連接到家庭伺服器 😕"
 
-#: ../qml/models/MatrixModel.qml:555
+#: ../qml/models/MatrixModel.qml:551
 msgid "Your session has expired"
 msgstr "您的會議已經過期"
 
-#: ../qml/models/MatrixModel.qml:619
+#: ../qml/models/MatrixModel.qml:615
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -1171,23 +1171,23 @@ msgstr "和當前活動"
 msgid "Last seen: %1"
 msgstr "最后一次出現: "
 
-#: ../qml/scripts/ChatPageSettingsActions.js:87
+#: ../qml/scripts/ChatPageSettingsActions.js:85
 msgid "Member"
 msgstr "成員"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:88
+#: ../qml/scripts/ChatPageSettingsActions.js:86
 msgid "Was invited"
 msgstr "被邀請了"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:89
+#: ../qml/scripts/ChatPageSettingsActions.js:87
 msgid "Has left the chat"
 msgstr "已經離開聊天"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:90
+#: ../qml/scripts/ChatPageSettingsActions.js:88
 msgid "Has knocked"
 msgstr "已經敲門了"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:91
+#: ../qml/scripts/ChatPageSettingsActions.js:89
 msgid "Was banned from the chat"
 msgstr "被禁止參與聊天"
 

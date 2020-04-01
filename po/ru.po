@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 14:31+0000\n"
+"POT-Creation-Date: 2020-04-01 06:01+0000\n"
 "PO-Revision-Date: 2020-02-17 13:50+0000\n"
 "Last-Translator: Golubev Alexander <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/fluffychat/"
@@ -16,11 +16,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.11-dev\n"
 
-#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
 msgstr "Неизвестно"
 
@@ -707,28 +707,28 @@ msgstr "США"
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:298
+#: ../qml/models/MatrixModel.qml:297
 msgid "You are not allowed to chat here."
 msgstr "Вам не разрешено общаться здесь."
 
-#: ../qml/models/MatrixModel.qml:422 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:421 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Нет соединения…"
 
-#: ../qml/models/MatrixModel.qml:472
+#: ../qml/models/MatrixModel.qml:471
 msgid "Upload error:"
 msgstr "Ошибка загрузки:"
 
-#: ../qml/models/MatrixModel.qml:548
+#: ../qml/models/MatrixModel.qml:544
 msgid "No connection to the homeserver 😕"
 msgstr "Нет соединения с сервером 😕"
 
-#: ../qml/models/MatrixModel.qml:555
+#: ../qml/models/MatrixModel.qml:551
 msgid "Your session has expired"
 msgstr "Ваша сессия истекла"
 
-#: ../qml/models/MatrixModel.qml:619
+#: ../qml/models/MatrixModel.qml:615
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1123,23 +1123,23 @@ msgstr "Активен(на) в настоящий момент"
 msgid "Last seen: %1"
 msgstr "Был(а): %1"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:87
+#: ../qml/scripts/ChatPageSettingsActions.js:85
 msgid "Member"
 msgstr "Участник"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:88
+#: ../qml/scripts/ChatPageSettingsActions.js:86
 msgid "Was invited"
 msgstr "Приглашен(а)"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:89
+#: ../qml/scripts/ChatPageSettingsActions.js:87
 msgid "Has left the chat"
 msgstr "Покинул(а) беседу"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:90
+#: ../qml/scripts/ChatPageSettingsActions.js:88
 msgid "Has knocked"
 msgstr ""
 
-#: ../qml/scripts/ChatPageSettingsActions.js:91
+#: ../qml/scripts/ChatPageSettingsActions.js:89
 msgid "Was banned from the chat"
 msgstr "Был(а) заблокирован(а) в беседе"
 

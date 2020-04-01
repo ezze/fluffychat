@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 14:31+0000\n"
+"POT-Creation-Date: 2020-04-01 06:01+0000\n"
 "PO-Revision-Date: 2020-03-04 10:33+0000\n"
 "Last-Translator: Sylke Vicious <silkevicious@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/fluffychat/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.0-dev\n"
 
-#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -723,28 +723,28 @@ msgstr "USA"
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:298
+#: ../qml/models/MatrixModel.qml:297
 msgid "You are not allowed to chat here."
 msgstr "Non hai il permesso di messaggiare qui."
 
-#: ../qml/models/MatrixModel.qml:422 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:421 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Nessuna connessione…"
 
-#: ../qml/models/MatrixModel.qml:472
+#: ../qml/models/MatrixModel.qml:471
 msgid "Upload error:"
 msgstr "Errore di caricamento:"
 
-#: ../qml/models/MatrixModel.qml:548
+#: ../qml/models/MatrixModel.qml:544
 msgid "No connection to the homeserver 😕"
 msgstr "Nessuna connessione al server 😕"
 
-#: ../qml/models/MatrixModel.qml:555
+#: ../qml/models/MatrixModel.qml:551
 msgid "Your session has expired"
 msgstr "La tua sessione è scaduta"
 
-#: ../qml/models/MatrixModel.qml:619
+#: ../qml/models/MatrixModel.qml:615
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1138,23 +1138,23 @@ msgstr "Attualmente attivo"
 msgid "Last seen: %1"
 msgstr "Visto per l'ultima volta: %1"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:87
+#: ../qml/scripts/ChatPageSettingsActions.js:85
 msgid "Member"
 msgstr "Membro"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:88
+#: ../qml/scripts/ChatPageSettingsActions.js:86
 msgid "Was invited"
 msgstr "È stato invitato"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:89
+#: ../qml/scripts/ChatPageSettingsActions.js:87
 msgid "Has left the chat"
 msgstr "Ha lasciato la conversazione"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:90
+#: ../qml/scripts/ChatPageSettingsActions.js:88
 msgid "Has knocked"
 msgstr "Ha bussato"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:91
+#: ../qml/scripts/ChatPageSettingsActions.js:89
 msgid "Was banned from the chat"
 msgstr "È stato bannato dalla conversazione"
 

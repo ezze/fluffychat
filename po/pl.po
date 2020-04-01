@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 14:31+0000\n"
+"POT-Creation-Date: 2020-04-01 06:01+0000\n"
 "PO-Revision-Date: 2020-01-26 20:21+0000\n"
 "Last-Translator: Katarzyna Twardowska <katarina.twardowska@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/fluffychat/"
@@ -20,7 +20,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.11-dev\n"
 
-#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
 msgstr "Nieznany"
 
@@ -743,28 +743,28 @@ msgstr "USA"
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:298
+#: ../qml/models/MatrixModel.qml:297
 msgid "You are not allowed to chat here."
 msgstr "Nie jesteś uprawniony do konwersowania tutaj."
 
-#: ../qml/models/MatrixModel.qml:422 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:421 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Brak połączenia…"
 
-#: ../qml/models/MatrixModel.qml:472
+#: ../qml/models/MatrixModel.qml:471
 msgid "Upload error:"
 msgstr "Błąd przesyłania:"
 
-#: ../qml/models/MatrixModel.qml:548
+#: ../qml/models/MatrixModel.qml:544
 msgid "No connection to the homeserver 😕"
 msgstr "Brak połączenia z serwerem domyślnym 😕"
 
-#: ../qml/models/MatrixModel.qml:555
+#: ../qml/models/MatrixModel.qml:551
 msgid "Your session has expired"
 msgstr "Twoja sesja wygasła"
 
-#: ../qml/models/MatrixModel.qml:619
+#: ../qml/models/MatrixModel.qml:615
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1157,23 +1157,23 @@ msgstr "Obecnie aktywny"
 msgid "Last seen: %1"
 msgstr "Ostatnio widziany: %1"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:87
+#: ../qml/scripts/ChatPageSettingsActions.js:85
 msgid "Member"
 msgstr "Członek"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:88
+#: ../qml/scripts/ChatPageSettingsActions.js:86
 msgid "Was invited"
 msgstr "został zaproszony"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:89
+#: ../qml/scripts/ChatPageSettingsActions.js:87
 msgid "Has left the chat"
 msgstr "opuścił konwersację"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:90
+#: ../qml/scripts/ChatPageSettingsActions.js:88
 msgid "Has knocked"
 msgstr "prosi o dołączenie"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:91
+#: ../qml/scripts/ChatPageSettingsActions.js:89
 msgid "Was banned from the chat"
 msgstr "został zablokowany w konwersacji"
 

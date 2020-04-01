@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 14:31+0000\n"
+"POT-Creation-Date: 2020-04-01 06:01+0000\n"
 "PO-Revision-Date: 2020-02-08 17:50+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.11-dev\n"
 
-#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:92
+#: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
 msgstr "Ukjent"
 
@@ -755,30 +755,30 @@ msgstr "NO"
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:298
+#: ../qml/models/MatrixModel.qml:297
 #, fuzzy
 msgid "You are not allowed to chat here."
 msgstr "Du tillates ikke å sludre her."
 
-#: ../qml/models/MatrixModel.qml:422 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:421 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Ingen tilkobling…"
 
-#: ../qml/models/MatrixModel.qml:472
+#: ../qml/models/MatrixModel.qml:471
 msgid "Upload error:"
 msgstr "Opplastingsfeil:"
 
-#: ../qml/models/MatrixModel.qml:548
+#: ../qml/models/MatrixModel.qml:544
 #, fuzzy
 msgid "No connection to the homeserver 😕"
 msgstr "Ingen tilkobling til hjemmetjeneren 😕"
 
-#: ../qml/models/MatrixModel.qml:555
+#: ../qml/models/MatrixModel.qml:551
 msgid "Your session has expired"
 msgstr "Økten din har utløpt"
 
-#: ../qml/models/MatrixModel.qml:619
+#: ../qml/models/MatrixModel.qml:615
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -1198,23 +1198,23 @@ msgstr "Aktiv nå"
 msgid "Last seen: %1"
 msgstr "Sist sett: %1"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:87
+#: ../qml/scripts/ChatPageSettingsActions.js:85
 msgid "Member"
 msgstr "Medlem"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:88
+#: ../qml/scripts/ChatPageSettingsActions.js:86
 msgid "Was invited"
 msgstr "Ble invitert"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:89
+#: ../qml/scripts/ChatPageSettingsActions.js:87
 msgid "Has left the chat"
 msgstr "Har forlatt slurdringen"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:90
+#: ../qml/scripts/ChatPageSettingsActions.js:88
 msgid "Has knocked"
 msgstr "Har banket på"
 
-#: ../qml/scripts/ChatPageSettingsActions.js:91
+#: ../qml/scripts/ChatPageSettingsActions.js:89
 msgid "Was banned from the chat"
 msgstr "Ble bannlyst fra sludringen"
 
