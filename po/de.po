@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-01 06:01+0000\n"
-"PO-Revision-Date: 2020-03-10 18:33+0000\n"
-"Last-Translator: mondstern <hello@mondstern.tk>\n"
+"PO-Revision-Date: 2020-04-03 17:46+0000\n"
+"Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
 "Language: de\n"
@@ -53,14 +53,12 @@ msgstr "In die Zwischenablage kopiert"
 
 #: ../qml/pages/ChatDevicesPage.qml:17
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
-#, fuzzy
-#| msgid "Notification settings"
 msgid "Encryption settings"
-msgstr "Benachrichtigungseinstellungen"
+msgstr "Verschlüsselungseinstellungen"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
-msgstr ""
+msgstr "(Experimentell) Verschlüsselung aktivieren"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
@@ -208,22 +206,16 @@ msgid "Community funded"
 msgstr "Finanziert durch die Gemeinschaft"
 
 #: ../qml/pages/WalkthroughPage.qml:235
-#, fuzzy
-#| msgid ""
-#| "FluffyChat is open, nonprofit and cute. The development and servers is "
-#| "all community funded. Donate to this project on <a href='https://www."
-#| "patreon.com/bePatron?u=11123241'>Patreon</a> or <a href='https://"
-#| "liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 msgid ""
 "FluffyChat is open, nonprofit and cute. The development and servers is all "
 "community funded. Donate to this project on <a href='https://ko-fi.com/"
 "krille'>Ko-fi</a> or <a href='https://liberapay.com/KrilleChritzelius/"
 "donate'>Liberapay</a>"
 msgstr ""
-"FluffyChat ist offen, unkommerziell und süß. Die Entwicklung und Server sind "
-"alle Spendenbasiert. Spende für dieses Projekt auf <a href='https://www."
-"patreon.com/bePatron?u=11123241'>Patreon</a> und <a href='https://liberapay."
-"com/KrilleChritzelius/donate'>Liberapay</a>"
+"FluffyChat ist offen, nicht-kommerziell und süß. Die Entwicklung und Server "
+"sind alle Spendenbasiert. Spende für dieses Projekt auf <a href='https://ko-"
+"fi.com/krille'>Jo-fi</a> oder <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
@@ -566,10 +558,8 @@ msgid "Unencrypted message..."
 msgstr "Unverschlüsselte Nachricht..."
 
 #: ../qml/pages/ChatPage.qml:278
-#, fuzzy
-#| msgid "Encrypted message"
 msgid "Encrypted message..."
-msgstr "Verschlüsselte Nachricht"
+msgstr "Verschlüsselte Nachricht …"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
@@ -1059,7 +1049,7 @@ msgstr "Vollständiger Benutzername:"
 
 #: ../qml/components/EmailListItem.qml:31
 msgid "Remove this email address?"
-msgstr "Entferne diese Email-Adresse?"
+msgstr "Diese E-Mail-Adresse entfernen?"
 
 #: ../qml/components/AddressesListItem.qml:15
 msgid "Canonical alias"
@@ -1123,11 +1113,11 @@ msgstr "Zuletzt gesehen: "
 
 #: ../qml/components/AddEmailDialog.qml:12
 msgid "Connect new email address"
-msgstr "Neue Email-Adresse verbinden"
+msgstr "Neue E-Mail-Adresse verbinden"
 
 #: ../qml/components/AddEmailDialog.qml:20
 msgid "youremail@example.edu"
-msgstr "deineemail@example.edu"
+msgstr "deineemail@beispiel.edu"
 
 #: ../qml/components/LockedScreen.qml:33
 msgid ""
@@ -1187,7 +1177,7 @@ msgstr "Willst du diesem Chat beitreten?"
 
 #: ../qml/scripts/AddEmailDialogActions.js:9
 msgid "Have you confirmed your email address?"
-msgstr "Hast du deine Email-Adresse bestätigt?"
+msgstr "Hast du deine E-Mail-Adresse bestätigt?"
 
 #: ../qml/scripts/InviteListItemActions.js:9
 msgid "%1 has been invited"
