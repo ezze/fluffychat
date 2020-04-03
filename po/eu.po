@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-01 06:01+0000\n"
-"PO-Revision-Date: 2020-02-08 17:50+0000\n"
-"Last-Translator: aitzol berasategi <aitzol@disroot.org>\n"
+"PO-Revision-Date: 2020-04-03 17:46+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/fluffychat/"
 "translations/eu/>\n"
 "Language: eu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.0-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
@@ -71,7 +71,7 @@ msgstr "Ez da gailurik aurkitu"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
-msgstr "FluffyChat %1  %2-en"
+msgstr "FluffyChat %1 %2-en"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Buy a coffee for me"
