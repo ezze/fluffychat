@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-01 06:01+0000\n"
 "PO-Revision-Date: 2020-04-03 17:46+0000\n"
-"Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/fluffychat/"
 "translations/de/>\n"
 "Language: de\n"
@@ -75,7 +75,7 @@ msgstr "FluffyChat %1 auf %2"
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Buy a coffee for me"
-msgstr "Kaufen einen Kaffee für mich"
+msgstr "Kaufe mir einen Kaffee"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
@@ -88,7 +88,7 @@ msgstr "Trete der Community bei"
 #: ../qml/pages/InfoPage.qml:53 ../qml/pages/LoginPage.qml:43
 #: ../qml/pages/PrivacyPolicyPage.qml:11
 msgid "Privacy Policy"
-msgstr "Datenschutz"
+msgstr "Datenschutzerklärung"
 
 #: ../qml/pages/InfoPage.qml:60
 msgid "Website"
@@ -175,7 +175,7 @@ msgid ""
 msgstr ""
 "FluffyChat ist kompatibel mit anderen Messengern wie Riot, Fractal oder "
 "uMatriks. Du kannst außerdem IRC Channels beitreten, in XMPP Chats mitmachen "
-"oder Telegram Gruppen verknüpfen."
+"oder Telegram-Gruppen verknüpfen."
 
 #: ../qml/pages/WalkthroughPage.qml:166
 msgid "What's new in version %1?"
@@ -199,7 +199,7 @@ msgstr "Übersetzungen aktualisiert. Danke an alle Übersetzer."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Experimental release of end-to-end encryption."
-msgstr "Experimentelle Veröffentlichung der End-to-End-Verschlüsselung."
+msgstr "Experimentelle Veröffentlichung der Ende-zu-Ende-Verschlüsselung."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -570,10 +570,8 @@ msgid "No phone numbers connected"
 msgstr "Keine Handynummern verbunden"
 
 #: ../qml/pages/UserDevicesPage.qml:25
-#, fuzzy
-#| msgid "Devices"
 msgid "Devices of %1"
-msgstr "Geräte"
+msgstr "Geräte von %1"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
 #: ../qml/pages/ChatSettingsPage.qml:165
@@ -582,7 +580,7 @@ msgstr "Erweiterte Einstellungen"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "End-to-end encryption"
-msgstr ""
+msgstr "Ende-zu-Ende-Verschlüsselung"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
