@@ -20,15 +20,8 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-#Find Olm
-find_path(Olm_DIR OlmConfig.cmake
-	  PATHS "$ENV{olm_LIB_INSTALL_DIR}/lib/cmake/Olm"
-	        "$ENV{olm_LIB_INSTALL_DIR}/lib/$ENV{ARCH_TRIPLET}/cmake/Olm")
 find_package(Olm)
-get_property(OLM_INCLUDES TARGET Olm::Olm PROPERTY INTERFACE_INCLUDE_DIRECTORIES)
-get_property(OLM_LIBS TARGET Olm::Olm PROPERTY IMPORTED_LOCATION_RELEASE)
-include_directories(${OLM_INCLUDES})
-target_link_libraries(${PLUGIN} ${OLM_LIBS})
+target_link_libraries(${PLUGIN} Olm::Olm)
 
 set(QT_IMPORTS_DIR "/lib/${ARCH_TRIPLET}")
 
