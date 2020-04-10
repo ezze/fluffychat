@@ -230,7 +230,7 @@ Item {
     }
 
     // Encrypts a message payload depending on the algorithm
-    function sendOlmMessage ( content, device_id_list, identityKeys, callback  ) {
+    function sendOlmMessage ( content, device_id_list, identityKeys, fingerprintKeys, callback  ) {
         console.log("[DEBUG] Try to send a olm message")
 
         var knownKeys = {}
@@ -265,8 +265,16 @@ Item {
                 for ( var deviceId in knownKeys[userId] ) {
                     E2ee.setActiveSession(knownKeys[userId][deviceId].pickle, matrix.matrixid)
                     var type = E2ee.encryptMessageType() === "OLM_MESSAGE_TYPE_PRE_KEY" ? 0 : 1
-                    var encrypted = E2ee.encrypt(JSON.stringify(content))
                     var keys = JSON.parse(E2ee.getIdentityKeys())
+                    var payload = {
+                        "type": content.type,
+                        "content": content.content,
+                        "sender": matrix.matrixid,
+                        "keys": {"ed25519": keys["ed25519"]},
+                        "recipient": userId,
+                        "recipient_keys": {"ed25519": fingerprintKeys[deviceId]}
+                    }
+                    var encrypted = E2ee.encrypt(JSON.stringify(payload))
                     data.messages[userId][deviceId] = {
                         "algorithm": "m.olm.v1.curve25519-aes-sha2",
                         "ciphertext": {},
@@ -277,6 +285,7 @@ Item {
                         "type": type
                     }
                     print("======= REUSE OLM SESSION ========")
+                    print("Type: %1".arg(type))
                 }
             }
 
@@ -285,6 +294,7 @@ Item {
                     data.messages[user_id] = {}
                 }
                 for ( var device_id in resp.one_time_keys[user_id] ) {
+                    if (device_id === matrix.deviceID) continue
                     var keysObj = resp.one_time_keys[user_id][device_id]
                     var oneTimeKey
                     for ( var item in keysObj ) {
@@ -292,11 +302,19 @@ Item {
                     }
                     console.log("[DEBUG] Create outbound session with device " + device_id + " oneTimeKey " + oneTimeKey + " and identity key " + identityKeys[device_id])
                     E2ee.removeSession();
-                    E2ee.createOutboundSession(identityKeys[device_id], oneTimeKey, matrix.matrixid)
+                    var newOlmSessionPickle = E2ee.createOutboundSession(identityKeys[device_id], oneTimeKey, matrix.matrixid)
                     var type = E2ee.encryptMessageType() === "OLM_MESSAGE_TYPE_PRE_KEY" ? 0 : 1
-                    var encrypted = E2ee.encrypt(JSON.stringify(content))
 
                     var keys = JSON.parse(E2ee.getIdentityKeys())
+                    var payload = {
+                        "type": content.type,
+                        "content": content.content,
+                        "sender": matrix.matrixid,
+                        "keys": {"ed25519": keys["ed25519"]},
+                        "recipient": user_id,
+                        "recipient_keys": {"ed25519": fingerprintKeys[device_id]}
+                    }
+                    var encrypted = E2ee.encrypt(JSON.stringify(payload))
 
                     data.messages[user_id][device_id] = {
                         "algorithm": "m.olm.v1.curve25519-aes-sha2",
@@ -307,6 +325,9 @@ Item {
                         "body": encrypted,
                         "type": type
                     }
+                    print("Type: %1".arg(type))
+                    storage.query ( "INSERT OR REPLACE INTO OlmSessions VALUES(?,?,?)",
+                [ identityKeys[device_id], fingerprintKeys[device_id], newOlmSessionPickle.session ])
                 }
             }
 
@@ -354,19 +375,20 @@ Item {
             console.log("[DEBUG] Found %1 devices in this room".arg(device_id_row.rows.length))
             var devicesList = {}
             var identityKeys = {}
+            var fingerprintKeys  = {}
             for (var i = 0; i < device_id_row.rows.length; i++) {
                 var row = device_id_row.rows[i]
                 if (row.device_id === matrix.deviceID) continue
                 var keys = JSON.parse(row.keys_json)
                 var keyName = "curve25519:%1".arg(row.device_id)
+                var keyNameFingerprint = "ed25519:%1".arg(row.device_id)
                 if (!devicesList[row.matrix_id]) {
                     devicesList[row.matrix_id] = {}
                 }
                 identityKeys[row.device_id] = keys.keys[keyName]
+                fingerprintKeys[row.device_id] = keys.keys[keyNameFingerprint]
                 devicesList[row.matrix_id][row.device_id] = "signed_curve25519"
             }
-
-            console.log("[DEBUG] devicesList identityKeys ", JSON.stringify(identityKeys))
 
             var success_callback = function () {
                 console.log("[DEBUG] Store InboundMegolmSession with session_id:", sessionId)
@@ -381,7 +403,7 @@ Item {
                 ] )
                 callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
             }
-            sendOlmMessage(olmContent, devicesList, identityKeys, success_callback)
+            sendOlmMessage(olmContent, devicesList, identityKeys, fingerprintKeys, success_callback)
         }
     }
 
