@@ -237,7 +237,7 @@ Item {
 
         for ( var userId in device_id_list ) {
             for ( var deviceId in device_id_list[userId] ) {
-                var res = storage.query ( "SELECT Devices.matrix_id, Devices.device_id, Devices.sender_key, OlmSessions.pickle FROM OlmSessions, Devices WHERE OlmSessions.sender_key=Devices.sender_key AND Devices.device_id=?", [ deviceId ] )
+                var res = storage.query ( "SELECT Devices.matrix_id, Devices.device_id, Devices.sender_key, OlmSessions.pickle FROM OlmSessions, Devices WHERE OlmSessions.device_key=Devices.sender_key AND Devices.device_id=?", [ deviceId ] )
                 if ( res.rows.length > 0 ) {
                     print("Found existing Olm Session for %1 %2".arg(deviceId).arg(userId))
                     delete device_id_list[userId][deviceId]
@@ -284,8 +284,9 @@ Item {
                         "body": encrypted,
                         "type": type
                     }
+                    storage.query ( "UPDATE OlmSessions SET pickle=?",
+                [ E2ee.session ])
                     print("======= REUSE OLM SESSION ========")
-                    print("Type: %1".arg(type))
                 }
             }
 
@@ -353,6 +354,7 @@ Item {
         if (res.length === 0) return
 
         if (res.rows[0].encryption_outbound_pickle !== "") {
+            console.log("==== Found already existing megolm session ====")
             E2ee.restoreOutboundGroupSession(res.rows[0].encryption_outbound_pickle, matrix.matrixid)
             callback (E2ee.encryptGroupMessage(JSON.stringify(content)))
         }
@@ -397,7 +399,7 @@ Item {
                     sessionId,
                     megolmInPickle
                 ] )
-                storage.query( "UPDATE Chats SET encryption_outbound_pickle=? WHERE id=?", [
+                var resp = storage.query( "UPDATE Chats SET encryption_outbound_pickle=? WHERE id=?", [
                     newPickle,
                     room_id
                 ] )
