@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-11 13:38+0000\n"
+"POT-Creation-Date: 2020-04-16 17:48+0000\n"
 "PO-Revision-Date: 2020-02-17 13:50+0000\n"
 "Last-Translator: Golubev Alexander <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/fluffychat/"
@@ -44,11 +44,11 @@ msgstr "Вы приглашены в беседу"
 msgid "Are you sure?"
 msgstr "Вы уверены?"
 
-#: ../qml/Main.qml:153
+#: ../qml/Main.qml:152
 msgid "You must agree to the privacy policy"
 msgstr "Вы должны согласиться с политикой конфиденциальности"
 
-#: ../qml/Main.qml:168
+#: ../qml/Main.qml:167
 msgid "Copied to the clipboard"
 msgstr "Скопировано в буфер обмена"
 
@@ -505,39 +505,39 @@ msgstr "Это Вы."
 msgid "Start new chat"
 msgstr "Начать новую беседу"
 
-#: ../qml/pages/ChatPage.qml:55 ../qml/components/SimpleChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr "Неизвестная беседа"
 
-#: ../qml/pages/ChatPage.qml:113
+#: ../qml/pages/ChatPage.qml:112
 msgid "Chat info"
 msgstr "Информация о беседе"
 
-#: ../qml/pages/ChatPage.qml:138
+#: ../qml/pages/ChatPage.qml:137
 msgid "No messages in this chat …"
 msgstr "В беседе нет сообщений…"
 
-#: ../qml/pages/ChatPage.qml:161
+#: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "Ответить <b>%1</b>: \"%2\""
 
-#: ../qml/pages/ChatPage.qml:239
+#: ../qml/pages/ChatPage.qml:238
 msgid "Accept invitation"
 msgstr "Принять приглашение"
 
-#: ../qml/pages/ChatPage.qml:239
+#: ../qml/pages/ChatPage.qml:238
 msgid "Join"
 msgstr "Присоединиться"
 
-#: ../qml/pages/ChatPage.qml:247
+#: ../qml/pages/ChatPage.qml:246
 msgid "You do not have posting permissions here"
 msgstr "У Вас нет прав для отправки сообщений"
 
-#: ../qml/pages/ChatPage.qml:277
+#: ../qml/pages/ChatPage.qml:276
 msgid "Unencrypted message..."
 msgstr "Незашифрованное сообщение…"
 
-#: ../qml/pages/ChatPage.qml:278
+#: ../qml/pages/ChatPage.qml:277
 msgid "Encrypted message..."
 msgstr "Зашифрованное сообщение…"
 
@@ -707,28 +707,28 @@ msgstr "США"
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:297
+#: ../qml/models/MatrixModel.qml:275
 msgid "You are not allowed to chat here."
 msgstr "Вам не разрешено общаться здесь."
 
-#: ../qml/models/MatrixModel.qml:421 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:398 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Нет соединения…"
 
-#: ../qml/models/MatrixModel.qml:471
+#: ../qml/models/MatrixModel.qml:448
 msgid "Upload error:"
 msgstr "Ошибка загрузки:"
 
-#: ../qml/models/MatrixModel.qml:544
+#: ../qml/models/MatrixModel.qml:520
 msgid "No connection to the homeserver 😕"
 msgstr "Нет соединения с сервером 😕"
 
-#: ../qml/models/MatrixModel.qml:551
+#: ../qml/models/MatrixModel.qml:527
 msgid "Your session has expired"
 msgstr "Ваша сессия истекла"
 
-#: ../qml/models/MatrixModel.qml:615
+#: ../qml/models/MatrixModel.qml:591
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
