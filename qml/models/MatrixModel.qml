@@ -1,7 +1,7 @@
 import QtQuick 2.9
 import Ubuntu.Components 1.3
 import Qt.labs.settings 1.0
-import E2ee 1.0
+import Upload 1.0
 
 /* =============================== MATRIX MODEL ===============================
 
@@ -434,12 +434,12 @@ Item {
     function upload (mediaUrl, callback) {
         var path = "" + mediaUrl
         path = path.replace("file:/","")
-        connectOnce (E2ee.uploadFinished, callback)
-        E2ee.uploadFile(path, "https://%1/_matrix/media/r0/upload".arg(matrix.server), matrix.token)
+        connectOnce (Upload.uploadFinished, callback)
+        Upload.uploadFile(path, "https://%1/_matrix/media/r0/upload".arg(matrix.server), matrix.token)
     }
 
     Connections {
-        target: E2ee
+        target: Upload
         onUploadFinished: {
             try {
                 JSON.parse(reply).content_uri

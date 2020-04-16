@@ -11,26 +11,21 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
-#include "e2ee.h"
+#include "upload.h"
 
-E2ee::E2ee()
+Upload::Upload()
 {
 
-}
-
-E2ee::~E2ee()
-{
-    
 }
 
 QString logError(QString errorMsg)
 {
-    QString logMsg = "🐞[E2EE] " + errorMsg;
+    QString logMsg = "🐞[Upload] " + errorMsg;
     qDebug() << logMsg;
     return "";
 }
 
-bool E2ee::uploadFile(QString path, QString uploadUrl, QString token)
+bool Upload::uploadFile(QString path, QString uploadUrl, QString token)
 {
 
     QFile file(path);

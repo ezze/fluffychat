@@ -1,10 +1,10 @@
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(PLUGIN "E2ee")
+set(PLUGIN "Upload")
 
 set(
     SRC
     plugin.cpp
-    e2ee.cpp
+    upload.cpp
 )
 
 set(CMAKE_AUTOMOC ON)

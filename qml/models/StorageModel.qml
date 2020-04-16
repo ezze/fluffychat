@@ -2,7 +2,6 @@ import QtQuick 2.9
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Qt.labs.settings 1.0
-import E2ee 1.0
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats
 

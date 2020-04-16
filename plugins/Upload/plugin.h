@@ -1,9 +1,9 @@
-#ifndef E2EEPLUGIN_H
-#define E2EEPLUGIN_H
+#ifndef UPLOADPLUGIN_H
+#define UPLOADPLUGIN_H
 
 #include <QQmlExtensionPlugin>
 
-class E2eePlugin : public QQmlExtensionPlugin {
+class UploadPlugin : public QQmlExtensionPlugin {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 

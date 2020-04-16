@@ -3,7 +3,6 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Content 1.3
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
-import E2ee 1.0
 import "../components"
 import "../scripts/MatrixNames.js" as MatrixNames
 import "../scripts/MessageFormats.js" as MessageFormats

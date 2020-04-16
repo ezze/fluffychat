@@ -1,16 +1,15 @@
-#ifndef E2EE_H
-#define E2EE_H
+#ifndef UPLOAD_H
+#define UPLOAD_H
 
 #include <QObject>
 #include <QJsonObject>
 
-class E2ee: public QObject {
+class Upload: public QObject {
     Q_OBJECT
 
 private:
 public:
-    E2ee();
-    ~E2ee();
+    Upload();
 
     // TODO: More detailed comments for doxygen
 
