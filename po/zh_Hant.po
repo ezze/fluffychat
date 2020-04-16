@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-11 13:38+0000\n"
+"POT-Creation-Date: 2020-04-16 17:48+0000\n"
 "PO-Revision-Date: 2019-12-03 00:05+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -51,11 +51,11 @@ msgstr "您已受邀加入此聊天"
 msgid "Are you sure?"
 msgstr "您確定嗎？"
 
-#: ../qml/Main.qml:153
+#: ../qml/Main.qml:152
 msgid "You must agree to the privacy policy"
 msgstr "您必須同意隱私政策"
 
-#: ../qml/Main.qml:168
+#: ../qml/Main.qml:167
 msgid "Copied to the clipboard"
 msgstr "複製到剪貼簿"
 
@@ -536,43 +536,43 @@ msgstr "這是您。"
 msgid "Start new chat"
 msgstr "開始新的聊天"
 
-#: ../qml/pages/ChatPage.qml:55 ../qml/components/SimpleChatListItem.qml:28
+#: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
 msgstr "未知的聊天"
 
-#: ../qml/pages/ChatPage.qml:113
+#: ../qml/pages/ChatPage.qml:112
 msgid "Chat info"
 msgstr "聊天訊息"
 
-#: ../qml/pages/ChatPage.qml:138
+#: ../qml/pages/ChatPage.qml:137
 #, fuzzy
 #| msgid "No messages in this chat ..."
 msgid "No messages in this chat …"
 msgstr "此聊天中沒有訊息…"
 
-#: ../qml/pages/ChatPage.qml:161
+#: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
 msgstr "回覆 <b>%1</b>: \"%2\""
 
-#: ../qml/pages/ChatPage.qml:239
+#: ../qml/pages/ChatPage.qml:238
 msgid "Accept invitation"
 msgstr "接受邀請"
 
-#: ../qml/pages/ChatPage.qml:239
+#: ../qml/pages/ChatPage.qml:238
 msgid "Join"
 msgstr "加入"
 
-#: ../qml/pages/ChatPage.qml:247
+#: ../qml/pages/ChatPage.qml:246
 msgid "You do not have posting permissions here"
 msgstr "您沒有此處發佈的權限"
 
-#: ../qml/pages/ChatPage.qml:277
+#: ../qml/pages/ChatPage.qml:276
 #, fuzzy
 #| msgid "Encrypted message"
 msgid "Unencrypted message..."
 msgstr "已加密的消息"
 
-#: ../qml/pages/ChatPage.qml:278
+#: ../qml/pages/ChatPage.qml:277
 #, fuzzy
 #| msgid "Encrypted message"
 msgid "Encrypted message..."
@@ -745,28 +745,28 @@ msgstr "美國"
 msgid "1"
 msgstr "1"
 
-#: ../qml/models/MatrixModel.qml:297
+#: ../qml/models/MatrixModel.qml:275
 msgid "You are not allowed to chat here."
 msgstr "你不能在這裡聊天。"
 
-#: ../qml/models/MatrixModel.qml:421 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:398 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕沒有連接…"
 
-#: ../qml/models/MatrixModel.qml:471
+#: ../qml/models/MatrixModel.qml:448
 msgid "Upload error:"
 msgstr "上傳錯誤："
 
-#: ../qml/models/MatrixModel.qml:544
+#: ../qml/models/MatrixModel.qml:520
 msgid "No connection to the homeserver 😕"
 msgstr "沒有連接到家庭伺服器 😕"
 
-#: ../qml/models/MatrixModel.qml:551
+#: ../qml/models/MatrixModel.qml:527
 msgid "Your session has expired"
 msgstr "您的會議已經過期"
 
-#: ../qml/models/MatrixModel.qml:615
+#: ../qml/models/MatrixModel.qml:591
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
