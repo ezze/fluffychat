@@ -5,7 +5,6 @@ set(
     SRC
     plugin.cpp
     e2ee.cpp
-    e2eeSeed.cpp
 )
 
 set(CMAKE_AUTOMOC ON)

@@ -20,7 +20,7 @@ Item {
 
     id: storage
 
-    property var version: "0.5.5"
+    property var version: "0.6.0"
     property string dbversion: ""
     property var db: LocalStorage.openDatabaseSync("FluffyChat", "2.0", "FluffyChat Database", 1000000)
 
@@ -184,20 +184,6 @@ Item {
         'blocked INTEGER, ' +
         'UNIQUE(matrix_id, device_id))')
 
-        // TABLE SCHEMA FOR OLM SESSIONS
-        query('CREATE TABLE IF NOT EXISTS OlmSessions(' +
-        'device_key TEXT, ' +
-        'sender_key TEXT, ' +
-        'pickle TEXT, ' +
-        'UNIQUE(device_key))')
-
-        // TABLE SCHEMA FOR OLM SESSIONS
-        query('CREATE TABLE IF NOT EXISTS InboundMegolmSessions(' +
-        'room_id TEXT, ' +
-        'session_id TEXT, ' +
-        'pickle TEXT, ' +
-        'UNIQUE(room_id, session_id))')
-
         if ( matrix.isLogged ) {
             storage.markSendingEventsAsError ()
         }
@@ -224,8 +210,6 @@ Item {
         query('DELETE FROM ThirdPIDs')
         query('DELETE FROM Media')
         query('DELETE FROM Devices')
-        query('DELETE FROM OlmSessions')
-        query('DELETE FROM InboundMegolmSessions')
     }
 
 
@@ -239,8 +223,6 @@ Item {
         query('DROP TABLE IF EXISTS ThirdPIDs')
         query('DROP TABLE IF EXISTS Media')
         query('DROP TABLE IF EXISTS Devices')
-        query('DROP TABLE IF EXISTS OlmSessions')
-        query('DROP TABLE IF EXISTS InboundMegolmSessions')
     }
 
     property var queryQueue: []
@@ -584,7 +566,6 @@ Item {
         case "device_lists":
             if ( typeof eventContent.changed === "object" ) {
                 for (var i = 0; i < eventContent.changed.length; i++) {
-                    addQuery ("UPDATE Chats SET encryption_outbound_pickle='' WHERE EXISTS (SELECT * FROM Chats,Memberships WHERE Memberships.chat_id=Chats.id AND Memberships.matrix_id=?)", [ eventContent.changed[i] ] )
                     addQuery ("UPDATE Users SET tracking_devices_uptodate=0 WHERE matrix_id=?", [ eventContent.changed[i] ] )
                     console.log("Start tracking user",eventContent.changed[i])
                 }
@@ -595,23 +576,6 @@ Item {
                     console.log("Stop tracking user",eventContent.left[i])
                 }
             }
-            break
-        case "m.room_key":
-            console.log("[DEBUG] Handle m.room_key message")
-
-            var payload = eventContent.content
-            
-            if ( supportedEncryptionAlgorithms.indexOf(payload.algorithm) === -1 ) {
-                console.log("[ERROR] Unsupported algorithm")
-                return
-            }
-            console.log("[DEBUG] Save MegOlm session with session_id:", payload.session_id)
-            var megolmInPickle = E2ee.createInboundGroupSession(payload.session_key, matrix.matrixid)
-            addQuery( "INSERT OR REPLACE INTO InboundMegolmSessions VALUES(?,?,?)", [
-                payload.room_id,
-                payload.session_id,
-                megolmInPickle
-            ] )
             break
         }
     }
@@ -644,11 +608,8 @@ Item {
                         var signedJson = res.device_keys[mxid][device_id]
                         var keyName = "ed25519:%1".arg(device_id)
                         var curveKeyName = "curve25519:%1".arg(device_id)
-                        if (e2eeModel.checkJsonSignature(signedJson.keys[keyName], signedJson, mxid, device_id)) {
-                            storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,?,0)",
-                            [ mxid, device_id, JSON.stringify(signedJson), signedJson.keys[curveKeyName], device_id===matrix.deviceID ] )
-                        }
-                        else console.warn("[WARNING] Invalid device keys from %1".arg(signedJson.user_id))
+                        storage.query("INSERT OR REPLACE INTO Devices VALUES(?,?,?,?,?,0)",
+                        [ mxid, device_id, JSON.stringify(signedJson), signedJson.keys[curveKeyName], device_id===matrix.deviceID ] )
                     }
                     storage.query("UPDATE Users SET tracking_devices_uptodate=1 WHERE matrix_id=?",
                     [ mxid ] )

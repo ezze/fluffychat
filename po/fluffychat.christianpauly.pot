@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-11 13:38+0000\n"
+"POT-Creation-Date: 2020-04-16 17:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,11 +41,11 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: ../qml/Main.qml:153
+#: ../qml/Main.qml:152
 msgid "You must agree to the privacy policy"
 msgstr ""
 
-#: ../qml/Main.qml:168
+#: ../qml/Main.qml:167
 msgid "Copied to the clipboard"
 msgstr ""
 
@@ -686,28 +686,28 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:297
+#: ../qml/models/MatrixModel.qml:275
 msgid "You are not allowed to chat here."
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:421 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:398 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:471
+#: ../qml/models/MatrixModel.qml:448
 msgid "Upload error:"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:544
+#: ../qml/models/MatrixModel.qml:520
 msgid "No connection to the homeserver 😕"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:551
+#: ../qml/models/MatrixModel.qml:527
 msgid "Your session has expired"
 msgstr ""
 
-#: ../qml/models/MatrixModel.qml:615
+#: ../qml/models/MatrixModel.qml:591
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
