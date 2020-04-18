@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 06:49+0000\n"
+"POT-Creation-Date: 2020-04-18 07:30+0000\n"
 "PO-Revision-Date: 2020-02-08 17:50+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
@@ -147,7 +147,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "p.ej. Summer%salad$flattens?tOOthpaste"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:187
 msgid "Sign up"
 msgstr "Registrarse"
 
@@ -245,23 +245,23 @@ msgstr "Preguntas frecuentes"
 msgid "Choose your homeserver"
 msgstr "Elija su servidor de datos («homeserver»)"
 
-#: ../qml/pages/LoginPage.qml:83
+#: ../qml/pages/LoginPage.qml:88
 msgid "Choose your identity server"
 msgstr "Elija su servidor de identidad («identityserver»)"
 
-#: ../qml/pages/LoginPage.qml:128
+#: ../qml/pages/LoginPage.qml:133
 msgid "Phone number (optional)"
 msgstr "Número de teléfono (opcional)"
 
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:142
 msgid "Username or Matrix ID"
 msgstr "Nombre de usuario o identificador de Matrix («ID»)"
 
-#: ../qml/pages/LoginPage.qml:176
+#: ../qml/pages/LoginPage.qml:181
 msgid "Create a new account"
 msgstr "Crear una cuenta nueva"
 
-#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:187 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Iniciar sesión"
 
@@ -727,24 +727,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "No tiene permiso para chatear aquí."
 
-#: ../qml/models/MatrixModel.qml:398 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Sin conexión…"
 
-#: ../qml/models/MatrixModel.qml:448
+#: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
 msgstr "Error de subida:"
 
-#: ../qml/models/MatrixModel.qml:520
+#: ../qml/models/MatrixModel.qml:524
 msgid "No connection to the homeserver 😕"
 msgstr "Sin conexión al servidor 😕"
 
-#: ../qml/models/MatrixModel.qml:527
+#: ../qml/models/MatrixModel.qml:531
 msgid "Your session has expired"
 msgstr "Su sesión ha caducado"
 
-#: ../qml/models/MatrixModel.qml:591
+#: ../qml/models/MatrixModel.qml:595
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

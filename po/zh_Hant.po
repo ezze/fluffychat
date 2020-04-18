@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 06:49+0000\n"
+"POT-Creation-Date: 2020-04-18 07:30+0000\n"
 "PO-Revision-Date: 2019-12-03 00:05+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -161,7 +161,7 @@ msgstr "請設置一個比較強的密碼。要來重置密碼，您需要稍後
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "例如 夏季%salad$flattens?tOOthpaste"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:187
 msgid "Sign up"
 msgstr "註冊"
 
@@ -263,23 +263,23 @@ msgstr "常見問題"
 msgid "Choose your homeserver"
 msgstr "選擇您的主頁伺服器"
 
-#: ../qml/pages/LoginPage.qml:83
+#: ../qml/pages/LoginPage.qml:88
 msgid "Choose your identity server"
 msgstr "選擇您的身份伺服器"
 
-#: ../qml/pages/LoginPage.qml:128
+#: ../qml/pages/LoginPage.qml:133
 msgid "Phone number (optional)"
 msgstr "電話號碼（可選）"
 
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:142
 msgid "Username or Matrix ID"
 msgstr "用戶名稱或 Matrix ID"
 
-#: ../qml/pages/LoginPage.qml:176
+#: ../qml/pages/LoginPage.qml:181
 msgid "Create a new account"
 msgstr "建立一個新的帳戶"
 
-#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:187 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "登入"
 
@@ -749,24 +749,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "你不能在這裡聊天。"
 
-#: ../qml/models/MatrixModel.qml:398 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕沒有連接…"
 
-#: ../qml/models/MatrixModel.qml:448
+#: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
 msgstr "上傳錯誤："
 
-#: ../qml/models/MatrixModel.qml:520
+#: ../qml/models/MatrixModel.qml:524
 msgid "No connection to the homeserver 😕"
 msgstr "沒有連接到家庭伺服器 😕"
 
-#: ../qml/models/MatrixModel.qml:527
+#: ../qml/models/MatrixModel.qml:531
 msgid "Your session has expired"
 msgstr "您的會議已經過期"
 
-#: ../qml/models/MatrixModel.qml:591
+#: ../qml/models/MatrixModel.qml:595
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "

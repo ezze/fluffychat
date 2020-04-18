@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 06:49+0000\n"
+"POT-Creation-Date: 2020-04-18 07:30+0000\n"
 "PO-Revision-Date: 2020-01-09 12:21+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
@@ -151,7 +151,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "p. ex, ElsTrempon$aplanen?LApastaDeDents"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:187
 msgid "Sign up"
 msgstr "Crea un compte"
 
@@ -255,23 +255,23 @@ msgstr "PMF"
 msgid "Choose your homeserver"
 msgstr "Trieu un servidor propi"
 
-#: ../qml/pages/LoginPage.qml:83
+#: ../qml/pages/LoginPage.qml:88
 msgid "Choose your identity server"
 msgstr "Trieu un servidor d'identitats"
 
-#: ../qml/pages/LoginPage.qml:128
+#: ../qml/pages/LoginPage.qml:133
 msgid "Phone number (optional)"
 msgstr "Número de telèfon (opcional)"
 
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:142
 msgid "Username or Matrix ID"
 msgstr "Nom d'usuari o ID del Matrix"
 
-#: ../qml/pages/LoginPage.qml:176
+#: ../qml/pages/LoginPage.qml:181
 msgid "Create a new account"
 msgstr "Crea un compte nou"
 
-#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:187 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Inicia la sessió"
 
@@ -745,24 +745,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Aquí no teniu permís per xatejar."
 
-#: ../qml/models/MatrixModel.qml:398 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Sense connexió…"
 
-#: ../qml/models/MatrixModel.qml:448
+#: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
 msgstr "Error de pujada:"
 
-#: ../qml/models/MatrixModel.qml:520
+#: ../qml/models/MatrixModel.qml:524
 msgid "No connection to the homeserver 😕"
 msgstr "Sense connexió amb el servidor propi 😕"
 
-#: ../qml/models/MatrixModel.qml:527
+#: ../qml/models/MatrixModel.qml:531
 msgid "Your session has expired"
 msgstr "La vostra sessió ha caducat"
 
-#: ../qml/models/MatrixModel.qml:591
+#: ../qml/models/MatrixModel.qml:595
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

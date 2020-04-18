@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 06:49+0000\n"
+"POT-Creation-Date: 2020-04-18 07:30+0000\n"
 "PO-Revision-Date: 2020-04-03 17:46+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/fluffychat/"
@@ -147,7 +147,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "e.g. Summer%salad$flattens?tOOthpaste"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:187
 msgid "Sign up"
 msgstr "Izena eman"
 
@@ -251,23 +251,23 @@ msgstr "Ohiko galderak"
 msgid "Choose your homeserver"
 msgstr "Hautatu zure zerbitzaria («homeserver»)"
 
-#: ../qml/pages/LoginPage.qml:83
+#: ../qml/pages/LoginPage.qml:88
 msgid "Choose your identity server"
 msgstr "Hautatu zure ID zerbitzaria"
 
-#: ../qml/pages/LoginPage.qml:128
+#: ../qml/pages/LoginPage.qml:133
 msgid "Phone number (optional)"
 msgstr "Telefono zenbakia (aukerakoa)"
 
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:142
 msgid "Username or Matrix ID"
 msgstr "Erabiltzaile izena edo Matrix ID-a"
 
-#: ../qml/pages/LoginPage.qml:176
+#: ../qml/pages/LoginPage.qml:181
 msgid "Create a new account"
 msgstr "Kontu berria sortu"
 
-#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:187 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Saioa hasi"
 
@@ -719,24 +719,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Ez duzu baimenik berriketa honetan sartzeko."
 
-#: ../qml/models/MatrixModel.qml:398 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Konexiorik ez…"
 
-#: ../qml/models/MatrixModel.qml:448
+#: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
 msgstr "Igoera akatsa:"
 
-#: ../qml/models/MatrixModel.qml:520
+#: ../qml/models/MatrixModel.qml:524
 msgid "No connection to the homeserver 😕"
 msgstr "Konexiorik ez zerbitzariarenkin 😕"
 
-#: ../qml/models/MatrixModel.qml:527
+#: ../qml/models/MatrixModel.qml:531
 msgid "Your session has expired"
 msgstr "Sure saioa iraungi egin da"
 
-#: ../qml/models/MatrixModel.qml:591
+#: ../qml/models/MatrixModel.qml:595
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

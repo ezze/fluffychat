@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 06:49+0000\n"
+"POT-Creation-Date: 2020-04-18 07:30+0000\n"
 "PO-Revision-Date: 2020-02-08 17:50+0000\n"
 "Last-Translator: Anne Onyme 017 <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
@@ -147,7 +147,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr "Par exemple Été%salade$écrase?dentifrice"
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:187
 msgid "Sign up"
 msgstr "S'inscrire"
 
@@ -247,23 +247,23 @@ msgstr "Questions fréquemment posées"
 msgid "Choose your homeserver"
 msgstr "Choisissez votre serveur d'accueil"
 
-#: ../qml/pages/LoginPage.qml:83
+#: ../qml/pages/LoginPage.qml:88
 msgid "Choose your identity server"
 msgstr "Choisissez votre serveur d'identités"
 
-#: ../qml/pages/LoginPage.qml:128
+#: ../qml/pages/LoginPage.qml:133
 msgid "Phone number (optional)"
 msgstr "Numéro de téléphone (facultatif)"
 
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:142
 msgid "Username or Matrix ID"
 msgstr "Nom d’utilisateur/trice ou identifiant Matrix"
 
-#: ../qml/pages/LoginPage.qml:176
+#: ../qml/pages/LoginPage.qml:181
 msgid "Create a new account"
 msgstr "Créer un nouveau compte"
 
-#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:187 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Se connecter"
 
@@ -732,24 +732,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Vous n'êtes pas autorisé(e) à discuter ici."
 
-#: ../qml/models/MatrixModel.qml:398 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Pas de connexion…"
 
-#: ../qml/models/MatrixModel.qml:448
+#: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
 msgstr "Erreur lors de la publication :"
 
-#: ../qml/models/MatrixModel.qml:520
+#: ../qml/models/MatrixModel.qml:524
 msgid "No connection to the homeserver 😕"
 msgstr "Aucune connexion au serveur d'accueil 😕"
 
-#: ../qml/models/MatrixModel.qml:527
+#: ../qml/models/MatrixModel.qml:531
 msgid "Your session has expired"
 msgstr "Votre session a expiré"
 
-#: ../qml/models/MatrixModel.qml:591
+#: ../qml/models/MatrixModel.qml:595
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 06:49+0000\n"
+"POT-Creation-Date: 2020-04-18 07:30+0000\n"
 "PO-Revision-Date: 2020-03-25 14:46+0000\n"
 "Last-Translator: mondstern <hello@mondstern.tk>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/fluffychat/"
@@ -151,7 +151,7 @@ msgstr ""
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
 msgstr ""
 
-#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:182
+#: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:187
 msgid "Sign up"
 msgstr "Criar conta"
 
@@ -262,23 +262,23 @@ msgstr "FAQ"
 msgid "Choose your homeserver"
 msgstr "Escolha seu servidor local"
 
-#: ../qml/pages/LoginPage.qml:83
+#: ../qml/pages/LoginPage.qml:88
 msgid "Choose your identity server"
 msgstr "Escolhe a identidade de seu servidor"
 
-#: ../qml/pages/LoginPage.qml:128
+#: ../qml/pages/LoginPage.qml:133
 msgid "Phone number (optional)"
 msgstr "Número de telefone (opcional)"
 
-#: ../qml/pages/LoginPage.qml:137
+#: ../qml/pages/LoginPage.qml:142
 msgid "Username or Matrix ID"
 msgstr "Apelido ou Matrix ID"
 
-#: ../qml/pages/LoginPage.qml:176
+#: ../qml/pages/LoginPage.qml:181
 msgid "Create a new account"
 msgstr "Criar uma nova conta"
 
-#: ../qml/pages/LoginPage.qml:182 ../qml/pages/PasswordInputPage.qml:66
+#: ../qml/pages/LoginPage.qml:187 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
 msgstr "Entrar"
 
@@ -754,26 +754,26 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Não estás autorizado a conversar aqui."
 
-#: ../qml/models/MatrixModel.qml:398 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 #, fuzzy
 #| msgid "😕 No connection..."
 msgid "😕 No connection…"
 msgstr "😕 Sem conexão..."
 
-#: ../qml/models/MatrixModel.qml:448
+#: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
 msgstr "Erros de Upload:"
 
-#: ../qml/models/MatrixModel.qml:520
+#: ../qml/models/MatrixModel.qml:524
 msgid "No connection to the homeserver 😕"
 msgstr "Sem conexão com o homeerver"
 
-#: ../qml/models/MatrixModel.qml:527
+#: ../qml/models/MatrixModel.qml:531
 msgid "Your session has expired"
 msgstr "A sua sessão expirou"
 
-#: ../qml/models/MatrixModel.qml:591
+#: ../qml/models/MatrixModel.qml:595
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
