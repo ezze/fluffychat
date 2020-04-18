@@ -70,6 +70,11 @@ Page {
                 focus: true
             }
             Button {
+                text: "Pantalaimon"
+                onClicked: homeserverInput.text = "http://127.0.0.1:8009"
+            }
+            Button {
+                color: UbuntuColors.green
                 text: "OK"
                 onClicked: LoginPageActions.changeHomeServer ( homeserverInput, dialogue )
             }

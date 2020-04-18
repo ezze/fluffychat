@@ -351,7 +351,10 @@ Item {
         // Calculate the action url
         var requestUrl = action + getData
         if ( action.indexOf ( "https://" ) === -1 ) {
-            requestUrl = "https://" + server + "/_matrix" + requestUrl
+            if (server.substr(0,4) != "http") {
+                server = "https://" + server
+            }
+            requestUrl = server + "/_matrix" + requestUrl
         }
 
         // Build the request
@@ -483,6 +486,7 @@ Item {
         console.log("👷[Init] Request the first matrix synchronizaton prevBatch='%1'".arg(matrix.prevBatch))
 
         var onFristSyncResponse = function ( response ) {
+            console.log("'FIRST SYNC RESPONSE!!!'")
             if ( matrix.waitingForSync ) waitingForAnswer--
             handleEvents ( response )
 
