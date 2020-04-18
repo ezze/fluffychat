@@ -11,8 +11,6 @@ private:
 public:
     Upload();
 
-    // TODO: More detailed comments for doxygen
-
     /** Uploads an encrypted or unencrypted file. Returns false if the given file
      * does not exist or can not be opened.
     **/

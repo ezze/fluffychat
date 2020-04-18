@@ -64,3 +64,8 @@ bool Upload::uploadFile(QString path, QString uploadUrl, QString token)
 
     return true;
 }
+
+void Upload::uploadProgressSlot(qint64 bytesSent, qint64 bytesTotal)
+{
+    uploadProgress(bytesSent, bytesTotal);
+}
