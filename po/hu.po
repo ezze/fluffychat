@@ -8,63 +8,67 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-18 07:30+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-05-05 21:11+0000\n"
+"Last-Translator: Gergely Horváth <horvathg.1988@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/fluffychat/"
+"translations/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
-msgstr ""
+msgstr "Ismeretlen"
 
 #: ../push/pushhelper.cpp:154
 msgid "New message"
-msgstr ""
+msgstr "Új üzenet"
 
 #: ../push/pushhelper.cpp:164
 msgid "New encrypted message"
-msgstr ""
+msgstr "Új titkosított üzenet"
 
 #: ../push/pushhelper.cpp:167
+#, fuzzy
 msgid "New member event"
-msgstr ""
+msgstr "Új esemény"
 
 #: ../push/pushhelper.cpp:173
 msgid "You were invited to chat"
-msgstr ""
+msgstr "Meghívtak csevegni"
 
 #: ../qml/Main.qml:129
 msgid "Are you sure?"
-msgstr ""
+msgstr "Biztos vagy benne?"
 
 #: ../qml/Main.qml:152
 msgid "You must agree to the privacy policy"
-msgstr ""
+msgstr "El kell fogadnod az adatvédelmi nyilatkozatot"
 
 #: ../qml/Main.qml:167
 msgid "Copied to the clipboard"
-msgstr ""
+msgstr "Vágólapra másolva"
 
 #: ../qml/pages/ChatDevicesPage.qml:17
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
 msgid "Encryption settings"
-msgstr ""
+msgstr "Titkosítási beállítások"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
-msgstr ""
+msgstr "(Fejlesztés alatt) Titkosítás engedélyezése"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "Loading…"
-msgstr ""
+msgstr "Betöltés…"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 msgid "No devices found"
-msgstr ""
+msgstr "Nem találtunk eszközt"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
@@ -72,93 +76,98 @@ msgstr ""
 
 #: ../qml/pages/InfoPage.qml:33
 msgid "Buy a coffee for me"
-msgstr ""
+msgstr "Hívj meg egy kávéra"
 
 #: ../qml/pages/InfoPage.qml:40
 msgid "Support on Liberapay"
-msgstr ""
+msgstr "Támogass Librepay-en"
 
 #: ../qml/pages/InfoPage.qml:47
 msgid "Join the community"
-msgstr ""
+msgstr "Csatlakozz a közösséghez"
 
 #: ../qml/pages/InfoPage.qml:53 ../qml/pages/LoginPage.qml:43
 #: ../qml/pages/PrivacyPolicyPage.qml:11
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Adatvédelmi nyilatkozat"
 
 #: ../qml/pages/InfoPage.qml:60
 msgid "Website"
-msgstr ""
+msgstr "Honlap"
 
 #: ../qml/pages/InfoPage.qml:66
 msgid "Contributors"
-msgstr ""
+msgstr "Közreműködők"
 
 #: ../qml/pages/InfoPage.qml:72
 msgid "Source code"
-msgstr ""
+msgstr "Forráskód"
 
 #: ../qml/pages/InfoPage.qml:78
 msgid "License"
-msgstr ""
+msgstr "Licensz"
 
 #: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
-msgstr ""
+msgstr "Archivált csevegések"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
 msgid "Search archived chats…"
-msgstr ""
+msgstr "Keresés az archivált csevegésekben…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
-msgstr ""
+msgstr "Nincsenek archivált csevegések"
 
 #: ../qml/pages/EmailSettingsPage.qml:21 ../qml/pages/SettingsPage.qml:239
 msgid "Connected email addresses"
-msgstr ""
+msgstr "Kapcsolt email fiókok"
 
 #: ../qml/pages/EmailSettingsPage.qml:28
 msgid "Add email address"
-msgstr ""
+msgstr "Email cím hozzáadása"
 
 #: ../qml/pages/EmailSettingsPage.qml:39
 msgid "No email addresses connected"
-msgstr ""
+msgstr "Nincsenek kapcsolt email fiókok"
 
 #: ../qml/pages/PasswordCreationPage.qml:19
 msgid "Please set a password"
-msgstr ""
+msgstr "Kérlek állíts be jelszót"
 
 #: ../qml/pages/PasswordCreationPage.qml:49
 msgid ""
 "Please set a strong password. To reset your password, you will need to "
 "provide an e-mail address later"
 msgstr ""
+"Kérlek, használj erős jelszót! Jelszó visszaállításhoz később be kell "
+"állítanod egy email címet"
 
 #: ../qml/pages/PasswordCreationPage.qml:65
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
-msgstr ""
+msgstr "pl. Peter%salata$fut?fOgkRem"
 
 #: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:187
 msgid "Sign up"
-msgstr ""
+msgstr "Regisztráció"
 
 #: ../qml/pages/WalkthroughPage.qml:64
 msgid "Welcome to FluffyChat"
-msgstr ""
+msgstr "Üdvözöl a FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
 msgid ""
 "Chat with your friends and join the community. You can use your phone number "
 "or a unique username to find friends."
 msgstr ""
+"Csevegj a barátaiddal és csatlakozz a közösséghez. Használhatod a "
+"telefonszámodat vagy egy egyedi felhasználó nevet, hogy megtaláld a "
+"barátaidat."
 
 #: ../qml/pages/WalkthroughPage.qml:115
 msgid "Join the Matrix"
-msgstr ""
+msgstr "Lépj be a Matrixba"
 
 #: ../qml/pages/WalkthroughPage.qml:129
 msgid ""
@@ -166,34 +175,37 @@ msgid ""
 "uMatriks. You can also join IRC channels, participate in XMPP chats and "
 "bridge Telegram groups."
 msgstr ""
+"A FluffyChat kompatibilis más üzenetküldő alkalmazásokkal mint a Riot, "
+"Fractal vagy uMatriks. Speciális hidakkal csatlakozhatsz IRC csatornákhoz, "
+"XMPP csevegésekhez és Telegram csoportokhoz."
 
 #: ../qml/pages/WalkthroughPage.qml:166
 msgid "What's new in version %1?"
-msgstr ""
+msgstr "Újdonságok a %1 verzióban?"
 
 #: ../qml/pages/WalkthroughPage.qml:173
 msgid "Minor bugfixes and updated translations."
-msgstr ""
+msgstr "Apró hibajavítások és nyelvi frissítések."
 
 #: ../qml/pages/WalkthroughPage.qml:174
 msgid "Critical bug fixed."
-msgstr ""
+msgstr "Kritikus frissítések."
 
 #: ../qml/pages/WalkthroughPage.qml:175
 msgid "Security bug fixed."
-msgstr ""
+msgstr "Biztonsági frissítések."
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
-msgstr ""
+msgstr "Nyelvi frissítések. Köszönet a fordítóknak."
 
 #: ../qml/pages/WalkthroughPage.qml:184
 msgid "Experimental release of end-to-end encryption."
-msgstr ""
+msgstr "Végponti titkosítást megvalósító, kísérleti kiadás."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
-msgstr ""
+msgstr "Közösségi finanszírozású"
 
 #: ../qml/pages/WalkthroughPage.qml:235
 msgid ""
@@ -202,241 +214,247 @@ msgid ""
 "krille'>Ko-fi</a> or <a href='https://liberapay.com/KrilleChritzelius/"
 "donate'>Liberapay</a>"
 msgstr ""
+"A FluffyChat nyílt nonprofit és cuki. A fejlesztést és a szerverek "
+"üzemeltetését a közösség finanszírozza. Támogasd a projektet <a href='https"
+"://ko-fi.com/krille'>Ko-fi</a> vagy <a href='https://liberapay.com/"
+"KrilleChritzelius/donate'>Liberapay</a> segítségével"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
-msgstr ""
+msgstr "Tovább"
 
 #: ../qml/pages/LoginPage.qml:20
 msgid "Homeserver %1"
-msgstr ""
+msgstr "Kiszolgáló %1"
 
 #: ../qml/pages/LoginPage.qml:28
 msgid "Change homeserver"
-msgstr ""
+msgstr "Kiszolgáló váltás"
 
 #: ../qml/pages/LoginPage.qml:33
 msgid "Change ID-server"
-msgstr ""
+msgstr "Válts azonosító-kezelő szervert"
 
 #: ../qml/pages/LoginPage.qml:38 ../qml/pages/SettingsPage.qml:279
 msgid "About FluffyChat"
-msgstr ""
+msgstr "A FluffyChat-ről"
 
 #: ../qml/pages/LoginPage.qml:53
 msgid "FAQ"
-msgstr ""
+msgstr "GYÍK"
 
 #: ../qml/pages/LoginPage.qml:64
 msgid "Choose your homeserver"
-msgstr ""
+msgstr "Válassz kiszolgálót"
 
 #: ../qml/pages/LoginPage.qml:88
 msgid "Choose your identity server"
-msgstr ""
+msgstr "Válassz azonosító-kezelő szervert"
 
 #: ../qml/pages/LoginPage.qml:133
 msgid "Phone number (optional)"
-msgstr ""
+msgstr "Telefonszám (nem kötelező)"
 
 #: ../qml/pages/LoginPage.qml:142
 msgid "Username or Matrix ID"
-msgstr ""
+msgstr "Felhasználó név vagy Matrix azonosító"
 
 #: ../qml/pages/LoginPage.qml:181
 msgid "Create a new account"
-msgstr ""
+msgstr "Új felhasználó létrehozása"
 
 #: ../qml/pages/LoginPage.qml:187 ../qml/pages/PasswordInputPage.qml:66
 msgid "Sign in"
-msgstr ""
+msgstr "Bejelentkezés"
 
 #: ../qml/pages/ChatListPage.qml:41 fluffychat.desktop.in.h:1
 msgid "FluffyChat"
-msgstr ""
+msgstr "FluffyChat"
 
 #: ../qml/pages/ChatListPage.qml:41
 msgid "Share"
-msgstr ""
+msgstr "Megosztás"
 
 #: ../qml/pages/ChatListPage.qml:104
 msgid "Search for your chats…"
-msgstr ""
+msgstr "Csevegések keresése…"
 
 #: ../qml/pages/ChatListPage.qml:125
 msgid "Swipe up from the bottom to start a new chat or discover public groups."
 msgstr ""
+"Simíts lentről fel hogy új csevegést kezdeményezz vagy publikus csoportokat "
+"keress."
 
 #: ../qml/pages/ChatListPage.qml:155
 msgid "Add chat"
-msgstr ""
+msgstr "Új csevegés"
 
 #: ../qml/pages/CreateChatPage.qml:15
 msgid "Add Chat"
-msgstr ""
+msgstr "Új csevegés"
 
 #: ../qml/pages/CreateChatPage.qml:22 ../qml/components/AddContactDialog.qml:65
 msgid "Import from addressbook"
-msgstr ""
+msgstr "Importálás a címjegyzékből"
 
 #: ../qml/pages/CreateChatPage.qml:42
 msgid "Filter contacts"
-msgstr ""
+msgstr "Ismerősök szűrése"
 
 #: ../qml/pages/CreateChatPage.qml:73
 msgid "New group"
-msgstr ""
+msgstr "Új csoport"
 
 #: ../qml/pages/CreateChatPage.qml:80
 msgid "Public groups"
-msgstr ""
+msgstr "Nyilvános csoportok"
 
 #: ../qml/pages/CreateChatPage.qml:89
 msgid "Click on the top right button to add contacts."
-msgstr ""
+msgstr "Kattints a jobb felső gombra, hogy új ismerősöket adj hozzá."
 
 #: ../qml/pages/SettingsPage.qml:28
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 #: ../qml/pages/SettingsPage.qml:84 ../qml/components/ProfileRow.qml:40
 msgid "Username:"
-msgstr ""
+msgstr "Felhasználónév:"
 
 #: ../qml/pages/SettingsPage.qml:99 ../qml/components/ProfileRow.qml:55
 msgid "Displayname:"
-msgstr ""
+msgstr "Megjelenített név:"
 
 #: ../qml/pages/SettingsPage.qml:114
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 #: ../qml/pages/SettingsPage.qml:124
 msgid "Change main color"
-msgstr ""
+msgstr "Meghatározó szín lecserélése"
 
 #: ../qml/pages/SettingsPage.qml:138
 msgid "Change background"
-msgstr ""
+msgstr "Háttér megváltoztatása"
 
 #: ../qml/pages/SettingsPage.qml:175
 msgid "Dark mode"
-msgstr ""
+msgstr "Sötét mintázat"
 
 #: ../qml/pages/SettingsPage.qml:182
 #: ../qml/pages/NotificationChatSettingsPage.qml:22
 #: ../qml/pages/ChatSettingsPage.qml:159
 msgid "Notifications"
-msgstr ""
+msgstr "Értesítések"
 
 #: ../qml/pages/SettingsPage.qml:189
 msgid "Chat settings:"
-msgstr ""
+msgstr "Csevegési beállítások:"
 
 #: ../qml/pages/SettingsPage.qml:193
 msgid "Send with enter"
-msgstr ""
+msgstr "Küldés ENTERrel"
 
 #: ../qml/pages/SettingsPage.qml:200
 msgid "Display 'I am typing' when typing"
-msgstr ""
+msgstr "Gépelési értesítés küldése"
 
 #: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
-msgstr ""
+msgstr "Kevésbé fontos események elrejtése"
 
 #: ../qml/pages/SettingsPage.qml:214
 msgid "Autoload animated images"
-msgstr ""
+msgstr "Animált képek azonnali betöltése"
 
 #: ../qml/pages/SettingsPage.qml:228
 msgid "Account settings:"
-msgstr ""
+msgstr "Fiók beállítások:"
 
 #: ../qml/pages/SettingsPage.qml:232 ../qml/pages/PhoneSettingsPage.qml:21
 msgid "Connected phone numbers"
-msgstr ""
+msgstr "Kapcsolt telefonszámok"
 
 #: ../qml/pages/SettingsPage.qml:246 ../qml/pages/DevicesSettingsPage.qml:15
 msgid "Devices"
-msgstr ""
+msgstr "Eszközök"
 
 #: ../qml/pages/SettingsPage.qml:253
 msgid "Change password"
-msgstr ""
+msgstr "Jelszóváltoztatás"
 
 #: ../qml/pages/SettingsPage.qml:259
 msgid "Check out:"
-msgstr ""
+msgstr "Ezeket nézd meg:"
 
 #: ../qml/pages/SettingsPage.qml:263
 msgid "Disable account"
-msgstr ""
+msgstr "Fiók kikapcsolása"
 
 #: ../qml/pages/SettingsPage.qml:269 ../qml/components/LogoutDialog.qml:11
 #: ../qml/components/LogoutDialog.qml:40
 msgid "Log out"
-msgstr ""
+msgstr "Kijelentkezés"
 
 #: ../qml/pages/SettingsPage.qml:275
 msgid "More:"
-msgstr ""
+msgstr "Továbbiak:"
 
 #: ../qml/pages/CommunityPage.qml:98
 msgid "No description found"
-msgstr ""
+msgstr "Nem található leírás"
 
 #: ../qml/pages/PasswordInputPage.qml:13
 msgid "Enter your password"
-msgstr ""
+msgstr "Add meg a jelszavad"
 
 #: ../qml/pages/PasswordInputPage.qml:41
 msgid "Please enter your password for: <b>%1</b>"
-msgstr ""
+msgstr "Kérlek, add meg a jelszavad: <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
 msgid "Password…"
-msgstr ""
+msgstr "Jelszó…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
-msgstr ""
+msgstr "Értesítéseket kérek…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:29
 msgid "Common messages"
-msgstr ""
+msgstr "Átlagos üzenetek"
 
 #: ../qml/pages/NotificationSettingsPage.qml:39
 msgid "Messages from single chats"
-msgstr ""
+msgstr "Üzenetek közvetlen csevegésekben"
 
 #: ../qml/pages/NotificationSettingsPage.qml:49
 msgid "Mention my display name"
-msgstr ""
+msgstr "Megemlítik a megjelenített nevemet"
 
 #: ../qml/pages/NotificationSettingsPage.qml:59
 msgid "Mention my user name"
-msgstr ""
+msgstr "Megemlítik a felhasználói nevemet"
 
 #: ../qml/pages/NotificationSettingsPage.qml:69
 msgid "Invitations for me"
-msgstr ""
+msgstr "Meghívások"
 
 #: ../qml/pages/NotificationSettingsPage.qml:79
 msgid "Chat member changes"
-msgstr ""
+msgstr "Csevegő partner változása"
 
 #: ../qml/pages/NotificationSettingsPage.qml:89
 msgid "Messages from bots"
-msgstr ""
+msgstr "Üzenetek botoktól"
 
 #: ../qml/pages/InvitePage.qml:23
 msgid "Invite users"
-msgstr ""
+msgstr "Felhasználó meghívása"
 
 #: ../qml/pages/InvitePage.qml:72
 msgid "Search e.g. @username:server.abc"
-msgstr ""
+msgstr "Keresés, pl.: @username:server.abc"
 
 #: ../qml/pages/PrivacyPolicyPage.qml:29
 msgid ""
@@ -462,249 +480,273 @@ msgid ""
 "the notification to UBports push service at https://push.ubports.com and "
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
+"<br><b>Matrix kliens</b><br><br>* A FluffyChat egy a Matrix protokollt "
+"implementáló kliens ami kompatibilis minden Matrix szerverrel és Matrix "
+"azonosító szerverrel. Minden kommunikáció amit a FluffyChat bonyolít használ "
+"Matrix szervert és Matrix azonosító szervert.<br>* A FluffyChat "
+"alapértelmezésben a https://matrix.org szervert és a https://vector.im "
+"azonosító szervert használja.<br>* A FluffyChat nem üzemeltet szervert, sem "
+"más távoli szolgáltatást.<br>* Minden érdemi kommunikáció amit a FluffyChat "
+"folytat a távoli kiszolgálókkal TLS-en keresztül zajlik. A végponttól-"
+"végpontig tartó titkosítás fejlesztése folyamatban van.<br>* FluffyChat nem "
+"felelős a Matrix szerverek és a Matrix azonosító szerverek által "
+"végrehajtott adatkezelésért.<br>* FluffyChat lehetőséget teremt arra, hogy "
+"telefonszámok alapján keresd ismerőseidet. Ez nem szükséges a működéshez, "
+"kényelmi funkcióként van jelent. Semmilyen személyes adatot nem tölt fel a "
+"FluffyChat felhasználói művelet nélkül. A felhasználó dönti el, hogy az "
+"azonosítási szerverre egyáltalán nem tölt fel elérhetőséget az ismerőseiről "
+"vagy csak néhányat, esetleg az összeset.<br><br><b>Azonnali "
+"értesítés</b><br><br>* A Matrix szerver amit a felhasználó kiválaszt "
+"azonnali értesítéseket küld a UBports azonnali értesítési szolgáltatásának "
+"segítségével. Ezek az értesítések https protokollon keresztül, titkosítva, "
+"vannak elküldve a Matrix szerverre és a hivatalos UBports Matrix átjáróra, "
+"aminek címe: https://push.ubports.com:5003/_matrix/push/r0/notify . Ez a "
+"szerver továbbítja az értesítéseket a UBports azonnali értesítési szerverre: "
+"https://push.ubports.com és küldi az azonnali értesítést a felhasználó "
+"készülék(ei/é)re.<br>"
 
 #: ../qml/pages/CountryPickerPage.qml:11
 msgid "Choose a country"
-msgstr ""
+msgstr "Válassz országot"
 
 #: ../qml/pages/CountryPickerPage.qml:28
 msgid "Search for country by name…"
-msgstr ""
+msgstr "Ország választása név szerint…"
 
 #: ../qml/pages/UserPage.qml:34
 msgid "Username copied to the clipboard"
-msgstr ""
+msgstr "Felhasználónév vágólapra másolva"
 
 #: ../qml/pages/UserPage.qml:69
 msgid "Chats with this user:"
-msgstr ""
+msgstr "Csevegések ezzel a felhasználóval:"
 
 #: ../qml/pages/UserPage.qml:69
 msgid "This is you."
-msgstr ""
+msgstr "Ez te vagy."
 
 #: ../qml/pages/UserPage.qml:87
 msgid "Start new chat"
-msgstr ""
+msgstr "Új csevegés indítása"
 
 #: ../qml/pages/ChatPage.qml:54 ../qml/components/SimpleChatListItem.qml:28
 msgid "Unknown chat"
-msgstr ""
+msgstr "Ismeretlen csevegés"
 
 #: ../qml/pages/ChatPage.qml:112
 msgid "Chat info"
-msgstr ""
+msgstr "Infó a csevegésről"
 
 #: ../qml/pages/ChatPage.qml:137
 msgid "No messages in this chat …"
-msgstr ""
+msgstr "Ebben a csevegésben még nincs üzenet…"
 
 #: ../qml/pages/ChatPage.qml:160
 msgid "Reply to <b>%1</b>: \"%2\""
-msgstr ""
+msgstr "Válasz <b>%1</b>-nak/nek: \"%2\""
 
 #: ../qml/pages/ChatPage.qml:238
 msgid "Accept invitation"
-msgstr ""
+msgstr "Meghívás elfogadása"
 
 #: ../qml/pages/ChatPage.qml:238
 msgid "Join"
-msgstr ""
+msgstr "Csatlakozás"
 
 #: ../qml/pages/ChatPage.qml:246
 msgid "You do not have posting permissions here"
-msgstr ""
+msgstr "Nincs jogosultságod ideposztolni"
 
 #: ../qml/pages/ChatPage.qml:276
 msgid "Unencrypted message..."
-msgstr ""
+msgstr "Titkosítatlan üzenet..."
 
 #: ../qml/pages/ChatPage.qml:277
 msgid "Encrypted message..."
-msgstr ""
+msgstr "Titkosított üzenet..."
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
-msgstr ""
+msgstr "Adj hozzá telefonszámot"
 
 #: ../qml/pages/PhoneSettingsPage.qml:40
 msgid "No phone numbers connected"
-msgstr ""
+msgstr "Nincs kapcsolt telefonszám"
 
 #: ../qml/pages/UserDevicesPage.qml:25
 msgid "Devices of %1"
-msgstr ""
+msgstr "%1 eszközei"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
 #: ../qml/pages/ChatSettingsPage.qml:165
 msgid "Advanced settings"
-msgstr ""
+msgstr "Haladó beállítások"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "End-to-end encryption"
-msgstr ""
+msgstr "Végpontól-végpontig titkosítás"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
-msgstr ""
+msgstr "Hozzáférés"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:64
 msgid "Users can be invited"
-msgstr ""
+msgstr "Felhasználókat lehet meghívni"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:72
 msgid "Chat is public accessible"
-msgstr ""
+msgstr "A csevegés bárki számára hozzáférhető"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:80
 msgid "Guest users are allowed"
-msgstr ""
+msgstr "Vendég felhasználók is beléphetnek"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:87
 #: ../qml/pages/ChatAliasSettingsPage.qml:31
 msgid "Public chat addresses"
-msgstr ""
+msgstr "Publikus csevegő címek"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:94
 msgid "History visibility"
-msgstr ""
+msgstr "Korábbi üzenetek láthatósága"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:99
 msgid "History is visible from invitation"
-msgstr ""
+msgstr "Korábbi üzenetek a meghívástól láthatóak"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:106
 msgid "Members can access full chat history"
-msgstr ""
+msgstr "A résztvevők elérhetik az összes korábbi üzenetet"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:113
 msgid "Anyone can access full chat history"
-msgstr ""
+msgstr "Bárki hozzáférhet az összes korábbi üzenethez"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:33
 msgid "Notify"
-msgstr ""
+msgstr "Értesítés mutatása"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:48
 msgid "Only if mentioned"
-msgstr ""
+msgstr "Csak ha megemlítenek"
 
 #: ../qml/pages/NotificationChatSettingsPage.qml:63
 msgid "Don't notify"
-msgstr ""
+msgstr "Nincs értesítés"
 
 #: ../qml/pages/DiscoverPage.qml:24
 msgid "Groups on %1"
-msgstr ""
+msgstr "Szobák %1-on"
 
 #: ../qml/pages/DiscoverPage.qml:24
 msgid "and matrix.org"
-msgstr ""
+msgstr "és matrix.org"
 
 #: ../qml/pages/DiscoverPage.qml:44
 msgid "Search for chats or #aliases…"
-msgstr ""
+msgstr "Keress rá csevegésre vagy #alias -ra…"
 
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "No chats found"
-msgstr ""
+msgstr "Nem találtunk csevegést"
 
 #: ../qml/pages/ChatSettingsPage.qml:63
 msgid "Edit chat name"
-msgstr ""
+msgstr "Csevegés nevének módosítása"
 
 #: ../qml/pages/ChatSettingsPage.qml:139
 msgid "Description:"
-msgstr ""
+msgstr "Leírás:"
 
 #: ../qml/pages/ChatSettingsPage.qml:139
 msgid "No chat description found…"
-msgstr ""
+msgstr "Nem található leírás ehhez a csevegéshez…"
 
 #: ../qml/pages/ChatSettingsPage.qml:187
 msgid "Users in this chat (%1):"
-msgstr ""
+msgstr "Csevegés (%1) résztvevői:"
 
 #: ../qml/pages/ChatSettingsPage.qml:211
 msgid "Search…"
-msgstr ""
+msgstr "Keresés…"
 
 #: ../qml/pages/ChatSettingsPage.qml:228
 msgid "Invite friends"
-msgstr ""
+msgstr "Barátok meghívása"
 
 #: ../qml/pages/ChatSettingsPage.qml:236
 msgid "Reload"
-msgstr ""
+msgstr "Újratöltés"
 
 #: ../qml/pages/ChatSettingsPage.qml:253
 msgid "Enroll as member"
-msgstr ""
+msgstr "Résztvevőnek választás"
 
 #: ../qml/pages/ChatSettingsPage.qml:257
 msgid "Appoint to moderator"
-msgstr ""
+msgstr "Kinevezés moderátorrá"
 
 #: ../qml/pages/ChatSettingsPage.qml:262
 msgid "Appoint to admin"
-msgstr ""
+msgstr "Kinevezés adminná"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:15
 msgid "Notification settings"
-msgstr ""
+msgstr "Értesítési beállítások"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:29
 msgid "Enable notifications"
-msgstr ""
+msgstr "Értesítések engedélyezése"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:40
 msgid "Advanced notification settings"
-msgstr ""
+msgstr "Haladó értesítési beállítások"
 
 #: ../qml/pages/NotificationTargetSettingsPage.qml:59
 msgid "Devices that receive push notifications:"
-msgstr ""
+msgstr "Eszközök amik azonnali értesítést kapnak:"
 
 #: ../qml/pages/ChatAliasSettingsPage.qml:38
 msgid "Add chat address"
-msgstr ""
+msgstr "Adj címet a csevegésnek"
 
 #: ../qml/models/PushModel.qml:52
 msgid "Please log in to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "Jelentkezz be az Ubuntu One-ra, hogy azonnali értesítéseket kapj."
 
 #: ../qml/models/PushModel.qml:77
 msgid "Push notifications are turned off…"
-msgstr ""
+msgstr "Az azonnali értesítések ki vannak kapcsolva…"
 
 #: ../qml/models/MatrixModel.qml:78
 msgid "USA"
-msgstr ""
+msgstr "USA"
 
 #: ../qml/models/MatrixModel.qml:79
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: ../qml/models/MatrixModel.qml:275
 msgid "You are not allowed to chat here."
-msgstr ""
+msgstr "Itt számodra nem engedélyezett a csevegés."
 
 #: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
-msgstr ""
+msgstr "😕 Nincs kapcsolat…"
 
 #: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
-msgstr ""
+msgstr "Feltöltési hiba:"
 
 #: ../qml/models/MatrixModel.qml:524
 msgid "No connection to the homeserver 😕"
-msgstr ""
+msgstr "Nincs kapcsolat a kiszolgálóval 😕"
 
 #: ../qml/models/MatrixModel.qml:531
 msgid "Your session has expired"
-msgstr ""
+msgstr "Lejárt a munkamenet"
 
 #: ../qml/models/MatrixModel.qml:595
 msgid ""
@@ -712,44 +754,47 @@ msgid ""
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
 "fluffychat/issues/new. Error details: %1"
 msgstr ""
+"😰 Kritikus hiba történt! Megszakadt a kapcsolat a szerverrel! Kérlek "
+"jelentsd a hibát: https://github.com/ChristianPauly/fluffychat/issues/new. "
+"Hiba részletei: %1"
 
 #: ../qml/models/ContentHubModel.qml:83
 msgid "Copied to clipboard"
-msgstr ""
+msgstr "Vágólapra másolva"
 
 #: ../qml/components/MemberListItem.qml:48
 #: ../qml/components/ChatScrollView.qml:49
 msgid "Swipe to the left or the right for actions. 😉"
-msgstr ""
+msgstr "Simíts balra vagy jobbra, a műveletekért. 😉"
 
 #: ../qml/components/MemberListItem.qml:86
 msgid "Ban from this chat?"
-msgstr ""
+msgstr "Kitiltod a csevegésből?"
 
 #: ../qml/components/MemberListItem.qml:94
 msgid "Cancel banishment?"
-msgstr ""
+msgstr "Visszavonja a kitiltást?"
 
 #: ../qml/components/MemberListItem.qml:102
 msgid "Kick from this chat?"
-msgstr ""
+msgstr "Kirúgja a csevegésből?"
 
 #: ../qml/components/ChangePasswordDialog.qml:11
 msgid "Change your password"
-msgstr ""
+msgstr "Jelszó változtatás"
 
 #: ../qml/components/ChangePasswordDialog.qml:19
 #: ../qml/components/DisableAccountDialog.qml:33
 msgid "Enter your old password"
-msgstr ""
+msgstr "Írd be a régi jelszavad"
 
 #: ../qml/components/ChangePasswordDialog.qml:25
 msgid "Enter your new password"
-msgstr ""
+msgstr "Írd be az új jelszavad"
 
 #: ../qml/components/ChangePasswordDialog.qml:30
 msgid "Please repeat"
-msgstr ""
+msgstr "Kérlek ismételd meg"
 
 #: ../qml/components/ChangePasswordDialog.qml:38
 #: ../qml/components/DownloadDialog.qml:26
@@ -765,28 +810,28 @@ msgstr ""
 #: ../qml/components/ChangeChatnameDialog.qml:49
 #: ../qml/components/AddEmailDialog.qml:28
 msgid "Cancel"
-msgstr ""
+msgstr "Mégse"
 
 #: ../qml/components/ChangePasswordDialog.qml:43
 msgid "Change"
-msgstr ""
+msgstr "Változtat"
 
 #: ../qml/components/ChangePasswordDialog.qml:48
 msgid "Password has been changed"
-msgstr ""
+msgstr "A jelszó megváltozott"
 
 #: ../qml/components/ChangeAvatarDialog.qml:11
 msgid "Edit profile picture"
-msgstr ""
+msgstr "Profilkép változtatás"
 
 #: ../qml/components/ChangeAvatarDialog.qml:21
 msgid "New profile picture"
-msgstr ""
+msgstr "Új profilkép"
 
 #: ../qml/components/ChangeAvatarDialog.qml:40
 #: ../qml/components/ChangeChatAvatarDialog.qml:40
 msgid "Remove picture"
-msgstr ""
+msgstr "Kép eltávolítása"
 
 #: ../qml/components/ChangeAvatarDialog.qml:51
 #: ../qml/components/TargetInfoDialog.qml:48
@@ -795,512 +840,513 @@ msgstr ""
 #: ../qml/components/ChangeChatAvatarDialog.qml:51
 #: ../qml/components/ChangeChatnameDialog.qml:62
 msgid "Close"
-msgstr ""
+msgstr "Bezárás"
 
 #: ../qml/components/TargetInfoDialog.qml:11
 msgid "Target details"
-msgstr ""
+msgstr "Részletek"
 
 #: ../qml/components/TargetInfoDialog.qml:25
 msgid "<b>Device name</b>: %2"
-msgstr ""
+msgstr "<b>Eszköz neve</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:29
 msgid "<b>App</b>: %2"
-msgstr ""
+msgstr "<b>Applikáció</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:33
 msgid "<b>Kind</b>: %2"
-msgstr ""
+msgstr "<b>Típus</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:37
 msgid "<b>Language</b>: %2"
-msgstr ""
+msgstr "<b>Nyelv</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:41
 msgid "<b>Gateway</b>: %2"
-msgstr ""
+msgstr "<b>Átjáró</b>: %2"
 
 #: ../qml/components/DownloadDialog.qml:11
 msgid "Download"
-msgstr ""
+msgstr "Letöltés"
 
 #: ../qml/components/WaitDialog.qml:11
 msgid "Loading… Please wait."
-msgstr ""
+msgstr "Betöltés... Kérlek várj."
 
 #: ../qml/components/WaitDialog.qml:36
 msgid "Cancel process"
-msgstr ""
+msgstr "Folyamat megszakítása"
 
 #: ../qml/components/BottomEdgePageStack.qml:92
 msgid "Back"
-msgstr ""
+msgstr "Vissza"
 
 #: ../qml/components/ContactImport.qml:73
 msgid "%1 contacts were found"
-msgstr ""
+msgstr "%1 ismerőst találtunk"
 
 #: ../qml/components/RemoveDeviceDialog.qml:12
 msgid "Remove the device"
-msgstr ""
+msgstr "Eszköz eltávolítása"
 
 #: ../qml/components/RemoveDeviceDialog.qml:16
 msgid "<b>Device ID</b>: %1"
-msgstr ""
+msgstr "<b>Eszköz azonosító</b>: %1"
 
 #: ../qml/components/RemoveDeviceDialog.qml:20
 msgid "<b>Last IP</b>: %4"
-msgstr ""
+msgstr "<b>Utolsó IP</b>: %4"
 
 #: ../qml/components/RemoveDeviceDialog.qml:25
 msgid "Are you sure, that you want to remove this device?"
-msgstr ""
+msgstr "Biztosan törölni akarod ezt az eszközt?"
 
 #: ../qml/components/RemoveDeviceDialog.qml:34
 msgid "Please enter your password"
-msgstr ""
+msgstr "Írd be a jelszavadat"
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
 #: ../qml/components/ChatScrollView.qml:91
 msgid "Remove"
-msgstr ""
+msgstr "Eltávolítás"
 
 #: ../qml/components/PhoneListItem.qml:31
 msgid "Remove this phone number?"
-msgstr ""
+msgstr "Eltávolítja ezt a telefon számot?"
 
 #: ../qml/components/AddPhoneDialog.qml:12
 msgid "Connect new phone number"
-msgstr ""
+msgstr "Új telefonszám kapcsolása"
 
 #: ../qml/components/AddPhoneDialog.qml:12
 msgid "…"
-msgstr ""
+msgstr "…"
 
 #: ../qml/components/AddPhoneDialog.qml:22
 msgid "Please log out to change your country"
-msgstr ""
+msgstr "Kérlek jelentkezz ki az ország megváltoztatásához"
 
 #: ../qml/components/AddPhoneDialog.qml:26
 msgid "Phone number…"
-msgstr ""
+msgstr "Telefonszám…"
 
 #: ../qml/components/AddPhoneDialog.qml:44
 #: ../qml/components/EnterSMSTokenDialog.qml:33
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:36
 #: ../qml/components/AddEmailDialog.qml:33
 msgid "Connect"
-msgstr ""
+msgstr "Kapcsolódás"
 
 #: ../qml/components/DisableAccountDialog.qml:11
 msgid "Remove my account"
-msgstr ""
+msgstr "Fiók eltávolítása"
 
 #: ../qml/components/DisableAccountDialog.qml:25
 msgid ""
 "Are you sure that you want to remove your account? This can not be undone."
-msgstr ""
+msgstr "Biztosan eltávolítod a fiókodat? Ezt nem tudod visszavonni."
 
 #: ../qml/components/ConfirmDialog.qml:27
 msgid "Yes"
-msgstr ""
+msgstr "Igen"
 
 #: ../qml/components/LogoutDialog.qml:25
 msgid "Are you sure you want to log out?"
-msgstr ""
+msgstr "Biztosan ki akarsz jelentkezni?"
 
 #: ../qml/components/AddAliasDialog.qml:11
 msgid "Add new chat address"
-msgstr ""
+msgstr "Új csevegő cím hozzáadása"
 
 #: ../qml/components/AddAliasDialog.qml:19
 msgid "#chatname:%1"
-msgstr ""
+msgstr "#csevegesneve:%1"
 
 #: ../qml/components/AddAliasDialog.qml:32
 #: ../qml/components/ChangeDisplaynameDialog.qml:33
 #: ../qml/components/ChangeChatnameDialog.qml:54
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #: ../qml/components/EnterSMSTokenDialog.qml:11
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:11
 msgid "Please enter the validation code"
-msgstr ""
+msgstr "Írd be az aktiváló kódot"
 
 #: ../qml/components/EnterSMSTokenDialog.qml:19
 #: ../qml/components/EnterFirstSMSTokenDialog.qml:19
 msgid "Validation code"
-msgstr ""
+msgstr "Aktiváló kód"
 
 #: ../qml/components/ChatListItem.qml:96
 msgid "Leave this chat"
-msgstr ""
+msgstr "Csevegés elhagyása"
 
 #: ../qml/components/ColorDialog.qml:11
 msgid "Change the main color"
-msgstr ""
+msgstr "Fő szín megváltoztatása"
 
 #: ../qml/components/ColorDialog.qml:24
 msgid "Hue: %1"
-msgstr ""
+msgstr "Árnyalat: %1"
 
 #: ../qml/components/ColorDialog.qml:33
 msgid "Reset"
-msgstr ""
+msgstr "Visszaállítás"
 
 #: ../qml/components/ContactListItem.qml:19
 msgid "Last active: %1"
-msgstr ""
+msgstr "Utoljára aktív: %1"
 
 #: ../qml/components/ChatScrollView.qml:55
 msgid "Try to send again"
-msgstr ""
+msgstr "Újraküldés"
 
 #: ../qml/components/ChatScrollView.qml:61
 msgid "Reply"
-msgstr ""
+msgstr "Válasz"
 
 #: ../qml/components/ChatScrollView.qml:67
 msgid "Copy text"
-msgstr ""
+msgstr "Szöveg másolása"
 
 #: ../qml/components/ChatScrollView.qml:73
 msgid "Add to sticker collection"
-msgstr ""
+msgstr "Matrica gyűjteményhez adás"
 
 #: ../qml/components/ChatScrollView.qml:79
 msgid "Forward"
-msgstr ""
+msgstr "Továbbítás"
 
 #: ../qml/components/ChatScrollView.qml:250
 msgid "Load gif"
-msgstr ""
+msgstr "Gif betöltése"
 
 #: ../qml/components/ChatScrollView.qml:250
 msgid "Show image"
-msgstr ""
+msgstr "Kép mutatása"
 
 #: ../qml/components/ChatScrollView.qml:316
 msgid "Download: "
-msgstr ""
+msgstr "Letöltés: "
 
 #: ../qml/components/TargetListItem.qml:24
 #: ../qml/components/DeviceListItem.qml:26
 msgid "This device"
-msgstr ""
+msgstr "Ez az eszköz"
 
 #: ../qml/components/StickerInput.qml:56
 msgid "Delete sticker"
-msgstr ""
+msgstr "Matrica eltávolítása"
 
 #: ../qml/components/UsernameListItem.qml:12
 msgid "Full username:"
-msgstr ""
+msgstr "Teljes felhasználónév:"
 
 #: ../qml/components/EmailListItem.qml:31
 msgid "Remove this email address?"
-msgstr ""
+msgstr "Eltávolítja ezt az email címet?"
 
 #: ../qml/components/AddressesListItem.qml:15
 msgid "Canonical alias"
-msgstr ""
+msgstr "Hiteles álnév"
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11
 msgid "Change your display name"
-msgstr ""
+msgstr "Megjelenített név változtatás"
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:19
 msgid "Enter your new nickname"
-msgstr ""
+msgstr "Írd be a becenevedet"
 
 #: ../qml/components/AddContactDialog.qml:12
 msgid "Add new contact"
-msgstr ""
+msgstr "Új ismerős felvétele"
 
 #: ../qml/components/AddContactDialog.qml:20
 msgid "Enter the full @username"
-msgstr ""
+msgstr "Add meg a teljes @felhasznalonevet"
 
 #: ../qml/components/AddContactDialog.qml:23
 msgid "Start private chat"
-msgstr ""
+msgstr "Privát csevegés indítása"
 
 #: ../qml/components/AddContactDialog.qml:31
 msgid "Your username is: %1"
-msgstr ""
+msgstr "A felhasználó neved: %1"
 
 #: ../qml/components/AddContactDialog.qml:50
 msgid "Or"
-msgstr ""
+msgstr "Vagy"
 
 #: ../qml/components/ChangeChatAvatarDialog.qml:11
 msgid "Edit chat picture"
-msgstr ""
+msgstr "Csevegési kép változtatása"
 
 #: ../qml/components/ChangeChatAvatarDialog.qml:21
 msgid "New chat picture"
-msgstr ""
+msgstr "Új csevegési kép"
 
 #: ../qml/components/ChangeChatnameDialog.qml:12
 msgid "Chat settings and details"
-msgstr ""
+msgstr "Csevegés beállításai és részletei"
 
 #: ../qml/components/ChangeChatnameDialog.qml:21
 msgid "Change chat avatar"
-msgstr ""
+msgstr "Csevegési avatar változtatása"
 
 #: ../qml/components/ChangeChatnameDialog.qml:30
 msgid "No chat name yet"
-msgstr ""
+msgstr "Még nincs beállított csevegési név"
 
 #: ../qml/components/ChangeChatnameDialog.qml:37
 msgid "No description yet"
-msgstr ""
+msgstr "Nincs leírás megadva"
 
 #: ../qml/components/DeviceListItem.qml:27
 msgid "Last seen: "
-msgstr ""
+msgstr "Utolsó megtekintés: "
 
 #: ../qml/components/AddEmailDialog.qml:12
 msgid "Connect new email address"
-msgstr ""
+msgstr "Új email cím kapcsolása"
 
 #: ../qml/components/AddEmailDialog.qml:20
 msgid "youremail@example.edu"
-msgstr ""
+msgstr "pelda@emailcim.edu"
 
 #: ../qml/components/LockedScreen.qml:33
 msgid ""
 "Please restart the app or if necessary restart the device to complete the "
 "update!"
 msgstr ""
+"Indítsd újra az appot, vagy ha kell az eszközt a frissítés befejezéséhez!"
 
 #: ../qml/components/ProfileRow.qml:70
 msgid "Online:"
-msgstr ""
+msgstr "Bejelentkezve:"
 
 #: ../qml/components/ProfileRow.qml:70
 msgid "Offline"
-msgstr ""
+msgstr "Kijelentkezve"
 
 #: ../qml/components/ProfileRow.qml:78
 msgid "Currently active"
-msgstr ""
+msgstr "Éppen aktív"
 
 #: ../qml/components/ProfileRow.qml:78
 msgid "Last seen: %1"
-msgstr ""
+msgstr "Utolsó megtekintés: %1"
 
 #: ../qml/scripts/ChatPageSettingsActions.js:85
 msgid "Member"
-msgstr ""
+msgstr "Tag"
 
 #: ../qml/scripts/ChatPageSettingsActions.js:86
 msgid "Was invited"
-msgstr ""
+msgstr "Meghívva"
 
 #: ../qml/scripts/ChatPageSettingsActions.js:87
 msgid "Has left the chat"
-msgstr ""
+msgstr "Elhagyta a csevegést"
 
 #: ../qml/scripts/ChatPageSettingsActions.js:88
 msgid "Has knocked"
-msgstr ""
+msgstr "Kopogtatott"
 
 #: ../qml/scripts/ChatPageSettingsActions.js:89
 msgid "Was banned from the chat"
-msgstr ""
+msgstr "Csevegésből kitiltva"
 
 #: ../qml/scripts/ChatPageActions.js:525
 msgid "Uploading..."
-msgstr ""
+msgstr "Feltöltés..."
 
 #: ../qml/scripts/SettingsPageActions.js:31
 msgid "Background removed"
-msgstr ""
+msgstr "Háttér eltávolítva"
 
 #: ../qml/scripts/DefaultLayoutActions.js:29
 msgid "Do you want to join this chat?"
-msgstr ""
+msgstr "Szeretnél a csevegéshez csatlakozni?"
 
 #: ../qml/scripts/AddEmailDialogActions.js:9
 msgid "Have you confirmed your email address?"
-msgstr ""
+msgstr "Megerősítetted az email címedet?"
 
 #: ../qml/scripts/InviteListItemActions.js:9
 msgid "%1 has been invited"
-msgstr ""
+msgstr "%1t meghívtuk"
 
 #: ../qml/scripts/InviteListItemActions.js:11
 msgid "An error occured. Maybe the username %1 is wrong?"
-msgstr ""
+msgstr "Valami hiba történt. Talán a felhasználónév %1 hibás?"
 
 #: ../qml/scripts/InviteListItemActions.js:12
 msgid "%1 is banned from the chat."
-msgstr ""
+msgstr "%1 ki van tiltva a csevegésből."
 
 #: ../qml/scripts/InviteListItemActions.js:16
 msgid "Invite %1 to this chat?"
-msgstr ""
+msgstr "Hívjuk meg %1t a csevegésbe?"
 
 #: ../qml/scripts/StartChatDialog.js:9
 msgid ""
 "Please notice that FluffyChat does only support transport encryption yet."
-msgstr ""
+msgstr "A FluffyChat jelenleg csak TLS titkosítást támogat."
 
 #: ../qml/scripts/MatrixNames.js:22
 msgid "Phone contacts:"
-msgstr ""
+msgstr "Ismerős telefonszám alapján:"
 
 #: ../qml/scripts/MatrixNames.js:23
 msgid "Email contacts:"
-msgstr ""
+msgstr "Ismerős email alapján:"
 
 #: ../qml/scripts/MatrixNames.js:24
 msgid "Users from your chats:"
-msgstr ""
+msgstr "Felhasználók a csevegéseidből:"
 
 #: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
-msgstr ""
+msgstr "✏ gépel…"
 
 #: ../qml/scripts/MatrixNames.js:40
 msgid "✏ %1 is typing…"
-msgstr ""
+msgstr "✏ %1 gépel…"
 
 #: ../qml/scripts/MatrixNames.js:43
 msgid "✏ %1 and %2 more are typing…"
-msgstr ""
+msgstr "✏ %1 és %2 és mások gépelnek…"
 
 #: ../qml/scripts/MatrixNames.js:49
 msgid "Members"
-msgstr ""
+msgstr "Tagok"
 
 #: ../qml/scripts/MatrixNames.js:50
 msgid "Moderators"
-msgstr ""
+msgstr "Moderátorok"
 
 #: ../qml/scripts/MatrixNames.js:51
 msgid "Admins"
-msgstr ""
+msgstr "Adminok"
 
 #: ../qml/scripts/MatrixNames.js:52
 msgid "Owners"
-msgstr ""
+msgstr "Tulajdonosok"
 
 #: ../qml/scripts/MatrixNames.js:73
 msgid "%1 is not a valid username"
-msgstr ""
+msgstr "%1 nem létező felhasználónév"
 
 #: ../qml/scripts/MatrixNames.js:100 ../qml/scripts/MatrixNames.js:113
 #: ../qml/scripts/MatrixNames.js:120
 msgid "Empty chat"
-msgstr ""
+msgstr "Üres csevegés"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:29
 msgid "Username already taken"
-msgstr ""
+msgstr "Felhasználónév foglalt"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:30
 msgid "The desired user ID is not a valid username"
-msgstr ""
+msgstr "A kiválasztott azonosító, nem megengedett felhasználónév"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:31
 msgid ""
 "The desired user ID is in the exclusive namespace claimed by an application "
 "service"
-msgstr ""
+msgstr "A kiválasztott azonosító neve már foglalt, valamely szolgáltatás által"
 
 #: ../qml/scripts/PasswordCreationPageActions.js:32
 msgid "Could not register on %1…"
-msgstr ""
+msgstr "Nem tudunk regisztrálni %1-n…"
 
 #: ../qml/scripts/PasswordInputPageActions.js:10
 msgid "Invalid username or password"
-msgstr ""
+msgstr "Hibás felhasználónév vagy jelszó"
 
 #: ../qml/scripts/PasswordInputPageActions.js:13
 msgid "No connection to "
-msgstr ""
+msgstr "Nincs kapcsolat "
 
 #: ../qml/scripts/EventDescription.js:7
 msgid "Unknown event"
-msgstr ""
+msgstr "Ismeretlen esemény"
 
 #: ../qml/scripts/EventDescription.js:8
 msgid "Unknown Event: "
-msgstr ""
+msgstr "Ismeretlen esemény: "
 
 #: ../qml/scripts/EventDescription.js:17
 msgid "%1 has a new avatar"
-msgstr ""
+msgstr "%1-nek új avatárja van"
 
 #: ../qml/scripts/EventDescription.js:20
 msgid "%1 changed the displayname to %2"
-msgstr ""
+msgstr "%1 megváltoztatta a nevét. Új neve: %2"
 
 #: ../qml/scripts/EventDescription.js:24
 msgid "%1 accepted the invitation"
-msgstr ""
+msgstr "%1 elfogadta a meghívást"
 
 #: ../qml/scripts/EventDescription.js:27
 msgid "%1 is now participating"
-msgstr ""
+msgstr "%1 már jelen van"
 
 #: ../qml/scripts/EventDescription.js:29
 msgid "%1 is now participating as <b>%2</b>"
-msgstr ""
+msgstr "%1 már jelen van mint <b>%2</b>"
 
 #: ../qml/scripts/EventDescription.js:32
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 meghívta %2 -t"
 
 #: ../qml/scripts/EventDescription.js:36
 msgid "%1 pardoned %2"
-msgstr ""
+msgstr "%1 elnézést kért %2-től"
 
 #: ../qml/scripts/EventDescription.js:39
 msgid "%1 declined the invitation"
-msgstr ""
+msgstr "%1 elutasította a meghívást"
 
 #: ../qml/scripts/EventDescription.js:42
 msgid "%1 left the chat"
-msgstr ""
+msgstr "%1 elhagyta a csevegést"
 
 #: ../qml/scripts/EventDescription.js:44
 msgid "%1 kicked %2"
-msgstr ""
+msgstr "%1 kirúgta %2-t"
 
 #: ../qml/scripts/EventDescription.js:47
 msgid "%1 banned %2 from the chat"
-msgstr ""
+msgstr "%1 kitiltotta %2-t a csevegésből"
 
 #: ../qml/scripts/EventDescription.js:50
 msgid "and more member changes"
-msgstr ""
+msgstr "és további résztvevők megváltoztak"
 
 #: ../qml/scripts/EventDescription.js:54
 msgid "%1 created the chat"
-msgstr ""
+msgstr "%1 létrehozta a csevegést"
 
 #: ../qml/scripts/EventDescription.js:57
 msgid "%1 changed the chat name to: «%2»"
-msgstr ""
+msgstr "%1 megváltoztatta a csevegés nevét erre: «%2»"
 
 #: ../qml/scripts/EventDescription.js:60
 msgid "%1 changed the chat topic to: «%2»"
-msgstr ""
+msgstr "%1 megváltoztatta a csevegés témáját erre: «%2»"
 
 #: ../qml/scripts/EventDescription.js:63
 msgid "%1 changed the chat avatar"
-msgstr ""
+msgstr "%1 megváltoztatta a csevegés avatárját"
 
 #: ../qml/scripts/EventDescription.js:66
 msgid "%1 redacted a message"
-msgstr ""
+msgstr "%1 visszavont egy üzenetet"
 
 #: ../qml/scripts/EventDescription.js:69
 msgid ""
@@ -1308,132 +1354,135 @@ msgid ""
 "support end to end encryption. You will not be able to send or read messages "
 "in this chat!"
 msgstr ""
+"%1 végponttól-végpontig titkosítást kezdeményezett. Vigyázz! A FluffyChat "
+"egyelőre ezt nem támogatja. Nem fogsz tudni üzeneteket küldeni vagy fogadni "
+"ebben a csevegésben!"
 
 #: ../qml/scripts/EventDescription.js:72
 msgid "Encrypted message"
-msgstr ""
+msgstr "Titkosított üzenet"
 
 #: ../qml/scripts/EventDescription.js:75
 msgid "%1 sent a sticker"
-msgstr ""
+msgstr "%1 matricát küldött"
 
 #: ../qml/scripts/EventDescription.js:78
 msgid "%1 set the chat history visible to: «%2»"
-msgstr ""
+msgstr "%1 láthatóra állította a csevegés korábbi üzeneteit: «%2»"
 
 #: ../qml/scripts/EventDescription.js:81
 msgid "%1 set the join rules to: «%2»"
-msgstr ""
+msgstr "%1 az alábbi csatlakozási szabályokat állította be: «%2»"
 
 #: ../qml/scripts/EventDescription.js:84
 msgid "%1 set the guest access to: «%2»"
-msgstr ""
+msgstr "%1 a következő vendég engedélyeket állította be: «%2»"
 
 #: ../qml/scripts/EventDescription.js:87
 msgid "%1 changed the chat aliases"
-msgstr ""
+msgstr "%1 megváltoztatta a csevegés álneveit"
 
 #: ../qml/scripts/EventDescription.js:93
 msgid "%1 changed the main chat alias to: «%2»"
-msgstr ""
+msgstr "%1 megváltoztatta a csevegés álneveit erre: «%2»"
 
 #: ../qml/scripts/EventDescription.js:96
 msgid "%1 changed the chat permissions"
-msgstr ""
+msgstr "%1 megváltoztatta a csevegés engedélyeit"
 
 #: ../qml/scripts/EventDescription.js:106
 msgid "Only invited users"
-msgstr ""
+msgstr "Csak meghívott felhasználók"
 
 #: ../qml/scripts/EventDescription.js:109
 msgid "Public"
-msgstr ""
+msgstr "Nyilvános"
 
 #: ../qml/scripts/EventDescription.js:112
 msgid "Private"
-msgstr ""
+msgstr "Privát"
 
 #: ../qml/scripts/EventDescription.js:115
 msgid "Knock"
-msgstr ""
+msgstr "Kopogás"
 
 #: ../qml/scripts/EventDescription.js:118
 msgid "All chatters"
-msgstr ""
+msgstr "Minden csacsogó"
 
 #: ../qml/scripts/EventDescription.js:121
 msgid "All joined chat participants"
-msgstr ""
+msgstr "A csevegés összes résztvevője"
 
 #: ../qml/scripts/EventDescription.js:124
 msgid "All invited chat participants"
-msgstr ""
+msgstr "A csevegés összes meghívott résztvevője"
 
 #: ../qml/scripts/EventDescription.js:127
 msgid "Everyone"
-msgstr ""
+msgstr "Mindenki"
 
 #: ../qml/scripts/EventDescription.js:130
 msgid "Can join"
-msgstr ""
+msgstr "Csatlakozhat"
 
 #: ../qml/scripts/EventDescription.js:133
 msgid "Forbidden"
-msgstr ""
+msgstr "Tilos"
 
 #: ../qml/scripts/ChatListItemActions.js:27
 msgid "You have been invited to this chat"
-msgstr ""
+msgstr "Meghívtak ebbe a csevegésbe"
 
 #: ../qml/scripts/ChatListItemActions.js:30
 msgid "You have left this chat"
-msgstr ""
+msgstr "Elhagytad ezt a csevegést"
 
 #: ../qml/scripts/ChatListItemActions.js:37
 msgid "You: "
-msgstr ""
+msgstr "Te: "
 
 #: ../qml/scripts/ChatListItemActions.js:44
 msgid "No previous messages"
-msgstr ""
+msgstr "Nincsenek korábbi üzenetek"
 
 #: ../qml/scripts/ChatListItemActions.js:63
 msgid "Do you want to leave this chat?"
-msgstr ""
+msgstr "El szeretnéd hagyni ezt a csevegést?"
 
 #: ../qml/scripts/UserDevicesPageActions.js:101
 msgid "This can not be undone!"
-msgstr ""
+msgstr "Ezt nem lehet visszacsinálni!"
 
 #: ../qml/scripts/ChatEventActions.js:25
 msgid "Add to sticker collection?"
-msgstr ""
+msgstr "Hozzáadod a matrica gyűjteményhez?"
 
 #: ../qml/scripts/ChatEventActions.js:32
 msgid "Already added as sticker"
-msgstr ""
+msgstr "Már hozzáadtad a matricát"
 
 #: ../qml/scripts/ChatEventActions.js:33
 msgid "Added as sticker"
-msgstr ""
+msgstr "Hozzáadva matricaként"
 
 #: ../qml/scripts/ChatEventActions.js:50
 msgid "Remove this message?"
-msgstr ""
+msgstr "Eltávolítod az üzenetet?"
 
 #: ../qml/scripts/CreateChatPageActions.js:53
 msgid "Do you want to create a new group now?"
-msgstr ""
+msgstr "Szeretnél új csoportot létrehozni?"
 
 #: ../qml/scripts/LoginPageActions.js:54
 msgid "Server %1 not found"
-msgstr ""
+msgstr "A %1 szerver nem található"
 
 #: ../qml/scripts/LoginPageActions.js:56
 msgid "Username '%1' not found on %2"
-msgstr ""
+msgstr "A \"%1\" felhasználónév nem található a %2 szerveren"
 
 #: ../qml/scripts/LoginPageActions.js:100
 #: ../qml/scripts/LoginPageActions.js:102
 msgid "Username is already taken"
-msgstr ""
+msgstr "Ez a felhasználónév már foglalt"
