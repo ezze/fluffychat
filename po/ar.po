@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-18 07:30+0000\n"
-"PO-Revision-Date: 2019-05-15 16:48+0000\n"
+"PO-Revision-Date: 2020-05-22 11:41+0000\n"
 "Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ar/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
@@ -54,10 +54,8 @@ msgstr "تم نسخه إلى الحافظة"
 
 #: ../qml/pages/ChatDevicesPage.qml:17
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
-#, fuzzy
-#| msgid "Account settings:"
 msgid "Encryption settings"
-msgstr "إعدادات الحساب:"
+msgstr "إعدادات التشفير"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
@@ -66,13 +64,11 @@ msgstr ""
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "Loading…"
-msgstr ""
+msgstr "التحميل جارٍ…"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
-#, fuzzy
-#| msgid "No description found"
 msgid "No devices found"
-msgstr "بدون وصف"
+msgstr "لم يتم العثور على أجهزة"
 
 #: ../qml/pages/InfoPage.qml:11
 msgid "FluffyChat %1 on %2"
@@ -113,11 +109,11 @@ msgstr "الرخصة"
 
 #: ../qml/pages/ArchivedChatsPage.qml:28 ../qml/pages/SettingsPage.qml:221
 msgid "Archived chats"
-msgstr ""
+msgstr "الدردشات المؤرشفة"
 
 #: ../qml/pages/ArchivedChatsPage.qml:44
 msgid "Search archived chats…"
-msgstr ""
+msgstr "البحث في الدردشات المؤرشفة…"
 
 #: ../qml/pages/ArchivedChatsPage.qml:52
 msgid "There are no archived chats"
@@ -403,10 +399,8 @@ msgid "Please enter your password for: <b>%1</b>"
 msgstr ""
 
 #: ../qml/pages/PasswordInputPage.qml:50
-#, fuzzy
-#| msgid "Password..."
 msgid "Password…"
-msgstr "كلمة السر…"
+msgstr "الكلمة السرية…"
 
 #: ../qml/pages/NotificationSettingsPage.qml:13
 msgid "Receive notifications for…"
@@ -526,16 +520,12 @@ msgid "You do not have posting permissions here"
 msgstr ""
 
 #: ../qml/pages/ChatPage.qml:276
-#, fuzzy
-#| msgid "New encrypted message"
 msgid "Unencrypted message..."
-msgstr "رسالة مشفرة جديدة"
+msgstr "رسالة غير مشفرة…"
 
 #: ../qml/pages/ChatPage.qml:277
-#, fuzzy
-#| msgid "New encrypted message"
 msgid "Encrypted message..."
-msgstr "رسالة مشفرة جديدة"
+msgstr "رسالة مشفرة…"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
@@ -546,10 +536,8 @@ msgid "No phone numbers connected"
 msgstr ""
 
 #: ../qml/pages/UserDevicesPage.qml:25
-#, fuzzy
-#| msgid "Devices"
 msgid "Devices of %1"
-msgstr "الأجهزة"
+msgstr "الأجهزة مِن %1"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
 #: ../qml/pages/ChatSettingsPage.qml:165
