@@ -8,59 +8,62 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-18 07:30+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-05-25 14:34+0000\n"
+"Last-Translator: ONC <zhongjin@chinaegov.net>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"fluffychat/translations/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: ../push/pushhelper.cpp:154
 msgid "New message"
-msgstr ""
+msgstr "新消息"
 
 #: ../push/pushhelper.cpp:164
 msgid "New encrypted message"
-msgstr ""
+msgstr "新加密消息"
 
 #: ../push/pushhelper.cpp:167
 msgid "New member event"
-msgstr ""
+msgstr "新事件"
 
 #: ../push/pushhelper.cpp:173
 msgid "You were invited to chat"
-msgstr ""
+msgstr "邀请你交流"
 
 #: ../qml/Main.qml:129
 msgid "Are you sure?"
-msgstr ""
+msgstr "你确定吗？"
 
 #: ../qml/Main.qml:152
 msgid "You must agree to the privacy policy"
-msgstr ""
+msgstr "你必须同意隐私规定"
 
 #: ../qml/Main.qml:167
 msgid "Copied to the clipboard"
-msgstr ""
+msgstr "已复制到剪贴板"
 
 #: ../qml/pages/ChatDevicesPage.qml:17
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:52
 msgid "Encryption settings"
-msgstr ""
+msgstr "加密设置"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
 msgid "(Experimental) Enable encryption"
-msgstr ""
+msgstr "启用加密"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
 msgid "Loading…"
-msgstr ""
+msgstr "加载中…"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 msgid "No devices found"
