@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-18 07:30+0000\n"
-"PO-Revision-Date: 2020-02-17 13:50+0000\n"
-"Last-Translator: Golubev Alexander <fatzer2@gmail.com>\n"
+"PO-Revision-Date: 2020-06-17 05:41+0000\n"
+"Last-Translator: Mingun <Alexander_Sergey@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/fluffychat/"
 "translations/ru/>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.1.1-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
@@ -140,13 +140,13 @@ msgid ""
 "Please set a strong password. To reset your password, you will need to "
 "provide an e-mail address later"
 msgstr ""
-"Пожалуйста, установите сложный пароль. Для сброса Вашего пароля необходимо "
-"будет указать адрес Вашей электронной почты"
+"Пожалуйста, установите сложный пароль. Для сброса вашего пароля необходимо "
+"будет указать адрес вашей электронной почты"
 
 #: ../qml/pages/PasswordCreationPage.qml:65
 #, javascript-format
 msgid "e.g. Summer%salad$flattens?tOOthpaste"
-msgstr ""
+msgstr "например, Летний%салат$ровняет?зУбнуюпасту"
 
 #: ../qml/pages/PasswordCreationPage.qml:86 ../qml/pages/LoginPage.qml:187
 msgid "Sign up"
@@ -154,7 +154,7 @@ msgstr "Регистрация"
 
 #: ../qml/pages/WalkthroughPage.qml:64
 msgid "Welcome to FluffyChat"
-msgstr "Добро пожаловать в FluffyChat"
+msgstr "Добро пожаловать во FluffyChat"
 
 #: ../qml/pages/WalkthroughPage.qml:78
 msgid ""
@@ -214,9 +214,9 @@ msgid ""
 "donate'>Liberapay</a>"
 msgstr ""
 "FluffyChat — открытый и некоммерческий проект. Разработка и сервера "
-"спонсируются сообществом. Пожертвуйте проекту на <a href='https://liberapay."
-"com/KrilleChritzelius/donate'>Ko-fi</a> или на <a href='https://liberapay."
-"com/KrilleChritzelius/donate'>Liberapay</a>"
+"спонсируются сообществом. Пожертвуйте проекту на <a href='https://ko-fi.com/"
+"krille'>Ko-fi</a> или на <a href='https://liberapay.com/KrilleChritzelius/"
+"donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
@@ -244,11 +244,11 @@ msgstr "Часто задаваемые вопросы"
 
 #: ../qml/pages/LoginPage.qml:64
 msgid "Choose your homeserver"
-msgstr "Выберите Ваш сервер"
+msgstr "Выберите ваш сервер"
 
 #: ../qml/pages/LoginPage.qml:88
 msgid "Choose your identity server"
-msgstr "Выберите Ваш сервер идентификации"
+msgstr "Выберите ваш сервер идентификации"
 
 #: ../qml/pages/LoginPage.qml:133
 msgid "Phone number (optional)"
@@ -357,7 +357,7 @@ msgstr "Отправлять по нажатию enter"
 
 #: ../qml/pages/SettingsPage.qml:200
 msgid "Display 'I am typing' when typing"
-msgstr "Отображать \"Я пишу\" в процессе набора сообщения"
+msgstr "Отображать «Я пишу» в процессе набора сообщения"
 
 #: ../qml/pages/SettingsPage.qml:207
 msgid "Hide less important events"
@@ -406,11 +406,11 @@ msgstr "Описание не найдено"
 
 #: ../qml/pages/PasswordInputPage.qml:13
 msgid "Enter your password"
-msgstr "Введите Ваш пароль"
+msgstr "Введите ваш пароль"
 
 #: ../qml/pages/PasswordInputPage.qml:41
 msgid "Please enter your password for: <b>%1</b>"
-msgstr "Пожалуйста, введите Ваш пароль для <b>%1</b>"
+msgstr "Пожалуйста, введите ваш пароль для <b>%1</b>"
 
 #: ../qml/pages/PasswordInputPage.qml:50
 msgid "Password…"
@@ -480,6 +480,31 @@ msgid ""
 "the notification to UBports push service at https://push.ubports.com and "
 "then sends this on as a push notification to the user's device(s).<br>"
 msgstr ""
+"<br><b>Клиент Matrix</b><br><br>* FluffyChat является клиентом протокола "
+"Matrix и совместим со всеми серверами Matrix и серверами идентификации "
+"Matrix. Все коммуникации, осуществляемые с помощью FluffyChat, используют "
+"сервер Matrix и сервер идентификации Matrix.<br>* Умолчательным сервером во "
+"FluffyChat является https://matrix.org, а умолчательным сервером "
+"идентификации — https://vector.im.<br>* FluffyChat не управлется никаким "
+"сервером или удалённым сервисом.<br>* Передача любого существенного "
+"содержимого между FluffyChat и любым сервером осуществляется безопасным "
+"способом с использованием шифрования транспорта для защиты этого "
+"содержимого. Сквозное шифрование уже на подходе.<br>* FluffyChat не несёт "
+"ответственности за обработку данных, выполняемую любым сервером Matrix или "
+"сервером идентификации Matrix.<br>* FluffyChat предлагает возможность "
+"использовать для поиска контактов телефонные номера. Они не является "
+"необходимыми для нормальной работы приложения и служат исключительно для "
+"удобства его использования. Без одобрения пользователя никакие контактные "
+"данные никуда не передаются! Пользователь может выбрать передачу на сервер "
+"идентификации всех или только некоторых контактов, либо вообще не передавать "
+"никакие контакты!<br><br><b>Push-уведомления</b><br><br>* Выбранный "
+"пользователем сервер Matrix автоматически отправляет push-уведомления в "
+"службу push-уведомлений UBports. Эти уведомления передаются между "
+"устройством и сервером Matrix в зашифрованном виде по протоколу https, на "
+"официальный шлюз UBports Matrix, расположенный по адресу https://push.ubports"
+".com:5003/_matrix/push/r0/notify. Этот сервер пересылает уведомление в "
+"службу push-уведомлений UBports на https://push.ubports.com, а затем "
+"отправляет его в виде push-уведомления на устройства пользователя.<br>"
 
 #: ../qml/pages/CountryPickerPage.qml:11
 msgid "Choose a country"
@@ -487,7 +512,7 @@ msgstr "Выберите страну"
 
 #: ../qml/pages/CountryPickerPage.qml:28
 msgid "Search for country by name…"
-msgstr "Искать страну по имени…"
+msgstr "Искать страну по названию…"
 
 #: ../qml/pages/UserPage.qml:34
 msgid "Username copied to the clipboard"
@@ -499,7 +524,7 @@ msgstr "Беседы с этим пользователем:"
 
 #: ../qml/pages/UserPage.qml:69
 msgid "This is you."
-msgstr "Это Вы."
+msgstr "Это вы."
 
 #: ../qml/pages/UserPage.qml:87
 msgid "Start new chat"
@@ -531,7 +556,7 @@ msgstr "Присоединиться"
 
 #: ../qml/pages/ChatPage.qml:246
 msgid "You do not have posting permissions here"
-msgstr "У Вас нет прав для отправки сообщений"
+msgstr "У вас нет прав для отправки сообщений"
 
 #: ../qml/pages/ChatPage.qml:276
 msgid "Unencrypted message..."
@@ -547,13 +572,11 @@ msgstr "Добавить номер телефона"
 
 #: ../qml/pages/PhoneSettingsPage.qml:40
 msgid "No phone numbers connected"
-msgstr "Нет привязанных телефонных номеров"
+msgstr "Нет привязанных номеров телефонов"
 
 #: ../qml/pages/UserDevicesPage.qml:25
-#, fuzzy
-#| msgid "Devices"
 msgid "Devices of %1"
-msgstr "Устройства"
+msgstr "Устройства %1"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:35
 #: ../qml/pages/ChatSettingsPage.qml:165
@@ -562,7 +585,7 @@ msgstr "Расширенные настройки"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:47
 msgid "End-to-end encryption"
-msgstr "Сквозное гифрование"
+msgstr "Сквозное шифрование"
 
 #: ../qml/pages/ChatAdvancedSettingsPage.qml:59
 msgid "Access"
@@ -761,16 +784,16 @@ msgstr "Исключить из беседы?"
 
 #: ../qml/components/ChangePasswordDialog.qml:11
 msgid "Change your password"
-msgstr "Смените Ваш пароль"
+msgstr "Смените ваш пароль"
 
 #: ../qml/components/ChangePasswordDialog.qml:19
 #: ../qml/components/DisableAccountDialog.qml:33
 msgid "Enter your old password"
-msgstr "Введите Ваш старый пароль"
+msgstr "Введите ваш старый пароль"
 
 #: ../qml/components/ChangePasswordDialog.qml:25
 msgid "Enter your new password"
-msgstr "Введите Ваш новый пароль"
+msgstr "Введите ваш новый пароль"
 
 #: ../qml/components/ChangePasswordDialog.qml:30
 msgid "Please repeat"
@@ -824,7 +847,7 @@ msgstr "Закрыть"
 
 #: ../qml/components/TargetInfoDialog.qml:11
 msgid "Target details"
-msgstr ""
+msgstr "Сведения о цели"
 
 #: ../qml/components/TargetInfoDialog.qml:25
 msgid "<b>Device name</b>: %2"
@@ -836,7 +859,7 @@ msgstr "<b>Приложение</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:33
 msgid "<b>Kind</b>: %2"
-msgstr ""
+msgstr "<b>Тип</b>: %2"
 
 #: ../qml/components/TargetInfoDialog.qml:37
 msgid "<b>Language</b>: %2"
@@ -884,7 +907,7 @@ msgstr "Вы уверены, что хотите удалить устройст
 
 #: ../qml/components/RemoveDeviceDialog.qml:34
 msgid "Please enter your password"
-msgstr "Пожалуйста, введите Ваш пароль"
+msgstr "Пожалуйста, введите ваш пароль"
 
 #: ../qml/components/RemoveDeviceDialog.qml:48
 #: ../qml/components/DisableAccountDialog.qml:47
@@ -906,7 +929,7 @@ msgstr "…"
 
 #: ../qml/components/AddPhoneDialog.qml:22
 msgid "Please log out to change your country"
-msgstr "Для изменения Вашей страны, пожалуйста, выйдите"
+msgstr "Для изменения вашей страны, пожалуйста, выйдите из учётной записи"
 
 #: ../qml/components/AddPhoneDialog.qml:26
 msgid "Phone number…"
@@ -1033,15 +1056,15 @@ msgstr "Удалить этот адрес электронной почты?"
 
 #: ../qml/components/AddressesListItem.qml:15
 msgid "Canonical alias"
-msgstr ""
+msgstr "Канонический псевдоним"
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:11
 msgid "Change your display name"
-msgstr "Изменить Ваше отображаемое имя"
+msgstr "Изменить ваше отображаемое имя"
 
 #: ../qml/components/ChangeDisplaynameDialog.qml:19
 msgid "Enter your new nickname"
-msgstr "Введите Ваше новое имя пользователя"
+msgstr "Введите ваше новое имя пользователя"
 
 #: ../qml/components/AddContactDialog.qml:12
 msgid "Add new contact"
@@ -1097,7 +1120,7 @@ msgstr "Привязать новый адрес электронной почт
 
 #: ../qml/components/AddEmailDialog.qml:20
 msgid "youremail@example.edu"
-msgstr "youremail@example.edu"
+msgstr "вашапочта@example.edu"
 
 #: ../qml/components/LockedScreen.qml:33
 msgid ""
@@ -1137,7 +1160,7 @@ msgstr "Покинул(а) беседу"
 
 #: ../qml/scripts/ChatPageSettingsActions.js:88
 msgid "Has knocked"
-msgstr ""
+msgstr "Был(а) выкинут(а)"
 
 #: ../qml/scripts/ChatPageSettingsActions.js:89
 msgid "Was banned from the chat"
@@ -1188,11 +1211,11 @@ msgstr "Телефонные контакты:"
 
 #: ../qml/scripts/MatrixNames.js:23
 msgid "Email contacts:"
-msgstr "Контакты email:"
+msgstr "Контакты из электронной почты:"
 
 #: ../qml/scripts/MatrixNames.js:24
 msgid "Users from your chats:"
-msgstr "Пользователи из Ваших бесед:"
+msgstr "Пользователи из ваших бесед:"
 
 #: ../qml/scripts/MatrixNames.js:39
 msgid "✏ is typing…"
@@ -1343,8 +1366,8 @@ msgid ""
 "support end to end encryption. You will not be able to send or read messages "
 "in this chat!"
 msgstr ""
-"%1 инициализировал(а) шифрование end-to-end. Имейте в виду, что FluffyChat "
-"пока не поддерживает шифрование end-to-end. Вы не сможете отправлять и "
+"%1 инициализировал(а) сквозное шифрование. Имейте в виду, что FluffyChat "
+"пока не поддерживает сквозное шифрование. Вы не сможете отправлять или "
 "читать сообщения в этой беседе!"
 
 #: ../qml/scripts/EventDescription.js:72
@@ -1393,7 +1416,7 @@ msgstr "Приватные"
 
 #: ../qml/scripts/EventDescription.js:115
 msgid "Knock"
-msgstr ""
+msgstr "Исключённые"
 
 #: ../qml/scripts/EventDescription.js:118
 msgid "All chatters"
@@ -1469,7 +1492,7 @@ msgstr "Сервер %1 не найден"
 
 #: ../qml/scripts/LoginPageActions.js:56
 msgid "Username '%1' not found on %2"
-msgstr "Имя пользователя '%1' не найдено на %2"
+msgstr "Имя пользователя «%1» не найдено на %2"
 
 #: ../qml/scripts/LoginPageActions.js:100
 #: ../qml/scripts/LoginPageActions.js:102
