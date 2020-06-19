@@ -383,11 +383,9 @@ Item {
                     if ( http.responseText === "" ) throw( "CONNERROR" )
 
                     var responseType = http.getResponseHeader("Content-Type")
-                    if ( responseType === "application/json" ) {
-                        var response = JSON.parse(http.responseText)
-                        if ( "errcode" in response || http.status !== 200 ) throw response
-                        if ( callback ) callback( response )
-                    }
+                    var response = JSON.parse(http.responseText)
+                    if ( "errcode" in response || http.status !== 200 ) throw response
+                    if ( callback ) callback( response )
 
                 }
                 catch ( error ) {
@@ -486,7 +484,7 @@ Item {
         console.log("👷[Init] Request the first matrix synchronizaton prevBatch='%1'".arg(matrix.prevBatch))
 
         var onFristSyncResponse = function ( response ) {
-            console.log("'FIRST SYNC RESPONSE!!!'")
+            console.log("👷[Init] First sync response received")
             if ( matrix.waitingForSync ) waitingForAnswer--
             handleEvents ( response )
 
@@ -494,7 +492,7 @@ Item {
         }
 
         var onFristSyncError = function ( response ) {
-            console.log("👷[Init] First sync error:")
+            console.log("😱[Init] First sync error:")
             console.log(JSON.stringify(response))
             init()
         }
