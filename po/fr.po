@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 09:01+0000\n"
-"PO-Revision-Date: 2020-02-08 17:50+0000\n"
+"PO-Revision-Date: 2020-06-19 09:22+0000\n"
 "Last-Translator: Anne Onyme 017 <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/fluffychat/"
 "translations/fr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.1.1-dev\n"
 
 #: ../push/pushhelper.cpp:141 ../qml/scripts/ChatPageSettingsActions.js:90
 msgid "Unknown"
@@ -57,10 +57,8 @@ msgid "Encryption settings"
 msgstr "Paramètres de chiffrement"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
-#, fuzzy
-#| msgid "(Experimental) Enable encryption"
 msgid "(Needs Pantalaimon) Enable encryption"
-msgstr "(Expérimental) Activer le chiffrement"
+msgstr "(Pantalaimon requis) Activer le chiffrement"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
 #: ../qml/pages/DiscoverPage.qml:67
@@ -557,10 +555,8 @@ msgid "You do not have posting permissions here"
 msgstr "Vous n'avez pas l'autorisation de poster ici"
 
 #: ../qml/pages/ChatPage.qml:275
-#, fuzzy
-#| msgid "Encrypted message..."
 msgid "Your message..."
-msgstr "Message chiffré..."
+msgstr "Votre message..."
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
 msgid "Add phone number"
@@ -1067,7 +1063,7 @@ msgstr "Ajouter un nouveau contact"
 
 #: ../qml/components/AddContactDialog.qml:20
 msgid "Enter the full @username"
-msgstr "Saisissez la totalité de l'@identifiant :"
+msgstr "Saisissez la totalité de l'@identifiant"
 
 #: ../qml/components/AddContactDialog.qml:23
 msgid "Start private chat"
@@ -1292,7 +1288,7 @@ msgstr "%1 a un nouvel avatar"
 
 #: ../qml/scripts/EventDescription.js:20
 msgid "%1 changed the displayname to %2"
-msgstr "%1 a modifié le nom d'utilisateur en  <b>%2</b>"
+msgstr "%1 a modifié le nom affiché en %2"
 
 #: ../qml/scripts/EventDescription.js:24
 msgid "%1 accepted the invitation"
