@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 07:30+0000\n"
+"POT-Creation-Date: 2020-06-19 09:01+0000\n"
 "PO-Revision-Date: 2019-12-03 00:05+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -67,7 +67,7 @@ msgid "Encryption settings"
 msgstr "通知設定"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
-msgid "(Experimental) Enable encryption"
+msgid "(Needs Pantalaimon) Enable encryption"
 msgstr ""
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
@@ -207,10 +207,6 @@ msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
-msgstr ""
-
-#: ../qml/pages/WalkthroughPage.qml:184
-msgid "Experimental release of end-to-end encryption."
 msgstr ""
 
 #: ../qml/pages/WalkthroughPage.qml:222
@@ -566,16 +562,10 @@ msgstr "加入"
 msgid "You do not have posting permissions here"
 msgstr "您沒有此處發佈的權限"
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 #, fuzzy
 #| msgid "Encrypted message"
-msgid "Unencrypted message..."
-msgstr "已加密的消息"
-
-#: ../qml/pages/ChatPage.qml:277
-#, fuzzy
-#| msgid "Encrypted message"
-msgid "Encrypted message..."
+msgid "Your message..."
 msgstr "已加密的消息"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
@@ -749,24 +739,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "你不能在這裡聊天。"
 
-#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:409 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕沒有連接…"
 
-#: ../qml/models/MatrixModel.qml:451
+#: ../qml/models/MatrixModel.qml:459
 msgid "Upload error:"
 msgstr "上傳錯誤："
 
-#: ../qml/models/MatrixModel.qml:524
+#: ../qml/models/MatrixModel.qml:538
 msgid "No connection to the homeserver 😕"
 msgstr "沒有連接到家庭伺服器 😕"
 
-#: ../qml/models/MatrixModel.qml:531
+#: ../qml/models/MatrixModel.qml:545
 msgid "Your session has expired"
 msgstr "您的會議已經過期"
 
-#: ../qml/models/MatrixModel.qml:595
+#: ../qml/models/MatrixModel.qml:609
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -1561,6 +1551,11 @@ msgstr "在 %2 上找不到用戶名稱'%1'"
 #: ../qml/scripts/LoginPageActions.js:102
 msgid "Username is already taken"
 msgstr "用戶名稱已被使用"
+
+#, fuzzy
+#~| msgid "Encrypted message"
+#~ msgid "Unencrypted message..."
+#~ msgstr "已加密的消息"
 
 #, fuzzy
 #~| msgid "Type something ..."

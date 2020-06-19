@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 07:30+0000\n"
+"POT-Creation-Date: 2020-06-19 09:01+0000\n"
 "PO-Revision-Date: 2020-02-08 17:50+0000\n"
 "Last-Translator: Milan Korecky <milan.korecky@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/fluffychat/"
@@ -57,7 +57,9 @@ msgid "Encryption settings"
 msgstr "Configuración de cifrado"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
-msgid "(Experimental) Enable encryption"
+#, fuzzy
+#| msgid "(Experimental) Enable encryption"
+msgid "(Needs Pantalaimon) Enable encryption"
 msgstr "(Experimental) Habilitar el cifrado"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
@@ -196,10 +198,6 @@ msgstr "Solucionado un fallo de seguridad."
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
 msgstr "Traducciones actualizadas. Gracias a todos los traductores."
-
-#: ../qml/pages/WalkthroughPage.qml:184
-msgid "Experimental release of end-to-end encryption."
-msgstr "Lanzamiento experimental de cifrado de extremo a extremo."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -553,12 +551,10 @@ msgstr "Unirse"
 msgid "You do not have posting permissions here"
 msgstr "No tiene permisos para publicar aquí"
 
-#: ../qml/pages/ChatPage.qml:276
-msgid "Unencrypted message..."
-msgstr "Mensaje no cifrado..."
-
-#: ../qml/pages/ChatPage.qml:277
-msgid "Encrypted message..."
+#: ../qml/pages/ChatPage.qml:275
+#, fuzzy
+#| msgid "Encrypted message..."
+msgid "Your message..."
 msgstr "Mensaje cifrado..."
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
@@ -727,24 +723,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "No tiene permiso para chatear aquí."
 
-#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:409 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Sin conexión…"
 
-#: ../qml/models/MatrixModel.qml:451
+#: ../qml/models/MatrixModel.qml:459
 msgid "Upload error:"
 msgstr "Error de subida:"
 
-#: ../qml/models/MatrixModel.qml:524
+#: ../qml/models/MatrixModel.qml:538
 msgid "No connection to the homeserver 😕"
 msgstr "Sin conexión al servidor 😕"
 
-#: ../qml/models/MatrixModel.qml:531
+#: ../qml/models/MatrixModel.qml:545
 msgid "Your session has expired"
 msgstr "Su sesión ha caducado"
 
-#: ../qml/models/MatrixModel.qml:595
+#: ../qml/models/MatrixModel.qml:609
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1485,6 +1481,12 @@ msgstr "No se encontró el nombre de usuario «%1» en %2"
 #: ../qml/scripts/LoginPageActions.js:102
 msgid "Username is already taken"
 msgstr "El nombre de usuario ya está tomado"
+
+#~ msgid "Experimental release of end-to-end encryption."
+#~ msgstr "Lanzamiento experimental de cifrado de extremo a extremo."
+
+#~ msgid "Unencrypted message..."
+#~ msgstr "Mensaje no cifrado..."
 
 #~ msgid "Type something …"
 #~ msgstr "Escriba algo …"

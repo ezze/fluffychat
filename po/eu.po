@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 07:30+0000\n"
+"POT-Creation-Date: 2020-06-19 09:01+0000\n"
 "PO-Revision-Date: 2020-06-17 05:41+0000\n"
 "Last-Translator: aitzol berasategi <aitzol@disroot.org>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/fluffychat/"
@@ -57,7 +57,9 @@ msgid "Encryption settings"
 msgstr "Enkriptatze ezarpenak"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
-msgid "(Experimental) Enable encryption"
+#, fuzzy
+#| msgid "(Experimental) Enable encryption"
+msgid "(Needs Pantalaimon) Enable encryption"
 msgstr "(Esperimentala) Enkriptatzea gaitu"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
@@ -196,10 +198,6 @@ msgstr "Segurtasun akatsak konponduta."
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
 msgstr "Itzulpenak eguneraturik. Eskerrikasko itzultzaileei."
-
-#: ../qml/pages/WalkthroughPage.qml:184
-msgid "Experimental release of end-to-end encryption."
-msgstr "Muturretik-muturrerako enkriptatzearen argitaratze esperimentala."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -538,14 +536,10 @@ msgstr "Batu"
 msgid "You do not have posting permissions here"
 msgstr "Hemen ez duzu argitaratzeko baimenik"
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 #, fuzzy
-#| msgid "New encrypted message"
-msgid "Unencrypted message..."
-msgstr "Enkriptaturiko mezu berria"
-
-#: ../qml/pages/ChatPage.qml:277
-msgid "Encrypted message..."
+#| msgid "Encrypted message..."
+msgid "Your message..."
 msgstr "Enkriptaturiko mezua..."
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
@@ -716,24 +710,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Ez duzu baimenik berriketa honetan sartzeko."
 
-#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:409 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Konexiorik ez…"
 
-#: ../qml/models/MatrixModel.qml:451
+#: ../qml/models/MatrixModel.qml:459
 msgid "Upload error:"
 msgstr "Igoera akatsa:"
 
-#: ../qml/models/MatrixModel.qml:524
+#: ../qml/models/MatrixModel.qml:538
 msgid "No connection to the homeserver 😕"
 msgstr "Konexiorik ez zerbitzariarenkin 😕"
 
-#: ../qml/models/MatrixModel.qml:531
+#: ../qml/models/MatrixModel.qml:545
 msgid "Your session has expired"
 msgstr "Sure saioa iraungi egin da"
 
-#: ../qml/models/MatrixModel.qml:595
+#: ../qml/models/MatrixModel.qml:609
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1470,6 +1464,14 @@ msgstr ""
 #: ../qml/scripts/LoginPageActions.js:102
 msgid "Username is already taken"
 msgstr ""
+
+#~ msgid "Experimental release of end-to-end encryption."
+#~ msgstr "Muturretik-muturrerako enkriptatzearen argitaratze esperimentala."
+
+#, fuzzy
+#~| msgid "New encrypted message"
+#~ msgid "Unencrypted message..."
+#~ msgstr "Enkriptaturiko mezu berria"
 
 #~ msgid "Type something …"
 #~ msgstr "Idatzi zerbait …"

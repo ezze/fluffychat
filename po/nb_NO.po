@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 07:30+0000\n"
+"POT-Creation-Date: 2020-06-19 09:01+0000\n"
 "PO-Revision-Date: 2020-06-18 08:41+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -58,7 +58,9 @@ msgid "Encryption settings"
 msgstr "Krypteringsinnstillinger"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
-msgid "(Experimental) Enable encryption"
+#, fuzzy
+#| msgid "(Experimental) Enable encryption"
+msgid "(Needs Pantalaimon) Enable encryption"
 msgstr "(Eksperimentelt) Skru på kryptering"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
@@ -200,10 +202,6 @@ msgstr "Sikkerhetsfeil fikset."
 #: ../qml/pages/WalkthroughPage.qml:176
 msgid "Updated translations. Thanks to all translators."
 msgstr "Oppdaterte oversettelser. Takk til alle oversettere."
-
-#: ../qml/pages/WalkthroughPage.qml:184
-msgid "Experimental release of end-to-end encryption."
-msgstr "Eksperimentell støtte for ende-til-ende-kryptering."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -570,14 +568,9 @@ msgstr "Ta del"
 msgid "You do not have posting permissions here"
 msgstr "Du har ikke tilgang til å skrive i denne sludringen."
 
-#: ../qml/pages/ChatPage.qml:276
+#: ../qml/pages/ChatPage.qml:275
 #, fuzzy
-msgid "Unencrypted message..."
-msgstr "Slett melding"
-
-#: ../qml/pages/ChatPage.qml:277
-#, fuzzy
-msgid "Encrypted message..."
+msgid "Your message..."
 msgstr "Slett melding"
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
@@ -760,25 +753,25 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Du tillates ikke å sludre her."
 
-#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:409 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Ingen tilkobling…"
 
-#: ../qml/models/MatrixModel.qml:451
+#: ../qml/models/MatrixModel.qml:459
 msgid "Upload error:"
 msgstr "Opplastingsfeil:"
 
-#: ../qml/models/MatrixModel.qml:524
+#: ../qml/models/MatrixModel.qml:538
 #, fuzzy
 msgid "No connection to the homeserver 😕"
 msgstr "Ingen tilkobling til hjemmetjeneren 😕"
 
-#: ../qml/models/MatrixModel.qml:531
+#: ../qml/models/MatrixModel.qml:545
 msgid "Your session has expired"
 msgstr "Økten din har utløpt"
 
-#: ../qml/models/MatrixModel.qml:595
+#: ../qml/models/MatrixModel.qml:609
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "
@@ -1581,6 +1574,13 @@ msgstr "Brukernavn \"%1\" ikke funnet på %2"
 #: ../qml/scripts/LoginPageActions.js:102
 msgid "Username is already taken"
 msgstr "Brukernavn allerede i bruk"
+
+#~ msgid "Experimental release of end-to-end encryption."
+#~ msgstr "Eksperimentell støtte for ende-til-ende-kryptering."
+
+#, fuzzy
+#~ msgid "Unencrypted message..."
+#~ msgstr "Slett melding"
 
 #~ msgid "Type something …"
 #~ msgstr "Skriv noe…"

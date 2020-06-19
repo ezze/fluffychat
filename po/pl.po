@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 07:30+0000\n"
+"POT-Creation-Date: 2020-06-19 09:01+0000\n"
 "PO-Revision-Date: 2020-05-08 14:26+0000\n"
 "Last-Translator: Szylu <chipolade@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/fluffychat/"
@@ -58,7 +58,9 @@ msgid "Encryption settings"
 msgstr "Ustawienia szyfrowania"
 
 #: ../qml/pages/ChatDevicesPage.qml:36
-msgid "(Experimental) Enable encryption"
+#, fuzzy
+#| msgid "(Experimental) Enable encryption"
+msgid "(Needs Pantalaimon) Enable encryption"
 msgstr "(Eksperymentalne) Włącz szyfrowanie"
 
 #: ../qml/pages/ChatDevicesPage.qml:45 ../qml/pages/UserDevicesPage.qml:42
@@ -199,10 +201,6 @@ msgid "Updated translations. Thanks to all translators."
 msgstr ""
 "Aktualizacja tłumaczeń. Podziękowania należą się wszystkim naszym "
 "tłumaczącym!"
-
-#: ../qml/pages/WalkthroughPage.qml:184
-msgid "Experimental release of end-to-end encryption."
-msgstr "Eksperymentalna wersja kompleksowego szyfrowania."
 
 #: ../qml/pages/WalkthroughPage.qml:222
 msgid "Community funded"
@@ -557,12 +555,10 @@ msgstr "Dołącz"
 msgid "You do not have posting permissions here"
 msgstr "Nie masz uprawnień do publikowania"
 
-#: ../qml/pages/ChatPage.qml:276
-msgid "Unencrypted message..."
-msgstr "Wiadomość niezaszyfrowana..."
-
-#: ../qml/pages/ChatPage.qml:277
-msgid "Encrypted message..."
+#: ../qml/pages/ChatPage.qml:275
+#, fuzzy
+#| msgid "Encrypted message..."
+msgid "Your message..."
 msgstr "Zaszyfrowana wiadomość..."
 
 #: ../qml/pages/PhoneSettingsPage.qml:28
@@ -731,24 +727,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Nie jesteś uprawniony do konwersowania tutaj."
 
-#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:409 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Brak połączenia…"
 
-#: ../qml/models/MatrixModel.qml:451
+#: ../qml/models/MatrixModel.qml:459
 msgid "Upload error:"
 msgstr "Błąd przesyłania:"
 
-#: ../qml/models/MatrixModel.qml:524
+#: ../qml/models/MatrixModel.qml:538
 msgid "No connection to the homeserver 😕"
 msgstr "Brak połączenia z serwerem domyślnym 😕"
 
-#: ../qml/models/MatrixModel.qml:531
+#: ../qml/models/MatrixModel.qml:545
 msgid "Your session has expired"
 msgstr "Twoja sesja wygasła"
 
-#: ../qml/models/MatrixModel.qml:595
+#: ../qml/models/MatrixModel.qml:609
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
@@ -1489,6 +1485,12 @@ msgstr "Nazwa użytkownika '%1' nie została znaleziona w %2"
 #: ../qml/scripts/LoginPageActions.js:102
 msgid "Username is already taken"
 msgstr "Nazwa użytkownika jest już zajęta"
+
+#~ msgid "Experimental release of end-to-end encryption."
+#~ msgstr "Eksperymentalna wersja kompleksowego szyfrowania."
+
+#~ msgid "Unencrypted message..."
+#~ msgstr "Wiadomość niezaszyfrowana..."
 
 #~ msgid "Type something …"
 #~ msgstr "Napisz coś…"
