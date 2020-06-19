@@ -361,7 +361,7 @@ Item {
         var longPolling = (data != null && data.timeout)
         http.open( type, requestUrl, true)
         http.timeout = defaultTimeout
-        if ( !(server === matrix.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+        if (type === "POST" || type === "PUT") http.setRequestHeader('Content-Type', 'application/json')
         if ( matrix.token ) http.setRequestHeader('Authorization', 'Bearer ' + matrix.token)
 
         // Handle responses
@@ -426,7 +426,7 @@ Item {
         timer.start();
 
         // Send the request now
-        //console.log("📨[%1]".arg(type), action)
+        //console.log("📨[%1]".arg(type), action, JSON.stringify( postData ))
         http.send( JSON.stringify( postData ) )
 
         return http
