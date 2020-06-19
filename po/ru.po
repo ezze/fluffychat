@@ -501,9 +501,9 @@ msgstr ""
 "пользователем сервер Matrix автоматически отправляет push-уведомления в "
 "службу push-уведомлений UBports. Эти уведомления передаются между "
 "устройством и сервером Matrix в зашифрованном виде по протоколу https, на "
-"официальный шлюз UBports Matrix, расположенный по адресу https://push.ubports"
-".com:5003/_matrix/push/r0/notify. Этот сервер пересылает уведомление в "
-"службу push-уведомлений UBports на https://push.ubports.com, а затем "
+"официальный шлюз UBports Matrix, расположенный по адресу https://push."
+"ubports.com:5003/_matrix/push/r0/notify. Этот сервер пересылает уведомление "
+"в службу push-уведомлений UBports на https://push.ubports.com, а затем "
 "отправляет его в виде push-уведомления на устройства пользователя.<br>"
 
 #: ../qml/pages/CountryPickerPage.qml:11

@@ -217,8 +217,8 @@ msgid ""
 msgstr ""
 "FluffyChat jest oprogramowaniem otwartym, nonprofit i do tego uroczym. "
 "Rozwój i serwery są w pełni finansowane przez społeczność. Możesz wesprzeć "
-"projekt na <a href='https://ko-fi.com/krille'>Ko-fi</a> lub <a "
-"href='https://liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
+"projekt na <a href='https://ko-fi.com/krille'>Ko-fi</a> lub <a href='https://"
+"liberapay.com/KrilleChritzelius/donate'>Liberapay</a>"
 
 #: ../qml/pages/WalkthroughPage.qml:252
 msgid "Continue"
