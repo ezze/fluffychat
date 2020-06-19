@@ -33,7 +33,7 @@ Page {
         }
         header: SettingsListItem {
                 id: initEncryption
-                name: i18n.tr("(Experimental) Enable encryption")
+                name: i18n.tr("(Needs Pantalaimon) Enable encryption")
                 icon: "lock"
                 onClicked: PageActions.initEncryption()
                 visible: encryptionAlgorithm !== "" && canSendMessages

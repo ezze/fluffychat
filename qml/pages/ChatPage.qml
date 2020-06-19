@@ -272,9 +272,7 @@ Page {
             }
             property var hasText: false
             autoSize: true
-            placeholderText: encryptionAlgorithm === ""
-                ? i18n.tr("Unencrypted message...")
-                : i18n.tr("Encrypted message...")
+            placeholderText: i18n.tr("Your message...")
             Keys.onReturnPressed: {
                 var send = matrix.sendWithEnter
                 if ( event.modifiers === Qt.ShiftModifier ) send = !send
