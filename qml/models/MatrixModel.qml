@@ -362,7 +362,7 @@ Item {
         http.open( type, requestUrl, true)
         http.timeout = defaultTimeout
         if ( !(server === matrix.id_server && type === "GET") ) http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-        if ( server === matrix.server && matrix.token ) http.setRequestHeader('Authorization', 'Bearer ' + matrix.token)
+        if ( matrix.token ) http.setRequestHeader('Authorization', 'Bearer ' + matrix.token)
 
         // Handle responses
         http.onreadystatechange = function() {
@@ -491,6 +491,12 @@ Item {
             handleEvents ( response )
 
             if ( !abortSync ) sync ()
+        }
+
+        var onFristSyncError = function ( response ) {
+            console.log("👷[Init] First sync error:")
+            console.log(JSON.stringify(response))
+            init()
         }
 
         var onVersionsResponse = function ( matrixVersions ) {
