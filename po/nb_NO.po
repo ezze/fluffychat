@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 09:21+0000\n"
+"POT-Creation-Date: 2020-06-19 09:38+0000\n"
 "PO-Revision-Date: 2020-06-18 08:41+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -753,25 +753,25 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Du tillates ikke å sludre her."
 
-#: ../qml/models/MatrixModel.qml:403 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Ingen tilkobling…"
 
-#: ../qml/models/MatrixModel.qml:453
+#: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
 msgstr "Opplastingsfeil:"
 
-#: ../qml/models/MatrixModel.qml:532
+#: ../qml/models/MatrixModel.qml:530
 #, fuzzy
 msgid "No connection to the homeserver 😕"
 msgstr "Ingen tilkobling til hjemmetjeneren 😕"
 
-#: ../qml/models/MatrixModel.qml:539
+#: ../qml/models/MatrixModel.qml:537
 msgid "Your session has expired"
 msgstr "Økten din har utløpt"
 
-#: ../qml/models/MatrixModel.qml:603
+#: ../qml/models/MatrixModel.qml:601
 #, fuzzy
 #| msgid ""
 #| "😰 A critical error has occurred! Sorry, the connection to the server has "

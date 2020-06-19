@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fluffychat.christianpauly\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 09:21+0000\n"
+"POT-Creation-Date: 2020-06-19 09:38+0000\n"
 "PO-Revision-Date: 2020-01-09 12:21+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/fluffychat/"
@@ -735,24 +735,24 @@ msgstr "1"
 msgid "You are not allowed to chat here."
 msgstr "Aquí no teniu permís per xatejar."
 
-#: ../qml/models/MatrixModel.qml:403 ../qml/scripts/LoginPageActions.js:59
+#: ../qml/models/MatrixModel.qml:401 ../qml/scripts/LoginPageActions.js:59
 #: ../qml/scripts/LoginPageActions.js:103
 msgid "😕 No connection…"
 msgstr "😕 Sense connexió…"
 
-#: ../qml/models/MatrixModel.qml:453
+#: ../qml/models/MatrixModel.qml:451
 msgid "Upload error:"
 msgstr "Error de pujada:"
 
-#: ../qml/models/MatrixModel.qml:532
+#: ../qml/models/MatrixModel.qml:530
 msgid "No connection to the homeserver 😕"
 msgstr "Sense connexió amb el servidor propi 😕"
 
-#: ../qml/models/MatrixModel.qml:539
+#: ../qml/models/MatrixModel.qml:537
 msgid "Your session has expired"
 msgstr "La vostra sessió ha caducat"
 
-#: ../qml/models/MatrixModel.qml:603
+#: ../qml/models/MatrixModel.qml:601
 msgid ""
 "😰 A critical error has occurred! Sorry, the connection to the server has "
 "ended! Please report this bug on: https://github.com/ChristianPauly/"
