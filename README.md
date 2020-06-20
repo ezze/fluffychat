@@ -2,7 +2,7 @@
 
 <p align="center">
   <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="https://christianpauly.gitlab.io/fluffychat-website/assets/images/downloadButton.jpg" /></a> <a href="https://snapcraft.io/fluffychat"><img alt="Get it from the Snap Store" style="height: 66.6px;" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg"></a><br>
-  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a> - <a href="https://hosted.weblate.org/projects/fluffychat/" target="new">Translate FluffyChat</a> - <a href="https://gitlab.com/ChristianPauly/fluffychat-website" target="new">Translate the website</a> - <a href="https://christianpauly.gitlab.io/fluffychat-website/faq.html" target="new">FAQ</a> - <a href="https://christianpauly.gitlab.io/fluffychat-website/" target="new">Website</a>
+  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a> - <a href="https://gitlab.com/ChristianPauly/fluffychat-website" target="new">Translate the website</a> - <a href="https://christianpauly.gitlab.io/fluffychat-website/faq.html" target="new">FAQ</a> - <a href="https://christianpauly.gitlab.io/fluffychat-website/" target="new">Website</a>
  </p>
 <br>
 <br>
