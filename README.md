@@ -17,6 +17,8 @@
 ### +++ Important +++
 This project is no longer in active development. Merge Requests are still welcome.
 
+Development continues at: https://gitlab.com/ChristianPauly/fluffychat-flutter
+
 # Features
  * Single and group chats
  * Send images and files
