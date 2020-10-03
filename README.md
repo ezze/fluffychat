@@ -2,7 +2,7 @@
 
 <p align="center">
   <a target="new" href="https://open-store.io/app/fluffychat.christianpauly"><img width="200px" src="https://christianpauly.gitlab.io/fluffychat-website/assets/images/downloadButton.jpg" /></a> <a href="https://snapcraft.io/fluffychat"><img alt="Get it from the Snap Store" style="height: 66.6px;" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg"></a><br>
-  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a> - <a href="https://metalhead.club/@krille" target="new">Follow me on Mastodon</a> - <a href="https://gitlab.com/ChristianPauly/fluffychat-website" target="new">Translate the website</a> - <a href="https://christianpauly.gitlab.io/fluffychat-website/faq.html" target="new">FAQ</a> - <a href="https://christianpauly.gitlab.io/fluffychat-website/" target="new">Website</a>
+  <a href="https://matrix.to/#/#fluffychat:matrix.org" target="new">Join the community</a>
  </p>
 <br>
 <br>
@@ -13,6 +13,9 @@
   <img src="https://christianpauly.gitlab.io/fluffychat-website/assets/images/screenshot20181026_144653603.png" width="19%" />
   <img src="https://christianpauly.gitlab.io/fluffychat-website/assets/images/screenshot20181026_144726947.png" width="19%" />
 </p>
+
+### +++ Important +++
+This project is no longer in active development. Merge Requests are still welcome.
 
 # Features
  * Single and group chats
@@ -34,10 +37,6 @@
  * Display contacts and find contacts with their phone number or email address
  * Discover public chats on the user's homeserver
  * Registration (currently only working with ubports.chat and NOT with matrix.org due captchas)
-
-##### Planned features
- * End2End-encryption
- * Search for messages and files
 
 #### How to build
 
