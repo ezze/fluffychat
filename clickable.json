@@ -1,16 +1,5 @@
 {
   "clickable_minimum_required": "6.15.0",
   "builder": "cmake",
-  "libraries": {
-    "olm": {
-      "builder": "cmake",
-      "build_args": [
-        "-Bbuild",
-        "-DOLM_TESTS=OFF",
-        "-DBUILD_SHARED_LIBS=OFF"
-      ],
-      "prebuild": "git submodule update --init --recursive"
-    }
-  },
   "kill": "qmlscene"
 }
