@@ -37,20 +37,12 @@ parts:
       - lib
       - share
       - qml
-    after: [olm]
   desktop-file:
     plugin: dump
     source: snap/local
     organize:
       fluffychat.desktop: usr/share/applications/fluffychat.desktop
     stage: [ usr/share/applications/fluffychat.desktop ]
-  olm:
-    source: libs/olm
-    source-type: git
-    plugin: cmake
-    override-build: |
-      cmake ../src -Bbuild -DOLM_TESTS=OFF -DBUILD_SHARED_LIBS=OFF && \
-      cmake --build build
   qt-conf:
     plugin: dump
     source: snap/local
