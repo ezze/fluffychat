@@ -19,9 +19,6 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-find_package(Olm)
-target_link_libraries(${PLUGIN} Olm::Olm)
-
 set(QT_IMPORTS_DIR "/lib/${ARCH_TRIPLET}")
 
 install(TARGETS ${PLUGIN} DESTINATION ${QT_IMPORTS_DIR}/${PLUGIN}/)
