@@ -197,7 +197,11 @@ function getThumbnailLinkFromMxc ( mxc, width, height ) {
     height = Math.round(height)
     if ( mxc === undefined || mxc === "" ) return ""
     if ( matrix.online ) {
-        return "https://" + matrix.server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width * units.gu(1)  + "&height=" + height * units.gu(1)  + "&method=scale"
+        var server = matrix.server
+        if (!server.match(/^https?:/)) {
+            server = "https://" + server
+        }
+        return server + "/_matrix/media/r0/thumbnail/" + mxc.replace("mxc://","") + "?width=" + width * units.gu(1)  + "&height=" + height * units.gu(1)  + "&method=scale"
     }
     else {
         return downloadPath + mxc.split("/")[3]
@@ -209,5 +213,9 @@ function getThumbnailLinkFromMxc ( mxc, width, height ) {
 function getLinkFromMxc ( mxc ) {
     if ( mxc === undefined ) return ""
     var mxcID = mxc.replace("mxc://","")
-    return "https://" + matrix.server + "/_matrix/media/r0/download/" + mxcID + "/"
+    var server = matrix.server
+    if (!server.match(/^https?:/)) {
+        server = "https://" + server
+    }
+    return server + "/_matrix/media/r0/download/" + mxcID + "/"
 }

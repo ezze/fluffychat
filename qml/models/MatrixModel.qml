@@ -436,7 +436,11 @@ Item {
         var path = "" + mediaUrl
         path = path.replace("file:/","")
         connectOnce (Upload.uploadFinished, callback)
-        Upload.uploadFile(path, "https://%1/_matrix/media/r0/upload".arg(matrix.server), matrix.token)
+        var server = matrix.server
+        if (!server.match(/^https?:/)) {
+            server = "https://" + server
+        }
+        Upload.uploadFile(path, "%1/_matrix/media/r0/upload".arg(server), matrix.token)
     }
 
     Connections {
