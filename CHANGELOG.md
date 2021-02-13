@@ -1,3 +1,7 @@
+What's new in FluffyChat 13.3
+----------------------------
+- Fix Push Notification URL
+
 What's new in FluffyChat 12.0
 ----------------------------
 + New translations - thanks to all translators
