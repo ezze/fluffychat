@@ -19,7 +19,7 @@ Item {
         id: innerPushClient
 
         property var errorReport: null
-        readonly property string defaultPushUrl: "https://push.ubports.com:5003/_matrix/push/r0/notify"
+        readonly property string defaultPushUrl: "https://push.ubports.com:5003/_matrix/push/v1/notify"
         readonly property string defaultDeviceName: "FluffyChat %1 on Ubuntu Touch".arg(version)
         property string pushToken: ""
         property string pushUrl: ""
