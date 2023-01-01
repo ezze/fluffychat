@@ -1,5 +1,6 @@
 {
-  "clickable_minimum_required": "6.15.0",
+  "clickable_minimum_required": "7.9.0",
   "builder": "cmake",
-  "kill": "qmlscene"
+  "kill": "qmlscene",
+  "always_clean": true
 }
